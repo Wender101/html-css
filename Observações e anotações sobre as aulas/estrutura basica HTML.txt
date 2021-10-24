@@ -1,0 +1,70 @@
+(Anotar no Caderno)
+
+HTML é focada em "conteudo". As pessoas não visitam sites sem estilo, atrativo. 
+Java Escript é necessario para o desenvolvimento de sites atrativos e mais completos.
+
+No HTML a tag "alt = o valor"
+
+Ex: exemplo de foto.
+
+OBS: no inicio do codigo do HTML usa se a tap "lang" para dizer que aquele site foi feito em um determinado idioma.
+
+Ex: 
+<html lang="pt-br">
+	<head>
+
+
+
+
+	<head>
+	<body>
+
+
+      </body>
+</html>
+
+OBS 2: sempre usar a tag "meta charset='...'", ela é usada quando o site espera palavras com acentuação grafica.
+
+Ex:
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8">
+
+
+	<head>
+	<body>
+
+
+      </body>
+</html>
+
+OBS: Usar tmb a seguinte tag: <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+ <html lang="pt-br">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" 
+		content="width=device-width,initial-scale=1.0">
+		<title></title>
+
+
+	<head>
+	<body>
+
+
+      </body>
+</html>
+
+        FORNT-end, BACK-end e FULL stack
+
+Existe dois tipos de desenvolvedor, o Front-end e o Back-end, o Front-end tem q saber sobre clent-side e o Back-end é o server-side.
+o Front-end vai cuidar da parte do usuario. O Back-end focado no servidor.
+
+  Linguas de Back-end
+
+PHP, Java script, Java, C charp, paiton e etc.
+
+ Linguas de Front-end
+
+ HTML, CSS e Java.
+

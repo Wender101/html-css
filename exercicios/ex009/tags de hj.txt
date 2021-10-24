@@ -1,0 +1,13 @@
+                                                              Listas ordenadas
+
+usa-se a tag: ol
+ 
+Ex de lista ordenada:
+
+                      1 acordar
+                      2 Lanchar
+                      3 escovar os dentes
+
+OBS: no HTML5 é opcional fechar a tag "li".
+             
+                                                             Listass

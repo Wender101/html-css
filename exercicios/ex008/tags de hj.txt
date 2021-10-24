@@ -1,0 +1,5 @@
+Tag sub:o numero ou o texto fica mais embaixo
+
+Tag sup: o mumero ou texto fica mais acima
+
+Tag: mark: ela marca o texto

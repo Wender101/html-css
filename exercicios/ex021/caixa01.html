@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modelo de Caixas</title>
+    <style>
+        h1 { /* Box-level*/
+            background-color: lightgray;
+            height: 40px;
+            width: 380px;
+
+            border-width: 10px;  /*tamanho da borda*/
+            border-style: solid;  /*tipo de borda*/
+            border-color: rgb(0, 145, 255);  /*cor da borda*/
+
+            border: 10px solid rgb(0, 145, 255); /*Short hands*/
+            
+            padding-top: 10px;
+            padding-right: 10px;
+            padding-bottom: 10px;
+            padding-left: 10px;
+
+            padding: 10px; /*Short hands*/
+
+            margin-top: 20px;
+            margin-right: 20px;
+            margin-bottom: 40px;
+            margin-left: 20px;
+
+            margin: 20px 20px 40px 20px; /*Short hands*/
+                                         /*Ou*/
+            margin: 20px auto 40px auto; /*Caso queira que as laterais fiquem centralizadas*/
+
+            outline-width: 2px;
+            outline-style: dashed;
+            outline-color: blueviolet;
+
+            outline: 2px dashed blueviolet;
+        }
+
+        a { /* Inline-level*/
+            border-width: 10px;
+            border-style: solid;
+            border-color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Exemplo de caixa box-level</h1>
+    <p>Parágrafos também são exmplos de box-level, mas os <a href="#">link são exemplos de caixas inline-level</a>. Vamos ver como tudo isso funciona.</p>
+
+    <!--por padrão o h1 é um elemento box-level, mas atraves da tag "display" é posivel deixa-lo como inline level, ou visse versa, deixar os inline-level como box-level, sempre usando o "display".-->
+
+    <!--No inline-level, não é possivel colocar tamanho e nem largura-->
+</body>
+</html>

@@ -1,0 +1,7 @@
+                                                                       LINKS Externos
+ 
+  Quando for abrir um site usando links externos, ou sejá para um site,canal etc que não te pertence, sempre use o "_blank" e dps o "rel=external".
+                                
+                                                                      LINKS internos
+
+ Já quando for ir para a proxima pagina do seu site, use "rel='next'" já quando for voltar para a pagina anterior do seu site, usa "rel='prev'".

@@ -1,0 +1,50 @@
+A tag: "code" faz com que tanto as letras quanto os simbolos fiquem com o mesmo espaço.
+
+OBS: a tag "code" não identa o seu codigo !
+ Já a tag: "pre", consegue identar o teu codigo na tela do seu navegador.
+ Lembrando que essa tag "pre" não identa teu codigo por conta propria, ela só exibe no navegador, da forma que ele foi escrito, lendo os espaços e etc, 
+exibindo no seu navegador. Ou sejá, você decidira, como vai aparecer!
+
+OBS: usando a tag "pre", podemos criar um expaçamento tbm!
+
+Ex: ao inves de usarmos o lendario br, br, br, podemos colocar a tag pre, para ler os expaçamentos ultilizados no texo.
+
+<pre>                   Jeito certo            
+<p>
+blablablablabla  
+
+                                                           podemos tambem fazer esse trabalho no CSS, mas fica ao seu criterio!
+
+blablablablabl
+</p>
+<pre>
+
+
+
+ <p>                   Jeito errado
+blablabla
+<br>
+<br>
+blablabla
+</p>
+                                                     Citações Simples
+
+ A  tag: "q" é usada para citar algo, ele acrescenta as aspas, mas além dela, ele significa que o texto entre a tag é uma citação. 
+ Quando for usar uma citação, sempre utilize a tag "q" no lugar das aspas!
+  
+                                                     Citações Completas
+
+A tag: "blockquote" é usada para citar mais ou menos da msm forma que a tag "q", mas de uma forma mais completa!
+ Ao citar algo, usando essa tag, o texto citado tera um espaço a mais do texto normal ultilizado no resto do site!
+ Depois de fazer a citação acrescente "cite" a ela, e adicione o indereço de onde a citação foi tirada, isso não alterará nada visualmente no seu site,
+ mas mostrará para os motores de busca, de onde ele foi tirado, e tbm preserará os direitos do produtor de conteúdo a qual foi tirada a citação.
+
+OBS: a tag "blockquote" não adiciona aspas!
+
+                                                      Abreviação
+
+A tag "abbr" é usada para mostrar o significado de uma abreviação.
+
+                                                     Invertido
+
+A tag "bdo" é usada para inverter o texto. A tag mais inultio de todas!

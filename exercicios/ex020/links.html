@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Links</title>
+    <style>
+        /*  SELETORES PERSONALIZADOS
+        
+            #  = id
+            .  = class
+            :  = pseudo-class
+            :: = pseudo-elements
+            >  = children
+        */
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        ul{
+            list-style: none;
+        }
+
+        a {
+            color: rgb(255, 0, 0);
+            text-decoration: none;
+            font-weight: bold; /*Deixar em negrito*/
+        }
+
+        a:visited {/*Esse pseudocodigo só ativará em links já visitados*/
+            color: darkred;
+        }
+
+        a:hover { /*Só será ativada quando passar o mause em cima*/
+            color: black;
+            text-decoration: underline; /*--Fazer ficar sublinhado*/
+        }
+
+        a:active {
+            color: yellow;
+        }
+
+        .especial {
+            background-color: rgb(255, 110, 110);
+        }
+
+        .especial::before { /*o afeter serve para add coisas dps da tag*/
+            content: '⇒ ';/*o content siguinifica "conteudp"*/
+
+            /*OBS: tudo que for escrito usando a pseudoclasse "content" aparecera no site*/
+
+            /*OBS: sempre que for escrever usando o "contat", use as aspas ('')*/
+        }
+
+        .especial::after {
+            content: ' ⇐';
+        }
+    </style>
+</head>
+<body>
+    <h1>Personalizando Links</h1>
+    <ul>
+        <li><a href="https://gustavoguanabara.github.io" target="_blannk">Repositorio do GitHub</a></li>
+        <li><a href="https://youtube.com/cursoemvideo/" target="_blank">Canal do YouTube</a></li>
+        <li><a href="https://www.cursoemvideo.com" target="_blank" class="especial">Site do CursoemVideo</a></li>
+    </ul>
+</body>
+</html>

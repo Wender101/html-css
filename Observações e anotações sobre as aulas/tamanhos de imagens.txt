@@ -1,0 +1,3 @@
+o Tamanho maximo de uma imagem para se usar em um site é de 1500, para não ficar muito pesado.
+Resolução de 50.
+qualidade 70%.

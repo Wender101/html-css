@@ -1,0 +1,40 @@
+@charset "UTF-8";
+
+body{
+    background-color: #F1E0C5;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1{
+    color: #342A21;
+}
+
+h1#principal{ 
+    /*eu n preciso deixar com o elemento h1 no inicio*/
+    margin: 0px;
+    text-align: center;
+    background-color: #DA667B;
+    color: rgb(0, 0, 0);
+}
+
+h2{
+    color: #71816D;
+}
+
+.basico{
+    color: rgb(32, 63, 32);
+    font-weight: bold;
+}
+
+.intermediario{
+    color: rgb(97, 97, 4);
+}
+
+.avancado{
+    color: rgb(89, 11, 11);
+    font-weight: bold;
+}
+
+.destaque{
+    background-color: rgb(255, 255, 0);
+}
