@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
+@import url('http://fonts.cdnfonts.com/css/lovelo');
+
+    *{
+        margin: 0px;
+        padding: 0px;
+        list-style: none;
+        text-decoration: none;
+        overflow-y: hidden;
+        overflow-x: hidden;
+    }
+
+    body{
+        font-family: 'Lovelo', sans-serif;
+        font-weight: 900;
+        text-align: center;
+    }
+
+    #lateral{
+        width: 28%;
+        height: 100%;
+        position: absolute;
+        background-image: linear-gradient(to top right, #00226a 22%, #004399, #0064c7, #016ed3);
+    }
+
+    #texto{
+        color: #f4772b;
+        text-shadow: 1.5px 2px 0px #865153;
+    }
+    
+    #incones{
+        width: 28%;
+        position: fixed;
+        margin: auto;
+        bottom: 7%;
+    }
+
+    .whatsapp{
+        display: inline-flex;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .instagram{
+        display: inline-flex;
+    }
+
+    .email{
+        display: inline-flex;
+    }
+    
+    #fundo{
+        margin-left: 17%;
+    }
+
+@media screen and (max-height: 460px){
+    #incones{
+        width: 100%;
+        position: static;
+        margin: auto;
+        bottom: 7%;
+    }
+}
