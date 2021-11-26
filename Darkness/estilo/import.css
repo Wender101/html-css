@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Goblin+One&display=swap');
+
+:root{
+    --cor1: rgb(255, 255, 255);
+    --cor2: rgba(0, 0, 0, 0.322);
+    --cor3: #99D6E0;
+    --cor4: #57D0E6;
+    --cor5: #76A5AD;
+    --cor6: #506063;
+    --cor7: #425C61;
+
+    --fonte-grande: 'Goblin One', cursive;; 
+}
