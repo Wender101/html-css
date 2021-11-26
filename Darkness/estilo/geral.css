@@ -12,7 +12,7 @@ body{
 
 header{
     font-family: var(--fonte-grande);
-    background-image: url(../imagens/img3.jpg);
+    background-image: url(imagens/img3.jpg);
     background-repeat: repeat;
     box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.199);
 }
