@@ -27,6 +27,10 @@
     text-decoration: none;
 }
 
+html{
+    scroll-behavior: smooth;
+}
+
 body{
     font-size: 18px;
     background-color: var(--cor0);
