@@ -77,13 +77,33 @@ nav > button > strong {
 }
 
 nav > #categorias{
-    width: 300px;
+    width: 350px;
     height: 200vh;
     position: fixed;
     display: none;
     top: 0px;
     left: 0px;
     background-color: var(--azul-claro);
+}
+
+#Xc {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    right: 10px;
+    top: 15px;
+    text-align: center;
+    position: absolute;
+    color: var(--Branco);
+    text-decoration: none;
+    background-color: #E66D22;
+}
+
+#Xc > span {
+    top: -20px;
+    right: 8px;
+    position: absolute;
+    font-size: 40px;
 }
 
 nav > #categorias > p{
@@ -111,7 +131,7 @@ nav > ul > li {
     font-size: 25px;
 }
 nav > ul > li > a {
-    width: 280px;
+    width: 330px;
     height: 40px;
     padding-left: 20px;
     position: absolute;
@@ -188,7 +208,7 @@ footer {
     padding: 10px 20px;
     display: inline-flex;
     background-color: var(--azul-claro);
-    color: var(--Azul-Escuro);
+    color: var(--Branco);
 }
 
 footer > div#horario {
@@ -217,12 +237,13 @@ footer > div#horario > ul#hora {
 footer > div#icones {
     width: 200px;
     height: 200px;
+    right: 20px;
+    position: absolute;
 }
 
 footer > div#icones > hr {
     width: 100px;
     margin-top: 10px;
-    margin-bottom: 20px;
 }
 
 footer > div#icones > div.instagram, div.whatsapp, div.email{

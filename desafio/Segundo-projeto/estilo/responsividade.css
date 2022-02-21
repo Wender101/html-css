@@ -20,7 +20,7 @@
     }
 
     nav > #categorias{
-        width: 200px; 
+        width: 350px; 
         height: 200vh;
         position: fixed;
         display: none;
@@ -35,7 +35,7 @@
     }
 
     nav > input {
-        width: 38vw;
+        width: 48vw;
         height: 50px;
         position: absolute;
         margin-top: 3px;
@@ -44,6 +44,33 @@
 }
 
 @media screen and (max-width: 581px) {
+    nav{
+        width: 105vw;
+        padding: 5px 30px;
+        position: sticky;
+        top: 0px;
+        background-color: var(--azul-claro);
+        box-shadow: 2px 2px 2px var(--sombra);
+    }
+    
+    nav > button {
+        width: 200px;
+        padding: 7px;
+        border-radius: 10px;
+        color: var(--Branco);
+        background-color: var(--Laranjado);
+    }
+    
+    nav > button > p {
+        display: inline;
+        margin-left: 23px;
+    }
+    
+    nav > button > strong {
+        text-align: left;
+        font-size: 17px;
+    }
+
     section#produtos {
         width: 250px;
     }
