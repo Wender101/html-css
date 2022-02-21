@@ -24,6 +24,10 @@
     list-style: none;
 }
 
+html {
+    overflow-x: hidden;
+}
+
 body {
     font-family: 'Anton', sans-serif;
     font-weight: 100;
@@ -153,8 +157,8 @@ article > div {
 }
 
 article > div > img{
-    width: 250px;
-    height: 240px;
+    width: 220px;
+    height: 210px;
     background-color: var(--Branco);
     border-radius: 20px;
 }
@@ -175,58 +179,6 @@ article > div > div.texto > strong {
 article > div > div.texto > hr {
     width: 40px;
 }
+
 /* --------------------------------------- */
 
-footer {
-    width: 100%;
-    height: 220px;
-    padding: 10px 20px;
-    display: inline-flex;
-    background-color: var(--azul-claro);
-    color: var(--Azul-Escuro);
-}
-
-footer > div#texto-footer {
-    width: 200px;
-    margin-left: 50px;
-}
-
-footer > div#horario {
-    width: 340px;
-    height: 200px;
-    margin: auto;
-}
-
-footer > div#horario > hr {
-    width: 205px;
-}
-
-footer > div#horario > ul {
-    display: inline-block;
-}
-
-footer > div#horario > ul#dia {
-    width: 92px;
-}
-
-footer > div#horario > ul#hora {
-    width: 81px;
-    padding-left: 30px;
-}
-
-footer > div#icones {
-    width: 200px;
-    height: 200px;
-    position: absolute;
-    right: 100px;
-}
-
-footer > div#icones > hr {
-    width: 100px;
-    margin-top: 10px;
-    margin-bottom: 20px;
-}
-
-footer > div#icones > div.instagram, div.whatsapp, div.email{
-    display: inline-flex;
-}
