@@ -37,7 +37,7 @@ body {
 /* --------------------------------------- */
 
 header {
-    width: 100vw;
+    width: 105vw;
     padding: 20px 30px;
     background-color: var(--azul-claro);
 }
@@ -50,7 +50,7 @@ header > p {
 }
 
 nav{
-    width: 100vw;
+    width: 105vw;
     padding: 5px 30px;
     position: sticky;
     top: 0px;
@@ -135,7 +135,7 @@ nav > input {
 /* --------------------------------------- */
 
 main {
-    width: 100%;
+    width: 107%;
     height: 100%;
     padding: 20px 0px;
 }
