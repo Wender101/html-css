@@ -1,0 +1,49 @@
+section#Aviso {
+    width: 80%;
+    background-color: var(--Laranjado);
+    padding: 10px;
+    color: var(--Branco);
+    position: fixed;
+    display: block;
+    left: 9vw;
+    border-radius: 10px;
+    bottom: 20px;
+    text-shadow: 0.3px 0.3px 0.4px rgb(0, 0, 0);
+}
+
+section#Aviso > span > strong {
+    color: var(--strong);
+    text-shadow: 0.3px 0.3px 0.5px rgb(0, 0, 0);
+}
+
+section#Aviso > button {
+    position: absolute;
+    right: 20px;
+}
+
+/* --------------------------------------- */
+
+a#subir {
+    width: 50px;
+    height: 50px;
+    position: fixed;
+    background-color: var(--Laranjado);
+    bottom: 150px;
+    right: 20px;
+    border-radius: 50%;
+}
+
+/* --------------------------------------- */
+
+#fundo-pop-up {
+    width: 100vw;
+    height: 200vh;
+    overflow: hidden;
+    position: fixed;
+    margin-top: -500px;
+    margin-left: -18px;
+    display: none;
+    background-color: #0d0d0d80;
+}
+
+/* ---------------------------------------- */

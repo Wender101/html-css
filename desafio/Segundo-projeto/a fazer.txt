@@ -1,0 +1,7 @@
+1- (IMPORTANTE) Achar o que está criando a barra lateral
+
+2- (OPCIONAL) Arrumar o footer
+
+3- (INPORTANTE) Arrumar o "main", a lista de produtos
+
+4- (MEDIANO) Melhorar a responsividade, fazendo com que a descrição dos produtos fique, na lateral, quando a tela for diminuída. 

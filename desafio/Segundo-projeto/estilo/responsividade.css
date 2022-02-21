@@ -1,0 +1,50 @@
+@media screen and (max-width: 1178px) {
+    section#produtos {
+        max-width: 848px;
+    }
+}
+
+@media screen and (max-width: 894px) {
+    section#produtos {
+        max-width: 564px;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    nav > button {
+        width: 230px;
+        padding: 10px;
+        border-radius: 10px;
+        color: var(--Branco);
+        background-color: var(--Laranjado);
+    }
+
+    nav > #categorias{
+        width: 200px; 
+        height: 100vh;
+        position: fixed;
+        display: none;
+        top: 0px;
+        left: 0px;
+        background-color: var(--azul-claro);
+    }
+
+    nav > button > strong {
+        text-align: left;
+        font-size: 15px;
+    }
+
+    nav > input {
+        width: 38vw;
+        height: 50px;
+        position: absolute;
+        margin-top: 3px;
+        margin-left: 30px;
+    }
+}
+
+@media screen and (max-width: 581px) {
+    section#produtos {
+        width: 250px;
+    }
+}
