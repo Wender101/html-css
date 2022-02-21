@@ -23,6 +23,12 @@ section#Aviso > button {
 
 /* --------------------------------------- */
 
+.menu {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
 a#subir {
     width: 50px;
     height: 50px;
@@ -36,7 +42,7 @@ a#subir {
 /* --------------------------------------- */
 
 #fundo-pop-up {
-    width: 100vw;
+    width: 200vw;
     height: 200vh;
     overflow: hidden;
     position: fixed;

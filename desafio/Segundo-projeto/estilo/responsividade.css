@@ -21,7 +21,7 @@
 
     nav > #categorias{
         width: 200px; 
-        height: 100vh;
+        height: 200vh;
         position: fixed;
         display: none;
         top: 0px;

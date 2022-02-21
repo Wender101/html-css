@@ -37,8 +37,8 @@ body {
 /* --------------------------------------- */
 
 header {
-    width: 100%;
-    padding: 20px 20px;
+    width: 100vw;
+    padding: 20px 30px;
     background-color: var(--azul-claro);
 }
 
@@ -50,8 +50,8 @@ header > p {
 }
 
 nav{
-    width: 100%;
-    padding: 5px 19px;
+    width: 100vw;
+    padding: 5px 30px;
     position: sticky;
     top: 0px;
     background-color: var(--azul-claro);
@@ -78,7 +78,7 @@ nav > button > strong {
 
 nav > #categorias{
     width: 300px;
-    height: 100vh;
+    height: 200vh;
     position: fixed;
     display: none;
     top: 0px;
@@ -182,3 +182,49 @@ article > div > div.texto > hr {
 
 /* --------------------------------------- */
 
+footer {
+    width: 105%;
+    height: 220px;
+    padding: 10px 20px;
+    display: inline-flex;
+    background-color: var(--azul-claro);
+    color: var(--Azul-Escuro);
+}
+
+footer > div#horario {
+    width: 340px;
+    height: 200px;
+    margin-left: 20px;
+}
+
+footer > div#horario > hr {
+    width: 205px;
+}
+
+footer > div#horario > ul {
+    display: inline-block;
+}
+
+footer > div#horario > ul#dia {
+    width: 92px;
+}
+
+footer > div#horario > ul#hora {
+    width: 81px;
+    padding-left: 30px;
+}
+
+footer > div#icones {
+    width: 200px;
+    height: 200px;
+}
+
+footer > div#icones > hr {
+    width: 100px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+footer > div#icones > div.instagram, div.whatsapp, div.email{
+    display: inline-flex;
+}
