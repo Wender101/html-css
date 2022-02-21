@@ -43,7 +43,7 @@ a#subir {
 
 #fundo-pop-up {
     width: 200vw;
-    height: 200vh;
+    height: 200vw;
     overflow: hidden;
     position: fixed;
     margin-top: -500px;
