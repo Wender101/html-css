@@ -83,6 +83,7 @@ nav > #categorias{
     display: none;
     top: 0px;
     left: 0px;
+    overflow-y: visible;
     background-color: var(--azul-claro);
 }
 
