@@ -1,10 +1,44 @@
 @media screen and (max-width: 1178px) {
+    header > p {
+        width: 889px;
+    }
+
+    #nav{
+        width: 889px;
+        margin: auto;
+    }
+    
+    nav > #nav > input {
+        width: 455px;
+    }
+
     section#produtos {
         max-width: 848px;
     }
 }
 
 @media screen and (max-width: 894px) {
+    header > p {
+        width: 605px;
+    }
+
+    #nav{
+        width: 605px;
+        margin: auto;
+    }
+    
+    nav > #nav > input {
+        width: 238px;
+    }
+
+    nav > #nav > button {
+        width: 230px;
+        padding: 10px;
+        border-radius: 10px;
+        color: var(--Branco);
+        background-color: var(--Laranjado);
+    }
+
     section#produtos {
         max-width: 564px;
     }

@@ -43,13 +43,15 @@ header {
 }
 
 header > p {
+    width: 1189px;
+    margin: auto;
     font-family: 'Bitwise', sans-serif;
     font-weight: 900;
     color: var(--Branco);
     font-size: 50px;
 }
 
-nav{
+nav {
     width: 105vw;
     padding: 5px 30px;
     position: sticky;
@@ -58,7 +60,12 @@ nav{
     box-shadow: 2px 2px 2px var(--sombra);
 }
 
-nav > button {
+#nav{
+    width: 1189px;
+    margin: auto;
+}
+
+nav > #nav > button {
     width: 300px;
     padding: 15px;
     border-radius: 10px;
@@ -66,17 +73,17 @@ nav > button {
     background-color: var(--Laranjado);
 }
 
-nav > button > p {
+nav > #nav > button > p {
     display: inline;
     margin-left: 53px;
 }
 
-nav > button > strong {
+nav > #nav > button > strong {
     text-align: left;
     font-size: 20px;
 }
 
-nav > #categorias{
+nav > #nav > #categorias{
     width: 350px;
     height: 200vh;
     position: fixed;
@@ -107,31 +114,31 @@ nav > #categorias{
     font-size: 40px;
 }
 
-nav > #categorias > p{
+nav > #nav > #categorias > p{
     font-family: 'Bitwise', sans-serif;
     font-weight: 900;
     color: var(--Branco);
     margin-left: 20px;
 }
 
-nav > ul > p {
+nav > #nav > ul > p {
     font-weight: bolder;
     font-size: 50px;
 }
 
-nav > ul > button {
+nav > #nav > ul > button {
     position: absolute;
     top: 10px;
     right: 0px;
     font-size: 20px;
 }
 
-nav > ul > li {
+nav > #nav > ul > li {
     padding: 15px 0px;
     margin-top: 30px;
     font-size: 25px;
 }
-nav > ul > li > a {
+nav > #nav > ul > li > a {
     width: 330px;
     height: 40px;
     padding-left: 20px;
@@ -140,12 +147,12 @@ nav > ul > li > a {
     color: var(--Branco);
 }
 
-nav > ul > li > a:hover {
+nav > #nav > ul > li > a:hover {
     background-color: var(--Azul-Escuro);
 }
 
-nav > input {
-    width: 45vw;
+nav > #nav > input {
+    width: 745px;
     height: 50px;
     position: absolute;
     margin-top: 7px;
