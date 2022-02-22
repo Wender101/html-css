@@ -208,6 +208,11 @@ article > div > div.texto > hr {
     width: 40px;
 }
 
+article > div > div.texto > span {
+    font-size: 13px;
+    color: white;
+}
+
 /* --------------------------------------- */
 
 footer {
