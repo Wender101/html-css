@@ -167,50 +167,54 @@ nav > input {
 main {
     width: 107%;
     height: 100%;
-    padding: 20px 0px;
+    padding: 30px 0px;
 }
 
 section#produtos {
-    max-width: 1132px;
+    max-width: 1232px;
     min-width: 100px;
     margin: auto;
 }
 
 article{
-    margin-bottom: 50px;
+    margin: 30px;    
+}
+
+article > div#p1 {
+    width: 288px;
+    height: 440px;
     display: inline-flex;
 }
 
-article > div {
-    width: 280px;
-    height: 440px;
+article > div#p1 > div{
+    display: block;
 }
 
-article > div > img{
+article > div > div > img{
     width: 220px;
     height: 210px;
     background-color: var(--Branco);
     border-radius: 20px;
 }
 
-article > div > div.texto {
+article > div > div > div.texto {
     width: 220px;
     margin-left: 5px;
 }
 
-article > div > div.texto > p {
+article > div > div > div.texto > p {
     color: var(--Branco);
 }
 
-article > div > div.texto > strong {
+article > div > div > div.texto > strong {
     color: var(--Laranjado);
 }
 
-article > div > div.texto > hr {
+article > div > div > div.texto > hr {
     width: 40px;
 }
 
-article > div > div.texto > span {
+article > div > div > div.texto > span {
     font-size: 13px;
     color: white;
 }
