@@ -1,113 +1,18 @@
 @media screen and (max-width: 1178px) {
-    header > p {
-        width: 889px;
-    }
-
-    #nav{
-        width: 889px;
-        margin: auto;
-    }
     
-    nav > #nav > input {
-        width: 455px;
-    }
-
-    article {
-        display: inline-block;
-    }
-
     section#produtos {
         width: 932px;
     }
 }
 
 @media screen and (max-width: 894px) {
-    header > p {
-        width: 605px;
-    }
-
-    #nav{
-        width: 605px;
-        margin: auto;
-    }
-    
-    nav > #nav > input {
-        width: 238px;
-    }
-
-    nav > #nav > button {
-        width: 230px;
-        padding: 10px;
-        border-radius: 10px;
-        color: var(--Branco);
-        background-color: var(--Laranjado);
-    }
 
     section#produtos {
         max-width: 640px;
     }
 }
 
-@media screen and (max-width: 700px) {
-    nav > button {
-        width: 230px;
-        padding: 10px;
-        border-radius: 10px;
-        color: var(--Branco);
-        background-color: var(--Laranjado);
-    }
-
-    nav > #categorias{
-        width: 350px; 
-        height: 200vh;
-        position: fixed;
-        display: none;
-        top: 0px;
-        left: 0px;
-        background-color: var(--azul-claro);
-    }
-
-    nav > button > strong {
-        text-align: left;
-        font-size: 15px;
-    }
-
-    nav > input {
-        width: 48vw;
-        height: 50px;
-        position: absolute;
-        margin-top: 3px;
-        margin-left: 30px;
-    }
-}
-
 @media screen and (max-width: 581px) {
-    nav{
-        width: 105vw;
-        padding: 5px 30px;
-        position: sticky;
-        top: 0px;
-        background-color: var(--azul-claro);
-        box-shadow: 2px 2px 2px var(--sombra);
-    }
-    
-    nav > button {
-        width: 200px;
-        padding: 7px;
-        border-radius: 10px;
-        color: var(--Branco);
-        background-color: var(--Laranjado);
-    }
-    
-    nav > button > p {
-        display: inline;
-        margin-left: 23px;
-    }
-    
-    nav > button > strong {
-        text-align: left;
-        font-size: 17px;
-    }
 
     section#produtos {
         width: 300px;
