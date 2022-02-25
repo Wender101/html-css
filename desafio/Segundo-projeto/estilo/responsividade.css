@@ -5,14 +5,67 @@
     }
 }
 
+@media screen and (max-width: 990px) {
+    div#inf {
+        width: 400px;
+        height: 350px;
+        position: fixed;
+        top: 25vh;
+        right: 27vw;
+        border-radius: 20px;
+        padding: 50px 30px;
+        display: none;
+        background-color: var(--azul-claro);
+    }
+}
+
 @media screen and (max-width: 894px) {
+
+    div#inf {
+        width: 400px;
+        height: 350px;
+        position: fixed;
+        top: 25vh;
+        right: 23vw;
+        border-radius: 20px;
+        padding: 50px 30px;
+        display: none;
+        background-color: var(--azul-claro);
+    }
 
     section#produtos {
         max-width: 640px;
     }
 }
 
+@media screen and (max-width: 750px) {
+
+    div#inf {
+        width: 400px;
+        height: 320px;
+        position: fixed;
+        top: 5vh;
+        right: 13vw;
+        border-radius: 20px;
+        padding: 40px 10px;
+        display: none;
+        background-color: var(--azul-claro);
+    }
+}
+
 @media screen and (max-width: 581px) {
+
+    div#inf {
+        width: 400px;
+        height: 320px;
+        position: fixed;
+        top: 10vh;
+        right: 8vw;
+        border-radius: 20px;
+        padding: 40px 10px;
+        display: none;
+        background-color: var(--azul-claro);
+    }
 
     section#produtos {
         width: 300px;
@@ -20,6 +73,7 @@
 }
 
 @media screen and (max-width: 490px) {
+
     footer {
         width: 107%;
         height: 220px;
@@ -72,4 +126,19 @@
         display: inline-flex;
     }
     
+}
+
+@media screen and (max-width: 400px) {
+    div#inf {
+        width: 400px;
+        height: 320px;
+        position: fixed;
+        top: 10vh;
+        right: 4vw;
+        border-radius: 20px;
+        padding: 40px 10px;
+        display: none;
+        background-color: var(--azul-claro);
+    }
+
 }
