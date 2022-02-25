@@ -29,11 +29,19 @@ a#subir {
 }
 
 /* ---------------------------------------- */
-div#informe > div#fundo {
-    width: 150vw;
+div#informe {
+    width: 100%;
     height: 200vh;
-    top: 0px;
+    top: -200px;
     display: none;
+    position: fixed;
+    overflow-y: auto;
+}
+
+div#informe > div#fundo {
+    width: 100%;
+    height: 200vh;
+    top: -200px;
     position: fixed;
     background-color: rgba(0, 0, 0, 0.342);
 }
@@ -41,12 +49,11 @@ div#informe > div#fundo {
 div#inf {
     width: 400px;
     height: 350px;
-    position: fixed;
-    top: 25vh;
-    right: 30%;
     border-radius: 20px;
     padding: 50px 30px;
-    display: none;
+    margin-top: 200px;
+    margin: auto;
+    transform: translateY(80%);
     background-color: var(--azul-claro);
 }
 

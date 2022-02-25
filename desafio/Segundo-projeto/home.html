@@ -57,6 +57,48 @@
             </div>
         </nav>
 
+        <div id="informe">
+        <div id="fundo"></div>
+        <div id="inf">
+            <a href="" id="fecharINF"><span>&times;</span></a>
+            <p><strong>Aviso:</strong> Ainda estamos evolouindo nossa   pagína! Por equanto nossas vendas funcionam apenas via WhatsApp ou presencialmente.
+            <br>
+            <br>
+            <p>Mais informações pelo whatsapp 6198355-8328 ou 61999063455</p>
+            </p>
+            <br>
+            <p>Nos siga no instagram para ficar por dentro de todas as novidades!!</p>
+            <h3>Nossas Redes Sociais :</h3>
+            <hr>
+
+            <div id="icones">
+                <div class="instagram">
+                    <a href="https://www.instagram.com/nerds.eti/" target="_blank">
+                        <picture>
+                            <img src="imagens/ícones/Instagram50.png" alt="ícone do instagram">
+                        </picture>
+                    </a><!--Link pro instagram da Nerds-->
+                </div><!--instagram-->
+    
+                <div class="whatsapp">
+                    <a href="http://api.whatsapp.com/send?phone=+55 61 9906-3455" target="_blank">
+                        <picture>
+                            <img src="imagens/ícones/Whats50.png" alt="ícone do whatsapp">
+                        </picture>
+                    </a><!--Link pro whatsapp da Nerds-->
+                </div><!--whatsapp-->
+    
+                <div class="email">
+                    <a href="mailto:contato@nerds.eti.brsubject=subject text" target="_blank">
+                        <picture>
+                            <img src="imagens/ícones/Email50.png" alt="ícone de email">
+                        </picture>
+                    </a><!--Link pro email da Nerds-->
+                </div><!--Email-->
+            </div><!--icones-->
+        </div>
+    </div>
+
     <main id="main"> <!--Conteudo do site-->
         <section id="produtos"> <!--Produtos do site-->
             <article id="l1">
@@ -267,48 +309,6 @@
         </section>
     </main>
 
-    <div id="informe">
-        <div id="fundo"></div>
-        <div id="inf">
-            <a href="" id="fecharINF"><span>&times;</span></a>
-            <p><strong>Aviso:</strong> Ainda estamos evolouindo nossa   pagína! Por equanto nossas vendas funcionam apenas via WhatsApp ou presencialmente.
-            <br>
-            <br>
-            <p>Mais informações pelo whatsapp 6198355-8328 ou 61999063455</p>
-            </p>
-            <br>
-            <p>Nos siga no instagram para ficar por dentro de todas as novidades!!</p>
-            <h3>Nossas Redes Sociais :</h3>
-            <hr>
-
-            <div id="icones">
-                <div class="instagram">
-                    <a href="https://www.instagram.com/nerds.eti/" target="_blank">
-                        <picture>
-                            <img src="imagens/ícones/Instagram50.png" alt="ícone do instagram">
-                        </picture>
-                    </a><!--Link pro instagram da Nerds-->
-                </div><!--instagram-->
-    
-                <div class="whatsapp">
-                    <a href="http://api.whatsapp.com/send?phone=+55 61 9906-3455" target="_blank">
-                        <picture>
-                            <img src="imagens/ícones/Whats50.png" alt="ícone do whatsapp">
-                        </picture>
-                    </a><!--Link pro whatsapp da Nerds-->
-                </div><!--whatsapp-->
-    
-                <div class="email">
-                    <a href="mailto:contato@nerds.eti.brsubject=subject text" target="_blank">
-                        <picture>
-                            <img src="imagens/ícones/Email50.png" alt="ícone de email">
-                        </picture>
-                    </a><!--Link pro email da Nerds-->
-                </div><!--Email-->
-            </div><!--icones-->
-        </div>
-    </div>
-
     <!--A div abaixo será o botão que fara o usuario retornar ao topo do site-->
     <div class="menu"><a href="#cabeçalho" id="subir"></a></div>
 
@@ -365,179 +365,6 @@
         </div><!--icones-->
     </footer>
 
-    <script>
-        //Faz o menu aparecer e tbm sumir
-
-        var prosseguir = document.getElementById("menu")
-        var categorias = document.getElementById("categorias")
-
-        menu.addEventListener('click', function() {
-
-            if(categorias.style.display === "block"){
-                categorias.style.display = "none";
-            } else{
-                categorias.style.display = "block";
-            }
-        });
-
-        //---------------------------------------
-
-        //Deixa o site escuro, ativado quando o menu é aberto
-
-        var prosseguir = document.getElementById("menu")
-        var fundo = document.getElementById("fundo-pop-up")
-
-        menu.addEventListener('click', function() {
-
-            if(fundo.style.display === "block"){
-                fundo.style.display = "none";
-            } else{
-                fundo.style.display = "block";
-            }
-        });
-
-        //---------------------------------------
-
-        //Botão de fechar "X" do menu
-
-        var body = document.getElementById("Xc")
-        var categorias = document.getElementById("categorias")
-
-        Xc.addEventListener('click', function() {
-
-            if(categorias.style.display === "none"){
-                categorias.style.display = "block";
-            } else{
-                categorias.style.display = "none";
-            }
-        });
-
-        //---------------------------------------
-
-        //Botão de fechar "X" do menu que tbm fecha o pop-up
-
-        var body = document.getElementById("Xc")
-        var fundo = document.getElementById("fundo-pop-up")
-
-        Xc.addEventListener('click', function() {
-
-            if(fundo.style.display === "none"){
-                fundo.style.display = "block";
-            } else{
-                fundo.style.display = "none";
-            }
-        });
-
-        //---------------------------------------
-
-        var p1 = document.getElementById("produtos")
-        var fundoinf = document.getElementById("fundo")
-
-        p1.addEventListener('click', function() {
-
-            if(fundoinf.style.display === "block"){
-                fundoinf.style.display = "none";
-            } else{
-                fundoinf.style.display = "block";
-            }
-        });
-
-        //---------------------------------------
-
-        var p1 = document.getElementById("produtos")
-        var inf = document.getElementById("inf")
-
-        p1.addEventListener('click', function() {
-
-            if(inf.style.display === "block"){
-                inf.style.display = "none";
-            } else{
-                inf.style.display = "block";
-            }
-        });
-
-        //---------------------------------------
-
-        var fecharinf = document.getElementById("fecharINF")
-        var fundoinf = document.getElementById("fundo")
-
-        fecharinf.addEventListener('click', function() {
-
-            if(fundoinf.style.display === "block"){
-                fundoinf.style.display = "none";
-            } else{
-                fundoinf.style.display = "block";
-            }
-        });
-
-        //---------------------------------------
-
-        var fecharinf = document.getElementById("fecharINF")
-        var inf = document.getElementById("inf")
-
-        fecharinf.addEventListener('click', function() {
-
-            if(inf.style.display === "block"){
-                inf.style.display = "none";
-            } else{
-                inf.style.display = "block";
-            }
-        });
-
-        //---------------------------------------
-        /* Scroll suave */
-
-        const menuLinks = document.querySelectorAll('.menu a[href^="#"]');
-
-        function getDistanceFromTheTop(element) {
-        const id = element.getAttribute("href");
-        return document.querySelector(id).offsetTop;
-        }
-
-        // function nativeScroll(distanceFromTheTop) {
-        //   window.scroll({
-        //     top: distanceFromTheTop,
-        //     behavior: "smooth",
-        //   });
-        // }
-
-        function scrollToSection(event) {
-        event.preventDefault();
-        const distanceFromTheTop = getDistanceFromTheTop(event.target) - 90;
-        smoothScrollTo(0, distanceFromTheTop);
-        }
-
-        menuLinks.forEach((link) => {
-        link.addEventListener("click", scrollToSection);
-        });
-
-        function smoothScrollTo(endX, endY, duration) {
-        const startX = window.scrollX || window.pageXOffset;
-        const startY = window.scrollY || window.pageYOffset;
-        const distanceX = endX - startX;
-        const distanceY = endY - startY;
-        const startTime = new Date().getTime();
-
-        duration = typeof duration !== "undefined" ? duration : 700;
-
-        const easeInOutQuart = (time, from, distance, duration) => {
-            if ((time /= duration / 2) < 1)
-            return (distance / 2) * time * time * time * time + from;
-            return (-distance / 2) * ((time -= 2) * time * time * time - 2) + from;
-        };
-
-        const timer = setInterval(() => {
-            const time = new Date().getTime() - startTime;
-            const newX = easeInOutQuart(time, startX, distanceX, duration);
-            const newY = easeInOutQuart(time, startY, distanceY, duration);
-            if (time >= duration) {
-            clearInterval(timer);
-            }
-            window.scroll(newX, newY);
-        }, 1000 / 60);
-        }
-
-        //---------------------------------------
-    </script>
+    <script src="java-script/configs-java.js"></script>
 </body>
 </html>
