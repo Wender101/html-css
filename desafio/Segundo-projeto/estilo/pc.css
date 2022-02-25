@@ -29,6 +29,7 @@ html {
 }
 
 body {
+    width: 100%;
     font-family: 'Anton', sans-serif;
     font-weight: 100;
     background-color: var(--Azul-Escuro);
@@ -43,8 +44,8 @@ header {
 }
 
 header > p {
-    width: 1189px;
-    margin: auto;
+    width: 100px;
+    margin-left: 1%;
     font-family: 'Bitwise', sans-serif;
     font-weight: 900;
     color: var(--Branco);
@@ -165,14 +166,13 @@ nav > input {
 /* --------------------------------------- */
 
 main {
-    width: 107%;
-    height: 100%;
+    width: 107vw;
     padding: 30px 0px;
 }
 
 section#produtos {
     max-width: 1232px;
-    min-width: 100px;
+    min-width: 300px;
     margin: auto;
 }
 
@@ -222,7 +222,7 @@ article > div > div > div.texto > span {
 /* --------------------------------------- */
 
 footer {
-    width: 105%;
+    width: 107%;
     height: 220px;
     padding: 10px 20px;
     display: inline-flex;
@@ -262,7 +262,6 @@ footer > div#icones {
 
 footer > div#icones > hr {
     width: 100px;
-    margin-top: 10px;
 }
 
 footer > div#icones > div.instagram, div.whatsapp, div.email{

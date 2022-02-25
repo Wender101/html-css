@@ -18,3 +18,58 @@
         width: 300px;
     }
 }
+
+@media screen and (max-width: 490px) {
+    footer {
+        width: 107%;
+        height: 220px;
+        padding: 10px 20px;
+        display: inline-flex;
+        background-color: var(--azul-claro);
+        color: var(--Branco);
+    }
+    
+    footer > div#horario {
+        width: 340px;
+        height: 200px;
+        margin-left: 5px;
+    }
+    
+    footer > div#horario > hr {
+        width: 205px;
+    }
+    
+    footer > div#horario > ul {
+        display: inline-block;
+    }
+    
+    footer > div#horario > ul#dia {
+        width: 92px;
+    }
+    
+    footer > div#horario > ul#hora {
+        width: 81px;
+        padding-left: 30px;
+    }
+    
+    footer > div#icones {
+        width: 200px;
+        height: 200px;
+        left: 250px;
+        position: absolute;
+    }
+
+    footer > div#icones > div > a > picture > img {
+        width: 45px;
+        height: 45px;
+    }    
+    
+    footer > div#icones > hr {
+        width: 100px;
+    }
+    
+    footer > div#icones > div.instagram, div.whatsapp, div.email{
+        display: inline-flex;
+    }
+    
+}
