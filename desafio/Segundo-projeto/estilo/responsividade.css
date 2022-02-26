@@ -1,3 +1,17 @@
+@media screen and (min-width: 1617px) {
+
+    section#produtos {
+        width: 1516px;
+    }
+}
+
+@media screen and (max-width: 1616px) {
+
+    section#produtos {
+        width: 1224px;
+    }
+}
+
 @media screen and (max-width: 1178px) {
     
     section#produtos {
@@ -99,6 +113,10 @@
 }
 
 @media screen and (max-width: 490px) {
+
+    article {
+        margin-left: 50px;
+    }
 
     footer {
         width: 107%;

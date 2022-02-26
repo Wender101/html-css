@@ -7,8 +7,8 @@
 @import url('fontes/bitwise');
 
 :root {
-    --Azul-Escuro: #010A43;
-    --azul-claro: #013281; 
+    --Azul-Escuro: #07104b;
+    --azul-claro: #084cb9; 
     --Laranjado: #E66D22;
     --cinza: #0D0D0D;
     --Branco: #ffffff;
@@ -25,8 +25,24 @@
 }
 
 html {
+    overflow-y: auto;
     overflow-x: hidden;
 }
+
+html::-webkit-scrollbar {
+    width: 10px;             
+}
+
+html::-webkit-scrollbar-track {
+    background: var(--azul-claro);
+}
+
+html::-webkit-scrollbar-thumb {
+    background-color: var(--Laranjado);    
+    border-radius: 0px 0px 12px 12px;       
+    /*border: 3px solid orange;*/
+}
+  
 
 body {
     width: 100%;
@@ -103,6 +119,16 @@ nav > #nav > #categorias > p{
     margin-left: 20px;
 }
 
+nav > #nav > ul::-webkit-scrollbar {
+    width: 10px;             
+}
+
+nav > #nav > ul::-webkit-scrollbar-thumb {
+    background-color: var(--Laranjado);    
+    border-radius: 2px;       
+    /*border: 3px solid orange;*/
+}
+
 #Xc {
     width: 30px;
     height: 30px;
@@ -171,7 +197,7 @@ main {
 }
 
 section#produtos {
-    max-width: 1232px;
+    max-width: 1515px;
     min-width: 300px;
     margin: auto;
 }

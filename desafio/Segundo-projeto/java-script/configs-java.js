@@ -1,4 +1,4 @@
- //Faz o menu aparecer e tbm sumir
+    // Faz o menu aparecer e tbm sumir
 
  var prosseguir = document.getElementById("menu")
  var categorias = document.getElementById("categorias")
@@ -14,7 +14,7 @@
 
  //---------------------------------------
 
- //Deixa o site escuro, ativado quando o menu é aberto
+    // Deixa o site escuro, ativado quando o menu é aberto
 
  var prosseguir = document.getElementById("menu")
  var fundo = document.getElementById("fundo-pop-up")
@@ -30,7 +30,7 @@
 
  //---------------------------------------
 
- //Botão de fechar "X" do menu
+    // Botão de fechar "X" do menu
 
  var body = document.getElementById("Xc")
  var categorias = document.getElementById("categorias")
@@ -43,10 +43,39 @@
          categorias.style.display = "none";
      }
  });
+  //---------------------------------------
 
+  // Também faz a div categoria sumir
+
+ var fundo = document.getElementById("fundo-pop-up")
+ var categorias = document.getElementById("categorias")
+
+ fundo.addEventListener('click', function() {
+
+     if(categorias.style.display === "none"){
+         categorias.style.display = "block";
+     } else{
+         categorias.style.display = "none";
+     }
+ });
  //---------------------------------------
 
- //Botão de fechar "X" do menu que tbm fecha o pop-up
+   // Também faz a div fundo-pop-up sumir
+
+   var fundo = document.getElementById("fundo-pop-up")
+   var fundo = document.getElementById("fundo-pop-up")
+  
+   fundo.addEventListener('click', function() {
+  
+       if(fundo.style.display === "none"){
+           fundo.style.display = "block";
+       } else{
+           fundo.style.display = "none";
+       }
+   });
+ //---------------------------------------
+
+    // Botão de fechar "X" do menu que tbm fecha o pop-up
 
  var body = document.getElementById("Xc")
  var fundo = document.getElementById("fundo-pop-up")
@@ -62,6 +91,8 @@
 
  //---------------------------------------
 
+    // Faz a div fundo aparcer 
+
  var p1 = document.getElementById("produtos")
  var fundoinf = document.getElementById("fundo")
 
@@ -75,6 +106,8 @@
  });
 
  //---------------------------------------
+
+    // Faz a div informe aparecer
 
  var p1 = document.getElementById("produtos")
  var inf = document.getElementById("informe")
@@ -90,6 +123,8 @@
 
  //---------------------------------------
 
+    // Fecha a div fundo
+
  var fecharinf = document.getElementById("fecharINF")
  var fundoinf = document.getElementById("fundo")
 
@@ -101,8 +136,54 @@
          fundoinf.style.display = "block";
      }
  });
+//---------------------------------------
 
- //---------------------------------------
+ // Faz o scroll da pag sumir ao abrir o aviso
+
+var p1 = document.getElementById("produtos")
+ var html = document.getElementById("html")
+
+ p1.addEventListener('click', function() {
+
+     if(html.style.overflowY === "hidden"){
+         html.style.overflowX = "auto";
+     } else{
+         html.style.overflowY = "hidden";
+     }
+ });
+//---------------------------------------
+
+ // Também faz o scroll da pag sumir, ao abrir o menu
+
+ var fundo = document.getElementById("fundo-pop-up")
+ var html = document.getElementById("html")
+
+ fundo.addEventListener('click', function() {
+
+     if(html.style.overflowY === "hidden"){
+         html.style.overflowY = "auto";
+     } else{
+         html.style.overflowY = "hidden";
+     }
+ });
+//---------------------------------------
+
+ // Faz o scroll da pag sumir, ao abrir o menu
+
+ var prosseguir = document.getElementById("menu")
+ var html = document.getElementById("html")
+
+ menu.addEventListener('click', function() {
+
+     if(html.style.overflowY === "hidden"){
+         html.style.overflowY = "auto";
+     } else{
+         html.style.overflowY = "hidden";
+     }
+ });
+//---------------------------------------
+
+    // Fecha a div informe
 
  var fecharinf = document.getElementById("fecharINF")
  var inf = document.getElementById("informe")
@@ -117,7 +198,7 @@
  });
 
  //---------------------------------------
- /* Scroll suave */
+    // Scroll suave 
 
  const menuLinks = document.querySelectorAll('.menu a[href^="#"]');
 
@@ -126,12 +207,12 @@
  return document.querySelector(id).offsetTop;
  }
 
- // function nativeScroll(distanceFromTheTop) {
- //   window.scroll({
- //     top: distanceFromTheTop,
- //     behavior: "smooth",
- //   });
- // }
+    // function nativeScroll(distanceFromTheTop) {
+    //   window.scroll({
+    //     top: distanceFromTheTop,
+    //     behavior: "smooth",
+    //   });
+    // }
 
  function scrollToSection(event) {
  event.preventDefault();
