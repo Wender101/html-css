@@ -52,7 +52,7 @@
     }
     
     div#inf {
-        width: 300px;
+        width: 350px;
         height: 400px;
         border-radius: 20px;
         padding: 50px 30px;
@@ -93,7 +93,7 @@
     
     div#inf > h3 {
         margin-top: 15px;
-        margin-left: 65px;
+        margin-left: 85px;
         margin-bottom: 10px;
         color: rgb(255, 255, 255);
         text-shadow: 1px 1px 1px rgb(0, 0, 0);
@@ -108,7 +108,7 @@
         width: 200px;
         display: inline-flex;
         margin-top: 10px;
-        margin-left: 55px;
+        margin-left: 85px;
     }
 }
 
@@ -170,4 +170,28 @@
         display: inline-flex;
     }
     
+}
+
+@media screen and (max-width: 400px) {
+    
+    footer > div#icones {
+        width: 150px;
+        height: 200px;
+        left: 250px;
+        position: absolute;
+    }
+}
+
+@media screen and (max-width: 340px) {
+    
+    footer > div#icones > div {
+        width: 100px;
+    }
+
+    footer > div#icones {
+        width: 100px;
+        height: 200px;
+        left: 250px;
+        position: absolute;
+    }
 }
