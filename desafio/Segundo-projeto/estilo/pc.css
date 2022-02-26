@@ -7,7 +7,7 @@
 @import url('fontes/bitwise');
 
 :root {
-    --Azul-Escuro: #07104b;
+    --Azul-Escuro: #000d63;
     --azul-claro: #084cb9; 
     --Laranjado: #E66D22;
     --cinza: #0D0D0D;
@@ -40,7 +40,6 @@ html::-webkit-scrollbar-track {
 html::-webkit-scrollbar-thumb {
     background-color: var(--Laranjado);    
     border-radius: 0px 0px 12px 12px;       
-    /*border: 3px solid orange;*/
 }
   
 
@@ -193,7 +192,6 @@ nav > input {
 
 main {
     width: 107vw;
-    padding: 30px 0px;
 }
 
 section#produtos {

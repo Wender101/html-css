@@ -1,0 +1,41 @@
+h1 {
+    font-size: 30px;
+    color: var(--Branco);
+    margin-bottom: 20px;
+}
+
+#slid {
+    width: 107%;
+    background-color: white;
+}
+
+#pslid {
+    width: 1330px;
+    height: 250px;
+    display: inline-flex;
+    overflow-x: auto;
+    padding-right: 170px;
+}
+
+#slid > #pslid > div > a > img {
+    width: 220px;
+    height: 210px;
+    margin-top: 15px;
+    padding-left: 50px;
+    background-color: var(--Branco);
+    border-radius: 20px;
+}
+
+#pslid::-webkit-scrollbar {
+    width: 5px;    
+    height: 10px;         
+}
+
+#pslid::-webkit-scrollbar-track {
+
+}
+
+#pslid::-webkit-scrollbar-thumb {
+    background-color: var(--Laranjado);    
+    border-radius: 0px;       
+}
