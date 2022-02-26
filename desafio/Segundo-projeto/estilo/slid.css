@@ -5,12 +5,12 @@ h1 {
 }
 
 #slid {
-    width: 107%;
+    width: 130%;
     background-color: white;
 }
 
 #pslid {
-    width: 1330px;
+    width: 100vw;
     height: 250px;
     display: inline-flex;
     overflow-x: auto;
