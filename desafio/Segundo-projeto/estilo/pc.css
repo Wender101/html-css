@@ -54,7 +54,7 @@ body {
 /* --------------------------------------- */
 
 header {
-    width: 100%;
+    width: 100vw;
     padding: 20px 30px;
     background-color: var(--azul-claro);
 }
@@ -69,7 +69,7 @@ header > p {
 }
 
 nav {
-    width: 100%;
+    width: 100vw;
     padding: 5px 30px;
     position: sticky;
     top: 0px;
@@ -78,8 +78,7 @@ nav {
 }
 
 #nav{
-    width: 1189px;
-    margin: auto;
+
 }
 
 nav > button {
@@ -180,15 +179,6 @@ nav > #nav > ul > li > a:hover {
     background-color: var(--Azul-Escuro);
 }
 
-nav > input {
-    width: 745px;
-    height: 50px;
-    position: absolute;
-    margin-top: 7px;
-    margin-left: 40px;
-    border-radius: 10px;
-}
-
 /* --------------------------------------- */
 
 main {
@@ -199,6 +189,10 @@ section#produtos {
     max-width: 1515px;
     min-width: 300px;
     margin: auto;
+}
+
+article#l1 {
+    margin-top: 30px;
 }
 
 article > div#p1 {
