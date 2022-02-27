@@ -185,15 +185,20 @@ h1 {
     margin-bottom: 20px;
 }
 
-#slid {
+#fundoIslide {
     width: 80%;
+    height: 250px;
     background-color: white;
+}
+
+#slid {
+    
 }
 
 #pslid {
     width: 100%;
     height: 250px;
-    display: inline-flex;
+    display: flex;
     overflow-x: auto;
 }
 

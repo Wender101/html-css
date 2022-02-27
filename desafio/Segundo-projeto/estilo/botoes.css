@@ -99,7 +99,7 @@ div#inf > hr {
     margin: auto;
 }
 
-div#informe >  div#inf > div#icones {
+div#inf > div#icones {
     width: 200px;
     display: inline-flex;
     margin-top: 10px;
