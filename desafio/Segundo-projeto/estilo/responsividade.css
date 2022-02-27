@@ -175,7 +175,7 @@
 @media screen and (max-width: 400px) {
 
     footer {
-        width: 140.8vw;
+        width: 100vw;
     }
     
     footer > div#icones {
