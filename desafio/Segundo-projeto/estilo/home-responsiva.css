@@ -3,11 +3,19 @@
     section#produtos {
         width: 1224px;
     }
+
+    #slid {
+        width: 1100px;
+    }
 }
 
 @media screen and (max-width: 1178px) {
     
     section#produtos {
+        width: 932px;
+    }
+
+    #slid {
         width: 932px;
     }
 
@@ -22,6 +30,10 @@
         max-width: 640px;
     }
 
+    #slid {
+        width: 640px;
+    }
+
     article {
         margin-left: 30px;
     }
@@ -31,6 +43,10 @@
 
     section#produtos {
         width: 300px;
+    }
+
+    #slid {
+        width: 220px;
     }
 
     article#l1{
