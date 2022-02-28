@@ -248,35 +248,35 @@ article > div#p1 {
     display: inline-flex;
 }
 
-article > div#p1 > div{
+article > div#p1 > a > div{
     display: block;
 }
 
-article > div > div > img{
+article > div > a > div > img{
     width: 220px;
     height: 210px;
     background-color: var(--Branco);
     border-radius: 20px;
 }
 
-article > div > div > div.texto {
+article > div > a > div > div.texto {
     width: 220px;
     margin-left: 5px;
 }
 
-article > div > div > div.texto > p {
+article > div > a > div > div.texto > p {
     color: var(--Branco);
 }
 
-article > div > div > div.texto > strong {
+article > div > a > div > div.texto > strong {
     color: var(--Laranjado);
 }
 
-article > div > div > div.texto > hr {
+article > div > a > div > div.texto > hr {
     width: 40px;
 }
 
-article > div > div > div.texto > span {
+article > div > a > div > div.texto > span {
     font-size: 13px;
     color: white;
 }
