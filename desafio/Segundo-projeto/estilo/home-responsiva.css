@@ -46,7 +46,7 @@
     }
 
     #slid {
-        width: 220px;
+        display: none;
     }
 
     article#l1{
