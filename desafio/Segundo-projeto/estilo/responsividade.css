@@ -56,9 +56,39 @@
     section#produtos {
         width: 300px;
     }
+
+    article#li {
+        margin-left: 50px
+    }
 }
 
 @media screen and (max-width: 500px)  {
+
+    #Xc {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        text-align: center;
+        position: absolute;
+        top: 20px;
+        left: 200px;
+        color: var(--Branco);
+        text-decoration: none;
+        background-color: #E66D22;
+    }
+
+    nav > #nav > #categorias{
+        width: 246px;
+        height: 100%;
+        position: fixed;
+        display: none;
+        top: 0px;
+        left: 0px;
+        overflow-y: auto;
+        overflow-x: hidden;
+        background-color: var(--azul-claro);
+    }
+
     div#informe {
         width: 100%;
         height: 200vh;
@@ -139,6 +169,31 @@
 
 @media screen and (max-width: 490px) {
 
+    #Xc {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        text-align: center;
+        position: absolute;
+        top: 20px;
+        left: 200px;
+        color: var(--Branco);
+        text-decoration: none;
+        background-color: #E66D22;
+    }
+
+    nav > #nav > #categorias{
+        width: 246px;
+        height: 100%;
+        position: fixed;
+        display: none;
+        top: 0px;
+        left: 0px;
+        overflow-y: auto;
+        overflow-x: hidden;
+        background-color: var(--azul-claro);
+    }
+
     article {
         margin-left: 50px;
     }
@@ -199,6 +254,31 @@
 
 @media screen and (max-width: 400px) {
 
+    #Xc {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        text-align: center;
+        position: absolute;
+        top: 20px;
+        left: 200px;
+        color: var(--Branco);
+        text-decoration: none;
+        background-color: #E66D22;
+    }
+
+    nav > #nav > #categorias{
+        width: 246px;
+        height: 100%;
+        position: fixed;
+        display: none;
+        top: 0px;
+        left: 0px;
+        overflow-y: auto;
+        overflow-x: hidden;
+        background-color: var(--azul-claro);
+    }
+
     footer {
         width: 100vw;
     }
@@ -212,6 +292,31 @@
 }
 
 @media screen and (max-width: 340px) {
+
+    #Xc {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        text-align: center;
+        position: absolute;
+        top: 20px;
+        left: 200px;
+        color: var(--Branco);
+        text-decoration: none;
+        background-color: #E66D22;
+    }
+
+    nav > #nav > #categorias{
+        width: 246px;
+        height: 100%;
+        position: fixed;
+        display: none;
+        top: 0px;
+        left: 0px;
+        overflow-y: auto;
+        overflow-x: hidden;
+        background-color: var(--azul-claro);
+    }
     
     footer > div#icones > div {
         width: 100px;

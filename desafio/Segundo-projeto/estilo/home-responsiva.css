@@ -77,10 +77,6 @@
     #slid {
         display: none;
     }
-
-    article#l1{
-        margin-left: 70px;
-    }
 }
 
 @media screen and (max-width: 490px) {
