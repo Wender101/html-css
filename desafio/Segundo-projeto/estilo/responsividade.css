@@ -24,6 +24,10 @@
     section#produtos {
         max-width: 640px;
     }
+
+    article#li {
+        margin-left: 70px;
+    }
 }
 
 @media screen and (max-width: 581px) {
