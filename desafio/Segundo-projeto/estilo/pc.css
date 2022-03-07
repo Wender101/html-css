@@ -77,10 +77,6 @@ nav {
     box-shadow: 2px 2px 2px var(--sombra);
 }
 
-#nav{
-
-}
-
 nav > button {
     width: 300px;
     padding: 15px;

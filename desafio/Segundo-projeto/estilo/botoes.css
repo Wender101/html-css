@@ -8,6 +8,7 @@
 a#subir {
     width: 50px;
     height: 50px;
+    display: block;
     position: fixed;
     background-color: var(--Laranjado);
     bottom: 250px;
@@ -25,7 +26,12 @@ a#subir {
     margin-top: -500px;
     margin-left: -18px;
     display: none;
-    background-color: #0d0d0d80;
+    background-color: #0d0d0dc4;
+    -webkit-filter: blur(0px);
+    -moz-filter: blur(0px);
+    -o-filter: blur(0px);
+    -ms-filter: blur(53px);
+    filter: blur(0px);
 }
 
 /* ---------------------------------------- */
@@ -43,7 +49,11 @@ div#informe > div#fundo {
     height: 200vh;
     top: -200px;
     position: fixed;
-    background-color: rgba(0, 0, 0, 0.342);
+    -webkit-filter: blur(0px);
+    -moz-filter: blur(0px);
+    -o-filter: blur(0px);
+    -ms-filter: blur(53px);
+    filter: blur(0px);
 }
 
 div#inf {

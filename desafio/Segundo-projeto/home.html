@@ -169,7 +169,12 @@
             top: 0px;
             position: fixed;
             display: none;
-            background-color: rgba(0, 0, 0, 0.596);
+            background-color: #0d0d0dc4;
+            -webkit-filter: blur(0px);
+            -moz-filter: blur(0px);
+            -o-filter: blur(0px);
+            -ms-filter: blur(53px);
+            filter: blur(0px);
         }
 
         #amostras {
@@ -306,7 +311,7 @@
 
         <ul id="categorias"><!--menu-->
             <p>Nerds</p>
-            <a href="" id="Xc"><span>&times;</span></a>
+            <a id="Xc"><span>&times;</span></a>
             <hr>
             <li><a href="acessorios.html">Acessórios</a></li>
             <li><a href="adaptadores.html">Adaptadores</a></li>
@@ -656,6 +661,20 @@
             }
         })
 
+        //Ao clicar no 'Xc', o scroll da pág sumirá
+        var Xc = window.document.getElementById('Xc')
+        var html = window.document.getElementById('html')
+
+        Xc.addEventListener('click', function() {
+
+            if(html.style.overflowY === 'scroll'){
+                html.style.overflowY = 'hidden'
+            }
+            else {
+                html.style.overflowY = 'scroll'
+            }
+        })
+
         //Ao clicar no 'Xc', a div 'categorias' sumirá
         var Xc = window.document.getElementById('Xc')
         var categorias = window.document.getElementById('categorias')
@@ -667,6 +686,20 @@
             }
             else {
                 categorias.style.display = 'block'
+            }
+        })
+
+        //Ao clicar no 'Xc', a div 'fundo' sumirá
+        var Xc = window.document.getElementById('Xc')
+        var fundo = window.document.getElementById('fundo')
+
+        Xc.addEventListener('click', function() {
+
+            if(fundo.style.display === 'block'){
+                fundo.style.display = 'none'
+            }
+            else {
+                fundo.style.display = 'block'
             }
         })
     </script>
