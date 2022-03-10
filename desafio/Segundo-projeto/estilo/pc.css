@@ -195,11 +195,10 @@ div#informe > div#fundo {
 }
 
 div#inf {
-    width: 400px;
-    height: 350px;
+    width: 280px;
+    height: 400px;
     border-radius: 20px;
     padding: 50px 30px;
-    margin-top: 200px;
     margin: auto;
     transform: translateY(80%);
     background-color: var(--azul-claro);

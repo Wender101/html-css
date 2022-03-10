@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <link rel="stylesheet" href="estilo/responsividade.css">
     <title>Nerds Oficial</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
@@ -338,6 +337,47 @@
             position: absolute;
             font-size: 40px;
         }
+        }
+
+        @media screen and (max-width: 450px){
+
+            #amostras {
+                width: 100%;
+                height: 184px;
+                background-color: var(--Branco);
+            }
+
+            #pAmostras {
+                display: flex;
+                overflow-x: scroll;
+                padding-top: 34px;
+                overflow-y: hidden;
+            }
+
+            #pAmostras > div > a > img:not(last-child) {
+                width: 130px;
+                height: 130px;
+                padding-right: 40px;
+            }
+
+            #pAmostras > div > a > img {
+                transition: transform 1s;
+                transform: translateX(0) scale(1);
+            }
+
+            #pAmostras > div > a > img:hover, img:focus {
+                transform: translateX(5px) scale(1.2);
+            }
+
+            #pAmostras::-webkit-scrollbar {
+                width: 15px;    
+                height: 15px;        
+            }
+
+            #pAmostras::-webkit-scrollbar-thumb {
+                background-color: var(--Laranjado);    
+                border-radius: 10px;       
+            }
         }
     </style>
 </head>
