@@ -1,0 +1,118 @@
+
+.menu {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+a#subir {
+    width: 50px;
+    height: 50px;
+    display: block;
+    position: fixed;
+    background-color: var(--Laranjado);
+    bottom: 250px;
+    right: 20px;
+    border-radius: 50%;
+}
+
+/* --------------------------------------- */
+
+#fundo-pop-up {
+    width: 200vw;
+    height: 200vh;
+    overflow: hidden;
+    position: fixed;
+    margin-top: -500px;
+    margin-left: -18px;
+    display: none;
+    background-color: #0d0d0dc4;
+    -webkit-filter: blur(0px);
+    -moz-filter: blur(0px);
+    -o-filter: blur(0px);
+    -ms-filter: blur(53px);
+    filter: blur(0px);
+}
+
+/* ---------------------------------------- */
+div#informe {
+    width: 100%;
+    height: 200vh;
+    top: -200px;
+    display: none;
+    position: fixed;
+    overflow-y: auto;
+}
+
+div#informe > div#fundo {
+    width: 100%;
+    height: 200vh;
+    top: -200px;
+    position: fixed;
+    background-color: #0d0d0dc4;
+    -webkit-filter: blur(0px);
+    -moz-filter: blur(0px);
+    -o-filter: blur(0px);
+    -ms-filter: blur(53px);
+    filter: blur(0px);
+}
+
+div#inf {
+    width: 400px;
+    height: 350px;
+    border-radius: 20px;
+    padding: 50px 30px;
+    margin-top: 200px;
+    margin: auto;
+    transform: translateY(80%);
+    background-color: var(--azul-claro);
+}
+
+a#fecharINF {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    right: 10px;
+    top: 15px;
+    text-align: center;
+    position: absolute;
+    color: var(--Branco);
+    text-decoration: none;
+    background-color: #E66D22;
+}
+
+a#fecharINF > span {
+    top: -20px;
+    right: 8px;
+    position: absolute;
+    font-size: 40px;
+}
+
+div#inf > p {
+    color: var(--Branco);
+}
+
+div#inf > p > strong {
+    color: red;
+    text-shadow: 1px 1px 1px white;
+}
+
+div#inf > h3 {
+    margin-top: 15px;
+    margin-left: 115px;
+    margin-bottom: 10px;
+    color: rgb(255, 255, 255);
+    text-shadow: 1px 1px 1px rgb(0, 0, 0);
+}
+
+div#inf > hr {
+    width: 200px;
+    margin: auto;
+}
+
+div#inf > div#icones {
+    width: 200px;
+    display: inline-flex;
+    margin-top: 10px;
+    margin-left: 115px;
+}
