@@ -274,6 +274,7 @@ article > h1 {
 article > div> div > img {
     width: 220px;
     height: 210px;
+    background-color: white;
     border-radius: 20px;
     transition: transform 1s;
     transform: translateX(0) scale(1);
