@@ -1053,6 +1053,14 @@
         left: -30px;
     }
 
+    #i1 > img {
+        height: 400px;
+    }
+
+    #i2 > img {
+        height: 450px;
+    }
+
     div#textoB {
         width: 577px;
         height: auto;
