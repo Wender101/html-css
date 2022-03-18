@@ -1,0 +1,353 @@
+:root {
+    --cor0: white;
+    --cor1: #1F7CFF;
+    --cor2: #F75C4E;
+    --cor3: black;
+    --cor4: #575455;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+    text-decoration: none;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(235, 235, 235);
+}
+
+main {
+    width: 100%;
+}
+
+section#centro {
+    max-width: 1512px;
+    margin: auto;
+    padding: 40px 120px 72px 120px;
+    background-color: var(--cor0);
+}
+
+nav {
+    position: relative;
+    width: 100%;
+    margin-bottom: 100px;
+}
+
+nav, nav > ul {
+    display: inline-flex;
+}
+
+nav > ul {
+    width: 435px;
+    margin: auto;
+}
+
+nav > ul > li {
+    padding-left: 60px;
+}
+
+nav > button {
+    width: 150px;
+    height: 48px;
+    text-align: center;
+    background-color: var(--cor0);
+    border-radius: 50px;
+    position: absolute;
+    border: navajowhite;
+    right: 0px;
+}
+
+section#section1 {
+    width: 100%;
+    height: auto;
+    padding: 30px;
+    position: relative;
+}
+
+section#section1 > h1{
+    width: 442px;
+    height: 166px;
+
+    font-size: 52px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 83px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+section#section1 > p {
+    width: 420px;
+    height: 64px;
+
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 32px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: var(--cor4);
+}
+
+section#section1 > button {
+    width: 180px;
+    height: 48px;
+    border: none;
+    border-radius: 50px;
+    color: var(--cor0);
+    background-color: var(--cor1);
+    margin-top: 30px;
+
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: center;
+}
+
+section#section1 > section#sumir {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+
+section#sumir > div > span {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 21px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+section#section1 > section#sumir > div#estudante {
+    width: 540px;
+    height: 400px;
+    margin-right: 40px;
+    background-image: url('../imagens/Group\ 4.png');
+}
+
+section#section1 > section#sumir > div#analize, div#export {
+    position: absolute;
+}
+
+div#analize {
+    width: 213px;
+    height: 145px;
+    border-radius: 10px;
+    background-color: var(--cor0);
+    position: relative;
+    padding-top: 10px;
+    padding-left: 13px;
+    top: 133px;
+    right: 432px;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.178);
+}
+
+div#analize > img#scaner {
+    margin-top: 3px;
+    position: absolute;
+}
+
+div#analize > strong {
+    width: 75px;
+}
+
+div#analize > span {
+    width: 112px;
+    position: absolute;
+    top: 36px;
+    left: 66px;
+}
+
+div#analize > img#grafico{
+    margin-top: 40px;
+}
+
+ div#export {
+    width: 200px;
+    height: 50px;
+    background-color: var(--cor0);
+    border-radius: 20px;
+    top: 53px;
+    right: 0px;
+    padding-top: 10px;
+    padding-left: 19px;
+    box-shadow: -1px 1px 10px rgba(0, 0, 0, 0.178);
+}
+
+ div#export > span, strong {
+    margin-left: 55px;
+}
+
+div#export > img {
+    position: absolute;
+}
+
+div#export > span {
+    padding-top: 2px;
+}
+
+section#logos {
+    width: 794px;
+    height: 30px;
+    margin-top: 106px;
+    position: absolute;
+    right: 45px;
+}
+
+section#logos > img {
+    height: 30px;
+    padding-left: 50px;
+}
+
+/*------------------------------*/
+
+section#section2 {
+    margin-top: 204px;
+}
+
+section#section2 > p {
+    color: var(--cor2);
+    text-align: center;
+}
+
+section#section2 > h1 {
+    text-align: center;
+    margin-bottom: 20px;
+
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 54px;
+    letter-spacing: 0em;
+    text-align: center;
+
+}
+
+section#section2 > #center {
+    width: 385px;
+    color: var(--cor4);
+    margin: auto;
+}
+
+section#section2 > article {
+    width: 1188px;
+    padding-top: 70px;
+    padding-left: 64px;
+    position: relative;
+    margin-left: 50%;
+    transform: translate(-50%);
+}
+
+section#section2 > article > div {
+    width: 300px;
+    height: 106px;
+    margin: 0px 93px 60px 0px;
+    display: inline-block;
+}
+
+section#section2 > article > div > strong {
+    margin: 0px 0px 0px 84px;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 30px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+section#section2 > article > div > p {
+    margin: 12px 0px 0px 84px;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 32px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: var(--cor4);
+}
+
+section#section2 > article > div > img {
+    position: absolute;
+}
+
+/*------------------------*/
+
+section#section3 {
+    position: relative;
+    margin-bottom: 124px;
+}
+
+div#conversa {
+    width: 635px;
+    height: 450px;
+    margin-top: 130px;
+    background-image: url('../imagens/Group\ 26.png');
+}
+
+div#conversa2 {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    padding-top: 100px;
+}
+
+div#conversa2  > p {
+    width: 386px;
+    color: var(--cor2);
+}
+
+div#conversa2  > p#p2 {
+    width: 386px;
+    color: var(--cor4);
+    margin-bottom: 40px;
+
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 32px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+div#conversa2  > h1 {
+    margin-top: 6px;
+    margin-bottom: 20px;
+
+    font-size: 33px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 54px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+div#conversa2 > input {
+    width: 249px;
+    height: 48px;
+    border-radius: 50px;
+    border: none;
+    color: var(--cor4);
+}
+
+div#conversa2 > button {
+    width: 180px;
+    height: 48px;
+    border-radius: 50px;
+    background-color: var(--cor1);
+    border: none;
+    color: var(--cor0);
+
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: center;
+}
+
+

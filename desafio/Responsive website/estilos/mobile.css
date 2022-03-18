@@ -1,0 +1,290 @@
+@media screen and (max-width: 1492px) {
+    
+}
+
+/* faz a img estudante sumir */
+@media screen and (max-width: 1324px) {
+
+    section#section1 {
+        width: 450px;
+        margin: auto;
+    }
+
+    section#section1 > button {
+        margin-left: 100px;
+    }
+
+    section#logos {
+        width: 794px;
+        height: 30px;
+        margin-top: 106px;
+        position: absolute;
+        right: -75px;
+    }
+
+    section#section1 > section#sumir {
+        display: none;
+    }
+
+    section#section3 {
+        width: 635px;
+        height: auto;
+        margin: auto;
+        margin-bottom: 124px;
+    }
+
+    div#conversa2 {
+        position: static;
+        width: 452px;
+        margin-left: 50%;
+        transform: translate(-50%);
+        padding-top: 50px;
+    }
+}
+
+/* Diminue os icones */
+@media screen and (max-width: 1235px) {
+
+    nav > ul {
+        display: none;
+    }
+
+    section#section2 > article {
+        width: 791px;
+        padding-top: 70px;
+        padding-left: 64px;
+        position: relative;
+        margin-left: 50%;
+        transform: translate(-50%);
+    }
+}
+
+@media screen and (max-width: 942px) {
+
+    section#logos {
+        width: 794px;
+        height: 30px;
+        margin-top: 106px;
+        position: absolute;
+        right: -145px;
+    }
+}
+
+/* Diminue os icones */
+@media screen and (max-width: 873px) {
+
+    section#centro {
+        max-width: 1512px;
+        margin: auto;
+        padding: 40px 120px 72px 30px;
+        background-color: var(--cor0);
+    }
+
+    section#section2 > article {
+        width: 300px;
+        padding-top: 70px;
+        padding-left: 64px;
+        position: relative;
+        margin-left: 50%;
+        transform: translate(-50%);
+    }
+}
+
+@media screen and (max-width: 776px) {
+
+    section#centro {
+        max-width: 1512px;
+        margin: auto;
+        padding: 40px 120px 72px 10px;
+        background-color: var(--cor0);
+    }
+
+    section#logos {
+        width: 600px;
+        height: 30px;
+        margin-top: 106px;
+        position: absolute;
+        right: -105px;
+    }
+
+    div#conversa {
+        width: 321px;
+        height: 227px;
+        margin-top: 130px;
+        margin-left: 50%;
+        transform: translate(-50%);
+        background-size: cover;
+        background-image: url('../imagens/Group\ 26.png');
+    }
+
+    section#section3 {
+        position: 330px;
+        position: relative;
+        margin-bottom: 124px;
+        margin-left: 50%;
+        transform: translate(-50%);
+    }
+}
+
+@media screen and (max-width: 653px) {
+    section#logos {
+        width: 321px;
+        height: 30px;
+        margin-top: 106px;
+        position: absolute;
+        right: 130px;
+    }
+}
+
+@media screen and (max-width: 630px) {
+
+    section#section2 {
+        width: 330px;
+        margin-left: 60px;
+    }
+
+    div#conversa {
+        width: 321px;
+        height: 227px;
+        margin-top: 130px;
+        margin-left: 50%;
+        transform: translate(-50%);
+        background-size: cover;
+        background-image: url('../imagens/Group\ 26.png');
+    }
+
+    div#conversa2  > h1 {
+        margin-top: 6px;
+        margin-bottom: 20px;
+    
+        font-size: 28px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 42px;
+        letter-spacing: 0em;
+        text-align: center;
+
+    }
+
+    div#conversa2  > p {
+        width: 333px;
+        color: var(--cor2);
+        margin-left: 65px;
+    }
+
+    div#conversa2  > p#p2 {
+        width: 333px;
+        color: var(--cor4);
+        margin-left: 55px;
+        margin-bottom: 40px;
+    
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 32px;
+        letter-spacing: 0em;
+        text-align: center;
+    }
+
+    div#conversa2 > input {
+        width: 100px;
+        height: 48px;
+        border-radius: 50px;
+        border: none;
+        color: var(--cor4);
+        margin-left: 30%;
+        transform: translate(-50%);
+    }
+
+    div#conversa2 > button {
+        width: 299px;
+        height: 48px;
+        border-radius: 50px;
+        background-color: var(--cor1);
+        border: none;
+        color: var(--cor0);
+    
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 24px;
+        letter-spacing: 0em;
+        text-align: center;
+        position: absolute;
+        top: 400px;
+        left: 80px;
+    }
+
+    section#section3 {
+        width: 330px;
+        position: relative;
+        margin-bottom: 124px;
+        margin-left: 240px;
+    }
+}
+
+@media screen and (max-width: 527px) {
+
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: var(--cor0);
+    }
+
+    section#section1 > h1{
+        width: 305px;
+        height: 166px;
+    
+        font-size: 38px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 57px;
+        letter-spacing: 0em;
+        text-align: left;
+        margin-left: 50%;
+        transform: translate(-50%);
+    }
+
+    section#section1 > p {
+        width: 319px;
+        height: 64px;
+    
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 32px;
+        letter-spacing: 0em;
+        text-align: left;
+        color: var(--cor4);
+        margin-left: 50%;
+        transform: translate(-50%);
+    }
+
+    section#section1 > button {
+        width: 180px;
+        height: 48px;
+        border: none;
+        border-radius: 50px;
+        color: var(--cor0);
+        background-color: var(--cor1);
+        margin-top: 50px;
+    
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 24px;
+        letter-spacing: 0em;
+        text-align: center;
+    }
+
+    section#section2 > #center {
+        width: 333px;
+        color: var(--cor4);
+        margin: auto;
+    }
+
+    section#section2 > article {
+        width: 333px;
+        padding-top: 70px;
+        position: relative;
+    }
+}
