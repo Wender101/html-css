@@ -13,7 +13,6 @@
             --cor2: rgba(255, 255, 255, 0.534);
             --cor3: #2B61D1;
             --cor4: #00000080;
-;
         }
 
         * {
@@ -50,6 +49,7 @@
             height: 35.93px;
             display: block;
             margin-left: 102px;
+            cursor: pointer;
         }
 
         section#redes-sociais > img#segunda {
@@ -86,13 +86,22 @@
             padding-right: 37px;
         }
 
-        header > nav > button {
+        header > nav > ul > li:hover {
+            cursor: pointer;
+        }
+
+        header > nav > a > button {
             width: 200px;
             height: 60px;
             border: none;
             border-radius: 60px;
             color: var(--cor0);
             background-color: var(--cor3);
+            cursor: pointer;
+        }
+
+        header > nav > a > button:active {
+            background-color: #0444c5;
         }
         
         header > div {
@@ -161,6 +170,7 @@
             line-height: 43px;
             letter-spacing: 0em;
             text-align: left;
+            cursor: pointer;
         }
 
         header > div#parteA > section > button {
@@ -206,7 +216,7 @@
             text-align: center;
         }
 
-        section#conteudo > main > section{
+        section#conteudo > main > section {
             width: 1230px;
             margin: 129px auto 132px auto;
         }
@@ -227,7 +237,7 @@
             margin-right: 126px;
         }
 
-        section#conteudo > main > section > div > img{
+        section#conteudo > main > section > div > img {
             width: 112px;
             height: 112px;
             left: 50%;
@@ -235,7 +245,7 @@
             position: absolute;
         }
 
-        section#conteudo > main > section > div > p{
+        section#conteudo > main > section > div > p {
             top: 159px;
             position: absolute;
             left: 50%;
@@ -249,7 +259,7 @@
             text-align: center;
         }   
 
-        section#conteudo > main > section > div > span{
+        section#conteudo > main > section > div > span {
             top: 193px;
             position: absolute;
             left: 50%;
@@ -269,7 +279,7 @@
                 display: none;
             }
 
-            nav > button {
+            nav > a {
                 display: none;
             }
 
@@ -499,7 +509,7 @@
                         <li>SERVICE</li>
                         <li>PRICE</li>
                     </ul>
-                    <button>LOGIN</button>
+                    <a href="login.html" target="_blank"><button>LOGIN</button></a>
                     <div id="menu"></div>
                 </nav>
                 <div id="parteA">
