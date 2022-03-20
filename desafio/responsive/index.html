@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste de Responsividade</title>
+
+    <style>
+        :root {
+            --cor0: white;
+            --cor1: #020015;
+            --cor2: rgba(255, 255, 255, 0.534);
+            --cor3: #2B61D1;
+            --cor4: #00000080;
+;
+        }
+
+        * {
+            margin: 0px;
+            padding: 0px;
+            text-decoration: none;
+            list-style: none;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        section#fundo-header {
+            width: 100%;
+            height: auto;
+            padding: 50px 0px 92px 0px;
+            background-color: var(--cor1);
+            color: var(--cor0);
+        }
+
+        section#redes-sociais {
+            width: 152px;
+            border-radius: 60px;
+            padding: 56px 21px 55px 10px;
+            background-color: var(--cor3);
+            position: absolute;
+            top: 300px;
+            left: -92px;
+        }
+
+        section#redes-sociais > img {
+            width: 45px;
+            height: 35.93px;
+            display: block;
+            margin-left: 102px;
+        }
+
+        section#redes-sociais > img#segunda {
+            padding: 33px 0px;
+        }
+        
+        header > nav {
+            max-width: 1136px;
+            margin: auto;
+            position: relative;
+        }
+
+        header > nav > div#menu {
+            width: 158px;
+            height: 50px;
+            position: absolute;
+            right: 0px;
+            display: none;
+            background-repeat: no-repeat;
+            background-image: url('imagens/Menu.png');
+        }
+
+        header > nav, ul {
+            align-items: center;
+            display: flex;
+        }
+
+        header > nav > ul {
+            margin-left: 192px;
+            margin-right: 95px;
+        }
+
+        header > nav > ul > li {
+            padding-right: 37px;
+        }
+
+        header > nav > button {
+            width: 200px;
+            height: 60px;
+            border: none;
+            border-radius: 60px;
+            color: var(--cor0);
+            background-color: var(--cor3);
+        }
+        
+        header > div {
+            width: 1040px;
+            margin: auto;
+            display: flex;
+        }
+
+        header > div#parteA {
+            margin-bottom: 191px;
+            margin-top: 175px;
+        }
+
+        header > div#parteA > div#img {
+            width: 399px;
+            height: 467px;
+            background-image: url('imagens/Crypto-home\ 1.png');
+        }
+
+        header > div#parteA > section {
+            margin-right: 141px;
+        }
+
+        header > div#parteB > section {
+            margin-left: 100px;
+        }
+
+        header > div#parteB > div#img {
+            width: 378px;
+            height: 405px;
+            background-image: url('imagens/Security\ 1.png');
+        }
+
+        header > div > section > h1 {
+            width: 500px;
+            margin-bottom: 27px;
+
+            font-size: 48px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 58px;
+            letter-spacing: 0em;
+            text-align: left;
+        }
+
+        header > div > section > p {
+            width: 500px;
+            color: var(--cor2);
+            font-size: 24px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 29px;
+            letter-spacing: 0em;
+            text-align: left;
+        }
+
+        header > div > section > button {
+            color: var(--cor0);
+            border-radius: 60px;
+            background-color: transparent;
+            border: 1px solid var(--cor3);
+
+            font-size: 30px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 43px;
+            letter-spacing: 0em;
+            text-align: left;
+        }
+
+        header > div#parteA > section > button {
+            padding: 13px 67px 14px 67px;
+            margin-top: 40px;
+        }
+
+        header > div#parteB > section > button {
+            padding: 13px 51px 14px 51px;
+            margin-top: 46px;
+        }
+
+        section#conteudo {
+            height: auto;
+        }
+
+        main {
+            padding-top: 111px;
+        }
+
+        section#conteudo > main > h1 {
+            max-width: 800px;
+            margin: 72px auto 0px auto;
+
+            font-size: 48px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 58px;
+            letter-spacing: 0em;
+            text-align: center;
+        }
+
+        section#conteudo > main > p {
+            max-width: 800px;
+            margin: 72px auto 0px auto;
+            color: var(--cor4);
+
+            font-size: 24px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 29px;
+            letter-spacing: 0em;
+            text-align: center;
+        }
+
+        section#conteudo > main > section{
+            width: 1230px;
+            margin: 129px auto 132px auto;
+        }
+
+        section#conteudo > main > section > div {
+            width: 322px;
+            height: 224px;
+            border: none;
+            display: inline-flex;
+            padding: 22px 0px 32px 0px;
+            border-radius: 20px;
+            box-shadow: 1px 1px 30px rgba(0, 0, 0, 0.288);
+            position: relative;
+        }
+
+        section#conteudo > main > section > div#caixaB {
+            margin-left: 126px;
+            margin-right: 126px;
+        }
+
+        section#conteudo > main > section > div > img{
+            width: 112px;
+            height: 112px;
+            left: 50%;
+            transform: translate(-50%);
+            position: absolute;
+        }
+
+        section#conteudo > main > section > div > p{
+            top: 159px;
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%);
+
+            font-size: 24px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 29px;
+            letter-spacing: 0em;
+            text-align: center;
+        }   
+
+        section#conteudo > main > section > div > span{
+            top: 193px;
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%);
+
+            font-size: 24px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 29px;
+            letter-spacing: 0em;
+            text-align: center;
+            color: var(--cor4);
+        }  
+
+        @media screen and (max-width: 1236px) {
+            nav > ul{
+                display: none;
+            }
+
+            nav > button {
+                display: none;
+            }
+
+            header > nav > div#menu {
+                display: block;
+            }
+
+            header > div {
+                width: 500px;
+            }
+
+            header > div > .texto {
+                position: absolute;
+            }
+
+            header > div > div#img {
+                margin-left: 30px;
+                opacity: 30%;
+            }
+
+            header > div#parteB > section {
+                margin-left: 0px;
+            }
+
+            header > div#parteA > section > button {
+                padding: 13px 67px 14px 67px;
+                margin: 40px 72px;
+            }
+
+            header > div#parteB > section > button {
+                padding: 13px 51px 14px 51px;
+                margin: 46px 25px;
+            }
+
+            main {
+                padding: 10px;
+            }
+
+            section#conteudo > main > section {
+                width: 430px;
+                margin: 119px auto 0px auto;
+            }
+
+            section#conteudo > main > section > div {
+                width: 411px;
+                display: block;
+            }
+
+            section#conteudo > main > section > div#caixaB {
+                margin: 105px 0px 105px 0px;
+            }
+        }
+
+        @media screen and (max-width: 697px) {
+            section#redes-sociais {
+                top: 600px;
+            }
+        }
+
+        @media screen and (max-width: 550px) {
+            section#fundo-header {
+                padding: 0px;
+            }
+
+            nav {
+                width: 100%;
+                margin: 0px;
+            }
+
+            header > div > section > h1 {
+            width: 300px;
+            margin-bottom: 27px;
+
+            font-size: 36px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 43px;
+            letter-spacing: 0em;
+            text-align: center;
+        }
+
+        header > div > section > p {
+            width: 300px;
+
+            font-size: 24px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 29px;
+            letter-spacing: 0em;
+            text-align: center;
+        }
+
+        header > div#parteA > div#img {
+            width: 245px;
+            height: 287px;
+            background-size: contain;
+            background-image: url('imagens/Crypto-home\ 1.png');
+        }
+
+        header > div#parteA > section div#img {
+            margin-right: 141px;
+        }
+
+        header > div#parteB > section div#img {
+            margin-left: 141px;
+        }
+
+        header > div#parteB > div#img {
+            width: 219px;
+            height: 234px;
+            background-size: contain;
+            background-image: url('imagens/Security\ 1.png');
+        }
+
+        header {
+            width: 306px;
+            margin: auto;
+            position: relative;
+        }
+
+        section#redes-sociais {
+            display: none;
+        }
+
+        header > div#parteA > section > button {
+            padding: 15px 20px;
+            margin-top: 40px;
+
+            font-size: 21px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 29px;
+            text-align: center;
+        }
+
+        header > div#parteB > section > button {
+            width: 257px;
+            padding: 15px 0px;
+            margin-top: 46px;
+
+            font-size: 21px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 29px;
+            letter-spacing: 0em;
+            text-align: center;
+        }
+
+        section#fundo-header {
+            padding-bottom: 213px;
+        }
+        }
+    </style>
+</head>
+<body>
+    <section id="fundo-header">
+
+        <section id="redes-sociais">
+            <img src="imagens/Group.png" alt="">
+            <img src="imagens/facebook 1.png" alt="" id="segunda">
+            <img src="imagens/instagram 1.png" alt="">
+        </section>
+
+            <header class="center">
+                <nav>
+                    <img src="imagens/Group 1.png" alt="">
+                    <ul>
+                        <li>HOME</li>
+                        <li>FEATURES</li>
+                        <li>SERVICE</li>
+                        <li>PRICE</li>
+                    </ul>
+                    <button>LOGIN</button>
+                    <div id="menu"></div>
+                </nav>
+                <div id="parteA">
+                    <section class="texto">
+                        <h1>The World’s Fastest Growing Crypto App</h1>
+                        <p>Enjoy up to 8% back on all spending with your sleek, pure metal card. No annual fees. Top-up with fiat or crypto.</p>
+                        <button>Learn More</button>
+                    </section>
+
+                    <div id="img"></div>
+                </div>
+
+                <div id="parteB">
+                    <div id="img"></div>
+                    
+                    <section class="texto">
+                        <h1>Want to run a dapp on Flux network?</h1>
+                        <p>Any hardened dockerized application can run on Flux’s fully decentralized computational network</p>
+                        <button>Launch your app</button>
+                    </section>
+                </div>
+            </header>
+    </section>
+
+    <section id="conteudo">
+        <main class="center">
+                <h1>Leveraging the Power of Multiple Blockchains</h1>
+
+                <p>Innovation and expansion are key factors in the Flux network. The proposed new economic model comes with a strong approach to DeFi and Web 3.0.</p>
+
+            <section id="caixas">
+
+                <div id="caixaA">
+                    <img src="imagens/KADENA 1.png" alt="">
+                    <p style="color: #ED098F;">KADENA</p>
+                    <span>FLUX-KDA</span>
+                </div>
+
+                <div id="caixaB">
+                    <img src="imagens/KADENA 1 (1).png" alt="">
+                    <p style="color:#343434;">ETHEREUM</p>
+                    <span>FLUX-ETH</span>
+                </div>
+
+                <div id="caixaC">
+                    <img src="imagens/KADENA 1 (2).png" alt="">
+                    <p style="color: #F3BA2F;">BINANCE</p>
+                    <span>FLUX-BSC</span>
+                </div>
+            </section>
+        </main>
+    </section>
+
+    <!--<script>
+        var tema = window.document.getElementById('tema')''
+        var header = window.document.getElementById('fundo-header')''
+        var main = window.document.getElementById('conteudo')''
+
+        tema.addEventListener('clicar', function() {''
+            header.style.background = 'white'
+            header.style.color = 'black'
+            main.style.color = 'white'
+            main.style.background = 'black'
+        })''
+    </script>-->
+</body>
+</html>
