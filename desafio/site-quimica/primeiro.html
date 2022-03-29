@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quimica do Guilherme o Brabo</title>
+    <link rel="stylesheet" href="css/alerta.css">
     <style>
         :root {
             --cor0: white;
@@ -27,6 +28,10 @@
             font-family: Arial, Helvetica, sans-serif;
             background-color: var(--cor1);
             color: var(--cor0);
+        }
+
+        div#alerta{
+            display: none;
         }
 
         div#fundo {
@@ -188,48 +193,45 @@
     </style>
 </head>
 <body>
-    <nav>
-        <strong>Química - Prof. Guilherme</strong>
-        <button>Menu</button>
-    </nav>
-    <hr>
-
-    <header>
-        <section>
-            <div class="esferas" id="esfera1"></div>
-            <div class="esferas" id="esfera2"></div>
-            <div id="bloco">
-                <h1>CAROS ALUNOS - ATENÇÃO:</h1>
-                <strong>21/03/2022:</strong>
-                <p>Galera, logo abaixo estão disponíveis os links das PROVAS DE QUÍMICA E BIOLOGIA do 1° BIMESTRE.</p>
-                <p>Esta deve ser feita individualmente, sendo que é totalmente online. Assim que todos responderem, disponibilizarei as notas no e-mail de vocês.</p>
-                <p>Por isso é indispensável que você querido aluno preencha corretamente os dados solicitados na hora de realizar a prova!!!</p>
-                <strong>OBSERVAÇÕES:</strong>
-                <ol>
-                    <li>PARA CADA TURMA HÁ UM LINK ESPECÍFICO, PORTANTO, CLIQUE NO LINK CORRETO DA SUA TURMA.</li>
-                    <li>Valor das avaliações: 10 PONTOS!!!</li>
-                    <li>Data máxima para enviar: ATÉ DIA 23/03/2022, até às 18h</li>
-                </ol>
-            </div>
-        </section>
-    </header>
-
-    <main>
-        <h1>Links das PROVAS DO 1° BIMESTRE - QUÍMICA:</h1>
-        <a href="https://forms.gle/VH8kq3JDg9D8vmis8" target="_blank"><button>1°A:</button></a>
-        <a href="https://forms.gle/tXAT8LiewqtwqaCu5" target="_blank"><button>1°B:</button></a>
-        <a href="https://forms.gle/EwWAq1XGJTGCNYmH6" target="_blank"><button>1°C:</button></a>
-    </main>
-
-    <div id="fundo"></div>
-
-    <ul id="menu">
-        <button id="fecharmenu">x</button>
-
-        <a href="index.html"><li>Home</li></a>
-        <a href="segundo.html"><li>2° ano</li></a>
-        <a href="terceiro.html"><li>3° ano</li></a>
-    </ul>
+    <section id="corpo">
+        <nav>
+            <strong>Química - Prof. Guilherme</strong>
+            <button>Menu</button>
+        </nav>
+        <hr>
+        <header>
+            <section>
+                <div class="esferas" id="esfera1"></div>
+                <div class="esferas" id="esfera2"></div>
+                <div id="bloco">
+                    <h1>CAROS ALUNOS - ATENÇÃO:</h1>
+                    <strong>21/03/2022:</strong>
+                    <p>Galera, logo abaixo estão disponíveis os links das PROVAS DE QUÍMICA E BIOLOGIA do 1° BIMESTRE.</p>
+                    <p>Esta deve ser feita individualmente, sendo que é totalmente online. Assim que todos responderem, disponibilizarei as notas no e-mail de vocês.</p>
+                    <p>Por isso é indispensável que você querido aluno preencha corretamente os dados solicitados na hora de realizar a prova!!!</p>
+                    <strong>OBSERVAÇÕES:</strong>
+                    <ol>
+                        <li>PARA CADA TURMA HÁ UM LINK ESPECÍFICO, PORTANTO, CLIQUE NO LINK CORRETO DA SUA TURMA.</li>
+                        <li>Valor das avaliações: 10 PONTOS!!!</li>
+                        <li>Data máxima para enviar: ATÉ DIA 23/03/2022, até às 18h</li>
+                    </ol>
+                </div>
+            </section>
+        </header>
+        <main>
+            <h1>Links das PROVAS DO 1° BIMESTRE - QUÍMICA:</h1>
+            <a href="https://forms.gle/VH8kq3JDg9D8vmis8" target="_blank"><button>1°A:</button></a>
+            <a href="https://forms.gle/tXAT8LiewqtwqaCu5" target="_blank"><button>1°B:</button></a>
+            <a href="https://forms.gle/EwWAq1XGJTGCNYmH6" target="_blank"><button>1°C:</button></a>
+        </main>
+        <div id="fundo"></div>
+        <ul id="menu">
+            <button id="fecharmenu">x</button>
+            <a href="index.html"><li>Home</li></a>
+            <a href="segundo.html"><li>2° ano</li></a>
+            <a href="terceiro.html"><li>3° ano</li></a>
+        </ul>
+    </section>
 
     <script src="js/index.js"></script>
 </body>
