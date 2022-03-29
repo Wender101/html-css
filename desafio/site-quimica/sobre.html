@@ -18,6 +18,7 @@
             margin: 0px;
             padding: 0px;
             text-decoration: none;
+            list-style: none;
         }
 
         html {
@@ -72,7 +73,6 @@
             right: 0px;
             padding: 10px;
             height: 100%;
-            list-style: none;
             display: none;
             background-color: rgb(37, 11, 138);
         }
@@ -101,7 +101,7 @@
 
         header > section {
             max-width: 800px;
-            height: 720px;
+            height: 630px;
             position: relative;
         }
 
@@ -126,7 +126,7 @@
 
         header > section > div#bloco {
             width: 300px;
-            height: 550px;
+            height: 450px;
             padding: 10px;
             position: absolute;
             top: 70px;
@@ -138,47 +138,34 @@
         }
 
         header > section > div#bloco > h1 {
-            margin-bottom: 20px;
+            margin-bottom: 150px;
             text-align: center;
         }
 
-        header > section > div#bloco > ol {
-            margin-top: 20px;
-            margin-left: 20px;
-        }
-
-        header > section > div#bloco > ol > li {
-            margin-bottom: 20px;
-        }
-
-        header > section > div#bloco > p {
-            margin-bottom: 20px;
+        header  > section > div#bloco > img {
+            width: 100px;
+            margin-left: 50%;
+            transform: translate(-50%);
+            position: absolute;
+            top: 40px;
+            border-radius: 50%;
         }
 
         main {
             width: 300px;
-            height: 130px;
+            height: 300px;
             padding: 20px;
             margin-left: 50%;
             transform: translate(-50%);
             border-radius: 20px;
             background-color: var(--cor4);
-            margin-bottom: 20px;
             text-align: center;
-            font-size: 12px;
-        }
-
-        main > a > button {
             margin-bottom: 20px;
-            padding: 10px 20px;
-            border-radius: 10px;
-            border: 1px solid white;
-            margin: 10px;
+            font-size: 12px;
         }
 
         main > h1 {
             margin-bottom: 20px;
-            text-align: center;
         }
 
         main > p {
@@ -193,6 +180,9 @@
     </style>
 </head>
 <body>
+    <div id="alerta">
+        <p><strong>Erro</strong>. Este site ainda encontra-se em desenvolvimento e por isso não é compativel com telas muito grandes. Tente abri-lô em um dispositivo movel como o celular.</p>
+    </div>
     <section id="corpo">
         <nav>
             <strong>Química - Prof. Guilherme</strong>
@@ -204,31 +194,22 @@
                 <div class="esferas" id="esfera1"></div>
                 <div class="esferas" id="esfera2"></div>
                 <div id="bloco">
-                    <h1>CAROS ALUNOS - ATENÇÃO:</h1>
-                    <strong>21/03/2022:</strong>
-                    <p>Galera, logo abaixo estão disponíveis os links das PROVAS DE QUÍMICA E BIOLOGIA do 1° BIMESTRE.</p>
-                    <p>Esta deve ser feita individualmente, sendo que é totalmente online. Assim que todos responderem, disponibilizarei as notas no e-mail de vocês.</p>
-                    <p>Por isso é indispensável que você querido aluno preencha corretamente os dados solicitados na hora de realizar a prova!!!</p>
-                    <strong>OBSERVAÇÕES:</strong>
-                    <ol>
-                        <li>PARA CADA TURMA HÁ UM LINK ESPECÍFICO, PORTANTO, CLIQUE NO LINK CORRETO DA SUA TURMA.</li>
-                        <li>Valor das avaliações: 10 PONTOS!!!</li>
-                        <li>Data máxima para enviar: ATÉ DIA 23/03/2022, até às 18h</li>
-                    </ol>
+                    <h1>Sobre o Professor:</h1>
+                    <img src="img/WhatsApp Image 2022-03-14 at 20.13.19.jpg" alt="">
+                    <i><strong>Prof. Guilherme Ferreira Martins</strong> é Licenciado em Química pela Universidade Estadual de Goiás (UEG), Especialista em Farmácia e Química Forense pela Pontifícia Universidade Católica de Goiás (PUC-GO), Mestre em Físico-Química pela Universidade de Brasília (UnB) e Doutorando em Físico-Química pelo Programa de Pós-Graduação em Química da Universidade de Brasília (PPGQ-UnB). Atua há 10 anos como Professor de Química e Biologia na Rede Pública e Privada do Goiás.</i>
                 </div>
             </section>
         </header>
         <main>
-            <h1>Links das PROVAS DO 1° BIMESTRE - QUÍMICA:</h1>
-            <a href="https://forms.gle/VH8kq3JDg9D8vmis8" target="_blank"><button>1°A:</button></a>
-            <a href="https://forms.gle/tXAT8LiewqtwqaCu5" target="_blank"><button>1°B:</button></a>
-            <a href="https://forms.gle/EwWAq1XGJTGCNYmH6" target="_blank"><button>1°C:</button></a>
+            <h1>INSCREVAM-SE NO MEU CANAL DO YOUTUBE!</h1>
+            <p>Aulas de Química toda semana para revisão de conteúdo e aprofundamento.</p>
+            <a href="https://www.youtube.com/channel/UCgrenf963dhYcQ0fiTbNHqw?sub_confirmation=1" target="_blank"><img src="img/Anotação 2022-03-14 204727.jpg" alt="Canal do youtube do professor Guilherme"></a>
         </main>
         <div id="fundo"></div>
         <ul id="menu">
             <button id="fecharmenu">x</button>
             <a href="index.html"><li>Home</li></a>
-            <a href="sobre.html"><li>Sobre</li></a>
+            <a href="primeiro.html"><li>1° ano</li></a>
             <a href="segundo.html"><li>2° ano</li></a>
             <a href="terceiro.html"><li>3° ano</li></a>
         </ul>
