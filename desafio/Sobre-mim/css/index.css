@@ -1,0 +1,356 @@
+:root {
+    --cor1: white;
+    --cor2: black;
+    --cor3: rgb(16, 6, 54);
+    --cor4: rgba(255, 255, 255, 0.37);
+    --cor5: rgba(187, 184, 184, 0.342);
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+    text-decoration: none;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--cor3);
+    overflow-x: hidden;
+}
+
+nav {
+    width: 100%;
+    height: 85px;
+    background-color: var(--cor3);
+    color: var(--cor1);
+    padding-top: 20px;
+    position: relative;
+}   
+
+nav > h3 {
+    top: 40px;
+    left: 20px;
+    position: absolute;
+}
+
+nav > button#btn-menu {
+    margin-right: 20px;
+    padding: 16px;
+    background-color: var(--cor1);
+    border-radius: 10px;
+    color: var(--cor2);
+    border: none;
+    top: 45px;
+    position: absolute;
+    right: 10px;
+}
+
+nav > ul {
+    list-style: none;
+    display: flex;
+    top: 45px;
+    position: absolute;
+    right: 10px;
+}
+
+nav > ul > a > li > input{
+    margin-right: 20px;
+    padding: 16px;
+    background-color: var(--cor1);
+    border-radius: 10px;
+    color: var(--cor2);
+    border: none;
+} 
+
+hr {
+    width: 100%;
+    height: 1px;
+    background-color: var(--cor1);
+}
+
+section {
+    max-width: 800px;
+    height: 850px;
+    padding-top: 30px;
+    margin: auto;
+    position: relative;
+}
+
+section > div.ball {
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    background-image: linear-gradient(to top, rgb(10, 12, 134), blue, rgb(0, 255, 179));
+}
+
+section > div.ball1 {
+    position: absolute;
+    top: 30px;
+    left: 0px;
+}
+
+section > div.ball2 {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+}
+
+div#texto {
+    width: 80%;
+    height: 650px;
+    border-radius: 20px;
+    position: absolute;
+    top: 100px;
+    margin-left: 50%;
+    transform: translate(-50%);
+    background-color: var(--cor4);
+    color: var(--cor1);
+    padding: 20px;
+}
+
+div#texto > h1 {
+    text-align: center;
+}
+
+div#texto > p {
+    margin-top: 30px;
+}
+
+div#texto > p > strong > a{
+   color: var(--cor1);
+}
+
+div#texto > ul {
+    margin-top: 30px;
+    margin-left: 20px;
+}
+
+div#texto > ul > li > h3 {
+    margin-bottom: 20px;
+}
+
+div#texto > ul > li > ul{
+    margin-top: 20px;
+    margin-left: 30px;
+}
+
+div#texto > ul > li > ul > li {
+    width: 120px;
+    margin-bottom: 15px;
+}
+
+ul.tecnologias > li > img{
+    height: 35px;
+}
+
+div#resulmo {
+    width: 300px;
+    height: auto;
+    padding: 10px;
+    border-radius: 20px;
+    position: absolute;
+    top: 370px;
+    left: 70%;
+    transform: translate(-50%);
+    border: 2px solid white;
+    display: none;
+}
+
+div#resulmo > h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+div#formulario {
+    width: 80%;
+    height: 650px;
+    border-radius: 20px;
+    position: absolute;
+    top: 100px;
+    margin-left: 50%;
+    transform: translate(-50%);
+    background-color: var(--cor4);
+    color: var(--cor1);
+    padding: 20px;
+}
+
+div#formulario > h1 {
+    text-align: center;
+}
+
+div#formulario > p{
+    margin-top: 20px;
+    text-align: center;
+}
+
+div#formulario > .form input, .form textarea, .form button {
+    width: 80%;
+    height: 10px;
+    border: none;
+    border-radius: 20px;
+    margin: auto;
+    display: block;
+    background-color: var(--cor5);
+    padding: 20px;
+}
+
+div#formulario > .form label {
+    height: 15px;
+    margin-bottom: 10px;
+    margin-top: 30px;
+    margin-left: 50px;
+    display: block;
+}
+
+div#formulario > .form button {
+    margin-top: 30px;
+}
+
+div#formulario > .form textarea {
+    height: 150px;
+    font-size: 20px;
+    color: var(--cor1);
+}
+
+div#fundo {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    background-color: rgba(7, 7, 7, 0.589);
+    display: none;
+}
+
+div#fale-comigo {
+    width: 220px;
+    height: auto;
+    padding: 20px;
+    position: fixed;
+    border-radius: 20px;
+    top: 40%;
+    background-color: rgb(117, 117, 117);
+    color: var(--cor1);
+    margin-left: 50%;
+    transform: translate(-50%);
+    display: none;
+}
+
+div#fale-comigo > a > img {
+    width: 50px;
+    margin-top: 50px;
+}
+
+/*
+    Arrumando a responsividade!
+*/
+
+@media screen and (max-width: 683px) {
+    section {
+    max-width: 800px;
+    height: 950px;
+    padding-top: 30px;
+    margin: auto;
+    position: relative;
+    }
+
+    div#texto {
+        width: 80%;
+        height: 750px;
+        border-radius: 20px;
+        position: absolute;
+        top: 100px;
+        margin-left: 50%;
+        transform: translate(-50%);
+        background-color: var(--cor4);
+        color: var(--cor1);
+        padding: 20px;
+    }
+
+    div#resulmo {
+        width: 230px;
+        height: auto;
+        padding: 10px;
+        border-radius: 20px;
+        position: absolute;
+        top: 420px;
+        left: 73%;
+        transform: translate(-50%);
+        border: 2px solid white;
+        display: none;
+    }
+}
+
+@media screen and (max-width: 550px) {
+
+    section {
+        max-width: 800px;
+        height: 1450px;
+        padding-top: 30px;
+        margin: auto;
+        position: relative;
+    }
+
+    div#texto {
+        width: 80%;
+        height: 1250px;
+        border-radius: 20px;
+        position: absolute;
+        top: 100px;
+        margin-left: 50%;
+        transform: translate(-50%);
+        background-color: var(--cor4);
+        color: var(--cor1);
+        padding: 20px;
+    }
+
+    div#resulmo {
+        max-width: 300px;
+        height: auto;
+        padding: 10px;
+        border-radius: 20px;
+        position: absolute;
+        top: 820px;
+        left: 50%;
+        transform: translate(-50%);
+        border: 2px solid white;
+        display: none;
+    }
+}
+
+@media screen and (max-width: 368px) {
+
+    section {
+        max-width: 800px;
+        height: 1450px;
+        padding-top: 30px;
+        margin: auto;
+        position: relative;
+    }
+
+    div#texto {
+        width: 80%;
+        height: 1250px;
+        border-radius: 20px;
+        position: absolute;
+        top: 100px;
+        margin-left: 50%;
+        transform: translate(-50%);
+        background-color: var(--cor4);
+        color: var(--cor1);
+        padding: 20px;
+    }
+
+    div#resulmo {
+        max-width: 300px;
+        height: auto;
+        padding: 10px;
+        border-radius: 20px;
+        position: absolute;
+        top: 920px;
+        left: 50%;
+        transform: translate(-50%);
+        border: 2px solid white;
+        display: none;
+    }
+}

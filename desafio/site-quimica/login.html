@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quimica do Guilherme o Brabo</title>
+    <style>
+        :root {
+            --cor0: white;
+            --cor1:  rgb(16, 6, 54);
+            --cor3: black;
+            --cor4: rgba(255, 255, 255, 0.37);
+        }
+
+        * {
+            margin: 0px;
+            padding: 0px;
+            text-decoration: none;
+        }
+
+        html {
+            overflow: auto;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: var(--cor1);
+            color: var(--cor0);
+        }
+
+        div#alerta{
+            display: none;
+        }
+
+        div#fundo {
+            width: 100vw;
+            height: 100vh;
+            top: 0px;
+            position: fixed;
+            display: none;
+            background-color: rgba(0, 0, 0, 0.664);
+        }
+
+        nav {
+            width: 100%;
+            height: 80px;
+            position: relative;
+        }
+
+        nav > strong {
+            position: absolute;
+            left: 5px;
+            top: 20px;
+            padding: 10px;
+        }
+
+        nav > button {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            padding: 10px;
+            border: 1px solid white;
+            border-radius: 10px;
+        }
+
+        ul#menu {
+            width: 150px;
+            position: fixed;
+            top: 0px;
+            right: 0px;
+            padding: 10px;
+            height: 100%;
+            list-style: none;
+            display: none;
+            background-color: rgb(37, 11, 138);
+        }
+
+        ul#menu > button {
+            width: 30px;
+            height: 30px;
+            color: rgb(255, 255, 255);
+            border: 1px solid white;
+            background-color: transparent;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+
+        ul#menu > a {
+            color: white;
+        }
+
+        ul#menu > a > li {
+            margin-bottom: 20px;
+            padding: 10px;
+            border-radius: 10px;
+            border: 1px solid white;
+        }
+
+        header > section {
+            max-width: 800px;
+            height: 520px;
+            position: relative;
+        }
+
+        header > section > div.esferas {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-image: linear-gradient(to top, rgb(10, 12, 134), blue, rgb(0, 255, 179));
+        }
+
+        header > section > div#esfera1 {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+
+        header > section > div#esfera2 {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+        }
+
+        header > section >  div#bloco {
+            width: 300px;
+            height: 330px;
+            padding: 10px;
+            position: absolute;
+            top: 70px;
+            margin-left: 50%;
+            transform: translate(-50%);
+            border-radius: 20px;
+            background-color: var(--cor4);
+            margin-bottom: 20px;
+        }
+
+        header > section > div#bloco > article > h1 {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        header > section > div#bloco > article > ol {
+            margin-top: 20px;
+            margin-left: 20px;
+        }
+
+        header > section > div#bloco > article > ol > li {
+            margin-bottom: 20px;
+        }
+
+        header > section > div#bloco > article > p {
+            margin-bottom: 20px;
+            margin-top: 20px;
+            margin-left: 30px;
+        }
+
+        input {
+            width: 250px;
+            height: 40px;
+            margin-left: 50%;
+            margin-bottom: 20px;
+            transform: translate(-50%);
+            border-radius: 10px;
+            border: none;
+            background-color: rgba(20, 8, 66, 0.226);
+            color: white;
+        }
+
+        button#seguir {
+            width: 250px;
+            height: 40px;
+            margin-left: 50%;
+            margin-top: 10px;
+            margin-bottom: 20px;
+            transform: translate(-50%);
+            border-radius: 10px;
+            border: none;
+            background-color: rgba(20, 8, 66, 0.226);
+            color: white;
+            display: none;
+        }
+
+        span {
+            color: red;
+            margin-left: 30px;
+            text-shadow: 1px 1px 1px rgb(0, 0, 0);
+        }
+    </style>
+
+    <link rel="stylesheet" href="css/alerta.css">
+</head>
+<body>
+    <div id="alerta">
+        <p><strong>Erro</strong>. Este site ainda encontra-se em desenvolvimento e por isso não é compativel com telas maiores. Tente abri-lô em um dispositivo movel como o celular.</p>
+    </div>
+    <section id="corpo">
+        <nav>
+            <strong>Química - Prof. Guilherme</strong>
+            <button>Menu</button>
+        </nav>
+        <hr>
+        <header>
+            <section id="header">
+                    <div class="esferas" id="esfera1"></div>
+                    <div class="esferas" id="esfera2"></div>
+                    <div id="bloco">
+                        <article id="logar">
+                            <p>Email</p>
+                            <input type="email" name="" id="email">
+                            <p>Senha</p>
+                            <input type="password" name="" id="senha">
+                            <input type="submit" value="Enviar" id="btn">
+                            <span id="erro"></span>
+                        </article>
+                        <a href="index.html"><button id="seguir">Prosseguir</button></a>
+                    </div>
+            </section>
+        </header>
+        <div id="fundo"></div>
+        <ul id="menu">
+            <button id="fecharmenu">x</button>
+            <a href="index.html"><li>Home</li></a>
+            <a id="tema"><li>Tema</li></a>
+            <a href="sobre.html"><li>Sobre</li></a>
+            <a href="segundo.html"><li>2° ano</li></a>
+            <a href="terceiro.html"><li>3° ano</li></a>
+        </ul>
+    </section>
+
+    <script src="js/index.js"></script>
+
+    <script>
+        var btn = document.querySelector('input#btn')
+        var logar = document.querySelector('article#logar')
+        var seguir = document.querySelector('button#seguir')
+        var bloco = document.querySelector('div#bloco')
+        var sec = document.querySelector('section#header')
+        var erro = document.querySelector('span#erro')
+
+        btn.addEventListener('click', function() {
+            var email = document.querySelector('input#email').value
+            var senha = document.querySelector('input#senha').value
+
+            logar.style.display = 'none'
+            seguir.style.display = 'block'
+            bloco.style.height = '60px'
+            sec.style.height = '250px'
+        })
+    </script>
+</body>
+</html>
