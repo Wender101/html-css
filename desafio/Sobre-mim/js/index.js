@@ -40,10 +40,11 @@ sql.addEventListener('mouseenter', function() {
 })
 //------------------------------------------------------------------------------------
 
-// Faz o menu aparecer quando clicar no 'botão do menu'. Isso só vai funcionar pra o usuário mobile
+// Faz o menu aparecer quando clicar no 'botão do menu' e também faz o scroll da pag sumir 
 
 var btnMenu = document.querySelector('button#btn-menu')
 var FaleComigo = document.querySelector('div#fale-comigo')
+var html = document.querySelector('html')
 
 btnMenu.addEventListener('click', function() {
     if(FaleComigo.style.display === 'block') {
@@ -57,9 +58,15 @@ btnMenu.addEventListener('click', function() {
     } else {
         fundo.style.display = 'block'
     }
+
+    if(html.style.overflow === 'hidden') {
+        html.style.overflow = 'auto'
+    } else {
+        html.style.overflow = 'hidden'
+    }
 })
 
-// Faz a div 'fale-comigo' e a div 'fundo' sumir ao clicar 
+// Faz a div 'fale-comigo' e a div 'fundo' sumir ao clicar e também faz o scroll da pag aparecer 
 
 var fundo = document.querySelector('div#fundo')
 
@@ -74,5 +81,11 @@ fundo.addEventListener('click', function() {
         fundo.style.display = 'block'
     } else {
         fundo.style.display = 'none'
+    }
+
+    if(html.style.overflow === 'auto') {
+        html.style.overflow = 'hidden'
+    } else {
+        html.style.overflow = 'auto'
     }
 })

@@ -45,23 +45,6 @@ nav > button#btn-menu {
     right: 10px;
 }
 
-nav > ul {
-    list-style: none;
-    display: flex;
-    top: 45px;
-    position: absolute;
-    right: 10px;
-}
-
-nav > ul > a > li > input{
-    margin-right: 20px;
-    padding: 16px;
-    background-color: var(--cor1);
-    border-radius: 10px;
-    color: var(--cor2);
-    border: none;
-} 
-
 hr {
     width: 100%;
     height: 1px;
@@ -70,117 +53,88 @@ hr {
 
 section {
     max-width: 800px;
-    height: 850px;
-    padding-top: 30px;
-    margin: auto;
+    height: auto;
+    padding: 50px;
+    margin: 30px auto;
     position: relative;
 }
 
-section > div.ball {
-    border-radius: 50%;
+section > div {
+    width: 80%;
+    height: auto;
+    margin: auto;
+    background-color: var(--cor4);
+    color: var(--cor1);
+    border-radius: 20px;
+    padding: 30px;
+    position: relative;
+}
+
+div#texto > p > strong > a{
+    color: var(--cor1);
+ }
+
+div.ball {
     width: 200px;
     height: 200px;
+    border-radius: 50%;
     background-image: linear-gradient(to top, rgb(10, 12, 134), blue, rgb(0, 255, 179));
 }
 
-section > div.ball1 {
+div.ball1 {
     position: absolute;
-    top: 30px;
+    top: 0px;
     left: 0px;
 }
 
-section > div.ball2 {
+div.ball2 {
     position: absolute;
     bottom: 0px;
     right: 0px;
 }
 
-div#texto {
-    width: 80%;
-    height: 650px;
-    border-radius: 20px;
-    position: absolute;
-    top: 100px;
-    margin-left: 50%;
-    transform: translate(-50%);
-    background-color: var(--cor4);
-    color: var(--cor1);
-    padding: 20px;
+section > div > div#experiencia > h3 {
+    margin-top: 30px;
+    margin-bottom: 10px;
 }
 
-div#texto > h1 {
-    text-align: center;
+section > div > div#sobre-as-tecnologias {
+    display: flex;
 }
 
-div#texto > p {
+section > div > div#sobre-as-tecnologias > ul {
     margin-top: 30px;
 }
 
-div#texto > p > strong > a{
-   color: var(--cor1);
+section > div > div#sobre-as-tecnologias > ul > li {
+    margin-bottom: 30px;
 }
 
-div#texto > ul {
-    margin-top: 30px;
-    margin-left: 20px;
+section > div > div#sobre-as-tecnologias > ul > li > ul > li {
+    width: 200px;
 }
 
-div#texto > ul > li > h3 {
-    margin-bottom: 20px;
-}
-
-div#texto > ul > li > ul{
-    margin-top: 20px;
-    margin-left: 30px;
-}
-
-div#texto > ul > li > ul > li {
-    width: 120px;
-    margin-bottom: 15px;
-}
-
-ul.tecnologias > li > img{
-    height: 35px;
+section > div > div#sobre-as-tecnologias > ul > li > ul > li > img {
+    height: 30px;
 }
 
 div#resulmo {
-    width: 300px;
+    max-width: 300px;
     height: auto;
+    margin-top: 30px;
+    margin-left: 10%;
     padding: 10px;
+    border: 1px solid var(--cor1);
     border-radius: 20px;
-    position: absolute;
-    top: 370px;
-    left: 70%;
-    transform: translate(-50%);
-    border: 2px solid white;
+    background-color: transparent;
     display: none;
 }
 
-div#resulmo > h1 {
-    text-align: center;
-    margin-bottom: 20px;
-    margin-top: 20px;
-}
+/* 
+    Ajustando a parte b do site
+*/
 
-div#formulario {
-    width: 80%;
-    height: 650px;
-    border-radius: 20px;
-    position: absolute;
-    top: 100px;
-    margin-left: 50%;
-    transform: translate(-50%);
-    background-color: var(--cor4);
-    color: var(--cor1);
-    padding: 20px;
-}
-
-div#formulario > h1 {
-    text-align: center;
-}
-
-div#formulario > p{
-    margin-top: 20px;
+div#formulario > h1, div#formulario > p {
     text-align: center;
 }
 
@@ -219,6 +173,10 @@ div#formulario > .form textarea {
     color: var(--cor1);
 }
 
+/*
+    Ajustando a função do menu
+*/
+
 div#fundo {
     position: fixed;
     width: 100%;
@@ -247,116 +205,18 @@ div#fale-comigo > a > img {
     margin-top: 50px;
 }
 
-/*
-    Arrumando a responsividade!
-*/
-
-@media screen and (max-width: 683px) {
-    section {
-    max-width: 800px;
-    height: 950px;
-    padding-top: 30px;
-    margin: auto;
-    position: relative;
-    }
-
-    div#texto {
-        width: 80%;
-        height: 750px;
-        border-radius: 20px;
-        position: absolute;
-        top: 100px;
-        margin-left: 50%;
-        transform: translate(-50%);
-        background-color: var(--cor4);
-        color: var(--cor1);
-        padding: 20px;
-    }
-
-    div#resulmo {
-        width: 230px;
-        height: auto;
-        padding: 10px;
-        border-radius: 20px;
-        position: absolute;
-        top: 420px;
-        left: 73%;
-        transform: translate(-50%);
-        border: 2px solid white;
-        display: none;
-    }
-}
-
-@media screen and (max-width: 550px) {
-
-    section {
-        max-width: 800px;
-        height: 1450px;
-        padding-top: 30px;
-        margin: auto;
-        position: relative;
-    }
-
-    div#texto {
-        width: 80%;
-        height: 1250px;
-        border-radius: 20px;
-        position: absolute;
-        top: 100px;
-        margin-left: 50%;
-        transform: translate(-50%);
-        background-color: var(--cor4);
-        color: var(--cor1);
-        padding: 20px;
-    }
-
+@media screen and (max-width: 730px) {
     div#resulmo {
         max-width: 300px;
         height: auto;
-        padding: 10px;
-        border-radius: 20px;
-        position: absolute;
-        top: 820px;
-        left: 50%;
-        transform: translate(-50%);
-        border: 2px solid white;
-        display: none;
-    }
-}
-
-@media screen and (max-width: 368px) {
-
-    section {
-        max-width: 800px;
-        height: 1450px;
-        padding-top: 30px;
-        margin: auto;
-        position: relative;
-    }
-
-    div#texto {
-        width: 80%;
-        height: 1250px;
-        border-radius: 20px;
-        position: absolute;
-        top: 100px;
         margin-left: 50%;
         transform: translate(-50%);
-        background-color: var(--cor4);
-        color: var(--cor1);
-        padding: 20px;
-    }
-
-    div#resulmo {
-        max-width: 300px;
-        height: auto;
         padding: 10px;
+        border: 1px solid var(--cor1);
         border-radius: 20px;
-        position: absolute;
-        top: 920px;
-        left: 50%;
-        transform: translate(-50%);
-        border: 2px solid white;
+        background-color: transparent;
         display: none;
+        top: 300px;
+        position: absolute;
     }
 }
