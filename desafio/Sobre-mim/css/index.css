@@ -184,7 +184,7 @@ div#formulario > p{
     text-align: center;
 }
 
-div#formulario > .form input, .form textarea, .form button {
+div#formulario > .form input, .form textarea {
     width: 80%;
     height: 10px;
     border: none;
@@ -199,12 +199,18 @@ div#formulario > .form label {
     height: 15px;
     margin-bottom: 10px;
     margin-top: 30px;
-    margin-left: 50px;
+    margin-left: 8%;
     display: block;
 }
 
 div#formulario > .form button {
-    margin-top: 30px;
+    width: 86%;
+    border: none;
+    border-radius: 20px;
+    margin: 30px auto;
+    display: block;
+    background-color: var(--cor5);
+    padding: 10px;
 }
 
 div#formulario > .form textarea {
