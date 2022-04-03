@@ -10,7 +10,9 @@ a#subir {
     height: 50px;
     display: block;
     position: fixed;
-    background-color: var(--Laranjado);
+    background-size: cover;
+    background-position: center center;
+    background-image: url(/imagens/ícones/subir.jpg);
     bottom: 250px;
     right: 20px;
     border-radius: 50%;
