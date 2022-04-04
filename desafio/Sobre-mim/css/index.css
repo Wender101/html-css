@@ -2,7 +2,7 @@
     --cor1: white;
     --cor2: black;
     --cor3: rgb(16, 6, 54);
-    --cor4: rgba(255, 255, 255, 0.37);
+    --cor4: rgba(255, 255, 255, 0.493);
     --cor5: rgba(187, 184, 184, 0.342);
 }
 
@@ -10,6 +10,7 @@
     margin: 0px;
     padding: 0px;
     text-decoration: none;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.445);
 }
 
 body {
@@ -39,6 +40,7 @@ nav > button#btn-menu {
     background-color: var(--cor1);
     border-radius: 10px;
     color: var(--cor2);
+    text-shadow: none;
     border: none;
     top: 45px;
     position: absolute;
@@ -70,7 +72,12 @@ section > div {
     position: relative;
 }
 
-div#texto > p > strong > a{
+div#texto > h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+ p > strong > a{
     color: var(--cor1);
  }
 
@@ -108,10 +115,14 @@ section > div > div#sobre-as-tecnologias > ul {
 
 section > div > div#sobre-as-tecnologias > ul > li {
     margin-bottom: 30px;
+    list-style: none;
 }
 
 section > div > div#sobre-as-tecnologias > ul > li > ul > li {
     width: 200px;
+    margin-bottom: 20px;
+    margin-left: 35px;
+    cursor: pointer;
 }
 
 section > div > div#sobre-as-tecnologias > ul > li > ul > li > img {
@@ -146,6 +157,7 @@ div#formulario > .form input, .form textarea {
     margin: auto;
     display: block;
     background-color: var(--cor5);
+    color: var(--cor1);
     padding: 20px;
 }
 
@@ -164,6 +176,7 @@ div#formulario > .form button {
     margin: 30px auto;
     display: block;
     background-color: var(--cor5);
+    color: var(--cor1);
     padding: 10px;
 }
 
@@ -206,17 +219,10 @@ div#fale-comigo > a > img {
 }
 
 @media screen and (max-width: 730px) {
-    div#resulmo {
-        max-width: 300px;
-        height: auto;
-        margin-left: 50%;
-        transform: translate(-50%);
-        padding: 10px;
-        border: 1px solid var(--cor1);
-        border-radius: 20px;
-        background-color: transparent;
-        display: none;
-        top: 300px;
-        position: absolute;
+    div.ball {
+        width: 130px;
+        height: 130px;
+        border-radius: 50%;
+        background-image: linear-gradient(to top, rgb(10, 12, 134), blue, rgb(0, 255, 179));
     }
 }
