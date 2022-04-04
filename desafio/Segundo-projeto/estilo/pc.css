@@ -217,6 +217,7 @@ a#fecharINF {
     color: var(--Branco);
     text-decoration: none;
     background-color: #E66D22;
+    cursor: pointer;
 }
 
 a#fecharINF > span {
@@ -324,7 +325,7 @@ a#subir {
     position: fixed;
     background-size: cover;
     background-position: center center;
-    background-image: url(/imagens/ícones/subir.jpg);
+    background-image: url(../imagens/ícones/subir.jpg);
     bottom: 250px;
     right: 20px;
     border-radius: 50%;
