@@ -67,6 +67,7 @@ nav > button {
     margin-left: 10px;
     color: var(--Branco);
     background-color: var(--Laranjado);
+    cursor: pointer;
 }
 
 nav > button > p {
@@ -274,19 +275,6 @@ article > h1 {
     margin-left: 80px;
 }
 
-article > div> div > img {
-    width: 220px;
-    height: 210px;
-    background-color: white;
-    border-radius: 20px;
-    transition: transform 1s;
-    transform: translateX(0) scale(1);
-}
-
-article > div > div > img:hover, img:focus {
-transform: translateX(10px) scale(1.2);
-}
-
 article > div#p1 {
     width: 220px;
     height: 440px;
@@ -294,6 +282,20 @@ article > div#p1 {
     padding-left: 80px;
     margin: auto;
 
+}
+
+article > div> div > img {
+    width: 220px;
+    height: 210px;
+    background-color: white;
+    border-radius: 20px;
+    transition: transform 1s;
+    transform: translateX(0) scale(1);
+    cursor: pointer;
+}
+
+article > div > div > img:hover, img:focus {
+transform: translateX(10px) scale(1.2);
 }
 
 article > div > div > div.texto {
@@ -329,6 +331,7 @@ a#subir {
     bottom: 250px;
     right: 20px;
     border-radius: 50%;
+    display: none;
 }
 
 @media screen and (min-width: 2400px) {

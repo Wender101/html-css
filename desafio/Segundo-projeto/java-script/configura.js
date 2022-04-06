@@ -1,200 +1,121 @@
-//Ao clicar no botão menu, o menu 'categoria' vai ser aberto
-var btmenu = window.document.getElementById('menu')
-var categorias = window.document.getElementById('categorias')
+//Faz o botão subir aparecer e sumir quando rolar o scroll
+window.addEventListener("scroll", (event) => {
+    let scroll = this.scrollY;
+
+    if(scroll < 300) {
+        let subir = window.document.getElementById('subir')
+        subir.style.display = 'none'
+    } else {
+        let subir = window.document.getElementById('subir')
+        subir.style.display = 'block'
+    }
+});
+
+
+//Ao clicar no botão menu...
+const btmenu = window.document.getElementById('menu')
+const categorias = window.document.getElementById('categorias')
+const subir = window.document.getElementById('subir')
+const fundo = window.document.getElementById('fundo')
+const html = window.document.getElementById('html')
 
 btmenu.addEventListener('click', function() {
     
+    //O menu vai aparecer
     if(categorias.style.display === 'block') {
         categorias.style.display = 'none'
-    } 
-    else {
+    } else {
         categorias.style.display = 'block'
     }
-})
 
-//Ao abrir o menu, a div 'subir' vai sumir
-var btmenu = window.document.getElementById('menu')
-var subir = window.document.getElementById('subir')
-
-btmenu.addEventListener('click', function() {
-    
+    //O butão de voltar ao topo vai sumir ou aparecer quando clicar no btnmenu
     if(subir.style.display === 'none') {
         subir.style.display = 'block'
-    } 
-    else {
+    } else {
         subir.style.display = 'none'
     }
-})
 
-//Ao fechar o menu, a div 'subir' vai aparecer
-var Xc = window.document.getElementById('Xc')
-var subir = window.document.getElementById('subir')
-
-Xc.addEventListener('click', function() {
-    
-    if(subir.style.display === 'none') {
-        subir.style.display = 'block'
-    } 
-    else {
-        subir.style.display = 'none'
-    }
-})
-
-//Ao fechar o menu, a div 'subir' vai aparecer
-var fundo = window.document.getElementById('fundo')
-var subir = window.document.getElementById('subir')
-
-fundo.addEventListener('click', function() {
-    
-    if(subir.style.display === 'none') {
-        subir.style.display = 'block'
-    } 
-    else {
-        subir.style.display = 'none'
-    }
-})
-
-//Ao clicar no botão menu, a div 'fundo' sera aberto
-var btmenu = window.document.getElementById('menu')
-var fundo = window.document.getElementById('fundo')
-
-btmenu.addEventListener('click', function() {
-
+    //O fundo vai aparecer ou sumir quando clicar no btnmenu
     if(fundo.style.display === 'block') {
         fundo.style.display = 'none'
-    }
-
-    else {
+    } else {
         fundo.style.display = 'block'
     }
+
+    //O scroll da pág vai sumir ou aparecer quando clicar no btnmenu
+    if(html.style.overflowY === 'hidden') {
+        html.style.overflowY = 'scroll'
+    } else {
+        html.style.overflowY = 'hidden'
+    }
+    
 })
 
-//Ao clicar no batão na div 'fundo', o menu vai sumir
-var fundo = window.document.getElementById('fundo')
-var categorias = window.document.getElementById('categorias')
-
+//Ao fechar o menu clicando no fundo da pág...
 fundo.addEventListener('click', function() {
     
+    //O botão de voltar ao topo vai sumir ou aparecer quando clicar no fundo
+    if(subir.style.display === 'none') {
+        subir.style.display = 'block'
+    } else {
+        subir.style.display = 'none'
+    }
+
+    //O menu vai sumir ou aparecer quando clicar no fundo
     if(categorias.style.display === 'block') {
         categorias.style.display = 'none'
-    } 
-    else {
+    } else {
         categorias.style.display = 'block'
     }
-})
 
-//Ao clicar na div 'fundo', a div 'fundo' vai sumir
-var fundo = window.document.getElementById('fundo')
-
-fundo.addEventListener('click', function() {
-
+    //O fundo vai sumir ou aparecer quando clicar no fundo
     if(fundo.style.display === 'block') {
         fundo.style.display = 'none'
-    }
-
-    else {
+    } else {
         fundo.style.display = 'block'
     }
-})
 
-//Quando o menu for aberto, o scroll da pág vai sumir
-var menu = window.document.getElementById('menu')
-var html = window.document.getElementById('html')
-
-menu.addEventListener('click', function() {
-
+    //O scroll da pág vai sumir ou aparecer quando clicar no fundo
     if(html.style.overflowY === 'hidden') {
         html.style.overflowY = 'scroll'
-    }
-
-    else {
+    } else {
         html.style.overflowY = 'hidden'
     }
 })
 
-//Quando a div 'categorias for fechada, o scroll da pág vai aparecer'
-var fundo = window.document.getElementById('fundo')
-var html = window.document.getElementById('html')
-
-fundo.addEventListener('click', function() {
-    
-    if(html.style.overflowY === 'hidden') {
-        html.style.overflowY = 'scroll'
-    } 
-    else {
-        html.style.overflowY = 'hidden'
-    }
-})
-
-//Ao clicar no 'Xc', o scroll da pág sumirá
-var Xc = window.document.getElementById('Xc')
-var html = window.document.getElementById('html')
+//Ao fechar o menu clicando no 'X'...
+const Xc = window.document.getElementById('Xc')
 
 Xc.addEventListener('click', function() {
 
-    if(html.style.overflowY === 'scroll'){
-        html.style.overflowY = 'hidden'
-    }
-    else {
-        html.style.overflowY = 'scroll'
-    }
-})
-
-//Ao clicar no 'Xc', a div 'categorias' sumirá
-var Xc = window.document.getElementById('Xc')
-var categorias = window.document.getElementById('categorias')
-
-Xc.addEventListener('click', function() {
-
-    if(categorias.style.display === 'block'){
-        categorias.style.display = 'none'
-    }
-    else {
-        categorias.style.display = 'block'
-    }
-})
-
-//Ao clicar no 'Xc', a div 'fundo' sumirá
-var Xc = window.document.getElementById('Xc')
-var fundo = window.document.getElementById('fundo')
-
-Xc.addEventListener('click', function() {
-
+    // O fundo vai sumir ao clicar no 'X' do menu
     if(fundo.style.display === 'block'){
         fundo.style.display = 'none'
-    }
-    else {
+    } else {
         fundo.style.display = 'block'
     }
+
+    // O menu vai sumir ao clicar no 'X' do menu
+    if(categorias.style.display === 'block'){
+        categorias.style.display = 'none'
+    } else {
+        categorias.style.display = 'block'
+    }
+
+    // O scroll da pág vai aparecer ao clicar no 'X' do menu
+    if(html.style.overflowY === 'scroll'){
+        html.style.overflowY = 'hidden'
+    } else {
+        html.style.overflowY = 'scroll'
+    }
+
+    // O botão de voltar ao topo vai aparecer ao clicar no 'X' do menu
+    if(subir.style.display === 'none') {
+        subir.style.display = 'block'
+    } else {
+        subir.style.display = 'none'
+    }
 })
-
-//Faz a div 'informe aparecer'
-
-var main = document.querySelector("main")
-var inf = document.getElementById("informe")
-
-main.addEventListener('click', function() {
-
-    if(inf.style.display === "block"){
-        inf.style.display = "none";
-    } else{
-        inf.style.display = "block";
-    }
-});
-
-//Faz a div 'informe' sumir
-
-var Finf = document.getElementById("fecharINF")
-var inf = document.getElementById("informe")
-
-Finf.addEventListener('click', function() {
-
-    if(inf.style.display === "block"){
-        inf.style.display = "none";
-    } else{
-        inf.style.display = "block";
-    }
-});
 
 //---------------------------------------
 // Scroll suave 
