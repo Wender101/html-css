@@ -1,2 +1,2 @@
 # html-css
- Curso de HTML5  e CSS3
+ Alguns projetos em html e css, criados para desenvolvimento pessoal!
