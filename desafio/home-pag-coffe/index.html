@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffe pag</title>
+    <style>
+        :root {
+        --backgrond: #000;
+        --text-color: #FFF;
+        --button: #8257E5;
+        --border: #29292E;
+        --border-menu-mobile: #A8A8B3;
+        --text-color-menu-mobile: #E1E1E6;
+        }
+
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        body {
+            background-color: var(--backgrond);
+        }
+
+        nav {
+            width: 918px;
+            margin-left: 50%;
+            transform: translate(-50%);
+            position: absolute;
+            display: flex;
+            color: white;
+            margin-top: 50px;
+        }
+
+        nav > ul  {
+            margin-left: 141px;
+            list-style: none;
+            display: flex;
+        }
+
+        nav > ul > li {
+            height: 19px;
+            width: 103px;
+            margin-top: 10px;
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 19px;
+            letter-spacing: 0.02em;
+            text-align: left;
+        }
+
+        nav > button {
+            width: 172px;
+            height: 37px;
+            border: 1px solid #8257E5;
+            background-color: transparent;
+            border-radius: 6px;
+            color: white;
+        }
+
+        main > div#titulo {
+            max-width: 548px;
+            height: 204px;
+            margin-left: 50%;
+            transform: translate(-50%);
+            position: absolute;
+            color: white;
+            top: 140px;
+        }
+
+        main > div#titulo  > h1 {
+            font-size: 80px;
+            font-weight: 700;
+            line-height: 109px;
+            letter-spacing: -0.03em;
+            text-align: left;
+        }
+
+        /*
+            Fazendo o fundo da pág
+        */
+        section#fundo {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+        }
+
+        div#blur1 {
+            width: 600px;
+            height: 600px;
+            bottom: 0px;
+            left: 0px;
+            position: absolute;
+            background-image: url(imgs/blur-1.png);
+            background-position: center center;
+            background-size: cover;
+        }
+
+        div#blur2 {
+            width: 600px;
+            height: 600px;
+            top: 0px;
+            right: 0px;
+            position: absolute;
+            background-image: url(imgs/blur-2.png);
+            background-position: center center;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <img src="imgs/logo-desktop.svg" alt="Logo da Rocketseat">
+        <ul>
+            <li>Home</li>
+            <li>Menu</li>
+            <li>Recompensas</li>
+            <li>Gift Cards</li>
+            <li>Lojas</li>
+        </ul>
+        <button id="Pegar-Cafe">PEGAR MEU CAFÉ</button>
+    </nav>
+    <main>
+        <div id="titulo">
+            <h1>Great Coffee</h1>
+            <h1><Great Code/></h1>
+        </div>
+    </main>
+
+    <section id="fundo">
+        <div id="blur1"></div>
+        <div id="blur2"></div>
+    </section>
+</body>
+</html>
