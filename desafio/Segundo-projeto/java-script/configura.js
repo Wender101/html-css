@@ -51,6 +51,15 @@ btmenu.addEventListener('click', function() {
     
 })
 
+//Ao clicar na casinha
+let casinha = document.getElementById('menu2')
+
+casinha.addEventListener('click', function() {
+    categorias.style.display = 'block'
+    fundo.style.display = 'block'
+    html.style.overflowY = 'hidden'
+})
+
 //Ao fechar o menu clicando no fundo da pág...
 fundo.addEventListener('click', function() {
     
@@ -80,40 +89,6 @@ fundo.addEventListener('click', function() {
         html.style.overflowY = 'scroll'
     } else {
         html.style.overflowY = 'hidden'
-    }
-})
-
-//Ao fechar o menu clicando no 'X'...
-const Xc = window.document.getElementById('Xc')
-
-Xc.addEventListener('click', function() {
-
-    // O fundo vai sumir ao clicar no 'X' do menu
-    if(fundo.style.display === 'block'){
-        fundo.style.display = 'none'
-    } else {
-        fundo.style.display = 'block'
-    }
-
-    // O menu vai sumir ao clicar no 'X' do menu
-    if(categorias.style.display === 'block'){
-        categorias.style.display = 'none'
-    } else {
-        categorias.style.display = 'block'
-    }
-
-    // O scroll da pág vai aparecer ao clicar no 'X' do menu
-    if(html.style.overflowY === 'scroll'){
-        html.style.overflowY = 'hidden'
-    } else {
-        html.style.overflowY = 'scroll'
-    }
-
-    // O botão de voltar ao topo vai aparecer ao clicar no 'X' do menu
-    if(subir.style.display === 'none') {
-        subir.style.display = 'block'
-    } else {
-        subir.style.display = 'none'
     }
 })
 
