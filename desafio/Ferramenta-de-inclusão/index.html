@@ -11,6 +11,10 @@
             padding: 0px;
         }
 
+        html {
+            overflow-y: scroll;
+        }
+
         body {
             background-color: black;
         }
@@ -19,21 +23,21 @@
             width: 400px;
             height: auto;
             border-radius: 10px;
-            position: fixed;
-            top: 15%;
+            margin-top: 30px;
             margin-left: 50%;
             transform: translate(-50%);
             background-color: white;
             text-align: center;
             padding-top: 30px;
             box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.322);
+            word-wrap: break-word;
         }
 
         h1 {
             margin-bottom: 20px;
         }
 
-        div {
+        section > div {
             width: 80px;
             height: 80px;
             border-radius: 50%;
@@ -43,14 +47,25 @@
             box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.322);
         }
 
-        div > input {
+        section > div > input {
             width: 130%;
             height: 130%;
             border: none;
             margin-top: -10px;
             margin-left: -10px;
         }
-    </style>
+
+        input {
+            margin-bottom: 30px;
+        }
+        
+        div {
+            width: 400px;
+            height: 100px;
+            background-color: transparent;
+        }
+
+        </style>
 </head>
 <body>
     <section>
@@ -63,6 +78,8 @@
         <input type="number" name="" id="tamanhoLetras">
     </section>
 
+    <div></div>
+
     <script>
         let cor
         let corFonte
@@ -72,7 +89,7 @@
         const h1 = document.querySelector('h1')
         const section = document.querySelector('section')
 
-        section.addEventListener('click', function() {
+        body.addEventListener('click', function() {
             cor = document.getElementById('cor').value
             corFonte = document.getElementById('corFonte').value
             tLetras = document.getElementById('tamanhoLetras').value
@@ -80,10 +97,10 @@
             body.style.color = corFonte
             body.style.background = cor
 
-            if(tLetras.lenght == 0) {
-                section.style.fontSize = '20px'
+            if(tLetras.length == 0) {
+                section.style.fontSize = '16px'
             } else {
-                let Tfinal = tLetras * 20
+                let Tfinal = tLetras * 16
                 section.style.fontSize = Tfinal+'px'
             }
         })
