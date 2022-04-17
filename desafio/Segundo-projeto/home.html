@@ -238,41 +238,13 @@
             max-width: 1232px;
         }
 
-        section#menu2 {
-            width: 200px;
-            height: 60px;
-            border-radius: 10px;
-            top: 70%;
-            margin-top: -60px;
-            margin-left: -123px;
-            position:sticky;
-            cursor: pointer;
-        }
-
         div#segundo-menu {
             width: 30px;
             height: 60px;
-            margin-left: 10px;
-        }
-
-        section#menu2:hover {
-            margin-left: -60px;
-            transition: 200ms margin-left ease;
-        }
-
-        section#menu2:hover > div > hr {
-            display: none;
-        }
-
-        hr#traço {
-            width: 10px;
-            height: 100%;
-            border: none;
-            background-color: #E66D22;
-            position: absolute;
-            top: -5px;
-            left: 65px;
-            border-radius: 10px;
+            margin-left: -40px;
+            position: fixed;
+            bottom: 130px;
+            cursor: pointer;
         }
 
         article > h1 {
@@ -333,14 +305,17 @@
             background-position: center center;
             background-image: url(imagens/ícones/subir.jpg);
             bottom: 135px;
-            right: 20px;
+            right: 10px;
             border-radius: 50%;
             display: none;
+            opacity: 0.5;
         }
 
         #subir:hover {
             transition: 200ms transform linear;
+            opacity: 1;
             transform: scale(1.2);
+            transform: opacity (1.2);
         }
 
         @media screen and (min-width: 2400px) {
@@ -484,9 +459,7 @@
     <main>
         <article id="l1">
             <!-- Segundo menu -->
-            <section id="menu2">
-                <div id="segundo-menu"><img src="imagens/ícones/Vector.png" alt=""> <hr id="traço"></div>
-            </section>
+            <div id="segundo-menu"><img src="imagens/ícones/Vector.png" alt=""></div>
             <h1>Headsets</h1>
             <div id="p1">
                 <a href="headset.html">

@@ -265,6 +265,15 @@ main {
     background-color: #000d63;
 }
 
+div#segundo-menu {
+    width: 30px;
+    height: 60px;
+    margin-left: 10px;
+    position: fixed;
+    bottom: 130px;
+    cursor: pointer;
+}
+
 article {
     max-width: 1232px;
 }
@@ -320,7 +329,7 @@ article > div > div > div.texto > span {
     color: white;
 }
 
-a#subir {
+#subir {
     width: 50px;
     height: 50px;
     display: block;
@@ -328,10 +337,18 @@ a#subir {
     background-size: cover;
     background-position: center center;
     background-image: url(../imagens/ícones/subir.jpg);
-    bottom: 250px;
-    right: 20px;
+    bottom: 135px;
+    right: 10px;
     border-radius: 50%;
     display: none;
+    opacity: 0.5;
+}
+
+#subir:hover {
+    transition: 200ms transform linear;
+    opacity: 1;
+    transform: scale(1.2);
+    transform: opacity (1.2);
 }
 
 @media screen and (min-width: 2400px) {
