@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/estilo.css">
+    <link rel="stylesheet" href="/css/responsividade.css">
+    <title>Sobre Mim</title>
+
+</head>
+<body>
+    <section id="conteudo">
+        <nav>
+            <h3>Wender Natanael</h3>
+            <ul>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#h2projeto">Projetos</a></li>
+                <li id="navContato">Contatos</li>
+            </ul>
+        </nav>
+        <main>
+            <section id="part1">
+                <h4>Wender Natanael</h4>
+                <h1>FRONT-END DEVELOPER</h1>
+                <p>Desenvolvo interfaces web e resolvo problemas enfrentados pelo usuário com HTML, CSS e Javascript. Faz 2 anos que entrei para a área, resolvendo problemas dos usuários e implementando sites responsivos.</p>
+                <div id="eu"></div>
+            </section>
+            <section id="part2">
+                <h2 id="sobre">Sobre Mim</h2>
+                <p>Prazer! Eu sou o Wender Natanael, tenho 16 anos, moro em Formosa Go desde que nasci e sempre fui apaixonado por tecnologia. Desde de pequeno eu gostava de solucionar problemas e criar formas mais faceis e rapidas de fazer algo.</p>
+                <p>Entrei pra area pro engano em 2021 haha mas me apaixonei logo de cara, foi neste dia que a minha jornada começou.</p>
+                <button id="btnContato">Fale Comigo</button>
+            </section>
+            <section id="part3">
+                <h2 id="h2projeto">Projetos</h2>
+                    <section id="mostrar">
+                        <article id="projetos">
+                                <a href="https://wender101.github.io/html-css/desafio/responsive/index" target="_blank">
+                                    <article id="sobre1">HTML e CSS</article>
+                                    <div id="proj1"></div>
+                                </a>
+                                <a href="https://wender101.github.io/html-css/desafio/Segundo-projeto/home" target="_blank">
+                                    <article id="sobre2">HTML, CSS e Js</article>
+                                    <div id="proj2"></div>
+                                </a>
+                                <a href="https://wender101.github.io/JavaScript-no-html/JS/treinos/jogo-da-velha/" target="_blank">
+                                    <article id="sobre3">HTML, CSS e Js</article>
+                                    <div id="proj3"></div>
+                                </a>
+                                <a href="https://wender101.github.io/html-css/desafio/de010" target="_blank">
+                                    <article id="sobre4">HMTL e CSS</article>
+                                    <div id="proj4"></div>
+                                </a>
+                                <a href="https://wender101.github.io/html-css/desafio/site-quimica/" target="_blank">
+                                    <article id="sobre5">HMTL, CSS e JS</article>
+                                    <div id="proj5"></div>
+                                </a>
+                        </article>
+                    </section>
+            </section>
+        </main>
+        <div id="fundo"></div>
+        <div id="fale-comigo">
+            <h3>Estou a sua disposição</h3>
+            <a href="https://github.com/Wender101?tab=repositories">
+                <img src="img/icons/Github.png" alt="">
+            </a>
+            <a href="https://www.linkedin.com/in/wender-natanael-marques-vieira-dos-santos-a9a29a235">
+                <img src="img/icons/LinkedIn.png" alt="">
+            </a>
+            <a href="https://www.instagram.com/wender_2021/">
+                <img src="img/icons/Instagram.png" alt="">
+            </a>
+            <a href="http://api.whatsapp.com/send?phone=+55%2061%99935-2015">
+                <img src="img/icons/WhatsApp.png" alt="">
+            </a>
+        </div>
+    </section>
+
+    <script>
+        let btncontato = document.getElementById('btnContato');
+        let navcontato = document.getElementById('navContato');
+        let contato = document.getElementById('fale-comigo');
+        let fundo = document.getElementById('fundo');
+
+        //Faz a div fale-comigo e a div fundo aparecer
+        btncontato.addEventListener('click', function() {
+            contato.style.display = 'block'
+            fundo.style.display = 'block'
+        })
+
+        //Faz a div fale-comigo e a div fundo aparecer
+        navcontato.addEventListener('click', function() {
+            contato.style.display = 'block'
+            fundo.style.display = 'block'
+        })
+
+        //Faz a div fale-comigo e a div fundo sumir
+        fundo.addEventListener('click', function() {
+            contato.style.display = 'none'
+            fundo.style.display = 'none'
+        })
+    </script>
+</body>
+</html>

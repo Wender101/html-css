@@ -1,0 +1,248 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap');
+
+:root {
+    --background: #0A0119;
+    --branco: white;
+
+    /* Fonts */
+
+    --letras: 'Inter', sans-serif;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    background-color: var(--background);
+    color: white;
+    font-family: var(--letras);
+    font-weight: 100;
+    font-size: 17px;
+}
+
+section#conteudo {
+    max-width: 1600px;
+    margin: auto;
+    position: relative;
+    padding: 20px;
+}
+
+nav {
+    width: 100%;
+    height: auto;
+    padding: 45px 0px 20px 0px;
+    display: flex;
+    position: relative;
+}
+
+nav > h3 {
+    margin-left: 43px;
+}
+
+nav > ul {
+    display: flex;
+    list-style: none;
+    position: absolute;
+    right: 42px;
+}
+
+nav > ul > li {
+    margin-left: 34px;
+    cursor: pointer;
+}
+
+nav > ul > li > a {
+    text-decoration: none;
+    color: var(--branco);
+}
+
+/* Primeira parte */
+
+section#part1 {
+    max-width: 550px;
+    margin: 129px 0px 0px 43px;
+    font-family: var(--letras);
+}
+
+section#part1 > h1 {
+    margin: 10px 0px 6px 0px;
+    font-size: 30px;
+}
+
+section#part1 > p {
+    margin-bottom: 6px;
+    text-align: justify;
+    font-size: 15px;
+}
+
+section#part1 > div#eu {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    border: 5px solid var(--branco);
+    background-size: cover;
+    background-position: right center;
+    /*background-image: url(img/wender.jpg);*/
+    position: absolute;
+    right: 60px;
+    top: 180px;
+    background-color: white;
+}
+
+/* Parte 2 */
+
+section#part2 {
+    max-width: 800px;
+    margin: 124px auto 0px;
+}
+
+section#part2 > h2 {
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+section#part2 > button {
+    padding: 10px 16px;
+    background-color: var(--branco);
+    border: none;
+    border-radius: 15px;
+    margin-left: 50%;
+    transform: translate(-50%);
+    margin-top: 17px;
+    cursor: pointer;
+}
+
+/* Parte 3 */
+
+section#part3 {
+    max-width: 1060px;
+    margin: 100px auto;
+}
+
+section#part3 > h2 {
+    text-align: center;
+}
+
+/* Section que vai vazer mostrar apenas 3 projetos por vez */
+section#mostrar {
+    max-width: 900px;
+    height: auto;
+    margin: auto;
+    overflow: auto;
+    border-radius: 20px;
+}
+
+section#mostrar::-webkit-scrollbar {
+    height: 12px;
+}
+
+section#mostrar::-webkit-scrollbar-thumb {
+    background-color: var(--branco);
+    border-radius: 12px;
+}
+
+/* Conjunto de projetos */
+article#projetos {
+    width: auto;
+    margin: 35px auto;
+    display: inline-flex;
+}
+
+/* Estilizando o local onde ficará os projetos */
+article#projetos > a {
+    width: 250px;
+    height: 250px;
+    margin-left: 30px;
+    position: relative;
+}
+
+/* Estilizando a parte que fala sobre as tecnologias usadas nos projetos */
+article#projetos > a > article{
+    position: absolute;
+    width: 101%;
+    height: 50px;
+    background-color: rgb(255, 255, 255);
+    color: black;
+    box-shadow: 0px -3px 10px rgba(14, 14, 14, 0.384);
+    border-radius: 0px 0px 20px 20px;
+    bottom: -5px;
+    text-align: center;
+    padding-top: 20px;
+}
+
+/* Estilizando os projetos */
+article#projetos > a  > div{
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    background-color: white;
+    cursor: pointer;
+    border: 2px solid white;
+}
+
+div#proj1 {
+    background-position: center center;
+    background-size: cover;
+    background-image: url(../img/projeto1.jpg);
+}
+
+div#proj2 {
+    background-position: center center;
+    background-size: cover;
+    background-image: url(../img/projeto2.jpg);
+}
+
+div#proj3 {
+    background-position: center center;
+    background-size: cover;
+    background-image: url(../img/projeto3.jpg);
+}
+
+div#proj4 {
+    background-position: center center;
+    background-size: cover;
+    background-image: url(../img/projeto4.jpg);
+}
+
+div#proj5 {
+    background-position: center center;
+    background-size: cover;
+    background-image: url(../img/projeto5.jpg);
+}
+
+/* Fale Comigo */
+
+div#fundo {
+    width: 110%;
+    height: 100%;
+    top: 0px;
+    left: -20px;
+    background-color: #21103b96;
+    position: fixed;
+    display: none;
+}
+
+div#fale-comigo {
+    width: 230px;
+    height: auto;
+    padding: 20px;
+    position: fixed;
+    border-radius: 20px;
+    top: 40%;
+    background-color: #505050;
+    color: var(--cor1);
+    margin-left: 50%;
+    transform: translate(-50%);
+    display: none;
+}
+
+div#fale-comigo > a > img {
+    margin-top: 20px;
+    width: 45px;
+    height: 45px;
+    margin-left: 4px;
+    border-radius: 50%;
+    border: 2px solid white;
+}
