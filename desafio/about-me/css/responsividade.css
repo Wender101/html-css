@@ -46,6 +46,12 @@
         font-family: var(--letras);
     }
 
+    section#part1 > p {
+        margin-bottom: 6px;
+        font-size: 15px;
+        text-align: center;
+    }
+
     section#part1 > div#eu {
         position: static;
         transition: 1s margin-left linear;

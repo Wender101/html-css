@@ -104,6 +104,10 @@ section#part2 > h2 {
     text-align: center;
 }
 
+section#part2 > p {
+    text-align: center;
+}
+
 section#part2 > button {
     padding: 10px 16px;
     background-color: var(--branco);
