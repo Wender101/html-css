@@ -80,8 +80,8 @@ section#part1 > p {
 section#part1 > div#eu {
     width: 250px;
     height: 250px;
-    border-radius: 50%;
     transition: 1s border-radius linear;
+    border-radius: 50%;
     border: 5px solid var(--branco);
     background-size: cover;
     background-position: right center;
