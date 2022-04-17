@@ -64,6 +64,7 @@ section#part1 {
     max-width: 550px;
     margin: 129px 0px 0px 43px;
     font-family: var(--letras);
+    transition: 1s margin linear;
 }
 
 section#part1 > h1 {
@@ -73,7 +74,6 @@ section#part1 > h1 {
 
 section#part1 > p {
     margin-bottom: 6px;
-    text-align: justify;
     font-size: 15px;
 }
 
@@ -81,6 +81,7 @@ section#part1 > div#eu {
     width: 250px;
     height: 250px;
     border-radius: 50%;
+    transition: 1s border-radius linear;
     border: 5px solid var(--branco);
     background-size: cover;
     background-position: right center;
@@ -119,6 +120,7 @@ section#part2 > button {
 section#part3 {
     max-width: 1060px;
     margin: 100px auto;
+    transition: 2s margin linear;
 }
 
 section#part3 > h2 {

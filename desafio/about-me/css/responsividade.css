@@ -27,6 +27,12 @@
         max-width: 800px;
         margin: 324px auto 0px;
     }
+
+    div#fale-comigo {
+        margin-left: 45%;
+        transform: translate(-50%);
+        display: none;
+    }
 }
 
 @media screen and (max-width: 622px) {
