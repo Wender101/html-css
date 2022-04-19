@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube</title>
+    <style>
+        :root {
+            --black: black;
+            --menu: #212121;
+            --conteudo: #181717;
+            --input: #121212;
+            --btn: #303030;
+            --borda: #303030; 
+        }
+
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        body {
+
+        }
+
+        /* Estilizando o Header */
+
+        header {
+            width: 100%;
+            height: auto;
+            padding: 8px;
+            background-color: var(--menu);
+            display: flex;
+            position: fixed;
+        }
+
+        header > div#btn-menu {
+            width: 18px;
+            height: 13px;
+            background-size: cover;
+            background-image: url(img/icones/Vector.png);
+            margin: 13px 19px;
+            cursor: pointer;
+        }
+
+        header > div#logo {
+            width: 90px;
+            height: 20px;
+            background-size: cover;
+            background-image: url(img/Youtube-Logo.png);
+            margin-top: 10px;
+            margin-left: 8px;
+        }
+
+        header > div#input {
+            margin-left: 40%;
+            display: flex;
+            transform: translate(-54%);
+        }
+        
+        header > div > input {
+            width: 525px;
+            height: 20px;
+            color: white;
+            background-color: var(--input);
+            border: none;
+            padding: 10px 0px 11px 4px;
+            font-size: 16px;
+        }
+
+        header > div > button#pesquisar {
+            width: 64px;
+            height: 40px;
+            border: none;
+            background-color: var(--btn);
+
+        }
+
+        header > div#input > div#mic {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-left: 4px;
+            background-color: var(--black);
+        }
+
+        header > div#input > div#mic > img {
+            margin: 11px 0px 0px 12px;
+        }
+
+        /* Histórioco de pesquisas e temas relacionados */
+
+        nav {
+            width: 100%;
+            position: fixed;
+            top: 57px;
+            color: white;
+            background-color: var(--menu);
+            border: 1px solid var(--borda);
+        }
+
+        nav > ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav > ul > li#btnall {
+            background-color: white;
+            color: black;
+        }
+
+        nav > ul > li {
+            border-radius: 32px;
+            padding: 8px  12px;
+            margin: 12px;
+            background-color: var(--borda);
+            border: 1px solid #AAAAAA;
+        }
+
+        nav > div#btnAvancarMenu1 {
+            width: 56px;
+            height: 56px;
+            padding-bottom: 10px;
+            left: 0px;
+            background-image: linear-gradient(to right, transparent, var(--menu), var(--menu));
+            color: white;
+            position: absolute;
+            top: -6px;
+            cursor: pointer;
+            transform: rotate(180deg);
+            display: none;
+        }
+
+        nav > div#btnAvancarMenu2 {
+            width: 56px;
+            height: 56px;
+            padding-top: 10px;
+            right: 0px;
+            background-image: linear-gradient(to right, transparent, var(--menu), var(--menu));
+            color: white;
+            position: absolute;
+            top: -6px;
+            cursor: pointer;
+        }
+
+        nav > div > img {
+            margin: 20px;
+        }
+
+
+        /* Barra lateral */
+
+        section#barra-lateral {
+            width: 240px;
+            height: 100%;
+            background-color: var(--menu);
+            top: 57px;
+            position: fixed;
+            display: none;
+        }
+
+        /* Main */
+
+        main {
+            width: 100%;
+            height: 100vh;
+            background-color: var(--conteudo);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div id="btn-menu" onclick="abrirMenu()"></div>
+        <div id="logo"></div>
+        <div id="input">
+            <input type="text" placeholder="Pesquisar">      
+            <button id="pesquisar"><img src="img/icones/pesquisar.png" alt="icone de pesquisa"></button>
+            <div id="mic"><img src="img/icones/mic.png" alt="icone de um microfone"></div>
+        </div>
+    </header>
+
+    <nav>
+        <ul id="ul">
+            <li id="btnall">All</li>
+            <li>Item</li>
+            <li>Item</li>
+            <li>Item</li>
+            <li>Item</li>
+            <li>Item</li>
+            <li>Item</li>
+            <li>Item</li>
+            <li>Item</li>
+            <li>Item</li>
+            <li>Item</li>
+            <li>Item</li>
+            <li>Item</li>
+            <li>Item</li>
+            <li>Item</li>
+            <li>Item</li>
+            <li>Item</li>
+            <li>Item</li>
+            <li>Item</li>
+            <li>Item</li>
+
+        </ul>
+        <div id="btnAvancarMenu1" onclick="irProLadoEsquerdo()"><img src="img/icones/leftBottom.png" alt="Setinha pro lado esquerdo"></div>
+
+        <div id="btnAvancarMenu2" onclick="irProLadoDireito()"><img src="img/icones/leftBottom.png" alt="Setinha pro lado direito"></div>
+    </nav>
+
+    <!-- Barra lateral do YouTube -->
+    <section id="barra-lateral"></section>
+
+    <main>
+
+    </main>
+
+    <script>
+        function abrirMenu() {
+            let barraLateral = document.getElementById('barra-lateral')
+            let btnEsquerdo = document.getElementById('btnAvancarMenu1')
+            let ul = document.getElementById('ul')
+            
+            if(barraLateral.style.display == 'block') {
+                barraLateral.style.display = 'none'
+                ul.style.marginLeft = '0px'
+                btnEsquerdo.style.marginLeft = '0px'
+                
+            } else {
+                barraLateral.style.display = 'block'
+                btnEsquerdo.style.marginLeft = '239px'
+                ul.style.marginLeft = '240px'
+            }
+        }
+
+        //                               Lógica
+
+        // A var c1 vai diminuir toda vez que clicar no botão do menu pra ir pro lado diteiro ->
+        // e com isso tbm, vai somar 1 á var c2, e quando c2 for maior que '0' o botão pro lado 
+        // direito vai aparecer, já quando c1 for = a '0' ele vai sumir, e quando clicar no btn 
+        // pro lado esquerdo c1 vai receber 1
+
+        let c1 = 2
+        let c2 = 0
+
+        function irProLadoDireito() {
+            let ul = document.getElementById('ul')
+            let btnEsquerdo = document.getElementById('btnAvancarMenu1')
+            let btnDireito = document.getElementById('btnAvancarMenu2')
+            
+            ul.style.transition = '200ms transform linear'
+            ul.style.transform +='translateX(-15%)' 
+            btnEsquerdo.style.display = 'block'
+
+            c1 -= 1
+            c2 += 1
+
+            if(c1 == 0) {
+                btnDireito.style.display = 'none'
+            }
+           
+        }
+
+        function irProLadoEsquerdo() {
+            let ul = document.getElementById('ul')
+            let btnEsquerdo = document.getElementById('btnAvancarMenu1')
+            let btnDireito = document.getElementById('btnAvancarMenu2')
+            
+            ul.style.transition = '200ms transform linear'
+            ul.style.transform +='translateX(17%)' 
+            btnDireito.style.display = 'block'
+
+            c2 -= 1
+            c1 += 1
+
+            if(c2 == 0) {
+                btnEsquerdo.style.display = 'none'
+            }
+        }
+    </script>
+</body>
+</html>
