@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="img/icones/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/video.css">
+    <title>YouTube</title>
+</head>
+<body>
+    <header>
+        <div id="btn-menu" onclick="abrirMenu()"></div>
+        <div id="logo"></div>
+        <div id="input">
+            <input type="text" placeholder="Pesquisar">      
+            <button id="pesquisar"><img src="img/icones/pesquisar.png" alt="icone de pesquisa"></button>
+            <div id="mic"><img src="img/icones/mic.png" alt="icone de um microfone"></div>
+        </div>
+    </header>
+
+    <main>
+        <section id="part1">
+            <img src="img/videos/Youtube player.png" alt="">
+            <h4>Blind Woodturner: Turning passion into fine art</h4>
+            <p>576,969 visualizações . 8 de abr. de 2021</p>
+            <article id="config">
+                <img src="img/videos/config/Button.png" alt="">
+                <img src="img/videos/config/Button (1).png" alt="">
+                <img src="img/videos/config/Button (2).png" alt="">
+                <img src="img/videos/config/Button (3).png" alt="">
+                <img src="img/videos/config/Button (4).png" alt="">
+            </article>
+
+            <hr>
+
+
+        </section>
+
+        <section id="part2"></section>
+    </main>
+
+    <div id="fundo" onclick="fecharFundo()"></div>
+    <!-- Barra lateral do YouTube -->
+    <section id="barra-lateral">
+        <article id="topo-menu">
+            <div id="btn-menu" onclick="abrirMenu()"></div>
+            <div id="logo"></div>
+        </article>
+
+        <ul>
+            <a href="index.html">
+                <li><img src="img/icones/menu/ic10.png" alt="icone de uma casinha"> Home</li>
+            </a>
+            <li><img src="img/icones/menu/ic9.png" alt="icone de uma bulsula"> Explore</li>
+            <li><img src="img/icones/menu/ic7.png" alt="icone das Inscrições"> Inscrições</li>
+
+            <hr>
+
+            <li><img src="img/icones/menu/ic5.png" alt="icone da biblioteca"> Biblioteca</li>
+            <li><img src="img/icones/menu/ic4.png" alt="icone do histórico"> Hitórico</li>
+            <li><img src="img/icones/menu/ic3.png" alt="icone dos Seus Videos"> Seus videos</li>
+            <li><img src="img/icones/menu/ic2.png" alt="icone de Assistir mais tarde"> Assistir mais tarde</li>
+            <li><img src="img/icones/menu/ic1.png" alt="icone de um joinha"> Videos marcados co...</li>
+
+            <hr>
+
+            <p>INSCRIÇÕES</p>
+
+            <li class="l2"><img src="img/users/user1.png" alt="user 1"> James Gouse</li>
+            <li class="l2"><img src="img/users/user2.png" alt="user 2"> Alexis Sears</li>
+            <li class="l2"><img src="img/users/user3.png" alt="user 3"> Marcis Levin</li>
+            <li class="l2"><img src="img/users/user4.png" alt="user 4"> Alan Cooper</li>
+        </ul>
+    </section>
+
+    <script>
+        // Funcionalidades do menu
+
+        function abrirMenu() {
+            let barraLateral = document.getElementById('barra-lateral')
+            let ul = document.getElementById('ul')
+            let fundo = document.getElementById('fundo')
+            
+            if(barraLateral.style.display == 'block') {
+                barraLateral.style.display = 'none'
+                ul.style.marginLeft = '0px'
+                fundo.style.display = 'none'
+                
+            } else {
+                barraLateral.style.display = 'block'
+                ul.style.marginLeft = '240px'
+                fundo.style.display = 'block'
+            }
+        }
+
+        // Vai:
+        // fechar o menu
+        // mover o 'nav' pro lado e a setinha do nav
+        // e exibir o fundo
+
+        function fecharFundo() {
+            let barraLateral = document.getElementById('barra-lateral')
+            let ul = document.getElementById('ul')
+            let fundo = document.getElementById('fundo')
+            
+            if(barraLateral.style.display == 'block') {
+                barraLateral.style.display = 'none'
+                ul.style.marginLeft = '0px'
+                fundo.style.display = 'none'
+                
+            } else {
+                barraLateral.style.display = 'block'
+                ul.style.marginLeft = '240px'
+                fundo.style.display = 'block'
+            }
+        }
+    </script>
+</body>
+</html>

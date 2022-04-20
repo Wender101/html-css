@@ -216,6 +216,33 @@ section#barra-lateral > ul > li > img {
     margin-bottom: -5px;
 }
 
+/* li Home */
+
+section#barra-lateral > ul > li > a {
+    color: white;
+    font-family: var(--font);
+    font-weight: 100;
+    padding: 8px;
+    padding-left: 24px;
+}
+
+section#barra-lateral > ul > a > li {
+    color: white;
+    font-family: var(--font);
+    font-weight: 100;
+    padding: 8px;
+    padding-left: 24px;
+}
+
+section#barra-lateral > ul > a > li:hover {
+    background-color: #444444;
+}
+
+section#barra-lateral > ul > a > li > img {
+    margin-right: 24px;
+    margin-bottom: -5px;
+}
+
 
 /* Main */
 
@@ -226,56 +253,52 @@ main {
     background-color: var(--conteudo);
 }
 
-main > table {
-    margin-left: 24px;
+
+main > section#part1{
+    width: 853px;
+    height: auto;
+    margin-top: -60px;
+    margin-left: 40px;
 }
 
-td > a > img.imgvideo {
-    width: 300px;
-    height: 175px;
-    margin-left: 16px;
-    cursor: pointer;
+main > section#part1 > img {
+    
 }
 
-td > img.imgvideo {
-    width: 300px;
-    height: 175px;
-    margin-left: 16px;
-    cursor: pointer;
-}
-
-div.user {
-    display: flex;
-    padding-bottom: 58px;
-    margin-left: 16px;
-}
-
-div.user > img.imguser {
-    width: 36px;
-    height: 36px;
-    margin-top: 12px;
-    cursor: pointer;
-}
-
-div.user > div.texto{
-    width: 250px;
-    margin-left: 12px;
-    cursor: pointer;
-}
-
-h5 {
-    font-family: var(--font);
+main > section#part1 {
     color: white;
-    font-weight: 100;
-    margin-bottom: 6px;
-    font-size: 15px;
+    font-family: var(--font);
+    position: relative;
 }
 
-div.user > div.texto p {
-    font-family: var(--font);
-    color: var(--p);
-    font-size: 12px;
+main > section#part1 > img {
+    width: 853px;
 }
+
+main > section#part1 > h4 {
+    font-weight: 200;
+    margin-top: 20px;
+    margin-bottom: 12px;
+}
+
+main > section#part1 > article {
+    display: flex;
+    position: absolute;
+    top: 520px;
+    right: 0px;
+}
+
+main > section#part1 > p {
+    font-weight: 100;
+    color: rgb(145, 143, 143);
+    font-size: 14px;
+}
+
+main > section#part1 > article > img {
+    height: 40px;
+}
+
+
 
 /* Fazendo o fundo que vai aparecer quando abri o menu */
 
