@@ -5,172 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="img/icones/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/estilo.css">
     <title>YouTube</title>
-    <style>
-        :root {
-            --black: black;
-            --menu: #212121;
-            --conteudo: #181717;
-            --input: #121212;
-            --btn: #303030;
-            --borda: #303030; 
-        }
-
-        * {
-            margin: 0px;
-            padding: 0px;
-        }
-
-        body {
-
-        }
-
-        /* Estilizando o Header */
-
-        header {
-            width: 100%;
-            height: auto;
-            padding: 8px;
-            background-color: var(--menu);
-            display: flex;
-            position: fixed;
-        }
-
-        header > div#btn-menu {
-            width: 18px;
-            height: 13px;
-            background-size: cover;
-            background-image: url(img/icones/Vector.png);
-            margin: 13px 19px;
-            cursor: pointer;
-        }
-
-        header > div#logo {
-            width: 90px;
-            height: 20px;
-            background-size: cover;
-            background-image: url(img/Youtube-Logo.png);
-            margin-top: 10px;
-            margin-left: 8px;
-        }
-
-        header > div#input {
-            margin-left: 40%;
-            display: flex;
-            transform: translate(-54%);
-        }
-        
-        header > div > input {
-            width: 525px;
-            height: 20px;
-            color: white;
-            background-color: var(--input);
-            border: none;
-            padding: 10px 0px 11px 4px;
-            font-size: 16px;
-        }
-
-        header > div > button#pesquisar {
-            width: 64px;
-            height: 40px;
-            border: none;
-            background-color: var(--btn);
-            cursor: pointer;
-        }
-
-        header > div#input > div#mic {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            margin-left: 4px;
-            background-color: var(--black);
-            cursor: pointer;
-        }
-
-        header > div#input > div#mic > img {
-            margin: 11px 0px 0px 12px;
-        }
-
-        /* Histórioco de pesquisas e temas relacionados */
-
-        nav {
-            width: 100%;
-            position: fixed;
-            top: 57px;
-            color: white;
-            background-color: var(--menu);
-            border: 1px solid var(--borda);
-        }
-
-        nav > ul {
-            display: flex;
-            list-style: none;
-        }
-
-        nav > ul > li#btnall {
-            background-color: white;
-            color: black;
-        }
-
-        nav > ul > li {
-            border-radius: 32px;
-            padding: 8px  12px;
-            margin: 12px;
-            background-color: var(--borda);
-            border: 1px solid #AAAAAA;
-            cursor: pointer;
-        }
-
-        nav > div#btnAvancarMenu1 {
-            width: 56px;
-            height: 56px;
-            padding-bottom: 10px;
-            left: 0px;
-            background-image: linear-gradient(to right, transparent, var(--menu), var(--menu));
-            color: white;
-            position: absolute;
-            top: -6px;
-            cursor: pointer;
-            transform: rotate(180deg);
-            display: none;
-        }
-
-        nav > div#btnAvancarMenu2 {
-            width: 56px;
-            height: 56px;
-            padding-top: 10px;
-            right: 0px;
-            background-image: linear-gradient(to right, transparent, var(--menu), var(--menu));
-            color: white;
-            position: absolute;
-            top: -6px;
-            cursor: pointer;
-        }
-
-        nav > div > img {
-            margin: 20px;
-        }
-
-
-        /* Barra lateral */
-
-        section#barra-lateral {
-            width: 240px;
-            height: 100%;
-            background-color: var(--menu);
-            top: 57px;
-            position: fixed;
-            display: none;
-        }
-
-        /* Main */
-
-        main {
-            width: 100%;
-            height: 100vh;
-            background-color: var(--conteudo);
-        }
-    </style>
 </head>
 <body>
     <header>
@@ -212,30 +48,202 @@
         <div id="btnAvancarMenu2" onclick="irProLadoDireito()"><img src="img/icones/leftBottom.png" alt="Setinha pro lado direito"></div>
     </nav>
 
+    <div id="fundo" onclick="fecharFundo()"></div>
     <!-- Barra lateral do YouTube -->
     <section id="barra-lateral"></section>
 
     <main>
-
-    </main>
-
-    <script>
-        function abrirMenu() {
-            let barraLateral = document.getElementById('barra-lateral')
-            let btnEsquerdo = document.getElementById('btnAvancarMenu1')
-            let ul = document.getElementById('ul')
+        <table>
+            <tr>
+                <td>
+                    <img src="img/users/t1.png" alt="" class="imgvideo">
+                    <div class="user">
+                        <img src="img/users/user1.png" alt="" class="imguser">
+                        <div class="texto">
+                            <h5>Lorem ipsum dolor sit amet, consecte adipiscing elit.</h5>
+                            <p>James Gouse</p>
+                            <p>15K Views .1 week ago</p>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <img src="img/users/t2.png" alt="" class="imgvideo">
+                    <div class="user">
+                        <img src="img/users/user2.png" alt="" class="imguser">
+                        <div class="texto">
+                            <h5>Lorem ipsum dolor sit amet, consecte adipiscing elit.</h5>
+                            <p>James Gouse</p>
+                            <p>15K Views .1 week ago</p>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <img src="img/users/t3.png" alt="" class="imgvideo">
+                    <div class="user">
+                        <img src="img/users/user3.png" alt="" class="imguser">
+                        <div class="texto">
+                            <h5>Lorem ipsum dolor sit amet, consecte adipiscing elit.</h5>
+                            <p>James Gouse</p>
+                            <p>15K Views .1 week ago</p>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <img src="img/users/t4.png" alt="" class="imgvideo">
+                    <div class="user">
+                        <img src="img/users/user4.png" alt="" class="imguser">
+                        <div class="texto">
+                            <h5>Lorem ipsum dolor sit amet, consecte adipiscing elit.</h5>
+                            <p>James Gouse</p>
+                            <p>15K Views .1 week ago</p>
+                        </div>
+                    </div>
+                </td>
+            </tr>
             
-            if(barraLateral.style.display == 'block') {
-                barraLateral.style.display = 'none'
-                ul.style.marginLeft = '0px'
-                btnEsquerdo.style.marginLeft = '0px'
-                
-            } else {
-                barraLateral.style.display = 'block'
-                btnEsquerdo.style.marginLeft = '239px'
-                ul.style.marginLeft = '240px'
-            }
-        }
+            <tr>
+                <td>
+                    <img src="img/users/t5.png" alt="" class="imgvideo">
+                    <div class="user">
+                        <img src="img/users/user1.png" alt="" class="imguser">
+                        <div class="texto">
+                            <h5>Lorem ipsum dolor sit amet, consecte adipiscing elit.</h5>
+                            <p>James Gouse</p>
+                            <p>15K Views .1 week ago</p>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <img src="img/users/t6.png" alt="" class="imgvideo">
+                    <div class="user">
+                        <img src="img/users/user2.png" alt="" class="imguser">
+                        <div class="texto">
+                            <h5>Lorem ipsum dolor sit amet, consecte adipiscing elit.</h5>
+                            <p>James Gouse</p>
+                            <p>15K Views .1 week ago</p>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <img src="img/users/t7.png" alt="" class="imgvideo">
+                    <div class="user">
+                        <img src="img/users/user3.png" alt="" class="imguser">
+                        <div class="texto">
+                            <h5>Lorem ipsum dolor sit amet, consecte adipiscing elit.</h5>
+                            <p>James Gouse</p>
+                            <p>15K Views .1 week ago</p>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <img src="img/users/t8.png" alt="" class="imgvideo">
+                    <div class="user">
+                        <img src="img/users/user4.png" alt="" class="imguser">
+                        <div class="texto">
+                            <h5>Lorem ipsum dolor sit amet, consecte adipiscing elit.</h5>
+                            <p>James Gouse</p>
+                            <p>15K Views .1 week ago</p>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <img src="img/users/t1.png" alt="" class="imgvideo">
+                    <div class="user">
+                        <img src="img/users/user1.png" alt="" class="imguser">
+                        <div class="texto">
+                            <h5>Lorem ipsum dolor sit amet, consecte adipiscing elit.</h5>
+                            <p>James Gouse</p>
+                            <p>15K Views .1 week ago</p>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <img src="img/users/t2.png" alt="" class="imgvideo">
+                    <div class="user">
+                        <img src="img/users/user2.png" alt="" class="imguser">
+                        <div class="texto">
+                            <h5>Lorem ipsum dolor sit amet, consecte adipiscing elit.</h5>
+                            <p>James Gouse</p>
+                            <p>15K Views .1 week ago</p>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <img src="img/users/t3.png" alt="" class="imgvideo">
+                    <div class="user">
+                        <img src="img/users/user3.png" alt="" class="imguser">
+                        <div class="texto">
+                            <h5>Lorem ipsum dolor sit amet, consecte adipiscing elit.</h5>
+                            <p>James Gouse</p>
+                            <p>15K Views .1 week ago</p>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <img src="img/users/t4.png" alt="" class="imgvideo">
+                    <div class="user">
+                        <img src="img/users/user4.png" alt="" class="imguser">
+                        <div class="texto">
+                            <h5>Lorem ipsum dolor sit amet, consecte adipiscing elit.</h5>
+                            <p>James Gouse</p>
+                            <p>15K Views .1 week ago</p>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <img src="img/users/t5.png" alt="" class="imgvideo">
+                    <div class="user">
+                        <img src="img/users/user1.png" alt="" class="imguser">
+                        <div class="texto">
+                            <h5>Lorem ipsum dolor sit amet, consecte adipiscing elit.</h5>
+                            <p>James Gouse</p>
+                            <p>15K Views .1 week ago</p>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <img src="img/users/t6.png" alt="" class="imgvideo">
+                    <div class="user">
+                        <img src="img/users/user2.png" alt="" class="imguser">
+                        <div class="texto">
+                            <h5>Lorem ipsum dolor sit amet, consecte adipiscing elit.</h5>
+                            <p>James Gouse</p>
+                            <p>15K Views .1 week ago</p>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <img src="img/users/t7.png" alt="" class="imgvideo">
+                    <div class="user">
+                        <img src="img/users/user3.png" alt="" class="imguser">
+                        <div class="texto">
+                            <h5>Lorem ipsum dolor sit amet, consecte adipiscing elit.</h5>
+                            <p>James Gouse</p>
+                            <p>15K Views .1 week ago</p>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <img src="img/users/t8.png" alt="" class="imgvideo">
+                    <div class="user">
+                        <img src="img/users/user4.png" alt="" class="imguser">
+                        <div class="texto">
+                            <h5>Lorem ipsum dolor sit amet, consecte adipiscing elit.</h5>
+                            <p>James Gouse</p>
+                            <p>15K Views .1 week ago</p>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </main>
+    <script>
 
         //                               Lógica
 
@@ -279,6 +287,53 @@
 
             if(c2 == 0) {
                 btnEsquerdo.style.display = 'none'
+            }
+        }
+
+        // Funcionalidades do menu
+
+        function abrirMenu() {
+            let barraLateral = document.getElementById('barra-lateral')
+            let btnEsquerdo = document.getElementById('btnAvancarMenu1')
+            let ul = document.getElementById('ul')
+            let fundo = document.getElementById('fundo')
+            
+            if(barraLateral.style.display == 'block') {
+                barraLateral.style.display = 'none'
+                ul.style.marginLeft = '0px'
+                btnEsquerdo.style.marginLeft = '0px'
+                fundo.style.display = 'none'
+                
+            } else {
+                barraLateral.style.display = 'block'
+                btnEsquerdo.style.marginLeft = '239px'
+                ul.style.marginLeft = '240px'
+                fundo.style.display = 'block'
+            }
+        }
+
+        // Vai:
+        // fechar o menu
+        // mover o 'nav' pro lado e a setinha do nav
+        // e exibir o fundo
+
+        function fecharFundo() {
+            let barraLateral = document.getElementById('barra-lateral')
+            let btnEsquerdo = document.getElementById('btnAvancarMenu1')
+            let ul = document.getElementById('ul')
+            let fundo = document.getElementById('fundo')
+            
+            if(barraLateral.style.display == 'block') {
+                barraLateral.style.display = 'none'
+                ul.style.marginLeft = '0px'
+                btnEsquerdo.style.marginLeft = '0px'
+                fundo.style.display = 'none'
+                
+            } else {
+                barraLateral.style.display = 'block'
+                btnEsquerdo.style.marginLeft = '239px'
+                ul.style.marginLeft = '240px'
+                fundo.style.display = 'block'
             }
         }
     </script>
