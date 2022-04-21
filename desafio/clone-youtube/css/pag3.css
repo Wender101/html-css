@@ -30,6 +30,7 @@ header {
     width: 100%;
     height: auto;
     padding: 8px;
+    top: 0px;
     background-color: var(--menu);
     display: flex;
     position: fixed;
