@@ -32,22 +32,18 @@
                         <p>2 mil inscritos</p>
                     </div>
 
-                    <button id="inscreva" onclick="inscrever()">INSCREVER-SE</button>
+                    <button>INSCREVER-SE</button>
 
                     <p>Chris Fisher, also known as the Blind Woodturner, learned his craft by listening to hundreds of hours of YouTube videos and experimenting in his workshop. Now he’s a YouTube creator himself, sells his products worldwide, and does demonstrations all around the country.</p>
 
                 </div>
                 <hr>
 
-                <h4 id="resComentarios">0 Comentarios</h4>
+                <h4>0 Comentarios</h4>
 
                 <div id="avatar">
                     <img src="img/users/User-Avatar.png" alt="">
-                    <input type="text" name="" id="comentario" placeholder="Adicione um Comentario público..."> 
-                    <div id="btnComentar">
-                        <button id="btnCancelar" onclick="cancel()">Cancelar</button>
-                        <button id="btnEnviar" onclick="enviar()">Comentar</button>
-                    </div>
+                    <p>Adicione um Comentario público...</p>
                 </div>
             </article>
         </section>
@@ -206,25 +202,6 @@
                 barraLateral.style.display = 'block'
                 ul.style.marginLeft = '240px'
                 fundo.style.display = 'block'
-            }
-        }
-
-        let btn = document.getElementById('inscreva')
-        var qualCor = true
-
-        function inscrever() {
-
-            if(qualCor == false) {
-                btn.style.background = 'red'
-                btn.innerText = 'INSCREVER-SE'
-
-                qualCor = true
-                
-            } else {
-                btn.style.background = '#303030'
-                btn.innerText = 'INSCRITO'
-
-                qualCor = false
             }
         }
     </script>
