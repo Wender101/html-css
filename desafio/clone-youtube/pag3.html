@@ -4,121 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="img/icones/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="css/video.css">
+    <link rel="stylesheet" href="css/pag3.css">
     <title>YouTube</title>
 </head>
 <body>
-    <main>
-        <section id="part1">
-            <img src="img/videos/Youtube player.png" alt="">
-            <h4>Blind Woodturner: Turning passion into fine art</h4>
-            <p>576,969 visualizações . 8 de abr. de 2021</p>
-            <article id="config">
-                <img src="img/videos/config/Button.png" alt="">
-                <img src="img/videos/config/Button (1).png" alt="">
-                <img src="img/videos/config/Button (2).png" alt="">
-                <img src="img/videos/config/Button (3).png" alt="">
-                <img src="img/videos/config/Button (4).png" alt="">
-            </article>
-
-            <hr>
-
-            <article id="sobre-o-video">
-                <div id="canal">
-                    <img src="img/users/user3.png" alt="">
-                    <div id="nome-canal">
-                        <h4>Marcus Livin</h4>
-                        <p>2 mil inscritos</p>
-                    </div>
-
-                    <button>INSCREVER-SE</button>
-
-                    <p>Chris Fisher, also known as the Blind Woodturner, learned his craft by listening to hundreds of hours of YouTube videos and experimenting in his workshop. Now he’s a YouTube creator himself, sells his products worldwide, and does demonstrations all around the country.</p>
-
-                </div>
-                <hr>
-
-                <h4>0 Comentarios</h4>
-
-                <div id="avatar">
-                    <img src="img/users/User-Avatar.png" alt="">
-                    <p>Adicione um Comentario público...</p>
-                </div>
-            </article>
-        </section>
-
-        <section id="part2">
-            <ul>
-                <li id="btnall">All</li>
-                <li>De Markus Levin</li>
-            </ul>
-
-            <div class="recomendacao">
-                <img src="img/users/t1.png" alt="">
-                <div>
-                    <h4>Ep 6: Living to Serve | SEARCH ON</h4>
-                    <p>James Gouse</p>
-                    <p>2 mil visualizações 1 dia atrás</p>
-                </div>
-            </div>
-
-            <div class="recomendacao">
-                <img src="img/users/t2.png" alt="">
-                <div>
-                    <h4>Ep 6: Living to Serve | SEARCH ON</h4>
-                    <p>James Gouse</p>
-                    <p>2 mil visualizações 1 dia atrás</p>
-                </div>
-            </div>
-
-            <div class="recomendacao">
-                <img src="img/users/t3.png" alt="">
-                <div>
-                    <h4>Ep 6: Living to Serve | SEARCH ON</h4>
-                    <p>James Gouse</p>
-                    <p>2 mil visualizações 1 dia atrás</p>
-                </div>
-            </div>
-
-            <div class="recomendacao">
-                <img src="img/users/t4.png" alt="">
-                <div>
-                    <h4>Ep 6: Living to Serve | SEARCH ON</h4>
-                    <p>James Gouse</p>
-                    <p>2 mil visualizações 1 dia atrás</p>
-                </div>
-            </div>
-
-            <div class="recomendacao">
-                <img src="img/users/t5.png" alt="">
-                <div>
-                    <h4>Ep 6: Living to Serve | SEARCH ON</h4>
-                    <p>James Gouse</p>
-                    <p>2 mil visualizações 1 dia atrás</p>
-                </div>
-            </div>
-
-            <div class="recomendacao">
-                <img src="img/users/t6.png" alt="">
-                <div>
-                    <h4>Ep 6: Living to Serve | SEARCH ON</h4>
-                    <p>James Gouse</p>
-                    <p>2 mil visualizações 1 dia atrás</p>
-                </div>
-            </div>
-
-            <div class="recomendacao">
-                <img src="img/users/t7.png" alt="">
-                <div>
-                    <h4>Ep 6: Living to Serve | SEARCH ON</h4>
-                    <p>James Gouse</p>
-                    <p>2 mil visualizações 1 dia atrás</p>
-                </div>
-            </div>
-        </section>
-    </main>
-
     <header>
         <div id="btn-menu" onclick="abrirMenu()"></div>
         <div id="logo"></div>
@@ -128,6 +17,88 @@
             <div id="mic"><img src="img/icones/mic.png" alt="icone de um microfone"></div>
         </div>
     </header>
+
+    <section id="img-do-canal"></section>
+    <section id="barra-de-config">
+        <div id="canal">
+            <img src="img/pag3/avatarPag3.png" alt="">
+            <div id="nome-canal">
+                <h4>Marcus Livin</h4>
+                <p>2 mil inscritos</p>
+            </div>
+        </div>
+        <button id="inscreva" onclick="inscrever()">INSCREVER-SE</button>
+    </section>
+    <nav>
+        <ul>
+            <li>HOME</li>
+            <li>VIDEOS</li>
+            <li>PLAYLISTS</li>
+            <li>COMUNIDADE</li>
+            <li>CANAIS</li>
+            <li>SOBRE</li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="part1">
+            <img src="img/pag3/Youtube player.png" alt="">
+            <div>
+                <h4>Blind Woodturner: Turning passion into fine art</h4>
+                <p id="views">500 visualizações. há 1 mês</p>
+                <p>Chris Fisher, also known as the Blind Woodturner, learned his craft by listening to hundreds of hours of YouTube videos and experimenting in his workshop. Now he’s a YouTube creator himself, sells his products worldwide, and does demonstrations all around the country.</p>
+            </div>
+        </section>
+        <hr>
+
+        <section id="part2">
+            <div class="recomendacao">
+                <img src="img/pag3/5.png" alt="">
+                <div>
+                    <h4>Ep 6: Living to Serve | SEARCH ON</h4>
+                    <p>James Gouse</p>
+                    <p>2 mil visualizações 1 dia atrás</p>
+                </div>
+            </div>
+
+            <div class="recomendacao">
+                <img src="img/pag3/4.png" alt="">
+                <div>
+                    <h4>Ep 6: Living to Serve | SEARCH ON</h4>
+                    <p>James Gouse</p>
+                    <p>2 mil visualizações 1 dia atrás</p>
+                </div>
+            </div>
+
+            <div class="recomendacao">
+                <img src="img/pag3/3.png" alt="">
+                <div>
+                    <h4>Ep 6: Living to Serve | SEARCH ON</h4>
+                    <p>James Gouse</p>
+                    <p>2 mil visualizações 1 dia atrás</p>
+                </div>
+            </div>
+
+            <div class="recomendacao">
+                <img src="img/pag3/2.png" alt="">
+                <div>
+                    <h4>Ep 6: Living to Serve | SEARCH ON</h4>
+                    <p>James Gouse</p>
+                    <p>2 mil visualizações 1 dia atrás</p>
+                </div>
+            </div>
+
+            <div class="recomendacao">
+                <img src="img/pag3/img1.png" alt="">
+                <div>
+                    <h4>Ep 6: Living to Serve | SEARCH ON</h4>
+                    <p>James Gouse</p>
+                    <p>2 mil visualizações 1 dia atrás</p>
+                </div>
+            </div>
+        </section>
+        <hr>
+    </main>
 
     <div id="fundo" onclick="fecharFundo()"></div>
     <!-- Barra lateral do YouTube -->
@@ -202,6 +173,25 @@
                 barraLateral.style.display = 'block'
                 ul.style.marginLeft = '240px'
                 fundo.style.display = 'block'
+            }
+        }
+
+        let btn = document.getElementById('inscreva')
+        var qualCor = true
+
+        function inscrever() {
+
+            if(qualCor == false) {
+                btn.style.background = 'red'
+                btn.innerText = 'INSCREVER-SE'
+
+                qualCor = true
+                
+            } else {
+                btn.style.background = '#303030'
+                btn.innerText = 'INSCRITO'
+
+                qualCor = false
             }
         }
     </script>

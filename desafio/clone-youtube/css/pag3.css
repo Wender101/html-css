@@ -7,7 +7,6 @@
     --borda: #303030; 
     --p: #AAAAAA;
     --fundo: #00000060;
-
     --font: "Roboto","Arial",sans-serif;
 }
 
@@ -34,7 +33,6 @@ header {
     background-color: var(--menu);
     display: flex;
     position: fixed;
-    top: 0px;
 }
 
 header > div#btn-menu {
@@ -91,7 +89,6 @@ header > div#input > div#mic {
 header > div#input > div#mic > img {
     margin: 11px 0px 0px 13px;
 }
-
 
 /* Barra lateral */
 
@@ -185,202 +182,151 @@ section#barra-lateral > ul > a > li > img {
     margin-bottom: -5px;
 }
 
+/* Img do top canal */
 
-/* Main */
-
-main {
+section#img-do-canal {
     width: 100%;
-    height: 150vh;
-    padding-top: 140px;
-    display: flex;
-    background-color: var(--conteudo);
+    height: 250px;
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url(../img/pag3/fundo-da-pag3.png);
 }
 
-
-main > section#part1{
-    width: 753px;
-    height: auto;
-    margin-top: -60px;
-    margin-left: 40px;
-}
-
-main > section#part1 {
-    color: white;
-    font-family: var(--font);
+section#barra-de-config {
+    width: 100%;
+    height: 100px;
+    background-color: #222121;
     position: relative;
 }
 
-main > section#part1 > img {
-    width: 753px;
-    cursor: pointer;
-}
-
-main > section#part1 > h4 {
-    font-weight: 200;
-    margin-top: 20px;
-    margin-bottom: 12px;
-}
-
-main > section#part1 > article#config {
-    display: flex;
-    position: absolute;
-    top: 465px;
-    right: 0px;
-}
-
-main > section#part1 > p {
-    font-weight: 100;
-    color: var(--p);
-    font-size: 14px;
-}
-
-main > section#part1 > article#config > img {
-    height: 40px;
-    cursor: pointer;
-}
-
-article#sobre-o-video > div#canal > img {
-    width: 48px;
-    height: 48px;
-}
-
-article#sobre-o-video > div#canal {
+div#canal {
     display: flex;
     position: relative;
+    padding-top: 16px;
+    padding-left: 65px;
 }
 
-article#sobre-o-video > div#canal > div#nome-canal {
+div#canal > img {
+    width: 80px;
+    height: 80px;
+}
+
+div#canal > div#nome-canal {
     width: 300px;
     margin-left: 16px;
+    margin-top: 10px;
 }
 
-article#sobre-o-video > div#canal > div#nome-canal > h4 {
-    font-size: 14px;
+div#canal > div#nome-canal > h4 {
+    font-size: 20px;
     color: white;
     font-family: var(--font);
 }
 
-article#sobre-o-video > div#canal > div#nome-canal > p {
+div#canal > div#nome-canal > p {
     font-weight: 100;
     color: var(--p);
     font-size: 14px;
     font-family: var(--font);
 }
 
-article#sobre-o-video > div#canal > button {
+section#barra-de-config > button {
     padding: 10px 16px;
     border: none;
     position: absolute;
     background-color: red;
     color: white;
-    right: 0px;
+    right: 69px;
+    top: 30px;
     font-weight: 600;
     font-size: 14px;
     font-family: var(--font);
     cursor: pointer;
 }
 
-article#sobre-o-video > div#canal > p {
-    max-width: 576px;
+/* NAV */   
+
+nav {
+    background-color: #222121;
     font-weight: 100;
     color: var(--p);
     font-size: 14px;
     font-family: var(--font);
-    margin-top: 80px;
-    margin-left: -300px;
 }
 
-article#sobre-o-video > div#avatar {
+nav > ul {
+ list-style: none;
+ display: flex;
+ padding-left: 80px;
+}
+
+nav > ul > li {
+    padding: 16px 10px;
+    margin-right: 64px;
+    cursor: pointer;
+}
+
+nav > ul > li:hover {
+    background-color: #444444;
+}
+
+
+/* Main */
+
+main {
+    width: auto;
+    height: 100vh;
+    padding-top: 140px;
+    padding: 24px 65px;
+    background-color: var(--conteudo);
+}
+
+main > section#part1 {
+    max-width: 1000px;
+    height: 238px;
     display: flex;
-    margin-top: 24px;
 }
 
-article#sobre-o-video > div#avatar > img {
-    width: 40px;
-    height: 40px;
+main > section#part1 > img {
+    width: 424px;
+    height: 238px;
 }
 
-article#sobre-o-video > div#avatar > input {
-    width: 300px;
-    font-weight: 100;
+main > section#part1 > div {
+    margin-left: 24px;
+    font-family: var(--font);
+}
+
+main > section#part1 > div > h4 {
+    color: white;
+}
+
+main > section#part1 > div > p {
+    margin-top: 20px;
+    color: white;
+    font-size: 15px;
+}
+
+main > section#part1 > div > p#views {
     color: var(--p);
     font-size: 14px;
-    font-family: var(--font);
-    margin-top: 0px;
-    margin-left: 16px;
-    background-color: transparent;
-    border: none;
-    padding-left: 5px;
-}
-
-article#sobre-o-video > div#avatar > h4 {
-    font-size: 16px;
-    font-weight: 400;
-    color: white;
-    font-family: var(--font);
-}
-
-article#sobre-o-video > div#avatar > div {
-    margin-top: 30px;
-    display: none;
-}
-
-article#sobre-o-video > div#avatar > div > button {
-    padding: 10px 16px;
-    border: none;
-    color: white;
-    background-color: transparent;
-}
-
-article#sobre-o-video > div#avatar > div > button#btnEnviar {
-    padding: 10px 16px;
-    border: none;
-    color: white;
-    background-color: var(--borda);
 }
 
 /* Segunda Parte */
 
 section#part2 {
-    margin-left: 24px;
     margin-top: -70px;
-}
-
-/* A parte de navegação da pag */
-
-section#part2  > ul {
-    list-style: none;
-    font-family: var(--font);
     display: flex;
-    font-size: 15px;
 }
-
-/* o botão que vai ficar com o fundo branco na parte de navegação */
-
-section#part2  > ul > li#btnall {
-    background-color: white;
-    color: black;
-}
-
-section#part2  > ul > li {
-    border-radius: 32px;
-    padding: 8px  12px;
-    margin: 8px 8px 10px 0px;
-    background-color: var(--borda);
-    border: 1px solid #AAAAAA;
-    cursor: pointer;
-    color: white;
-    border: none;
-}
-
 
 /* É cada div que está tanto o video quanto o título do video na parte lateral */
 
 section#part2 > div.recomendacao {
-    width: 400px;
-    display: flex;
+    width: 176px;
     margin-bottom: 15px;
     cursor: pointer;
+    margin-right: 20px;
 }
 
 /* Estilizando a img da div */
@@ -388,12 +334,12 @@ section#part2 > div.recomendacao {
 section#part2 > div.recomendacao > img {
     width: 176px;
     height: 94px;
+    margin-top: 65px;
 }
 
 /* Parte da div que fica o texto */
 
 section#part2 > div.recomendacao > div {
-    margin-left: 8px;
     margin-top: 10px;
 }
 
@@ -412,7 +358,6 @@ section#part2 > div.recomendacao > div > p{
     font-size: 14px;
     font-family: var(--font);
 }
-
 
 /* Fazendo o fundo que vai aparecer quando abri o menu */
 

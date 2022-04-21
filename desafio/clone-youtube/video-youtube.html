@@ -26,7 +26,7 @@
 
             <article id="sobre-o-video">
                 <div id="canal">
-                    <img src="img/users/user3.png" alt="">
+                    <a href="pag3.html"><img src="img/users/user3.png" alt=""></a>
                     <div id="nome-canal">
                         <h4>Marcus Livin</h4>
                         <p>2 mil inscritos</p>
@@ -45,8 +45,6 @@
                     <img src="img/users/User-Avatar.png" alt="">
                     <input type="text" name="" id="comentario" placeholder="Adicione um Comentario público..."> 
                     <div id="btnComentar">
-                        <button id="btnCancelar" onclick="cancel()">Cancelar</button>
-                        <button id="btnEnviar" onclick="enviar()">Comentar</button>
                     </div>
                 </div>
             </article>
@@ -172,17 +170,14 @@
 
         function abrirMenu() {
             let barraLateral = document.getElementById('barra-lateral')
-            let ul = document.getElementById('ul')
             let fundo = document.getElementById('fundo')
             
             if(barraLateral.style.display == 'block') {
                 barraLateral.style.display = 'none'
-                ul.style.marginLeft = '0px'
                 fundo.style.display = 'none'
                 
             } else {
                 barraLateral.style.display = 'block'
-                ul.style.marginLeft = '240px'
                 fundo.style.display = 'block'
             }
         }
@@ -194,17 +189,14 @@
 
         function fecharFundo() {
             let barraLateral = document.getElementById('barra-lateral')
-            let ul = document.getElementById('ul')
             let fundo = document.getElementById('fundo')
             
             if(barraLateral.style.display == 'block') {
                 barraLateral.style.display = 'none'
-                ul.style.marginLeft = '0px'
                 fundo.style.display = 'none'
                 
             } else {
                 barraLateral.style.display = 'block'
-                ul.style.marginLeft = '240px'
                 fundo.style.display = 'block'
             }
         }
