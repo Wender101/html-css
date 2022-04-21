@@ -118,6 +118,7 @@ nav > ul > li {
     background-color: var(--borda);
     border: 1px solid #AAAAAA;
     cursor: pointer;
+    font-family: var(--font);
 }
 
 nav > div#btnAvancarMenu1 {
