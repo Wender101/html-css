@@ -218,6 +218,12 @@ div#proj5 {
     background-image: url(../img/projeto5.jpg);
 }
 
+div#proj6 {
+    background-position: center bottom;
+    background-size: cover;
+    background-image: url(../img/clone-youtube.jpg);
+}
+
 /* Fale Comigo */
 
 div#fundo {
