@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sidebar</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2? family= Poppins:wght@100 & display=swap');
+
+        :root {
+            --corMenu: #18C29C;
+            --background: #DCE4E3;
+            --corFonte: #084236;
+            --backgroundMenu: rgba(220, 228, 227, 0.6);
+
+            --font: 'Poppins', sem serifa;
+        }
+
+        * {
+            margin: 0px;
+            padding: 0px;
+            font-family: var(--font);
+            font-weight: 500;
+        }
+
+        body {
+            display: flex;
+        }
+
+        nav {
+            width: 78px;
+            height: 100vh;
+            color: var(--corMenu);
+            background-color: var(--corMenu);
+            position: relative;
+        }
+
+        nav > ul {
+            list-style: none;
+        }
+
+        nav > ul > li {
+            margin: 26px 27px 34px;
+            cursor: pointer;
+            display: flex;
+        }
+
+        nav > ul > li > p {
+            margin-top: 14px;
+            color: #084236;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 15px;
+            line-height: 22px;
+            display: none;
+        }
+
+        nav > ul > li#search {
+            margin-left: 10px;
+            margin-right: 14px;
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            background-color: var(--backgroundMenu);
+            
+        }
+
+        nav > ul > li#search > img {
+            margin: 13px;
+        }
+
+        nav > ul > li#log-out {
+            position: absolute;
+            bottom: 0px;
+            padding: 18px 27px;
+            margin-left: 0px;
+            margin-bottom: 0px;
+            background: var(--backgroundMenu);
+        }
+        
+        main > h1{
+            margin: 18px 0px 0px 20px;
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 500;
+            line-height: 38px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li onclick="abrirMenu()"><img src="images/menu.svg" alt=""></li>
+            <li id="search"><img src="images/search.svg" alt="" id="imgsearch"><p class="p">Buscar</p></li>
+            <li><img src="images/grid.svg" alt=""><p class="p">Dashboad</p></li>
+            <li><img src="images/pet.svg" alt=""></li>
+            <li><img src="images/user.svg" alt=""></li>
+            <li><img src="images/vet.svg" alt=""></li>
+            <li><img src="images/settings.svg" alt=""></li>
+
+            <li id="log-out"><img src="images/log-out.svg" alt=""></li>
+        </ul>
+    </nav>
+    <main>
+        <h1>Dashboard</h1>
+    </main>
+
+    <script>
+        let sidebar = false
+        let p = document.querySelectorAll('p')
+
+        function abrirMenu() {
+            let nav = document.querySelector('nav')
+            let liSearch = document.getElementById('search')
+
+            if(sidebar == true) {
+                nav.style.width = '78px'
+                liSearch.style.width = '50px'
+                p.style.display = 'none'
+                sidebar = false
+            } else {
+                nav.style.transition = '200ms width linear'
+                liSearch.style.transition = '200ms width linear'
+                nav.style.width = '250px'
+                liSearch.style.width = '222px'
+                p.style.display = 'block'
+                sidebar = true
+            }
+        }
+    </script>
+</body>
+</html>
