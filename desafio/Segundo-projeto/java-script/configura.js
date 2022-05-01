@@ -13,10 +13,12 @@ const html = window.document.getElementById("html");
 btmenu.addEventListener("click", function() {
     
 	//O menu vai aparecer
-	if(categorias.style.display === "block") {
-		categorias.style.display = "none";
+	if(categorias.style.display === "none") {
+		categorias.style.transition = '200ms left linear'
+		categorias.style.left = '-360px'
 	} else {
-		categorias.style.display = "block";
+		categorias.style.transition = '200ms left linear'
+		categorias.style.left = '0px'
 	}
 
 	//O butão de voltar ao topo vai sumir ou aparecer quando clicar no btnmenu
@@ -44,28 +46,22 @@ btmenu.addEventListener("click", function() {
 let casinha = document.getElementById("segundo-menu");
 
 casinha.addEventListener("click", function() {
-	categorias.style.display = "block";
 	fundo.style.display = "block";
 	html.style.overflowY = "hidden";
 	subir.style.display = "none";
+	categorias.style.transition = '200ms left linear'
+	categorias.style.left = '0px'
 });
 
 //Ao fechar o menu clicando no fundo da pág...
 fundo.addEventListener("click", function() {
 
 	//O menu vai sumir ou aparecer quando clicar no fundo
-	if(categorias.style.display === "block") {
-		categorias.style.display = "none";
-	} else {
-		categorias.style.display = "block";
-	}
+		categorias.style.transition = '200ms left linear'
+		categorias.style.left = '-360px'
 
 	//O fundo vai sumir ou aparecer quando clicar no fundo
-	if(fundo.style.display === "block") {
 		fundo.style.display = "none";
-	} else {
-		fundo.style.display = "block";
-	}
 
 	//O scroll da pág vai sumir ou aparecer quando clicar no fundo
 	if(html.style.overflowY === "hidden") {
@@ -83,9 +79,13 @@ window.addEventListener("scroll", (event) => {
 
 	if(scroll < 200) {
 		let subir = window.document.getElementById("subir");
+		let casinha = document.getElementById('segundo-menu')
+		casinha.style.display = "none"
 		subir.style.display = "none";
 	} else {
 		let subir = window.document.getElementById("subir");
+		let casinha = document.getElementById('segundo-menu')
+		casinha.style.display = "block"
 		subir.style.display = "block";
 	}
 });

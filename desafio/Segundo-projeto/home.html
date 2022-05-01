@@ -81,8 +81,15 @@
             border-radius: 10px;
             margin-left: 10px;
             color: var(--Branco);
-            background-color: var(--Laranjado);
+            background-color: transparent;
+            border: 1px solid white;
             cursor: pointer;
+            box-shadow: 2px 2px 3px var(--Azul-Escuro);
+        }
+
+        nav > button:hover {
+            transition: 200ms transform linear;
+            transform: scale(1.03);
         }
 
         nav > button > p {
@@ -99,9 +106,8 @@
             width: 350px;
             height: 100%;
             position: fixed;
-            display: none;
             top: 0px;
-            left: 0px;
+            left: -360px;
             overflow-y: auto;
             overflow-x: hidden;
             background-color: var(--azul-claro);
@@ -241,10 +247,11 @@
         div#segundo-menu {
             width: 30px;
             height: 60px;
-            margin-left: -40px;
+            margin-left: 10px;
             position: fixed;
             bottom: 130px;
             cursor: pointer;
+            display: none;
         }
 
         article > h1 {
