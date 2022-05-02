@@ -17,14 +17,11 @@ a#subir {
     right: 10px;
     border-radius: 50%;
     display: none;
-    opacity: 0.5;
 }
 
 #subir:hover {
     transition: 200ms transform linear;
-    opacity: 1;
     transform: scale(1.2);
-    transform: opacity (1.2);
 }
 
 /* --------------------------------------- */

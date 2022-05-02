@@ -42,17 +42,6 @@ btmenu.addEventListener("click", function() {
     
 });
 
-//Ao clicar na casinha
-let casinha = document.getElementById("segundo-menu");
-
-casinha.addEventListener("click", function() {
-	fundo.style.display = "block";
-	html.style.overflowY = "hidden";
-	subir.style.display = "none";
-	categorias.style.transition = '200ms left linear'
-	categorias.style.left = '0px'
-});
-
 //Ao fechar o menu clicando no fundo da pág...
 fundo.addEventListener("click", function() {
 
@@ -76,16 +65,30 @@ fundo.addEventListener("click", function() {
 // eslint-disable-next-line no-unused-vars
 window.addEventListener("scroll", (event) => {
 	let scroll = this.scrollY;
+	let nav = document.querySelector('nav')
+	let buttonNav = document.getElementById('menu')
+
+	if(scroll < 200) {
+		nav.style.transition = '100ms height linear'
+		nav.style.height = '180px'
+		buttonNav.style.transition = '400ms margin-top linear'
+		buttonNav.style.transition = '400ms margin-left linear'
+		buttonNav.style.marginTop = ('100px')
+		buttonNav.style.marginLeft = ('10px')
+	} else {
+		buttonNav.style.transition = '200ms margin-top linear'
+		buttonNav.style.marginTop = ('20px')
+		buttonNav.style.marginLeft = ('250px')
+		nav.style.transition = '200ms height linear'
+		nav.style.height = '100px'
+		
+	}
 
 	if(scroll < 200) {
 		let subir = window.document.getElementById("subir");
-		let casinha = document.getElementById('segundo-menu')
-		casinha.style.display = "none"
 		subir.style.display = "none";
 	} else {
 		let subir = window.document.getElementById("subir");
-		let casinha = document.getElementById('segundo-menu')
-		casinha.style.display = "block"
 		subir.style.display = "block";
 	}
 });

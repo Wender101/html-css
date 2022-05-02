@@ -1,0 +1,742 @@
+
+<!DOCTYPE html>
+<html lang="pt-br" id="html">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Nerds Oficial</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
+        @import url('http://fonts.cdnfonts.com/css/lovelo');
+
+        @import url('fontes/anton-2');
+
+        @import url('fontes/bitwise');
+
+        :root {
+        --Azul-Escuro: #000d63;
+        --azul-claro: #084cb9; 
+        --Laranjado: #E66D22;
+        --cinza: #0D0D0D;
+        --Branco: #ffffff;
+        --strong: red;
+        --sombra: rgba(0, 0, 0, 0.39);
+        --footer: rgb(75, 75, 75);
+        }
+
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        html {
+            overflow-y: scroll;
+        }
+
+        html::-webkit-scrollbar {
+            width: 10px;             
+        }
+
+        html::-webkit-scrollbar-track {
+            background: var(--azul-claro);
+        }
+
+        html::-webkit-scrollbar-thumb {
+            background-color: var(--Laranjado);    
+            border-radius: 0px 0px 12px 12px;       
+        }
+
+        body {
+            font-family: 'Anton', sans-serif;
+            font-weight: 100;
+        }
+        
+        nav {
+            width: 100%;
+            height: 180px;
+            top: 0px;
+            position: fixed;
+            background-color: var(--azul-claro);
+        }
+
+        nav > img {
+            width: 200px;
+            position: absolute;
+            top: 10px;
+            left: 20px;
+        }
+
+        nav > button {
+            width: 300px;
+            padding: 15px;
+            border-radius: 10px;
+            margin-left: 10px;
+            margin-top: 100px;
+            color: var(--Branco);
+            background-color: transparent;
+            border: 1px solid white;
+            cursor: pointer;
+            box-shadow: 2px 2px 3px var(--Azul-Escuro);
+        }
+
+        nav > button:hover {
+            transition: 200ms transform linear;
+            transform: scale(1.03);
+        }
+
+        nav > button > p {
+            display: inline;
+            margin-left: 53px;
+        }
+
+        nav > button > strong {
+            text-align: left;
+            font-size: 20px;
+        }
+
+        nav > #categorias{
+            width: 350px;
+            height: 100%;
+            position: fixed;
+            top: 0px;
+            left: -360px;
+            overflow-y: auto;
+            overflow-x: hidden;
+            background-color: var(--azul-claro);
+        }
+
+        nav > #categorias > p{
+            font-family: 'Bitwise', sans-serif;
+            font-weight: 900;
+            color: var(--Branco);
+            margin-left: 20px;
+        }
+
+        nav > ul::-webkit-scrollbar {
+            width: 10px;             
+        }
+
+        nav > ul::-webkit-scrollbar-thumb {
+            background-color: var(--Laranjado);    
+            border-radius: 2px;       
+            /*border: 3px solid orange;*/
+        }
+
+        #Xc {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            text-align: center;
+            position: absolute;
+            top: 20px;
+            left: 300px;
+            color: var(--Branco);
+            text-decoration: none;
+            background-color: #E66D22;
+            cursor: pointer;
+        }
+
+        #Xc > span {
+            top: -20px;
+            right: 8px;
+            position: absolute;
+            font-size: 40px;
+        }
+
+
+        nav > ul > img {
+            width: 200px;
+            margin-left: 20px;
+        }
+
+        nav > ul > button {
+            position: absolute;
+            top: 10px;
+            right: 0px;
+            font-size: 20px;
+        }
+
+        nav > ul > li {
+            padding: 10px 0px;
+            font-size: 25px;
+        }
+        nav > ul > li > a {
+            width: 330px;
+            height: 40px;
+            padding-left: 20px;
+            position: absolute;
+            text-decoration: none;
+            color: var(--Branco);
+        }
+
+        nav > ul > li > a:hover {
+            background-color: var(--Azul-Escuro);
+        }
+
+        nav > #fundo {
+            width: 100%;
+            height: 100%;
+            top: 0px;
+            position: fixed;
+            display: none;
+            background-color: #0d0d0dc4;
+            -webkit-filter: blur(0px);
+            -moz-filter: blur(0px);
+            -o-filter: blur(0px);
+            -ms-filter: blur(53px);
+            filter: blur(0px);
+        }
+
+        section#amostras {
+            width: 100%;
+            height: 250px;
+            background-color: var(--Branco);
+            margin-top: 170px;
+            overflow-x: hidden;
+            padding-top: 20px;
+            position: relative;
+        }
+
+        section#amostras > button {
+            width: 100px;
+            height: 270px;
+            border: none;
+            top: 0px;
+            position: absolute;
+            background-color: #e66d22b9;
+        }
+
+        section#amostras > button > div {
+            width: 5px;
+            height: 40px;
+            background-color: var(--Branco);
+            position: absolute;
+            top: 100px;
+            left: 30px;
+        }
+
+        section#amostras > button#btn1 {
+            display: none;
+        }
+
+        section#amostras > button#btn2 {
+            right: 0px;
+            transform: rotate(180deg);
+        }
+
+        section#amostras > button > div.t1 {
+            transform: rotate(50deg);
+            top: 98px;
+        }
+
+        section#amostras > button > div.t2 {
+            transform: rotate(-50deg);
+            top: 120px;
+
+        }
+
+        section#amostras > section {
+            position: absolute;
+            left: -3500px;
+            display: flex;
+        }
+
+        section#amostras > section > div {
+            width: 200px;
+            height: 160px;
+            padding-right: 40px;
+            transition: transform 400ms;
+            transform: translateX(0) scale(1);
+            cursor: pointer;
+        }
+
+        section#amostras > section > div:hover, dvi:focus {
+            transform: translateX(5px) scale(1.2);
+        }
+
+        section#amostras > section > div > a > img {
+            width: 200px;
+            height: 200px;
+        }
+
+        main {
+            width: 100%;
+            padding-top: 50px;
+            padding-bottom: 80px;
+            background-color: #000d63;
+        }
+
+        article {
+            max-width: 1232px;
+        }
+
+        div#segundo-menu {
+            width: 30px;
+            height: 60px;
+            margin-left: 10px;
+            position: fixed;
+            bottom: 130px;
+            cursor: pointer;
+            display: none;
+        }
+
+        article > h1 {
+            font-size: 28px;
+            color: var(--Branco);
+            margin-left: 80px;
+        }
+
+        article > div#p1 {
+            width: 220px;
+            height: 440px;
+            display: inline-flex;
+            padding-left: 80px;
+            margin: auto;
+        }
+
+        article > div > a > div > img {
+            width: 220px;
+            height: 210px;
+            border-radius: 20px;
+            transition: transform 1s;
+            transform: translateX(0) scale(1);
+            cursor: pointer;
+        }
+
+        article > div > a > div > img:hover, img:focus {
+            transform: translateX(10px) scale(1.2);
+        }
+
+        article > div > a > div > div.texto {
+            width: 220px;
+            margin-left: 5px;
+        }
+
+        article > div > a > div > div.texto > p {
+            color: var(--Branco);
+        }
+
+        article > div > a > div > div.texto > strong {
+            color: var(--Laranjado);
+        }
+
+        article > div > a > div > div.texto > hr {
+            width: 40px;
+        }
+
+        article > div > a > div > div.texto > span {
+            font-size: 13px;
+            color: white;
+        }
+
+        a#subir {
+            width: 50px;
+            height: 50px;
+            display: block;
+            position: fixed;
+            background-size: cover;
+            background-position: center center;
+            background-image: url(imagens/ícones/subir.jpg);
+            bottom: 135px;
+            right: 10px;
+            border-radius: 50%;
+            display: none;
+            opacity: 0.5;
+        }
+
+        #subir:hover {
+            transition: 200ms transform linear;
+            opacity: 1;
+            transform: scale(1.2);
+            transform: opacity (1.2);
+        }
+
+        @media screen and (min-width: 2400px) {
+            #pAmostras {
+                width: 2400px;
+                margin: auto;
+            }
+        }
+
+        @media screen and (min-width: 1232px) {
+            article {
+                width: 1232px;
+                margin: auto;
+            }
+        }
+
+        @media screen and (max-width: 500px) {
+
+            nav > button {
+                width: 230px;
+                padding: 8px;
+                border-radius: 10px;
+                margin-left: 10px;
+                color: var(--Branco);
+                background-color: var(--Laranjado);
+            }
+
+            nav > #categorias {
+                width: 246px;
+            }
+
+            nav > #categorias > #Xc {
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+                text-align: center;
+                position: absolute;
+                top: 20px;
+                left: 200px;
+                color: var(--Branco);
+                text-decoration: none;
+                background-color: #E66D22;
+            }
+
+            #Xc > span {
+                top: -20px;
+                right: 8px;
+                position: absolute;
+                font-size: 40px;
+            }
+        }
+
+        @media screen and (max-width: 450px){
+
+            #amostras {
+                width: 100%;
+                height: 184px;
+                background-color: var(--Branco);
+            }
+
+            #pAmostras {
+                display: flex;
+                overflow-x: scroll;
+                padding-top: 34px;
+                overflow-y: hidden;
+            }
+
+            #pAmostras > div > a > img:not(last-child) {
+                width: 130px;
+                height: 130px;
+                padding-right: 40px;
+            }
+
+            #pAmostras > div > a > img {
+                transition: transform 1s;
+                transform: translateX(0) scale(1);
+            }
+
+            #pAmostras > div > a > img:hover, img:focus {
+                transform: translateX(5px) scale(1.2);
+            }
+
+            #pAmostras::-webkit-scrollbar {
+                width: 15px;    
+                height: 15px;        
+            }
+
+            #pAmostras::-webkit-scrollbar-thumb {
+                background-color: var(--Laranjado);    
+                border-radius: 10px;       
+            }
+        }
+    </style>
+</head>
+<body>
+    <header id="cabeçalho">
+
+    </header>
+
+    <section id="amostras" >
+    
+        <section id="produtosAmostras">
+            <div id="s1">
+                <a href="gabinetes.html"><img src="img/Catalógo Nerd/Gabinete T dagger rosa/gabinete-gamer-t-dagger-p03p-mid-tower-rgb-pink-atx-sem-fonte-sem-fan-tgc-p03p_114992.jpg" alt=""></a>
+            </div>
+            <div id="s2">
+                <a href="mouse.html"><img src="img/Catalógo Nerd/Mouse gamer Infernal/4359197575_1.jpg" alt=""></a>
+            </div>
+            <div id="s3">
+                <a href="controles.html"><img src="img/Catalógo Nerd/Controle Xbox sem fio/235132374_1GG.jpg" alt=""></a>
+            </div>
+            <div id="s4">
+                <a href="gabinetes.html"><img src="img/Catalógo Nerd/gabinete gamer redragon wheel jack/8446cb5b45a7663da2da5d04f3f79882f219e5f0.jpeg" alt=""></a>
+            </div>
+            <div id="s5">
+                <a href="coolers.html"><img src="img/Catalógo Nerd/Water Cooler/water-cooler-gamdias-chione-e2-120-lite-controlador-argb-120mm-intel-amd_104384.jpg" alt=""></a>
+            </div>
+            <div id="s6">
+                <a href="headset.html"><img src="img/Catalógo Nerd/Headset Hylas/71YjrSgj-FL._AC_SY450_.jpg" alt=""></a>
+            </div>
+            <div id="s7">
+                <a href="fontes.html"><img src="img/Catalógo Nerd/Fonte 600w T dagger/inshot_20210611_193729949.jpg" alt=""></a>
+            </div>
+            <div id="s8">
+                <a href="teclado.html"><img src="img/Catalógo Nerd/Teclado semi mecanico/2450a708213ceca4fa2dd8f7ed28857c.jpg" alt=""></a>
+            </div>
+            <div id="s9">
+                <a href="adaptadores.html"><img src="img/Catalógo Nerd/Adaptador BT para carro/1b0d1bd754ad05e979a5b308929f7a40.jpg" alt=""></a>
+            </div>
+            <div id="s10">
+                <a href="adaptadores.html"><img src="img/Catalógo Nerd/Adaptador USB RJ45/162215z.jpg" alt=""></a>
+            </div>
+            <div id="s11">
+                <a href="coolers.html"><img src="img/Catalógo Nerd/Cooler Led T-dagger/0126395_600.png" alt=""></a>
+            </div>
+            <div id="s12">
+                <a href="gabinetes.html"><img src="img/Catalógo Nerd/Gabihnete Athena M1/gabinete-gamer-gamdias-athena-m1-mid-tower-lateral-em-vidro-athena-m1_1592425966_g.jpg" alt=""></a>
+            </div>
+        </section>
+
+            <button id="btn1" onclick="esquerdo()">
+                <div class="t1"></div>
+                <div class="t2"></div>
+            </button>
+
+            <button id="btn2">
+                <div class="t1"></div>
+                <div class="t2"></div>
+            </button>
+    </section>
+
+    <main>
+        <article id="l1">
+            <!-- Segundo menu -->
+            <div id="segundo-menu"><img src="imagens/ícones/Vector.png" alt=""></div>
+            <h1>Headsets</h1>
+            <div id="p1">
+                <a href="headset.html">
+                    <div>
+                        <img src="imagens/Catalógo Nerd/Headset 2207/D_NQ_NP_666343-MLB41163982371_032020-O.jpg" alt="" class="itens">
+                        <div class="texto" id="">
+                            <p>Headset Gamer</p>
+                            <br>
+                            <strong>R$110,00</strong>
+                            <hr>
+                            <p>R$0,00</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div id="p1">
+                <a href="headset.html">
+                    <div>
+                        <img src="imagens/Catalógo Nerd/Headset Hylas/MYJ-0177-006_zoom1.jpg" alt="" class="itens">
+                        <div class="texto" id="">
+                            <p>Headset Gamer Hylas
+                                Marca: Redragon
+                                Iluminação RGB
+                                Alto Falantes de 50mm
+                                </p>
+                            <strong>R$160,00</strong>
+                            <hr>
+                            <p>R$0,00</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div id="p1">
+                <a href="headset.html">
+                    <div>
+                        <img src="imagens/Catalógo Nerd/Headset Mckinley/headset-gamer-t-dagger-mckinley-drivers-40-mm-t-rgh101_1607438850_g.jpg" alt="" class="itens">
+                        <div class="texto" id="">
+                            <p>Headset Gamer
+                                Marca: T Dagger
+                                Alto Falantes de 40mm
+                                Facil controle de botão de Mic Mute e ajuste de volume</p>
+                            <strong>R$180,00</strong>
+                            <hr>
+                            <p>R$0,00</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div id="p1">
+                <a href="headset.html">
+                    <div>
+                        <img src="imagens/Catalógo Nerd/Headset Mento/headset-gamer-redragon-mento-35mm-usb-multiplas-plataformas-rgb-black-h270-rgb_135650.jpg" alt="" class="itens">
+                        <div class="texto" id="">
+                            <p>Headset Gamer Mento
+                                Marca: Redragon
+                                Iluminação RGB
+                                Alto Falantes de 50mm
+                            </p>
+                            <strong>R$190,00</strong>
+                            <hr>
+                            <p>R$0,00</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <h1>Gabinetes</h1>
+            <div id="p1">
+                <a href="gabinetes.html">
+                    <div>
+                        <img src="imagens/Catalógo Nerd/Gabihnete Athena M1/athena-m14.jpg" alt="" class="itens">
+                        <div class="texto" id="">
+                            <p>Gabinete Athena
+                                Marca: Gamdias
+                                Não incluso as fans
+                                </p>
+                            <strong>R$400,00</strong>
+                            <hr>
+                            <p>R$0,00</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div id="p1">
+                <a href="gabinetes.html">
+                    <div>
+                        <img src="imagens/Catalógo Nerd/Gabinete Gamer Mars M1/0d6c8a91176dccbe6bc00cb2740ed63f.jpg" alt="" class="itens">
+                        <div class="texto" id="">
+                            <p>Gabinete Mars M1
+                                Lateral em vidro temperado
+                                RGB Frontal
+                                Marca: Gamdias
+                                Não incluso as fans
+                                </p>
+                            <strong>R$550,00</strong>
+                            <hr>
+                            <p>R$0,00</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div id="p1">
+                <a href="gabinetes.html">
+                    <div>
+                        <img src="imagens/Catalógo Nerd/gabinete gamer redragon wheel jack/8446cb5b45a7663da2da5d04f3f79882f219e5f0.jpeg" alt="" class="itens">
+                        <div class="texto" id="">
+                            <p>Gabinete WeelJack
+                                Lateral em vidro temperado
+                                Marca: Redragon
+                                Não incluso as fans
+                                </p>
+                            <strong>R$550,00</strong>
+                            <hr>
+                            <p>R$0,00</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div id="p1">
+                <a href="gabinetes.html">
+                    <div>
+                        <img src="imagens/Catalógo Nerd/Gabinete Quasar/gabinete-gamer-galax-quasar-rgb-mid-tower-vidro-temperado-s-fan-black-s-fonte-gx600_98206.jpg" alt="" class="itens">
+                        <div class="texto" id="">
+                            <p>Gabinete Quasar
+                                Lateral em vidro temperado
+                                Iluminação RGB frontal
+                                </p>
+                            <strong>R$400,00</strong>
+                            <hr>
+                            <p>R$0,00</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <h1>Adaptadores</h1>
+            <div id="p1">
+                <a href="adaptadores.html">
+                    <div>
+                        <img src="imagens/Catalógo Nerd/Adaptador Bluetooth para PC/b2782e3f79dde434cfb03874214fb28b.jpg" alt="" class="itens">
+                        <div class="texto" id="">
+                            <p>Adaptador Bluetooth 5.0 para computador</p>
+                            <strong>R$29,00</strong>
+                            <hr>
+                            <p>R$0,00</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div id="p1">
+                <a href="adaptadores.html">
+                    <div>
+                        <img src="imagens/Catalógo Nerd/Adaptador HDMI DVI/ArquivoExibir.jfif" alt="" class="itens">
+                        <div class="texto" id="">
+                            <p>Adaptador HDMI / DVI</p>
+                            <br>
+                            <strong>R$14,99</strong>
+                            <hr>
+                            <p>R$0,00</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div id="p1">
+                <a href="adaptadores.html">
+                    <div>
+                        <img src="imagens/Catalógo Nerd/Adaptador HDMI VGA Energizado/XkSHdvNqaR2ac4yc.jpg" alt="" class="itens">
+                        <div class="texto" id="">
+                            <p>Cabo Adaptador conversor HDMI para VGA Fêmea com Áudio Converte HDMI para VGA HDMI macho e VGA Fêmea</p>
+                            <strong>R$49,99</strong>
+                            <hr>
+                            <p>R$0,00</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div id="p1">
+                <a href="adaptadores.html">
+                    <div>
+                        <img src="imagens/Catalógo Nerd/Adaptador BT para carro/1b0d1bd754ad05e979a5b308929f7a40.jpg" alt="" class="itens">
+                        <div class="texto" id="">
+                            <p>RECEPTOR BLUETOOTH USB PARA P2</p>
+                            <br>
+                            <strong>R$29,99</strong>
+                            <hr>
+                            <p>R$0,00</p>
+                            <hr>
+                            <span>Transforme entradas P2 para receber sinais bluetooth. Ideal para conectar ao som do carro, no micro-system, mesa de som ou caixas acústicas com entrada P2.</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+        <h1>Dentre outros. . .</h1>
+    </article>
+    </main>
+
+    <nav id="topo">
+        <img src="imagens/Logo/nome-logo.png" alt="">
+        <button id="menu"><p>ACESSE TODOS OS</p> <br><strong>DEPARTAMENTOS</strong></button>
+
+        <div id="fundo"></div>
+
+        <ul id="categorias"><!--menu-->
+            <img src="imagens/Logo/nome-logo.png" alt="">
+            <hr>
+            <li><a href="acessorios.html">Acessórios</a></li>
+            <li><a href="adaptadores.html">Adaptadores</a></li>
+            <li><a href="baterias.html">Baterias</a></li>
+            <li><a href="bonecos.html">Bonecos</a></li>
+            <li><a href="cabo.html">Cabo</a></li>
+            <li><a href="carregador.html">Carregador</a></li>
+            <li><a href="console.html">Console</a></li>
+            <li><a href="controles.html">Controles</a></li>
+            <li><a href="coolers.html">Coolers</a></li>
+            <li><a href="extensor.html">Extensores</a></li>
+            <li><a href="fones.html">Fones</a></li>
+            <li><a href="fontes.html">Fontes</a></li>
+            <li><a href="gabinetes.html">Gabinetes</a></li>
+            <li><a href="headset.html">Headset</a></li>
+            <li><a href="jogos.html">Jogos</a></li>
+            <li><a href="mouse.html">Mouse</a></li>
+            <li><a href="mouse-pad.html">Mouse pad</a></li>
+            <li><a href="teclado.html">Teclados</a></li>
+        </ul>
+    </nav>
+
+    <!-- A div abaixo será o botão que fara o usuario retornar ao topo do site -->
+    <div class="menu"><a href="#topo" id="subir"></a></div>
+
+    <script src="./java-script/configura.js"></script>
+</body>
+</html>
