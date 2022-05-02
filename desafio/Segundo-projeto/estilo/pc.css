@@ -45,18 +45,12 @@ body {
     font-weight: 100;
 }
 
-header {
-    width: 100%;
-    height: 100px;
-    margin-bottom: 80px;
-    background-color: var(--azul-claro);
-}
-
 nav {
     width: 100%;
-    height: 80px;
-    top: 100px;
-    position: absolute;
+    height: 180px;
+    top: 0px;
+    position: fixed;
+    border: 1px solid #000d63;
     background-color: var(--azul-claro);
 }
 
@@ -65,11 +59,11 @@ nav > button {
     padding: 15px;
     border-radius: 10px;
     margin-left: 10px;
+    margin-top: 100px;
     color: var(--Branco);
-    background-color: transparent;
+    background-color: var(--Laranjado);
     border: 1px solid white;
     cursor: pointer;
-    box-shadow: 2px 2px 3px var(--Azul-Escuro);
 }
 
 nav > button > p {
@@ -261,7 +255,7 @@ div#inf > div#icones {
 
 main {
     width: 100%;
-    padding-top: 50px;
+    padding-top: 250px;
     padding-bottom: 80px;
     background-color: #000d63;
 }
@@ -302,6 +296,7 @@ article > div> div > img {
     border-radius: 20px;
     transition: transform 1s;
     transform: translateX(0) scale(1);
+    border: 4px solid var(--Laranjado);
     cursor: pointer;
 }
 
@@ -343,14 +338,11 @@ article > div > div > div.texto > span {
     right: 10px;
     border-radius: 50%;
     display: none;
-    opacity: 0.5;
 }
 
 #subir:hover {
     transition: 200ms transform linear;
-    opacity: 1;
     transform: scale(1.2);
-    transform: opacity (1.2);
 }
 
 @media screen and (min-width: 2400px) {
