@@ -54,6 +54,13 @@ nav {
     background-color: var(--azul-claro);
 }
 
+nav > img {
+    width: 200px;
+    position: absolute;
+    top: -10px;
+    left: 20px;
+}
+
 nav > button {
     width: 300px;
     padding: 15px;
@@ -77,7 +84,7 @@ nav > button > strong {
 }
 
 nav > #categorias{
-    width: 350px;
+    width: 300px;
     height: 100%;
     position: fixed;
     top: 0px;
@@ -125,10 +132,10 @@ nav > ul::-webkit-scrollbar-thumb {
     font-size: 40px;
 }
 
-
-nav > ul > p {
-    font-weight: bolder;
-    font-size: 50px;
+nav > ul > img {
+    width: 200px;
+    margin-left: 20px;
+    margin-bottom: -40px;
 }
 
 nav > ul > button {
@@ -143,7 +150,7 @@ nav > ul > li {
     font-size: 25px;
 }
 nav > ul > li > a {
-    width: 330px;
+    width: 310px;
     height: 40px;
     padding-left: 20px;
     position: absolute;

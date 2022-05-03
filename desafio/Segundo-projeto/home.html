@@ -66,7 +66,7 @@
         nav > img {
             width: 200px;
             position: absolute;
-            top: 10px;
+            top: -10px;
             left: 20px;
         }
 
@@ -98,7 +98,7 @@
         }
 
         nav > #categorias{
-            width: 350px;
+            width: 300px;
             height: 100%;
             position: fixed;
             top: 0px;
@@ -150,6 +150,7 @@
         nav > ul > img {
             width: 200px;
             margin-left: 20px;
+            margin-bottom: -40px;
         }
 
         nav > ul > button {
@@ -267,7 +268,7 @@
             width: 100%;
             padding-top: 50px;
             padding-bottom: 80px;
-            background-color: #000d63;
+            background-color: var(--Azul-Escuro);
         }
 
         article {
@@ -340,8 +341,7 @@
             display: block;
             position: fixed;
             background-size: cover;
-            background-position: center center;
-            background-image: url(imagens/ícones/subir.jpg);
+            background-image: url(../imagens/ícones/subir.png);
             bottom: 135px;
             right: 10px;
             border-radius: 50%;
@@ -732,7 +732,7 @@
     <!-- A div abaixo será o botão que fara o usuario retornar ao topo do site -->
     <div class="menu"><a href="#topo" id="subir"></a></div>
 
-    <script src="./java-script/configura.js"></script>
+    <script src="./java-script/configs-java.js"></script>
     <script>
         let produtosAmostras = document.getElementById('produtosAmostras')
         const body = document.querySelector('body')

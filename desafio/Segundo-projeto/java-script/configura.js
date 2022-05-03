@@ -11,7 +11,7 @@ const fundo = window.document.getElementById("fundo");
 const html = window.document.getElementById("html");
 
 btmenu.addEventListener("click", function() {
-    
+
 	//O menu vai aparecer
 	if(categorias.style.display === "none") {
 		categorias.style.transition = '200ms left linear'

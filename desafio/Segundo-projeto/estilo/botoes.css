@@ -12,7 +12,7 @@ a#subir {
     position: fixed;
     background-size: cover;
     background-position: center center;
-    background-image: url(imagens/ícones/subir.jpg);
+    background-image: url(../imagens/ícones/subir.png);
     bottom: 135px;
     right: 10px;
     border-radius: 50%;
@@ -71,8 +71,8 @@ div#inf {
     border-radius: 20px;
     padding: 50px 30px;
     margin-top: 200px;
-    margin: auto;
-    transform: translateY(80%);
+    margin-left: 50%;
+    transform: translateY(50%);
     background-color: var(--azul-claro);
 }
 
@@ -101,7 +101,7 @@ div#inf > p {
 }
 
 div#inf > p > strong {
-    color: red;
+    color: #2267e6;
     text-shadow: 1px 1px 1px white;
 }
 
