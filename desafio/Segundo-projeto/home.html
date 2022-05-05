@@ -438,40 +438,27 @@
 
             section#amostras > button {
                 width: 40px;
-                height: 150px;
+                height: 100px;
                 border: none;
                 top: 0px;
                 position: absolute;
                 background-color: #e66d22b9;
             }
 
-            section#amostras > button > div {
+            section#amostras > button#btn1 > div {
                 width: 5px;
                 height: 30px;
-                background-color: var(--Branco);
                 position: absolute;
-                top: 0px;
+                top: -55px;
                 left: 15px;
             }
 
-            section#amostras > button#btn1 {
-                display: none;
-            }
-
-            section#amostras > button#btn2 {
-                right: 0px;
-                transform: rotate(180deg);
-            }
-
-            section#amostras > button > div.t1 {
-                transform: rotate(50deg);
-                top: 63px;
-            }
-
-            section#amostras > button > div.t2 {
-                transform: rotate(-50deg);
-                top: 80px;
-
+            section#amostras > button#btn2 > div {
+                width: 5px;
+                height: 30px;
+                position: absolute;
+                top: 50px;
+                right: 10px;
             }
 
             section#amostras > section {
@@ -873,7 +860,7 @@
             let scroll = this.scrollY;
             let nav = document.querySelector('nav')
             let buttonNav = document.getElementById('menu')
-            
+
             if(scroll < 200) {
                 nav.style.transition = '100ms height linear'
                 nav.style.height = '180px'
@@ -886,7 +873,7 @@
                 const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
                 console.log(vw);
 
-                if (vw > 450) {
+                if (vw > 560) {
                     buttonNav.style.transition = '200ms margin-top linear'
                     buttonNav.style.marginTop = '20px'
                     buttonNav.style.marginLeft = '250px'
