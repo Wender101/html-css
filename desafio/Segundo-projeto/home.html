@@ -204,8 +204,10 @@
             border: 4px solid #E66D22;
         }
 
-        section#amostras > button {
-            width: 100px;
+        /* btn1 */
+
+        section#amostras > button#btn1 {
+            width: 70px;
             height: 270px;
             border: none;
             top: 0px;
@@ -213,34 +215,57 @@
             background-color: #e66d22b9;
         }
 
-        section#amostras > button > div {
+        section#amostras > button > div > div {
             width: 5px;
             height: 40px;
             background-color: var(--Branco);
             position: absolute;
             top: 100px;
-            left: 30px;
+            left: 25px;
         }
 
         section#amostras > button#btn1 {
             display: none;
         }
 
+        section#amostras > button#btn1 > div > div.t1 {
+            transform: rotate(50deg);
+            top: 103px;
+        }
+
+        section#amostras > button#btn1 > div > div.t2 {
+            transform: rotate(-50deg);
+            top: 127px;
+        }
+
+        /* btn 2 */
         section#amostras > button#btn2 {
             right: 0px;
+            width: 70px;
+            height: 270px;
+            border: none;
+            top: 0px;
+            position: absolute;
+            background-color: #e66d22b9;
+            
+        }
+
+        section#amostras > button#btn2 > div {
             transform: rotate(180deg);
         }
 
-        section#amostras > button > div.t1 {
+
+        section#amostras > button#btn2 > div > div.t1 {
             transform: rotate(50deg);
-            top: 98px;
+            top: -30px;
         }
 
-        section#amostras > button > div.t2 {
+        section#amostras > button#btn2 > div > div.t2 {
             transform: rotate(-50deg);
-            top: 122px;
-
+            top: -7px;
         }
+
+        /* section amostra */
 
         section#amostras > section {
             position: absolute;
@@ -257,7 +282,7 @@
             cursor: pointer;
         }
 
-        section#amostras > section > div:hover, dvi:focus {
+        section#amostras > section > div:hover, div:focus {
             transform: translateX(5px) scale(1.2);
         }
 
@@ -540,13 +565,17 @@
         </section>
 
             <button id="btn1" onclick="esquerdo()">
-                <div class="t1"></div>
-                <div class="t2"></div>
+                <div>
+                    <div class="t1"></div>
+                    <div class="t2"></div>
+                </div>
             </button>
 
             <button id="btn2">
-                <div class="t1"></div>
-                <div class="t2"></div>
+                <div>
+                    <div class="t1"></div>
+                    <div class="t2"></div>
+                </d>
             </button>
     </section>
 
@@ -751,7 +780,7 @@
     </main>
 
     <footer>
-        <img src="imagens/Logo/nome-logo.png" alt="">
+        <img src="imagens/Logo/nome-logo.png">
     </footer>
 
     <!-- abaixo se econtra o menu -->
@@ -791,19 +820,59 @@
 
     <script src="./java-script/configs-java.js"></script>
     <script>
+        
         let produtosAmostras = document.getElementById('produtosAmostras')
         const body = document.querySelector('body')
         let entrou = false
-
+        
         // Coisas que vão acotencer quando o mouse entrar no site
         body.addEventListener('mouseenter', function() {
             if (entrou == false) {
                 produtosAmostras.style.transition = '2s left linear'
                 produtosAmostras.style.left = '0px'
-
+                
                 entrou = true
             } 
+
         })
+        
+        // Vai ver o tamanho da vieport
+        const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
+        // Vai ver o tamanho da vieport
+
+        if (vw > 450) {
+            window.addEventListener("scroll", (event) => {
+                let scroll = this.scrollY;
+                let nav = document.querySelector('nav')
+                let buttonNav = document.getElementById('menu')
+            
+            
+                if(scroll < 200) {
+                    nav.style.transition = '100ms height linear'
+                    nav.style.height = '180px'
+                    buttonNav.style.transition = '400ms margin-top linear'
+                    buttonNav.style.transition = '400ms margin-left linear'
+                    buttonNav.style.marginTop = ('100px')
+                    buttonNav.style.marginLeft = ('10px')
+                } else {
+                    buttonNav.style.transition = '200ms margin-top linear'
+                    buttonNav.style.marginTop = ('20px')
+                    buttonNav.style.marginLeft = ('250px')
+                    nav.style.transition = '200ms height linear'
+                    nav.style.height = '100px'
+                    
+                }
+            
+                if(scroll < 200) {
+                    let subir = window.document.getElementById("subir");
+                    subir.style.display = "none";
+                } else {
+                    let subir = window.document.getElementById("subir");
+                    subir.style.display = "block";
+                }
+            
+            });
+        }
 
         // Coisas que vão acontecer quando clicar no botão do header
         function abrirMenu() {
@@ -860,8 +929,8 @@
             if (c2 == 0) {
             btnDois.style.display = 'none'
             }
-
         })
+
     </script>
 </body>
 </html>

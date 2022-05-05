@@ -65,33 +65,14 @@ fundo.addEventListener("click", function() {
 // eslint-disable-next-line no-unused-vars
 window.addEventListener("scroll", (event) => {
 	let scroll = this.scrollY;
-	let nav = document.querySelector('nav')
-	let buttonNav = document.getElementById('menu')
 
-
-		if(scroll < 200) {
-			nav.style.transition = '100ms height linear'
-			nav.style.height = '180px'
-			buttonNav.style.transition = '400ms margin-top linear'
-			buttonNav.style.transition = '400ms margin-left linear'
-			buttonNav.style.marginTop = ('100px')
-			buttonNav.style.marginLeft = ('10px')
-		} else {
-			buttonNav.style.transition = '200ms margin-top linear'
-			buttonNav.style.marginTop = ('20px')
-			buttonNav.style.marginLeft = ('250px')
-			nav.style.transition = '200ms height linear'
-			nav.style.height = '100px'
-			
-		}
-	
-		if(scroll < 200) {
-			let subir = window.document.getElementById("subir");
-			subir.style.display = "none";
-		} else {
-			let subir = window.document.getElementById("subir");
-			subir.style.display = "block";
-		}
+	if(scroll < 200) {
+		let subir = window.document.getElementById("subir");
+		subir.style.display = "none";
+	} else {
+		let subir = window.document.getElementById("subir");
+		subir.style.display = "block";
+	}
 
 });
 
