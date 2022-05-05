@@ -380,26 +380,6 @@
             transform: scale(1.2);
         }
 
-        footer {
-            width: 100%;
-            height: auto;
-            padding-bottom: 30px;
-            background-color: #030a3a;
-        }
-
-        footer > img {
-            width: 250px;
-            margin-left: 50%;
-            transform: translate(-50%);
-        }
-
-        @media screen and (min-width: 2400px) {
-            #pAmostras {
-                width: 2400px;
-                margin: auto;
-            }
-        }
-
         @media screen and (min-width: 1232px) {
             article {
                 width: 1232px;
@@ -446,7 +426,7 @@
         @media screen and (max-width: 450px){
 
             section#amostras {
-            width: 99,9%;
+            width: 97.9%;
             height: 130px;
             background-color: var(--Branco);
             margin-top: 180px;
@@ -454,69 +434,69 @@
             padding-top: 20px;
             position: relative;
             border: 4px solid #E66D22;
-        }
+            }
 
-        section#amostras > button {
-            width: 40px;
-            height: 150px;
-            border: none;
-            top: 0px;
-            position: absolute;
-            background-color: #e66d22b9;
-        }
+            section#amostras > button {
+                width: 40px;
+                height: 150px;
+                border: none;
+                top: 0px;
+                position: absolute;
+                background-color: #e66d22b9;
+            }
 
-        section#amostras > button > div {
-            width: 5px;
-            height: 30px;
-            background-color: var(--Branco);
-            position: absolute;
-            top: 0px;
-            left: 15px;
-        }
+            section#amostras > button > div {
+                width: 5px;
+                height: 30px;
+                background-color: var(--Branco);
+                position: absolute;
+                top: 0px;
+                left: 15px;
+            }
 
-        section#amostras > button#btn1 {
-            display: none;
-        }
+            section#amostras > button#btn1 {
+                display: none;
+            }
 
-        section#amostras > button#btn2 {
-            right: 0px;
-            transform: rotate(180deg);
-        }
+            section#amostras > button#btn2 {
+                right: 0px;
+                transform: rotate(180deg);
+            }
 
-        section#amostras > button > div.t1 {
-            transform: rotate(50deg);
-            top: 63px;
-        }
+            section#amostras > button > div.t1 {
+                transform: rotate(50deg);
+                top: 63px;
+            }
 
-        section#amostras > button > div.t2 {
-            transform: rotate(-50deg);
-            top: 80px;
+            section#amostras > button > div.t2 {
+                transform: rotate(-50deg);
+                top: 80px;
 
-        }
+            }
 
-        section#amostras > section {
-            position: absolute;
-            left: 0px;
-            display: flex;
-        }
+            section#amostras > section {
+                position: absolute;
+                left: 0px;
+                display: flex;
+            }
 
-        section#amostras > section > div {
-            width: 120px;
-            height: 160px;
-            padding-right: 40px;
-            transition: transform 400ms;
-            transform: translateX(0) scale(1);
-            cursor: pointer;
-        }
+            section#amostras > section > div {
+                width: 120px;
+                height: 160px;
+                padding-right: 40px;
+                transition: transform 400ms;
+                transform: translateX(0) scale(1);
+                cursor: pointer;
+            }
 
-        section#amostras > section > div:hover, dvi:focus {
-            transform: translateX(5px) scale(1.2);
-        }
+            section#amostras > section > div:hover, dvi:focus {
+                transform: translateX(5px) scale(1.2);
+            }
 
-        section#amostras > section > div > a > img {
-            width: 120px;
-            height: 120px;
-        }
+            section#amostras > section > div > a > img {
+                width: 120px;
+                height: 120px;
+            }
 
         }
     </style>
@@ -779,10 +759,6 @@
     </article>
     </main>
 
-    <footer>
-        <img src="imagens/Logo/nome-logo.png">
-    </footer>
-
     <!-- abaixo se econtra o menu -->
 
     <nav id="topo">
@@ -838,7 +814,7 @@
         
         // Vai ver o tamanho da vieport
         const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
-        // Vai ver o tamanho da vieport
+        console.log(vw);
 
         if (vw > 450) {
             window.addEventListener("scroll", (event) => {
