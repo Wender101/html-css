@@ -65,6 +65,18 @@ fundo.addEventListener("click", function() {
 // eslint-disable-next-line no-unused-vars
 window.addEventListener("scroll", (event) => {
 	let scroll = this.scrollY;
+
+	if(scroll < 200) {
+		let subir = window.document.getElementById("subir");
+		subir.style.display = "none";
+	} else {
+		let subir = window.document.getElementById("subir");
+		subir.style.display = "block";
+	}
+});
+
+window.addEventListener("scroll", (event) => {
+	let scroll = this.scrollY;
 	let nav = document.querySelector('nav')
 	let buttonNav = document.getElementById('menu')
 
@@ -73,23 +85,21 @@ window.addEventListener("scroll", (event) => {
 		nav.style.height = '180px'
 		buttonNav.style.transition = '400ms margin-top linear'
 		buttonNav.style.transition = '400ms margin-left linear'
-		buttonNav.style.marginTop = ('100px')
-		buttonNav.style.marginLeft = ('10px')
-	} else {
-		buttonNav.style.transition = '200ms margin-top linear'
-		buttonNav.style.marginTop = ('20px')
-		buttonNav.style.marginLeft = ('250px')
-		nav.style.transition = '200ms height linear'
-		nav.style.height = '100px'
+		buttonNav.style.marginTop = '100px'
+		buttonNav.style.marginLeft = '10px'
 		
-	}
-
-	if(scroll < 200) {
-		let subir = window.document.getElementById("subir");
-		subir.style.display = "none";
 	} else {
-		let subir = window.document.getElementById("subir");
-		subir.style.display = "block";
+		const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
+		console.log(vw);
+
+		if (vw > 560) {
+			buttonNav.style.transition = '200ms margin-top linear'
+			buttonNav.style.marginTop = '20px'
+			buttonNav.style.marginLeft = '250px'
+			nav.style.transition = '200ms height linear'
+			nav.style.height = '100px'
+		}
+		
 	}
 });
 
