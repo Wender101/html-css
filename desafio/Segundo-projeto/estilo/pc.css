@@ -352,13 +352,6 @@ article > div > div > div.texto > span {
     transform: scale(1.2);
 }
 
-@media screen and (min-width: 2400px) {
-    #pAmostras {
-        width: 2400px;
-        margin: auto;
-    }
-}
-
 @media screen and (min-width: 1232px) {
     article {
         width: 1232px;
