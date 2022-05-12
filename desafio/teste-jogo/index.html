@@ -215,7 +215,7 @@
         }
 
         let qDiamantes = 0
-        let qMoedas = 50
+        let qMoedas = 10
         let qFichas = 1
 
         let diamantes = document.getElementById('diamantes')
@@ -276,7 +276,7 @@
                             let sectionJogo = document.getElementById('jogo')
                             sectionJogo.style.display = 'none'
                             let FimDoJogo = document.getElementById('FimDoJogo')
-                            FimDoJogo.innerText = 'Infelizmente você ficou sem recursos e perdeu o jogo!'
+                            FimDoJogo.innerText = 'Perdeu o jogo!'
                         }
 
                     } else {
@@ -286,16 +286,32 @@
 
                         qMoedas -= qMoedas
                         Moedas.innerText = 'Moedas: ' + qMoedas
-                        
+
                         // Vai checar se o player n perdeu
                         if(qMoedas < 25 && qDiamantes == 0 && qFichas == 0) {
                             let sectionJogo = document.getElementById('jogo')
                             sectionJogo.style.display = 'none'
                             let FimDoJogo = document.getElementById('FimDoJogo')
-                            FimDoJogo.innerText = 'Infelizmente você ficou sem recursos e perdeu o jogo!'
+                            FimDoJogo.innerText = 'Perdeu o jogo!'
 
 
                         }
+                    }
+
+
+                     // Fim do jogo
+                    if(qMoedas < 25 && qDiamantes == 0 && qFichas == 0) {
+                        let sectionJogo = document.getElementById('jogo')
+                        sectionJogo.style.display = 'none'
+                        let FimDoJogo = document.getElementById('FimDoJogo')
+                        FimDoJogo.innerText = 'Perdeu o jogo!'
+
+
+                    } else if(qMoedas >= 500) {
+                        let FimDoJogo = document.getElementById('FimDoJogo')
+                        let sectionJogo = document.getElementById('jogo')
+                        sectionJogo.style.display = 'none'
+                        FimDoJogo.innerText = 'Vencedor!!'
                     }
                 }
 
@@ -369,7 +385,7 @@
                 let sectionJogo = document.getElementById('jogo')
                 sectionJogo.style.display = 'none'
                 let FimDoJogo = document.getElementById('FimDoJogo')
-                FimDoJogo.innerText = 'Infelizmente você ficou sem recursos e perdeu o jogo!'
+                FimDoJogo.innerText = 'Perdeu o jogo!'
 
 
             } else if(qMoedas >= 500) {
