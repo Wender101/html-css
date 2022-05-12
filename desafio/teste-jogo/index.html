@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        html {
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        section#inf {
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.425);
+            position: fixed;
+            top: 0px;
+        }
+
+        section#inf > div {
+            width: 300px;
+            height: auto;
+            padding: 60px 20px;
+            margin: 20px auto;
+            background-color: white;
+            border-radius: 20px;
+            position: relative;
+        }
+
+        section#inf > div > span {
+            width: 28px;
+            height: 25px;
+            text-align: center;
+            padding: 10px 0px 0px 0px;
+            border: 1px solid black;
+            border-radius: 50%;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            cursor: pointer;
+        }
+
+        section#inf > div > h1 {
+            text-align: center;
+        }
+
+        section#inf > div > p {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        section#inf > div > ol {
+            margin-left: 20px;
+        }
+
+        section#jogo {
+            display: none;
+        }
+
+        nav {
+            width: 100%;
+            height: auto;
+            background-color: black;
+            color: white;
+            padding: 20px;
+        }
+
+        ul {
+            display: flex;
+            list-style: none;
+        }
+
+        li {
+            margin-right: 40px;
+        }
+
+        main > h2 {
+            text-align: center;
+            color: white;
+            margin-top: 20px;
+        }
+
+        main > button {
+            background-color: black;
+            color: white;
+            padding: 20px;
+            border-radius: 20px;
+            margin-left: 50%;
+            position: absolute;
+            bottom: 60px;
+            transform: translate(-50%);
+            cursor: pointer;
+        }
+
+        section#comprar {
+            width: 100%;
+            height: 100%;
+            top: 0px;
+            position: fixed;
+            display: none;
+            background-color: rgba(0, 0, 0, 0.418);
+        }
+
+        section#comprar > div {
+            width: 350px;
+            height: 300px;
+            border-radius: 20px;
+            background-color: white;
+            color: black;
+            margin: 30px auto;
+            padding-top: 60px;
+            position: relative;
+        }
+
+        section#comprar > div > p {
+            width: 28px;
+            height: 25px;
+            text-align: center;
+            padding: 10px 0px 0px 0px;
+            border: 1px solid black;
+            border-radius: 50%;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            cursor: pointer;
+        }
+
+        section#comprar > div > h3 {
+            text-align: center;
+            color: white;
+        }
+
+        section#comprar > div > button {
+            background-color: black;
+            color: white;
+            padding: 20px;
+            border-radius: 20px;
+            margin-left: 50%;
+            transform: translate(-50%);
+            margin-top: 30px;
+            bottom: 60px;
+            cursor: pointer;
+        }
+
+        h1#FimDoJogo {
+            color: red;
+            top: 40px;
+            position: fixed;
+            margin-left: 50%;
+            transform: translate(-50%);
+        }
+    </style>
+</head>
+<body>
+    <section id="inf">
+        <div>
+            <span onclick="fecharInf()">X</span>
+            <h1>Como o Jogo Funciona</h1>
+            <p>O player começa com 1 ficha pra jogar, e com isso será sorteado o seu premio:</p>
+            <ol>
+                <li>Premio: moedas</li>
+                <li>Premio: diamantes</li>
+                <li>Premio: perder moedas</li>
+            </ol>
+
+            <p>Você podera trocar <strong>diamantes</strong> por <strong>moedas</strong> e <strong>moesdas</strong> por <strong>fichas</strong>.</p>
+
+            <p>A meta do jogo é conseguir 200 moedas.</p>
+
+        </div>
+    </section>
+
+    <section id="jogo">
+        <nav onclick="comprar()">
+            <ul>
+                <li id="diamantes"></li>
+                <li id="dinheiro"></li>
+                <li id="fichas"></li>
+            </ul>
+        </nav>
+        <main>
+            <h2>k</h2>
+            <button id="jogar" onclick="jogar()">Jogar</button>
+        </main>
+        <section id="comprar">
+            <div>
+                <p onclick="fechar()">X</p>
+                <h3>.</h3>
+                <button onclick="comprarFicha()">Comprar Ficha</button>
+                <button onclick="comprarDinheiro()">Comprar Dinheiro</button>
+            </div>
+        </section>
+
+    </section>
+
+    <h1 id="FimDoJogo"></h1>
+
+    <script>
+        // Vai fechar o tutorial e abrir o jogo
+        function fecharInf() {
+            let sectionInf = document.getElementById('inf')
+            sectionInf.style.display = 'none'
+            let sectionJogo = document.getElementById('jogo')
+            sectionJogo.style.display = 'block'
+        }
+
+        let qDiamantes = 0
+        let qDinheiro = 50
+        let qFichas = 1
+
+        let diamantes = document.getElementById('diamantes')
+        let dinheiro = document.getElementById('dinheiro')
+        let fichas = document.getElementById('fichas')
+
+        diamantes.innerText = 'Diamantes: ' + qDiamantes
+        dinheiro.innerText = 'Dinheiro: ' + qDinheiro
+        fichas.innerText = 'Fichas: ' + qFichas
+        
+        function jogar() {
+            if(qFichas > 0) {
+                let h2 = document.querySelector('h2')
+                h2.innerText = ''
+
+                let sorteio = Math.round(Math.random() * 2)
+                qFichas -= 1
+                fichas.innerText = 'Fichas: ' + qFichas
+                console.log(sorteio);
+            
+                if(sorteio == 0) {
+                    qDiamantes += 1
+                    diamantes.innerText = 'Diamantes: ' + qDiamantes
+
+                    // Vai falar quantos diamantes ganhou
+                    h2.innerText = `Você ganhou ${1} diamante`
+                    h2.style.color = 'black'
+
+                } else if(sorteio == 1) {
+                    let qMoney = Math.round(Math.random() * 50)
+                    qDinheiro += qMoney
+
+                    // Vai falar quantas moedas ganhou
+                    h2.innerText = `Você ganhou ${qMoney} moedas`
+                    h2.style.color = 'black'
+                    dinheiro.innerText = 'Dinheiro: ' + qDinheiro
+
+                    // Fim do jogo
+                    if(qDinheiro >= 200) {
+                        let FimDoJogo = document.getElementById('FimDoJogo')
+                        let sectionJogo = document.getElementById('jogo')
+                        sectionJogo.style.display = 'none'
+                        FimDoJogo.innerText = 'Vencedor!!'
+                    }
+
+                } else {
+                    if(qDinheiro >= 20) {
+                        let qMoney = Math.round(Math.random() * (20))
+                        qDinheiro -= qMoney
+                        dinheiro.innerText = 'Dinheiro: ' + qDinheiro
+    
+                        // Vai falar quantas moedas perdeu
+                        h2.innerText = `Você perdeu ${qMoney} moedas`
+                        h2.style.color = 'black'
+
+                    } else {
+                        // Vai falar quantas moedas perdeu
+                        h2.innerText = `Você perdeu ${qDinheiro} moedas`
+                        h2.style.color = 'black'
+
+                        qDinheiro -= qDinheiro
+                        dinheiro.innerText = 'Dinheiro: ' + qDinheiro
+    
+                    }
+                }
+
+            } else {
+                // Vai aparecer uma msg
+                let h2 = document.querySelector('h2')
+                h2.innerText = 'Fichas insuficiente'   
+                h2.style.color = 'red' 
+            }
+        }
+
+        // Função comprar
+
+        // Abre a loja
+        function comprar() {
+            let sectionComprar = document.getElementById('comprar')
+            sectionComprar.style.display = 'block'
+        }
+
+        // Fecha a loja
+        function fechar() {
+            let sectionComprar = document.getElementById('comprar')
+            sectionComprar.style.display = 'none'
+
+            // Vai apagar a msg
+            let h3 = document.querySelector('h3')
+            h3.innerText = '' 
+        }
+
+        function comprarFicha() {
+            if(qDinheiro >= 25) {
+                qFichas += 1
+                qDinheiro -= 25
+                dinheiro.innerText = 'Dinheiro: ' + qDinheiro
+                fichas.innerText = 'Fichas: ' + qFichas
+
+                // Sumir msg
+                let h3 = document.querySelector('h3')
+                h3.innerText = '.'  
+                h3.style.color = 'white'
+
+            } else {
+                // Aparecer uma msg
+                let h3 = document.querySelector('h3')
+                h3.innerText = 'Dinheiro insuficiente'   
+                h3.style.color = 'red'
+            }
+        }
+
+        function comprarDinheiro() {
+            if(qDiamantes > 0) {
+                qDiamantes -= 1
+                qDinheiro += 100
+                dinheiro.innerText = 'Dinheiro: ' + qDinheiro
+                diamantes.innerText = 'Diamantes: ' + qDiamantes
+
+                // Sumir msg
+                let h3 = document.querySelector('h3')
+                h3.innerText = '.'  
+                h3.style.color = 'white'
+
+            } else {
+                // Aparecer uma msg
+                let h3 = document.querySelector('h3')
+                h3.innerText = 'Diamantes insuficiente'   
+                h3.style.color = 'red'
+            }
+
+            // Fim do jogo
+            if(qDinheiro <= 24 && qDiamantes <= 0 && qFichas <= 0) {
+                let sectionJogo = document.getElementById('jogo')
+                sectionJogo.style.display = 'none'
+                let FimDoJogo = document.getElementById('FimDoJogo')
+                FimDoJogo.innerText = 'Infelizmente você ficou sem recursos e perdeu o jogo!'
+
+
+            } else if(qDinheiro >= 200) {
+                let FimDoJogo = document.getElementById('FimDoJogo')
+                let sectionJogo = document.getElementById('jogo')
+                sectionJogo.style.display = 'none'
+                FimDoJogo.innerText = 'Vencedor!!'
+            }
+        }
+    </script>
+</body>
+</html>
