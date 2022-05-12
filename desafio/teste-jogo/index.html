@@ -175,7 +175,7 @@
 
             <p>Você podera trocar <strong>diamantes</strong> por <strong>moedas</strong> e <strong>moesdas</strong> por <strong>fichas</strong>.</p>
 
-            <p>A meta do jogo é conseguir 200 moedas.</p>
+            <p>A meta do jogo é conseguir 500 moedas.</p>
 
         </div>
     </section>
@@ -184,7 +184,7 @@
         <nav onclick="comprar()">
             <ul>
                 <li id="diamantes"></li>
-                <li id="dinheiro"></li>
+                <li id="Moedas"></li>
                 <li id="fichas"></li>
             </ul>
         </nav>
@@ -197,7 +197,7 @@
                 <p onclick="fechar()">X</p>
                 <h3>.</h3>
                 <button onclick="comprarFicha()">Comprar Ficha</button>
-                <button onclick="comprarDinheiro()">Comprar Dinheiro</button>
+                <button onclick="comprarMoedas()">Comprar Moedas</button>
             </div>
         </section>
 
@@ -215,15 +215,15 @@
         }
 
         let qDiamantes = 0
-        let qDinheiro = 50
+        let qMoedas = 50
         let qFichas = 1
 
         let diamantes = document.getElementById('diamantes')
-        let dinheiro = document.getElementById('dinheiro')
+        let Moedas = document.getElementById('Moedas')
         let fichas = document.getElementById('fichas')
 
         diamantes.innerText = 'Diamantes: ' + qDiamantes
-        dinheiro.innerText = 'Dinheiro: ' + qDinheiro
+        Moedas.innerText = 'Moedas: ' + qMoedas
         fichas.innerText = 'Fichas: ' + qFichas
         
         function jogar() {
@@ -246,15 +246,15 @@
 
                 } else if(sorteio == 1) {
                     let qMoney = Math.round(Math.random() * 50)
-                    qDinheiro += qMoney
+                    qMoedas += qMoney
 
                     // Vai falar quantas moedas ganhou
                     h2.innerText = `Você ganhou ${qMoney} moedas`
                     h2.style.color = 'black'
-                    dinheiro.innerText = 'Dinheiro: ' + qDinheiro
+                    Moedas.innerText = 'Moedas: ' + qMoedas
 
                     // Fim do jogo
-                    if(qDinheiro >= 200) {
+                    if(qMoedas >= 500) {
                         let FimDoJogo = document.getElementById('FimDoJogo')
                         let sectionJogo = document.getElementById('jogo')
                         sectionJogo.style.display = 'none'
@@ -262,10 +262,10 @@
                     }
 
                 } else {
-                    if(qDinheiro >= 20) {
+                    if(qMoedas >= 20) {
                         let qMoney = Math.round(Math.random() * (20))
-                        qDinheiro -= qMoney
-                        dinheiro.innerText = 'Dinheiro: ' + qDinheiro
+                        qMoedas -= qMoney
+                        Moedas.innerText = 'Moedas: ' + qMoedas
     
                         // Vai falar quantas moedas perdeu
                         h2.innerText = `Você perdeu ${qMoney} moedas`
@@ -273,11 +273,11 @@
 
                     } else {
                         // Vai falar quantas moedas perdeu
-                        h2.innerText = `Você perdeu ${qDinheiro} moedas`
+                        h2.innerText = `Você perdeu ${qMoedas} moedas`
                         h2.style.color = 'black'
 
-                        qDinheiro -= qDinheiro
-                        dinheiro.innerText = 'Dinheiro: ' + qDinheiro
+                        qMoedas -= qMoedas
+                        Moedas.innerText = 'Moedas: ' + qMoedas
     
                     }
                 }
@@ -309,10 +309,10 @@
         }
 
         function comprarFicha() {
-            if(qDinheiro >= 25) {
+            if(qMoedas >= 25) {
                 qFichas += 1
-                qDinheiro -= 25
-                dinheiro.innerText = 'Dinheiro: ' + qDinheiro
+                qMoedas -= 25
+                Moedas.innerText = 'Moedas: ' + qMoedas
                 fichas.innerText = 'Fichas: ' + qFichas
 
                 // Sumir msg
@@ -323,16 +323,16 @@
             } else {
                 // Aparecer uma msg
                 let h3 = document.querySelector('h3')
-                h3.innerText = 'Dinheiro insuficiente'   
+                h3.innerText = 'Moedas insuficiente'   
                 h3.style.color = 'red'
             }
         }
 
-        function comprarDinheiro() {
+        function comprarMoedas() {
             if(qDiamantes > 0) {
                 qDiamantes -= 1
-                qDinheiro += 100
-                dinheiro.innerText = 'Dinheiro: ' + qDinheiro
+                qMoedas += 100
+                Moedas.innerText = 'Moedas: ' + qMoedas
                 diamantes.innerText = 'Diamantes: ' + qDiamantes
 
                 // Sumir msg
@@ -348,14 +348,14 @@
             }
 
             // Fim do jogo
-            if(qDinheiro <= 24 && qDiamantes <= 0 && qFichas <= 0) {
+            if(qMoedas <= 24 && qDiamantes <= 0 && qFichas <= 0) {
                 let sectionJogo = document.getElementById('jogo')
                 sectionJogo.style.display = 'none'
                 let FimDoJogo = document.getElementById('FimDoJogo')
                 FimDoJogo.innerText = 'Infelizmente você ficou sem recursos e perdeu o jogo!'
 
 
-            } else if(qDinheiro >= 200) {
+            } else if(qMoedas >= 500) {
                 let FimDoJogo = document.getElementById('FimDoJogo')
                 let sectionJogo = document.getElementById('jogo')
                 sectionJogo.style.display = 'none'
