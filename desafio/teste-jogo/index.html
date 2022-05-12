@@ -72,7 +72,7 @@
             height: auto;
             background-color: black;
             color: white;
-            padding: 20px;
+            padding: 20px 10px;
         }
 
         ul {
@@ -81,7 +81,7 @@
         }
 
         li {
-            margin-right: 40px;
+            margin-right: 20px;
         }
 
         main > h2 {
@@ -262,14 +262,22 @@
                     }
 
                 } else {
-                    if(qMoedas >= 20) {
-                        let qMoney = Math.round(Math.random() * (20))
+                    if(qMoedas >= 100) {
+                        let qMoney = Math.round(Math.random() * (100))
                         qMoedas -= qMoney
                         Moedas.innerText = 'Moedas: ' + qMoedas
     
                         // Vai falar quantas moedas perdeu
                         h2.innerText = `Você perdeu ${qMoney} moedas`
                         h2.style.color = 'black'
+
+                        // Vai checar se o player n perdeu
+                        if(qMoedas < 25 && qDiamantes == 0 && qFichas == 0) {
+                            let sectionJogo = document.getElementById('jogo')
+                            sectionJogo.style.display = 'none'
+                            let FimDoJogo = document.getElementById('FimDoJogo')
+                            FimDoJogo.innerText = 'Infelizmente você ficou sem recursos e perdeu o jogo!'
+                        }
 
                     } else {
                         // Vai falar quantas moedas perdeu
@@ -278,7 +286,16 @@
 
                         qMoedas -= qMoedas
                         Moedas.innerText = 'Moedas: ' + qMoedas
-    
+                        
+                        // Vai checar se o player n perdeu
+                        if(qMoedas < 25 && qDiamantes == 0 && qFichas == 0) {
+                            let sectionJogo = document.getElementById('jogo')
+                            sectionJogo.style.display = 'none'
+                            let FimDoJogo = document.getElementById('FimDoJogo')
+                            FimDoJogo.innerText = 'Infelizmente você ficou sem recursos e perdeu o jogo!'
+
+
+                        }
                     }
                 }
 
@@ -348,7 +365,7 @@
             }
 
             // Fim do jogo
-            if(qMoedas <= 24 && qDiamantes <= 0 && qFichas <= 0) {
+            if(qMoedas < 25 && qDiamantes == 0 && qFichas == 0) {
                 let sectionJogo = document.getElementById('jogo')
                 sectionJogo.style.display = 'none'
                 let FimDoJogo = document.getElementById('FimDoJogo')
