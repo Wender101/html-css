@@ -73,6 +73,11 @@ nav > button {
     cursor: pointer;
 }
 
+nav > button:hover {
+    transition: 200ms transform linear;
+    transform: scale(1.03);
+}
+
 nav > button > p {
     display: inline;
     margin-left: 53px;
@@ -340,7 +345,7 @@ article > div > div > div.texto > span {
     position: fixed;
     background-size: cover;
     background-position: center center;
-    background-image: url(../imagens/ícones/subir.jpg);
+    background-image: url(../imagens/ícones/subir.png);
     bottom: 135px;
     right: 10px;
     border-radius: 50%;
@@ -368,6 +373,7 @@ article > div > div > div.texto > span {
         margin-left: 10px;
         color: var(--Branco);
         background-color: var(--Laranjado);
+        cursor: pointer;
     }
 
     nav > #categorias {
