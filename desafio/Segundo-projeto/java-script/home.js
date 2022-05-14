@@ -106,3 +106,39 @@ window.addEventListener("scroll", (event) => {
         
     }
 });
+
+// Footer 
+
+let horas = new Date;
+let dia = new Date;
+let hoje = dia.getDay();
+let horario = horas.getHours();
+
+let lojaAberta = document.getElementById('lojaAberta');
+let vaiAbrir = document.getElementById('vaiAbrir');
+let FaltaParaAbrir = (24 - horario) + 8;
+
+// Vai checar se a loja está aberta ou não
+if (hoje == 1 || hoje == 2 || hoje == 3 || hoje == 4 || hoje == 5) {
+    if(horario >= 8 && horario < 19) {
+        lojaAberta.innerText = 'Nossa loja física está aberta neste momento'
+
+    } else {
+        lojaAberta.innerText = 'Nossa loja física está fechada neste momento'
+
+        vaiAbrir.innerText = `Vamos Abrir daqui ${FaltaParaAbrir} horas.`
+    }
+} else if (hoje == 6) {
+    if(horario >= 8 && horario < 16) {
+        lojaAberta.innerText = 'Nossa loja física está aberta neste momento'
+
+    } else {
+        lojaAberta.innerText = 'Nossa loja física está fechada neste momento'
+
+        vaiAbrir.innerText = `Vamos Abrir daqui ${FaltaParaAbrir} horas.`
+    }
+} else {
+    lojaAberta.innerText = 'Nossa loja física está fechada neste momento'
+
+    vaiAbrir.innerText = `Vamos Abrir daqui ${FaltaParaAbrir} horas.`
+}
