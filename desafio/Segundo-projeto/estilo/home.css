@@ -1,0 +1,482 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
+@import url('http://fonts.cdnfonts.com/css/lovelo');
+
+@import url('fontes/anton-2');
+
+@import url('fontes/bitwise');
+
+:root {
+--Azul-Escuro: #000d63;
+--azul-claro: #084cb9; 
+--Laranjado: #E66D22;
+--cinza: #0D0D0D;
+--Branco: #ffffff;
+--strong: red;
+--sombra: rgba(0, 0, 0, 0.39);
+--footer: rgb(75, 75, 75);
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+html {
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+html::-webkit-scrollbar {
+    width: 10px;             
+}
+
+html::-webkit-scrollbar-track {
+    background: var(--azul-claro);
+}
+
+html::-webkit-scrollbar-thumb {
+    background-color: var(--Laranjado);    
+    border-radius: 0px 0px 12px 12px;       
+}
+
+body {
+    font-family: 'Anton', sans-serif;
+    font-weight: 100;
+}
+
+nav {
+    width: 100%;
+    height: 180px;
+    top: 0px;
+    position: fixed;
+    border: 1px solid #000d63;
+    /* background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-image: url(../imagens/download.jpg); */
+    background-color: var(--azul-claro);
+    display: flex;
+}
+
+nav > div#btnMenu1 > img {
+    width: 200px;
+    position: absolute;
+    top: -10px;
+    left: 20px;
+} 
+
+nav > div#btnMenu1 > button#menu {
+    width: 300px;
+    padding: 15px;
+    border-radius: 10px;
+    margin-left: 10px;
+    margin-top: 100px;
+    color: var(--Branco);
+    background-color: var(--Laranjado);
+    border: 1px solid white;
+    cursor: pointer;
+}
+
+nav > div > button:hover {
+    transition: 200ms transform linear;
+    transform: scale(1.03);
+}
+
+nav > div > button > p {
+    display: inline;
+    margin-left: 53px;
+}
+
+nav > div > button strong {
+    text-align: left;
+    font-size: 20px;
+}
+
+nav > #categorias{
+    width: 300px;
+    height: 100%;
+    position: fixed;
+    top: 0px;
+    left: -360px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background-color: var(--azul-claro);
+}
+
+nav > #categorias > p{
+    font-family: 'Bitwise', sans-serif;
+    font-weight: 900;
+    color: var(--Branco);
+    margin-left: 20px;
+}
+
+nav > ul::-webkit-scrollbar {
+    width: 10px;             
+}
+
+nav > ul::-webkit-scrollbar-thumb {
+    background-color: var(--Laranjado);    
+    border-radius: 2px;       
+    /*border: 3px solid orange;*/
+}
+
+#Xc {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    text-align: center;
+    position: absolute;
+    top: 20px;
+    left: 300px;
+    color: var(--Branco);
+    text-decoration: none;
+    background-color: #E66D22;
+    cursor: pointer;
+}
+
+#Xc > span {
+    top: -20px;
+    right: 8px;
+    position: absolute;
+    font-size: 40px;
+}
+
+
+nav > ul > img {
+    width: 200px;
+    margin-left: 20px;
+    margin-bottom: -40px;
+}
+
+nav > ul > button {
+    position: absolute;
+    top: 10px;
+    right: 0px;
+    font-size: 20px;
+}
+
+nav > ul > li {
+    padding: 10px 0px;
+    font-size: 25px;
+}
+nav > ul > li > a {
+    width: 330px;
+    height: 40px;
+    padding-left: 20px;
+    position: absolute;
+    text-decoration: none;
+    color: var(--Branco);
+}
+
+nav > ul > li > a:hover {
+    background-color: var(--Azul-Escuro);
+}
+
+nav > #fundo {
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    position: fixed;
+    display: none;
+    background-color: #0d0d0dc4;
+    -webkit-filter: blur(0px);
+    -moz-filter: blur(0px);
+    -o-filter: blur(0px);
+    -ms-filter: blur(53px);
+    filter: blur(0px);
+}
+
+section#amostras {
+    width: 99,9%;
+    height: 250px;
+    background-color: var(--Branco);
+    margin-top: 180px;
+    overflow-x: hidden;
+    padding-top: 20px;
+    position: relative;
+    border: 4px solid #E66D22;
+}
+
+/* btn1 */
+
+section#amostras > button#btn1 {
+    width: 70px;
+    height: 270px;
+    border: none;
+    top: 0px;
+    position: absolute;
+    background-color: #e66d22b9;
+}
+
+section#amostras > button > div > div {
+    width: 5px;
+    height: 40px;
+    background-color: var(--Branco);
+    position: absolute;
+    top: 100px;
+    left: 25px;
+}
+
+section#amostras > button#btn1 {
+    display: none;
+}
+
+section#amostras > button#btn1 > div > div.t1 {
+    transform: rotate(50deg);
+    top: 103px;
+}
+
+section#amostras > button#btn1 > div > div.t2 {
+    transform: rotate(-50deg);
+    top: 127px;
+}
+
+/* btn 2 */
+section#amostras > button#btn2 {
+    right: 0px;
+    width: 70px;
+    height: 270px;
+    border: none;
+    top: 0px;
+    position: absolute;
+    background-color: #e66d22b9;
+    
+}
+
+section#amostras > button#btn2 > div {
+    transform: rotate(180deg);
+}
+
+
+section#amostras > button#btn2 > div > div.t1 {
+    transform: rotate(50deg);
+    top: -30px;
+}
+
+section#amostras > button#btn2 > div > div.t2 {
+    transform: rotate(-50deg);
+    top: -7px;
+}
+
+/* section amostra */
+
+section#amostras > section {
+    position: absolute;
+    left: -3500px;
+    display: flex;
+}
+
+section#amostras > section > div {
+    width: 200px;
+    height: 160px;
+    padding-right: 40px;
+    transition: transform 400ms;
+    transform: translateX(0) scale(1);
+    cursor: pointer;
+}
+
+section#amostras > section > div:hover, div:focus {
+    transform: translateX(5px) scale(1.2);
+}
+
+section#amostras > section > div > a > img {
+    width: 200px;
+    height: 200px;
+}
+
+main {
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 80px;
+    background-color: var(--Azul-Escuro);
+}
+
+article {
+    max-width: 1232px;
+}
+
+div#segundo-menu {
+    width: 30px;
+    height: 60px;
+    margin-left: 10px;
+    position: fixed;
+    bottom: 130px;
+    cursor: pointer;
+    display: none;
+}
+
+article > h1 {
+    font-size: 28px;
+    color: var(--Branco);
+    margin-left: 80px;
+}
+
+article > div#p1 {
+    width: 220px;
+    height: 440px;
+    display: inline-flex;
+    padding-left: 80px;
+    margin: auto;
+}
+
+article > div > a > div > img {
+    width: 220px;
+    height: 210px;
+    border-radius: 20px;
+    transition: transform 1s;
+    transform: translateX(0) scale(1);
+    cursor: pointer;
+    border: 4px solid #E66D22;
+}
+
+article > div > a > div > img:hover, img:focus {
+    transform: translateX(10px) scale(1.2);
+}
+
+article > div > a > div > div.texto {
+    width: 220px;
+    margin-left: 5px;
+}
+
+article > div > a > div > div.texto > p {
+    color: var(--Branco);
+}
+
+article > div > a > div > div.texto > strong {
+    color: var(--Laranjado);
+}
+
+article > div > a > div > div.texto > hr {
+    width: 40px;
+}
+
+article > div > a > div > div.texto > span {
+    font-size: 13px;
+    color: white;
+}
+
+a#subir {
+    width: 50px;
+    height: 50px;
+    display: block;
+    position: fixed;
+    background-size: cover;
+    background-image: url(../imagens/ícones/subir.png);
+    bottom: 135px;
+    right: 10px;
+    border-radius: 50%;
+    display: none;
+}
+
+#subir:hover {
+    transition: 200ms transform linear;
+    transform: scale(1.2);
+}
+
+@media screen and (min-width: 1232px) {
+    article {
+        width: 1232px;
+        margin: auto;
+    }
+}
+
+@media screen and (max-width: 500px) {
+
+    nav > button {
+        width: 230px;
+        padding: 8px;
+        border-radius: 10px;
+        margin-left: 10px;
+        color: var(--Branco);
+        background-color: var(--Laranjado);
+    }
+
+    nav > #categorias {
+        width: 246px;
+    }
+
+    nav > #categorias > #Xc {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        text-align: center;
+        position: absolute;
+        top: 20px;
+        left: 200px;
+        color: var(--Branco);
+        text-decoration: none;
+        background-color: #E66D22;
+    }
+
+    #Xc > span {
+        top: -20px;
+        right: 8px;
+        position: absolute;
+        font-size: 40px;
+    }
+}
+
+@media screen and (max-width: 450px){
+
+    section#amostras {
+    width: 97.9%;
+    height: 130px;
+    background-color: var(--Branco);
+    margin-top: 180px;
+    overflow: hidden;
+    padding-top: 20px;
+    position: relative;
+    border: 4px solid #E66D22;
+    }
+
+    section#amostras > button {
+        width: 40px;
+        height: 100px;
+        border: none;
+        top: 0px;
+        position: absolute;
+        background-color: #e66d22b9;
+    }
+
+    section#amostras > button#btn1 > div {
+        width: 5px;
+        height: 30px;
+        position: absolute;
+        top: -55px;
+        left: 15px;
+    }
+
+    section#amostras > button#btn2 > div {
+        width: 5px;
+        height: 30px;
+        position: absolute;
+        top: 50px;
+        right: 10px;
+    }
+
+    section#amostras > section {
+        position: absolute;
+        left: 0px;
+        display: flex;
+    }
+
+    section#amostras > section > div {
+        width: 120px;
+        height: 160px;
+        padding-right: 40px;
+        transition: transform 400ms;
+        transform: translateX(0) scale(1);
+        cursor: pointer;
+    }
+
+    section#amostras > section > div:hover, dvi:focus {
+        transform: translateX(5px) scale(1.2);
+    }
+
+    section#amostras > section > div > a > img {
+        width: 120px;
+        height: 120px;
+    }
+
+}
