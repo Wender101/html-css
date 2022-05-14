@@ -51,6 +51,7 @@ nav {
     top: 0px;
     position: fixed;
     border: 1px solid #000d63;
+    padding-bottom: 20px;
     /* background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -59,14 +60,14 @@ nav {
     display: flex;
 }
 
-nav > div#btnMenu1 > img {
+nav > img {
     width: 200px;
     position: absolute;
     top: -10px;
     left: 20px;
 } 
 
-nav > div#btnMenu1 > button#menu {
+nav > button#menu {
     width: 300px;
     padding: 15px;
     border-radius: 10px;
@@ -83,12 +84,12 @@ nav > div > button:hover {
     transform: scale(1.03);
 }
 
-nav > div > button > p {
+nav > button > p {
     display: inline;
     margin-left: 53px;
 }
 
-nav > div > button strong {
+nav > button > strong {
     text-align: left;
     font-size: 20px;
 }
@@ -387,7 +388,7 @@ footer {
 footer > img {
     width: 230px;
     margin-left: 50%;
-    transform: translate(-52%);
+    transform: translate(-50%);
 }
 
 footer > div {
@@ -509,6 +510,10 @@ footer > div > strong > a {
     section#amostras > section > div > a > img {
         width: 120px;
         height: 120px;
+    }
+
+    footer > img {
+        width: 170px;
     }
 
 }
