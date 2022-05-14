@@ -76,8 +76,6 @@ window.addEventListener("scroll", (event) => {
     let nav = document.querySelector('nav')
     let buttonNav = document.getElementById('menu')
 
-    let btnMenu2 = document.getElementById('btnMenu2')
-
     if(scroll < 200) {
         nav.style.transition = '100ms height linear'
         nav.style.height = '180px'
@@ -85,9 +83,6 @@ window.addEventListener("scroll", (event) => {
         buttonNav.style.transition = '400ms margin-left linear'
         buttonNav.style.marginTop = '100px'
         buttonNav.style.marginLeft = '10px'
-
-        btnMenu2.style.transition = '200ms top linear'
-        btnMenu2.style.top = '110px'
         
     } else {
         const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
@@ -99,9 +94,6 @@ window.addEventListener("scroll", (event) => {
             buttonNav.style.marginLeft = '250px'
             nav.style.transition = '200ms height linear'
             nav.style.height = '100px'
-
-            btnMenu2.style.transition = '200ms top linear'
-            btnMenu2.style.top = '31px'
         }
         
     }
@@ -117,28 +109,39 @@ let horario = horas.getHours();
 let lojaAberta = document.getElementById('lojaAberta');
 let vaiAbrir = document.getElementById('vaiAbrir');
 let FaltaParaAbrir = (24 - horario) + 8;
+let Aberto = false
 
 // Vai checar se a loja está aberta ou não
 if (hoje == 1 || hoje == 2 || hoje == 3 || hoje == 4 || hoje == 5) {
     if(horario >= 8 && horario < 19) {
-        lojaAberta.innerText = 'Nossa loja física está aberta neste momento'
+        Aberto = true
 
     } else {
-        lojaAberta.innerText = 'Nossa loja física está fechada neste momento'
-
+        Aberto = false
+    
         vaiAbrir.innerText = `Vamos Abrir daqui ${FaltaParaAbrir} horas.`
     }
 } else if (hoje == 6) {
     if(horario >= 8 && horario < 16) {
-        lojaAberta.innerText = 'Nossa loja física está aberta neste momento'
+        Aberto = true
 
     } else {
-        lojaAberta.innerText = 'Nossa loja física está fechada neste momento'
+        Aberto = false
 
         vaiAbrir.innerText = `Vamos Abrir daqui ${FaltaParaAbrir} horas.`
     }
 } else {
-    lojaAberta.innerText = 'Nossa loja física está fechada neste momento'
+    Aberto = false
 
     vaiAbrir.innerText = `Vamos Abrir daqui ${FaltaParaAbrir} horas.`
 }
+
+// Vai escrevar qual o estado da loja
+if(Aberto == true) {
+    lojaAberta.innerText = 'Nossa loja física está aberta neste momento'
+
+} else {
+    lojaAberta.innerText = 'Nossa loja física está fechada neste momento'
+
+}
+ 
