@@ -86,7 +86,6 @@ window.addEventListener("scroll", (event) => {
         
     } else {
         const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
-        console.log(vw);
 
         if (vw > 560) {
             buttonNav.style.transition = '200ms margin-top linear'
@@ -102,9 +101,9 @@ window.addEventListener("scroll", (event) => {
 // Footer 
 
 let horas = new Date;
+let horario = horas.getHours();
 let dia = new Date;
 let hoje = dia.getDay();
-let horario = horas.getHours();
 
 let lojaAberta = document.getElementById('lojaAberta');
 let vaiAbrir = document.getElementById('vaiAbrir');
@@ -112,13 +111,13 @@ let FaltaParaAbrir = (24 - horario) + 8;
 let Aberto = false
 
 // Vai checar se a loja está aberta ou não
+console.log(hoje, horario);
 if (hoje == 1 || hoje == 2 || hoje == 3 || hoje == 4 || hoje == 5) {
     if(horario >= 8 && horario < 19) {
         Aberto = true
 
     } else {
         Aberto = false
-    
         vaiAbrir.innerText = `Vamos Abrir daqui ${FaltaParaAbrir} horas.`
     }
 } else if (hoje == 6) {
@@ -127,12 +126,10 @@ if (hoje == 1 || hoje == 2 || hoje == 3 || hoje == 4 || hoje == 5) {
 
     } else {
         Aberto = false
-
         vaiAbrir.innerText = `Vamos Abrir daqui ${FaltaParaAbrir} horas.`
     }
 } else {
     Aberto = false
-
     vaiAbrir.innerText = `Vamos Abrir daqui ${FaltaParaAbrir} horas.`
 }
 
