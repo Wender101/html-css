@@ -65,13 +65,15 @@ fundo.addEventListener("click", function() {
 // eslint-disable-next-line no-unused-vars
 window.addEventListener("scroll", (event) => {
 	let scroll = this.scrollY;
+	let subir = window.document.getElementById("subir");
 
-	if(scroll < 200) {
-		let subir = window.document.getElementById("subir");
-		subir.style.display = "none";
+	if(scroll < 100) {
+		subir.style.transition = "20ms right linear"
+		subir.style.right = "-50px";
+
 	} else {
-		let subir = window.document.getElementById("subir");
-		subir.style.display = "block";
+		subir.style.transition = "100ms right linear"
+		subir.style.right = "10px";
 	}
 });
 

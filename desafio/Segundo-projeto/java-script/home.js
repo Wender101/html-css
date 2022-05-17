@@ -60,6 +60,7 @@ btnDois.addEventListener('click', function() {
     btnUm.style.display = 'block'
     c2 = c2 - 1
     c1 = c1 + 1
+    console.log(c2);
 
     contagem = contagem - 600
     produtosAmostras.style.transition = '400ms left linear'
@@ -111,7 +112,6 @@ let FaltaParaAbrir = (24 - horario) + 8;
 let Aberto = false
 
 // Vai checar se a loja está aberta ou não
-console.log(hoje, horario);
 if (hoje == 1 || hoje == 2 || hoje == 3 || hoje == 4 || hoje == 5) {
     if(horario >= 8 && horario < 19) {
         Aberto = true
