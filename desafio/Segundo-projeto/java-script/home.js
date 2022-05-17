@@ -118,7 +118,6 @@ if (hoje == 1 || hoje == 2 || hoje == 3 || hoje == 4 || hoje == 5) {
 
     } else {
         Aberto = false
-        vaiAbrir.innerText = `Vamos Abrir daqui ${FaltaParaAbrir} horas.`
     }
 } else if (hoje == 6) {
     if(horario >= 8 && horario < 16) {
@@ -126,11 +125,10 @@ if (hoje == 1 || hoje == 2 || hoje == 3 || hoje == 4 || hoje == 5) {
 
     } else {
         Aberto = false
-        vaiAbrir.innerText = `Vamos Abrir daqui ${FaltaParaAbrir} horas.`
     }
 } else {
     Aberto = false
-    vaiAbrir.innerText = `Vamos Abrir daqui ${FaltaParaAbrir} horas.`
+    
 }
 
 // Vai escrevar qual o estado da loja
@@ -139,6 +137,6 @@ if(Aberto == true) {
 
 } else {
     lojaAberta.innerText = 'Nossa loja física está fechada neste momento'
-
+    vaiAbrir.innerText = `Vamos Abrir daqui ${FaltaParaAbrir} horas.`
 }
  
