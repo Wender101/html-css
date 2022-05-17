@@ -204,7 +204,7 @@ section#local-banner > div#banner {
     margin: auto;
     background-position: center center;
     background-repeat: no-repeat;
-    background-image: url(../imagens/responsivo-trabalhador22_2.jpg);
+    background-image: url(../imagens/banner/MÊS.png);
 }
 
 /* Amostras */
@@ -451,7 +451,7 @@ footer > div > strong > a {
         margin: auto;
         background-position: center center;
         background-repeat: no-repeat;
-        background-image: url(/imagens/responsivo-trabalhador22_2.jpg);
+        background-image: url(../imagens/banner/MÊS.png);
     }
 }
 
