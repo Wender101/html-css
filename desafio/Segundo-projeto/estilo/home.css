@@ -453,6 +453,10 @@ footer > div > strong > a {
         background-repeat: no-repeat;
         background-image: url(../imagens/banner/MÊS.png);
     }
+
+    section#amostras {
+        margin-top: 0px;
+        }
 }
 
 @media screen and (max-width: 500px) {
@@ -497,7 +501,7 @@ footer > div > strong > a {
     width: 97.9%;
     height: 130px;
     background-color: var(--Branco);
-    margin-top: 180px;
+    margin-top: 0px;
     overflow: hidden;
     padding-top: 20px;
     position: relative;
