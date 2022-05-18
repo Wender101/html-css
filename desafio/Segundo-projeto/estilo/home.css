@@ -460,13 +460,27 @@ footer > div > strong > a {
 
 @media screen and (max-width: 500px) {
 
-    nav > button {
-        width: 230px;
-        padding: 8px;
+    nav > img {
+        width: 200px;
+        margin-left: -20px;
+    }
+
+    nav > button#menu {
+        width: 200px;
+        padding: 2px;
         border-radius: 10px;
         margin-left: 10px;
         color: var(--Branco);
         background-color: var(--Laranjado);
+    }
+
+    nav > button#menu > p {
+        font-size: 13px;
+        margin-left: 35px;
+    }
+
+    nav > button#menu > strong {
+        font-size: 18px;
     }
 
     nav > #categorias {
