@@ -514,14 +514,14 @@ footer > div > strong > a {
     }
 
     section#amostras {
-    width: 97.9%;
-    height: 130px;
-    background-color: var(--Branco);
-    margin-top: 0px;
-    overflow: hidden;
-    padding-top: 20px;
-    position: relative;
-    border: 4px solid #E66D22;
+        width: 97.9%;
+        height: 130px;
+        background-color: var(--Branco);
+        margin-top: 0px;
+        overflow-x: scroll;
+        padding-top: 20px;
+        position: relative;
+        border: 4px solid #E66D22;
     }
 
     section#amostras > button {
@@ -531,6 +531,10 @@ footer > div > strong > a {
         top: 0px;
         position: absolute;
         background-color: #e66d22b9;
+    }
+
+    section#amostras > button#btn1, button#btn2 {
+        display: none;
     }
 
     section#amostras > button#btn1 > div {
@@ -553,6 +557,7 @@ footer > div > strong > a {
         position: absolute;
         left: 0px;
         display: flex;
+        margin-top: -20px;
     }
 
     section#amostras > section > div {
