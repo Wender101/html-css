@@ -5,6 +5,7 @@
 
 //Ao clicar no botão menu...
 const btmenu = window.document.getElementById("menu");
+const btnmenu2 = window.document.getElementById("menu2");
 const categorias = window.document.getElementById("categorias");
 const subir = window.document.getElementById("subir");
 const fundo = window.document.getElementById("fundo");
@@ -41,6 +42,39 @@ btmenu.addEventListener("click", function() {
 	}
     
 });
+
+btnmenu2.addEventListener("click", function() {
+
+	//O menu vai aparecer
+	if(categorias.style.display === "none") {
+		categorias.style.transition = '200ms left linear'
+		categorias.style.left = '-360px'
+	} else {
+		categorias.style.transition = '200ms left linear'
+		categorias.style.left = '0px'
+	}
+
+	//O butão de voltar ao topo vai sumir ou aparecer quando clicar no btnmenu
+	if(subir.style.display === "block") {
+		subir.style.display = "none";
+	}
+
+	//O fundo vai aparecer ou sumir quando clicar no btnmenu
+	if(fundo.style.display === "block") {
+		fundo.style.display = "none";
+	} else {
+		fundo.style.display = "block";
+	}
+
+	//O scroll da pág vai sumir ou aparecer quando clicar no btnmenu
+	if(html.style.overflowY === "hidden") {
+		html.style.overflowY = "scroll";
+	} else {
+		html.style.overflowY = "hidden";
+	}
+    
+});
+
 
 //Ao fechar o menu clicando no fundo da pág...
 fundo.addEventListener("click", function() {
