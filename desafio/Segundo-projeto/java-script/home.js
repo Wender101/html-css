@@ -77,7 +77,7 @@ window.addEventListener("scroll", (event) => {
     let nav = document.querySelector('nav')
     let buttonNav = document.getElementById('menu')
 
-    if(scroll < 200) {
+    if(scroll < 20) {
         nav.style.transition = '100ms height linear'
         nav.style.height = '180px'
         buttonNav.style.transition = '400ms margin-top linear'
