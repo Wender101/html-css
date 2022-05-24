@@ -31,40 +31,14 @@
 
     <main>
         <div>
-            <h1>Sobre</h1>
-            <p>Este site contém todos os livros ultilizados aqui no Maestro Miguel Affiune, e tem como objetivo ajudar aos alunos.</p>
+            <h1>Clique No Livro Que Deseja</h1>
         </div>
 
         <div>
-            <h1>Como Funciona</h1>
-            <p>Clique no menu na parte superior do site e escolha uma das séries: 1º, 2º ou 3º. Logo após, escolha qual livro procura.</p>
+           <a href="img/primeiro/mat.pdf"><img src="img/primeiro/mat1.png" alt="livro de matematica"></a>
         </div>
     </main>
 
-    <script>
-        function abrirMenu() {
-            let nav = document.querySelector('nav')
-            let fundo = document.getElementById('fundo')
-
-            if(fundo.style.display == 'block') {
-                fundo.style.display = 'none'
-                nav.style.transition = '100ms left linear'
-                nav.style.left = '-200px'
-                
-            } else {
-                fundo.style.display = 'block'
-                nav.style.transition = '200ms left linear'
-                nav.style.left = '0px'
-            }
-        }
-
-        function fecharFundo() {
-            let nav = document.querySelector('nav')
-            let fundo = document.getElementById('fundo')
-            fundo.style.display = 'none'
-            nav.style.transition = '100ms left linear'
-            nav.style.left = '-200px'
-        }
-    </script>
+    <script src="js/index.js"></script>
 </body>
 </html>
