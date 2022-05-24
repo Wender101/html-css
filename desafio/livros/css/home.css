@@ -94,13 +94,12 @@ div#fundo {
 
 main {
     max-width: 1300px;
-    display: flex;
-    flex-wrap: wrap;
     margin: 30px auto;
+    padding: 20px;
 }
 
-main > div, div#aviso{
-    width: 250px;
+main > div{
+    max-width: 800px;
     height: auto;
     padding: 20px;
     border-radius: 20px;
@@ -108,14 +107,6 @@ main > div, div#aviso{
     text-align: center;
     background-color: var(--cor1);
     margin-top: 40px;
-}
-
-div#aviso {
-    width: 500px;
-}
-
-div#aviso > h1 {
-    font-size: 20px;
 }
 
 main > div > p {
