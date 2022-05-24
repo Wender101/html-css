@@ -32,7 +32,7 @@ header {
 }
 
 header > #btnMenu {
-    width: 25px;
+    width: 27px;
     height: 20px;
     background-color: transparent;
     border: none;
@@ -61,6 +61,10 @@ nav > h1 {
     text-align: center;
 }
 
+nav > hr {
+    margin-top: 10px;
+}
+
 nav > ul {
     margin-top: 20px;
     padding-left: 20px;
@@ -74,6 +78,7 @@ nav > ul > a {
 
 nav > ul > a > li {
     margin-top: 20px;
+    font-size: 20px;
 }
 
 div#fundo {
