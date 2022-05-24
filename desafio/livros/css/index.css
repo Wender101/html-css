@@ -1,0 +1,118 @@
+:root {
+    --cor1: white;
+    --cor2: #9DA9B0;
+    --cor3: #646B70;
+    --cor4: #D6E6F0;
+    --cor5: #E1F2FC;
+    --cor6: #BFCDD6;
+    --cor7: #868B8E;
+    --cor8: #d3d3d3;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    background-color: var(--cor8);
+    font-weight: bolder;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+    width: 100%;
+    height: 80px;
+    color: white;
+    background-color: var(--cor3);
+    text-align: center;
+    padding-top: 20px;
+    position: sticky;
+    top: 0px;
+}
+
+header > #btnMenu {
+    width: 25px;
+    height: 20px;
+    background-color: transparent;
+    border: none;
+    background-repeat: no-repeat;
+    background-size: cover;
+    top: 60px;
+    left: 15px;
+    background-image: url(../img/icones-e-imgs/btn\ menu.png);
+    position: absolute;
+}
+
+/* Nav */
+
+nav {
+    width: 200px;
+    height: 110vh;
+    background-color: var(--cor3);
+    position: fixed;
+    top: 100px;
+    color: white;
+    padding-top: 20px;
+    left: -240px;
+}
+
+nav > h1 {
+    text-align: center;
+}
+
+nav > ul {
+    margin-top: 20px;
+    padding-left: 20px;
+    list-style: none;
+}
+
+nav > ul > a {
+    text-decoration: none;
+    color: white;
+}
+
+nav > ul > a > li {
+    margin-top: 20px;
+}
+
+div#fundo {
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.301);
+    display: none;
+}
+
+/* Main */
+
+main {
+    margin-bottom: 40px;
+}
+
+main > div {
+    width: 250px;
+    height: auto;
+    padding: 20px;
+    border-radius: 20px;
+    margin: auto;
+    text-align: center;
+    background-color: var(--cor1);
+    margin-top: 40px;
+}
+
+main > div > h1 {
+    font-size: 20px;
+}
+
+main > div > p {
+    margin-top: 20px;
+    text-align: left;
+    font-weight: 100;
+}
+
+main > div > img {
+    width: 191px;
+    height: 257px;
+}

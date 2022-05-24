@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/index.css">
+    <title>Primerio Ano</title>
+</head>
+<body>
+    <div id="fundo" onclick="fecharFundo()"></div>
+    <header>
+        <h1>Primeiro Ano</h1>
+        <button id="btnMenu" onclick="abrirMenu()"></button>
+    </header>
+    
+    <nav>
+        <h1>Séries</h1>
+        <ul>
+            <a href="livros.html">
+                <li>Home</li>
+            </a>
+            <a href="segundo-ano.html">
+                <li>2º Ano</li>
+            </a>
+            <a href="terceiro-ano.html">
+                <li>3º Ano</li>
+            </a>
+        </ul>
+    </nav>
+
+    <main>
+        <div>
+            <h1>Sobre</h1>
+            <p>Este site contém todos os livros ultilizados aqui no Maestro Miguel Affiune, e tem como objetivo ajudar aos alunos.</p>
+        </div>
+
+        <div>
+            <h1>Como Funciona</h1>
+            <p>Clique no menu na parte superior do site e escolha uma das séries: 1º, 2º ou 3º. Logo após, escolha qual livro procura.</p>
+        </div>
+    </main>
+
+    <script>
+        function abrirMenu() {
+            let nav = document.querySelector('nav')
+            let fundo = document.getElementById('fundo')
+
+            if(fundo.style.display == 'block') {
+                fundo.style.display = 'none'
+                nav.style.transition = '100ms left linear'
+                nav.style.left = '-200px'
+                
+            } else {
+                fundo.style.display = 'block'
+                nav.style.transition = '200ms left linear'
+                nav.style.left = '0px'
+            }
+        }
+
+        function fecharFundo() {
+            let nav = document.querySelector('nav')
+            let fundo = document.getElementById('fundo')
+            fundo.style.display = 'none'
+            nav.style.transition = '100ms left linear'
+            nav.style.left = '-200px'
+        }
+    </script>
+</body>
+</html>
