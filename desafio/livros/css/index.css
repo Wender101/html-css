@@ -80,7 +80,7 @@ div#fundo {
     width: 100%;
     height: 100%;
     top: 0px;
-    position: absolute;
+    position: fixed;
     background-color: rgba(0, 0, 0, 0.301);
     display: none;
 }
@@ -116,3 +116,4 @@ main > div > a > img {
     width: 191px;
     height: 257px;
 }
+

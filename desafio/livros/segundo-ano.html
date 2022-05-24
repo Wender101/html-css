@@ -48,30 +48,6 @@
         </div>
     </main>
 
-    <script>
-        function abrirMenu() {
-            let nav = document.querySelector('nav')
-            let fundo = document.getElementById('fundo')
-
-            if(fundo.style.display == 'block') {
-                fundo.style.display = 'none'
-                nav.style.transition = '100ms left linear'
-                nav.style.left = '-200px'
-                
-            } else {
-                fundo.style.display = 'block'
-                nav.style.transition = '200ms left linear'
-                nav.style.left = '0px'
-            }
-        }
-
-        function fecharFundo() {
-            let nav = document.querySelector('nav')
-            let fundo = document.getElementById('fundo')
-            fundo.style.display = 'none'
-            nav.style.transition = '100ms left linear'
-            nav.style.left = '-200px'
-        }
-    </script>
+    <script src="js/index.js"></script>
 </body>
 </html>
