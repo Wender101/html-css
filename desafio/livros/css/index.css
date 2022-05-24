@@ -112,7 +112,7 @@ main > div > p {
     font-weight: 100;
 }
 
-main > div > img {
+main > div > a > img {
     width: 191px;
     height: 257px;
 }
