@@ -79,8 +79,8 @@ window.addEventListener("scroll", (event) => {
     let banner = document.getElementById('local-banner')
     let imgnave = document.getElementById('imgnave')
 
-    if(scroll < 20) {
-        if (buttonNav.style.display != 'none') {
+    if(buttonNav.style.display != 'none') {
+        if (scroll < 20) {
             nav.style.transition = '100ms height linear'
             nav.style.height = '180px'
             buttonNav.style.transition = '400ms margin-top linear'
@@ -89,7 +89,7 @@ window.addEventListener("scroll", (event) => {
             buttonNav.style.marginLeft = '10px'
             banner.style.marginTop = '182px'
 
-        } else if (buttonNav.style.display == 'none') {
+        } else {
             buttonNav.style.transition = '200ms margin-top linear'
             buttonNav.style.marginTop = '20px'
             buttonNav.style.marginLeft = '250px'
@@ -99,12 +99,8 @@ window.addEventListener("scroll", (event) => {
         }
 
     } else {
-        buttonNav.style.transition = '200ms margin-top linear'
-        buttonNav.style.marginTop = '20px'
-        buttonNav.style.marginLeft = '250px'
-        nav.style.transition = '200ms height linear'
-        nav.style.height = '100px'
-        banner.style.marginTop = '122px'
+            nav.style.height = '100px'
+            banner.style.marginTop = '122px'
     }
 });
 

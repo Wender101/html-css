@@ -1,10 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
 
-@import url('http://fonts.cdnfonts.com/css/lovelo');
+@import url('http://fonts.cdnfonts.com/css/lovelo'); */
 
-@import url('fontes/anton-2');
+@font-face {
+    font-family: Anton;
+    src: url(../fontes/anton-2.ttf);
+}
 
-@import url('fontes/bitwise');
+@font-face {
+    font-family: Bitwise;
+    src: url(../fontes/bitwise.ttf);
+}
 
 :root {
 --Azul-Escuro: #000d63;
@@ -41,7 +47,7 @@ html::-webkit-scrollbar-thumb {
 }
 
 body {
-    font-family: 'Anton', sans-serif;
+    font-family: Anton, sans-serif;
     font-weight: 100;
 }
 
@@ -77,6 +83,7 @@ nav > button#menu {
     background-color: var(--Laranjado);
     border: 1px solid white;
     cursor: pointer;
+    display: block;
 }
 
 nav > div > button:hover {
@@ -106,7 +113,7 @@ nav > #categorias{
 }
 
 nav > #categorias > p {
-    font-family: 'Bitwise', sans-serif;
+    font-family: Bitwise, sans-serif;
     font-weight: 900;
     color: var(--Branco);
     margin-left: 20px;

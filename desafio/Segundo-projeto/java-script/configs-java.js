@@ -103,7 +103,7 @@ window.addEventListener("scroll", (event) => {
 
 	if(scroll < 520) {
 		subir.style.transition = "20ms right linear"
-		subir.style.right = "-50px";
+		subir.style.right = "-70px";
 
 	} else {
 		subir.style.transition = "100ms right linear"
