@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800&display=swap');
+
+:root {
+    --cor1: rgba(255, 255, 255, 0.507);
+    --cor2: rgba(255, 255, 255, 0.2);
+    --font1: 'Inter', sans-serif;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+html {
+    background-position: center center;
+    background-size: cover;
+    background-image: url('../img/Background.png');
+    overflow-x: hidden;
+}
+
+body {
+    width: 100%;
+    height: auto;
+    padding-bottom: 50px;
+    background-color: var(--cor2);
+    color: white;
+    font-family: var(--font1);
+    font-size: 100;
+    overflow-x: hidden;
+}
+
+header {
+    width: 100%;
+    height: auto;
+    padding: 20px;
+}
+
+nav > button {
+    width: 30px;
+    height: 24px;
+    background-position: center center;
+    background-size: cover;
+    background-color: transparent;
+    border: none;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    background-image: url('../img/Menu\ icon.png');
+}
+
+main > h1 {
+    width: 100px;
+    margin-left: 23px;
+}
+
+main > section#categorias {
+    width: 80%;
+    margin: 55px auto;
+    height: auto;
+    padding: 20px;
+    background-color: var(--cor1);
+    border-radius: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.459);
+}
+
+main > section#categorias > article {
+    text-align: center;
+}
+
+main > section#categorias > article > div {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+#c1 > div {
+    background-image: linear-gradient(rgba(47, 236, 236, 1), rgba(74, 47, 236, 1));
+}
+
+#c2 > div {
+    background-image: linear-gradient(rgba(236, 217, 47, 1), rgba(236, 47, 70, 1));
+}
+
+#c3 > div {
+    background-image: linear-gradient(rgba(236, 47, 47, 1), rgba(221, 47, 236, 1));
+}
+
+#c4 > div {
+    background-image: linear-gradient(rgb(47, 66, 236), rgb(236, 47, 220));
+}
+
+main > section#musicas > article {
+    width: 350px;
+    height: auto;
+    margin: auto;
+    position: relative;
+}
+
+main > section#musicas > article > div {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: white;
+    position: absolute;
+    bottom: 30px;
+    right: 20px;
+}
+
+main > section#musicas > article > img{
+    width: 350px;
+    height: 200px;
+    border-radius: 20px;
+}
+
+main > section#musicas > article > div > div {
+    width: 0; 
+    height: 0; 
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-left: 20px solid #000000;
+    position: absolute;
+    left: 23px;
+    top: 15px;
+}
