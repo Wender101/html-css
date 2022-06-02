@@ -1,10 +1,11 @@
 const d1 = document.getElementById('d1')
 const d2 = document.getElementById('d2')
 const d3 = document.getElementById('d3')
+const d4 = document.getElementById('d4')
 
 // Vai criar um desenho de triângulo
 function criaSeta() {
-    for(let c = 0; c < 3; c++) {
+    for(let c = 0; c < 4; c++) {
         let div = document.getElementsByClassName('div')[c]
         div.style.width = '0px'
         div.style.height = '0px'
@@ -21,7 +22,7 @@ criaSeta()
 
 // Vai criar um desenho de cubo
 function criaCubo(a = c) {
-    for(let c = 0; c < 3; c++) {
+    for(let c = 0; c < 4; c++) {
         let div = document.getElementsByClassName('div')[a]
         div.style.width = '20px'
         div.style.height = '20px'
@@ -37,23 +38,34 @@ function criaCubo(a = c) {
 function iniciar(a) {
     if(a == 0) {
         d1.play()
+        d4.pause()
         d2.pause()
         d3.pause()
         criaCubo(0)
 
     } else if(a == 1) {
         d2.play()
+        d4.pause()
         d1.pause()
         d3.pause()
         criaCubo(1)
 
     } else if(a == 2) {
+        d4.pause()
         d3.play()
         d2.pause()
         d1.pause()
         criaCubo(2)
 
+    } else if(a == 3) {
+        d4.play()
+        d3.pause()
+        d2.pause()
+        d1.pause()
+        criaCubo(3)
+
     } else {
+        d4.pause()
         d3.pause()
         d2.pause()
         d1.pause()
@@ -93,6 +105,16 @@ function audio3() {
     }
 }
 
+function audio4() {  
+    if(iniciou == false) {
+        iniciar(3)
+        iniciou = true
+    } else {
+        iniciar()
+        iniciou = false
+    }
+}
+
 // Parte do menu
 function abrirMenu() {
     let fundo = document.getElementById('fundo')
@@ -111,6 +133,3 @@ function fecharMenu() {
     fundo.style.transition = '0ms left linear'
     fundo.style.left = '-150vw'
 }
-
-
-
