@@ -22,7 +22,7 @@ html {
 
 body {
     width: 100%;
-    height: auto;
+    height: 100vh;
     padding-bottom: 50px;
     background-color: var(--cor2);
     color: white;
@@ -108,65 +108,56 @@ main > section#categorias {
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.459);
 }
 
-main > section#categorias > article {
-    text-align: center;
-}
-
-main > section#categorias > article > a > div {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-}
-
-#c1 > a > div {
-    background-image: linear-gradient(rgba(47, 236, 236, 1), rgba(74, 47, 236, 1));
-}
-
-#c2 > a > div {
-    background-image: linear-gradient(rgba(236, 217, 47, 1), rgba(236, 47, 70, 1));
-}
-
-#c3 > a > div {
-    background-image: linear-gradient(rgba(236, 47, 47, 1), rgba(221, 47, 236, 1));
-}
-
-#c4 > a > div {
-    background-image: linear-gradient(rgb(47, 66, 236), rgb(236, 47, 220));
-}
-
-main > section#musicas {
-    padding-top: 20px;
-}
-
-main > section#musicas > article {
+main > section#musica {
     width: 350px;
-    height: auto;
-    margin: auto;
-    position: relative;
+    height: 200px;
+    margin: 30px auto;
 }
 
-main > section#musicas > article > h2 {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    font-weight: 200;
-    background-color: rgba(0, 0, 0, 0.61);
-    padding: 10px;
-    border-radius: 10px;
-}
-
-main > section#musicas > article > div {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background-color: white;
-    position: absolute;
-    bottom: 30px;
-    right: 20px;
-}
-
-main > section#musicas > article > img{
+main > section#musica > img {
     width: 350px;
     height: 200px;
     border-radius: 20px;
+}
+
+main > section#musica > input {
+    width: 320px;
+    height: 10px;
+    margin-left: 50%;
+    transform: translate(-50%);
+}
+
+main > section#configMusicas {
+    width: 300px;
+    height: auto;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+main > section#configMusicas > #voltar, #proxima {
+    width: 30px;
+    height: 30px;
+    background-color:  transparent;
+    border: none;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: 15px;
+    background-image: url('../img/config/Vector.png');
+}
+
+main > section#configMusicas > #pause {
+    width: 60px;
+    height: 60px;
+    background-color:  transparent;
+    border: none;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url('../img/config/Pause\ icon.png');
+}
+
+main > section#configMusicas > #proxima {
+    transform: rotate(180deg);
 }

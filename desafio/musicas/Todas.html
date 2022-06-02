@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/index.css">
+    <link rel="stylesheet" href="assets/css/todas.css">
     <title>Todas as Musicas</title>
 </head>
 <body>
@@ -41,43 +41,28 @@
                 <p>lolfi</p>
             </article>
         </section>
-
         <section id="musicas">
             <article id="m1">
                 <h2>Nome</h2>
-                <div onclick="audio1()">
-                    <div class="div"></div>
-                </div>
-                <img src="assets/img/Photo 6.png" alt="">
-                <audio src="assets/audios/music1.mpeg" id="d1"></audio>
+                <a href="Tocar.html" class="as"><img src="assets/img/Photo 6.png"></a>
             </article>
 
             <article id="m2">
                 <h2>Nome</h2>
-                <div onclick="audio2()">
-                    <div class="div"></div>
-                </div>
-                <img src="assets/img/Photo 7.png" alt="">
-                <audio src="assets/audios/music2.mpeg" id="d2"></audio>
+                <a href="Tocar.html" class="as"><img src="assets/img/Photo 7.png"></a>
             </article>
 
             <article id="m3" style="width: 340px; height: 200px">
                 <h2>Nome</h2>
-                <div onclick="audio3()">
-                    <div class="div"></div>
-                </div>
-                <img src="assets/img/download.jpg" 
-                style="width: 330px; height: 180px;">
-                <audio src="assets/audios/music3.mpeg" id="d3"></audio>
+                <a href="Tocar.html" class="as">
+                    <img src="assets/img/download.jpg"
+                    style="width: 330px; height: 180px;">
+                </a>
             </article>
             
             <article id="m4" style="width: 340px; height: 200px">
                 <h2>Nome</h2>
-                <div onclick="audio4()">
-                    <div class="div"></div>
-                </div>
-                <img src="assets/img/4.jpg" style="width: 330px; height: 180px;">
-                <audio src="assets/audios/music4.mpeg" id="d4"></audio>
+                <a href="Tocar.html" class="as"><img src="assets/img/4.jpg" style="width: 330px; height: 180px;"></a>
             </article>
         </section>
     </main>
@@ -86,12 +71,31 @@
         <button id="btnMenu" onclick="abrirMenu()"></button>
         <div id="fundo" onclick="fecharMenu()"></div>
         <ul id="menu">
-            <li>Sobre</li>
-            <li>Fale Comigo</li>
-            <li>Faça uma doação</li>
+            <a href="Sobre.html">
+                <li>Sobre</li>
+            </a>
+            <a href="">
+                <li>Fale Comigo</li>
+            </a>
+            <a href="">
+                <li>Faça uma doação</li>
+            </a>
         </ul>
     </nav>
+    <script src="assets/js/menu.js"></script>
+    <script>
+        function qualMusica() {
+            for(let c = 0; c < 4; c++) {
+                let as = document.getElementsByClassName('as')[c]
+                as.addEventListener('click', function() {
+                    var f = c
+                    var fJSON = JSON.stringify(f);
+                    localStorage.setItem('ff', fJSON);
+                })
+            }
+        }
 
-    <script src="assets/js/index2.js"></script>
+        qualMusica()
+    </script>
 </body>
 </html>

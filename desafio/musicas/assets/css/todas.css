@@ -165,7 +165,7 @@ main > section#musicas > article > div {
     right: 20px;
 }
 
-main > section#musicas > article > img{
+main > section#musicas > article > a > img{
     width: 350px;
     height: 200px;
     border-radius: 20px;
