@@ -11,7 +11,7 @@ function qualMusica() {
     let audioAtual = document.createElement('audio')
     
     function criaMusica(a) {
-        musicaAtual.src = 'assets/img/' + a + '.png'
+        musicaAtual.src = 'assets/img/' + a + '.jpeg'
         audioAtual.src = 'assets/audios/music' + a + '.mpeg'
         musica.appendChild(musicaAtual)
         musica.appendChild(audioAtual)
@@ -28,6 +28,34 @@ function qualMusica() {
         
         } else if(a == 3) {
             time = 210
+
+        } else if(a == 4) {
+            time = 201
+            
+        } else if(a == 5) {
+            time = 125
+            
+        } else if(a == 6) {
+            time = 148
+            
+        } else if(a == 7) {
+            time = 140
+            
+        } else if(a == 8) {
+            time = 153
+            
+        } else if(a == 9) {
+            time = 59
+            
+        } else if(a == 10) {
+            time = 212
+            
+        } else if(a == 11) {
+            time = 210
+            
+        } else if(a == 12) {
+            time = 238
+            
         }
     }
     criaMusica(fJSON2)

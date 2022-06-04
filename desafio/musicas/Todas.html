@@ -42,28 +42,6 @@
             </article>
         </section>
         <section id="musicas">
-            <article id="m1">
-                <h2>Nome</h2>
-                <a href="Tocar.html" class="as"><img src="assets/img/0.png"></a>
-            </article>
-
-            <article id="m2">
-                <h2>Nome</h2>
-                <a href="Tocar.html" class="as"><img src="assets/img/1.png"></a>
-            </article>
-
-            <article id="m3" style="width: 340px; height: 200px">
-                <h2>Nome</h2>
-                <a href="Tocar.html" class="as">
-                    <img src="assets/img/2.png"
-                    style="width: 330px; height: 180px;">
-                </a>
-            </article>
-            
-            <article id="m4" style="width: 340px; height: 200px">
-                <h2>Nome</h2>
-                <a href="Tocar.html" class="as"><img src="assets/img/3.png" style="width: 330px; height: 180px;"></a>
-            </article>
         </section>
     </main>
 
@@ -84,8 +62,31 @@
     </nav>
     <script src="assets/js/menu.js"></script>
     <script>
+        // Vai criar as musicas
+        function criaMusicas() {
+            for(let c = 0; c < 14; c++) {
+                let musicas = document.getElementById('musicas')
+                let article = document.createElement('article')
+                article.id = 'm'+ (c + 1)
+                let h2 = document.createElement('h2')
+                h2.innerText = 'Nome'
+                let a = document.createElement('a')
+                a.href = 'Tocar.html'
+                a.className = 'as'
+                let img = document.createElement('img')
+                img.src = 'assets/img/' + c + '.jpeg'
+    
+                article.appendChild(h2)
+                article.appendChild(a)
+                a.appendChild(img)
+                musicas.appendChild(article)
+            }
+
+        }
+        criaMusicas()
+        
         function qualMusica() {
-            for(let c = 0; c < 4; c++) {
+            for(let c = 0; c < 14; c++) {
                 let as = document.getElementsByClassName('as')[c]
                 as.addEventListener('click', function() {
                     var f = c
