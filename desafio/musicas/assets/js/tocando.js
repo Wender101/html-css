@@ -16,8 +16,10 @@ function qualMusica() {
         audioAtual.src = 'assets/audios/music' + a + '.mpeg'
         musica.appendChild(musicaAtual)
         musica.appendChild(audioAtual)
+        console.log(a);
         f += 1
 
+        // Vai dar um time as musicas
         if(a == 0) {
             time = 210
         
@@ -46,7 +48,7 @@ function qualMusica() {
             time = 153
             
         } else if(a == 9) {
-            time = 59
+            time = 70
             
         } else if(a == 10) {
             time = 212
@@ -56,6 +58,9 @@ function qualMusica() {
             
         } else if(a == 12) {
             time = 238
+            
+        } else if(a == 13) {
+            time = 118
             
         }
     }
@@ -70,10 +75,9 @@ function qualMusica() {
 
             if(segundos == 100) {
                 input.style.borderRadius = '10px'
-                iniciaRelogio(0)
-                criaMusica(f)
-                clicar(false)
                 segundos = 0
+                criaMusica(f)
+                clicar()
             }
         }, t)
 
@@ -112,12 +116,30 @@ function clicar(pausarOuNao = false) {
 clicar()
 
 function voltar() {
-    f -= 2
-    segundos = 99
+    // Caso esteja pausado quando o indivuo apertar em vlt ele vai despausar
+    clicar()
+    playNow = false
+
+    if(f > 1) {
+        f -= 2
+        segundos = 99
+    } else {
+        f = 13
+        segundos = 99
+    }
 }
 
 function proxima() {
-    segundos = 99
+    // Caso esteja pausado quando o indivuo apertar em proxima ele vai despausar
+    clicar()
+    playNow = false
+
+    if(f == 14) {
+        f = 0
+        segundos = 99
+    } else {
+        segundos = 99
+    }
 }
 
 
