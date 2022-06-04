@@ -136,6 +136,9 @@ main > section#categorias > article > a > div {
 
 main > section#musicas {
     padding-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 
 main > section#musicas > article {
