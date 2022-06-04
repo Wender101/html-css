@@ -28,6 +28,7 @@ body {
     color: white;
     font-family: var(--font1);
     font-size: 100;
+    overflow-x: hidden;
 }
 
 a {
