@@ -167,7 +167,6 @@ main > section#configMusicas > #pause {
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
-    background-image: url('../img/config/Pause\ icon.png');
 }
 
 main > section#configMusicas > #proxima {

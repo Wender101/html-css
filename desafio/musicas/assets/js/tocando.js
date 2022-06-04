@@ -17,7 +17,6 @@ function qualMusica() {
         musica.appendChild(musicaAtual)
         musica.appendChild(audioAtual)
         f += 1
-        console.log(f);
 
         if(a == 0) {
             time = 210
@@ -84,12 +83,13 @@ function qualMusica() {
 qualMusica()
 
 
+let pauseIcon = document.getElementById('pause')
 var playNow = false
 function pausar() {
     if(playNow == false) {
         playNow = true
         clicar(playNow)
-
+        
     } else {
         playNow = false
         clicar(playNow)
@@ -101,10 +101,12 @@ function clicar(pausarOuNao = false) {
     if(pausarOuNao == false) {
         audio.play()
         qSegundos = 1
+        pauseIcon.style.backgroundImage = 'url(assets/img/config/Pauseicon.png)'
         
     } else if(pausarOuNao == true){
         audio.pause()
         qSegundos = 0
+        pauseIcon.style.backgroundImage = 'url(assets/img/config/dispause.png)'
     }
 }
 clicar()
