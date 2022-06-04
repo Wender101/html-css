@@ -62,7 +62,7 @@ function qualMusica() {
 
     let segundos = 0
     let input = document.getElementById('inputDentro')
-    let t = time * 6.3
+    let t = time * 6.6
     //Inicio
     function iniciaRelogio() {
         setInterval(function() {
