@@ -1,7 +1,6 @@
 let time
 const  fJSON1 = localStorage.getItem('ff')
 const fJSON2 = JSON.parse(fJSON1)
-let f = fJSON2
 
 // Vai puxar do navegador qual foi a musica escolhida
 function qualMusica() {
@@ -15,6 +14,7 @@ function qualMusica() {
         audioAtual.src = 'assets/audios/music' + a + '.mpeg'
         musica.appendChild(musicaAtual)
         musica.appendChild(audioAtual)
+        var f = a
 
         if(a == 0) {
             time = 210
@@ -44,7 +44,7 @@ function qualMusica() {
             if(segundos == 100) {
                 qSegundos = 0
                 input.style.borderRadius = '10px'
-                f += 1
+                f = fJSON2 + 1
 
                 setTimeout(function() {
                     segundos = 0
