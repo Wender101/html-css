@@ -45,13 +45,10 @@ function qualMusica() {
                 qSegundos = 0
                 input.style.borderRadius = '10px'
                 f = fJSON2 + 1
-
-                setTimeout(function() {
-                    segundos = 0
-                    qSegundos = 1
-                    criaMusica(f)
-                    clicar()
-                }, 5000)
+                segundos = 0
+                qSegundos = 1
+                criaMusica(f)
+                clicar()
             }
         }, t)
 
