@@ -112,6 +112,7 @@ main > section#musica {
     width: 350px;
     height: 200px;
     margin: 30px auto;
+    position: relative;
 }
 
 main > section#musica > img {
@@ -120,17 +121,28 @@ main > section#musica > img {
     border-radius: 20px;
 }
 
-main > section#musica > input {
-    width: 320px;
-    height: 10px;
+main > section#musica > #inputFora {
+    width: 310px;
+    height: 6px;
     margin-left: 50%;
     transform: translate(-50%);
+    background-color: black;
+    border-radius: 10px;
+    position: absolute;
+    bottom: -30px;
+}
+
+main > section#musica > #inputFora > div {
+    width: 2px;
+    height: 6px;
+    border-radius: 10px 0px 0px 10px;
+    background-color: rgb(255, 255, 255);
 }
 
 main > section#configMusicas {
     width: 300px;
     height: auto;
-    margin: auto;
+    margin: 50px auto;
     display: flex;
     justify-content: space-between;
 }

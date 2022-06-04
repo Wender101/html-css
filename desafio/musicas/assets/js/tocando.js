@@ -1,3 +1,5 @@
+var time
+
 // Vai puxar do navegador qual foi a musica escolhida
 function qualMusica() {
     const  fJSON1 = localStorage.getItem('ff');
@@ -6,27 +8,12 @@ function qualMusica() {
     let musica = document.getElementById('musica')
     let musicaAtual = document.createElement('img')
     let audioAtual = document.createElement('audio')
-    let input = document.createElement('input')
-    let segundos = 0
-    let time
-    input.type = 'range'
-    input.value = 0
     
     function criaMusica(a) {
         musicaAtual.src = 'assets/img/' + a + '.png'
         audioAtual.src = 'assets/audios/music' + a + '.mpeg'
         musica.appendChild(musicaAtual)
         musica.appendChild(audioAtual)
-        musica.appendChild(input)
-        
-        function clicar(pausarOuNao = false) {
-            if(pausarOuNao == false) {
-                audioAtual.play()
-            } else {
-                audioAtual.pause()
-            }
-        }
-        clicar()
 
         if(a == 0) {
             time = 210
@@ -42,12 +29,6 @@ function qualMusica() {
         }
     }
     criaMusica(fJSON2)
-
-    let t = time * 10
-    setInterval(function() {
-        segundos++
-        input.value = segundos
-    }, t)
 }
 qualMusica()
 
@@ -55,13 +36,46 @@ var playNow = false
 function pausar() {
     if(playNow == false) {
         playNow = true
-        clicar(true)
+        clicar(playNow)
 
     } else {
-        clicar(false)
         playNow = false
+        clicar(playNow)
     }
 }
+
+let segundos = 0
+let input = document.getElementById('inputDentro')
+let t = time * 6.4
+let qSegundos = 1
+//Inicio
+function iniciaRelogio() {
+    setInterval(function() {
+        segundos += qSegundos
+        input.style.width = segundos + '%'
+        console.log(segundos);
+        if(segundos == 100) {
+            qSegundos = 0
+            input.style.borderRadius = '10px'
+        }
+    }, t)
+
+}
+
+iniciaRelogio()
+
+function clicar(pausarOuNao = false) {
+    let audio = document.querySelector('audio')
+    if(pausarOuNao == false) {
+        audio.play()
+        qSegundos = 1
+       
+    } else if(pausarOuNao == true){
+        audio.pause()
+        qSegundos = 0
+    }
+}
+clicar()
 
 
 
