@@ -1,6 +1,7 @@
-var time
+let time
 const  fJSON1 = localStorage.getItem('ff')
 const fJSON2 = JSON.parse(fJSON1)
+let f = fJSON2
 
 // Vai puxar do navegador qual foi a musica escolhida
 function qualMusica() {
@@ -32,7 +33,7 @@ function qualMusica() {
 
     let segundos = 0
     let input = document.getElementById('inputDentro')
-    let t = time * 6.4
+    let t = time * 6.3
     let qSegundos = 1
     //Inicio
     function iniciaRelogio() {
@@ -43,11 +44,11 @@ function qualMusica() {
             if(segundos == 100) {
                 qSegundos = 0
                 input.style.borderRadius = '10px'
+                f += 1
 
                 setTimeout(function() {
                     segundos = 0
                     qSegundos = 1
-                    var f = fJSON2 + 1
                     criaMusica(f)
                     clicar()
                 }, 5000)
