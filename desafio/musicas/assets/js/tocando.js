@@ -1,8 +1,9 @@
 let qSegundos = 1
+let segundos = 0
 let time
 const  fJSON1 = localStorage.getItem('ff')
 const fJSON2 = JSON.parse(fJSON1)
-var f = 0
+var f = fJSON2
 // Vai puxar do navegador qual foi a musica escolhida
 function qualMusica() {
     
@@ -16,6 +17,7 @@ function qualMusica() {
         musica.appendChild(musicaAtual)
         musica.appendChild(audioAtual)
         f += 1
+        console.log(f);
 
         if(a == 0) {
             time = 210
@@ -59,8 +61,6 @@ function qualMusica() {
         }
     }
     criaMusica(fJSON2)
-
-    let segundos = 0
     let input = document.getElementById('inputDentro')
     let t = time * 6.6
     //Inicio
@@ -71,9 +71,10 @@ function qualMusica() {
 
             if(segundos == 100) {
                 input.style.borderRadius = '10px'
-                segundos = 0
+                iniciaRelogio(0)
                 criaMusica(f)
                 clicar(false)
+                segundos = 0
             }
         }, t)
 
@@ -81,6 +82,7 @@ function qualMusica() {
     iniciaRelogio()
 }
 qualMusica()
+
 
 var playNow = false
 function pausar() {
@@ -99,7 +101,7 @@ function clicar(pausarOuNao = false) {
     if(pausarOuNao == false) {
         audio.play()
         qSegundos = 1
-       
+        
     } else if(pausarOuNao == true){
         audio.pause()
         qSegundos = 0
@@ -107,5 +109,13 @@ function clicar(pausarOuNao = false) {
 }
 clicar()
 
+function voltar() {
+    f -= 2
+    segundos = 99
+}
+
+function proxima() {
+    segundos = 99
+}
 
 

@@ -122,7 +122,7 @@ main > section#musica > img {
 }
 
 main > section#musica > #inputFora {
-    width: 310px;
+    width: 320px;
     height: 6px;
     margin-left: 50%;
     transform: translate(-50%);
