@@ -28,7 +28,6 @@ body {
     color: white;
     font-family: var(--font1);
     font-size: 100;
-    overflow-x: hidden;
 }
 
 a {
@@ -108,21 +107,47 @@ main > section#categorias {
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.459);
 }
 
+main > section#categorias > article {
+    text-align: center;
+}
+
+main > section#categorias > article > a > div {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+#c1 > a > div {
+    background-image: linear-gradient(rgba(47, 236, 236, 1), rgba(74, 47, 236, 1));
+}
+
+#c2 > a > div {
+    background-image: linear-gradient(rgba(236, 217, 47, 1), rgba(236, 47, 70, 1));
+}
+
+#c3 > a > div {
+    background-image: linear-gradient(rgba(236, 47, 47, 1), rgba(221, 47, 236, 1));
+}
+
+#c4 > a > div {
+    background-image: linear-gradient(rgb(47, 66, 236), rgb(236, 47, 220));
+}
+
 main > section#musica {
-    width: 350px;
+    width: 300px;
     height: 200px;
     margin: 30px auto;
     position: relative;
 }
 
 main > section#musica > img {
-    width: 350px;
+    width: 300px;
     height: 200px;
     border-radius: 20px;
 }
 
 main > section#musica > #inputFora {
-    width: 320px;
+    width: 290px;
     height: 6px;
     margin-left: 50%;
     transform: translate(-50%);
@@ -140,7 +165,7 @@ main > section#musica > #inputFora > div {
 }
 
 main > section#configMusicas {
-    width: 300px;
+    width: 280px;
     height: auto;
     margin: 50px auto;
     display: flex;
