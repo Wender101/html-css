@@ -12,33 +12,56 @@ function qualMusica() {
     input.type = 'range'
     input.value = 0
     
-    if(fJSON2 == 0) {
-        musicaAtual.src = 'assets/img/Photo 6.png'
-        audioAtual.src = 'assets/audios/music1.mpeg'
-        time = 210
-    
-    } else if(fJSON2 == 1) {
-        musicaAtual.src = 'assets/img/Photo 7.png'
-        audioAtual.src = 'assets/audios/music2.mpeg'
-    
-    } else if(fJSON2 == 2) {
-        musicaAtual.src = 'assets/img/download.jpg'
-        audioAtual.src = 'assets/audios/music3.mpeg'
-    
-    } else if(fJSON2 == 3) {
-        musicaAtual.src = 'assets/img/4.jpg'
-        audioAtual.src = 'assets/audios/music4.mpeg'
+    function criaMusica(a) {
+        musicaAtual.src = 'assets/img/' + a + '.png'
+        audioAtual.src = 'assets/audios/music' + a + '.mpeg'
+        musica.appendChild(musicaAtual)
+        musica.appendChild(audioAtual)
+        musica.appendChild(input)
+        
+        function clicar(pausarOuNao = false) {
+            if(pausarOuNao == false) {
+                audioAtual.play()
+            } else {
+                audioAtual.pause()
+            }
+        }
+        clicar()
+
+        if(a == 0) {
+            time = 210
+        
+        } else if(a == 1) {
+            time = 203
+        
+        } else if(a == 2) {
+            time = 203
+        
+        } else if(a == 3) {
+            time = 210
+        }
     }
+    criaMusica(fJSON2)
 
     let t = time * 10
     setInterval(function() {
         segundos++
         input.value = segundos
     }, t)
-
-    musica.appendChild(musicaAtual)
-    musica.appendChild(audioAtual)
-    musica.appendChild(input)
 }
 qualMusica()
+
+var playNow = false
+function pausar() {
+    if(playNow == false) {
+        playNow = true
+        clicar(true)
+
+    } else {
+        clicar(false)
+        playNow = false
+    }
+}
+
+
 
