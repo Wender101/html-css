@@ -28,7 +28,7 @@ body {
     color: white;
     font-family: var(--font1);
     font-size: 100;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
 a {
@@ -46,7 +46,7 @@ nav {
     top: 20px;
 }
 
-nav > button#btnMenu {
+nav > button {
     width: 30px;
     height: 24px;
     background-position: center center;
@@ -55,6 +55,7 @@ nav > button#btnMenu {
     border: none;
     margin-left: 20px;
     margin-bottom: 20px;
+    position: static;
     background-image: url('../img/config/Menu\ icon.png');
 }
 
@@ -135,20 +136,20 @@ main > section#categorias > article > a > div {
 }
 
 main > section#musica {
-    width: 300px;
+    width: 350px;
     height: 200px;
     margin: 30px auto;
     position: relative;
 }
 
 main > section#musica > img {
-    width: 300px;
+    width: 350px;
     height: 200px;
     border-radius: 20px;
 }
 
 main > section#musica > #inputFora {
-    width: 290px;
+    width: 330px;
     height: 6px;
     margin-left: 50%;
     transform: translate(-50%);

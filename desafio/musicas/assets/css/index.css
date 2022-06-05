@@ -144,7 +144,7 @@ main > section#musicas {
 main > section#musicas > article {
     width: 350px;
     height: auto;
-    margin: auto;
+    margin: 20px auto;
     position: relative;
 }
 
