@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2? family= Roboto:wght@100;700 & display=swap');
+
+@font-face {
+    font-family: '8-bit';
+    src: url('../font/8bit_wonder/8-BIT\ WONDER.TTF');
+}
+
+:root {
+    --FonteGrande: 'Roboto';
+    --cor1: rgba(0, 0, 0, 0.623);
+    --cor2: rgba(0, 0, 0, 0.678);
+    --cor3: #04C35C;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+    text-decoration: none;
+    list-style: none;
+}
+
+body {
+    font-family: var(--FonteGrande);
+}
+
+section#parte1 {
+    width: 40%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    position: absolute;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url('../img/imgFundo.png');
+}
+
+section#parte2 {
+    width: 60%;
+    height: 100%;
+    background-color: white;
+    right: 0px;
+    position: absolute;
+}
+
+section#parte2 > div {
+    max-width: 350px;
+    height: auto;
+    padding: 20px;
+    margin-top: 132px;
+    margin-left: 50%;
+    transform: translate(-50%);
+}
+
+section#parte2 > div > p {
+    color: var(--cor1);
+}
+
+section#parte2 > div > h1 {
+    margin-bottom: 20px;
+    color: var(--cor2);
+}
+
+section#parte2 > div > label {
+    display: block;
+    margin: 0px 0px 10px 0px;
+    font-weight: 100;
+    color: var(--cor1);
+}
+
+section#parte2 > div > input {
+    width: 330px;
+    padding: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.103);
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+section#parte2 > div > input#lembrar {
+    width: 30px;
+}
+
+section#parte2 > div > span {
+    color: var(--cor1);
+}
+
+section#parte2 > div > button#login {
+    width: 350px;
+    display: block;
+    padding: 15px;
+    border-radius: 5px;
+    border: none;
+    background-color: var(--cor3);
+    color: white;
+}
+
+section#parte2 > span {
+    width: 250px;
+    margin-left: 50%;
+    transform: translate(-53%);
+    position: absolute;
+    bottom: 50px;
+    color: var(--cor1);
+}
+
+section#parte2 > span > a {
+    color: blue;
+}
