@@ -50,6 +50,7 @@ section#parte2 > div {
     margin-top: 132px;
     margin-left: 50%;
     transform: translate(-50%);
+    background-color: white;
 }
 
 section#parte2 > div > p {
@@ -105,4 +106,47 @@ section#parte2 > span {
 
 section#parte2 > span > a {
     color: blue;
+}
+
+@media screen and (max-width: 839px) {
+    
+    section#parte1 {
+        width: 100vw;
+        height: 100vh;
+        top: 0px;
+        position: fixed;
+    }
+
+    section#parte2 {
+        width: 350px;
+        height: auto;
+        margin: 100px auto;
+        position: relative;
+        
+    }
+    
+    section#parte2 > div {
+        width: 100%;
+        height: auto;
+        padding: 20px 20px 50px 20px;
+        margin-top: 0px;
+        margin-left: 0px;
+        transform: translate(0px);
+        background-color: white;
+    }
+
+    section#parte2 > div > input {
+        width: 330px;
+        padding: 10px;
+        border: 1px solid rgba(0, 0, 0, 0.103);
+        border-radius: 5px;
+        margin-bottom: 20px;
+    }
+
+    section#parte2 > span {
+        width: 250px;
+        bottom: 15px;
+        left: 30px;
+        color: var(--cor1);
+    }
 }
