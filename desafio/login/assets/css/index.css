@@ -13,7 +13,6 @@
 }
 
 * {
-    margin: 0px;
     padding: 0px;
     text-decoration: none;
     list-style: none;
@@ -97,6 +96,7 @@ section#parte2 > div > button#login {
 
 section#parte2 > span {
     width: 250px;
+    display: block;
     margin-left: 50%;
     transform: translate(-53%);
     position: absolute;
@@ -108,7 +108,7 @@ section#parte2 > span > a {
     color: blue;
 }
 
-@media screen and (max-width: 839px) {
+@media screen and (max-width: 870px) {
     
     section#parte1 {
         width: 100vw;
@@ -118,7 +118,7 @@ section#parte2 > span > a {
     }
 
     section#parte2 {
-        width: 350px;
+        max-width: 350px;
         height: auto;
         margin: 100px auto;
         position: relative;
@@ -136,17 +136,27 @@ section#parte2 > span > a {
     }
 
     section#parte2 > div > input {
-        width: 330px;
+        width: 90%;
         padding: 10px;
         border: 1px solid rgba(0, 0, 0, 0.103);
         border-radius: 5px;
         margin-bottom: 20px;
     }
 
+    section#parte2 > div > button#login {
+        width: 100%;
+        display: block;
+        padding: 15px;
+        border-radius: 5px;
+        border: none;
+        background-color: var(--cor3);
+        color: white;
+    }
+
     section#parte2 > span {
         width: 250px;
         bottom: 15px;
-        left: 30px;
+        right: -140px;
         color: var(--cor1);
     }
 }
