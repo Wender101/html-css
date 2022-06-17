@@ -1,3 +1,16 @@
+var btnLembrar = 'off'
+const btnL = document.getElementById('lembrar')
+btnL.addEventListener('click', () => {
+    if(btnLembrar == 'off') {
+        btnLembrar = 'on'
+
+    } else {
+        btnLembrar = 'off'
+    }
+
+    console.log(btnLembrar);
+})
+
 const cadastro1 = localStorage.getItem('cadastro');
 const cadastro2 = JSON.parse(cadastro1);
 
@@ -12,9 +25,8 @@ function fazerLogin() {
     const email = document.querySelector('#email').value
     const senha = document.querySelector('#senha').value
     const cadastro1 = localStorage.getItem('cadastro');
-    const btnLembrar = document.getElementById('lembrar').value
-    const cadastro2 = JSON.parse(cadastro1);
 
+    const cadastro2 = JSON.parse(cadastro1);
     if(nome.length > 0 && email.length > 0) {
         if(senha.length > 7) {
             // Vai checar se esse amail já foi cadastrado
@@ -38,7 +50,7 @@ function fazerLogin() {
                 
                     var cadastroJSON = JSON.stringify(salvar);
                     localStorage.setItem('cadastro', cadastroJSON);
-
+                    
                 } else {
                     window.alert('Este email já está cadastrado')
                 }

@@ -1,7 +1,21 @@
+
 const cadastro1 = localStorage.getItem('cadastro');
 const cadastro2 = JSON.parse(cadastro1);
 
+for(let c = 0; c < cadastro2.length; c++) {
+    if(cadastro2[c].lembrar == 'on') {
+        const email = document.querySelector('#email')
+        const senha = document.querySelector('#senha')
+    
+        email.value = cadastro2[c].Email
+        senha.value = cadastro2[c].Senha
+        c = 100
+    }
+
+}
+
 function fazerLogin() {
+
     const email = document.querySelector('#email').value
     const senha = document.querySelector('#senha').value
 
