@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/index.css">
+    <title>Nerds Oficial</title>
+</head>
+<body>
+    <header>
+        <div id="part1">
+            <h1>Nerds</h1>
+            <button onclick="abrirMenu()"><span>ACESSE TODOS OS</span><h3>DEPARTAMENTOS</h3></button>
+        </div>
+        <div id="part2">
+            <input type="text" id="pesquisar" placeholder="Pesquise aqui...">
+            <a href="produtos.html"><button onclick="pesquisar()"></button></a>
+        </div>
+    </header>
+
+    <div id="sombra" onclick="fecharMenu()"></div>
+    <nav>
+        <h1>Nerds</h1>
+        <hr>
+        <ul id="localCategoria">
+            
+        </ul>
+        
+        <div id="add2" onclick="addCategoria()">+</div>
+    </nav>
+    
+    <section id="banner"></section>
+    
+    <section id="amostras"></section>
+    
+    <main>
+    </main>
+
+    <div id="add" onclick="addProduto()">+</div>
+    <section id="addNovoproduto">
+        <label>Imagem</label>
+        <input type="url" id="imgProduto" placeholder="Nome da imagem e formatação...">
+        <label>Classe</label>
+        <input type="text" id="classeProduto" placeholder="Classe do produto...">
+
+        <label>Descrição do Produto</label>
+        <input type="text" id="descricaoProduto" placeholder="Descrição do produto...">
+
+        <label>Valor do Produto</label>
+        <input type="number" id="valorProduto" placeholder="Valor do produto...">
+        <button onclick="btnAdicionar()">Adicionar</button>
+    </section>
+
+    <section id="addCategoria">
+        <label>Nome</label>
+        <input type="text" placeholder="Nome da Categoria..." id="nomeCategoria">
+        <button onclick="addNovaCategoria()">Adicionar</button>
+    </section>
+
+    <script src="assets/js/pesquisa.js"></script>
+    <script src="assets/js/funcoes-de-click.js"></script>
+    <script src="assets/js/banner.js"></script>
+</body>
+</html>

@@ -26,8 +26,7 @@ function fazerLogin() {
                 if(cadastro2[c].Email == email && cadastro2[c].Senha == senha) {
                     alert('Bem-Vindo')
                     return
-    
-                }
+                }  
             } 
 
             if(cadastro2[c].Email != email || cadastro2[c].Senha != senha) {
