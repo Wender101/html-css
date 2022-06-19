@@ -7,10 +7,12 @@ const produtos1 = localStorage.getItem('produtosSalvos');
 const produtos2 = JSON.parse(produtos1);
 
 const salvarProdutos = []
+let idProduto = 0
 
 for(let c = 0; c < produtos2.length; c++) {
     salvarProdutos.push(produtos2[c])
-    criarProdutos(produtos2[c].img, produtos2[c].classe, produtos2[c].desc, produtos2[c].valor)
+    idProduto = produtos2[c].id + 1
+    criarProdutos(produtos2[c].img, produtos2[c].classe, produtos2[c].desc, produtos2[c].valor, produtos2[c].id)
 }
 
 // Vai puxar do navegador as categorias salvas
@@ -78,14 +80,15 @@ function btnAdicionar() {
             img: imgProduto,
             classe: classeProduto,
             desc: descricaoProduto,
-            valor: valorProduto
+            valor: valorProduto,
+            id: idProduto
         }
 
         salvarProdutos.push(produtos)
 
         var prdutosJSON = JSON.stringify(salvarProdutos);
         localStorage.setItem('produtosSalvos', prdutosJSON);
-
+        idProduto++
         fecharMenu()
     }
 }
@@ -148,6 +151,7 @@ function addNovaCategoria() {
     const inputCategoria = document.getElementById('nomeCategoria').value
 
     criaCategoria(inputCategoria)
+
     // Vai salvar a categoria adicionada
     salvarCategorias.push(inputCategoria)
     var categoriasJSON = JSON.stringify(salvarCategorias);

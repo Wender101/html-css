@@ -4,159 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        @font-face {
-            font-family: anton;
-            src: url('../fonts/anton-2.ttf');
-        }
-
-        @font-face {
-            font-family: bitwise;
-            src: url('../fonts/bitwise.ttf');
-        }
-
-        :root {
-            /* cores */
-            --Azul-Escuro: #000d63;
-            --azul-claro: #084cb9; 
-            --Laranjado: #E66D22;
-            --laranjaClaro: #ff8d47a6;
-            --cinza: #0D0D0D;
-            --Branco: #ffffff;
-            --strong: red;
-            --sombra: rgba(0, 0, 0, 0.74); 
-
-            /* fontes */
-            --fontLogo: bitwise;
-            --fontNormal: anton; 
-        }
-
-        * {
-            margin: 0px;
-            padding: 0px;
-            text-decoration: none;
-            list-style: none;
-        }
-
-        body {
-            overflow-x: hidden;
-            background-color: var(--Azul-Escuro);
-        }
-
-        header {
-            width: 100%;
-            height: auto;
-            padding: 20px;
-            position: fixed;
-            top: 0px;
-            background-color: #084cb9;
-            display: flex;
-        }
-
-        header > div#part1 > h1 {
-            font-size: 70px;
-            font-family: var(--fontLogo);
-            color: var(--Laranjado);
-            text-shadow: -2px 2px 0px var(--laranjaClaro);
-        }
-
-        header > div#part1 > button {
-            color: var(--Branco);
-            background-color: var(--Laranjado);
-            border: 1px solid var(--Branco);
-            border-radius: 7px;
-            padding: 15px 70px;
-            text-align: right;
-            cursor: pointer;
-        }
-
-        header > div#part2 {
-            margin-left: 50px;
-            margin-top: 80px;
-            position: relative;
-        }
-
-        header > div#part2 > input {
-            width: 400px;
-            padding: 15px;
-            border-radius: 10px;
-            border: none;
-        }
-
-        header > div#part2 > a > button {
-            width: 50px;
-            height: 45px;
-            border: none;
-            border-radius: 0px 10px 10px 0px;
-            margin-left: -50px;
-            background-color: var(--Laranjado);
-            position: absolute;
-            cursor: pointer;
-        }
-
-        /* Menu */
-        div#sombra {
-            width: 100%;
-            position: fixed;
-            top: 0px;
-            height: 100vh;
-            background-color: var(--sombra);
-            display: none;
-        }
-
-        nav {
-            width: 300px;
-            height: 100vh;
-            background-color: var(--azul-claro);
-            top: 0px;
-            position: fixed;
-            left: -310px;
-
-        }
-
-        nav > h1 {
-            font-size: 60px;
-            font-family: var(--fontLogo);
-            color: var(--Laranjado);
-            text-align: center;
-            padding-top: 20px;
-            text-shadow: -2px 2px 0px var(--laranjaClaro);
-        }
-
-        nav > hr {
-            width: 99.3%;
-            border: 1px solid var(--Laranjado);
-            margin-bottom: 20px;
-        }
-
-        nav > ul { 
-            padding: 20px;
-        }
-
-        nav > ul > a > li {
-            margin-bottom: 10px;
-            font-size: 25px;
-            color: white;
-            font-family: var(--fontNormal);
-            cursor: pointer;
-        }
-
-        main {
-            width: 100%;
-            height: auto;
-            padding: 20px;
-            margin-top: 200px;
-        }
-
-        article#imgProdutos {
-            width: 500px;
-            height: 450px;
-            background-color: var(--Branco);
-            border: 3px solid var(--Laranjado);
-            margin-left: 60px;
-            border-radius: 20px;
-        }
-    </style>
+    <link rel="stylesheet" href="assets/css/sobre.css">
     <title></title>
 </head>
 <body>
@@ -170,12 +18,23 @@
             <a href="produtos.html"><button onclick="pesquisar()"></button></a>
         </div>
     </header>
+    <div id="sombra" onclick="fecharMenu()"></div>
+    <nav>
+        <h1>Nerds</h1>
+        <hr>
+        <ul id="localCategoria">
+            <a href="home.html" style="color: white;"><li>Home</li></a>
+        </ul>
+    </nav>
 
     <main>
         <section id="produto">
-            <article id="imgProdutos"></article></section>
+            <article id="imgProdutos"></article>
+            <article id="desc"></article>
+        </section>
     </main>
 
+    <script src="assets/js/pesquisa.js"></script>
     <script src="assets/js/sobre.js"></script>
 </body>
 </html>

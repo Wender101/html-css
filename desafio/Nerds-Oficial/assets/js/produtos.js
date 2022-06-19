@@ -1,6 +1,7 @@
 const sombra = document.getElementById('sombra')
 const nav = document.querySelector('nav')
 
+
 function abrirMenu() {
     sombra.style.display = 'block'
     nav.style.transition = '200ms left linear'
@@ -58,7 +59,7 @@ for(let c = 0; c < produtos2.length; c++) {
     salvarProdutos.push(produtos2[c])
 
     if(produtos2[c].classe.toLowerCase() == valorPesquisa) {  
-        criarProdutos(produtos2[c].img, produtos2[c].classe, produtos2[c].desc, produtos2[c].valor)
+        criarProdutos(produtos2[c].img, produtos2[c].classe, produtos2[c].desc, produtos2[c].valor, produtos2[c].idProduto)
         a = true
     }
 }
@@ -74,19 +75,27 @@ setTimeout(() => {
 }, 100)
 
 // Função de criar os produtos
-function criarProdutos(imagem, classe, desc, valor) {
+function criarProdutos(imagem, classe, desc, valor, idProduto) {
     const main = document.querySelector('main')
     const div = document.createElement('div')
     const a = document.createElement('a')
     const img = document.createElement('div')
     const p = document.createElement('p')
     const strong = document.createElement('strong')
+    const btnX = document.createElement('button')
+    const x = document.createElement('p')
 
     img.style.backgroundImage = `url(assets/img/produtos/${imagem})`
     a.href = 'sobre-o-produto.html'
     p.innerText = desc
     strong.innerText = `R$ ${valor}`
+    btnX.className = 'x'
+    btnX.id = idProduto
+    div.id = idProduto
+    x.innerText = 'X'
 
+    btnX.appendChild(x)
+    div.appendChild(btnX)
     a.appendChild(img)
     div.appendChild(a)
     div.appendChild(p)
@@ -96,7 +105,6 @@ function criarProdutos(imagem, classe, desc, valor) {
     // Vai ir pra pág 'sobre o produto'
     img.addEventListener('click', (e) => {
         const el = e.target
-
         const produtos = {
             img: imagem,
             classe: classe,
@@ -110,4 +118,17 @@ function criarProdutos(imagem, classe, desc, valor) {
         var pesquisaJSON = JSON.stringify(classe);
         localStorage.setItem('pesquisaSalva', pesquisaJSON);
     }) 
+
+
+    // Vai excluir o produto
+    main.addEventListener('click', (e) => {
+        const el = e.target.id
+        const div = document.getElementById(el)
+        div.getElementsByClassName('x')[0].addEventListener('click', () => {
+            div.remove()
+            salvarProdutos.splice(el, 1)
+            var prdutosJSON = JSON.stringify(salvarProdutos);
+            localStorage.setItem('produtosSalvos', prdutosJSON);
+        })
+    })
 }

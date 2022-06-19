@@ -76,7 +76,7 @@ header > div#part2 > input {
     border: none;
 }
 
-header > div#part2 > a > button {
+header > div#part2 > a {
     width: 50px;
     height: 45px;
     border: none;
@@ -84,6 +84,19 @@ header > div#part2 > a > button {
     margin-left: -50px;
     background-color: var(--Laranjado);
     position: absolute;
+    cursor: pointer;
+}
+
+header > div#part2 > a > button {
+    width: 30px;
+    height: 30px;
+    border: none;
+    margin: 6px 0px 0px 9px;
+    background-color: transparent;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url(..//img/ícones/lupa.png);
     cursor: pointer;
 }
 
@@ -303,5 +316,22 @@ section#addCategoria > button {
     background-color: var(--Laranjado);
     color: white;
     cursor: pointer;
+}
+
+.x {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: none;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    background-color: var(--Laranjado);
+    cursor: pointer;
+}
+
+.x > p {
+    font-family: var(--fontLogo);
+    font-size: 20px;
+    color: var(--Branco);
 }
 
