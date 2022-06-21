@@ -17,6 +17,7 @@ function fecharMenu() {
 // Vai puxar do navegador as categorias salvas
 const categorias1 = localStorage.getItem('categoriasSalvas');
 const categorias2 = JSON.parse(categorias1);
+categorias2.sort()
 
 const salvarCategorias = []
 
@@ -32,9 +33,9 @@ function criaCategoria(nome) {
     const li = document.createElement('li')
     const a = document.createElement('a')
     a.href = 'produtos.html'
-    li.innerText = nome
-    a.appendChild(li)
-    ul.appendChild(a)
+    a.innerText = nome
+    li.appendChild(a)
+    ul.appendChild(li)
 }
  
 // Valor da pesquisa

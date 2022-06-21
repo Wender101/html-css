@@ -100,6 +100,20 @@ header > div#part2 > a > button {
     cursor: pointer;
 }
 
+header > button {
+    width: 40px;
+    height: 40px;
+    border: none;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+    background-image: url('../img/ícones/usuario.png');
+    background-color: var(--Laranjado);
+    position: absolute;
+    right: 60px;
+    border-radius: 50%;
+}
+
 /* Menu */
 div#sombra {
     width: 100%;
@@ -135,12 +149,31 @@ nav > hr {
     margin-bottom: 20px;
 }
 
-nav > ul { 
-    padding: 20px;
+nav > a {
+    font-size: 25px;
+    color: white;
+    font-family: var(--fontNormal);
+    cursor: pointer;
+    margin-left: 20px;
 }
 
-nav > ul > a > li {
-    margin-bottom: 10px;
+nav > ul { 
+    padding-left: 20px;
+    margin-top: 15px;
+}
+
+nav > ul > li {
+    width: 100%;
+    position: relative;
+    margin-bottom: 15px;
+}
+
+nav > ul > li > button {
+    right: 10px;
+    position: absolute;
+}
+
+nav > ul > li > a {
     font-size: 25px;
     color: white;
     font-family: var(--fontNormal);
@@ -165,6 +198,36 @@ section#amostras {
     height: 200px;
     border: 3px solid var(--Laranjado);
     background-color: var(--Branco);
+    top: 510px;
+    position: absolute;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+}
+
+section#amostras > a {
+    margin-left: 30px;
+}
+
+section#amostras > a > div {
+    width: 180px;
+    height: 180px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+section#recomendados {
+    max-width: 1200px;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+}
+
+section#recomendados > h2 {
+    color: white;
+    margin-left: 110px;
 }
 
 /* main */
@@ -174,7 +237,7 @@ main {
     padding: 20px;
     display: flex;
     flex-wrap: wrap;
-    margin: auto;
+    margin: 220px auto;
     justify-content: center;
 }
 
@@ -182,11 +245,13 @@ main > h1#produtoNaoEncotrado {
     color: red;
 }
 
+
 main > div {
     width: 220px;
     height: 440px;
-    margin-bottom: 60px;
+    margin-bottom: 80px;
     margin-right: 30px;
+    word-wrap: break-word;
 }
 
 main > div > a > div {
@@ -214,13 +279,168 @@ main > div > strong {
     font-size: 20px;
 }
 
+/* login */
+section#login {
+    width: 80%;
+    max-width: 500px;
+    height: auto;
+    padding: 20px;
+    border-radius: 20px;
+    background-color: var(--Azul-Escuro);
+    color: white;
+    position: fixed;
+    top: -600px;
+    margin-left: 50%;
+    transform: translate(-50%);
+}
+
+section#login > button.x {
+    right: 27px;
+    position: absolute;
+} 
+
+section#login > h2 {
+    text-align: center;
+}
+
+section#login > input {
+    width: 95%;
+    background-color: var(--Branco);
+    border: none;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+#sombraCadastro {
+    width: 100%;
+    position: fixed;
+    top: 0px;
+    height: 100vh;
+    background-color: var(--sombra);
+    display: none
+}
+
+section#login > button#btnCadastrar {
+    color: var(--Laranjado);
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    display: block;
+}
+
+.enviar {
+    width: 150px;
+    padding: 10px;
+    margin-left: 50%;
+    border: none;
+    background-color: var(--Laranjado);
+    color: var(--Branco);
+    border-radius: 7px;
+    transform: translate(-50%);
+}
+
+/* Cadastro */
+section#cadastro {
+    width: 80%;
+    max-width: 500px;
+    height: auto;
+    padding: 20px;
+    border-radius: 20px;
+    background-color: var(--Azul-Escuro);
+    color: white;
+    position: fixed;
+    top: -600px;
+    margin-left: 50%;
+    transform: translate(-50%);
+}
+
+section#cadastro > button.x {
+    right: 27px;
+    position: absolute;
+} 
+
+section#cadastro > h2 {
+    text-align: center;
+}
+
+section#cadastro > input {
+    width: 95%;
+    background-color: var(--Branco);
+    border: none;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+section#cadastro > button#btnCadastrar {
+    color: var(--Laranjado);
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.x {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: none;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    background-color: var(--Laranjado);
+    cursor: pointer;
+}
+
+.x > p {
+    font-family: var(--fontLogo);
+    font-size: 20px;
+    color: var(--Branco);
+}
+
+/* --------------------------------------- */
+
+footer {
+    width: 100%;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    height: auto;
+    background-color: var(--azul-claro);
+}
+
+footer > h1 {
+    font-size: 60px;
+    font-family: var(--fontLogo);
+    color: var(--Laranjado);
+    text-align: center;
+    padding-top: 20px;
+    text-shadow: -2px 2px 0px var(--laranjaClaro);
+}
+
+footer > div {
+    text-align: center;
+    padding: 0px 30px 30px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+footer > div#infFooter > p {
+    font-size: 16px;
+    margin: 20px;
+}
+
+footer > div > strong > a {
+    text-decoration: none;
+    color: black;
+}
+
 /* Funções de administrador */
 div#add {
     width: 50px;
     height: 50px;
     position: fixed;
-    bottom: 50px;
-    right: 50px;
+    bottom: 30px;
+    right: 17px;
     border-radius: 50%;
     background-color: var(--Laranjado);
     color: white;
@@ -318,7 +538,7 @@ section#addCategoria > button {
     cursor: pointer;
 }
 
-.x {
+.xad {
     width: 30px;
     height: 30px;
     border-radius: 50%;
@@ -329,9 +549,8 @@ section#addCategoria > button {
     cursor: pointer;
 }
 
-.x > p {
+.xad > p {
     font-family: var(--fontLogo);
     font-size: 20px;
     color: var(--Branco);
 }
-

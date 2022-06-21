@@ -135,11 +135,25 @@ nav > hr {
     margin-bottom: 20px;
 }
 
-nav > ul { 
-    padding: 20px;
+nav > a {
+    font-size: 25px;
+    color: white;
+    font-family: var(--fontNormal);
+    cursor: pointer;
+    margin-left: 20px;
 }
 
-nav > ul > a > li {
+nav > ul { 
+    padding-left: 20px;
+    margin-top: 15px;
+}
+
+nav > ul > li {
+    width: 100%;
+    position: relative;
+    margin-bottom: 15px;
+}
+nav > ul > li > a {
     margin-bottom: 10px;
     font-size: 25px;
     color: white;
