@@ -24,6 +24,7 @@ function fecharMenu() {
 let logado = false
 // Vai fazer o pop up de login aparecer ao clicar na tela
 function abrirAbalogin() {
+    const login = document.getElementById('login')
     login.style.transition = '300ms top linear'
     login.style.top = '150px'
     sombraCadastro.style.display = 'block'
@@ -414,35 +415,6 @@ function usuario() {
         var pesquisaJSON = JSON.stringify(classe);
         localStorage.setItem('pesquisaSalva', pesquisaJSON);
     }) 
-    }
-
-    // função que sera ativada ao clicar no btn adicionar nova categoria
-    function addCategoria() {
-        const addCategoria = document.getElementById('addCategoria')
-        addCategoria.style.transition = '400ms top linear'
-        addCategoria.style.top = '250px'
-        
-        const inputCategoria = document.getElementById('nomeCategoria')
-        inputCategoria.value = ''
-    }
-
-    // Função responsavel por adicionar uma nova categoria
-    function addNovaCategoria() {
-        const addCategoria = document.getElementById('addCategoria')
-        addCategoria.style.transition = '400ms top linear'
-        addCategoria.style.top = '-600px'
-
-        // Valor do input
-        const inputCategoria = document.getElementById('nomeCategoria').value
-
-        criaCategoria(inputCategoria, idCategoria)
-        idCategoria++
-
-        // Vai salvar a categoria adicionada
-        salvarCategorias.push(inputCategoria)
-        var categoriasJSON = JSON.stringify(salvarCategorias);
-        localStorage.setItem('categoriasSalvas', categoriasJSON);
-        
     }
 
     // Criar a categoria

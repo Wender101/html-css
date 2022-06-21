@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/sobre.css">
+    <link rel="stylesheet" href="assets/css/index.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
-    <title></title>
+    <title>Carrinho</title>
 </head>
 <body>
     <header>
@@ -16,10 +16,6 @@
             <button onclick="abrirMenu()" id="btnP1"><span>ACESSE TODOS OS</span><h3>DEPARTAMENTOS</h3></button>
             <input type="text" id="pesquisar" placeholder="Pesquise aqui...">
             <button onclick="pesquisar()" id="btn2"><a href="produtos.html"><img src="assets/img/ícones/lupa.png" alt=""></a></button>
-        </div>
-
-        <div id="btns">
-            <a href="carrinho.html" id="btnCarrinho" style="right: 60px;"></a>
         </div>
     </header>
     <div id="sombra" onclick="fecharMenu()"></div>
@@ -32,24 +28,12 @@
     </nav>
 
     <main>
-        <section id="produto">
-            <article id="imgProdutos"></article>
-            <article id="localDesc">
-                <div id="desc"></div>
-                <div id="buttons">
-                    <button id="btnCarrinho" onclick="addCarrinho()">Adicionar ao Carrinho</button>
 
-                    <button><a href="" id="contato" target="_blank"></a></button>
-                </div>
-            </article>
-        </section>
-
-        <h1>Produtos Relacionados</h1>
-        <section id="relacionados">
-        </section>
     </main>
-    <script src="assets/js/addCarinho.js"></script>
+
+    <h1 id="valorTotal">Total: 0.00</h1>
+
+    <script src="assets/js/carrinho.js"></script>
     <script src="assets/js/pesquisa.js"></script>
-    <script src="assets/js/sobre.js"></script>
 </body>
 </html>

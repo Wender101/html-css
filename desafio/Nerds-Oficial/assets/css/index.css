@@ -42,76 +42,87 @@ header {
     padding: 20px;
     position: fixed;
     top: 0px;
-    background-color: #084cb9;
+    background-color: #084cb9
+}
+
+header > h1 > a {
+    font-size: 60px;
+    color: var(--Laranjado);
+    font-family: var(--fontLogo);
+    text-shadow: 2px 2px 0px var(--laranjaClaro);
+}
+
+header > div {
+    width: 100%;
     display: flex;
 }
 
-header > div#part1 > h1 {
-    font-size: 70px;
-    font-family: var(--fontLogo);
-    color: var(--Laranjado);
-    text-shadow: -2px 2px 0px var(--laranjaClaro);
-}
-
-header > div#part1 > button {
-    color: var(--Branco);
-    background-color: var(--Laranjado);
-    border: 1px solid var(--Branco);
-    border-radius: 7px;
-    padding: 15px 70px;
-    text-align: right;
-    cursor: pointer;
-}
-
-header > div#part2 {
-    margin-left: 50px;
-    margin-top: 80px;
-    position: relative;
-}
-
-header > div#part2 > input {
-    width: 400px;
-    padding: 15px;
-    border-radius: 10px;
+header > div > button#btnMobile {
     border: none;
+    background-color: transparent;
 }
 
-header > div#part2 > a {
-    width: 50px;
+header > div > button#btnP1 {
+    padding: 10px 70px ;
+    border: 1px solid var(--Branco);
+    background-color: var(--Laranjado);
+    border-radius: 5px;
+    color: white;
+    text-align: right;
+}
+
+header > div > input {
+    max-width: 500px;
+    width: 100%;
+    height: 25px;
+    border: none;
+    margin-top: 5px;
+    margin-left: 30px;
+    border-radius: 10px;
+    padding: 10px;
+    margin-right: 80px;
+}
+
+header > div > #btn2{
+    min-width: 45px;
     height: 45px;
     border: none;
     border-radius: 0px 10px 10px 0px;
-    margin-left: -50px;
+    margin-top: 5px;
+    margin-left: -104px;
     background-color: var(--Laranjado);
-    position: absolute;
     cursor: pointer;
+    margin-right: 40px;
 }
 
-header > div#part2 > a > button {
+header > div > #btn2 > a > img {
     width: 30px;
-    height: 30px;
-    border: none;
-    margin: 6px 0px 0px 9px;
-    background-color: transparent;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-image: url(..//img/ícones/lupa.png);
-    cursor: pointer;
 }
 
-header > button {
+header > div#btns > #btnlogin {
     width: 40px;
     height: 40px;
     border: none;
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: contain;
-    background-image: url('../img/ícones/usuario.png');
-    background-color: var(--Laranjado);
     position: absolute;
+    top: 20px;
     right: 60px;
     border-radius: 50%;
+    background-size: contain;
+    background-position: center right;
+    background-image: url('../img/ícones/usuario1.jpg');
+}
+
+header > div#btns > #btnCarrinho {
+    width: 40px;
+    height: 40px;
+    border: none;
+    position: absolute;
+    top: 20px;
+    right: 120px;
+    border-radius: 50%;
+    background-size: contain;
+    background-position: center right;
+    background-image: url('../img/ícones/carrinho.png');
 }
 
 /* Menu */
@@ -238,10 +249,10 @@ main {
     display: flex;
     flex-wrap: wrap;
     margin: 220px auto;
-    justify-content: center;
+    justify-content: space-around;
 }
 
-main > h1#produtoNaoEncotrado {
+main > h1#produtoNaoEncotrado, main > h1 {
     color: red;
 }
 
@@ -277,6 +288,13 @@ main > div > strong {
     font-family: var(--fontNormal);
     color: var(--Laranjado);
     font-size: 20px;
+}
+
+h1#valorTotal {
+    position: fixed;
+    bottom: 50px;
+    right: 60px;
+    color: var(--Branco);
 }
 
 /* login */
@@ -450,7 +468,8 @@ div#add {
 }
 
 section#addNovoproduto {
-    width: 500px;
+    width: 80%;
+    max-width: 500px;
     height: auto;
     padding: 20px;
     border-radius: 10px;
@@ -501,7 +520,8 @@ div#add2 {
 }
 
 section#addCategoria {
-    width: 500px;
+    width: 80%;
+    max-width: 500px;
     height: auto;
     padding: 20px;
     border-radius: 10px;

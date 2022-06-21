@@ -5,17 +5,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/index.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
     <title></title>
 </head>
 <body>
     <header>
-        <div id="part1">
-            <h1>Nerds</h1>
-            <button onclick="abrirMenu()"><span>ACESSE TODOS OS</span><h3>DEPARTAMENTOS</h3></button>
-        </div>
-        <div id="part2">
+        <h1><a href="home.html">Nerds</a></h1>
+        <div>
+            <button onclick="abrirMenu()" id="btnMobile"></button>
+            <button onclick="abrirMenu()" id="btnP1"><span>ACESSE TODOS OS</span><h3>DEPARTAMENTOS</h3></button>
             <input type="text" id="pesquisar" placeholder="Pesquise aqui...">
-            <a href="produtos.html"><button onclick="pesquisar()"></button></a>
+            <button onclick="pesquisar()" id="btn2"><a href="produtos.html"><img src="assets/img/ícones/lupa.png" alt=""></a></button>
+        </div>
+
+        <div id="btns">
+            <a href="carrinho.html" id="btnCarrinho" style="right: 60px;"></a>
         </div>
     </header>
     <div id="sombra" onclick="fecharMenu()"></div>
