@@ -1,3 +1,10 @@
+// puxando da memória do navegador
+const categorias1 = localStorage.getItem('categoriasSalvas');
+const categorias2 = JSON.parse(categorias1);
+categorias2.sort()
+const produtos1 = localStorage.getItem('produtosSalvos');
+const produtos2 = JSON.parse(produtos1);
+
 function abrirMenu() {
     const sombra = document.getElementById('sombra')
     const nav = document.querySelector('nav')
@@ -20,8 +27,6 @@ function fecharMenu() {
     addCategoria.style.top = '-600px'
 }
 
-
-let logado = false
 // Vai fazer o pop up de login aparecer ao clicar na tela
 function abrirAbalogin() {
     const login = document.getElementById('login')
@@ -39,35 +44,34 @@ function fecharLogin() {
     cadastro.style.top = '-600px'
 }
 
+const logado1 = localStorage.getItem('login');
+const logado2 = JSON.parse(logado1);
+var logado = false
 function fazerLogin() {
+
     const emailLogin = document.getElementById('emailLogin').value
     const senhaLogin = document.getElementById('senhaLogin').value
-    const logado1 = localStorage.getItem('login');
-    const logado2 = JSON.parse(logado1);
 
     if(emailLogin == 'wender@gmail.com' && senhaLogin == '321') {
         funcoesAdmin()
         fecharLogin()
         logado = true
-        var logadoJSON = JSON.stringify(logado);
-        localStorage.setItem('login', logadoJSON);
-        location. reload()
+        location.reload()
 
     } else if(logado2 == true) {
         funcoesAdmin()
         fecharLogin()
         logado = true
-        var logadoJSON = JSON.stringify(logado);
-        localStorage.setItem('login', logadoJSON);
 
     } else {
         usuario()
         fecharLogin()
         logado = false
-        var logadoJSON = JSON.stringify(logado);
-        localStorage.setItem('login', logadoJSON);
     }
+    var logadoJSON = JSON.stringify(logado);
+    localStorage.setItem('login', logadoJSON);
 }
+
 fazerLogin()
 
 function funcoesAdmin() {
@@ -175,31 +179,28 @@ function funcoesAdmin() {
         addNovaCategoria()
     })
 
-    // puxando da memória do navegador
-    const categorias1 = localStorage.getItem('categoriasSalvas');
-    const categorias2 = JSON.parse(categorias1);
-    categorias2.sort()
-
     const salvarCategorias = []
     let idCategoria = 0
-
-    for(let c = 0; c < categorias2.length; c++) {
-        salvarCategorias.push(categorias2[c])
-        idCategoria = c
-        criaCategoria(categorias2[c], idCategoria)
-    }
-
-    const produtos1 = localStorage.getItem('produtosSalvos');
-    const produtos2 = JSON.parse(produtos1);
-
     const salvarProdutos = []
     let idProduto = 0
 
-    for(let c = 0; c < produtos2.length; c++) {
-        salvarProdutos.push(produtos2[c])
-        idProduto = produtos2[c] + 1
-        criarProdutos(produtos2[c].img, produtos2[c].classe, produtos2[c].desc, produtos2[c].valor)
-    }
+    function addProdutosSalvos() {
+        let c = 0
+        let c2 = 0
+        for(let produtos of produtos2) {
+            salvarProdutos.push(produtos2[c])
+            idProduto = produtos2[c] + 1
+            criarProdutos(produtos2[c].img, produtos2[c].classe, produtos2[c].desc, produtos2[c].valor)
+            c++
+        }
+
+        for(let produtos of categorias2) {
+            salvarCategorias.push(categorias2[c2])
+            idCategoria = c2
+            criaCategoria(categorias2[c2], idCategoria)
+            c2++
+        }
+    } addProdutosSalvos()
 
     // Vai excluir a categoria
     ul.addEventListener('click', (e) => {
@@ -246,7 +247,6 @@ function funcoesAdmin() {
 
             fecharMenu()
         }
-
     }
 
     // Função de criar os produtos
@@ -353,31 +353,29 @@ function funcoesAdmin() {
 }
 
 function usuario() {
-    // puxando da memória do navegador
-    const categorias1 = localStorage.getItem('categoriasSalvas');
-    const categorias2 = JSON.parse(categorias1);
-    categorias2.sort()
 
     const salvarCategorias = []
     let idCategoria = 0
-
-    for(let c = 0; c < categorias2.length; c++) {
-        salvarCategorias.push(categorias2[c])
-        idCategoria = c
-        criaCategoria(categorias2[c], idCategoria)
-    }
-
-    const produtos1 = localStorage.getItem('produtosSalvos');
-    const produtos2 = JSON.parse(produtos1);
-
     const salvarProdutos = []
     let idProduto = 0
 
-    for(let c = 0; c < produtos2.length; c++) {
-        salvarProdutos.push(produtos2[c])
-        idProduto = produtos2[c] + 1
-        criarProdutos(produtos2[c].img, produtos2[c].classe, produtos2[c].desc, produtos2[c].valor)
-    }
+    function addProdutosSalvos() {
+        let c = 0
+        let c2 = 0
+        for(let produtos of produtos2) {
+            salvarProdutos.push(produtos2[c])
+            idProduto = produtos2[c] + 1
+            criarProdutos(produtos2[c].img, produtos2[c].classe, produtos2[c].desc, produtos2[c].valor)
+            c++
+        }
+
+        for(let produtos of categorias2) {
+            salvarCategorias.push(categorias2[c2])
+            idCategoria = c2
+            criaCategoria(categorias2[c2], idCategoria)
+            c2++
+        }
+    } addProdutosSalvos()
 
     // Função de criar os produtos
     function criarProdutos(imagem, classe, desc, valor) {

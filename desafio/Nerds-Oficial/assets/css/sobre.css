@@ -123,6 +123,15 @@ header > div#btns > #btnCarrinho {
     background-size: contain;
     background-position: center right;
     background-image: url('../img/ícones/carrinho.png');
+} 
+
+header > div#btns > #btnCarrinho > #spanCarrinho {
+    width: 25px;
+    height: 20px;
+    background-color: var(--Branco);
+    border-radius: 50%;
+    margin-left: -20px;
+    text-align: center;
 }
 
 /* Menu */
