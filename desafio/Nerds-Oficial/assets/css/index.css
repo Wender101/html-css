@@ -83,6 +83,11 @@ header > div > input {
     margin-right: 80px;
 }
 
+header > div > input:focus {
+    box-shadow: 0 0 0 0;
+    outline: 0;
+}
+
 header > div > #btn2{
     min-width: 45px;
     height: 45px;

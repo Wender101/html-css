@@ -1,3 +1,29 @@
+@media screen and (max-width: 808px) {
+    /* banner */
+    section#banner {
+        width: 100%;
+        background-color: var(--Laranjado);
+        height: 250px;
+        margin-top: 175px;
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    /* amostras */
+    section#amostras {
+        width: 100%;
+        height: 200px;
+        border: 3px solid var(--Laranjado);
+        background-color: var(--Branco);
+        top: 425px;
+        position: absolute;
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+    }
+}
+
 @media screen and (max-width: 621px) {
     header > div > #btnMobile {
         display: block;
@@ -21,5 +47,57 @@
 
     div#add2 {
         margin-left: 130px;
+    }
+}
+
+@media screen and (max-width: 592px) {
+    /* banner */
+    section#banner {
+        width: 100%;
+        background-color: var(--Laranjado);
+        height: 200px;
+        margin-top: 175px;
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    /* amostras */
+    section#amostras {
+        width: 100%;
+        height: 200px;
+        border: 3px solid var(--Laranjado);
+        background-color: var(--Branco);
+        top: 370px;
+        position: absolute;
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+    }
+}
+
+@media screen and (max-width: 461px) {
+    /* banner */
+    section#banner {
+        width: 100%;
+        background-color: var(--Laranjado);
+        height: 150px;
+        margin-top: 175px;
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    /* amostras */
+    section#amostras {
+        width: 100%;
+        height: 200px;
+        border: 3px solid var(--Laranjado);
+        background-color: var(--Branco);
+        top: 320px;
+        position: absolute;
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
     }
 }
