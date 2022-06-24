@@ -65,37 +65,6 @@ function criarInterface(img, classe, desc, valor) {
     divDesc.appendChild(strong)
 }
 
-//* Vai adicionar ao carrinho
-
-const carrinho1 = localStorage.getItem('carrinho');
-const carrinho2 = JSON.parse(carrinho1);
-
-const salvarCarrinho = []
-
-for(let c = 0; c < carrinho2.length; c++) {
-    salvarCarrinho.push(carrinho2[c])
-}
-
-let notificacao = 0
-function addCarrinho() {
-    const carrinho = {
-        img: sobre2.img,
-        classe: sobre2.classe,
-        desc: sobre2.desc,
-        valor: sobre2.valor
-    }
-
-    salvarCarrinho.push(carrinho)
-    var carrinhoJSON = JSON.stringify(salvarCarrinho);
-    localStorage.setItem('carrinho', carrinhoJSON);
-
-    notificacao++
-    const span = document.getElementById('spanCarrinho')
-    span.style.display = 'block'
-    span.innerText = notificacao
-}
-
-
 //& Vai criar um link personalizado
 const contato = document.getElementById('contato')
 contato.innerText = 'Entre em Contato'
@@ -153,5 +122,38 @@ function criarProdutos(imagem, classe, desc, valor) {
         var pesquisaJSON = JSON.stringify(classe);
         localStorage.setItem('pesquisaSalva', pesquisaJSON);
     }) 
+}
+
+//* Vai adicionar ao carrinho
+const carrinho1 = localStorage.getItem('carrinho');
+const carrinho2 = JSON.parse(carrinho1);
+
+const salvarCarrinho = []
+
+function addProdutosSalvos() {
+    let c = 0
+    for(let produtos of carrinho2) {
+        salvarCarrinho.push(carrinho2[c])
+        c++
+    }
+} addProdutosSalvos()
+
+let notificacao = 0
+function addCarrinho() {
+    const carrinho = {
+        img: sobre2.img,
+        classe: sobre2.classe,
+        desc: sobre2.desc,
+        valor: sobre2.valor
+    }
+
+    salvarCarrinho.push(carrinho)
+    var carrinhoJSON = JSON.stringify(salvarCarrinho);
+    localStorage.setItem('carrinho', carrinhoJSON);
+
+    notificacao++
+    const span = document.getElementById('spanCarrinho')
+    span.style.display = 'block'
+    span.innerText = notificacao
 }
 
