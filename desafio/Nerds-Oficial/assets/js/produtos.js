@@ -123,7 +123,7 @@ function criarProdutos1(imagem, classe, desc, valor, idProduto) {
     p.innerText = desc
     strong.innerText = `R$ ${valor}`
     btnX.className = 'xad'
-    btnX.id = idProduto
+    btnX.id = 'btn' + idProduto
     div.id = idProduto
     x.innerText = 'X'
 
@@ -195,9 +195,9 @@ function criarProdutos2(imagem, classe, desc, valor) {
 
 // Vai excluir o produto
 const main = document.querySelector('main')
-main.addEventListener('click', (e) => {
+main.addEventListener('mousemove', (e) => {
     const el = e.target.id
-    const btnX = document.getElementById(el)
+    const btnX = document.getElementById('btn' + el)
     const div = document.getElementById(el)
     btnX.addEventListener('click', () => {
         div.remove()
@@ -206,3 +206,11 @@ main.addEventListener('click', (e) => {
         localStorage.setItem('produtosSalvos', prdutosJSON);
     })
 })
+
+// Vai pesquisar o que for escrito no input
+function pesquisar() {
+    const pesquisar = document.getElementById('pesquisar').value
+    var pesquisaJSON = JSON.stringify(pesquisar);
+    localStorage.setItem('pesquisaSalva', pesquisaJSON);
+    location.reload()
+}

@@ -53,19 +53,19 @@ function fazerLogin() {
     const senhaLogin = document.getElementById('senhaLogin').value
 
     if(emailLogin == 'wender@gmail.com' && senhaLogin == '321') {
-        funcoesAdmin()
         fecharLogin()
+        funcoesAdmin()
         logado = true
         location.reload()
 
     } else if(logado2 == true) {
-        funcoesAdmin()
         fecharLogin()
+        funcoesAdmin()
         logado = true
 
     } else {
-        usuario()
         fecharLogin()
+        usuario()
         logado = false
     }
     var logadoJSON = JSON.stringify(logado);
@@ -202,21 +202,6 @@ function funcoesAdmin() {
         }
     } addProdutosSalvos()
 
-    // Vai excluir a categoria
-    ul.addEventListener('click', (e) => {
-        const el = e.target.id
-        const btnX = document.getElementById(el)
-        const li = document.getElementById(el)
-        btnX.addEventListener('click', () => {
-            li.remove()
-            salvarCategorias.splice(el, 1)
-            var categoriasJSON = JSON.stringify(salvarCategorias);
-            localStorage.setItem('categoriasSalvas', categoriasJSON);
-        })
-    })
-
-
-
     // Função que vai adicionar o produto
     // Valores dos inputs
     function addProduto() {
@@ -326,7 +311,7 @@ function funcoesAdmin() {
         const x = document.createElement('p')
 
         li.id = id
-        btnX.id = id
+        btnX.id = 'btn' + id
         btnX.className = 'xad'
         x.innerText = 'X'
         a.href = 'produtos.html'
@@ -337,17 +322,16 @@ function funcoesAdmin() {
         ul.appendChild(li)
     }
 
-    // Vai excluir o produto
-    const main = document.querySelector('main')
-    main.addEventListener('click', (e) => {
+    // Vai excluir a categoria
+    ul.addEventListener('mousemove', (e) => {
         const el = e.target.id
-        const btnX = document.getElementById(el)
-        const div = document.getElementById(el)
+        const btnX = document.getElementById('btn' + el)
+        const li = document.getElementById(el)
         btnX.addEventListener('click', () => {
-            div.remove()
-            salvarProdutos.splice(el, 1)
-            var prdutosJSON = JSON.stringify(salvarProdutos);
-            localStorage.setItem('produtosSalvos', prdutosJSON);
+            li.remove()
+            salvarCategorias.splice(el, 1)
+            var categoriasJSON = JSON.stringify(salvarCategorias);
+            localStorage.setItem('categoriasSalvas', categoriasJSON);
         })
     })
 }

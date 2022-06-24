@@ -78,7 +78,7 @@ function criarProdutos(imagem, classe, desc, valor, idProduto) {
     p.innerText = desc
     strong.innerText = `R$ ${valor}`
     btnX.className = 'xad'
-    btnX.id = idProduto
+    btnX.id = 'btn' + idProduto
     div.id = idProduto
     x.innerText = 'X'
 
@@ -110,11 +110,11 @@ function criarProdutos(imagem, classe, desc, valor, idProduto) {
 
 // Vai excluir o produto
 const main = document.querySelector('main')
-main.addEventListener('click', (e) => {
+main.addEventListener('mousemove', (e) => {
     const el = e.target.id
-    const btnX = document.getElementById(el)
-    const div = document.getElementById(el)
+    const btnX = document.getElementById('btn' + el)
     btnX.addEventListener('click', () => {
+        const div = document.getElementById(el)
         div.remove()
         salvarCarrinho.splice(el, 1)
         var carrinhoJSON = JSON.stringify(salvarCarrinho)

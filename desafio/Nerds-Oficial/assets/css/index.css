@@ -88,7 +88,7 @@ header > div > input:focus {
     outline: 0;
 }
 
-header > div > #btn2{
+header > div > #btn2Header{
     min-width: 45px;
     height: 45px;
     border: none;
@@ -100,7 +100,7 @@ header > div > #btn2{
     margin-right: 40px;
 }
 
-header > div > #btn2 > a > img {
+header > div > #btn2Header > a > img {
     width: 30px;
 }
 

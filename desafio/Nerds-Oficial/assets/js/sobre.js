@@ -1,3 +1,4 @@
+let notificacao = 0
 const sombra = document.getElementById('sombra')
 const nav = document.querySelector('nav')
 
@@ -138,7 +139,6 @@ function addProdutosSalvos() {
     }
 } addProdutosSalvos()
 
-let notificacao = 0
 function addCarrinho() {
     const carrinho = {
         img: sobre2.img,

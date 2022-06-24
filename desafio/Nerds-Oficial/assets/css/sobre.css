@@ -83,7 +83,12 @@ header > div > input {
     margin-right: 80px;
 }
 
-header > div > #btn2{
+header > div > input:focus {
+    box-shadow: 0 0 0 0;
+    outline: 0;
+}
+
+header > div > #btn2Header{
     min-width: 45px;
     height: 45px;
     border: none;
@@ -95,7 +100,7 @@ header > div > #btn2{
     margin-right: 40px;
 }
 
-header > div > #btn2 > a > img {
+header > div > #btn2Header > a > img {
     width: 30px;
 }
 
@@ -213,7 +218,6 @@ main > h1 {
 section#produto {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
 }
 
 article#imgProdutos {
@@ -291,7 +295,6 @@ section#relacionados > div > a > div {
     background-size: contain;
     background-repeat: no-repeat;
     border: 3px solid var(--Laranjado);
-    /*background-image: url('../img/produtos/teclado.png');*/
 }
 
 section#relacionados > div > p {
