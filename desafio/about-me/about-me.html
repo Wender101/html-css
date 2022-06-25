@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/estilo.css">
-    <link rel="stylesheet" href="css/responsividade.css">
+    <link rel="stylesheet" href="assets/css/estilo.css">
+    <link rel="stylesheet" href="assets/css/responsividade.css">
     <title>Sobre Mim</title>
 
 </head>
@@ -36,29 +36,41 @@
                 <h2 id="h2projeto">Projetos</h2>
                     <section id="mostrar">
                         <article id="projetos">
+                            <a href="https://wender101.github.io/JavaScript-no-html/JS/treinos/jogo-mario/index.html" target="_blank">
+                                <article>HMTL, CSS e JS</article>
+                                <div class="proj"></div>
+                            </a>
                             <a href="https://wender101.github.io/html-css/desafio/responsive/index" target="_blank">
-                                <article id="sobre1">HTML e CSS</article>
-                                <div id="proj1"></div>
+                                <article>HTML e CSS</article>
+                                <div class="proj"></div>
                             </a>
                             <a href="https://wender101.github.io/html-css/desafio/Segundo-projeto/home" target="_blank">
-                                <article id="sobre2">HTML, CSS e Js</article>
-                                <div id="proj2"></div>
+                                <article>HTML, CSS e Js</article>
+                                <div class="proj"></div>
                             </a>
                             <a href="https://wender101.github.io/JavaScript-no-html/JS/treinos/jogo-da-velha/" target="_blank">
-                                <article id="sobre3">HTML, CSS e Js</article>
-                                <div id="proj3"></div>
+                                <article>HTML, CSS e Js</article>
+                                <div class="proj"></div>
                             </a>
                             <a href="https://wender101.github.io/html-css/desafio/de010" target="_blank">
-                                <article id="sobre4">HMTL e CSS</article>
-                                <div id="proj4"></div>
+                                <article>HMTL e CSS</article>
+                                <div class="proj"></div>
                             </a>
                             <a href="https://wender101.github.io/html-css/desafio/site-quimica/" target="_blank">
-                                <article id="sobre5">HMTL, CSS e JS</article>
-                                <div id="proj5"></div>
+                                <article>HMTL, CSS e JS</article>
+                                <div class="proj"></div>
                             </a>
-                            <a href="" target="_blank">
-                                <article id="sobre1">HTML, CSS e Js</article>
-                                <div id="proj6"></div>
+                            <a href="https://wender101.github.io/JavaScript-no-html/JS/treinos/gerador-de-senha/index.html" target="_blank">
+                                <article>HTML, CSS e Js</article>
+                                <div class="proj"></div>
+                            </a>
+                            <a href="https://wender101.github.io/JavaScript-no-html/JS/treinos/lampada/index.html" target="_blank">
+                                <article>HTML, CSS e Js</article>
+                                <div class="proj"></div>
+                            </a>
+                            <a href="https://wender101.github.io/JavaScript-no-html/JS/treinos/To-Do-List/index.html" target="_blank">
+                                <article>HTML, CSS e Js</article>
+                                <div class="proj"></div>
                             </a>
                         </article>
                     </section>
@@ -83,28 +95,11 @@
     </section>
 
     <script>
-        let btncontato = document.getElementById('btnContato');
-        let navcontato = document.getElementById('navContato');
-        let contato = document.getElementById('fale-comigo');
-        let fundo = document.getElementById('fundo');
-
-        //Faz a div fale-comigo e a div fundo aparecer
-        btncontato.addEventListener('click', function() {
-            contato.style.display = 'block'
-            fundo.style.display = 'block'
-        })
-
-        //Faz a div fale-comigo e a div fundo aparecer
-        navcontato.addEventListener('click', function() {
-            contato.style.display = 'block'
-            fundo.style.display = 'block'
-        })
-
-        //Faz a div fale-comigo e a div fundo sumir
-        fundo.addEventListener('click', function() {
-            contato.style.display = 'none'
-            fundo.style.display = 'none'
-        })
+        for(let c = 0; c < 10; c++) {
+            const div = document.getElementsByClassName('proj')[c]
+            div.style.backgroundImage = `url(assets/img/projeto${c}.jpg)`
+        }
     </script>
+    <script src="assets/js/index.js"></script>
 </body>
 </html>
