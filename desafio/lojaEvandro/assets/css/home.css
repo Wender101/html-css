@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+
+:root {
+    --cor1: #363636;
+    --cor2: #07af07;
+    --cor3: #FF1522;
+    --cor4: rgba(235, 235, 235, 1);
+
+    --font1: 'Roboto', sans-serif;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    font-family: var(--font1);
+    background-color: var(--cor4);
+    color: white;
+    overflow: hidden;
+}
+
+header {
+    width: 100%;
+    height: 438px;
+    background-color: var(--cor2);
+}
+
+nav {
+    width: 100%;
+    position: absolute;
+    bottom: 0px;
+    background-color: white;
+    display: flex;
+    justify-content: space-around;
+    padding-top: 17px;
+    padding-bottom: 20px;
+}
+
+nav > a > button {
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    border: none;
+    background-position: center center;
+    background-size: cover;
+}
+
+nav > a > button#btnhome {
+    background-image: url('../img/icones/home.png');
+}
+
+nav > a#btnPesquisa {
+    padding: 16px 26px;
+    border-radius: 60px;
+    background-color: var(--cor2);
+    position: absolute;
+    top: -20px;
+}
+
+nav > a#btnPesquisa > button {
+    background-image: url('../img/icones/lupa.png');
+}
+
+
+nav > a > button#btnConta {
+    background-image: url('../img/icones/user@3x.png');  
+}
