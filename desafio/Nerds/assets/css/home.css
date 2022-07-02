@@ -1,0 +1,155 @@
+@font-face {
+    font-family: bitwise;
+    src: url('../fonts/bitwise.ttf');
+}
+
+@font-face {
+    font-family: anton;
+    src: url('../fonts/anton-2.ttf');
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+
+:root {
+    --cor1: #FF5500;
+    --cor2: #CFCFCF;
+    --cor3: #343A40;
+
+    --font1: bitwise;
+    --font2: anton;
+    --font3: 'Roboto', sans-serif;; 
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    background-image: url('../img/site/home.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+    font-family: var(--font3);
+}
+
+header {
+    padding: 20px;
+}
+
+header > h1 {
+    font-family: var(--font1);
+    font-size: 45px;
+    text-align: center;
+}
+
+header > div {
+    width: 100%;
+    max-width: 800px;
+    height: 48px;
+    margin-left: 50%;
+    transform: translate(-50%);
+    position: relative;
+}
+
+header > div > button {
+    width: 24px;
+    height: 24px;
+    border: none;
+    background-color: transparent;
+    background-image: url('../img/ícones/pesquisar.png');
+    background-position: center center;
+    background-size: cover;
+    position: absolute;
+    margin: 11px 0px 0px 19px;
+}
+
+header > div > input {
+    width: 90%;
+    height: 46px;
+    border-radius: 65px;
+    border: none;
+    padding-left: 50px;
+    font-family: var(--font3);
+}
+
+header > div > input::placeholder {
+    color: var(--cor2);
+}
+
+header > div > input:focus {
+    box-shadow: 0 0 0 0;
+    outline: 0;
+}
+
+section#banner {
+    width: 95%;
+    max-width: 350px;
+    height: 200px;
+    margin: auto;
+    border-radius: 65px;
+}
+
+section#banner > img {
+    width: 100%;
+    height: 200px;
+}
+
+section#recomendarPesquisa {
+    width: auto;
+    height: 60px;
+    display: flex;
+    overflow-x: auto;
+}
+
+section#recomendarPesquisa > span {
+    height: 15px;
+    padding: 13px;
+    color: black;
+    background-color: white;
+    border-radius: 62px;
+    margin-right: 13px;
+}
+
+h2 {
+    margin-left: 20px;
+    color: var(--cor3);
+}
+
+section#recomendados {
+    display: flex;
+}
+
+section#recomendados > div {
+
+}
+
+nav {
+    width: 100%;
+    height: 100px;
+    border-radius: 60px 60px 0px 0px;
+    background-color: white;
+    position: fixed;
+    bottom: 0px;
+    display: flex;
+    justify-content: center;
+}
+
+nav > button {
+    border: none;
+    background-color: transparent;
+    margin: 37px;
+}
+
+nav > button > img{
+    width: 27px;
+    height: 27px;
+}
+
+nav > button#home {
+    width: 110px;
+    height: 40px;
+    margin-top: 30px;
+    border-radius: 60px;
+    background-color: rgba(255, 85, 0, 0.3);
+}

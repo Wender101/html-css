@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Bem Vindo a Nerds :)</title>
+
+    <style>
+        @font-face {
+            font-family: bitwise;
+            src: url(assets/fonts/bitwise.ttf);
+        }
+
+        @font-face {
+            font-family: anton;
+            src: url(assets/fonts/anton-2.ttf);
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+
+        :root {
+            --cor1: #FF5500;
+
+            --font1: bitwise;
+            --font2: anton;
+            --font3: 'Roboto', sans-serif;; 
+        }
+
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        body {
+            background-image: url('assets/img/site/fundo2.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            color: white;
+            font-family: var(--font3);
+        }
+
+        div#font {
+            width: 205px;
+            animation: animh1 800ms linear;
+            top: 200px;
+            margin-left: 50%;
+            position: absolute;
+            transform: translate(-50%);
+        }
+
+        div#font > h1 {
+            font-family: var(--font1);
+            font-size: 75px;
+            text-align: left;
+        }
+
+        @keyframes animh1 {
+            0% {
+                top: -600px;
+            }
+
+            80% {
+                top: 200px;
+            }
+
+            90% {
+                top: 250px ;
+            }
+
+            100% {
+                top: 200px;
+            }
+        }
+
+        @keyframes animh1-2 {
+            0% {
+                top: 200px;
+            }
+
+            25% {
+                top: 210px;
+            }
+
+            50% {
+                top: 200px;
+            }
+
+            75% {
+                top: 210px;
+            }
+
+            100% {
+                top: 200px;
+            }
+        }
+
+        div#divLogin {
+            position: absolute;
+            margin-left: 50%;
+            transform: translate(-50%);
+            bottom: 88px;
+        }
+
+        #login {
+            width: 292px;
+            height: 48px;
+            border-radius: 65px;
+            border: none;
+            color: var(--cor1);
+            animation: btn 4000ms infinite;
+        }
+
+        @keyframes btn {
+            0% {
+                transform: scale(1);
+            }
+
+            25% {
+                transform: scale(1.05);
+            }
+
+            50% {
+                transform: scale(1);
+            }
+
+            75% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+
+        #pular > a {
+            color: white;
+            position: absolute;
+            bottom: 10px;
+            right: 20px;
+            border: none;
+            background-color: transparent;
+            font-size: 16px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="font">
+        <h1>Nerds</h1>
+    </div>
+
+    <div id="divLogin">
+        <button onclick="login()" id="login">Login</button>
+    </div>
+
+    <button id="pular"><a href="home.html">Pular</a></button>
+
+    <script>
+        setTimeout(() => {
+            const divH1 = document.getElementById('font')
+            divH1.style.animation = 'animh1-2 2800ms infinite'
+        }, 1100)
+    </script>
+</body>
+</html>
