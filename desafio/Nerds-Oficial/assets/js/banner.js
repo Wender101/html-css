@@ -15,10 +15,10 @@
         } else if(mes == 4) {
             
         } else if(mes == 5) {
-            banner.style.backgroundImage = 'url(assets/img/banner/MÊS.png)'
 
-        } else if(mes == 6) {
             
+        } else if(mes == 6) {
+            banner.style.backgroundImage = 'url(assets/img/banner/MÊS.png)'
 
         } else if(mes == 7) {
             

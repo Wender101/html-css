@@ -17,7 +17,7 @@ body {
     font-family: var(--font1);
     background-color: var(--cor1);
     color: white;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 button#pular {
@@ -34,6 +34,7 @@ section#corpo {
     width: 100%;
     height: 100vh;
     position: absolute;
+    padding-bottom: 250px;
 }
 
 .animCorpo {
@@ -98,7 +99,7 @@ section#balls > div {
 }
 
 div#proximo {
-    bottom: 67px;
+    top: 520px;
     position: absolute;
     margin-left: 50%;
     transform: translate(-50%);

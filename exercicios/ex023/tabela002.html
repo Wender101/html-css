@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabelas</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        h1 {
+            text-align: right;
+            margin-right: 90px;
+        }
+
+        table {
+            width: 500px;
+            border-collapse: collapse;
+            position: relative;
+        }
+
+        caption {
+            font-size: 1.5rem;
+            font-size: bold;
+            padding: 10px;
+            background-color: lightgray;
+        }
+
+        thead > tr > th {
+            position: sticky;
+            top: -1px;
+            background-color: #383838;
+        }
+
+        td, th {
+            border: 1px solid black;
+            padding: 10px;
+        }
+
+        thead, tfoot {
+            background-color: #383838;
+            color: white;
+        }
+
+        tbody > tr:nth-child(even) { /* De 2 em 2 ele aplica o elemento */
+            background-color: rgb(161, 159, 159);
+        }
+
+        td.num {
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <h1>Uso de tabelas grandes</h1>
+    <!-- 
+        Anatomia para tabelas grandes
+        Table
+            Caption
+            thead
+                tr, td, th
+            tbody
+                tr, td, th
+            tfoot
+                tr, td, th
+     -->
+     <table>
+         <caption>População Das Unidades Federativas</caption>
+        <thead>
+            <tr>
+                <th scope="col">Estado</th>
+                <th scope="col" style="width: 50px;">População</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Será inserido valores via 
+            js aqui -->
+        </tbody>
+        <tfoot>
+            <tr>
+                <th scope="row">Total de Habitantes</th>
+                <td id="total"></td>
+            </tr>
+        </tfoot>
+     </table>
+
+     <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur error alias quaerat possimus rerum dicta molestias repudiandae quis quo provident! Natus inventore repudiandae aperiam nulla doloremque laboriosam, itaque neque eos?
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur error alias quaerat possimus rerum dicta molestias repudiandae quis quo provident! Natus inventore repudiandae aperiam nulla doloremque laboriosam, itaque neque eos?
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur error alias quaerat possimus rerum dicta molestias repudiandae quis quo provident! Natus inventore repudiandae aperiam nulla doloremque laboriosam, itaque neque eos?
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur error alias quaerat possimus rerum dicta molestias repudiandae quis quo provident! Natus inventore repudiandae aperiam nulla doloremque laboriosam, itaque neque eos?
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur error alias quaerat possimus rerum dicta molestias repudiandae quis quo provident! Natus inventore repudiandae aperiam nulla doloremque laboriosam, itaque neque eos?
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur error alias quaerat possimus rerum dicta molestias repudiandae quis quo provident! Natus inventore repudiandae aperiam nulla doloremque laboriosam, itaque neque eos?
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur error alias quaerat possimus rerum dicta molestias repudiandae quis quo provident! Natus inventore repudiandae aperiam nulla doloremque laboriosam, itaque neque eos?
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur error alias quaerat possimus rerum dicta molestias repudiandae quis quo provident! Natus inventore repudiandae aperiam nulla doloremque laboriosam, itaque neque eos?
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur error alias quaerat possimus rerum dicta molestias repudiandae quis quo provident! Natus inventore repudiandae aperiam nulla doloremque laboriosam, itaque neque eos?
+     </p>
+     <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur error alias quaerat possimus rerum dicta molestias repudiandae quis quo provident! Natus inventore repudiandae aperiam nulla doloremque laboriosam, itaque neque eos?
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur error alias quaerat possimus rerum dicta molestias repudiandae quis quo provident! Natus inventore repudiandae aperiam nulla doloremque laboriosam, itaque neque eos?
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur error alias quaerat possimus rerum dicta molestias repudiandae quis quo provident! Natus inventore repudiandae aperiam nulla doloremque laboriosam, itaque neque eos?
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur error alias quaerat possimus rerum dicta molestias repudiandae quis quo provident! Natus inventore repudiandae aperiam nulla doloremque laboriosam, itaque neque eos?
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur error alias quaerat possimus rerum dicta molestias repudiandae quis quo provident! Natus inventore repudiandae aperiam nulla doloremque laboriosam, itaque neque eos?
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur error alias quaerat possimus rerum dicta molestias repudiandae quis quo provident! Natus inventore repudiandae aperiam nulla doloremque laboriosam, itaque neque eos?
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur error alias quaerat possimus rerum dicta molestias repudiandae quis quo provident! Natus inventore repudiandae aperiam nulla doloremque laboriosam, itaque neque eos?
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur error alias quaerat possimus rerum dicta molestias repudiandae quis quo provident! Natus inventore repudiandae aperiam nulla doloremque laboriosam, itaque neque eos?
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur error alias quaerat possimus rerum dicta molestias repudiandae quis quo provident! Natus inventore repudiandae aperiam nulla doloremque laboriosam, itaque neque eos?
+     </p>
+
+     <script>
+            let total = 0
+            const t = document.getElementById('total')
+            const strong = document.createElement('strong')
+
+            for(let c = 0; c < 51; c++) criar(c)
+            
+            function criar(c) {
+                const tbody = document.querySelector('tbody')
+                num = Math.floor(Math.random() * 10000000)
+                total += num
+                const tr = document.createElement('tr')
+                const td = document.createElement('td')
+                const td2 = document.createElement('td')
+                td.innerText = 'Cidade ' + c
+                td2.innerText = num
+                td2.className = 'num'
+                tr.appendChild(td)
+                tr.appendChild(td2)
+                tbody.appendChild(tr)
+            
+                strong.innerText = total
+                t.appendChild(strong)
+            }
+     </script>
+</body>
+</html>

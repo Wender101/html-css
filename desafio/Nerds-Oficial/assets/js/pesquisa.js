@@ -1,5 +1,12 @@
+const p = document.getElementById('pesquisar')
+p.addEventListener('keydown', e => {
+    if(e.keyCode == 13) {
+        functionPesquisar()
+    }
+})
+
 // Vai pesquisar o que for escrito no input
-function pesquisar() {
+function functionPesquisar() {
     const pesquisar = document.getElementById('pesquisar').value
     var pesquisaJSON = JSON.stringify(pesquisar);
     localStorage.setItem('pesquisaSalva', pesquisaJSON);

@@ -4,7 +4,7 @@
     --cor1: #363636;
     --cor2: #07af07;
     --cor3: #FF1522;
-    --cor4: rgba(235, 235, 235, 1);
+    --cor4: rgb(212, 212, 212);
 
     --font1: 'Roboto', sans-serif;
 }
@@ -18,24 +18,100 @@ body {
     font-family: var(--font1);
     background-color: var(--cor4);
     color: white;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 header {
     width: 100%;
     height: 438px;
+    background-color: white;
+    position: relative;
+    border-radius: 0px 0px 20px 20px;
+}
+
+header > div#logo {
+    width: 300px;
+    height: 300px;
+    background-image: url('../img/logo/logo\ fortec.jpg');
+    background-size: cover;
+    background-position: center center;
+    margin-left: 50%;
+    transform: translate(-50%);
+    position: absolute;
+    bottom: 40px;
+    border-radius: 50%;
+}
+
+header > div#line {
+    width: 100%;
+    height: 30px;
     background-color: var(--cor2);
+    position: absolute;
+    bottom: 0px;
+    border-radius: 0px 0px 20px 20px;
+}
+
+main {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    justify-content: space-between;
+    padding-bottom: 150px;
+}
+
+main > div {
+    width: 236px;
+    height: 300px;
+    margin: 20px;
+}
+
+main > div > div {
+    width: 230px;
+    height: 290px;
+    border-radius: 20px;
+    background-color: white;
+    position: relative;
+    padding-top: 20px;
+    margin-left: 50%;
+    transform: translate(-50%);
+}
+
+main > div > div > p {
+    color: black;
+    text-align: center;
+}
+
+main > div > div > img {
+    width: 95%;
+    height: auto;
+    display: block;
+    margin: 30px auto;
+    border-radius: 20px;
+}
+
+main > div > div > strong {
+    width: 100px;
+    color: var(--cor2);
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
 }
 
 nav {
     width: 100%;
-    position: absolute;
+    position: fixed;
     bottom: 0px;
     background-color: white;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     padding-top: 17px;
     padding-bottom: 20px;
+}
+
+nav > a {
+    margin: 10px;
 }
 
 nav > a > button {
@@ -57,6 +133,8 @@ nav > a#btnPesquisa {
     background-color: var(--cor2);
     position: absolute;
     top: -20px;
+    margin-left: 50%;
+    transform: translate(-50%);
 }
 
 nav > a#btnPesquisa > button {
@@ -66,4 +144,13 @@ nav > a#btnPesquisa > button {
 
 nav > a > button#btnConta {
     background-image: url('../img/icones/user@3x.png');  
+}
+
+@media screen and (max-width: 412px) {
+    main > div {
+        width: 206px;
+        height: 310px;
+        margin-left: 50%;
+        transform: translate(-50%);
+    }
 }
