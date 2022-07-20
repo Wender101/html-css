@@ -58,7 +58,8 @@
     }
 
     header > div#man {
-        display: none;
+        width: 600px;
+        height: 600px;
     }
 
     header > section {
