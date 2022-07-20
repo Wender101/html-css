@@ -1,0 +1,234 @@
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap');
+
+:root {
+    --cor1: rgba(4, 253, 163, 1);
+    --cor2: rgba(28, 164, 115, 0.8);
+    --cor3: rgba(4, 253, 162, 0.918);
+    --cor4: rgba(17, 9, 41, 1);
+    --cor5: rgba(88, 10, 136, 1);
+    --cor6: rgba(41, 0, 73, 1);
+    --cor7: rgba(4, 253, 162, 0.555);
+    --cor8: rgba(17, 9, 41, 0.801);
+    --cor9: rgba(17, 9, 41, 0.945);
+
+    --font-titulo: 'Audiowide', cursive;
+    --font-texto: 'JetBrains Mono', monospace;
+}
+
+@media screen and (max-width: 1072px) {
+    footer {
+        height: 300px;
+        padding: 0px 0px 100px 0px;
+    }
+
+    footer > div#p1 {
+        width: 100%;
+        position: absolute;
+        top: 250px;
+        left: 50px;
+    }
+
+    footer > div#p2 {
+        width: 80%;
+        margin: 80px auto;
+    }
+
+    footer > div#ps5 {
+        position: absolute;
+        top: 180px;
+        right: -10px;
+    }
+}
+
+@media screen and (max-width: 790px) {
+    section#produtos > div {
+        width: 500px;
+        height: 300px;
+    }
+
+    header > section {
+        margin: 100px 0px 0px 20px;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    header {
+        padding-bottom: 100px;
+    }
+
+    header > div#man {
+        display: none;
+    }
+
+    header > section {
+        width: 80%;
+        margin: 100px 0px 0px 10px;
+    }
+
+    header > section > p {
+        width: 70%;
+    }
+
+    section#time > article > div > span {
+        font-size: 50px;
+    }
+
+    section#time > article {
+        width: 415px;
+    }
+
+    section#time > article > div > p {
+        margin-left: 35px;
+    }
+
+    section#time > article > div > #pDia {
+        margin-left: 5px;
+    }
+
+    section#produtos > div {
+        width: 400px;
+        height: 200px;
+    }
+
+    footer > div#p1 > h1 {
+        color: var(--cor1);
+        font-size: 22px;
+        font-weight: 100;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #menu {
+        display: block;
+        background-color: var(--cor6);
+        font-family: var(--font-titulo);
+        color: var(--cor1);
+        border: 1px solid var(--cor1);
+        padding: 7px;
+        border-radius: 5px;
+        position: fixed;
+        top: 10px;
+        left: 10px;
+    }
+
+    nav, nav#semFundo, nav#comFundo {
+        background-color: var(--cor1);
+    }
+
+    nav {
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        width: 150px;
+        height: 100vh;
+        padding: 10px;
+        display: none;
+    }
+
+    div#sombra {
+        width: 100%;
+        height: 100vh;
+        background-color: var(--cor9);
+        position: fixed;
+        top: 0px;
+        display: none;
+    }
+
+    nav > ul {
+        display: block;
+    }
+    
+    nav > ul > li {
+        color: white;
+        margin-bottom: 20px;
+        margin-right: 0px;
+    }
+
+    nav > ul > button {
+        padding: 0px;
+        background-color: transparent;
+        border: none;
+    }
+
+    section#produtos > article {
+        width: 90%;
+        margin-top: 20px;
+        margin-left: 10px;
+    }
+
+    section#time > h1 {
+        font-size: 30px;
+    }
+
+    section#time {
+        height: 150px;
+    }
+
+    section#time > article {
+        width: 350px;
+    }
+
+    section#time > article > div > span {
+        font-size: 40px;
+    }
+
+    section#time > article > div > p {
+        margin-left: 30px;
+        font-size: 13px;
+    }
+
+    footer {
+        height: 300px;
+        padding: 0px 0px 150px 0px;
+    }
+
+    footer > div#p1 {
+        width: 100%;
+        position: absolute;
+        top: 300px;
+        left: 30px;
+    }
+
+    footer > div#ps5 {
+        position: absolute;
+        top: 230px;
+        right: -10px;
+    }
+}
+
+@media screen and (max-width: 370px) {
+    section#time {
+        height: 150px;
+    }
+
+    section#time > article {
+        width: 298px;
+    }
+
+    section#time > article > div > span {
+        font-size: 30px;
+    }
+
+    section#time > article > div > p {
+        margin-left: 18px;
+        font-size: 12px;
+    }
+
+    section#produtos > div {
+        width: 300px;
+        height: 200px;
+    }
+}
+
+/*! height  */
+@media screen and (max-height: 500px) {
+    nav#semFundo {
+        background-color: var(--cor8);
+    }
+
+    header > div#man {
+        width: 550px;
+        height: 550px;
+    }
+}

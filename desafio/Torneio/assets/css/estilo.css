@@ -1,0 +1,361 @@
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap');
+
+:root {
+    --cor1: rgba(4, 253, 163, 1);
+    --cor2: rgba(28, 164, 115, 0.8);
+    --cor3: rgba(4, 253, 162, 0.918);
+    --cor4: rgba(17, 9, 41, 1);
+    --cor5: rgba(88, 10, 136, 1);
+    --cor6: rgba(41, 0, 73, 1);
+    --cor7: rgba(4, 253, 162, 0.555);
+    --cor8: rgba(17, 9, 41, 0.801);
+
+    --font-titulo: 'Audiowide', cursive;
+    --font-texto: 'JetBrains Mono', monospace;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+    text-decoration: none;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: var(--font-texto);
+    background-image: linear-gradient(var(--cor4), var(--cor6));
+}
+
+button, li {
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: var(--cor6);
+    border: 1px solid var(--cor1);
+}
+
+#menu {
+    display: none;
+}
+
+nav {
+    width: 100%;
+    height: 30px;
+    padding: 10px;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    background-color: transparent;
+}
+
+nav#semFundo {
+    background-color: transparent;
+}
+
+nav#comFundo {
+    background-color: var(--cor8);
+}
+
+div#sombra {
+    display: none;
+}
+
+nav > ul {
+    display: flex;
+    position: absolute;
+    right: 60px;
+}
+
+nav > ul > li {
+    color: white;
+    margin-right: 60px;
+}
+
+nav > ul > button {
+    padding: 5px 20px;
+    border-radius: 5px;
+    background-color: var(--cor1);
+    color: white;
+    font-family: var(--font-texto);
+    font-weight: 100;
+    border: 1px solid var(--cor1);
+}
+
+header {
+    width: 100%;
+    height: 100vh;
+    padding: 20px;
+    background-image: url('../img/NFT1.png');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.644);
+    overflow: hidden;
+}
+
+header > div#logo {
+    width: 150px;
+    height: 150px;
+    background-color: var(--cor5);
+    border-radius: 50%;
+    margin: 20px;
+    position: absolute;
+}
+
+header > div#man {
+    width: 700px;
+    height: 700px;
+    background-image: url('../img/man.png');
+    background-position: center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    right: -90px;
+    bottom: 0px;
+}
+
+header > section {
+    width: 450px;
+    color: white;
+    margin: 100px 0px 0px 100px;
+    position: absolute;
+    top: 160px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.658);
+}
+
+header > section > h1 {
+    font-family: var(--font-titulo);
+    color: var(--cor1);
+    font-size: 40px;
+}
+
+header > section > button {
+    padding: 10px;
+    border-radius: 12px;
+    background-color: var(--cor2);
+    color: white;
+    font-family: var(--font-texto);
+    font-weight: 100;
+    border: 1px solid var(--cor1);
+    margin-top: 56px;
+    margin-bottom: 33px;
+}
+
+section#time {
+    width: 100%;
+    height: 200px;
+    background-image: url('../img/time.png');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: repeat;
+    padding-top: 20px;
+    overflow: hidden;
+}
+
+section#time > h1 {
+    text-align: center;
+    color: var(--cor1);
+    font-size: 40px;
+}
+
+section#time > article {
+    width: 500px;
+    height: 100px;
+    margin: auto;
+    position: relative;
+}
+
+section#time > article > div > span#dia {
+    margin-right: 60px;
+}
+
+section#time > article > div > span {
+    color: var(--cor1);
+    font-size: 60px;
+    font-family: var(--font-titulo);
+    text-shadow: 2px 3px 15px var(--cor3);
+}
+
+section#time > article > div > p {
+    display: inline;
+    margin-left: 45px;
+    color: var(--cor1);
+}
+
+section#time > article > div > #pDia {
+    display: inline;
+    margin-right: 35px;
+    margin-left: 15px;
+}
+
+section#produtos {
+    width: 100%;
+    height: 400px;
+    padding: 20px;
+    background-image: url('../img/NFT2.png');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.644);
+}
+
+section#produtos > article {
+    width: 300px;
+    margin-top: 100px;
+    margin-left: 50px;
+}
+
+section#produtos > article > h1 {
+    font-family: var(--font-titulo);
+    color: var(--cor1);
+    font-size: 30px;
+}
+
+section#produtos > article > p {
+    color: white;
+}
+
+section#produtos > article > button {
+    padding: 5px 20px;
+    border-radius: 5px;
+    background-color: var(--cor1);
+    color: white;
+    font-family: var(--font-texto);
+    font-weight: 100;
+    border: none;
+    margin-top: 50px;
+}
+
+section#produtos > article > button:hover {
+    background-color: var(--cor6);
+    border: 1px solid var(--cor1);
+}
+
+section#produtos > div {
+    width: 600px;
+    height: 400px;
+    position: absolute;
+    right: 50px;
+    bottom: 30px;
+    background-image: url('../img/p.png');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+section#campeonatos {
+    width: 100%;
+    height: auto;
+    background-image: url('../img/NFT\ Landing.png');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding-bottom: 30px;
+}
+
+section#campeonatos > article {
+    width: 80%;
+    max-width: 800px;
+    margin: 30px auto;
+    height: auto;
+    padding: 20px;
+    border-radius: 20px;
+    background-image: linear-gradient(var(--cor3), var(--cor7), transparent);
+    box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.644);
+    color: white;
+}
+
+section#campeonatos > article > h2 {
+    text-align: center;
+    font-family: var(--font-titulo);
+}
+
+footer {
+    width: 100%;
+    height: 150px;
+    background-image: url('../img/NFT2.png');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+    padding-left: 100px;
+    padding-top: 63px;
+    position: relative;
+    box-shadow: -2px -2px 20px rgba(0, 0, 0, 0.644);
+    overflow: hidden;
+    padding-bottom: 50px;
+}
+
+footer > div#p1 {
+    position: absolute;
+}
+
+footer > div#p1 > h1 {
+    color: var(--cor1);
+    font-weight: 100;
+}
+
+footer > div#p1 > ul {
+    width: 120px;
+    display: flex;
+    justify-content: space-between;
+}
+
+footer > div#p1 > ul > li#face {
+    width: 25px;
+    height: 25px;
+    background-image: url('../img/icons/face.png');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+footer > div#p1 > ul > li#insta {
+    width: 25px;
+    height: 25px;
+    background-image: url('../img/icons/insta.png');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+footer > div#p1 > ul > li#tw {
+    width: 25px;
+    height: 25px;
+    background-image: url('../img/icons/tw.png');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+footer > div#p2 {
+    width: 50%;
+    margin: auto;
+}
+
+footer > div#p2 > strong {
+    text-align: center;
+    display: block;
+}
+
+footer > div#p2 > p {
+    font-size: 14px;
+    text-align: center;
+}
+
+footer > div#ps5 {
+    width: 200px;
+    height: 200px;
+    background-image: url('../img/ps5.png');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+    right: 100px;
+    top: -10px;
+}
