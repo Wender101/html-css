@@ -28,8 +28,10 @@ body {
     background-image: linear-gradient(var(--cor4), var(--cor6));
 }
 
-button, li {
+button, li, a {
     cursor: pointer;
+    text-decoration: none;
+    color: white;
 }
 
 button:hover {
@@ -163,7 +165,7 @@ section#time > h1 {
 }
 
 section#time > article {
-    width: 500px;
+    width: 520px;
     height: 100px;
     margin: auto;
     position: relative;
