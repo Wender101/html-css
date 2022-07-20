@@ -8,9 +8,6 @@ function tempoRestante() {
     var Result = Math.round(diaX.getTime() - present_date.getTime()) / (one_day);
     var Final_Result = Result.toFixed(0);
 
-    
-    
-    //! Time ---------------------------------
     const time = document.getElementById('time')
     const localDia = time.getElementsByTagName('span')[0]
     const localHora = time.getElementsByTagName('span')[1]
@@ -83,14 +80,16 @@ function fecharMenu() {
     at = false
 }
 
+//! Vai checar qual o tamho da tela e alterar o menu de acordo com o tamanho
 setInterval(() => {
     let tamanhoTela = document.defaultView.innerWidth
     if(tamanhoTela > 480) {
         const nav = document.querySelector('nav')
+        const menu = document.getElementById('menu')
         nav.style.display = 'block'
+        menu.style.display = 'none'
+
     } else {
-        if(at == false) {
-            fecharMenu()
-        } 
+        if(at == false) fecharMenu()
     }
 }, 10)
