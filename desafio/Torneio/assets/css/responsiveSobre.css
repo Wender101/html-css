@@ -11,7 +11,7 @@
 }
 
 @media screen and (max-width: 900px) {
-    header > div#man {
+    header > div#girl {
         width: 300px;
         height: 100px;
     }
@@ -42,7 +42,7 @@
         height: 110vh;
     }
 
-    header > div#man {
+    header > div#girl {
         width: 300px;
         height: 100px;
         left: 45%;
@@ -102,7 +102,7 @@
         height: 90vh;
     }
 
-    header > div#man {
+    header > div#girl {
         width: 230px;
         height: 30px;
         left: 45%;
@@ -170,8 +170,8 @@
 
 /*! Height */
 
-@media screen and (max-height: 750px) {
-    header > div#man {
+@media screen and (max-height: 750px) and (max-width: 450px) {
+    header > div#girl {
         width: 230px;
         height: 30px;
         left: 45%;
