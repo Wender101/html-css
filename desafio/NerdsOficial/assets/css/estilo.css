@@ -1,6 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap');
 
+@font-face {
+    font-family: bitwise;
+    src: url('../fonts/bitwise.ttf');
+}
+
 :root {
     --cor1: rgba(4, 253, 163, 1);
     --cor2: rgba(28, 164, 115, 0.8);
@@ -13,6 +18,7 @@
 
     --font-titulo: 'Audiowide', cursive;
     --font-texto: 'JetBrains Mono', monospace;
+    --font-nerds: bitwise;
 }
 
 * {
@@ -80,6 +86,11 @@ nav > ul > li {
     margin-right: 60px;
 }
 
+nav > ul > li:hover{
+    font-size: 18px;
+    margin-right: 50px;
+}
+
 nav > ul > button {
     padding: 5px 20px;
     border-radius: 5px;
@@ -94,14 +105,14 @@ header {
     width: 100%;
     height: 100vh;
     padding: 20px;
-    min-height: 650px;
-    background-image: url('../img/NFT1\ 3.png');
+    min-height: 804px;
+    background-image: url('../img/site/NFT1.png');
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
     position: relative;
-    overflow: hidden;
     box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.644);
+    overflow: hidden;
 }
 
 header > div#logo {
@@ -109,14 +120,14 @@ header > div#logo {
     height: 150px;
     background-color: var(--cor5);
     border-radius: 50%;
-    margin: 20px;
+    margin: 10px;
     position: absolute;
 }
 
-header > div#girl {
+header > div#man {
     width: 700px;
     height: 700px;
-    background-image: url('../img/girl.png');
+    background-image: url('../img/site/man.png');
     background-position: center center;
     background-size: contain;
     background-repeat: no-repeat;
@@ -125,8 +136,8 @@ header > div#girl {
     bottom: 0px;
 }
 
-header > section#p1 {
-    max-width: 450px;
+header > section {
+    width: 450px;
     color: white;
     margin: 100px 0px 0px 100px;
     position: absolute;
@@ -134,14 +145,18 @@ header > section#p1 {
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.658);
 }
 
-header > section#p1 > h1 {
+header > section > h1 {
     font-family: var(--font-titulo);
     color: var(--cor1);
     font-size: 40px;
-    margin-bottom: 30px;
 }
 
-header > section#p1 > button {
+header > section > h1 > #nerds {
+    font-family: var(--font-nerds);
+    font-size: 50px;
+}
+
+header > section > a > button {
     padding: 10px;
     border-radius: 12px;
     background-color: var(--cor2);
@@ -151,114 +166,137 @@ header > section#p1 > button {
     border: 1px solid var(--cor1);
     margin-top: 56px;
     margin-bottom: 33px;
-
 }
 
-header > div#girl {
-    width: 400px;
+section#time {
+    width: 100%;
     height: 200px;
-    padding: 100px 0px;
-    background-image: url('../img/pensando.png');
+    background-image: url('../img/site/time.png');
     background-position: center center;
-    background-size: contain;
-    background-repeat: no-repeat;
-    position: absolute;
-    right: 60px;
-    bottom: 30px;
-    background-color: rgba(255, 255, 255, 0.692);
-    border-radius: 50%;
-    border: 3px solid var(--cor1);
-}
-
-main {
-    width: 100%;
-    height: auto;
-}
-
-section#sobre {
-    width: 100%;
-    height: auto;
-    padding: 30px 20px 80px 20px;
-    background-image: url('../img/NFT\ Landing.png');
     background-size: cover;
-    background-repeat: no-repeat;
-    color: white;
+    background-repeat: repeat;
+    padding-top: 20px;
+    overflow: hidden;
 }
 
-section#sobre  > h1 {
-    font-family: var(--font-titulo);
+section#time > h1 {
+    text-align: center;
     color: var(--cor1);
     font-size: 40px;
-    margin-bottom: 30px;
-    text-align: center;
 }
 
-section#sobre  > p {
-    max-width: 600px;
-    text-align: center;
+section#time > article {
+    width: 490px;
+    height: 100px;
     margin: auto;
-    padding: 30px;
-}
-
-section#oqueFazemos {
-    width: 100%;
-    height: auto;
-    padding: 30px 20px 80px 100px;
-    background-image: url('../img/NFT2.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-    color: white;
-    box-shadow: -2px -2px 20px rgba(0, 0, 0, 0.644);
     position: relative;
 }
 
-section#oqueFazemos  > h1 {
+section#time > article > div > span#dia {
+    margin-right: 60px;
+}
+
+section#time > article > div > span {
+    color: var(--cor1);
+    font-size: 60px;
+    font-family: var(--font-titulo);
+    text-shadow: 2px 3px 15px var(--cor3);
+}
+
+section#time > article > div > p {
+    display: inline;
+    margin-left: 35px;
+    color: var(--cor1);
+}
+
+section#time > article > div > #pDia {
+    display: inline;
+    margin-right: 50px;
+    margin-left: 15px;
+}
+
+section#produtos {
+    width: 100%;
+    height: 400px;
+    padding: 20px;
+    background-image: url('../img/site/NFT2.png');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.644);
+}
+
+section#produtos > article {
+    width: 300px;
+    margin-top: 100px;
+    margin-left: 50px;
+}
+
+section#produtos > article > h1 {
     font-family: var(--font-titulo);
     color: var(--cor1);
-    font-size: 40px;
-    margin-bottom: 30px;
+    font-size: 30px;
 }
 
-section#oqueFazemos  > p {
-    max-width: 700px;
+section#produtos > article > p {
+    color: white;
 }
 
-section#oqueFazemos > p > strong > a {
-    color: var(--cor1);
-}
-
-section#oqueFazemos > a > button {
-    padding: 10px;
-    border-radius: 12px;
-    background-color: var(--cor2);
+section#produtos > article > button {
+    padding: 5px 20px;
+    border-radius: 5px;
+    background-color: var(--cor1);
     color: white;
     font-family: var(--font-texto);
     font-weight: 100;
+    border: none;
+    margin-top: 50px;
+}
+
+section#produtos > article > button:hover {
+    background-color: var(--cor6);
     border: 1px solid var(--cor1);
-    margin-top: 56px;
-    margin-bottom: 33px;
 }
 
-section#oqueFazemos > div#trabalho {
-    width: 300px;
-    height: 300px;
-    background-image: url('../img/trabalho.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
-    border-radius: 50%;
+section#produtos > div {
+    width: 600px;
+    height: 400px;
     position: absolute;
-    right: 150px;
-    top: 40px;
-    border: 3px solid var(--cor1);
-}
-
-section#separacao {
-    width: 100%;
-    height: 200px;
-    background-image: url('../img/NFT\ Landing.png');
+    right: 50px;
+    bottom: 30px;
+    background-image: url('../img/site/p.png');
+    background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
+}
+
+section#campeonatos {
+    width: 100%;
+    height: auto;
+    background-image: url('../img/site/NFT\ Landing.png');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding-bottom: 30px;
+}
+
+section#campeonatos > article {
+    width: 80%;
+    max-width: 800px;
+    margin: 30px auto;
+    height: auto;
+    padding: 20px;
+    border-radius: 20px;
+    background-image: linear-gradient(var(--cor3), var(--cor7), transparent);
+    box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.644);
+    color: white;
+}
+
+section#campeonatos > article > h2 {
+    text-align: center;
+    font-family: var(--font-titulo);
+    margin-bottom: 30px;
 }
 
 section#msgLogin {
@@ -287,7 +325,7 @@ section#msgLogin > button {
 footer {
     width: 100%;
     height: 150px;
-    background-image: url('../img/NFT2.png');
+    background-image: url('../img/site/NFT2.png');
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -315,31 +353,34 @@ footer > div#p1 > ul {
     justify-content: space-between;
 }
 
-footer > div#p1 > ul > li#face {
+footer > div#p1 > ul > li#face > a {
     width: 25px;
     height: 25px;
     background-image: url('../img/icons/face.png');
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
+    display: block;
 }
 
-footer > div#p1 > ul > li#insta {
+footer > div#p1 > ul > li#insta > a {
     width: 25px;
     height: 25px;
     background-image: url('../img/icons/insta.png');
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
+    display: block;
 }
 
-footer > div#p1 > ul > li#tw {
+footer > div#p1 > ul > li#tw > a {
     width: 25px;
     height: 25px;
     background-image: url('../img/icons/tw.png');
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
+    display: block;
 }
 
 footer > div#p2 {
@@ -354,14 +395,14 @@ footer > div#p2 > strong {
 
 footer > div#p2 > p {
     font-size: 14px;
-    margin-top: 20px;
     text-align: center;
+    margin-top: 20px;
 }
 
 footer > div#ps5 {
     width: 200px;
     height: 200px;
-    background-image: url('../img/ps5.png');
+    background-image: url('../img/site/ps5.png');
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
