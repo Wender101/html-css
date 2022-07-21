@@ -61,13 +61,7 @@
     }
 
     section#sobre {
-        width: 100%;
-        height: auto;
         padding: 30px 0px 80px 0px;
-        background-image: url('../img/NFT\ Landing.png');
-        background-size: cover;
-        background-repeat: no-repeat;
-        color: white;
     }
 
     section#sobre > h1 {

@@ -118,18 +118,6 @@ header > div#logo {
     position: absolute;
 }
 
-header > div#girl {
-    width: 700px;
-    height: 700px;
-    background-image: url('../img/site/girl.png');
-    background-position: center center;
-    background-size: contain;
-    background-repeat: no-repeat;
-    position: absolute;
-    right: -90px;
-    bottom: 0px;
-}
-
 header > section#p1 {
     max-width: 450px;
     color: white;
