@@ -1,0 +1,366 @@
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap');
+
+:root {
+    --cor1: rgba(4, 253, 163, 1);
+    --cor2: rgba(28, 164, 115, 0.8);
+    --cor3: rgba(4, 253, 162, 0.918);
+    --cor4: rgba(17, 9, 41, 1);
+    --cor5: rgba(88, 10, 136, 1);
+    --cor6: rgba(41, 0, 73, 1);
+    --cor7: rgba(4, 253, 162, 0.555);
+    --cor8: rgba(17, 9, 41, 0.801);
+
+    --font-titulo: 'Audiowide', cursive;
+    --font-texto: 'JetBrains Mono', monospace;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+    text-decoration: none;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: var(--font-texto);
+    background-image: linear-gradient(var(--cor4), var(--cor6));
+}
+
+button, li, a {
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+}
+
+button:hover {
+    background-color: var(--cor6);
+    border: 1px solid var(--cor1);
+}
+
+#menu {
+    display: none;
+}
+
+nav {
+    width: 100%;
+    height: 30px;
+    padding: 10px;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    background-color: transparent;
+}
+
+nav#semFundo {
+    background-color: transparent;
+}
+
+nav#comFundo {
+    background-color: var(--cor8);
+}
+
+div#sombra {
+    display: none;
+}
+
+nav > ul {
+    display: flex;
+    position: absolute;
+    right: 60px;
+}
+
+nav > ul > li {
+    color: white;
+    margin-right: 60px;
+}
+
+nav > ul > button {
+    padding: 5px 20px;
+    border-radius: 5px;
+    background-color: var(--cor1);
+    color: white;
+    font-family: var(--font-texto);
+    font-weight: 100;
+    border: 1px solid var(--cor1);
+}
+
+header {
+    width: 100%;
+    height: 100vh;
+    padding: 20px;
+    min-height: 500px;
+    background-image: url('../img/NFT1\ 3.png');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.644);
+}
+
+header > div#logo {
+    width: 150px;
+    height: 150px;
+    background-color: var(--cor5);
+    border-radius: 50%;
+    margin: 20px;
+    position: absolute;
+}
+
+header > div#man {
+    width: 700px;
+    height: 700px;
+    background-image: url('../img/man.png');
+    background-position: center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    right: -90px;
+    bottom: 0px;
+}
+
+header > section#p1 {
+    max-width: 450px;
+    color: white;
+    margin: 100px 0px 0px 100px;
+    position: absolute;
+    top: 160px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.658);
+}
+
+header > section#p1 > h1 {
+    font-family: var(--font-titulo);
+    color: var(--cor1);
+    font-size: 40px;
+    margin-bottom: 30px;
+}
+
+header > section#p1 > button {
+    padding: 10px;
+    border-radius: 12px;
+    background-color: var(--cor2);
+    color: white;
+    font-family: var(--font-texto);
+    font-weight: 100;
+    border: 1px solid var(--cor1);
+    margin-top: 56px;
+    margin-bottom: 33px;
+
+}
+
+header > div#man {
+    width: 400px;
+    height: 200px;
+    padding: 100px 0px;
+    background-image: url('../img/pensando.png');
+    background-position: center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    right: 60px;
+    bottom: 30px;
+    background-color: rgba(255, 255, 255, 0.692);
+    border-radius: 50%;
+    border: 3px solid var(--cor1);
+}
+
+main {
+    width: 100%;
+    height: auto;
+}
+
+section#sobre {
+    width: 100%;
+    height: auto;
+    padding: 30px 20px 80px 20px;
+    background-image: url('../img/NFT\ Landing.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+}
+
+section#sobre  > h1 {
+    font-family: var(--font-titulo);
+    color: var(--cor1);
+    font-size: 40px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+section#sobre  > p {
+    max-width: 600px;
+    text-align: center;
+    margin: auto;
+    padding: 30px;
+}
+
+section#oqueFazemos {
+    width: 100%;
+    height: auto;
+    padding: 30px 20px 80px 100px;
+    background-image: url('../img/NFT2.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+    box-shadow: -2px -2px 20px rgba(0, 0, 0, 0.644);
+    position: relative;
+}
+
+section#oqueFazemos  > h1 {
+    font-family: var(--font-titulo);
+    color: var(--cor1);
+    font-size: 40px;
+    margin-bottom: 30px;
+}
+
+section#oqueFazemos  > p {
+    max-width: 700px;
+}
+
+section#oqueFazemos > p > strong > a {
+    color: var(--cor1);
+}
+
+section#oqueFazemos > a > button {
+    padding: 10px;
+    border-radius: 12px;
+    background-color: var(--cor2);
+    color: white;
+    font-family: var(--font-texto);
+    font-weight: 100;
+    border: 1px solid var(--cor1);
+    margin-top: 56px;
+    margin-bottom: 33px;
+}
+
+section#oqueFazemos > div#trabalho {
+    width: 300px;
+    height: 300px;
+    background-image: url('../img/trabalho.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    border-radius: 50%;
+    position: absolute;
+    right: 150px;
+    top: 40px;
+    border: 3px solid var(--cor1);
+}
+
+section#separacao {
+    width: 100%;
+    height: 200px;
+    background-image: url('../img/NFT\ Landing.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+footer {
+    width: 100%;
+    height: 150px;
+    background-image: url('../img/NFT2.png');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+    padding-left: 100px;
+    padding-top: 63px;
+    position: relative;
+    box-shadow: -2px -2px 20px rgba(0, 0, 0, 0.644);
+    overflow: hidden;
+    padding-bottom: 50px;
+}
+
+footer > div#p1 {
+    position: absolute;
+}
+
+footer > div#p1 > h1 {
+    color: var(--cor1);
+    font-weight: 100;
+}
+
+footer > div#p1 > ul {
+    width: 120px;
+    display: flex;
+    justify-content: space-between;
+}
+
+footer > div#p1 > ul > li#face {
+    width: 25px;
+    height: 25px;
+    background-image: url('../img/icons/face.png');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+footer > div#p1 > ul > li#insta {
+    width: 25px;
+    height: 25px;
+    background-image: url('../img/icons/insta.png');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+footer > div#p1 > ul > li#tw {
+    width: 25px;
+    height: 25px;
+    background-image: url('../img/icons/tw.png');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+footer > div#p2 {
+    width: 50%;
+    margin: auto;
+}
+
+footer > div#p2 > strong {
+    text-align: center;
+    display: block;
+}
+
+footer > div#p2 > p {
+    font-size: 14px;
+    text-align: center;
+}
+
+footer > div#ps5 {
+    width: 200px;
+    height: 200px;
+    background-image: url('../img/ps5.png');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+    right: 100px;
+    top: -10px;
+}
+
+section#msgLogin {
+    width: 98%;
+    height: auto;
+    padding: 20px 0px 20px 20px;
+    position: fixed;
+    bottom: 0px;
+    border-radius: 10px;
+    border: 1px solid var(--cor1);
+    background-color: var(--cor8);
+    color: white;
+    display: none;
+}
+
+section#msgLogin > button {
+    position: absolute;
+    right: 30px;
+    top: 13px;
+    border: 1px solid var(--cor1);
+    background-color: transparent;
+    padding: 10px;
+    border-radius: 10px;
+}

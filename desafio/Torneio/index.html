@@ -16,46 +16,44 @@
         <section>
             <h1>Bem Vindos a Nerds</h1>
             <p>Sua nova e mais completa experiência gamer começa aqui!</p>
-            <button onclick="inscrever()">Press Start</button>
+            <a href="sobre.html"><button onclick="inscrever()">Press Start</button></a>
             <p style="color: var(--cor1);">Lançamento 8 de Agosto de 2022</p>
         </section>
     </header>
     
-    <section id="time">
-        <h1>Em Breve</h1>
-        <article>
-            <div>
-                <span id="dia">00</span>
-                <span>0</span>
-                <span>:0</span>
-                <span>:0</span>
-            </div>
-
-            <div>
-                <p id="pDia">Dias</p>
-                <p>Horas</p>
-                <p>Minutos</p>
-                <p>Segundos</p>
-            </div>
-        </article>
-    </section>
-
-    <section id="produtos">
-        <article>
-            <h1>APROVEITE,</h1>
-            <p>temos uma variedade de produtos esperando por você!</p>
-            <button>Lets Go</button>
-        </article>
-
-       <div></div>
-    </section>
-
-    <section id="campeonatos">
-        <article>
-            <h2>Campeonatos</h2>
-            <p>Em Breve...</p>
-        </article>
-    </section>
+    <main>
+        <section id="time">
+            <h1>Em Breve</h1>
+            <article>
+                <div>
+                    <span id="dia">00</span>
+                    <span>0</span>
+                    <span>:0</span>
+                    <span>:0</span>
+                </div>
+                <div>
+                    <p id="pDia">Dias</p>
+                    <p>Horas</p>
+                    <p>Minutos</p>
+                    <p>Segundos</p>
+                </div>
+            </article>
+        </section>
+        <section id="produtos">
+            <article>
+                <h1>APROVEITE,</h1>
+                <p>temos uma variedade de produtos esperando por você!</p>
+                <button>Lets Go</button>
+            </article>
+           <div></div>
+        </section>
+        <section id="campeonatos">
+            <article>
+                <h2>Campeonatos</h2>
+                <p>Mais informações em breve...</p>
+            </article>
+        </section>
+    </main>
 
     <footer>
         <div id="p1">
@@ -81,10 +79,19 @@
         <ul>
             <li><a href="sobre.html">Sobre</a></li>
             <li><a href="loja">Produtos</a></li>
-            <button>Login</button>
+            <button onclick="login()">Login</button>
         </ul>
     </nav>
+    
     <button id="menu" onclick="abrirMenu()">Menu</button>
+
+    <section id="msgLogin">
+        <p>Ops! Ainda estamos trabalhando nisso...</p>
+        <button onclick="fecharMsg()">Fechar</button>
+    </section>
+
+    <!--! Script  JS-->
     <script src="assets/js/index.js"></script>
+    <script src="assets/js/funcoesBasicas"></script>
 </body>
 </html>

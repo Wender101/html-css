@@ -4,11 +4,74 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/estilo.css">
+    <link rel="stylesheet" href="assets/css/sobre.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="assets/css/responsiveSobre.css">
     <title>Sobre</title>
 </head>
 <body>
+    <header>
+        <div id="man"></div>
+        <div id="logo"></div>
+
+        <section id="p1">
+            <h1>Conheça um pouco mais sobre nós</h1>
+            <p>Quem somos e oque fazemos...</p>
+        </section>
+    </header>
+
+    <main>
+        <section id="sobre">
+            <h1>Quem Somos?</h1>
+            <p>Somos uma empresa fundada no ano de 2019, com intuito de fornecer mais do que produtos, fornecer uma experiência gamer inesquecível!</p>
+        </section>
+
+        <section id="oqueFazemos">
+            <h1>Oque Fazemos?</h1>
+            <p>Além de fornecermos produdos de informatica no geral, também damos dicas e falamos algumas curiosidades do mundo gamer em nosso perfil no <strong><a href="https://www.instagram.com/nerds.eti/">Instagram</a></strong>.</p>
+
+            <a href="https://www.instagram.com/nerds.eti/"><button>Conferir</button></a>
+            <div id="trabalho"></div>
+        </section>
+
+        <section id="separacao"></section>
+    </main>
+
+    <footer>
+        <div id="p1">
+            <p>Duvidas?</p>
+            <h1>Contate-Nos!</h1>
+            <ul>
+                <li id="face"></li>
+                <li id="insta"></li>
+                <li id="tw"></li>
+            </ul>
+        </div>
+
+        <div id="p2">
+            <strong>Rua Visconde De Porto Seguro 1161 Prédio</strong>
+            <p>Preços e condições de pagamento exclusivos para compras via internet e podem variar nas lojas físicas. Os preços anunciados neste site ou via e-mail promocional podem ser alterados sem prévio aviso.</p>
+        </div>
+
+        <div id="ps5"></div>
+    </footer>
+
+    <div id="sombra" onclick="fecharMenu()"></div>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="loja">Produtos</a></li>
+            <button onclick="login()">Login</button>
+        </ul>
+    </nav>
     
+    <button id="menu" onclick="abrirMenu()">Menu</button>
+
+    <section id="msgLogin">
+        <p>Ops! Ainda estamos trabalhando nisso...</p>
+        <button onclick="fecharMsg()">Fechar</button>
+    </section>
+
+    <script src="assets/js/funcoesBasicas"></script>
 </body>
 </html>
