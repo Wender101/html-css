@@ -28,9 +28,11 @@ function abrirMenu() {
     const menu = document.getElementById('menu')
     const nav = document.querySelector('nav')
     const sombra = document.getElementById('sombra')
+    const html = document.querySelector('html')
     menu.style.display = 'none'
     nav.style.display = 'block'
     sombra.style.display = 'block'
+    html.style.overflow = 'hidden'
     at = true
 }
 
@@ -38,9 +40,11 @@ function fecharMenu() {
     const menu = document.getElementById('menu')
     const nav = document.querySelector('nav')
     const sombra = document.getElementById('sombra')
+    const html = document.querySelector('html')
     menu.style.display = 'block'
     nav.style.display = 'none'
     sombra.style.display = 'none'
+    html.style.overflow = 'auto'
     at = false
 }
 
