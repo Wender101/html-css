@@ -76,21 +76,29 @@
     }
 
     section#time > article {
-        width: 425px;
+        width: 400px;
     }
 
     section#time > article > div > p {
-        margin-left: 35px;
+        margin-left: 10px;
     }
 
     section#time > article > div > #pDia {
-        margin-left: 5px;
+        margin-left: 10px;
     }
 
     section#produtos > div {
         width: 400px;
         height: 200px;
     }
+
+    section#msgLogin {
+        max-width: 94%;
+    }
+
+    section#msgLogin > p {
+        max-width: 75%;
+    }   
 
     footer > div#p1 > h1 {
         color: var(--cor1);
@@ -114,7 +122,8 @@
     }
 
     nav, nav#semFundo, nav#comFundo {
-        background-color: var(--cor1);
+        background-color: var(--cor4);
+        border: 3px solid var(--cor1);
     }
 
     nav {
@@ -122,18 +131,15 @@
         top: 0px;
         left: 0px;
         width: 150px;
-        height: 100vh;
-        padding: 10px;
+        height: 99vh;
+        padding: 0px;
         display: none;
     }
 
-    header > div#man {
-        width: 500px;
-        height: 500px;
-    }
-
-    header > section {
-        margin: 50px 0px 0px 0px;
+    nav > ul > hr {
+        width: 100%;
+        margin: 0px;
+        border: 1px solid var(--cor1);
     }
 
     div#sombra {
@@ -146,19 +152,35 @@
     }
 
     nav > ul {
+        width: 100%;
+        display: block;
+        right: auto;
+    }
+
+    nav > ul > hr {
         display: block;
     }
     
     nav > ul > li {
         color: white;
-        margin-bottom: 20px;
-        margin-right: 0px;
+        margin: 15px 0px 15px 10px;
     }
 
     nav > ul > button {
         padding: 0px;
         background-color: transparent;
         border: none;
+        margin: 15px 0px 15px 10px;
+        font-size: 16px;
+    }
+
+    header > div#man {
+        width: 500px;
+        height: 500px;
+    }
+
+    header > section {
+        margin: 50px 0px 0px 0px;
     }
 
     section#produtos > article {
@@ -176,7 +198,7 @@
     }
 
     section#time > article {
-        width: 350px;
+        width: 325px;
     }
 
     section#time > article > div > span {
@@ -184,8 +206,13 @@
     }
 
     section#time > article > div > p {
-        margin-left: 30px;
+        margin-left: 10px;
         font-size: 13px;
+    }
+
+    section#time > article > div > #pDia {
+        margin-left: 10px;
+        margin-right: 45px;
     }
 
     footer {
@@ -213,7 +240,7 @@
     }
 
     section#time > article {
-        width: 308px;
+        width: 278px;
     }
 
     section#time > article > div > span {
@@ -221,8 +248,13 @@
     }
 
     section#time > article > div > p {
-        margin-left: 18px;
-        font-size: 12px;
+        margin-left: 6px;
+        font-size: 10px;
+    }
+
+    section#time > article > div > #pDia {
+        margin-right: 50px;
+        margin-left: 5px;
     }
 
     section#produtos > div {

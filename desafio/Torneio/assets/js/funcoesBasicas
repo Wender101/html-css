@@ -1,6 +1,7 @@
 function login() {
     const msgLogin = document.getElementById('msgLogin')
     msgLogin.style.display = 'block'
+    fecharMenu()
 }
 
 function fecharMsg() {

@@ -71,6 +71,10 @@ nav > ul {
     right: 60px;
 }
 
+nav > ul > hr {
+    display: none;
+}
+
 nav > ul > li {
     color: white;
     margin-right: 60px;
@@ -257,6 +261,29 @@ section#separacao {
     background-repeat: no-repeat;
 }
 
+section#msgLogin {
+    width: 98%;
+    height: auto;
+    padding: 20px 0px 20px 20px;
+    position: fixed;
+    bottom: 0px;
+    border-radius: 10px;
+    border: 1px solid var(--cor1);
+    background-color: var(--cor8);
+    color: white;
+    display: none;
+}
+
+section#msgLogin > button {
+    position: absolute;
+    right: 30px;
+    top: 13px;
+    border: 1px solid var(--cor1);
+    background-color: transparent;
+    padding: 10px;
+    border-radius: 10px;
+}
+
 footer {
     width: 100%;
     height: 150px;
@@ -327,6 +354,7 @@ footer > div#p2 > strong {
 
 footer > div#p2 > p {
     font-size: 14px;
+    margin-top: 20px;
     text-align: center;
 }
 
@@ -340,27 +368,4 @@ footer > div#ps5 {
     position: absolute;
     right: 100px;
     top: -10px;
-}
-
-section#msgLogin {
-    width: 98%;
-    height: auto;
-    padding: 20px 0px 20px 20px;
-    position: fixed;
-    bottom: 0px;
-    border-radius: 10px;
-    border: 1px solid var(--cor1);
-    background-color: var(--cor8);
-    color: white;
-    display: none;
-}
-
-section#msgLogin > button {
-    position: absolute;
-    right: 30px;
-    top: 13px;
-    border: 1px solid var(--cor1);
-    background-color: transparent;
-    padding: 10px;
-    border-radius: 10px;
 }
