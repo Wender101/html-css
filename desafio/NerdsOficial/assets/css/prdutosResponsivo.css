@@ -1,0 +1,34 @@
+@media screen and (max-width: 1081px) {
+    section#produtos > article {
+        max-width: 800px;
+    }
+}
+
+@media screen and (max-width: 880px) {
+    section#produtos > article {
+        max-width: 710px;
+    }
+
+    section#produtos > article > div.p {
+        width: 210px;
+    }
+
+    section#produtos > article > div.p > a.localImg {
+        height: 200px;
+    }
+}
+
+@media screen and (max-width: 740px) {
+    section#produtos > article {
+        max-width: 470px;
+    }
+
+    section#produtos > article > div.p {
+        width: 210px;
+    }
+
+    section#produtos > article > div.p > a.localImg {
+        height: 200px;
+    }
+}
+

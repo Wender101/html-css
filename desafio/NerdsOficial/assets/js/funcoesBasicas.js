@@ -34,6 +34,7 @@ function abrirMenu() {
     sombra.style.display = 'block'
     html.style.overflow = 'hidden'
     at = true
+    fecharMsg()
 }
 
 function fecharMenu() {

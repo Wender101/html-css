@@ -7,14 +7,23 @@
 }
 
 :root {
-    --cor1: rgba(4, 253, 163, 1);
-    --cor2: rgba(28, 164, 115, 0.8);
-    --cor3: rgba(4, 253, 162, 0.918);
+    --cor0: rgb(255, 255, 255);
+    --cor1: rgb(253, 104, 4);
+    --cor2: rgba(253, 137, 4, 0.582);
+    --cor3: rgba(253, 95, 4, 0.918);
     --cor4: rgba(17, 9, 41, 1);
     --cor5: rgba(88, 10, 136, 1);
     --cor6: rgba(41, 0, 73, 1);
-    --cor7: rgba(4, 253, 162, 0.555);
+    --cor7: rgba(253, 116, 4, 0.678);
     --cor8: rgba(17, 9, 41, 0.801);
+    --cor9: rgba(4, 253, 163, 1);
+    --cor10: rgba(28, 164, 115, 0.8);
+    --cor11: rgba(4, 253, 162, 0.918);
+    --cor12: rgba(17, 9, 41, 1);
+    --cor13: rgba(88, 10, 136, 1);
+    --cor14: rgba(41, 0, 73, 1);
+    --cor15: rgba(4, 253, 162, 0.555);
+    --cor16: rgba(17, 9, 41, 0.801);
 
     --font-titulo: 'Audiowide', cursive;
     --font-texto: 'JetBrains Mono', monospace;
@@ -37,7 +46,7 @@ body {
 button, li, a {
     cursor: pointer;
     text-decoration: none;
-    color: white;
+    color: var(--cor0);
 }
 
 button:hover {
@@ -82,7 +91,7 @@ nav > ul > hr {
 }
 
 nav > ul > li {
-    color: white;
+    color: var(--cor0);
     margin-right: 60px;
 }
 
@@ -94,12 +103,18 @@ nav > ul > li:hover{
 nav > ul > button {
     padding: 5px 20px;
     border-radius: 5px;
-    background-color: var(--cor1);
-    color: white;
+    background-image: linear-gradient(to right, var(--cor7), var(--cor1));
+    color: var(--cor0);
     font-family: var(--font-texto);
     font-weight: 100;
     border: 1px solid var(--cor1);
 }
+
+nav > ul > button:hover {
+    background-color: var(--cor6);
+    border: 1px solid var(--cor1);
+}
+
 
 header {
     width: 100%;
@@ -138,7 +153,7 @@ header > div#man {
 
 header > section {
     width: 450px;
-    color: white;
+    color: var(--cor0);
     margin: 100px 0px 0px 100px;
     position: absolute;
     top: 160px;
@@ -149,6 +164,7 @@ header > section > h1 {
     font-family: var(--font-titulo);
     color: var(--cor1);
     font-size: 40px;
+    margin-bottom: 30px;
 }
 
 header > section > h1 > #nerds {
@@ -160,7 +176,7 @@ header > section > a > button {
     padding: 10px;
     border-radius: 12px;
     background-color: var(--cor2);
-    color: white;
+    color: var(--cor0);
     font-family: var(--font-texto);
     font-weight: 100;
     border: 1px solid var(--cor1);
@@ -240,21 +256,21 @@ section#produtos > article > h1 {
 }
 
 section#produtos > article > p {
-    color: white;
+    color: var(--cor0);
 }
 
-section#produtos > article > button {
+section#produtos > article > a > button {
     padding: 5px 20px;
     border-radius: 5px;
     background-color: var(--cor1);
-    color: white;
+    color: var(--cor0);
     font-family: var(--font-texto);
     font-weight: 100;
     border: none;
     margin-top: 50px;
 }
 
-section#produtos > article > button:hover {
+section#produtos > article > a > button:hover {
     background-color: var(--cor6);
     border: 1px solid var(--cor1);
 }
@@ -288,9 +304,9 @@ section#campeonatos > article {
     height: auto;
     padding: 20px;
     border-radius: 20px;
-    background-image: linear-gradient(var(--cor3), var(--cor7), transparent);
+    background-image: linear-gradient(var(--cor11), var(--cor15), transparent);
     box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.644);
-    color: white;
+    color: var(--cor0);
 }
 
 section#campeonatos > article > h2 {
@@ -308,7 +324,7 @@ section#msgLogin {
     border-radius: 10px;
     border: 1px solid var(--cor1);
     background-color: var(--cor8);
-    color: white;
+    color: var(--cor0);
     display: none;
 }
 
@@ -329,7 +345,7 @@ footer {
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
-    color: white;
+    color: var(--cor0);
     padding-left: 100px;
     padding-top: 63px;
     position: relative;

@@ -14,12 +14,8 @@ function tempoRestante() {
     const localMin = time.getElementsByTagName('span')[2]
     const localSeg = time.getElementsByTagName('span')[3]
 
-    if(present_date.getDate() < 20) {
-        var diaInicio = 19 - present_date.getDate()
-    } else {
-        var diaInicio = present_date.getDate() - 19
-    }
-    localDia.innerText = Number(Final_Result) - diaInicio
+    
+    localDia.innerText = Final_Result
 
     const hrTotal = 23
     const minTotal = 60

@@ -1,0 +1,508 @@
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap');
+
+@font-face {
+    font-family: bitwise;
+    src: url('../fonts/bitwise.ttf');
+}
+
+:root {
+    --cor0:  rgb(255, 255, 255);
+    --cor1:  rgb(253, 104, 4);
+    --cor2:  rgba(253, 137, 4, 0.582);
+    --cor3:  rgba(253, 95, 4, 0.918);
+    --cor4:  rgba(17, 9, 41, 1);
+    --cor5:  rgba(88, 10, 136, 1);
+    --cor6:  rgba(41, 0, 73, 1);
+    --cor7:  rgba(253, 116, 4, 0.678);
+    --cor8:  rgba(17, 9, 41, 0.801);
+    --cor9:  rgba(4, 253, 163, 1);
+    --cor10: rgba(28, 164, 115, 0.8);
+    --cor11: rgba(4, 253, 162, 0.918);
+    --cor12: rgba(17, 9, 41, 1);
+    --cor13: rgba(88, 10, 136, 1);
+    --cor14: rgba(41, 0, 73, 1);
+    --cor15: rgba(4, 253, 162, 0.555);
+    --cor16: rgba(17, 9, 41, 0.801);
+
+    --font-titulo: 'Audiowide', cursive;
+    --font-texto: 'JetBrains Mono', monospace;
+    --font-nerds: bitwise;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+    text-decoration: none;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: var(--font-texto);
+    background-image: linear-gradient(var(--cor4), var(--cor6));
+}
+
+button, li, a {
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--cor0);
+}
+
+button:hover {
+    background-color: var(--cor6);
+    border: 1px solid var(--cor1);
+}
+
+#menu {
+    display: none;
+}
+
+nav {
+    width: 100%;
+    height: 30px;
+    padding: 10px;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    background-color: transparent;
+}
+
+nav#semFundo {
+    background-color: transparent;
+}
+
+nav#comFundo {
+    background-color: var(--cor8);
+}
+
+div#sombra {
+    display: none;
+}
+
+nav > ul {
+    display: flex;
+    position: absolute;
+    right: 60px;
+}
+
+nav > ul > hr {
+    display: none;
+}
+
+nav > ul > li {
+    color: var(--cor0);
+    margin-right: 60px;
+}
+
+nav > ul > li:hover{
+    font-size: 18px;
+    margin-right: 50px;
+}
+
+nav > ul > button {
+    padding: 5px 20px;
+    border-radius: 5px;
+    background-image: linear-gradient(to right, var(--cor7), var(--cor1));
+    color: var(--cor0);
+    font-family: var(--font-texto);
+    font-weight: 100;
+    border: 1px solid var(--cor1);
+}
+
+nav > ul > button:hover {
+    background-color: var(--cor6);
+    border: 1px solid var(--cor1);
+}
+
+
+header {
+    width: 100%;
+    height: 100vh;
+    padding: 20px;
+    background-image: url('../img/site/NFT1.png');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.644);
+    overflow: hidden;
+}
+
+header > div#logo {
+    width: 150px;
+    height: 150px;
+    background-color: var(--cor5);
+    border-radius: 50%;
+    margin: 10px;
+    position: absolute;
+}
+
+header > section#man {
+    width: 490px;
+    height: 400px;
+    position: absolute;
+    right: 90px;
+    bottom: 30px;
+    overflow: hidden;
+}
+
+header > section#man > div {
+    background-position: center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+}
+
+header > section#man > div#computer {
+    width: 350px;
+    height: 350px;
+    background-image: url('../img/site/computer.png');
+    bottom: 50px;
+    animation: 4s computer infinite;
+}
+
+header > section#man > div#teclado {
+    width: 280px;
+    height: 220px;
+    background-image: url('../img/site/teclado.png');
+    left: 100px;
+    bottom: 120px;
+    animation: 1.5s teclado infinite;
+}
+
+header > section#man > div#fonte {
+    width: 220px;
+    height: 220px;
+    background-image: url('../img/site/fonte.png');
+    right: 0px;
+    bottom: 150px;
+    animation: 2s fonte infinite;
+}
+
+header > section#man > div#mouse {
+    width: 200px;
+    height: 200px;
+    background-image: url('../img/site/mouse.png');
+    right: 30px;
+    bottom: 0px;
+    animation: 3s mouse infinite;
+}
+
+header > section#man > #sombra {
+    width: 100%;
+    height: 20px;
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+}
+
+@keyframes mouse {
+    0% {
+        bottom: 0px;
+    }
+
+    50% {
+        bottom: 15px;
+    }
+
+    100% {
+        bottom: -1px;
+    }
+}
+
+@keyframes fonte {
+    0% {
+        bottom: 150px;
+    }
+
+    50% {
+        bottom: 160px;
+    }
+
+    100% {
+        bottom: 149px;
+    }
+}
+
+@keyframes teclado {
+    0% {
+        bottom: 120px;
+    }
+
+    50% {
+        bottom: 125px;
+    }
+
+    100% {
+        bottom: 119px;
+    }
+}
+
+@keyframes computer {
+    0% {
+        bottom: 50px;
+    }
+
+    50% {
+        bottom: 70px;
+    }
+
+    100% {
+        bottom: 49px;
+    }
+}
+
+
+header > section#texto {
+    width: 450px;
+    color: var(--cor0);
+    margin: 100px 0px 0px 100px;
+    position: absolute;
+    top: 160px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.658);
+}
+
+header > section#texto > h1 {
+    font-family: var(--font-titulo);
+    color: var(--cor1);
+    font-size: 40px;
+    margin-bottom: 30px;
+}
+
+header > section#texto > h1 > #nerds {
+    font-family: var(--font-nerds);
+    font-size: 50px;
+}
+
+header > section#texto > a > button {
+    padding: 10px;
+    border-radius: 12px;
+    background-color: var(--cor2);
+    color: var(--cor0);
+    font-family: var(--font-texto);
+    font-weight: 100;
+    border: 1px solid var(--cor1);
+    margin-top: 56px;
+    margin-bottom: 33px;
+}
+
+section#separacao {
+    width: 100%;
+    height: 150px;
+    background-image: url('../img/site/NFT\ Landing.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+section#produtos {
+    width: 100%;
+    height: auto;
+    padding: 20px;
+    background-image: url('../img/site/fundoProdutos.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+section#produtos > article {
+    overflow: hidden;
+}
+
+section#produtos > article#localOfertas {
+    width: 1150px;
+    height: 500px;
+    overflow-y: hidden;
+    overflow-x: auto;
+    margin: auto;
+}
+
+section#produtos > article > div#ofertas {
+    width: 2000px;
+}
+
+
+section#produtos > article > div {
+    max-width: 1150px;
+    margin: 20px auto;
+}
+
+section#produtos > article > div > h1 {
+    color: var(--cor0);
+    margin-bottom: 27px;
+}
+
+section#produtos > article > div > div.p {
+    width: 260px;
+    height: 450px;
+    color: var(--cor0);
+    text-align: center;
+    display: inline-block;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+section#produtos > article > div > div.p > a.localImg {
+    width: 87%;
+    height: 220px;
+    border-radius: 20px;
+    background-color: var(--cor0);
+    overflow: hidden;
+    border: 2px solid var(--cor1);
+    box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.822) inset;
+    display: block;
+    position: relative;
+    margin: 20px auto;
+}
+
+section#produtos > article > div > div.p > a.localImg > div.img {
+    width: 90%;
+    height: 90%;
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+    margin: 5% auto;
+    border-radius: 20px;
+}
+
+section#produtos > article > div > div.p > a.localImg > img {
+    width: 90%;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+section#produtos > article > div > div.p > a.localImg:hover {
+    transition: 300ms transform linear;
+    transform: scale(1.1);
+    border-radius: 20px;
+    border: 2px solid var(--cor1);
+}
+
+section#produtos > article > div > div.p > strong {
+    color: var(--cor1);
+    margin-top: 18px;
+    margin-bottom: 15px;
+    display: block;
+    font-family: var(--font-titulo);
+    font-size: 20px;
+}
+
+section#produtos > article > div > div.p > p {
+    font-family: var(--font-texto);
+    font-size: 15px;
+}
+
+section#msgLogin {
+    width: 98%;
+    height: auto;
+    padding: 20px 0px 20px 20px;
+    position: fixed;
+    bottom: 0px;
+    border-radius: 10px;
+    border: 1px solid var(--cor1);
+    background-color: var(--cor8);
+    color: var(--cor0);
+    display: none;
+}
+
+section#msgLogin > button {
+    position: absolute;
+    right: 30px;
+    top: 13px;
+    border: 1px solid var(--cor1);
+    background-color: transparent;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+footer {
+    width: 100%;
+    height: 150px;
+    background-image: url('../img/site/NFT2.png');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: var(--cor0);
+    padding-left: 100px;
+    padding-top: 63px;
+    position: relative;
+    box-shadow: -2px -2px 20px rgba(0, 0, 0, 0.644);
+    overflow: hidden;
+    padding-bottom: 50px;
+}
+
+footer > div#p1 {
+    position: absolute;
+}
+
+footer > div#p1 > h1 {
+    color: var(--cor1);
+    font-weight: 100;
+}
+
+footer > div#p1 > ul {
+    width: 120px;
+    display: flex;
+    justify-content: space-between;
+}
+
+footer > div#p1 > ul > li#face > a {
+    width: 25px;
+    height: 25px;
+    background-image: url('../img/icons/face.png');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: block;
+}
+
+footer > div#p1 > ul > li#insta > a {
+    width: 25px;
+    height: 25px;
+    background-image: url('../img/icons/insta.png');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: block;
+}
+
+footer > div#p1 > ul > li#tw > a {
+    width: 25px;
+    height: 25px;
+    background-image: url('../img/icons/tw.png');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: block;
+}
+
+footer > div#p2 {
+    width: 50%;
+    margin: auto;
+}
+
+footer > div#p2 > strong {
+    text-align: center;
+    display: block;
+}
+
+footer > div#p2 > p {
+    font-size: 14px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+footer > div#ps5 {
+    width: 200px;
+    height: 200px;
+    background-image: url('../img/site/ps5.png');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+    right: 100px;
+    top: -10px;
+}

@@ -2,17 +2,28 @@
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap');
 
 :root {
-    --cor1: rgba(4, 253, 163, 1);
-    --cor2: rgba(28, 164, 115, 0.8);
-    --cor3: rgba(4, 253, 162, 0.918);
+    --cor0: rgb(255, 255, 255);
+    --cor1: rgb(253, 116, 4);
+    --cor2: rgba(253, 116, 4, 0.582);
+    --cor3: rgba(253, 95, 4, 0.918);
     --cor4: rgba(17, 9, 41, 1);
     --cor5: rgba(88, 10, 136, 1);
     --cor6: rgba(41, 0, 73, 1);
-    --cor7: rgba(4, 253, 162, 0.555);
+    --cor7: rgba(253, 116, 4, 0.555);
     --cor8: rgba(17, 9, 41, 0.801);
+
+    --cor9: rgba(4, 253, 163, 1);
+    --cor10: rgba(28, 164, 115, 0.8);
+    --cor11: rgba(4, 253, 162, 0.918);
+    --cor12: rgba(17, 9, 41, 1);
+    --cor13: rgba(88, 10, 136, 1);
+    --cor14: rgba(41, 0, 73, 1);
+    --cor15: rgba(4, 253, 162, 0.555);
+    --cor16: rgba(17, 9, 41, 0.801);
 
     --font-titulo: 'Audiowide', cursive;
     --font-texto: 'JetBrains Mono', monospace;
+    --font-nerds: bitwise;
 }
 
 * {
@@ -31,7 +42,7 @@ body {
 button, li, a {
     cursor: pointer;
     text-decoration: none;
-    color: white;
+    color: var(--cor0);
 }
 
 button:hover {
@@ -76,7 +87,7 @@ nav > ul > hr {
 }
 
 nav > ul > li {
-    color: white;
+    color: var(--cor0);
     margin-right: 60px;
 }
 
@@ -88,8 +99,8 @@ nav > ul > li:hover{
 nav > ul > button {
     padding: 5px 20px;
     border-radius: 5px;
-    background-color: var(--cor1);
-    color: white;
+    background-image: linear-gradient(to right, var(--cor7), var(--cor1));
+    color: var(--cor0);
     font-family: var(--font-texto);
     font-weight: 100;
     border: 1px solid var(--cor1);
@@ -120,7 +131,7 @@ header > div#logo {
 
 header > section#p1 {
     max-width: 450px;
-    color: white;
+    color: var(--cor0);
     margin: 100px 0px 0px 100px;
     position: absolute;
     top: 160px;
@@ -138,7 +149,7 @@ header > section#p1 > button {
     padding: 10px;
     border-radius: 12px;
     background-color: var(--cor2);
-    color: white;
+    color: var(--cor0);
     font-family: var(--font-texto);
     font-weight: 100;
     border: 1px solid var(--cor1);
@@ -175,7 +186,7 @@ section#sobre {
     background-image: url('../img/site/NFT\ Landing.png');
     background-size: cover;
     background-repeat: no-repeat;
-    color: white;
+    color: var(--cor0);
 }
 
 section#sobre  > h1 {
@@ -200,7 +211,7 @@ section#oqueFazemos {
     background-image: url('../img/site/NFT2.png');
     background-size: cover;
     background-repeat: no-repeat;
-    color: white;
+    color: var(--cor0);
     box-shadow: -2px -2px 20px rgba(0, 0, 0, 0.644);
     position: relative;
 }
@@ -224,12 +235,17 @@ section#oqueFazemos > a > button {
     padding: 10px;
     border-radius: 12px;
     background-color: var(--cor2);
-    color: white;
+    color: var(--cor0);
     font-family: var(--font-texto);
     font-weight: 100;
     border: 1px solid var(--cor1);
     margin-top: 56px;
     margin-bottom: 33px;
+}
+
+section#oqueFazemos > a > button:hover {
+    background-color: var(--cor6);
+    border: 1px solid var(--cor1);
 }
 
 section#oqueFazemos > div#trabalho {
@@ -263,7 +279,7 @@ section#msgLogin {
     border-radius: 10px;
     border: 1px solid var(--cor1);
     background-color: var(--cor8);
-    color: white;
+    color: var(--cor0);
     display: none;
 }
 
@@ -284,7 +300,7 @@ footer {
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
-    color: white;
+    color: var(--cor0);
     padding-left: 100px;
     padding-top: 63px;
     position: relative;
