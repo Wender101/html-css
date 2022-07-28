@@ -306,6 +306,7 @@ section#produtos {
 
 section#produtos > article {
     overflow: hidden;
+    margin: auto;
 }
 
 section#produtos > article#localOfertas {
@@ -337,7 +338,6 @@ section#produtos > article > div > div.p {
     color: var(--cor0);
     text-align: center;
     display: inline-block;
-    margin-right: 20px;
     margin-bottom: 20px;
 }
 

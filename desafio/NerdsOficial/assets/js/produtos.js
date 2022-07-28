@@ -103,16 +103,21 @@ for(let c = 0; c < 100; c++) {
         const idElemnto = e.target.id
 
         const imgSelected = document.getElementById(idElemnto)
-        if(novoLink2.substr(-1) == 'j') {
-            imgSelected.src = `${novoLink4}2.jpg`
 
-        } else {
-            imgSelected.src = `${novoLink4}2.png`
-        }
+        setTimeout(() => {
+            if(novoLink2.substr(-1) == 'j') {
+                imgSelected.src = `${novoLink4}2.jpg`
+    
+            } else {
+                imgSelected.src = `${novoLink4}2.png`
+            }
+        }, 200)
 
-
-        img.addEventListener('mouseout', (e) => {
-            imgSelected.src = el
+        img.addEventListener('mouseout', () => {
+            setTimeout(() => {
+                imgSelected.src = el     
+            },200)
         })
     })
 }
+
