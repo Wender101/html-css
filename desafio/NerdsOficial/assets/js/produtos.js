@@ -104,19 +104,15 @@ for(let c = 0; c < 100; c++) {
 
         const imgSelected = document.getElementById(idElemnto)
 
-        setTimeout(() => {
-            if(novoLink2.substr(-1) == 'j') {
-                imgSelected.src = `${novoLink4}2.jpg`
-    
-            } else {
-                imgSelected.src = `${novoLink4}2.png`
-            }
-        }, 200)
+        if(novoLink2.substr(-1) == 'j') {
+            imgSelected.src = `${novoLink4}2.jpg`
+
+        } else {
+            imgSelected.src = `${novoLink4}2.png`
+        }
 
         img.addEventListener('mouseout', () => {
-            setTimeout(() => {
-                imgSelected.src = el     
-            },200)
+            imgSelected.src = el     
         })
     })
 }
