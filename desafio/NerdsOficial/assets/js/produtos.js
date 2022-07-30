@@ -96,15 +96,28 @@ for(let c = 0; c < 100; c++) {
     img.id = c
     img.addEventListener('mouseenter', (e) => {
         const el = e.target.src
-        const novoLink1 = el.slice(0, -1)
-        const novoLink2 = novoLink1.slice(0, -1)
-        const novoLink3 = novoLink2.slice(0, -1)
-        const novoLink4 = novoLink3.slice(0, -1)
         const idElemnto = e.target.id
+
+        var novoLink1 = el.slice(0, -1)
+
+        if(novoLink1.substr(-1) == 'e') {
+            var novoLink2 = novoLink1.slice(0, -1)
+            var novoLink23 = novoLink2.slice(0, -1)
+            var novoLink3 = novoLink23.slice(0, -1)
+            var novoLink4 = novoLink3.slice(0, -1)
+
+        } else {
+            var novoLink2 = novoLink1.slice(0, -1)
+            var novoLink3 = novoLink2.slice(0, -1)
+            var novoLink4 = novoLink3.slice(0, -1)
+        }
 
         const imgSelected = document.getElementById(idElemnto)
 
-        if(novoLink2.substr(-1) == 'j') {
+        if(novoLink1.substr(-1) == 'e') {
+            imgSelected.src = `${novoLink4}2.jpeg`
+
+        } else if(novoLink2.substr(-1) == 'j') {
             imgSelected.src = `${novoLink4}2.jpg`
 
         } else {
