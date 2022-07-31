@@ -1,0 +1,101 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    padding: 20px;
+}
+
+section#borda {
+    max-width: 240px;
+    height: 500px;
+    border-radius: 40px;
+    transform: rotate(-32deg);
+    background-color: black;
+    margin: 50px auto;
+    position: relative;
+}
+
+article#local-botoes {
+    width: 62px;
+    height: 5px;
+    background-color: rgb(255, 255, 255);
+    transform: rotate(-90deg);
+    position: absolute;
+    top: 100px;
+    left: -22px;
+}
+
+div#btn1 {
+    width: 30px;
+    height: 4px;
+    background-color: rgb(0, 0, 0);
+    border: 10px;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+
+div#btn2 {
+    width: 30px;
+    height: 4px;
+    background-color: rgb(0, 0, 0);
+    border: 10px;
+    bottom: 0px;
+}
+
+article#parte-de-dentro {
+    width: 220px;
+    height: 490px;
+    background-color: white;
+    border-radius: 30px;
+    position: absolute;
+    right: 3px;
+    bottom: 6px;
+}
+
+div#topo {
+    width: 79px;
+    height: auto;
+    margin: 15px auto;
+}
+
+div#topo > div {
+    display: inline-block;
+}
+
+div#circle1 {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 1px solid black;
+}
+
+div#traco {
+    width: 50px;
+    height: 3px;
+    border: 1px solid black;
+}
+
+div#circle2 {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    border: 1px solid black;
+}
+
+div#tela {
+    width: 90%;
+    height: 80%;
+    margin: auto;
+    border: 1.5px solid black;
+}
+
+div#button {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin:10px auto;
+    border: 1px solid black;
+}

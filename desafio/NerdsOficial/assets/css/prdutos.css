@@ -43,6 +43,14 @@ body {
     background-image: linear-gradient(var(--cor4), var(--cor6));
 }
 
+article > h1, article > div > h1 {
+    font-family: var(--font-titulo);
+    font-size: 30px;
+    color: var(--cor1);
+    margin-bottom: 20px;
+    margin-left: 15px;
+}
+
 button, li, a {
     cursor: pointer;
     text-decoration: none;
@@ -304,35 +312,31 @@ section#produtos {
     background-repeat: no-repeat;
 }
 
-section#produtos > article {
+section#produtos > article#localOfertas {
     overflow: hidden;
     margin: auto;
 }
 
-section#produtos > article#localOfertas {
-    width: 1150px;
+section#produtos > article#localOfertas#localOfertas {
+    max-width: 1150px;
+    width: auto;
     height: 500px;
     overflow-y: hidden;
     overflow-x: auto;
     margin: auto;
+    margin-bottom: 50px;
 }
 
-section#produtos > article > div#ofertas {
-    width: 2000px;
-}
-
-
-section#produtos > article > div {
-    max-width: 1150px;
+section#produtos > article#localOfertas > div#ofertas {
+    width: 1150px;
     margin: 20px auto;
 }
 
-section#produtos > article > div > h1 {
-    color: var(--cor0);
-    margin-bottom: 27px;
+section#produtos > article#localOfertas > div#ofertas > h1 {
+    margin-bottom: 0px;
 }
 
-section#produtos > article > div > div.p {
+section#produtos > article#localOfertas > div > div.p {
     width: 260px;
     height: 450px;
     color: var(--cor0);
@@ -341,7 +345,7 @@ section#produtos > article > div > div.p {
     margin-bottom: 20px;
 }
 
-section#produtos > article > div > div.p > a.localImg {
+section#produtos > article#localOfertas > div > div.p > a.localImg {
     width: 87%;
     height: 220px;
     border-radius: 20px;
@@ -354,7 +358,7 @@ section#produtos > article > div > div.p > a.localImg {
     margin: 20px auto;
 }
 
-section#produtos > article > div > div.p > a.localImg > div.img {
+section#produtos > article#localOfertas > div > div.p > a.localImg > div.img {
     width: 90%;
     height: 90%;
     background-size: contain;
@@ -364,35 +368,79 @@ section#produtos > article > div > div.p > a.localImg > div.img {
     border-radius: 20px;
 }
 
-section#produtos > article > div > div.p > a.localImg > img {
-    width: 90%;
-    height: auto;
-    position: absolute;
-    top: 50%;
-    left: 5%;
-    -webkit-transform: translateY(-50%);
-    transform: translateY(-50%);
-}
-
-section#produtos > article > div > div.p > a.localImg:hover {
+section#produtos > article#localOfertas > div > div.p > a.localImg:hover {
     transition: 300ms transform linear;
     transform: scale(1.1);
     border-radius: 20px;
     border: 2px solid var(--cor1);
 }
 
-section#produtos > article > div > div.p > strong {
+section#produtos > article#localOfertas > div > div.p > strong {
+    width: 90%;
     color: var(--cor1);
     margin-top: 18px;
     margin-bottom: 15px;
     display: block;
     font-family: var(--font-titulo);
     font-size: 20px;
+    margin: auto;
 }
 
-section#produtos > article > div > div.p > p {
+section#produtos > article#localOfertas > div > div.p > p {
+    width: 90%;
     font-family: var(--font-texto);
     font-size: 15px;
+    margin: auto;
+}
+
+/* Categorias */
+
+section#produtos > article#categorias {
+    max-width: 1150px;
+    width: auto;
+    height: 364px;
+    overflow-y: hidden;
+    overflow-x: auto;
+    margin: auto;
+}
+
+section#produtos > article#categorias > div#localCategorias {
+    width: 2050px;
+    width: auto;
+    height: 308px;
+    margin: auto;
+    overflow-y: hidden;
+}
+
+section#produtos > article#categorias > div > a {
+    width: 150px;
+    height: 150px;
+    background-color: transparent;
+    border: 1px solid var(--cor5);
+    display: inline-block;
+    overflow: hidden;
+    margin-bottom: -5px;
+    position: relative;
+}
+
+section#produtos > article#categorias > div > a > img {
+    width: 70px;
+    height: auto;
+    margin: 20px auto;
+    display: block;
+}
+
+section#produtos > article#categorias > div > a > p {
+    width: auto;
+    margin-left: 50%;
+    transform: translate(-50%);
+    position: absolute;
+    bottom: 10px;
+}
+
+section#produtos > article#categorias > div > a:hover > img, a:hover > p {
+    transform: scale(1.1);
+    font-size: 17px;
 }
 
 section#msgLogin {

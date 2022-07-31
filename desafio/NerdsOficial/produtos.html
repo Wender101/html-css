@@ -31,98 +31,19 @@
         <section id="separacao"></section>
 
         <section id="produtos">
+            <article id="categorias">
+                 <h1>Categorias</h1>
+                 <div id="localCategorias">
+ 
+                 </div>
+            </article>
+            
             <article id="localOfertas">
                 <div id="ofertas">
-                    <h1>DISTAQUES DO DIA</h1>
+                    <h1>Distaques do dia</h1>
                 </div>
             </article>
             
-            <article id="localprodutos">
-                <div>
-                    <h1>TECLADOS</h1>
-                    <div class="p">
-                        <a class="localImg" href="home.html">
-                            <img src="assets/img/CatalogoNerd/Teclado gamer de 1 mão/90.png" class="img">
-                        </img>
-                        </a>
-                        <strong>Teclado Gamer</strong>
-                        <p>Teclado Gamer de 1 mao RGB</p>
-                    </div>
-    
-                    <div class="p">
-                        <a class="localImg" href="home.html">
-                            <img src="assets/img/CatalogoNerd/Teclado Kumara RGB/71sFaDtowqL._AC_SY450_.jpg" class="img">
-                        </img>
-                        </a>
-                        <strong>Teclado Mecânico</strong>
-                        <p>Teclado Mecanico Kumara Marca: Redragon Iluminação RGB</p>
-                    </div>
-    
-                    <div class="p">
-                        <a class="localImg" href="home.html">
-                            <img src="assets/img/CatalogoNerd/Teclado mecanico mitra/c2fb0cbc-2e2c-458d-9d7f-7a36876c817c.jpg" class="img">
-                        </img>
-                        </a>
-                        <strong>Teclado Mecânico</strong>
-                        <p>Teclado Mecânico Mitra Marca: Redragon Cor: Preto Led Vermelho</p>
-                    </div>
-    
-                    <div class="p">
-                        <a class="localImg" href="home.html">
-                            <img src="assets/img/CatalogoNerd/Teclado semi mecanico/2450a708213ceca4fa2dd8f7ed28857c.jpg" class="img">
-                        </img>
-                        </a>
-                        <strong>Teclado Gamer</strong>
-                        <p>Teclado semi mecânico Com iluminação RGB</p>
-                    </div>
-    
-                    <div class="p">
-                        <a class="localImg" href="home.html">
-                            <img src="assets/img/CatalogoNerd/Teclado USB/105519-1-teclado_usb_logitech_keyboard_k120_920_004423-5.jpg" class="img">
-                        </img>
-                        </a>
-                        <strong>Teclado</strong>
-                        <p>Teclado USB</p>
-                    </div>
-
-                    <h1>GABINETES</h1>
-                    <div class="p">
-                        <a class="localImg" href="home.html">
-                            <img src="assets/img/CatalogoNerd/Gabihnete Athena M1/athena-m14.jpg" class="img">
-                        </img>
-                        </a>
-                        <strong>Gabinete Athena</strong>
-                        <p>Marca: Gamdias Não incluso as fans</p>
-                    </div>
-    
-                    <div class="p">
-                        <a class="localImg" href="home.html">
-                            <img src="assets/img/CatalogoNerd/Gabinete Gamer Mars M1/0d6c8a91176dccbe6bc00cb2740ed63f.jpg" class="img">
-                        </img>
-                        </a>
-                        <strong>Gabinete Mars M1</strong>
-                        <p>Lateral em vidro temperado RGB Frontal Marca: Gamdias Não incluso as fans</p>
-                    </div>
-    
-                    <div class="p">
-                        <a class="localImg" href="home.html">
-                            <img src="assets/img/CatalogoNerd/gabinete gamer redragon wheel jack/8446cb5b45a7663da2da5d04f3f79882f219e5f0.jpg" class="img">
-                        </img>
-                        </a>
-                        <strong>Gabinete WeelJack</strong>
-                        <p>Lateral em vidro temperado Marca: Redragon Não incluso as fans</p>
-                    </div>
-    
-                    <div class="p">
-                        <a class="localImg" href="home.html">
-                            <img src="assets/img/CatalogoNerd/Gabinete T dagger rosa/gabinete-gamer-t-dagger-p03p-mid-tower-rgb-pink-atx-sem-fonte-sem-fan-tgc-p03p_114992.jpeg" class="img">
-                        </img>
-                        </a>
-                        <strong>Gabinete Rosa</strong>
-                        <p>Lateral em acrilico Marca: T Dagger RGB frontal</p>
-                    </div>
-                </div>
-            </article>
         </section>
 
         <section id="separacao"></section>
@@ -168,5 +89,22 @@
 
     <script src="assets/js/produtos.js"></script>
     <script src="assets/js/funcoesBasicas.js"></script>
+    <script>
+        
+        for(let c = 0; c < 20; c++) {
+            const localCategorias = document.getElementById('localCategorias')
+            const a = document.createElement('a')
+            const p = document.createElement('p')
+            const img = document.createElement('img')
+
+            a.href = `${p.innerText}.html`
+            p.innerText =  'Mouses'
+            img.src = 'assets/img/icons/Iconsmind2.ico'
+
+            a.appendChild(img)
+            a.appendChild(p)
+            localCategorias.appendChild(a)
+        }
+    </script>
 </body>
 </html>
