@@ -1,0 +1,452 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
+
+:root {
+    --cor0: #ffffff;
+    --cor1: black;
+    --cor2: rgb(37, 37, 37);
+    --cor3: rgba(163, 163, 163, 0.781);
+    --cor4: rgb(24, 24, 24);
+
+
+    --sombra: rgba(0, 0, 0, 0.651);
+    --sombra1:rgba(0, 0, 0, 0.281);
+    --sombra2: rgba(77, 77, 77, 0.767);
+    --sombra3: rgba(122, 122, 122, 0.616);
+    --sombra4: rgba(122, 122, 122, 0.205);
+
+    --texto: 'Nanum Gothic', sans-serif;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+}
+
+li {
+    cursor: pointer;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    background-image: url(../img/areaDeTrabalho/img.jfif);
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: var(--texto);
+    color: var(--cor0);
+    overflow: hidden;
+}
+
+section#telaIniciando {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0px;
+    background-color: var(--cor1);
+}
+
+section#telaIniciando > article {
+    position: absolute;
+    top: 20vh;
+    margin-left: 50%;
+    transform: translate(-50%);
+    display: none;
+}
+
+section#telaIniciando > article > div#logoW10 {
+    width: 200px;
+    height: 200px;
+    margin: auto;
+    background-image: url(../img/icones/w102.png);
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+div#c-loader1 {
+    width: 50px;
+    height: 50px;
+    animation: 1s is-rotating infinite;
+    border: 2px solid #e5e5e5;
+    border-radius: 50%;
+    border-top-color: transparent;
+    margin: 100px auto;
+}
+  
+@keyframes is-rotating {
+to {
+    transform: rotate(1turn);
+}
+}
+
+/* black */
+#black {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0px;
+    background-color: var(--cor1);
+    display: none;
+}
+
+/* Tela de bloqueio */
+#telaDeBloqueio > section#inf {
+    position: absolute;
+    bottom: 100px;
+    margin-left: 30px;
+    text-shadow: 1px 1px 10px var(--sombra);
+}
+
+
+#telaDeBloqueio > img {
+    width: 100%;
+    height: 127vh;
+    margin-top: -90px;
+}
+
+#telaDeBloqueio > section#inf > h1 {
+    font-size: 80px;
+    font-weight: 100;
+    margin-left: -10px;
+}
+
+#telaDeBloqueio > section#inf > h3 {
+    font-size: 35px;
+    font-weight: 100;
+}
+
+#telaDeBloqueio > section#logar {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0px;
+    filter: opacity(0%);
+}
+
+#telaDeBloqueio > section#logar > article#localLogin {
+    width: 300px;
+    margin-left: 50%;
+    transform: translate(-50%);
+    position: absolute;
+    top: 100px;
+}
+
+#telaDeBloqueio > section#logar > article#localLogin > div#fotoUsuario {
+    width: 200px;
+    height: 200px;
+    margin: auto;
+    border-radius: 50%;
+    background-image: url(../img/usuario/img.png);
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: var(--cor0);
+    filter: opacity(80%);
+}
+
+#telaDeBloqueio > section#logar > article#localLogin > h1 {
+    font-size: 40px;
+    margin: 20px 0px;
+    text-align: center;
+    font-weight: 100;
+    margin-left: -10px;
+}
+
+#telaDeBloqueio > section#logar > article#localLogin > div {
+    width: 160px;
+    margin: auto;
+    display: block;
+}
+
+#telaDeBloqueio > section#logar > article#localLogin > div > p {
+    font-size: 18px;
+    padding-bottom: 0px;
+    margin-left: 35px;
+}
+
+#telaDeBloqueio > section#logar > article#localLogin > div > div#c-loader2 {
+    width: 20px;
+    height: 20px;
+    animation: 1s is-rotating infinite;
+    border: 2px solid #e5e5e5;
+    border-radius: 50%;
+    border-top-color: transparent;
+    position: absolute;
+    margin-left: -5px;
+}
+  
+@keyframes is-rotating {
+to {
+    transform: rotate(1turn);
+}
+}
+
+/* Aréa de trabalho */
+section#areaDeTrabalho {
+    width: 100%;
+    height: 100vh;
+    display: none;
+}
+
+article#tela {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0px;
+    padding: 20px;
+}
+
+article#tela > div {
+    width: 25px;
+    height: 25px;
+}
+
+article#tela > div#lixeira {
+    background-image: url(../img/icones/lixeira.png);
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+article#tela > div#lixeira > p {
+    padding-top: 30px;
+    font-size: 12px;
+    margin-left: -4px;
+}
+
+article#barraDeTarefas {
+    width: 100%;
+    height: 40px;
+    background-color: var(--cor2);
+    position: fixed;
+    bottom: 0px;
+    box-shadow: -1px -1px 20px var(--sombra1);
+    display: flex;
+}
+
+article#barraDeTarefas > div {
+    width: 20px;
+    height: 20px;
+    margin: 10px;
+    cursor: pointer;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+}
+
+article#barraDeTarefas > div#w10 {
+    background-image: url(../img/icones/w10.png);
+
+}
+
+article#barraDeTarefas > div#w10:hover {
+    background-image: url(../img/icones/w102.png);
+}
+
+article#barraDeTarefas > #horasBarra {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 12px;
+}
+
+article#barraDeTarefas > #valtarAreaDeTarefas {
+    width: 10px;
+    height: 100%;
+    border: 1px solid var(--cor0);
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    margin: 0px;
+}
+
+article#menu {
+    width: 600px;
+    height: 550px;
+    background-color: var(--cor2);
+    position: fixed;
+    bottom: -100vh;
+    left: 0px;
+}
+
+ul#lateralMenu {
+    width: 30px;
+    position: absolute;
+    height: 100%;
+}
+
+ul#lateralMenu:hover {
+    box-shadow: 1px 10px 20px var(--cor1);
+    background-color: var(--sombra4);
+    animation: 200ms lateral linear;
+    width: 200px;
+}
+
+@keyframes lateral {
+    0%{
+        width: 30px;
+    }
+
+    100% {
+        width: 200px;
+    }
+}
+
+ul#lateralMenu > li {
+    padding: 15px;
+}
+
+ul#lateralMenu > li:hover {
+    background-color: var(--sombra2);
+}
+
+ul#lateralMenu > li#iniciar {
+    position: absolute;
+    bottom: 0px;
+}
+
+ul#lateralMenu > li#iniciar > div {
+    width: 17px;
+    height: 17px;
+    background-image: url(../img/icones/iniciar.png);
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+ul#lateralMenu > li#iniciar > article {
+    width: 190px;
+    height: 100px;
+    background-color: var(--cor4);
+    position: absolute;
+    top: -100px;
+    left: 10px;
+    display: none;
+}
+
+ul#lateralMenu > li#iniciar > article > div {
+    width: 15px;
+    height: 15px;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-top: 15px;
+    margin-left: 10px;
+}
+
+ul#lateralMenu > li#iniciar > article > div > p {
+    margin-left: 30px;
+    font-size: 11px;
+}
+
+ul#lateralMenu > li#iniciar > article > div#suspender {
+    background-image: url(../img/icones/lua.png);
+}
+
+ul#lateralMenu > li#iniciar > article > div#iconeIniciar {
+    background-image: url(../img/icones/iniciar.png);
+}
+
+
+ul#lateralMenu > li#iniciar > article > div#reiniciar {
+    background-image: url(../img/icones/reiniciar.png);
+}
+
+
+
+ul#lateralMenu > li#config {
+    position: absolute;
+    bottom: 45px;
+}
+
+ul#lateralMenu > li#config > div {
+    width: 17px;
+    height: 17px;
+    background-image: url(../img/icones/config2.png);
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+ul#lateralMenu > li#user {
+    position: absolute;
+    bottom: 90px;
+    padding-right: 10px;
+}
+
+ul#lateralMenu > li#user > div {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-image: url(../img/icones/user.png);
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/* Apps */
+ul#apps {
+    width: 325px;
+    height: 100%;
+    position: absolute;
+    right: 10px;
+    padding-top: 15px;
+}
+
+ul#apps > li {
+    width: 100px;
+    height: 100px;
+    background-color: var(--sombra2);
+    display: inline-block;
+    margin-right: 5px;
+    border: 1px solid transparent;
+}
+
+ul#apps > li:hover {
+    border: 1px solid var(--cor3);
+    background-color: var(--sombra3);
+}
+
+ul#apps > li > div {
+    width: 50%;
+    height: 50%;
+    margin: 20% auto;
+    background-image: url(../img/icones/download.png);
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+article#pageConfig {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0px;
+    background-color: var(--cor1);
+    display: none;
+}
+
+.aba > div.topo {
+    width: 100%;
+    height: 30px;
+    display: flex;
+    position: relative;
+} 
+
+.aba > div.topo > div.ops {
+    width: 100px;
+    position: absolute;
+    right: -20px;
+}
+
+.aba > div.topo > div.ops > button {
+    width: 30px;
+    height: 30px;
+    background-color: transparent;
+    font-size: 20px;
+    color: var(--cor0);
+    cursor: pointer;
+}

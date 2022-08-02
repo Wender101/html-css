@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/telaDeBloqueio.css">
+    <title>Tela de Bloqueio</title>
+</head>
+<body>
+    <main>
+        <section id="telaDeBloqueio">
+            <img src="assets/img/fundo/telaDeBloqueio.jpg" id="filter">
+            <section id="inf">
+                <h1 id="horas"></h1>
+                <h3 id="data"></h3>
+            </section>
+            <section id="logar">
+                <article id="localLogin">
+                    <div id="fotoUsuario"></div>
+                    <h1>Usuario</h1>
+                    <div>
+                        <div id="c-loader2"></div>
+                        <p>Bem-vindo(a)</p>
+                    </div>
+                </article>
+            </section>
+        </section>
+        <section id="areaDeTrabalho">
+            <article id="tela" onclick="tela()">
+                <div id="lixeira"><p>lixeira</p></div>
+            </article>
+            <article id="pageConfig" class="aba">
+                <div class="topo">
+                    <div class="ops">
+                        <button class="minimizar" onclick="valtarAreaDeTarefas()">-</button>
+                        <button class="fechar" onclick="fecharConfig()">x</button>
+                    </div>
+                </div>
+            </article>
+            <article id="menu">
+                <ul id="lateralMenu">
+                    <li id="user"><div></div></li>
+                    <li id="config" onclick="abrirConfig()"><div></div></li>
+                    <li id="iniciar" onclick="opsIniciar()"><div></div>
+                        <article id="opsIniciar">
+                            <div id="suspender" onclick="suspender()"><p>suspender</p></div>
+                            <div id="iconeIniciar" onclick="desligar()"><p>desligar</p></div>
+                            <div id="reiniciar" onclick="reiniciar()"><p>reiniciar</p></div>
+                        </article>
+                    </li>
+                </ul>
+                <ul id="apps">
+                </ul>
+            </article>
+            <article id="barraDeTarefas">
+                <div id="w10" onclick="abrirMenu()"></div>
+                <p id="horasBarra"></p>
+                <div id="valtarAreaDeTarefas" onclick="valtarAreaDeTarefas()"></div>
+            </article>
+        </section>
+
+        <section id="black"></section>
+
+        <!-- Tela Iniciando -->
+        <section id="telaIniciando">
+            <article id="localLogo">
+                <div id="logoW10"></div>
+                <div id="c-loader1"></div>
+            </article>
+        </section>
+    </main>
+
+    <script src="assets/js/telaDeBloqueio.js"></script>
+    <script src="assets/js/areaDeTrabalho.js"></script>
+    <script>
+        for(let c = 0; c <= 14; c++) {
+            const apps = document.getElementById('apps')
+            const li = document.createElement('li')
+            const div = document.createElement('div')
+            li.appendChild(div)
+            apps.appendChild(li)
+        }
+    </script>
+</body>
+</html>
