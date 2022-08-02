@@ -20,13 +20,14 @@ try {
     QuantasVezesreiniciado = 0
 }
 
-let menuAberto = false
-let aberto = false
+var menuAberto = false
 function abrirMenu() {
     if(menuAberto == false) {
         const menu = document.getElementById('menu')
         menu.style.transition = '200ms bottom linear'
         menu.style.bottom = '40px'
+        const fundo = document.getElementById('fundo')
+        fundo.style.display = 'block'
 
         menuAberto = true
 
@@ -40,6 +41,9 @@ function fecharMenu() {
         const menu = document.getElementById('menu')
         menu.style.transition = '100ms bottom linear'
         menu.style.bottom = '-100vh'
+
+        const fundo = document.getElementById('fundo')
+        fundo.style.display = 'none'
 
         const opsIniciar = document.getElementById('opsIniciar')
         opsIniciar.style.display = 'none'
@@ -55,52 +59,56 @@ function tela() {
 
 // Voltar pra aréa de tarefas
 function valtarAreaDeTarefas() {
+    const title = document.querySelector('title')
+    title.innerText = 'Aréa de Trabalho'
+
     fecharMenu()
-    for(let c = 0; c < 100; c++) {
-        const aba = document.getElementsByClassName('aba')[c]
-        aba.style.display = 'none'
-        aberto = false
-    }
+    const pageConfig = document.getElementById('pageConfig')
+    pageConfig.style.display = 'none'
 }
 
 // Ao clicar em abrir config
-let openconfig = false
+let openconfig = false // Vai impedir que seja abero mais de 1 pag de config
+let iconfig = false // Vai impedir que sejá criado mais de um icone
 function abrirConfig() {
+    const title = document.querySelector('title')
+    title.innerText = 'Configurações'
     if(openconfig == false) {
         setTimeout(() => {
             const pageConfig = document.getElementById('pageConfig')
             pageConfig.style.display = 'block'
             
-            const barraDeTarefas = document.getElementById('barraDeTarefas')
+            if(iconfig == false) {
+                const barraDeTarefas = document.getElementById('barraDeTarefas')
+                const div = document.createElement('div')
+                div.className = 'icones'
+                div.id = 'configIcone'
+                div.style.backgroundImage = 'url(assets/img/icones/config2.png)'
+                barraDeTarefas.appendChild(div)
+
+                iconfig = true
+
+            } else {
+                const configIcone = document.getElementById('configIcone')
+                configIcone.style.display = 'block'
+            }
             
-            const div = document.createElement('div')
-            div.className = 'icones'
-            div.id = 'configIcone'
-            div.style.backgroundImage = 'url(assets/img/icones/config2.png)'
-            barraDeTarefas.appendChild(div)
-            
-            div.addEventListener('click', () => {
-                if(aberto == false) {
-                    const pageConfig = document.getElementById('pageConfig')
-                    pageConfig.style.display = 'block'
-                    
-                    aberto = true
-                } else {
-                    const pageConfig = document.getElementById('pageConfig')
-                    pageConfig.style.display = 'none'
-                    
-                    aberto = false
-                }
+            const configIcone = document.getElementById('configIcone')
+            configIcone.addEventListener('click', () => {
+                openconfig = false
+                abrirConfig()
             })
-            openconfig = true
         }, 500)
-    
+
         fecharMenu()
     }
 }
 
 // Ao clicar em fechar config
 function fecharConfig() {
+    const title = document.querySelector('title')
+    title.innerText = 'Aréa de Trabalho'
+
     const pageConfig = document.getElementById('pageConfig')
     pageConfig.style.display = 'none'
     const configIcone = document.getElementById('configIcone')

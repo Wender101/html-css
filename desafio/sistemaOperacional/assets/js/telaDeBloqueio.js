@@ -1,4 +1,6 @@
 function ligando() {
+    const title = document.querySelector('title')
+    title.innerText = 'Inicializando'
     setTimeout(() => {
         const localLogo = document.getElementById('localLogo')
         localLogo.style.display = 'block'
@@ -12,6 +14,12 @@ function ligando() {
 } ligando()
 
 function start() {
+    const audioligado = new Audio('assets/sons/ligando.mpeg')
+    audioligado.play()
+
+    const title = document.querySelector('title')
+    title.innerText = 'Tela de Bloqueio'
+
     function exibirData() {
         // Horas
     const tempo = new Date()
@@ -84,12 +92,22 @@ function start() {
         exibirData()
     }, 100)
 
+    let log = false
+
     document.addEventListener('click', () => {
-        logar()
+        if(log == false) {
+            logar()
+            log = true
+        }
     })
 
     document.addEventListener('keydown', (e) => {
-        if(e.keyCode == 13) logar()
+        if(e.keyCode == 13) {
+            if(log == false) {
+                logar()
+                log = true
+            }
+        }
     })
 
     function logar() {
@@ -126,6 +144,10 @@ function start() {
 
             const areaDeTrabalho = document.getElementById('areaDeTrabalho')
             areaDeTrabalho.style.display = 'block'
+
+            const title = document.querySelector('title')
+            title.innerText = 'Aréa de Trabalho'
         }, timeIniciar)
     }
+
 }
