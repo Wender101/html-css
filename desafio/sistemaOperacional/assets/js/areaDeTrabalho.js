@@ -1,3 +1,25 @@
+let QuantasVezesreiniciado
+try {
+    const Qreiniciadas1 = localStorage.getItem('Qreiniciadas')
+    const Qreiniciadas2 = JSON.parse(Qreiniciadas1)
+    QuantasVezesreiniciado = Qreiniciadas2
+
+    if(Qreiniciadas2 > 2) {
+        const telaAzul = document.getElementById('telaAzul')
+        telaAzul.style.display = 'block'
+
+        setTimeout(() => {
+            QuantasVezesreiniciado = -1
+            let Qreiniciadas = JSON.stringify(QuantasVezesreiniciado)
+            localStorage.setItem('Qreiniciadas', Qreiniciadas)
+            reiniciar()
+        }, 20000)
+    }
+
+} catch {
+    QuantasVezesreiniciado = 0
+}
+
 let menuAberto = false
 let aberto = false
 function abrirMenu() {
@@ -149,6 +171,8 @@ function desligar() {
 }
 
 function reiniciar() {
+    QuantasVezesreiniciado++
+
     const main = document.querySelector('main')
     main.style.display = 'none'
 
@@ -156,6 +180,8 @@ function reiniciar() {
     body.style.background = 'black'
 
     setTimeout(() => {
+        let Qreiniciadas = JSON.stringify(QuantasVezesreiniciado)
+        localStorage.setItem('Qreiniciadas', Qreiniciadas)
         location.reload()
 
     }, 3000)

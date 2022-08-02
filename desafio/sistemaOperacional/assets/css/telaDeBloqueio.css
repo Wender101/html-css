@@ -6,6 +6,7 @@
     --cor2: rgb(37, 37, 37);
     --cor3: rgba(163, 163, 163, 0.781);
     --cor4: rgb(24, 24, 24);
+    --cor5: rgb(0, 102, 255);
 
 
     --sombra: rgba(0, 0, 0, 0.651);
@@ -56,8 +57,8 @@ section#telaIniciando > article {
 }
 
 section#telaIniciando > article > div#logoW10 {
-    width: 200px;
-    height: 200px;
+    width: 140px;
+    height: 140px;
     margin: auto;
     background-image: url(../img/icones/w102.png);
     background-position: center center;
@@ -66,8 +67,8 @@ section#telaIniciando > article > div#logoW10 {
 }
 
 div#c-loader1 {
-    width: 50px;
-    height: 50px;
+    width: 30px;
+    height: 30px;
     animation: 1s is-rotating infinite;
     border: 2px solid #e5e5e5;
     border-radius: 50%;
@@ -89,6 +90,32 @@ to {
     top: 0px;
     background-color: var(--cor1);
     display: none;
+}
+
+/* Tela Azul */
+section#telaAzul {
+    width: 100%;
+    height: 100vh;
+    color: var(--cor0);
+    background-color: var(--cor5);
+    position: fixed;
+    top: 0px;
+    display: none;
+}
+
+section#telaAzul > article {
+    width: 70%;
+    margin: 100px auto;
+}
+
+section#telaAzul > article > h1 {
+    font-size: 120px;
+    font-size: 100;
+    margin-bottom: 20px;
+}
+
+section#telaAzul > article > p {
+    margin-bottom: 40px;
 }
 
 /* Tela de bloqueio */
@@ -123,14 +150,9 @@ to {
     position: fixed;
     top: 0px;
     filter: opacity(0%);
-}
-
-#telaDeBloqueio > section#logar > article#localLogin {
-    width: 300px;
-    margin-left: 50%;
-    transform: translate(-50%);
-    position: absolute;
-    top: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #telaDeBloqueio > section#logar > article#localLogin > div#fotoUsuario {
@@ -264,7 +286,7 @@ article#barraDeTarefas > #valtarAreaDeTarefas {
 }
 
 article#menu {
-    width: 600px;
+    width: 550px;
     height: 550px;
     background-color: var(--cor2);
     position: fixed;
@@ -389,16 +411,21 @@ ul#lateralMenu > li#user > div {
 
 /* Apps */
 ul#apps {
-    width: 325px;
+    width: 305px;
     height: 100%;
     position: absolute;
     right: 10px;
     padding-top: 15px;
 }
 
+ul#apps > p {
+    font-size: 12px;
+    margin: 15px 0px;
+}
+
 ul#apps > li {
-    width: 100px;
-    height: 100px;
+    width: 90px;
+    height: 90px;
     background-color: var(--sombra2);
     display: inline-block;
     margin-right: 5px;
@@ -411,9 +438,9 @@ ul#apps > li:hover {
 }
 
 ul#apps > li > div {
-    width: 50%;
-    height: 50%;
-    margin: 20% auto;
+    width: 40%;
+    height: 40%;
+    margin: 30% auto;
     background-image: url(../img/icones/download.png);
     background-position: center center;
     background-size: cover;
