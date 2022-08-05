@@ -4,13 +4,13 @@ function ligando() {
     setTimeout(() => {
         const localLogo = document.getElementById('localLogo')
         localLogo.style.display = 'block'
-    }, 2000)
+    }, 1000) // 2000
 
     setTimeout(() => {
         const telaIniciando = document.getElementById('telaIniciando')
         telaIniciando.style.display = 'none'
         start()
-    }, 6000)
+    }, 1000) // 6000
 } ligando()
 
 function start() {

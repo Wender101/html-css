@@ -1,0 +1,46 @@
+@media screen and (max-width: 1309px) {
+    main {
+        width: 1000px;
+        margin: auto;
+    }
+}
+
+@media screen and (max-width: 961px) {
+    header > div#logo {
+        width: 30px;
+        height: 30px;
+        background-size: contain;
+        background-image: url(../img/Youtube-Logo2.png);
+        background-repeat: no-repeat;
+        background-position: center center;
+        margin-top: 5px;
+    }
+
+    main {
+        width: 652px;
+        margin: auto;
+    }
+}
+
+@media screen and (max-width: 637px) {
+    header > div > input {
+        width: 150px;
+    }
+
+    main {
+        width: 312px;
+        margin: auto;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    header > div > input {
+        width: 0px;
+        background-color: transparent;
+    }
+
+    main {
+        width: 312px;
+        margin: auto;
+    }
+}

@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="img/icones/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="css/video.css">
     <title>YouTube</title>
 </head>
@@ -26,7 +27,7 @@
 
             <article id="sobre-o-video">
                 <div id="canal">
-                    <a href="pag3.html"><img src="img/users/user3.png" alt=""></a>
+                    <a href="pag3.html"><img src="" id="localUser"></a>
                     <div id="nome-canal">
                         <h4>Marcus Livin</h4>
                         <p>2 mil inscritos</p>
@@ -38,16 +39,19 @@
 
                 </div>
                 <hr>
+            </article>
+        </section>
 
-                <h4 id="resComentarios">0 Comentarios</h4>
-
-                <div id="avatar">
+        <section id="comentarios">
+            <h4 id="resComentarios">0 Comentarios</h4>
+            
+            <div id="avatar">
                     <img src="img/users/User-Avatar.png" alt="">
                     <input type="text" name="" id="comentario" placeholder="Adicione um Comentario público..."> 
                     <div id="btnComentar">
                     </div>
                 </div>
-            </article>
+                <hr>
         </section>
 
         <section id="part2">
@@ -165,60 +169,6 @@
         </ul>
     </section>
 
-    <script>
-        // Funcionalidades do menu
-
-        function abrirMenu() {
-            let barraLateral = document.getElementById('barra-lateral')
-            let fundo = document.getElementById('fundo')
-            
-            if(barraLateral.style.display == 'block') {
-                barraLateral.style.display = 'none'
-                fundo.style.display = 'none'
-                
-            } else {
-                barraLateral.style.display = 'block'
-                fundo.style.display = 'block'
-            }
-        }
-
-        // Vai:
-        // fechar o menu
-        // mover o 'nav' pro lado e a setinha do nav
-        // e exibir o fundo
-
-        function fecharFundo() {
-            let barraLateral = document.getElementById('barra-lateral')
-            let fundo = document.getElementById('fundo')
-            
-            if(barraLateral.style.display == 'block') {
-                barraLateral.style.display = 'none'
-                fundo.style.display = 'none'
-                
-            } else {
-                barraLateral.style.display = 'block'
-                fundo.style.display = 'block'
-            }
-        }
-
-        let btn = document.getElementById('inscreva')
-        var qualCor = true
-
-        function inscrever() {
-
-            if(qualCor == false) {
-                btn.style.background = 'red'
-                btn.innerText = 'INSCREVER-SE'
-
-                qualCor = true
-                
-            } else {
-                btn.style.background = '#303030'
-                btn.innerText = 'INSCRITO'
-
-                qualCor = false
-            }
-        }
-    </script>
+    <script src="js/video.js"></script>
 </body>
 </html>

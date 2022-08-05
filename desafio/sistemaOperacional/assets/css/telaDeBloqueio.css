@@ -30,7 +30,7 @@ li {
 }
 
 body {
-    width: 100%;
+    width: 100vw;
     min-height: 100vh;
     background-image: url(../img/areaDeTrabalho/img.jfif);
     background-position: center center;
@@ -42,7 +42,7 @@ body {
 }
 
 section#telaIniciando {
-    width: 100%;
+    width: 100vw;
     height: 100vh;
     position: fixed;
     top: 0px;
@@ -221,12 +221,14 @@ article#tela {
     padding: 20px;
 }
 
-article#tela > div {
-    width: 25px;
-    height: 25px;
+.move {
+    position: absolute; 
+    cursor: -webkit-grabbing; 
 }
 
 article#tela > div#lixeira {
+    width: 25px;
+    height: 25px;
     background-image: url(../img/icones/lixeira.png);
     background-position: center center;
     background-size: cover;
@@ -239,6 +241,138 @@ article#tela > div#lixeira > p {
     margin-left: -4px;
 }
 
+/* Pág dica */
+div#dica {
+    width: 400px;
+    height: 500px;
+    position: absolute;
+    top: 50px;
+    display: none;
+    background-color: var(--cor2);
+}
+
+div#dica > h1 {
+    width: 80%;
+    margin: 30px auto;
+}
+
+div#dica > p {
+    width: 80%;
+    font-size: 11px;
+    margin: auto;
+}
+
+div#dica > p > img {
+    width: 16px;
+    height: 16px;
+}
+
+/* Pág configurações */
+div#pageConfig {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    background-color: var(--cor1);
+    display: none;
+}
+
+div#pageConfig > div#header {
+    width: 100%;
+    height: 120px;
+    background-color: var(--cor4);
+    display: flex;
+
+}
+
+div#pageConfig > div#header > div#imgUsuario {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-image: url(../img/usuario/img.png);
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 0px 20px 20px 20px;
+}
+
+div#pageConfig > div#header > div#textoConfig {
+    padding-top: 20px;
+}
+
+div#pageConfig > div#header > div#textoConfig > h1 {
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+div#pageConfig > div#header > div#textoConfig > span {
+    font-size: 12px;
+    color: var(--cor3);
+}
+
+div#pageConfig > div#main {
+    width: 100%;
+    height: auto;
+    padding: 100px 20px;
+    display: flex;
+}
+
+div#pageConfig > div#main > div {
+    width: 300px;
+    height: 40px;
+    position: relative;
+    cursor: pointer;
+    padding: 10px;
+    border: 1px solid transparent;
+}
+
+div#pageConfig > div#main > div:hover {
+    border: 1px solid var(--cor3);
+    background-color: var(--sombra4);
+}
+
+div#pageConfig > div#main > div > img {
+    position: absolute;
+}
+
+div#pageConfig > div#main > div > p {
+    font-size: 13px;
+    margin-left: 50px;
+}
+
+div#pageConfig > div#main > div > span {
+    font-size: 10px;
+    color: var(--cor3);
+    margin-left: 50px;
+}
+
+.aba > div.topo {
+    width: 100%;
+    height: 30px;
+    position: relative;
+    background-color: var(--cor4);
+} 
+
+.aba > div.topo > div.ops {
+    width: 100px;
+    height: 30px;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+
+.aba > div.topo > div.ops > button {
+    width: 30px;
+    height: 30px;
+    background-color: transparent;
+    font-size: 20px;
+    color: var(--cor0);
+    cursor: pointer;
+    border: none;
+}
+
+/* Barra de Tarefas */
 article#barraDeTarefas {
     width: 100%;
     height: 40px;
@@ -255,7 +389,7 @@ article#barraDeTarefas > div {
     margin: 10px;
     cursor: pointer;
     background-position: center center;
-    background-size: cover;
+    background-size: contain;
     background-repeat: no-repeat;
 
 }
@@ -421,7 +555,7 @@ ul#lateralMenu > li#user > div {
 
 /* Apps */
 ul#apps {
-    width: 305px;
+    width: 290px;
     height: 100%;
     position: absolute;
     right: 10px;
@@ -438,7 +572,6 @@ ul#apps > li {
     height: 90px;
     background-color: var(--sombra2);
     display: inline-block;
-    margin-right: 5px;
     border: 1px solid transparent;
 }
 
@@ -457,103 +590,9 @@ ul#apps > li > div {
     background-repeat: no-repeat;
 }
 
-article#pageConfig {
-    width: 100%;
-    height: 100vh;
-    position: fixed;
-    top: 0px;
-    background-color: var(--cor1);
-    display: none;
-}
-
-article#pageConfig > div#header {
-    width: 100%;
-    height: 120px;
-    background-color: var(--cor4);
-    display: flex;
-
-}
-
-article#pageConfig > div#header > div#imgUsuario {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    background-image: url(../img/usuario/img.png);
+ul#apps > li#yt > div {
+    background-image: url(../apps/clone-youtube/img/Youtube-Logo2.png);
     background-position: center center;
-    background-size: cover;
+    background-size: contain;
     background-repeat: no-repeat;
-    margin: 0px 20px 20px 20px;
-}
-
-article#pageConfig > div#header > div#textoConfig {
-    padding-top: 20px;
-}
-
-article#pageConfig > div#header > div#textoConfig > h1 {
-    font-size: 25px;
-    margin-bottom: 10px;
-}
-
-article#pageConfig > div#header > div#textoConfig > span {
-    font-size: 12px;
-    color: var(--cor3);
-}
-article#pageConfig > div#main {
-    width: 100%;
-    height: auto;
-    padding: 100px 20px;
-    display: flex;
-}
-
-article#pageConfig > div#main > div {
-    width: 300px;
-    height: 40px;
-    position: relative;
-    cursor: pointer;
-    padding: 10px;
-    border: 1px solid transparent;
-}
-
-article#pageConfig > div#main > div:hover {
-    border: 1px solid var(--cor3);
-    background-color: var(--sombra4);
-}
-
-article#pageConfig > div#main > div > img {
-    position: absolute;
-}
-
-article#pageConfig > div#main > div > p {
-    font-size: 13px;
-    margin-left: 50px;
-}
-
-article#pageConfig > div#main > div > span {
-    font-size: 10px;
-    color: var(--cor3);
-    margin-left: 50px;
-}
-
-.aba > div.topo {
-    width: 100%;
-    height: 30px;
-    display: flex;
-    position: relative;
-    background-color: var(--cor4);
-} 
-
-.aba > div.topo > div.ops {
-    width: 100px;
-    position: absolute;
-    right: -20px;
-}
-
-.aba > div.topo > div.ops > button {
-    width: 30px;
-    height: 30px;
-    background-color: transparent;
-    font-size: 20px;
-    color: var(--cor0);
-    cursor: pointer;
-    border: none;
 }

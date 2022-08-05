@@ -1,3 +1,6 @@
+var openconfig = false // Vai impedir que seja abero mais de 1 pag de config
+var iconfig = false // Vai impedir que sejá criado mais de um icone
+
 let QuantasVezesreiniciado
 try {
     const Qreiniciadas1 = localStorage.getItem('Qreiniciadas')
@@ -63,13 +66,41 @@ function valtarAreaDeTarefas() {
     title.innerText = 'Aréa de Trabalho'
 
     fecharMenu()
-    const pageConfig = document.getElementById('pageConfig')
-    pageConfig.style.display = 'none'
+    for(let c = 0; c < 100; c++) {
+        const aba = document.getElementsByClassName('aba')[c]
+        aba.style.display = 'none'
+    }
+}
+
+let dicaIcone = false
+const ulApps = document.getElementById('apps')
+for(let c = 0; c < 100; c++) {
+    const li = ulApps.getElementsByTagName('li')[c]
+
+    if(li.id != 'yt') {
+        li.addEventListener('click', () => {
+            fecharMenu()
+            const dica = document.getElementById('dica')
+            dica.style.display = 'block'
+            
+            if(dicaIcone == false ) {
+                const barraDeTarefas = document.getElementById('barraDeTarefas')
+                const iconDica = document.createElement('div')
+                iconDica.id = 'iconeDica'
+                iconDica.className = 'icones'
+                iconDica.style.backgroundImage = 'url(assets/img/icones/lampada.png)'
+                barraDeTarefas.appendChild(iconDica)
+                dicaIcone = true
+                
+            } else {
+                const iconeDica = document.getElementById('iconeDica')
+                iconeDica.style.display = 'block'
+            }
+        })
+    }
 }
 
 // Ao clicar em abrir config
-let openconfig = false // Vai impedir que seja abero mais de 1 pag de config
-let iconfig = false // Vai impedir que sejá criado mais de um icone
 function abrirConfig() {
     const title = document.querySelector('title')
     title.innerText = 'Configurações'
@@ -81,8 +112,8 @@ function abrirConfig() {
             if(iconfig == false) {
                 const barraDeTarefas = document.getElementById('barraDeTarefas')
                 const div = document.createElement('div')
-                div.className = 'icones'
                 div.id = 'configIcone'
+                div.className = 'icones'
                 div.style.backgroundImage = 'url(assets/img/icones/config2.png)'
                 barraDeTarefas.appendChild(div)
 
@@ -92,28 +123,63 @@ function abrirConfig() {
                 const configIcone = document.getElementById('configIcone')
                 configIcone.style.display = 'block'
             }
-            
-            const configIcone = document.getElementById('configIcone')
-            configIcone.addEventListener('click', () => {
-                openconfig = false
-                abrirConfig()
-            })
         }, 500)
 
         fecharMenu()
     }
 }
 
-// Ao clicar em fechar config
-function fecharConfig() {
+for(let c = 0; c < 100; c++) {
+    const aba = document.getElementsByClassName('aba')[c]
+    aba.addEventListener('mouseenter', () => {
+
+        const icones = document.getElementsByClassName('icones')[c]
+        
+        icones.addEventListener('click', () => {
+            if(aba.style.display == 'none') {
+                aba.style.display = 'block'
+    
+            } else {
+                aba.style.display = 'none'
+            }
+        })
+        
+        fechar()
+        minimizar()
+    })
+}
+
+// Vai fechar as abas
+function fechar() {
     const title = document.querySelector('title')
     title.innerText = 'Aréa de Trabalho'
 
-    const pageConfig = document.getElementById('pageConfig')
-    pageConfig.style.display = 'none'
-    const configIcone = document.getElementById('configIcone')
-    configIcone.style.display = 'none'
-    openconfig = false
+    for(let c = 0; c < 100; c++) {
+        const aba = document.getElementsByClassName('aba')[c]
+        const fechar = document.getElementsByClassName('fechar')[c]
+        const icones = document.getElementsByClassName('icones')[c]
+        
+        fechar.addEventListener('click', () => {
+            aba.style.display = 'none'
+            icones.style.display = 'none'
+        })
+    }
+}
+
+// Vai minimizar as abas
+function minimizar() {
+    const title = document.querySelector('title')
+    title.innerText = 'Aréa de Trabalho'
+
+    for(let c = 0; c < 100; c++) {
+        const aba = document.getElementsByClassName('aba')[c]
+        const minimizar = document.getElementsByClassName('minimizar')[c]
+        
+        minimizar.addEventListener('click', () => {
+            aba.style.display = 'none'
+        })
+    
+    }
 }
 
 //Vai fechar todas as abas
@@ -131,6 +197,18 @@ function opsIniciar() {
     opsIniciar.style.display = 'block'
     const lateralMenu = document.getElementById('lateralMenu')
     lateralMenu.style.width = '200px'
+}
+
+// Abrir yt 
+function abrirYt() {
+    fecharMenu()
+
+    const barraDeTarefas = document.getElementById('barraDeTarefas')
+    const div = document.createElement('div')
+    div.id = 'iconeYt'
+    div.className = 'icones'
+    div.style.backgroundImage = 'url(assets/apps/clone-youtube/img/Youtube-Logo2.png)'
+    barraDeTarefas.appendChild(div)
 }
 
 // Funções do menu iniciar

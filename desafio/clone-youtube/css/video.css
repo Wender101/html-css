@@ -22,7 +22,10 @@ hr {
 }
 
 body {
-
+    width: 100%;
+    min-height: 100vh;
+    padding-bottom: 200px;
+    background-color: var(--conteudo);
 }
 
 /* Estilizando o Header */
@@ -189,11 +192,8 @@ section#barra-lateral > ul > a > li > img {
 /* Main */
 
 main {
-    width: 100%;
-    height: 150vh;
-    padding-top: 140px;
     display: flex;
-    background-color: var(--conteudo);
+    padding: 140px 20px;
 }
 
 
@@ -290,17 +290,23 @@ article#sobre-o-video > div#canal > p {
     margin-left: -300px;
 }
 
-article#sobre-o-video > div#avatar {
+section#comentarios {
+    position: absolute;
+    left: 40px;
+    top: 800px;
+}
+
+section#comentarios > div#avatar {
     display: flex;
     margin-top: 24px;
 }
 
-article#sobre-o-video > div#avatar > img {
+section#comentarios > div#avatar > img {
     width: 40px;
     height: 40px;
 }
 
-article#sobre-o-video > div#avatar > input {
+section#comentarios > div#avatar > input {
     width: 300px;
     font-weight: 100;
     color: var(--p);
@@ -313,30 +319,54 @@ article#sobre-o-video > div#avatar > input {
     padding-left: 5px;
 }
 
-article#sobre-o-video > div#avatar > h4 {
+section#comentarios > h4 {
     font-size: 16px;
     font-weight: 400;
     color: white;
     font-family: var(--font);
 }
 
-article#sobre-o-video > div#avatar > div {
+section#comentarios > div#avatar > div {
     margin-top: 30px;
     display: none;
 }
 
-article#sobre-o-video > div#avatar > div > button {
-    padding: 10px 16px;
-    border: none;
-    color: white;
-    background-color: transparent;
+section#comentarios > hr {
+    width: 750px;
 }
 
-article#sobre-o-video > div#avatar > div > button#btnEnviar {
-    padding: 10px 16px;
-    border: none;
-    color: white;
-    background-color: var(--borda);
+section#comentarios > div.coment {
+    margin-top: 50px;
+}
+
+section#comentarios > div.coment > img {
+    display: inline-block;
+    margin-bottom: -10px;
+}
+
+
+section#comentarios > div.coment > p.nomeComent {
+    color:white;
+    font-size: 14px;
+    display: inline-block;
+    font-weight: 600;
+    margin-left: 10px;
+}
+
+section#comentarios > div.coment > p {
+    color: var(--p);
+    font-size: 13px;
+    margin-top: 10px;
+    margin-left: 50px;
+}
+
+section#comentarios > div.coment > img.like, img.deslike {
+    width: 20px;
+}
+
+section#comentarios > div.coment > img.like {
+    margin-left: 50px;
+    margin-right: 20px;
 }
 
 /* Segunda Parte */

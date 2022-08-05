@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/index.css">
+    <title>Nerds</title>
+</head>
+<body>
+    <section>
+        <div class="links">
+            <a href="#"><img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/apple/325/shopping-bags_1f6cd-fe0f.png" srcset="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/apple/325/shopping-bags_1f6cd-fe0f.png 2x" alt="Shopping Bags on Apple iOS 15.4"><span>Loja da Nerds</span></a>
+        </div>
+        <div class="links">
+            <a href="#"><img src="https://emojipedia-us.s3.amazonaws.com/source/microsoft-teams/337/camera-with-flash_1f4f8.png" style="width: 30px;"style="width: 20px;"><span>Instagram</span></a>
+        </div>
+        <div class="links">
+            <a href="#"><img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/facebook/327/regional-indicator-symbol-letter-f_1f1eb.png" srcset="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/facebook/327/regional-indicator-symbol-letter-f_1f1eb.png 2x" alt="Regional Indicator Symbol Letter F on Facebook 14.0" ><span>Facebook</span></a>
+        </div>
+    </section>
+
+    <section id="logo">
+        <div id="imgLogo"></div>
+        <h1>Nerds Oficial</h1>
+    </section>
+
+    <script>
+        //! Vai adicionar um fundo ao menu, quando rola o scroll
+        window.addEventListener("scroll", (event) => {
+            let scroll = this.scrollY;
+            const logo = document.getElementById('logo')
+
+            if(scroll < 1) {
+                logo.className = 'semFundo'
+
+            } else {
+                logo.className = 'comFundo'
+            }
+        })
+    </script>
+</body>
+</html>

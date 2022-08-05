@@ -12,7 +12,7 @@
     <section id="img-do-canal"></section>
     <section id="barra-de-config">
         <div id="canal">
-            <img src="img/pag3/avatarPag3.png" alt="">
+            <img src="" id="localUser">
             <div id="nome-canal">
                 <h4>Marcus Livin</h4>
                 <p>2 mil inscritos</p>
@@ -22,7 +22,7 @@
     </section>
     <nav>
         <ul>
-            <li>HOME</li>
+            <li><a href="index.html">Home</a></li>
             <li>VIDEOS</li>
             <li>PLAYLISTS</li>
             <li>COMUNIDADE</li>
@@ -111,7 +111,7 @@
 
         <ul>
             <a href="index.html">
-                <li><img src="img/icones/menu/ic10.png" alt="icone de uma casinha"> Home</li>
+                <li><img src="img/icones/menu/ic10.png" alt="icone de uma casinha">Home</li>
             </a>
             <li><img src="img/icones/menu/ic9.png" alt="icone de uma bulsula"> Explore</li>
             <li><img src="img/icones/menu/ic7.png" alt="icone das Inscrições"> Inscrições</li>
@@ -135,66 +135,6 @@
         </ul>
     </section>
 
-    <script>
-        // Funcionalidades do menu
-
-        function abrirMenu() {
-            let barraLateral = document.getElementById('barra-lateral')
-            let ul = document.getElementById('ul')
-            let fundo = document.getElementById('fundo')
-            
-            if(barraLateral.style.display == 'block') {
-                barraLateral.style.display = 'none'
-                ul.style.marginLeft = '0px'
-                fundo.style.display = 'none'
-                
-            } else {
-                barraLateral.style.display = 'block'
-                ul.style.marginLeft = '240px'
-                fundo.style.display = 'block'
-            }
-        }
-
-        // Vai:
-        // fechar o menu
-        // mover o 'nav' pro lado e a setinha do nav
-        // e exibir o fundo
-
-        function fecharFundo() {
-            let barraLateral = document.getElementById('barra-lateral')
-            let ul = document.getElementById('ul')
-            let fundo = document.getElementById('fundo')
-            
-            if(barraLateral.style.display == 'block') {
-                barraLateral.style.display = 'none'
-                ul.style.marginLeft = '0px'
-                fundo.style.display = 'none'
-                
-            } else {
-                barraLateral.style.display = 'block'
-                ul.style.marginLeft = '240px'
-                fundo.style.display = 'block'
-            }
-        }
-
-        let btn = document.getElementById('inscreva')
-        var qualCor = true
-
-        function inscrever() {
-
-            if(qualCor == false) {
-                btn.style.background = 'red'
-                btn.innerText = 'INSCREVER-SE'
-
-                qualCor = true
-                
-            } else {
-                btn.style.background = '#303030'
-                btn.innerText = 'INSCRITO'
-
-                qualCor = false
-            }
-        }
-    </script>
+    <script src="js/pag3.js"></script>
 </body>
 </html>

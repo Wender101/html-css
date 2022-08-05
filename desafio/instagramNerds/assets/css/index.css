@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap');
+
+@font-face {
+    font-family: bitwise;
+    src: url('../fonts/bitwise.ttf');
+}
+
+:root {
+    --cor0: rgb(255, 255, 255);
+    --cor1: rgb(253, 104, 4);
+    --cor2: rgba(253, 137, 4, 0.582);
+    --cor3: rgba(253, 95, 4, 0.918);
+    --cor4: rgba(17, 9, 41, 1);
+    --cor5: rgb(119, 9, 187);
+    --cor6: rgba(41, 0, 73, 1);
+    --cor7: rgba(253, 116, 4, 0.678);
+    --cor8: rgba(17, 9, 41, 0.801);
+    --cor9: rgba(4, 253, 163, 1);
+    --cor10: rgba(28, 164, 115, 0.8);
+    --cor11: rgba(4, 253, 162, 0.918);
+    --cor12: rgba(17, 9, 41, 1);
+    --cor13: rgba(88, 10, 136, 1);
+    --cor14: rgba(41, 0, 73, 1);
+    --cor15: rgba(4, 253, 162, 0.555);
+    --cor16: rgba(17, 9, 41, 0.801);
+
+    --font-titulo: 'Audiowide', cursive;
+    --font-texto: 'JetBrains Mono', monospace;
+    --font-nerds: bitwise;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+    text-decoration: none;
+    list-style: none;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    background-image: url(../img/fundoProdutos.png);
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 150px 0px;
+    font-family: var(--font-texto);
+    overflow-x: hidden;
+}
+
+section#logo {
+    width: 100%;
+    height: auto;
+    margin-bottom: 50px;
+    position: fixed;
+    top: 0px;
+    padding: 10px 0px;
+}
+
+.semFundo {
+    background-color: transparent;
+}
+
+.comFundo {
+    background-color: var(--cor1);
+    box-shadow: 2px 2px 10px var(--cor6);
+}
+
+section#logo > div#imgLogo {
+
+}
+
+section#logo > h1 {
+    text-align: center;
+    color: var(--cor0);
+    font-family: var(--font-nerds);
+}
+
+div.links {
+    max-width: 700px;
+    width: 80%;
+    min-height: 50px;
+    border-radius: 10px;
+    margin: auto;
+    background-color: black;
+    position: relative;
+    margin-bottom: 50px;
+}
+
+div.links > a {
+    width: 100%;
+    min-height: 50px;
+    border-radius: 10px;
+    display: block;
+    text-align: center;
+    background-color: var(--cor3);
+    margin-top: -15px;
+    margin-left: -15px;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div.links > a:hover {
+    transition: 300ms transform linear;
+    transform: scale(1.1);
+    background-color: var(--cor5);
+}
+
+div.links > a > span {
+    color: var(--cor0);
+    font-family: var(--font-titulo);
+    font-size: 800;
+}
+
+div.links > a > img {
+    width: 20px;
+    margin-right: 10px;
+}

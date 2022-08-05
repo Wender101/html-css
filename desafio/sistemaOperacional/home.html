@@ -28,38 +28,57 @@
         </section>
         <section id="areaDeTrabalho">
             <article id="tela" onclick="tela()">
-                <div id="lixeira"><p>lixeira</p></div>
-            </article>
-            <article id="pageConfig" class="aba">
-                <div class="topo">
-                    <div class="ops">
-                        <button class="minimizar" onclick="valtarAreaDeTarefas()">-</button>
-                        <button class="fechar" onclick="fecharConfig()">x</button>
-                    </div>
-                </div>
 
-                <div id="header">
-                    <div id="imgUsuario"></div>
-                    <div id="textoConfig">
-                        <h1>Usuario</h1>
-                        <span>Usuario@gmail.com</span>
-                    </div>
-                </div>
-
-                <div id="main">
-                    <div>
-                        <img src="assets/img/icones/iconePersonalizar.png">
-                        <p>Personalização</p>
-                        <span>Tela de Fundo, tela de bloqueio, cores</span>
+                <!-- Icones -->
+                <div id="lixeira" class="move"><p>lixeira</p></div>
+                <!-- Fim icones -->
+                
+                <!-- Pag Dica -->
+                <div id="dica" class="move aba">
+                    <div class="topo">
+                        <div class="ops">
+                            <button class="minimizar" onclick="minimizar()">-</button>
+                            <button class="fechar" onclick="fechar()">x</button>
+                        </div>
                     </div>
 
-                    <div>
-                        <img src="assets/img/icones/contas.png">
-                        <p>Contas</p>
-                        <span>Suas contas, email, sincronização, trabalho, família</span>
+                    <h1>O que está acontecendo com meus aplicativos?</h1>
+                    <p>Se os aplicativos no menu iniciar não abrirem enquanto você estiver configurando seu computador ou exibirem o ícone de dowload <img src="assets/img/icones/download.png" alt="ícone de dowload">, não se preocupe. Provavelmente, o aplicativo esetá sendo instalado ou atualizado e estará disponível em breve.</p>
+                </div> <!-- Fim dicas -->
+
+                <!-- Configuração -->
+                <div id="pageConfig" class="aba">
+                    <div class="topo">
+                        <div class="ops">
+                            <button class="minimizar" onclick="minimizar()">-</button>
+                            <button class="fechar" onclick="fechar()">x</button>
+                        </div>
                     </div>
-                </div>
-            </article>
+    
+                    <div id="header">
+                        <div id="imgUsuario"></div>
+                        <div id="textoConfig">
+                            <h1>Usuario</h1>
+                            <span>Usuario@gmail.com</span>
+                        </div>
+                    </div>
+    
+                    <div id="main">
+                        <div>
+                            <img src="assets/img/icones/iconePersonalizar.png">
+                            <p>Personalização</p>
+                            <span>Tela de Fundo, tela de bloqueio, cores</span>
+                        </div>
+    
+                        <div>
+                            <img src="assets/img/icones/contas.png">
+                            <p>Contas</p>
+                            <span>Suas contas, email, sincronização, trabalho, família</span>
+                        </div>
+                    </div>
+                </div> <!-- Fim configurações -->
+
+            </article> <!-- fim Tela-->
 
             <div id="fundo" onclick="fecharMenu()"></div>
             <article id="menu">
@@ -83,7 +102,7 @@
                     <li><div></div></li>
                     <li><div></div></li>
                     <p>Explorar</p>
-                    <li><div></div></li>
+                    <li id="yt" onclick="abrirYt()"><div></div></li>
                     <li><div></div></li>
                     <li><div></div></li>
                     <li><div></div></li>
@@ -96,7 +115,7 @@
                 <p id="horasBarra"></p>
                 <div id="valtarAreaDeTarefas" onclick="valtarAreaDeTarefas()"></div>
             </article>
-        </section>
+        </section> <!-- Fim areaDeTrabalho -->
 
         <section id="telaAzul">
             <article>
@@ -106,6 +125,8 @@
                 <span>Se desejar saber mais, pesquise online mais tarde por este erro PAGE_FAULT_IN_NONPAGED_AREA</span>
             </article>
         </section>
+
+        <!-- Tela iniciando Sobreposta -->
         <section id="black"></section>
 
         <!-- Tela Iniciando -->
@@ -119,5 +140,14 @@
 
     <script src="assets/js/telaDeBloqueio.js"></script>
     <script src="assets/js/areaDeTrabalho.js"></script>
+
+    <!-- Divs movel -->
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+    <script>
+    $( function() {
+        $( ".move" ).draggable();
+    } );
+    </script>
 </body>
 </html>
