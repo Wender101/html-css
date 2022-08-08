@@ -174,7 +174,18 @@ header > section > h1 > #nerds {
 
 /* inicio da estilização do btn */
 
-#box, #box:hover {
+#box {
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: var(--cor1);
+    color: var(--cor0);
+    font-family: var(--font-texto);
+    font-weight: 100;
+    border: none;
+    margin: 20px 0px;
+}
+
+/* #box, #box:hover {
     position: relative;
     width: 110px;
     height: 40px;
@@ -187,9 +198,9 @@ header > section > h1 > #nerds {
     margin-top: 56px;
     margin-bottom: 33px;
     border: none;
-}
+} */
 
-#box::before {
+/* #box::before {
     content:  '';
     position: absolute;
     width: 150px;
@@ -203,7 +214,7 @@ header > section > h1 > #nerds {
     position: absolute;
     inset: 2px;
     background-color: #0e1538;
-}
+} */
 
 @keyframes animate {
     0% {
@@ -273,9 +284,6 @@ section#time > article > div > span {
 section#time > article > div > span > p {
     color: var(--cor1);
     font-size: 15px;
-}
-
-section#time > article > div > #pDia {
 }
 
 section#produtos {

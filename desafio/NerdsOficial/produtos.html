@@ -16,8 +16,7 @@
             <div id="teclado"></div>
             <div id="fonte"></div>
             <div id="mouse"></div>
-            <div id="sombra"></div>
-            <img src="assets/img/site/sombra.png" id="sombra">
+            <img src="assets/img/site/sombra.png" id="sombraProdutos">
         </section>
         <div id="logo"></div>
 
@@ -36,11 +35,14 @@
                  <div id="localCategorias">
  
                  </div>
+
+                 <div id="seta1" class="seta" onclick="setaEsquerda()"><p><</p></div>
+                 <div id="seta2" class="seta" onclick="setaDireita()"><p>></p></div>
             </article>
             
             <article id="localOfertas">
+                <h1 id="h1Ofertas">Distaques do dia</h1>
                 <div id="ofertas">
-                    <h1>Distaques do dia</h1>
                 </div>
             </article>
             
@@ -91,19 +93,91 @@
     <script src="assets/js/funcoesBasicas.js"></script>
     <script>
         
-        for(let c = 0; c < 20; c++) {
+        for(let c = 1; c <= 13; c++) {
             const localCategorias = document.getElementById('localCategorias')
             const a = document.createElement('a')
             const p = document.createElement('p')
             const img = document.createElement('img')
 
-            a.href = `${p.innerText}.html`
-            p.innerText =  'Mouses'
-            img.src = 'assets/img/icons/Iconsmind2.ico'
+            if(c == 1) {
+                p.innerText =  'Cabos'
+                a.href = `${p.innerText}.html`
+
+            } else if(c == 2) {
+                p.innerText =  'Adaptadores'
+                a.href = `${p.innerText}.html`
+
+            } else if(c == 3) {
+                p.innerText =  'Teclados'
+                a.href = `${p.innerText}.html`
+                
+            } else if(c == 4) {
+                p.innerText =  'Mouse'
+                a.href = `${p.innerText}.html`
+                
+            } else if(c == 5) {
+                p.innerText =  'Gabinetes'
+                a.href = `${p.innerText}.html`
+                
+            } else if(c == 6) {
+                p.innerText =  'Headset'
+                a.href = `${p.innerText}.html`
+                
+            } else if(c == 7) {
+                p.innerText =  'Controles'
+                a.href = `${p.innerText}.html`
+                
+            } else if(c == 8) {
+                p.innerText =  'Fontes'
+                a.href = `${p.innerText}.html`
+                
+            } else if(c == 9) {
+                p.innerText =  'Mouse Pad'
+                a.href = `${p.innerText}.html`
+                
+            } else if(c == 10) {
+                p.innerText =  'Processador'
+                a.href = `${p.innerText}.html`
+                
+            } else if(c == 11) {
+                p.innerText =  'Memoria Ram'
+                a.href = `${p.innerText}.html`
+                
+            } else if(c == 12) {
+                p.innerText =  'SSD'
+                a.href = `${p.innerText}.html`
+                
+            } else {
+                p.innerText =  'Fans'
+                a.href = `${p.innerText}.html`
+            }
+
+            img.src = `assets/img/icons/${c}.png`
 
             a.appendChild(img)
             a.appendChild(p)
             localCategorias.appendChild(a)
+        }
+
+        let distancia = 0
+        const localCategorias = document.getElementById('localCategorias')
+
+        function setaDireita() {
+            console.log(distancia);
+            if(distancia < 100) {
+                distancia += 30
+                localCategorias.style.transition = '300ms margin-left linear'
+                localCategorias.style.marginLeft = `-${distancia}%`
+            }
+        }
+
+        function setaEsquerda() {
+            console.log(distancia);
+            if(distancia > 0) {
+                distancia -= 30
+                localCategorias.style.transition = '300ms margin-left linear'
+                localCategorias.style.marginLeft = `-${distancia}%`
+            }
         }
     </script>
 </body>
