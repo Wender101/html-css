@@ -60,16 +60,14 @@
         font-size: 50px;
     }
 
-    section#time > article {
-        width: 400px;
+    section#time > article > div {
+        max-width: 450px;
+        margin: auto;
+        height: 100px;
     }
 
-    section#time > article > div > p {
-        margin-left: 10px;
-    }
-
-    section#time > article > div > #pDia {
-        margin-left: 10px;
+    section#time > article > div.lTime {
+        max-width: 460px;
     }
 
     section#produtos > div {
@@ -89,6 +87,22 @@
         color: var(--cor1);
         font-size: 22px;
         font-weight: 100;
+    }
+}
+
+@media screen and (max-width: 570px) {
+    section#time > article > div {
+        max-width: 380px;
+        margin: auto;
+        height: 100px;
+    }
+
+    section#time > article > div.lTime {
+        max-width: 400px;
+    }
+
+    section#time > article > div > span {
+        font-size: 40px;
     }
 }
 
@@ -183,22 +197,22 @@
         height: 150px;
     }
 
-    section#time > article {
-        width: 325px;
+    section#time > article > div {
+        max-width: 340px;
+        margin: auto;
+        height: 100px;
+    }
+
+    section#time > article > div.lTime {
+        max-width: 360px;
     }
 
     section#time > article > div > span {
-        font-size: 40px;
+        font-size: 35px;
     }
 
-    section#time > article > div > p {
-        margin-left: 10px;
+    section#time > article > div > span > p {
         font-size: 13px;
-    }
-
-    section#time > article > div > #pDia {
-        margin-left: 10px;
-        margin-right: 45px;
     }
 
     footer {
@@ -220,27 +234,47 @@
     }
 }
 
-@media screen and (max-width: 370px) {
+@media screen and (max-width: 410px) {
     section#time {
         height: 150px;
     }
 
-    section#time > article {
-        width: 278px;
+    section#time > article > div {
+        max-width: 300px;
+        margin: auto;
+        height: 100px;
+    }
+
+    section#time > article > div.lTime {
+        max-width: 320px;
     }
 
     section#time > article > div > span {
         font-size: 30px;
     }
 
-    section#time > article > div > p {
-        margin-left: 6px;
+    section#time > article > div > span > p {
         font-size: 10px;
     }
 
-    section#time > article > div > #pDia {
-        margin-right: 50px;
-        margin-left: 5px;
+    section#produtos > div {
+        width: 300px;
+        height: 200px;
+    }
+}
+
+@media screen and (max-width: 340px) {
+
+    section#time > article > div.lTime {
+        max-width: 290px;
+    }
+
+    section#time > article > div > span {
+        font-size: 25px;
+    }
+
+    section#time > article > div > span > p {
+        font-size: 10px;
     }
 
     section#produtos > div {

@@ -1,7 +1,7 @@
 function tempoRestante() {
     var one_day = 1000 * 60 * 60 * 24
     var present_date = new Date();
-    var diaX = new Date(present_date.getFullYear(), 7, 8)
+    var diaX = new Date(present_date.getFullYear(), 11, 31)
     
     if (present_date.getMonth() == 11 && present_date.getdate() > 25) diaX.setFullYear(diaX.getFullYear() + 1)
     
@@ -14,9 +14,6 @@ function tempoRestante() {
     const localMin = time.getElementsByTagName('span')[2]
     const localSeg = time.getElementsByTagName('span')[3]
 
-    
-    localDia.innerText = Final_Result
-
     const hrTotal = 23
     const minTotal = 60
     const segTotal = 60
@@ -28,23 +25,43 @@ function tempoRestante() {
         let seg = segTotal - timeNow.getSeconds()
 
         if(hora < 10) {
-            localHora.innerText = '0' + hora
+            localHora.innerHTML = `0  ${hora} <p>Horas</p>`
         } else {
-            localHora.innerText = hora
+            localHora.innerHTML = `${hora} <p>Horas</p>`
         }
 
         if(min < 10) {
-            localMin.innerText = ':0' + min
+            localMin.innerHTML = `:0  ${min} <p>Minutos</p>`
         } else {
-            localMin.innerText = ':' + min
+            localMin.innerHTML = `:  ${min} <p>Minutos</p>`
         }
 
         if(seg < 10) {
-            localSeg.innerText = ':0' + seg
+            localSeg.innerHTML = `:0  ${seg} <p>Segundos</p>`
         } else {
-            localSeg.innerText = ':' + seg
+            localSeg.innerHTML = `: ${seg} <p>Segundos</p>`
         }
         
+
+
+        const lTime = document.getElementById('lTime')
+        if(Final_Result < 10 && Final_Result > 0) {
+            localDia.innerHTML = `0${Final_Result} <p>Dias</p>`
+            lTime.className = ''
+    
+        } else if(Final_Result < 0) {
+            localDia.innerHTML = '00 <p>Dias</p>'
+            localHora.innerHTML = '00 <p>Horas</p>'
+            localMin.innerHTML = '00 <p>Minutos</p>'
+            localSeg.innerHTML = '00 <p>Segundos</p>'
+
+            lTime.className = 'lTime'
+    
+        } else {
+            localDia.innerHTML = `${Final_Result} <p>Dias</p>`
+            lTime.className = ''
+        }
+
     }, 100)
 
 } tempoRestante()
