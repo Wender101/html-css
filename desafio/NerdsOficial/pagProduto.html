@@ -4,52 +4,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/prdutos.css">
+    <link rel="stylesheet" href="assets/css/pagProduto.css">
+    <link rel="stylesheet" href="assets/css/pagProdutoResponsive.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
     <link rel="stylesheet" href="assets/css/prdutosResponsivo.css">
-    <title>Produtos</title>
+    <title>Pesquisa</title>
 </head>
 <body>
-    <header>
-        <section id="man">
-            <div id="computer"></div>
-            <div id="teclado"></div>
-            <div id="fonte"></div>
-            <div id="mouse"></div>
-            <img src="assets/img/site/sombra.png" id="sombraProdutos">
-        </section>
-        <div id="logo"></div>
+    <section id="categorias">
+        <h1>Categorias</h1>
+        <div id="localCategorias">
 
-        <section id="texto">
-            <h1>Aproveite nosso catalogo!</h1>
-            <p>Trabalhamos com varias marcas e produtos...</p>
-        </section>
-    </header>
+        </div>
 
+        <div id="seta1" class="seta" onclick="setaEsquerda()"><p><</p></div>
+        <div id="seta2" class="seta" onclick="setaDireita()"><p>></p></div>
+    </section>
+    
+    
+    <h1 id="classProduto">a</h1>
     <main>
-        <section id="separacao"></section>
-
-        <section id="produtos">
-            <article id="categorias">
-                 <h1>Categorias</h1>
-                 <div id="localCategorias">
- 
-                 </div>
-
-                 <div id="seta1" class="seta" onclick="setaEsquerda()"><p><</p></div>
-                 <div id="seta2" class="seta" onclick="setaDireita()"><p>></p></div>
-            </article>
-            
-            <article id="localOfertas">
-                <h1 id="h1Ofertas">Distaques do dia</h1>
-                <div id="ofertas">
-                </div>
-            </article>
-            
-        </section>
-
-        <section id="separacao"></section>
-    </main>
+    </main>    
 
     <footer>
         <div id="p1">
@@ -77,6 +52,8 @@
             <hr>
             <li><a href="sobre.html">Sobre</a></li>
             <hr>
+            <li><a href="produtos.html">Produtos</a></li>
+            <hr>
             <button onclick="login()">Login</button>
             <hr>
         </ul>
@@ -89,8 +66,8 @@
         <button onclick="fecharMsg()">Fechar</button>
     </section>
 
-    <script src="assets/js/produtos.js"></script>
     <script src="assets/js/funcoesBasicas.js"></script>
+    <script src="assets/js/pagProdutos.js"></script>
     <script src="assets/js/pesquisa.js"></script>
 </body>
 </html>

@@ -1,7 +1,7 @@
 function tempoRestante() {
     var one_day = 1000 * 60 * 60 * 24
     var present_date = new Date();
-    var diaX = new Date(present_date.getFullYear(), 7, 9)
+    var diaX = new Date(present_date.getFullYear(), 8, 1)
     
     if (present_date.getMonth() == 11 && present_date.getdate() > 25) diaX.setFullYear(diaX.getFullYear() + 1)
     
@@ -25,21 +25,21 @@ function tempoRestante() {
         let seg = segTotal - timeNow.getSeconds()
 
         if(hora < 10) {
-            localHora.innerHTML = `0  ${hora} <p>Horas</p>`
+            localHora.innerHTML = `0${hora} <p>Horas</p>`
         } else {
             localHora.innerHTML = `${hora} <p>Horas</p>`
         }
 
         if(min < 10) {
-            localMin.innerHTML = `:0  ${min} <p>Minutos</p>`
+            localMin.innerHTML = `:0 ${min} <p>Minutos</p>`
         } else {
-            localMin.innerHTML = `:  ${min} <p>Minutos</p>`
+            localMin.innerHTML = `:${min} <p>Minutos</p>`
         }
 
         if(seg < 10) {
             localSeg.innerHTML = `:0  ${seg} <p>Segundos</p>`
         } else {
-            localSeg.innerHTML = `: ${seg} <p>Segundos</p>`
+            localSeg.innerHTML = `:${seg} <p>Segundos</p>`
         }
         
 

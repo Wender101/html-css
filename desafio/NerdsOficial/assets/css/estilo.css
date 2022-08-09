@@ -39,6 +39,8 @@
 }
 
 body {
+    width: 100%;
+    min-height: 100vh;
     font-family: var(--font-texto);
     background-image: linear-gradient(var(--cor4), var(--cor6));
 }
@@ -284,6 +286,7 @@ section#time > article > div > span {
 section#time > article > div > span > p {
     color: var(--cor1);
     font-size: 15px;
+    text-align: center;
 }
 
 section#produtos {

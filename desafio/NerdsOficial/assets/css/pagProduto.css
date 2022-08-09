@@ -45,14 +45,6 @@ body {
     background-image: linear-gradient(var(--cor4), var(--cor6));
 }
 
-article > h1, article > div > h1 {
-    font-family: var(--font-titulo);
-    font-size: 30px;
-    color: var(--cor1);
-    margin-bottom: 20px;
-    margin-left: 15px;
-}
-
 button, li, a {
     cursor: pointer;
     text-decoration: none;
@@ -125,212 +117,26 @@ nav > ul > button:hover {
     border: 1px solid var(--cor1);
 }
 
-
-header {
-    width: 100%;
-    height: 100vh;
-    min-height: 800px;
-    padding: 20px;
-    background-image: url('../img/site/NFT1.png');
-    background-position: center center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    position: relative;
-    box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.644);
-    overflow: hidden;
-}
-
-header > div#logo {
-    width: 150px;
-    height: 150px;
-    background-color: var(--cor5);
-    border-radius: 50%;
-    margin: 10px;
-    position: absolute;
-}
-
-header > section#man {
-    width: 490px;
-    height: 400px;
-    position: absolute;
-    right: 90px;
-    bottom: 30px;
-    overflow: hidden;
-}
-
-header > section#man > div {
-    background-position: center center;
-    background-size: contain;
-    background-repeat: no-repeat;
-    position: absolute;
-}
-
-header > section#man > div#computer {
-    width: 350px;
-    height: 350px;
-    background-image: url('../img/site/computer.png');
-    bottom: 50px;
-    animation: 4s computer infinite;
-}
-
-header > section#man > div#teclado {
-    width: 280px;
-    height: 220px;
-    background-image: url('../img/site/teclado.png');
-    left: 100px;
-    bottom: 120px;
-    animation: 1.5s teclado infinite;
-}
-
-header > section#man > div#fonte {
-    width: 220px;
-    height: 220px;
-    background-image: url('../img/site/fonte.png');
-    right: 0px;
-    bottom: 150px;
-    animation: 2s fonte infinite;
-}
-
-header > section#man > div#mouse {
-    width: 200px;
-    height: 200px;
-    background-image: url('../img/site/mouse.png');
-    right: 30px;
-    bottom: 0px;
-    animation: 3s mouse infinite;
-}
-
-header > section#man > #sombraProdutos {
-    width: 100%;
-    height: 20px;
-    position: absolute;
-    bottom: 0px;
-    right: 0px;
-}
-
-@keyframes mouse {
-    0% {
-        bottom: 0px;
-    }
-
-    50% {
-        bottom: 15px;
-    }
-
-    100% {
-        bottom: -1px;
-    }
-}
-
-@keyframes fonte {
-    0% {
-        bottom: 150px;
-    }
-
-    50% {
-        bottom: 160px;
-    }
-
-    100% {
-        bottom: 149px;
-    }
-}
-
-@keyframes teclado {
-    0% {
-        bottom: 120px;
-    }
-
-    50% {
-        bottom: 125px;
-    }
-
-    100% {
-        bottom: 119px;
-    }
-}
-
-@keyframes computer {
-    0% {
-        bottom: 50px;
-    }
-
-    50% {
-        bottom: 70px;
-    }
-
-    100% {
-        bottom: 49px;
-    }
-}
-
-
-header > section#texto {
-    width: 450px;
-    color: var(--cor0);
-    margin: 100px 0px 0px 100px;
-    position: absolute;
-    top: 160px;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.658);
-}
-
-header > section#texto > h1 {
-    font-family: var(--font-titulo);
-    color: var(--cor1);
-    font-size: 40px;
-    margin-bottom: 30px;
-}
-
-header > section#texto > h1 > #nerds {
-    font-family: var(--font-nerds);
-    font-size: 50px;
-}
-
-header > section#texto > a > button {
-    padding: 10px;
-    border-radius: 12px;
-    background-color: var(--cor2);
-    color: var(--cor0);
-    font-family: var(--font-texto);
-    font-weight: 100;
-    border: 1px solid var(--cor1);
-    margin-top: 56px;
-    margin-bottom: 33px;
-}
-
-section#separacao {
-    width: 100%;
-    height: 150px;
-    background-image: url('../img/site/NFT\ Landing.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-
-section#produtos {
-    width: 100%;
-    height: auto;
-    padding: 20px;
-    background-image: url('../img/site/fundoProdutos.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-
 /* Categorias */
 
-section#produtos > article#categorias {
-    max-width: 1150px;
+section#categorias {
+    max-width: 1040px;
     width: auto;
     height: 364px;
     overflow: hidden;
-    margin: auto;
+    margin: 100px auto;
+    padding-left: 20px;
     position: relative;
 }
 
-section#produtos > article#categorias > h1 {
-    margin-left: 0px;
+h1 {
+    font-family: var(--font-titulo);
+    font-size: 30px;
+    color: var(--cor1);
+    margin-bottom: 20px;
 }
 
-section#produtos > article#categorias > div#localCategorias {
+section#categorias > div#localCategorias {
     width: 1100px;
     height: 308px;
     margin: auto;
@@ -339,9 +145,9 @@ section#produtos > article#categorias > div#localCategorias {
     margin-left: 0px;
 }
 
-section#produtos > article#categorias > div > a {
-    width: 150px;
-    height: 150px;
+section#categorias > div > a {
+    width: 140px;
+    height: 140px;
     background-color: transparent;
     border: 1px solid var(--cor5);
     display: inline-block;
@@ -350,14 +156,14 @@ section#produtos > article#categorias > div > a {
     position: relative;
 }
 
-section#produtos > article#categorias > div > a > img {
+section#categorias > div > a > img {
     width: 70px;
     height: auto;
     margin: 20px auto;
     display: block;
 }
 
-section#produtos > article#categorias > div > a > p {
+section#categorias > div > a > p {
     width: auto;
     margin-left: 50%;
     transform: translate(-50%);
@@ -365,7 +171,7 @@ section#produtos > article#categorias > div > a > p {
     bottom: 10px;
 }
 
-section#produtos > article#categorias > div > a:hover > img, a:hover > p {
+section#categorias > div > a:hover > img, a:hover > p {
     transition: 100ms transform linear;
     transform: scale(1.3);
     font-size: 17px;
@@ -384,83 +190,70 @@ div.seta {
     cursor: pointer;
 }
 
-section#produtos > article#categorias > div.seta > p {
+section#categorias > div.seta > p {
     margin-top: 8px;
 }
 
-section#produtos > article#categorias > div#seta2 {
-    right: 30px;
+section#categorias > div#seta2 {
+    right: 10px;
 }
 
-/* Local ofertas */
-section#produtos > article#localOfertas {
-    overflow: hidden;
+/* Fim Categoria */
+
+h1#classProduto {
+    max-width: 1040px;
+    margin: 40px auto 0px auto;
+    padding-left: 20px;
+}
+
+/*! Main  */
+
+main {
+    width: 100%;
+    max-width: 1040px;
     margin: auto;
+    height: auto;
+    padding: 10px 20px 50px 0px;
+    display: flex;
+    flex-wrap: wrap;
 }
 
-section#produtos > article#localOfertas#localOfertas {
-    max-width: 1150px;
-    width: auto;
-    height: 500px;
-    overflow-y: hidden;
-    overflow-x: visible;
-    margin: auto;
-    margin-bottom: 50px;
-}
-
-section#produtos > article#localOfertas > div#ofertas {
-    width: 1150px;
-    margin: 20px auto;
-}
-
-h1#h1Ofertas {
-    font-family: var(--font-titulo);
-    font-size: 30px;
-    color: var(--cor1);
-    margin-top: 20px;
-    margin-left: 15px;
-}
-
-section#produtos > article#localOfertas > div > div.p {
+main > div.containerProduto {
     width: 260px;
     height: 450px;
-    color: var(--cor0);
     text-align: center;
-    display: inline-block;
-    margin-bottom: 20px;
 }
 
-section#produtos > article#localOfertas > div > div.p > a.localImg {
+main > div.containerProduto > div.localImgProduto {
     width: 87%;
     height: 220px;
     border-radius: 20px;
     background-color: var(--cor0);
-    overflow: hidden;
     border: 2px solid var(--cor1);
-    box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.822) inset;
+    box-shadow: 1px 2px 10px rgb(0 0 0 / 82%) inset;
     display: block;
     position: relative;
     margin: 20px auto;
+    overflow: hidden;
 }
 
-section#produtos > article#localOfertas > div > div.p > a.localImg > div.img {
-    width: 90%;
-    height: 90%;
-    background-size: contain;
-    background-position: center center;
-    background-repeat: no-repeat;
-    margin: 5% auto;
-    border-radius: 20px;
-}
-
-section#produtos > article#localOfertas > div > div.p > a.localImg:hover {
+main > div.containerProduto > div.localImgProduto:hover {
     transition: 300ms transform linear;
     transform: scale(1.1);
     border-radius: 20px;
     border: 2px solid var(--cor1);
 }
 
-section#produtos > article#localOfertas > div > div.p > strong {
+main > div.containerProduto > div.localImgProduto > img.imgProduto {
+    width: 80%;
+    height: auto;
+    margin: auto;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%); 
+}
+
+main > div.containerProduto > strong {
     width: 90%;
     color: var(--cor1);
     margin-top: 18px;
@@ -471,13 +264,15 @@ section#produtos > article#localOfertas > div > div.p > strong {
     margin: auto;
 }
 
-section#produtos > article#localOfertas > div > div.p > p {
+main > div.containerProduto > p {
     width: 90%;
     font-family: var(--font-texto);
     font-size: 15px;
-    margin: auto;
+    margin: 10px auto;
+    color: var(--cor0);
 }
 
+/*! Section Msg */
 section#msgLogin {
     width: 98%;
     height: auto;

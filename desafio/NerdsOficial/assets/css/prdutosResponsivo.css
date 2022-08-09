@@ -3,7 +3,7 @@
         max-width: 800px;
     }
 
-    section#produtos > article#categorias > div.seta {
+    div.seta {
         display: block;
     }
 }
