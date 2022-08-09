@@ -259,6 +259,45 @@ for(let c = 0; c <= maxC; c++) {
             p.innerText = 'Teclado USB'
 
         } 
+    } else if(produtoPesquisado2 == 'Mouse') {
+        maxC = 21
+
+        if(c == 0) {
+            imgProduto.src = `assets/img/CatalogoNerd/Teclado gamer de 1 mão/90.png`
+            strong.innerHTML = 'Teclado de 1 mao'
+            p.innerText = 'Teclado Gamer de 1 mao RGB'
+
+        } else if(c == 1) {
+            imgProduto.src = `assets/img/CatalogoNerd/Teclado Kumara RGB/teclado-redragon-kumara-rgb-k552-02.png`
+            strong.innerHTML = 'Teclado Mecanico Kumara'
+            p.innerText = 'Teclado Mecanico Kumara Marca: Redragon Iluminação RGB'
+
+        } 
+
+    } else if(produtoPesquisado2 == 'Gabinetes') {
+
+    } else if(produtoPesquisado2 == 'Headset') {
+
+    } else if(produtoPesquisado2 == 'Controles') {
+
+    } else if(produtoPesquisado2 == 'Fontes') {
+
+    } else if(produtoPesquisado2 == 'Mouse Pad') {
+
+    } else if(produtoPesquisado2 == 'Processadores') {
+
+    } else if(produtoPesquisado2 == 'Memoria') {
+
+    } else if(produtoPesquisado2 == 'SSD') {
+
+    } else {
+        document.getElementById('classProduto').innerText = 'Algo deu Errado :('
+
+        document.getElementById('classProduto').style.marginTop = '100px'
+        document.getElementById('categorias').style.display = 'none'
+        document.querySelector('main').style.display = 'none'
+        document.querySelector('footer').style.position = 'absolute'
+        document.querySelector('footer').style.bottom = '0px'
     }
 
     //! AppendChild

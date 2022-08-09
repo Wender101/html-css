@@ -31,13 +31,13 @@ function tempoRestante() {
         }
 
         if(min < 10) {
-            localMin.innerHTML = `:0 ${min} <p>Minutos</p>`
+            localMin.innerHTML = `:0${min} <p>Minutos</p>`
         } else {
             localMin.innerHTML = `:${min} <p>Minutos</p>`
         }
 
         if(seg < 10) {
-            localSeg.innerHTML = `:0  ${seg} <p>Segundos</p>`
+            localSeg.innerHTML = `:0${seg} <p>Segundos</p>`
         } else {
             localSeg.innerHTML = `:${seg} <p>Segundos</p>`
         }

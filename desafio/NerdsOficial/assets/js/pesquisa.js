@@ -41,11 +41,11 @@ for(let c = 1; c <= 13; c++) {
         a.href = `pagProduto.html`
         
     } else if(c == 10) {
-        p.innerText =  'Processador'
+        p.innerText =  'Processadores'
         a.href = `pagProduto.html`
         
     } else if(c == 11) {
-        p.innerText =  'Memoria Ram'
+        p.innerText =  'Memoria'
         a.href = `pagProduto.html`
         
     } else if(c == 12) {

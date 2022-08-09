@@ -61,9 +61,7 @@
     }
 
     section#time > article > div {
-        max-width: 450px;
-        margin: auto;
-        height: 100px;
+        max-width: 400px;
     }
 
     section#time > article > div.lTime {
@@ -92,13 +90,7 @@
 
 @media screen and (max-width: 570px) {
     section#time > article > div {
-        max-width: 380px;
-        margin: auto;
-        height: 100px;
-    }
-
-    section#time > article > div.lTime {
-        max-width: 400px;
+        max-width: 350px;
     }
 
     section#time > article > div > span {
@@ -198,7 +190,7 @@
     }
 
     section#time > article > div {
-        max-width: 340px;
+        max-width: 307px;
         margin: auto;
         height: 100px;
     }
@@ -240,7 +232,7 @@
     }
 
     section#time > article > div {
-        max-width: 300px;
+        max-width: 270px;
         margin: auto;
         height: 100px;
     }
@@ -266,7 +258,7 @@
 @media screen and (max-width: 340px) {
 
     section#time > article > div.lTime {
-        max-width: 290px;
+        width: 100px;
     }
 
     section#time > article > div > span {
