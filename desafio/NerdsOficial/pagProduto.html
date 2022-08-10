@@ -11,6 +11,21 @@
     <title>Pesquisa</title>
 </head>
 <body>
+    <div id="sombra" onclick="fecharMenu()"></div>
+    <div id="localBtnMenu"><button id="menu" onclick="abrirMenu()">Menu</button></div>
+    <nav>
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <hr>
+            <li><a href="sobre.html">Sobre</a></li>
+            <hr>
+            <li><a href="produtos.html">Produtos</a></li>
+            <hr>
+            <button onclick="login()">Login</button>
+            <hr>
+        </ul>
+    </nav>
+
     <section id="categorias">
         <h1>Categorias</h1>
         <div id="localCategorias">
@@ -25,6 +40,11 @@
     <h1 id="classProduto">a</h1>
     <main>
     </main>    
+
+    <section id="msgLogin">
+        <p>Ops! Ainda estamos trabalhando nisso...</p>
+        <button onclick="fecharMsg()">Fechar</button>
+    </section>
 
     <footer>
         <div id="p1">
@@ -44,27 +64,6 @@
 
         <div id="ps5"></div>
     </footer>
-
-    <div id="sombra" onclick="fecharMenu()"></div>
-    <nav>
-        <ul>
-            <li><a href="home.html">Home</a></li>
-            <hr>
-            <li><a href="sobre.html">Sobre</a></li>
-            <hr>
-            <li><a href="produtos.html">Produtos</a></li>
-            <hr>
-            <button onclick="login()">Login</button>
-            <hr>
-        </ul>
-    </nav>
-
-    <button id="menu" onclick="abrirMenu()">Menu</button>
-
-    <section id="msgLogin">
-        <p>Ops! Ainda estamos trabalhando nisso...</p>
-        <button onclick="fecharMsg()">Fechar</button>
-    </section>
 
     <script src="assets/js/funcoesBasicas.js"></script>
     <script src="assets/js/pagProdutos.js"></script>

@@ -10,6 +10,19 @@
     <title>Sobre</title>
 </head>
 <body>
+    <div id="sombra" onclick="fecharMenu()"></div>
+    <div id="localBtnMenu"><button id="menu" onclick="abrirMenu()">Menu</button></div>
+    <nav>
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <hr>
+            <li><a href="produtos.html">Produtos</a></li>
+            <hr>
+            <button onclick="login()">Login</button>
+            <hr>
+        </ul>
+    </nav>
+
     <header>
         <div id="girl"></div>
         <div id="logo"></div>
@@ -37,6 +50,11 @@
         <section id="separacao"></section>
     </main>
 
+    <section id="msgLogin">
+        <p>Ops! Ainda estamos trabalhando nisso...</p>
+        <button onclick="fecharMsg()">Fechar</button>
+    </section>
+
     <footer>
         <div id="p1">
             <p>Duvidas?</p>
@@ -55,25 +73,6 @@
 
         <div id="ps5"></div>
     </footer>
-
-    <div id="sombra" onclick="fecharMenu()"></div>
-    <nav>
-        <ul>
-            <li><a href="home.html">Home</a></li>
-            <hr>
-            <li><a href="produtos.html">Produtos</a></li>
-            <hr>
-            <button onclick="login()">Login</button>
-            <hr>
-        </ul>
-    </nav>
-    
-    <button id="menu" onclick="abrirMenu()">Menu</button>
-
-    <section id="msgLogin">
-        <p>Ops! Ainda estamos trabalhando nisso...</p>
-        <button onclick="fecharMsg()">Fechar</button>
-    </section>
 
     <script src="assets/js/funcoesBasicas.js"></script>
 </body>

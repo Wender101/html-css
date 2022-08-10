@@ -43,6 +43,10 @@ body {
     min-height: 100vh;
     font-family: var(--font-texto);
     background-image: linear-gradient(var(--cor4), var(--cor6));
+    background-image: url(../img/site/NFT1\ 3.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 button, li, a {
@@ -68,6 +72,7 @@ nav {
     top: 0px;
     left: 0px;
     background-color: transparent;
+    z-index: 2;
 }
 
 nav#semFundo {
@@ -80,6 +85,7 @@ nav#comFundo {
 
 div#sombra {
     display: none;
+    z-index: 1;
 }
 
 nav > ul {
@@ -198,10 +204,11 @@ div.seta {
     background-color: var(--cor7);
     color: var(--cor0);
     position: absolute;
-    top: 180px;
+    top: 182px;
     text-align: center;
     display: none;
     cursor: pointer;
+    margin-left: 15px;
 }
 
 section#categorias > div.seta > p {
@@ -209,7 +216,7 @@ section#categorias > div.seta > p {
 }
 
 section#categorias > div#seta2 {
-    right: 10px;
+    right: 15px;
 }
 
 /* Fim Categoria */
@@ -298,6 +305,7 @@ section#msgLogin {
     background-color: var(--cor8);
     color: var(--cor0);
     display: none;
+    z-index: 3;
 }
 
 section#msgLogin > button {

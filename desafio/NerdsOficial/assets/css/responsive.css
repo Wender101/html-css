@@ -99,18 +99,38 @@
 }
 
 @media screen and (max-width: 480px) {
-    #menu {
+    div#localBtnMenu {
         display: block;
+        width: 100%;
+        height: 30px;
+        background-color: var(--cor8);
+        position: fixed;
+        top: 0px;
+        z-index: 2;
+        padding: 10px;
+    }
+
+    #menu {
         background-color: var(--cor6);
         font-family: var(--font-titulo);
         color: var(--cor1);
         border: 1px solid var(--cor1);
-        padding: 7px;
+        padding: 6px;
         border-radius: 5px;
-        position: fixed;
-        top: 10px;
-        left: 10px;
     }
+
+    nav > ul > button,  nav > ul > button:hover {
+        padding: 0px;
+        background-image: none;
+        background-color: transparent;
+        border: none;
+        margin: 15px 0px 15px 10px;
+    }
+
+    nav > ul > button:hover {
+        font-size: 18px;
+    }
+
 
     nav, nav#semFundo, nav#comFundo {
         background-color: var(--cor4);

@@ -68,6 +68,7 @@ nav {
     top: 0px;
     left: 0px;
     background-color: transparent;
+    z-index: 2;
 }
 
 nav#semFundo {
@@ -80,6 +81,7 @@ nav#comFundo {
 
 div#sombra {
     display: none;
+    z-index: 1;
 }
 
 nav > ul {
@@ -176,7 +178,7 @@ header > section > h1 > #nerds {
 
 /* inicio da estilização do btn */
 
-#box {
+/* #box {
     padding: 10px 20px;
     border-radius: 5px;
     background-color: var(--cor1);
@@ -185,9 +187,9 @@ header > section > h1 > #nerds {
     font-weight: 100;
     border: none;
     margin: 20px 0px;
-}
+} */
 
-/* #box, #box:hover {
+#box, #box:hover {
     position: relative;
     width: 110px;
     height: 40px;
@@ -200,9 +202,9 @@ header > section > h1 > #nerds {
     margin-top: 56px;
     margin-bottom: 33px;
     border: none;
-} */
+}
 
-/* #box::before {
+#box::before {
     content:  '';
     position: absolute;
     width: 150px;
@@ -216,7 +218,7 @@ header > section > h1 > #nerds {
     position: absolute;
     inset: 2px;
     background-color: #0e1538;
-} */
+}
 
 @keyframes animate {
     0% {
@@ -232,7 +234,7 @@ header > section > h1 > #nerds {
     position: relative;
     color: #fff;
     font-size: 15px;
-    z-index: 10;
+    z-index: 1;
     font-weight: 100;
 }
 
@@ -380,6 +382,7 @@ section#msgLogin {
     background-color: var(--cor8);
     color: var(--cor0);
     display: none;
+    z-index: 3;
 }
 
 section#msgLogin > button {

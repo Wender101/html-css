@@ -76,6 +76,7 @@ nav {
     top: 0px;
     left: 0px;
     background-color: transparent;
+    z-index: 2;
 }
 
 nav#semFundo {
@@ -88,6 +89,7 @@ nav#comFundo {
 
 div#sombra {
     display: none;
+    z-index: 1;
 }
 
 nav > ul {
@@ -503,6 +505,7 @@ section#msgLogin {
     background-color: var(--cor8);
     color: var(--cor0);
     display: none;
+    z-index: 3;
 }
 
 section#msgLogin > button {

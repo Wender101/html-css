@@ -73,23 +73,21 @@ for(let c = 1; c <= 13; c++) {
     })
 }
 
-let distancia = 0
+let press = false
 const localCategorias = document.getElementById('localCategorias')
 
 function setaDireita() {
-    console.log(distancia);
-    if(distancia < 100) {
-        distancia += 30
+    if(press == false) {
         localCategorias.style.transition = '300ms margin-left linear'
-        localCategorias.style.marginLeft = `-${distancia}%`
+        localCategorias.style.marginLeft = `-100%`
+        press = true
     }
 }
 
 function setaEsquerda() {
-    console.log(distancia);
-    if(distancia > 0) {
-        distancia -= 30
+    if(press == true) {
         localCategorias.style.transition = '300ms margin-left linear'
-        localCategorias.style.marginLeft = `-${distancia}%`
+        localCategorias.style.marginLeft = `0px`
+        press = false
     }
 }
