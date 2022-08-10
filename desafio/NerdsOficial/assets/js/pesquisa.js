@@ -53,8 +53,9 @@ for(let c = 1; c <= 13; c++) {
         a.href = `pagProduto.html`
         
     } else {
-        p.innerText =  'Fans'
+        p.innerText =  'Coolers'
         a.href = `pagProduto.html`
+        img.className = 'Coolers'
     }
 
     img.src = `assets/img/icons/${c}.png`

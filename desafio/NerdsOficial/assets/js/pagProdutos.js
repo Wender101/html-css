@@ -260,35 +260,469 @@ for(let c = 0; c <= maxC; c++) {
 
         } 
     } else if(produtoPesquisado2 == 'Mouse') {
-        maxC = 21
+        maxC = 23
 
         if(c == 0) {
-            imgProduto.src = `assets/img/CatalogoNerd/Teclado gamer de 1 mão/90.png`
-            strong.innerHTML = 'Teclado de 1 mao'
-            p.innerText = 'Teclado Gamer de 1 mao RGB'
+            imgProduto.src = `assets/img/CatalogoNerd/Mouse gamer 6939/76.png`
+            strong.innerHTML = 'Mouse Gamer'
+            p.innerText = 'Mouse Gamer'
 
         } else if(c == 1) {
-            imgProduto.src = `assets/img/CatalogoNerd/Teclado Kumara RGB/teclado-redragon-kumara-rgb-k552-02.png`
-            strong.innerHTML = 'Teclado Mecanico Kumara'
-            p.innerText = 'Teclado Mecanico Kumara Marca: Redragon Iluminação RGB'
+            imgProduto.src = `assets/img/CatalogoNerd/Mouse gamer A515/84.png`
+            strong.innerHTML = 'Mouse gamer'
+            p.innerText = 'Mouse gamer'
+
+        } else if(c == 2) {
+            imgProduto.src = `assets/img/CatalogoNerd/Mouse gamer Infernal/4359197575_1.jpg`
+            strong.innerHTML = 'Mouse Infernal'
+            p.innerText = 'Mouse Gamer Infernal Marca: Redragon Diversos efeitos e cores 8 Botões 16.000 DPI Cabo: 1.8m'
+
+        } else if(c == 3) {
+            imgProduto.src = `assets/img/CatalogoNerd/Mouse Gamer Invader/mouse-gamer-redragon-invader-m719-rgb-7-botoes-10000dpi-rgb-m719-rgb_1578656228_g.jpg`
+            strong.innerHTML = 'Mouse Invader'
+            p.innerText = 'Mouse Gamer Invader Marca: Redragon RGB Ajustavel - 7 Diferentes modos de iluminação 7 Botões DPI: 10.000'
+            
+        } else if(c == 4) {
+            imgProduto.src = `assets/img/CatalogoNerd/Mouse gamer KPV19/56000699_4.jpg`
+            strong.innerHTML = 'Mouse Gamer'
+            p.innerText = 'Mouse Gamer'
+            
+        } else if(c == 5) {
+            imgProduto.src = `assets/img/CatalogoNerd/MOuse gamer Lehmox GTM3/eb245fe2f5618a3644f0919226d57822.jpg`
+            strong.innerHTML = 'Mouse Lehmox'
+            p.innerText = 'Mouse Gamer Lehmox'
+            
+        } else if(c == 6) {
+            imgProduto.src = `assets/img/CatalogoNerd/Mouse gamer Lehmox Ley 206/3.png`
+            strong.innerHTML = 'Mouse Lehmox Ley'
+            p.innerText = 'Mouse Gamer Lehmox Ley'
+            
+        } else if(c == 7) {
+            imgProduto.src = `assets/img/CatalogoNerd/Mouse gamer Predator/704124e039429de6c7be64bbb09b91cf.jpg`
+            strong.innerHTML = 'Mouse Predator'
+            p.innerText = 'Mouse Gamer Predator Marca: Redragon Diversos efeitos e cores 9 Botões DPI: 8000 Cabo: 1.8m'
+            
+        } else if(c == 8) {
+            imgProduto.src = `assets/img/CatalogoNerd/Mouse gamer sniper/mouse-gamer-redragon-sniper-m801-rgb-12400-dpi-9-botoes-programaveis-black_95285.png`
+            strong.innerHTML = 'Mouse Sniper'
+            p.innerText = 'Mouse Gamer Sniper Marca: Redragon Diversos efeitos e cores 9 Botões DPI: 500/1000/2000/4000/6200/12400 Cabo: 1.8m'
+            
+        } else if(c == 9) {
+            imgProduto.src = `assets/img/CatalogoNerd/Mouse gamer soldado/20210920_175153.jpg`
+            strong.innerHTML = 'Marca: Infokit'
+            p.innerText = 'Marca: Infokit Modelo: X Soldado - GM 700 Resolução: 3000 DPI Interface: 2.0 USB Cabo: 1,5m revestido em tecido. Botões: 7 Luz de LED: 7 cores com transição.'
+            
+        } else if(c == 10) {
+            imgProduto.src = `assets/img/CatalogoNerd/Mouse gamer storm/86.png`
+            strong.innerHTML = 'Mouse Storm Elite'
+            p.innerText = 'Mouse Gamer Storm Elite Marca: Redragon'
+            
+        } else if(c == 11) {
+            imgProduto.src = `assets/img/CatalogoNerd/mouse gamer V40/mouse_gamer_knup_kp_v40_d_nq_np_968120_mlb27842225947_072018_f.jpg`
+            strong.innerHTML = 'Mouse Branco'
+            p.innerText = 'Mouse Gamer Branco'
+            
+        } else if(c == 12) {
+            imgProduto.src = `assets/img/CatalogoNerd/Mouse gamer Weibo WB1670/mouse_weibo_box1-8711514ea284ef55ac16139622824399-640-0.jpg`
+            strong.innerHTML = 'Mouse Gamer'
+            p.innerText = 'Especificações: Modelo: WB 1670 USB 3.0/2.0/1.1 Suporte de DPI : 800 / 1600 / 2400 / 3200 Sensor de LED Iluminação RGB 6 Botões'
+            
+        } else if(c == 13) {
+            imgProduto.src = `assets/img/CatalogoNerd/Mouse Weibo/IMG_20201106_115935.jpg`
+            strong.innerHTML = 'Mouse USB'
+            p.innerText = 'Mouse USB'
+            
+        } else if(c == 14) {
+            imgProduto.src = `assets/img/CatalogoNerd/Mouse gamer X8/mouse_gamer_usb_x8_com_cabo_reforcado_3474_1_20201116115214.jpg`
+            strong.innerHTML = 'Mouse X8'
+            p.innerText = 'Mouse gamer X8/mouse_gamer_usb_x8_com_cabo_reforcado_3474_1_20201116115214.jpg'
+            
+        } else if(c == 15) {
+            imgProduto.src = `assets/img/CatalogoNerd/Mouse One Power/D_NQ_NP_744185-MLB46752458699_072021-W.jpg`
+            strong.innerHTML = 'Mouse Invader'
+            p.innerText = 'Mouse Gamer Invader Marca: One Power Iluminação RGB 7 Botões DPI: 3.200'
+            
+        } else if(c == 16) {
+            imgProduto.src = `assets/img/CatalogoNerd/Mouse Orion/mouse-gamer-kwg-orion-p1-12000-dpi-7-botoes-black_109941.png`
+            strong.innerHTML = 'Mouse Orion'
+            p.innerText = 'Mouse Gamer Orion RGB 7 Botões 12.000 DPI Cabo: 1.5m'
+            
+        } else if(c == 17) {
+            imgProduto.src = `assets/img/CatalogoNerd/Mouse sem fio 40 reais/13.png`
+            strong.innerHTML = 'Mouse sem fio'
+            p.innerText = 'Mouse sem fio'
+            
+        } else if(c == 18) {
+            imgProduto.src = `assets/img/CatalogoNerd/Mouse sem fio 40 reais/14.png`
+            strong.innerHTML = 'Mouse sem fio'
+            p.innerText = 'Mouse sem fio'
+            
+        } else if(c == 19) {
+            imgProduto.src = `assets/img/CatalogoNerd/Mouse sem fio 50 reais/8.png`
+            strong.innerHTML = 'Mouse sem fio'
+            p.innerText = 'Mouse sem fio'
+            
+        } else if(c == 20) {
+            imgProduto.src = `assets/img/CatalogoNerd/Mouse sem fio 50 reais/2.png`
+            strong.innerHTML = 'Mouse sem fio'
+            p.innerText = 'Mouse sem fio'
+            
+        } else if(c == 21) {
+            imgProduto.src = `assets/img/CatalogoNerd/Mouse sem fio 60 reais/10.png`
+            strong.innerHTML = 'Mouse USB'
+            p.innerText = 'Mouse USB'
+            
+        } else if(c == 22) {
+            imgProduto.src = `assets/img/CatalogoNerd/Mouse sem fio Corporal/Mouse-Gamer-Sem-Fio-T-dagger-Corporal-2400-Dpi-Preto-T-tgm100_1643290638_gg.jpg`
+            strong.innerHTML = 'Mouse sem fio Marca'
+            p.innerText = 'Mouse Gamer sem fio Marca: T Dagger 2400 DPI Preto'
+            
+        } else if(c == 23) {
+            imgProduto.src = `assets/img/CatalogoNerd/Mouse USB simples/df06e578-f767-4ad8-b97c-aba9269c0d7a.jpg`
+            strong.innerHTML = 'Mouse USB'
+            p.innerText = 'Mouse USB' 
+        }
+
+    } else if(produtoPesquisado2 == 'Gabinetes') {
+        maxC = 5
+
+        if(c == 0) {
+            imgProduto.src = `assets/img/CatalogoNerd/Gabihnete Athena M1/athena-m14.jpg`
+            strong.innerHTML = 'Gabinete Athena'
+            p.innerText = 'Gabinete Athena Marca: Gamdias Não incluso as fans'
+
+        } else if(c == 1) {
+            imgProduto.src = `assets/img/CatalogoNerd/Gabinete Gamer Mars M1/0d6c8a91176dccbe6bc00cb2740ed63f.jpg`
+            strong.innerHTML = 'Gabinete Mars M1'
+            p.innerText = 'Gabinete Mars M1 Lateral em vidro temperado RGB Frontal Marca: Gamdias Não incluso as fans'
+
+        } else if(c == 2) {
+            imgProduto.src = `assets/img/CatalogoNerd/gabinete gamer redragon wheel jack/8446cb5b45a7663da2da5d04f3f79882f219e5f0.jpg`
+            strong.innerHTML = 'Gabinete WeelJack'
+            p.innerText = 'Gabinete WeelJack Lateral em vidro temperado Marca: Redragon Não incluso as fans'
+
+        } else if(c == 3) {
+            imgProduto.src = `assets/img/CatalogoNerd/Gabinete Quasar/gabinete-gamer-galax-quasar-rgb-mid-tower-vidro-temperado-s-fan-black-s-fonte-gx600_98206.jpg`
+            strong.innerHTML = 'Gabinete Quasar'
+            p.innerText = 'Gabinete Quasar Lateral em vidro temperado Iluminação RGB frontal'
+
+        } else if(c == 4) {
+            imgProduto.src = `assets/img/CatalogoNerd/Gabinete T dagger rosa/gabinete-gamer-t-dagger-p03p-mid-tower-rgb-pink-atx-sem-fonte-sem-fan-tgc-p03p_114993.jpg`
+            strong.innerHTML = 'Gabinete Rosa'
+            p.innerText = 'Gabinete Rosa Lateral em acrilico Marca: T Dagger RGB frontal'
+
+        } else if(c == 5) {
+            imgProduto.src = `assets/img/CatalogoNerd/Gabinete Talos M1/Gabinete-Gamer-Gamdias-Talos-M1-Lite-Lateral-E-Frontal-Em-Vidro-Temperado-Preto_1628860998_g.jpg`
+            strong.innerHTML = 'Gabinete Talos M1'
+            p.innerText = 'Gabinete Talos M1 Lateral em vidro temperado'
 
         } 
 
-    } else if(produtoPesquisado2 == 'Gabinetes') {
-
     } else if(produtoPesquisado2 == 'Headset') {
+        maxC = 11
+
+        if(c == 0) {
+            imgProduto.src = `assets/img/CatalogoNerd/Headset Hylas/MYJ-0177-006_zoom1.jpg`
+            strong.innerHTML = 'Headset Gamer Hylas'
+            p.innerText = 'Headset Gamer Hylas Marca: Redragon Iluminação RGB Alto Falantes de 50mm'
+
+        } else if(c == 1) {
+            imgProduto.src = `assets/img/CatalogoNerd/Headset Mckinley/headset-gamer-t-dagger-mckinley-drivers-40-mm-t-rgh101_1607438850_g.jpg`
+            strong.innerHTML = 'Headset Gamer'
+            p.innerText = 'Headset Gamer Marca: T Dagger Alto Falantes de 40mm Facil controle de botão de Mic Mute e ajuste de volume'
+
+        } else if(c == 2) {
+            imgProduto.src = `assets/img/CatalogoNerd/Headset Mento/headset-gamer-redragon-mento-35mm-usb-multiplas-plataformas-rgb-black-h270-rgb_135650.jpg`
+            strong.innerHTML = 'Headset Gamer'
+            p.innerText = 'Headset Gamer Mento Marca: Redragon Iluminação RGB Alto Falantes de 50mm'
+
+        } else if(c == 3) {
+            imgProduto.src = `assets/img/CatalogoNerd/Headset 0468/96595b2db93509af677286606da14977.jpg`
+            strong.innerHTML = 'Headset'
+            p.innerText = 'Headset com Led vermelho'
+
+        } else if(c == 4) {
+            imgProduto.src = `assets/img/CatalogoNerd/Headset 2207/D_NQ_NP_666343-MLB41163982371_032020-O.jpg`
+            strong.innerHTML = 'Headset Gamer'
+            p.innerText = 'Headset Gamer'
+
+        } else if(c == 5) {
+            imgProduto.src = `assets/img/CatalogoNerd/Headset ejg301/fone_de_ouvido_headset_gamer_h_maston_ej_g301_1331_3_8f7e9010c346a2c814c875720f0677d7.jpg`
+            strong.innerHTML = 'Headset Gamer'
+            p.innerText = 'Headset Gamer P3 Com RGB'
+
+        } else if(c == 6) {
+            imgProduto.src = `assets/img/CatalogoNerd/Headset Gamer Exbom/20210910_153732.jpg`
+            strong.innerHTML = 'Headset Gamer'
+            p.innerText = 'Headset Gamer com led Azul'
+
+        } else if(c == 7) {
+            imgProduto.src = `assets/img/CatalogoNerd/Headset Gamer Exbom/69.png`
+            strong.innerHTML = 'Headset Gamer'
+            p.innerText = 'Headset Gamer com led Vermelho'
+
+        } else if(c == 8) {
+            imgProduto.src = `assets/img/CatalogoNerd/Headset HP/61.png`
+            strong.innerHTML = 'Headset Gamer HP'
+            p.innerText = 'Headset Gamer HP RGB Audio 7.1 Super confortável'
+
+        } else if(c == 9) {
+            imgProduto.src = `assets/img/CatalogoNerd/Headset Lehmox P3/67.png`
+            strong.innerHTML = 'Headset'
+            p.innerText = 'Headset com entrada P3 Ideal para quem jogo no celular ou notebook'
+
+        } else if(c == 10) {
+            imgProduto.src = `assets/img/CatalogoNerd/Headset Philips/44.png`
+            strong.innerHTML = 'Headset Philips'
+            p.innerText = 'Headset Profissional Philips'
+
+        } else if(c == 11) {
+            imgProduto.src = `assets/img/CatalogoNerd/headset SEZ 480/70.png`
+            strong.innerHTML = 'Headset'
+            p.innerText = 'Headset de um lado só Para Ps4 e Xbox One'
+
+        } 
 
     } else if(produtoPesquisado2 == 'Controles') {
+        maxC = 8
+
+        if(c == 0) {
+            imgProduto.src = `assets/img/CatalogoNerd/controle nintendo original/5ff9372e55720dd94f2a7724928c8142.jpg`
+            strong.innerHTML = 'Controle nintendo'
+            p.innerText = 'Controle nintendo'
+
+        } else if(c == 1) {
+            imgProduto.src = `assets/img/CatalogoNerd/Controle Ps2/51Dff1flbLL._AC_SX679_.jpg`
+            strong.innerHTML = 'Controle PS2'
+            p.innerText = 'Controle PS2 padrão para aparelho de video game PlayStation 2 no consagrado formato ergonomico'
+
+        } else if(c == 2) {
+            imgProduto.src = `assets/img/CatalogoNerd/Controle Ps3/2906190795_1GG.jpg`
+            strong.innerHTML = 'Controle PS3'
+            p.innerText = 'Controle PS3 padrão para aparelho de video game PlayStation 3 no consagrado formato ergonomico'
+
+        } else if(c == 3) {
+            imgProduto.src = `assets/img/CatalogoNerd/Controle Xbox sem fio/235132374_1GG.jpg`
+            strong.innerHTML = 'Controle Xbox'
+            p.innerText = 'Controle sem fio, possui iluminação de LED para identificação do jogador'
+
+        } else if(c == 4) {
+            imgProduto.src = `assets/img/CatalogoNerd/Game Handle/106809013_1GG.jpg`
+            strong.innerHTML = 'Suporte para celular'
+            p.innerText = 'Suporte para celular'
+
+        } else if(c == 5) {
+            imgProduto.src = `assets/img/CatalogoNerd/Game Pad 5 em 1/846111e4f2bb6b7df6bc081d4ae74dcf.jpg`
+            strong.innerHTML = 'Game Pad'
+            p.innerText = 'Game Pad 5 em 1 Com Gatilho e Analogicos'
+
+        } else if(c == 6) {
+            imgProduto.src = `assets/img/CatalogoNerd/Gatilho Redragon/gatilho-para-fps-mobile-redragon-android-ios-91563_1585772581_gg.jpg`
+            strong.innerHTML = 'Gatilho Redragon'
+            p.innerText = 'Gatilho Redragon'
+
+        } else if(c == 7) {
+            imgProduto.src = `assets/img/CatalogoNerd/Joystick Nintendo/61C7aHV7RUL._AC_SY450_.jpg`
+            strong.innerHTML = 'Joystick Nintendo'
+            p.innerText = 'Joystick Nintendo'
+
+        } else if(c == 8) {
+            imgProduto.src = `assets/img/CatalogoNerd/Joystick USB para PC/73.png`
+            strong.innerHTML = 'Joystick USb'
+            p.innerText = 'Joystick USb para computador'
+
+        }
 
     } else if(produtoPesquisado2 == 'Fontes') {
+        maxC = 7
+
+        if(c == 0) {
+            imgProduto.src = `assets/img/CatalogoNerd/Fonte 600w T dagger/inshot_20210611_193729949.jpg`
+            strong.innerHTML = 'Fonte 600w T dagger'
+            p.innerText = 'Fonte 600w T dagger'
+
+        } else if(c == 1) {
+            imgProduto.src = `assets/img/CatalogoNerd/Fonte 500w/e33b32708d.jpg`
+            strong.innerHTML = 'Fonte para computador 500w'
+            p.innerText = 'Fonte para computador 500w'
+
+        } else if(c == 2) {
+            imgProduto.src = `assets/img/CatalogoNerd/Fonte/fonte-12v_2.jpeg`
+            strong.innerHTML = 'Fonte Diversas'
+            p.innerText = 'Fonte Diversas 12v 2a 9v 1a 9v 2a 5v 2a'
+
+        } else if(c == 3) {
+            imgProduto.src = `assets/img/CatalogoNerd/fonte 200w/fonte_pc_kp_517_knup_200w_675_1_20190207165610.jpg`
+            strong.innerHTML = 'Fonte 200w'
+            p.innerText = 'Fonte para computador 200w'
+
+        } else if(c == 4) {
+            imgProduto.src = `assets/img/CatalogoNerd/Fonte para celular/Fonte Hmaston.png`
+            strong.innerHTML = 'Fonte para celular e tablet'
+            p.innerText = 'Fonte para celular e tablet'
+
+        } else if(c == 5) {
+            imgProduto.src = `assets/img/CatalogoNerd/Fonte para Notebook/41419RHBjLL._AC_.jpg`
+            strong.innerHTML = 'Fonte para Notebook'
+            p.innerText = 'Fonte para Notebook diversas marcas'
+
+        } else if(c == 6) {
+            imgProduto.src = `assets/img/CatalogoNerd/Fonte PSP/D_NQ_NP_658077-MLB46356974514_062021-W.jpg`
+            strong.innerHTML = 'Fonte para PSP'
+            p.innerText = 'Fonte para PSP'
+
+        } else if(c == 7) {
+            imgProduto.src = `assets/img/CatalogoNerd/Fonte Universal/902772b6f7151efb5435aa7c7db9cc9f.jpg`
+            strong.innerHTML = 'Fonte Universal'
+            p.innerText = 'Fonte Universal 120v 8 entradas'
+
+        } 
 
     } else if(produtoPesquisado2 == 'Mouse Pad') {
+        maxC = 13
+
+        if(c == 0) {
+            imgProduto.src = `assets/img/CatalogoNerd/Mouse Pad 18x22/59.png`
+            strong.innerHTML = 'Mouse Pad'
+            p.innerText = 'Mouse Pad Tamanho 18x22'
+
+        } else if(c == 1) {
+            imgProduto.src = `assets/img/CatalogoNerd/Mouse Pad 18x22/60.png`
+            strong.innerHTML = 'Mouse Pad'
+            p.innerText = 'Mouse Pad Tamanho 18x22'
+
+        } else if(c == 2) {
+            imgProduto.src = `assets/img/CatalogoNerd/Mouse Pad 21x26/20200603_140303_mouse03.jpg`
+            strong.innerHTML = 'Mouse Pad'
+            p.innerText = 'Mouse Pad Tamanho 21x26cm'
+
+        } else if(c == 3) {
+            imgProduto.src = `assets/img/CatalogoNerd/Mouse Pad 21x26/Mouse-Pad-Gamer-Knup-KP-S03-Estampa_3.jpg`
+            strong.innerHTML = 'Mouse Pad'
+            p.innerText = 'Mouse Pad Tamanho 21x26cm'
+
+        } else if(c == 4) {
+            imgProduto.src = `assets/img/CatalogoNerd/Mouse Pad 21x26/ArquivoExibir.jpg`
+            strong.innerHTML = 'Mouse Pad'
+            p.innerText = 'Mouse Pad Tamanho 21x26cm'
+
+        } else if(c == 5) {
+            imgProduto.src = `assets/img/CatalogoNerd/Mouse Pad 32x42/37.png`
+            strong.innerHTML = 'Mouse Pad'
+            p.innerText = 'Mouse Pad 32x42/37'
+            imgProduto.style.transform = 'rotate(-90deg)'
+            imgProduto.style.marginTop = '-80px'
+
+        } else if(c == 6) {
+            imgProduto.src = `assets/img/CatalogoNerd/Mouse Pad 32x42/40.png`
+            strong.innerHTML = 'Mouse Pad'
+            p.innerText = 'Mouse Pad 32x42/37'
+            imgProduto.style.transform = 'rotate(90deg)'
+            imgProduto.style.marginTop = '-80px'
+
+        } else if(c == 7) {
+            imgProduto.src = `assets/img/CatalogoNerd/Mouse Pad 52x35/35.png`
+            strong.innerHTML = 'Mouse Pad'
+            p.innerText = 'Mouse Pad Gamer Tamanho 52x35cm'
+            imgProduto.style.transform = 'rotate(-90deg)'
+            imgProduto.style.marginTop = '-80px'
+
+        } else if(c == 8) {
+            imgProduto.src = `assets/img/CatalogoNerd/Mouse pad 70x35/f2c3c30eb36311407321ec7266950457.jpg`
+            strong.innerHTML = 'Mouse Pad'
+            p.innerText = 'Mouse Pad Gamer Tamanho 70x35cm'
+
+        } else if(c == 9) {
+            imgProduto.src = `assets/img/CatalogoNerd/Mouse pad 70x35/D_NQ_NP_806928-MLB40927802052_022020-O.jpg`
+            strong.innerHTML = 'Mouse Pad'
+            p.innerText = 'Mouse Pad Gamer Tamanho 70x35cm'
+
+        } else if(c == 10) {
+            imgProduto.src = `assets/img/CatalogoNerd/Mouse pad 70x35/D_NQ_NP_866181-MLB32957775106_112019-O.jpg`
+            strong.innerHTML = 'Mouse Pad'
+            p.innerText = 'Mouse Pad Gamer Tamanho 70x35cm'
+
+        } else if(c == 11) {
+            imgProduto.src = `assets/img/CatalogoNerd/Mouse pad 70x35/0cc60fc3a44ca9cd8852bfb1286108da.jfif`
+            strong.innerHTML = 'Mouse Pad'
+            p.innerText = 'Mouse Pad Gamer Tamanho 70x35cm'
+
+        }  else if(c == 12) {
+            imgProduto.src = `assets/img/CatalogoNerd/Mouse PAd 80x30 RGB/20210901_160744.jpg`
+            strong.innerHTML = 'Mouse Pad Gamer'
+            p.innerText = 'Mouse Pad Gamer Tamanho 80x30cm RGB Conexão RGB'
+
+        } else if(c == 13) {
+            imgProduto.src = `assets/img/CatalogoNerd/Mouse PAd 80x30 RGB/images.jpg`
+            strong.innerHTML = 'Mouse Pad Gamer'
+            p.innerText = 'Mouse Pad Gamer Tamanho 80x30cm RGB Conexão RGB'
+
+        }
 
     } else if(produtoPesquisado2 == 'Processadores') {
 
+
     } else if(produtoPesquisado2 == 'Memoria') {
+        maxC = 2
+        if(c == 0) {
+            imgProduto.src = `assets/img/CatalogoNerd/Memoria/1322857189_1GG.jpg`
+            strong.innerHTML = 'Memoria ram'
+            p.innerText = 'Memoria ram'
+
+        } else if(c == 1) {
+            imgProduto.src = `assets/img/CatalogoNerd/Memoria/memoria-ram-2.jpg`
+            strong.innerHTML = 'Memoria ram'
+            p.innerText = 'Memoria ram'
+
+        } else if(c == 2) {
+            imgProduto.src = `assets/img/CatalogoNerd/Cartão de memoria/615toZfJObL._AC_SX425_.jpg`
+            strong.innerHTML = 'Cartão de memoria'
+            p.innerText = 'Cartão de memoria SanDisk'
+
+        }
 
     } else if(produtoPesquisado2 == 'SSD') {
+        maxC = 0
+        if(c == 0) {
+            imgProduto.src = `assets/img/CatalogoNerd/SSD/61FXsrHuILL._AC_SY450_.jpg`
+            strong.innerHTML = 'SSD Kingston'
+            p.innerText = '120GB - R$ 220,00 240GB - R$ 300,00'
+
+        }
+
+    } else if(produtoPesquisado2 == 'Coolers') {
+        maxC = 5
+        if(c == 0) {
+            imgProduto.src = `assets/img/CatalogoNerd/Cooler Led Hayom/4ef814fc7095c3e036877f0b886aae9d_tn.jpg`
+            strong.innerHTML = 'Cooler Hayom'
+            p.innerText = 'Cooler Led Hayom 120mm'
+
+        } else if(c == 1) {
+            imgProduto.src = `assets/img/CatalogoNerd/Cooler Led Hayom/fan_cooler_master_led_azul_hayom_fc1300_4217_1_13f95c76cf93a33c0ac0c2457b164f93.jpg`
+            strong.innerHTML = 'Cooler Hayom'
+            p.innerText = 'Cooler Led Hayom 120mm'
+
+        } else if(c == 2) {
+            imgProduto.src = `assets/img/CatalogoNerd/Cooler Led T-dagger/0123673_cooler-para-gabinete-t-dagger-t-tgf200-b-120-x-120-x-25mm-led-azul_600.png`
+            strong.innerHTML = 'Cooler Led T-dagger'
+            p.innerText = 'Cooler Led T-dagger 120mm'
+
+        } else if(c == 3) {
+            imgProduto.src = `assets/img/CatalogoNerd/Cooler para processador viti/cooler-para-processador-t-dagger-viti-90mm-intel-amd-t-gc9110_130404.png`
+            strong.innerHTML = 'Cooler para processador viti'
+            p.innerText = 'Cooler para processador viti'
+
+        } else if(c == 4) {
+            imgProduto.src = `assets/img/CatalogoNerd/Cooler Precessador Alta 9/D_NQ_NP_865410-MLB43717740986_102020-O.jpg`
+            strong.innerHTML = 'Cooler Precessador Alta 9'
+            p.innerText = 'Cooler Precessador Alta 9'
+
+        } else if(c == 5) {
+            imgProduto.src = `assets/img/CatalogoNerd/Water Cooler/water-cooler-gamdias-chione-e2-120-lite-controlador-argb-120mm-intel-amd_104384.jpg`
+            strong.innerHTML = 'Water Cooler Iluminação RGB'
+            p.innerText = 'Water Cooler Iluminação RGB'
+
+        } 
 
     } else {
         document.getElementById('classProduto').innerText = 'Algo deu Errado :('
@@ -306,10 +740,11 @@ for(let c = 0; c <= maxC; c++) {
     containerProduto.appendChild(strong)
     containerProduto.appendChild(p)
     main.appendChild(containerProduto)
+
 }
 
 //! Vai mudar a img dos produtos ao passar o mause em cima deles
-for(let c = 0; c < 100; c++) {
+for(let c = 0; c < maxC; c++) {
     const imgProduto = document.getElementsByClassName('imgProduto')[c]
     imgProduto.id = c
     imgProduto.addEventListener('mouseenter', (e) => {

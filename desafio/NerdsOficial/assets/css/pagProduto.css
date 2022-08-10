@@ -163,6 +163,20 @@ section#categorias > div > a > img {
     display: block;
 }
 
+section#categorias > div > a > img.Coolers:hover {
+    animation: 500ms fans infinite linear;
+}
+
+@keyframes fans {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(172deg);
+    }
+}
+
 section#categorias > div > a > p {
     width: auto;
     margin-left: 50%;
@@ -245,7 +259,7 @@ main > div.containerProduto > div.localImgProduto:hover {
 }
 
 main > div.containerProduto > div.localImgProduto > img.imgProduto {
-    width: 80%;
+    width: 90%;
     height: auto;
     margin: auto;
     position: relative;
