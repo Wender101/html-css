@@ -240,6 +240,41 @@ header > section > h1 > #nerds {
 
 /* fim da estilização do btn */
 
+section#carregando {
+    width: 100%;
+    min-height: 100vh;
+    position: fixed;
+    top: 0px;
+    background-color: var(--cor4);
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+section#carregando > h1 {
+    color: var(--cor1);
+    font-size: 30px;
+    font-family: var(--font-texto);
+}
+
+section#carregando > div#c-loader2 {
+    width: 50px;
+    height: 50px;
+    animation: 1s is-rotating infinite;
+    border: 5px solid var(--cor1);
+    border-radius: 50%;
+    border-top-color: transparent;
+    position: absolute;
+    margin-top: 150px;
+    margin-left: -40px;
+}
+
+@keyframes is-rotating {
+    to {
+        transform: rotate(1turn);
+    }
+}    
 
 section#time {
     width: 100%;

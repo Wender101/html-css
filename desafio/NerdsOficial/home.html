@@ -35,6 +35,11 @@
         </section>
     </header>
     
+    <section id="carregando">
+        <h1>Carregando...</h1>
+        <div id="c-loader2"></div>
+    </section>
+
     <main>
         <section id="time">
             <h1>Em Breve</h1>
@@ -98,5 +103,10 @@
     <!--! Script  JS-->
     <script src="assets/js/index.js"></script>
     <script src="assets/js/funcoesBasicas.js"></script>
+    <script>
+        setTimeout(() => {
+            document.getElementById('carregando').style.display = 'none'
+        }, 4000)
+    </script>
 </body>
 </html>
