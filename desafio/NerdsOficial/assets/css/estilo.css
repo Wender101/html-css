@@ -259,15 +259,14 @@ section#carregando > h1 {
 }
 
 section#carregando > div#c-loader2 {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     animation: 1s is-rotating infinite;
-    border: 5px solid var(--cor1);
+    border: 3px solid var(--cor1);
     border-radius: 50%;
     border-top-color: transparent;
     position: absolute;
     margin-top: 150px;
-    margin-left: -40px;
 }
 
 @keyframes is-rotating {
