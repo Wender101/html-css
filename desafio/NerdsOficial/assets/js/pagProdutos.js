@@ -136,7 +136,7 @@ for(let c = 0; c <= maxC; c++) {
             p.innerText = 'Adaptador Bluetooth 5.0 para computador'
 
         } else if(c == 1) {
-            imgProduto.src = `assets/img/CatalogoNerd/Adaptador HDMI DVI/ArquivoExibir.jfif`
+            imgProduto.src = `assets/img/CatalogoNerd/Adaptador HDMI DVI/ArquivoExibir.jpg`
             strong.innerHTML = 'Adaptador HDMI / DVI'
             p.innerText = 'Adaptador HDMI / DVI'
 
@@ -177,8 +177,8 @@ for(let c = 0; c <= maxC; c++) {
 
         } else if(c == 9) {
             imgProduto.src = `assets/img/CatalogoNerd/Adaptador HDMI micro HDMI/41f3dHI1rRL._AC_.jpg`
-            strong.innerHTML = 'Adaptador HDMI para micro HDMIr'
-            p.innerText = 'Adaptador HDMI para micro HDMIr'
+            strong.innerHTML = 'Adaptador HDMI para micro HDMI'
+            p.innerText = 'Adaptador HDMI para micro HDMI'
 
         } else if(c == 10) {
             imgProduto.src = `assets/img/CatalogoNerd/Adaptador SATA USB/adaptador_usb_2_0_para_hd_sata_kp_hd014_knup_2839_2_6cdbc2b8e1b001e0eae83365fc77d98a.jpg`
@@ -232,7 +232,7 @@ for(let c = 0; c <= maxC; c++) {
         }   
 
     } else if(produtoPesquisado2 == 'Teclados') {
-        maxC = 4
+        maxC = 5
         if(c == 0) {
             imgProduto.src = `assets/img/CatalogoNerd/Teclado gamer de 1 mão/90.png`
             strong.innerHTML = 'Teclado de 1 mao'
@@ -254,13 +254,19 @@ for(let c = 0; c <= maxC; c++) {
             p.innerText = 'Teclado semi mecanico Com iluminação RGB'
 
         } else if(c == 4) {
+            imgProduto.src = `assets/img/CatalogoNerd/Mitra Branco/48acfbda-9d00-43d1-854a-c24081401b3a.jpg`
+            strong.innerHTML = 'Teclado Mitra Branco'
+            p.innerText = 'Teclado Mitra Branco'
+
+        } else if(c == 5) {
             imgProduto.src = `assets/img/CatalogoNerd/Teclado USB/105519-1-teclado_usb_logitech_keyboard_k120_920_004423-5.jpg`
             strong.innerHTML = 'Teclado USB'
             p.innerText = 'Teclado USB'
 
         } 
+
     } else if(produtoPesquisado2 == 'Mouse') {
-        maxC = 23
+        maxC = 22
 
         if(c == 0) {
             imgProduto.src = `assets/img/CatalogoNerd/Mouse gamer 6939/76.png`
@@ -328,56 +334,51 @@ for(let c = 0; c <= maxC; c++) {
             p.innerText = 'Especificações: Modelo: WB 1670 USB 3.0/2.0/1.1 Suporte de DPI : 800 / 1600 / 2400 / 3200 Sensor de LED Iluminação RGB 6 Botões'
             
         } else if(c == 13) {
-            imgProduto.src = `assets/img/CatalogoNerd/Mouse Weibo/IMG_20201106_115935.jpg`
-            strong.innerHTML = 'Mouse USB'
-            p.innerText = 'Mouse USB'
-            
-        } else if(c == 14) {
             imgProduto.src = `assets/img/CatalogoNerd/Mouse gamer X8/mouse_gamer_usb_x8_com_cabo_reforcado_3474_1_20201116115214.jpg`
             strong.innerHTML = 'Mouse X8'
             p.innerText = 'Mouse gamer X8/mouse_gamer_usb_x8_com_cabo_reforcado_3474_1_20201116115214.jpg'
             
-        } else if(c == 15) {
+        } else if(c == 14) {
             imgProduto.src = `assets/img/CatalogoNerd/Mouse One Power/D_NQ_NP_744185-MLB46752458699_072021-W.jpg`
             strong.innerHTML = 'Mouse Invader'
             p.innerText = 'Mouse Gamer Invader Marca: One Power Iluminação RGB 7 Botões DPI: 3.200'
             
-        } else if(c == 16) {
+        } else if(c == 15) {
             imgProduto.src = `assets/img/CatalogoNerd/Mouse Orion/mouse-gamer-kwg-orion-p1-12000-dpi-7-botoes-black_109941.png`
             strong.innerHTML = 'Mouse Orion'
             p.innerText = 'Mouse Gamer Orion RGB 7 Botões 12.000 DPI Cabo: 1.5m'
             
-        } else if(c == 17) {
+        } else if(c == 16) {
             imgProduto.src = `assets/img/CatalogoNerd/Mouse sem fio 40 reais/13.png`
             strong.innerHTML = 'Mouse sem fio'
             p.innerText = 'Mouse sem fio'
             
-        } else if(c == 18) {
+        } else if(c == 17) {
             imgProduto.src = `assets/img/CatalogoNerd/Mouse sem fio 40 reais/14.png`
             strong.innerHTML = 'Mouse sem fio'
             p.innerText = 'Mouse sem fio'
             
-        } else if(c == 19) {
+        } else if(c == 18) {
             imgProduto.src = `assets/img/CatalogoNerd/Mouse sem fio 50 reais/8.png`
             strong.innerHTML = 'Mouse sem fio'
             p.innerText = 'Mouse sem fio'
             
-        } else if(c == 20) {
+        } else if(c == 19) {
             imgProduto.src = `assets/img/CatalogoNerd/Mouse sem fio 50 reais/2.png`
             strong.innerHTML = 'Mouse sem fio'
             p.innerText = 'Mouse sem fio'
             
-        } else if(c == 21) {
+        } else if(c == 20) {
             imgProduto.src = `assets/img/CatalogoNerd/Mouse sem fio 60 reais/10.png`
             strong.innerHTML = 'Mouse USB'
             p.innerText = 'Mouse USB'
             
-        } else if(c == 22) {
+        } else if(c == 21) {
             imgProduto.src = `assets/img/CatalogoNerd/Mouse sem fio Corporal/Mouse-Gamer-Sem-Fio-T-dagger-Corporal-2400-Dpi-Preto-T-tgm100_1643290638_gg.jpg`
             strong.innerHTML = 'Mouse sem fio Marca'
             p.innerText = 'Mouse Gamer sem fio Marca: T Dagger 2400 DPI Preto'
             
-        } else if(c == 23) {
+        } else if(c == 22) {
             imgProduto.src = `assets/img/CatalogoNerd/Mouse USB simples/df06e578-f767-4ad8-b97c-aba9269c0d7a.jpg`
             strong.innerHTML = 'Mouse USB'
             p.innerText = 'Mouse USB' 
@@ -780,5 +781,6 @@ for(let c = 0; c < maxC; c++) {
         imgProduto.addEventListener('mouseout', () => {
             imgSelected.src = el     
         })
+        
     })
 }
