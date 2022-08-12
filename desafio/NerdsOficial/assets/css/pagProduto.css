@@ -318,6 +318,15 @@ section#msgLogin > button {
     border-radius: 10px;
 }
 
+section.separacao {
+    width: 100%;
+    height: 150px;
+    background-image: url('../img/site/NFT\ Landing.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.644) inset;
+}
+
 footer {
     width: 100%;
     height: 150px;
