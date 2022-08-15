@@ -661,7 +661,15 @@ for(let c = 0; c <= maxC; c++) {
         }
 
     } else if(produtoPesquisado2 == 'Processadores') {
+        document.getElementById('classProduto').innerText = 'Produto não encontrado no estoque :('
 
+        document.getElementById('classProduto').style.marginTop = '100px'
+        document.getElementById('categorias').style.display = 'none'
+        document.querySelector('main').style.display = 'none'
+        document.querySelector('footer').style.position = 'absolute'
+        document.querySelector('footer').style.bottom = '0px'
+        document.getElementsByClassName('separacao')[0].style.display = 'none'
+        document.getElementsByClassName('separacao')[1].style.display = 'none'
 
     } else if(produtoPesquisado2 == 'Memoria') {
         maxC = 2
@@ -733,6 +741,8 @@ for(let c = 0; c <= maxC; c++) {
         document.querySelector('main').style.display = 'none'
         document.querySelector('footer').style.position = 'absolute'
         document.querySelector('footer').style.bottom = '0px'
+        document.getElementsByClassName('separacao')[0].style.display = 'none'
+        document.getElementsByClassName('separacao')[1].style.display = 'none'
     }
 
     //! AppendChild

@@ -73,21 +73,30 @@ for(let c = 1; c <= 13; c++) {
     })
 }
 
-let press = false
 const localCategorias = document.getElementById('localCategorias')
 
+let res
+window.addEventListener('click', () => {
+    let largura = visualViewport.width
+
+    if(largura < 1100) {
+        res = (1100 - largura) / 7
+    }
+})
+
 function setaDireita() {
-    if(press == false) {
+    if(res < 1100) {
+        res++
         localCategorias.style.transition = '300ms margin-left linear'
-        localCategorias.style.marginLeft = `-100%`
-        press = true
+        localCategorias.style.marginLeft = `${res}px`
+        console.log(res)
     }
 }
 
 function setaEsquerda() {
-    if(press == true) {
+    if(res < 0) {
+        res = res - res
         localCategorias.style.transition = '300ms margin-left linear'
-        localCategorias.style.marginLeft = `0px`
-        press = false
+        localCategorias.style.marginLeft = `${res}px`
     }
 }
