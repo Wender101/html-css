@@ -264,7 +264,7 @@ section#time > article {
 }
     
 section#time > article > div {
-    max-width: 470px;
+    width: 460px;
     margin: auto;
     height: 100px;
 }

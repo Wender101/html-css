@@ -4,70 +4,59 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/prdutos.css">
+    <link rel="stylesheet" href="assets/css/sobre-o-produto.css">
+    <link rel="stylesheet" href="assets/css/sobre-o-produto-responsive.css">k
     <link rel="stylesheet" href="assets/css/responsive.css">
-    <link rel="stylesheet" href="assets/css/prdutosResponsivo.css">
-    <title>Produtos</title>
+    <title>Sobre o Produto</title>
 </head>
 <body>
     <div id="sombra" onclick="fecharMenu()"></div>
     <div id="localBtnMenu"><button id="menu" onclick="abrirMenu()">Menu</button></div>
+    
     <nav>
         <ul>
-            <li><a href="home.html">Home</a></li>
-            <hr>
             <li><a href="sobre.html">Sobre</a></li>
+            <hr>
+            <li><a href="produtos.html">Produtos</a></li>
             <hr>
             <button onclick="login()">Login</button>
             <hr>
         </ul>
     </nav>
 
-    <header>
-        <section id="man">
-            <div id="computer"></div>
-            <div id="teclado"></div>
-            <div id="fonte"></div>
-            <div id="mouse"></div>
-            <img src="assets/img/site/sombra.png" id="sombraProdutos">
+    <main>
+        <section id="localImg">
+            <article id="otherImgs">
+                <img id="img1" src=""></img>
+                <img id="img2" src=""></img>
+            </article>
+            <img src="" id="imgProduto">
         </section>
-        <div id="logo"></div>
 
         <section id="texto">
-            <h1>Aproveite nosso catalogo!</h1>
-            <p>Trabalhamos com varias marcas e produtos...</p>
+            <h1 id="titulo"></h1>
+            <p id="desc"></p>
         </section>
-    </header>
+    </main>
 
     <section id="msgLogin">
         <p id="pMsgLogin">Ops! Ainda estamos trabalhando nisso...</p>
         <button onclick="fecharMsg()">Fechar</button>
     </section>
 
-    <main>
-        <section id="separacao"></section>
+    <section class="separacao"></section>
 
-        <section id="produtos">
-            <article id="categorias">
-                 <h1>Categorias</h1>
-                 <div id="localCategorias">
- 
-                 </div>
+    <section id="categorias">
+        <h1>Categorias</h1>
+        <div id="localCategorias">
 
-                 <div id="seta1" class="seta" onclick="setaEsquerda()"><p><</p></div>
-                 <div id="seta2" class="seta" onclick="setaDireita()"><p>></p></div>
-            </article>
-            
-            <article id="localOfertas">
-                <h1 id="h1Ofertas">Distaques do dia</h1>
-                <div id="ofertas">
-                </div>
-            </article>
-            
-        </section>
+        </div>
 
-        <section id="separacao"></section>
-    </main>
+        <div id="seta1" class="seta" onclick="setaEsquerda()"><p><</p></div>
+        <div id="seta2" class="seta" onclick="setaDireita()"><p>></p></div>
+    </section>
+
+    <section class="separacao"></section>
 
     <footer>
         <div id="p1">
@@ -88,8 +77,8 @@
         <div id="ps5"></div>
     </footer>
 
-    <script src="assets/js/produtos.js"></script>
     <script src="assets/js/funcoesBasicas.js"></script>
+    <script src="assets/js/sobre-o-produto.js"></script>
     <script src="assets/js/pesquisa.js"></script>
 </body>
 </html>

@@ -9,13 +9,14 @@ let maxC = 1
 for(let c = 0; c <= maxC; c++) {
     const main = document.querySelector('main')
     const containerProduto = document.createElement('div')
-    const localImgProduto = document.createElement('div')
+    const localImgProduto = document.createElement('a')
     const imgProduto = document.createElement('img')
     const strong = document.createElement('strong')
     const p = document.createElement('p')
 
     containerProduto.className = 'containerProduto'
     localImgProduto.className = 'localImgProduto'
+    localImgProduto.href = 'sobre-o-produto.html'
     imgProduto.className = 'imgProduto'
 
     //! Produtos
@@ -751,6 +752,18 @@ for(let c = 0; c <= maxC; c++) {
     containerProduto.appendChild(strong)
     containerProduto.appendChild(p)
     main.appendChild(containerProduto)
+
+    //! Vai add a memoria qual produto vai ser analizado pelo usuario 
+    localImgProduto.addEventListener('click', () => {
+        let produto = {
+            imgProduto: imgProduto.src,
+            titulo: strong.innerText,
+            desc: p.innerText,
+        }
+
+        const sobreProduto = JSON.stringify(produto)
+        localStorage.setItem('sobreProduto', sobreProduto)
+    })
 
 }
 

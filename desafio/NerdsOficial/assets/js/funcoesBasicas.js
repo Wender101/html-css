@@ -1,6 +1,7 @@
 function login() {
     const msgLogin = document.getElementById('msgLogin')
     msgLogin.style.display = 'block'
+    document.getElementById('pMsgLogin').innerText = 'Ops! Ainda estamos trabalhando nisso...'
     fecharMenu()
 }
 
