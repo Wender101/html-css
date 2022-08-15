@@ -198,27 +198,29 @@ main > div.containerProduto > p {
 /* Categorias */
 
 section#categorias {
-    max-width: 1040px;
-    width: auto;
+    max-width: 1050px;
+    width: 100%;
     height: 364px;
-    overflow: hidden;
+    overflow-x: auto;
+    overflow-y: hidden;
     margin: 100px auto;
     padding-left: 20px;
     position: relative;
+
 }
 
-h1 {
+section#categorias > h1 {
     font-family: var(--font-titulo);
     font-size: 30px;
     color: var(--cor1);
     margin-bottom: 20px;
+    margin-left: 30px;
 }
 
 section#categorias > div#localCategorias {
-    width: 1100px;
+    width: 1050px;
     height: 308px;
-    margin: auto;
-    overflow: hidden;
+    margin: 0px auto;
     transition: 300ms margin-left linear;
     margin-left: 0px;
 }
@@ -229,7 +231,6 @@ section#categorias > div > a {
     background-color: transparent;
     border: 1px solid var(--cor5);
     display: inline-block;
-    overflow: hidden;
     margin-bottom: -5px;
     position: relative;
 }
@@ -267,28 +268,6 @@ section#categorias > div > a:hover > img, a:hover > p {
     transition: 100ms transform linear;
     transform: scale(1.3);
     font-size: 17px;
-}
-
-div.seta {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: var(--cor7);
-    color: var(--cor0);
-    position: absolute;
-    top: 182px;
-    text-align: center;
-    display: none;
-    cursor: pointer;
-    margin-left: 15px;
-}
-
-section#categorias > div.seta > p {
-    margin-top: 8px;
-}
-
-section#categorias > div#seta2 {
-    right: 15px;
 }
 
 /* Fim Categoria */

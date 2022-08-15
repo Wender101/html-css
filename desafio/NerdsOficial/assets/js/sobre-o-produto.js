@@ -1,6 +1,8 @@
 const sobreProduto1 = localStorage.getItem('sobreProduto')
 const sobreProduto2 = JSON.parse(sobreProduto1)
 
+document.querySelector('title').innerText = sobreProduto2.titulo
+
 function img() {
     const el = sobreProduto2.imgProduto
     
