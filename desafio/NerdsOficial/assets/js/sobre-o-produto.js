@@ -1,5 +1,6 @@
 const sobreProduto1 = localStorage.getItem('sobreProduto')
 const sobreProduto2 = JSON.parse(sobreProduto1)
+console.log(sobreProduto2.imgProduto)
 
 document.querySelector('title').innerText = sobreProduto2.titulo
 
@@ -33,6 +34,8 @@ function img() {
     } else {
         imgProduto.src = `${novoLink4}.png`
     }
+
+    console.log(imgProduto)
 
 } img()
 
