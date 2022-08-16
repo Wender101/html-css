@@ -678,6 +678,7 @@ for(let c = 0; c < maxC; c++) {
         document.getElementById('classProduto').style.marginTop = '100px'
         document.getElementById('categorias').style.display = 'none'
         document.querySelector('main').style.display = 'none'
+        document.querySelector('footer').id = 'semFooter'
         document.querySelector('footer').style.position = 'absolute'
         document.querySelector('footer').style.bottom = '0px'
         document.getElementsByClassName('separacao')[0].style.display = 'none'
