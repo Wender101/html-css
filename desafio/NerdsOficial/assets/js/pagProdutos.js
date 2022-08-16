@@ -6,7 +6,7 @@ document.querySelector('title').innerText = produtoPesquisado2
 document.getElementById('classProduto').innerText = produtoPesquisado2
 
 let maxC = 1
-for(let c = 0; c <= maxC; c++) {
+for(let c = 0; c < maxC; c++) {
     const main = document.querySelector('main')
     const containerProduto = document.createElement('div')
     const localImgProduto = document.createElement('a')
@@ -21,7 +21,7 @@ for(let c = 0; c <= maxC; c++) {
 
     //! Produtos
     if(produtoPesquisado2 == 'Cabos') {
-        maxC = 20
+        maxC = 21
         if(c == 0) {
             imgProduto.src = `assets/img/CatalogoNerd/Cabo AV/6b3089994518ca63a6a7a3aa87fa5f55.jpg`
             strong.innerHTML = 'Cabo de audio'
@@ -130,7 +130,7 @@ for(let c = 0; c <= maxC; c++) {
         }
 
     } else if(produtoPesquisado2 == 'Adaptadores') {
-        maxC = 19
+        maxC = 20
         if(c == 0) {
             imgProduto.src = `assets/img/CatalogoNerd/Adaptador Bluetooth para PC/b2782e3f79dde434cfb03874214fb28b.jpg`
             strong.innerHTML = 'Adaptador Bluetooth'
@@ -233,7 +233,7 @@ for(let c = 0; c <= maxC; c++) {
         }   
 
     } else if(produtoPesquisado2 == 'Teclados') {
-        maxC = 5
+        maxC = 6
         if(c == 0) {
             imgProduto.src = `assets/img/CatalogoNerd/Teclado gamer de 1 mão/90.png`
             strong.innerHTML = 'Teclado de 1 mao'
@@ -267,7 +267,7 @@ for(let c = 0; c <= maxC; c++) {
         } 
 
     } else if(produtoPesquisado2 == 'Mouse') {
-        maxC = 22
+        maxC = 23
 
         if(c == 0) {
             imgProduto.src = `assets/img/CatalogoNerd/Mouse gamer 6939/76.png`
@@ -386,7 +386,7 @@ for(let c = 0; c <= maxC; c++) {
         }
 
     } else if(produtoPesquisado2 == 'Gabinetes') {
-        maxC = 5
+        maxC = 6
 
         if(c == 0) {
             imgProduto.src = `assets/img/CatalogoNerd/Gabihnete Athena M1/athena-m14.jpg`
@@ -421,7 +421,7 @@ for(let c = 0; c <= maxC; c++) {
         } 
 
     } else if(produtoPesquisado2 == 'Headset') {
-        maxC = 11
+        maxC = 12
 
         if(c == 0) {
             imgProduto.src = `assets/img/CatalogoNerd/Headset Hylas/MYJ-0177-006_zoom1.jpg`
@@ -486,7 +486,7 @@ for(let c = 0; c <= maxC; c++) {
         } 
 
     } else if(produtoPesquisado2 == 'Controles') {
-        maxC = 8
+        maxC = 9
 
         if(c == 0) {
             imgProduto.src = `assets/img/CatalogoNerd/controle nintendo original/5ff9372e55720dd94f2a7724928c8142.jpg`
@@ -536,7 +536,7 @@ for(let c = 0; c <= maxC; c++) {
         }
 
     } else if(produtoPesquisado2 == 'Fontes') {
-        maxC = 7
+        maxC = 8
 
         if(c == 0) {
             imgProduto.src = `assets/img/CatalogoNerd/Fonte 600w T dagger/inshot_20210611_193729949.jpg`
@@ -581,7 +581,7 @@ for(let c = 0; c <= maxC; c++) {
         } 
 
     } else if(produtoPesquisado2 == 'Mouse Pad') {
-        maxC = 13
+        maxC = 14
 
         if(c == 0) {
             imgProduto.src = `assets/img/CatalogoNerd/Mouse Pad 18x22/59.png`
@@ -673,7 +673,7 @@ for(let c = 0; c <= maxC; c++) {
         document.getElementsByClassName('separacao')[1].style.display = 'none'
 
     } else if(produtoPesquisado2 == 'Memoria') {
-        maxC = 2
+        maxC = 3
         if(c == 0) {
             imgProduto.src = `assets/img/CatalogoNerd/Memoria/1322857189_1GG.jpg`
             strong.innerHTML = 'Memoria ram'
@@ -701,7 +701,7 @@ for(let c = 0; c <= maxC; c++) {
         }
 
     } else if(produtoPesquisado2 == 'Coolers') {
-        maxC = 5
+        maxC = 6
         if(c == 0) {
             imgProduto.src = `assets/img/CatalogoNerd/Cooler Led Hayom/4ef814fc7095c3e036877f0b886aae9d_tn.jpg`
             strong.innerHTML = 'Cooler Hayom'
@@ -734,6 +734,50 @@ for(let c = 0; c <= maxC; c++) {
 
         } 
 
+    } else if(produtoPesquisado2 == 'Outros') {
+        maxC = 8
+        if(c == 0) {
+            imgProduto.src = `assets/img/CatalogoNerd/Switch RJ/c352537e-436e-4f21-8e86-1957ee9b497d.jpg`
+            strong.innerHTML = 'Switch RJ45'
+            p.innerText = 'Switch RJ45 10/100/1000 8 portas'
+
+        } else if(c == 1) {
+            imgProduto.src = `assets/img/CatalogoNerd/Switch HDMI com controle/Switch-Hdmi-5-X-1-Portas-4k-Com-Controle-Remoto_1628619578_gg.jpg`
+            strong.innerHTML = 'Switch HDMI'
+            p.innerText = 'Switch HDMI 3 entradas e 1 saida com controle'
+
+        } else if(c == 2) {
+            imgProduto.src = `assets/img/CatalogoNerd/suporte fixo para tv fexo/874737_7_1615040501.jpg`
+            strong.innerHTML = 'Suporte Fixo'
+            p.innerText = 'Suporte Fixo para TV Suporta tv de 14 até 70'
+
+        } else if(c == 3) {
+            imgProduto.src = `assets/img/CatalogoNerd/Pen drive/171fbcb4eac9a2c18f13c43a211ec289.jpg`
+            strong.innerHTML = 'Pen drive'
+            p.innerText = '16Gb - R$ 40,00 / 32GB - R$ 50,00 / 64Gb - R$ 70,00'
+
+        } else if(c == 4) {
+            imgProduto.src = `assets/img/CatalogoNerd/resma/MV19219156_Papel-Sulfite-A4-Chamex-Multi-Branco-75g-210x297mm-Resma-com-500-Folhas_1_Zoom.jpg`
+            strong.innerHTML = 'Resma'
+            p.innerText = 'Resma 500 Folhas'
+
+        } else if(c == 5) {
+            imgProduto.src = `assets/img/CatalogoNerd/pasta termica silver/thermal_silver_5g.jpg`
+            strong.innerHTML = 'Pasta termica'
+            p.innerText = 'Pasta termica silver'
+
+        } else if(c == 6) {
+            imgProduto.src = `assets/img/CatalogoNerd/Caddy/7(1).png`
+            strong.innerHTML = 'Temos Caddy'
+            p.innerText = 'Temos Caddy de 12'
+
+        } else if(c == 7) {
+            imgProduto.src = `assets/img/CatalogoNerd/hub usb 2.0/1c5a688659.jpg`
+            strong.innerHTML = 'HUB USB'
+            p.innerText = 'HUB USB 2.0 -7 portas'
+
+        }
+        
     } else {
         document.getElementById('classProduto').innerText = 'Algo deu Errado :('
 

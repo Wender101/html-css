@@ -1,4 +1,4 @@
-for(let c = 1; c <= 13; c++) {
+for(let c = 1; c <= 14; c++) {
     const localCategorias = document.getElementById('localCategorias')
     const a = document.createElement('a')
     const p = document.createElement('p')
@@ -52,10 +52,14 @@ for(let c = 1; c <= 13; c++) {
         p.innerText =  'SSD'
         a.href = `pagProduto.html`
         
-    } else {
+    } else if(c == 13) {
         p.innerText =  'Coolers'
         a.href = `pagProduto.html`
         img.className = 'Coolers'
+
+    } else {
+        p.innerText =  'Outros'
+        a.href = `pagProduto.html`
     }
 
     img.src = `assets/img/icons/${c}.png`

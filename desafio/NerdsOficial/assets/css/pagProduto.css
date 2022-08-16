@@ -127,6 +127,7 @@ h1#classProduto {
     max-width: 1040px;
     margin: 40px auto 0px auto;
     padding-left: 20px;
+    color: var(--cor1);
 }
 
 /*! Main  */

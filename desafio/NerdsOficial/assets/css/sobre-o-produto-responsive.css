@@ -11,7 +11,7 @@
         height: 500px;
         position: absolute;
         bottom: 0px;
-        border-radius: 20px;
+        border-radius: 0px 0px 20px 20px;
     }
 
     main > section#texto {
