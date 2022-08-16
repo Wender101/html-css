@@ -581,7 +581,7 @@ for(let c = 0; c < maxC; c++) {
         } 
 
     } else if(produtoPesquisado2 == 'Mouse Pad') {
-        maxC = 14
+        maxC = 16
 
         if(c == 0) {
             imgProduto.src = `assets/img/CatalogoNerd/Mouse Pad 18x22/59.png`
@@ -645,7 +645,7 @@ for(let c = 0; c < maxC; c++) {
             p.innerText = 'Mouse Pad Gamer Tamanho 70x35cm'
 
         } else if(c == 11) {
-            imgProduto.src = `assets/img/CatalogoNerd/Mouse pad 70x35/0cc60fc3a44ca9cd8852bfb1286108da.jfif`
+            imgProduto.src = `assets/img/CatalogoNerd/Mouse pad 70x35/0cc60fc3a44ca9cd8852bfb1286108da.jpg`
             strong.innerHTML = 'Mouse Pad'
             p.innerText = 'Mouse Pad Gamer Tamanho 70x35cm'
 
@@ -659,7 +659,18 @@ for(let c = 0; c < maxC; c++) {
             strong.innerHTML = 'Mouse Pad Gamer'
             p.innerText = 'Mouse Pad Gamer Tamanho 80x30cm RGB Conexão RGB'
 
-        }
+        } else if(c == 14) {
+            imgProduto.src = `assets/img/CatalogoNerd/Mouse pad 80x30/44.png`
+            imgProduto.style = "transform: rotate(-90deg); margin-top: -80px;"
+            strong.innerHTML = 'Mouse Pad Gamer'
+            p.innerText = 'Mouse Pad Gamer Tamanho 80x30cm RGB Conexão RGB'
+
+        } else if(c == 15) {
+            imgProduto.src = `assets/img/CatalogoNerd/Mouse Pad P/56.png`
+            strong.innerHTML = 'Mouse Pad Gamer'
+            p.innerText = 'Mouse Pad Gamer Tamanho 80x30cm RGB Conexão RGB'
+
+        } 
 
     } else if(produtoPesquisado2 == 'Processadores') {
         document.getElementById('classProduto').innerText = 'Produto não encontrado no estoque :('
