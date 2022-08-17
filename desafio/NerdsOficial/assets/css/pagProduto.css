@@ -42,7 +42,7 @@ body {
     width: 100%;
     min-height: 100vh;
     font-family: var(--font-texto);
-    background-image: linear-gradient(var(--cor4), var(--cor6));
+    background-color: var(--cor4);
     background-image: url(../img/site/NFT1\ 3.png);
     background-position: center center;
     background-repeat: no-repeat;
