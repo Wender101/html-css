@@ -59,5 +59,5 @@ document.getElementById('desc').innerText = sobreProduto2.desc
 
 //! Função contato
 function contato() {
-    document.getElementById('contato').href = `https://api.whatsapp.com/send?phone=+55%2061%2099935-2015&text=Estou interessado nesse produto: ${imgProduto.src}`
+    document.getElementById('btnContato').href = `https://api.whatsapp.com/send?phone=+55%2061%2099935-2015&text=Estou interessado nesse produto: ${titulo}, link: ${imgProduto.src}`
 }
