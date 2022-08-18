@@ -60,14 +60,6 @@
         font-size: 50px;
     }
 
-    section#time > article > div {
-        max-width: 400px;
-    }
-
-    section#time > article > div.lTime {
-        max-width: 460px;
-    }
-
     section#produtos > div {
         width: 400px;
         height: 200px;
@@ -89,10 +81,6 @@
 }
 
 @media screen and (max-width: 570px) {
-    section#time > article > div {
-        max-width: 350px;
-    }
-
     section#time > article > div > span {
         font-size: 40px;
     }
@@ -205,20 +193,6 @@
         font-size: 30px;
     }
 
-    section#time {
-        height: 150px;
-    }
-
-    section#time > article > div {
-        max-width: 307px;
-        margin: auto;
-        height: 100px;
-    }
-
-    section#time > article > div.lTime {
-        max-width: 360px;
-    }
-
     section#time > article > div > span {
         font-size: 35px;
     }
@@ -247,20 +221,6 @@
 }
 
 @media screen and (max-width: 410px) {
-    section#time {
-        height: 150px;
-    }
-
-    section#time > article > div {
-        max-width: 270px;
-        margin: auto;
-        height: 100px;
-    }
-
-    section#time > article > div.lTime {
-        max-width: 320px;
-    }
-
     section#time > article > div > span {
         font-size: 30px;
     }
@@ -276,11 +236,6 @@
 }
 
 @media screen and (max-width: 340px) {
-
-    section#time > article > div.lTime {
-        width: 100px;
-    }
-
     section#time > article > div > span {
         font-size: 25px;
     }

@@ -7,6 +7,7 @@ let carrinho = []
 
 try {
     for (let c = 0; c < carrinho2.length; c++) {
+
         carrinho.push(carrinho2[c])
         total++
 
@@ -45,6 +46,36 @@ function criaProdutos(titulo, desc, src, id) {
     span.id = id
     localImgProduto.href = 'sobre-o-produto.html'
     imgProduto.className = 'imgProduto'
+
+    //! Vai mudar as imgs para a primeira img
+
+    const el = src
+    
+    var novoLink1 = el.slice(0, -1)
+    
+    if(novoLink1.substr(-1) == 'e') {
+        var novoLink2 = novoLink1.slice(0, -1)
+        var novoLink23 = novoLink2.slice(0, -1)
+        var novoLink3 = novoLink23.slice(0, -1)
+        var novoLink4 = novoLink3.slice(0, -1)
+    
+    } else {
+        var novoLink2 = novoLink1.slice(0, -1)
+        var novoLink3 = novoLink2.slice(0, -1)
+        var novoLink4 = novoLink3.slice(0, -1)
+    }
+    
+    if(novoLink1.substr(-1) == 'e') {
+        src = `${novoLink4}.jpeg`
+    
+    } else if(novoLink2.substr(-1) == 'j') {
+        src = `${novoLink4}.jpg`
+    
+    } else {
+        src = `${novoLink4}.png`
+    }
+
+    //!
     
     imgProduto.src = src
     span.innerText = 'X'
