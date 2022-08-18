@@ -146,6 +146,7 @@ main > div.containerProduto {
     width: 260px;
     height: 450px;
     text-align: center;
+    position: relative;
 }
 
 main > div.containerProduto > a.localImgProduto {

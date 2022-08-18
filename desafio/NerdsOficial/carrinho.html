@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/pagProduto.css">
+    <link rel="stylesheet" href="assets/css/pagProdutoResponsive.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="assets/css/prdutosResponsivo.css">
+    <link rel="stylesheet" href="assets/css/carrinho.css">
+    <title>Carrinho</title>
+</head>
+<body>
+    <div id="sombra" onclick="fecharMenu()"></div>
+    <div id="localBtnMenu"><button id="menu" onclick="abrirMenu()">Menu</button></div>
+    <nav>
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <hr>
+            <li><a href="sobre.html">Sobre</a></li>
+            <hr>
+            <li><a href="produtos.html">Produtos</a></li>
+            <hr>
+            <button onclick="login()">Login</button>
+            <hr>
+        </ul>
+    </nav>
+
+    
+    <h1 id="classProduto">Carrinho</h1>
+    <main>
+        <p id="recado">Seu carrinho se encontra vazio, adicione algum produto a ele.</p>
+    </main>    
+
+    <h2 id="total"></h2>
+
+    <section id="msgLogin">
+        <p id="pMsgLogin">Ops! Ainda estamos trabalhando nisso...</p>
+        <button onclick="fecharMsg()">Fechar</button>
+    </section>
+
+    <section class="separacao"></section>
+
+    <footer>
+        <div id="p1">
+            <p>Duvidas?</p>
+            <h1>Contate-Nos!</h1>
+            <ul>
+                <li id="face"><a href="https://www.facebook.com/nerds.eti"></a></li>
+                <li id="insta"><a href="https://www.instagram.com/nerds.eti/"></a></li>
+                <li id="tw"><a></a></li>
+            </ul>
+        </div>
+
+        <div id="p2">
+            <strong>Rua Visconde De Porto Seguro 1161 Prédio</strong>
+            <p>Preços e condições de pagamento exclusivos para compras via internet e podem variar nas lojas físicas. Os preços anunciados neste site ou via e-mail promocional podem ser alterados sem aviso prévio.</p>
+        </div>
+
+        <div id="ps5"></div>
+    </footer>
+
+    <script src="assets/js/funcoesBasicas.js"></script>
+    <script>
+        let total = 0
+
+        //! Vai pegar do browser o carrinho
+        const carrinho1 = localStorage.getItem('carrinho')
+        const carrinho2 = JSON.parse(carrinho1)
+        let carrinho = []
+
+        try {
+            for (let c = 0; c < carrinho2.length; c++) {
+                carrinho.push(carrinho2[c])
+                total++
+
+                criaProdutos(carrinho2[c].titulo, carrinho2[c].desc, carrinho2[c].imgProduto, c)
+
+                //! Vai calcular o total de produtos no carrinho
+            }
+
+        } catch {
+            carrinho = []
+            document.getElementsByClassName('separacao')[0].style.display = 'none'
+
+            let footer = document.querySelector('footer')
+            footer.style.position = 'absolute'
+            footer.style.bottom = '0px'
+
+        }
+
+        function criaProdutos(titulo, desc, src, id) {
+            document.getElementById('recado').style.display = 'none'
+
+            const main = document.querySelector('main')
+            const containerProduto = document.createElement('div')
+            const localImgProduto = document.createElement('a')
+            const span = document.createElement('span')
+            const imgProduto = document.createElement('img')
+            const strong = document.createElement('strong')
+            const p = document.createElement('p')
+            
+            
+            containerProduto.classList = 'containerProduto'
+            containerProduto.id = `containerProduto${id}`
+
+            localImgProduto.className = 'localImgProduto'
+            span.classList = 'x'
+            span.id = id
+            localImgProduto.href = 'sobre-o-produto.html'
+            imgProduto.className = 'imgProduto'
+            
+            imgProduto.src = src
+            span.innerText = 'X'
+            strong.innerHTML = titulo
+            p.innerText = desc
+
+            //! AppendChild
+            localImgProduto.appendChild(imgProduto)
+            containerProduto.appendChild(span)
+            containerProduto.appendChild(localImgProduto)
+            containerProduto.appendChild(strong)
+            containerProduto.appendChild(p)
+            main.appendChild(containerProduto)
+
+            //! Vai apagar o produto do carrinho
+            span.addEventListener('click', () => {
+                carrinho.splice(span.id, 1)
+                let salvarCarrinho = JSON.stringify(carrinho)
+                localStorage.setItem('carrinho', salvarCarrinho)
+
+                location.reload()
+            })
+
+
+            //! Vai add a memoria qual produto vai ser analizado pelo usuario 
+            localImgProduto.addEventListener('click', () => {
+                let produto = {
+                    imgProduto: imgProduto.src,
+                    titulo: strong.innerText,
+                    desc: p.innerText,
+                }
+
+                const sobreProduto = JSON.stringify(produto)
+                localStorage.setItem('sobreProduto', sobreProduto)
+            })
+
+            document.getElementById('total').innerText = `Total de Produtos: ${total}`
+        }
+    </script>
+</body>
+</html>

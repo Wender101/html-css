@@ -1,0 +1,39 @@
+h1#classProduto {
+    max-width: 1040px;
+    margin: 80px auto 0px auto;
+    padding-left: 20px;
+    color: var(--cor1);
+}
+
+main {
+    min-height: 200px;
+}
+
+p#recado {
+    color: var(--cor0);
+    margin-left: 20px;
+}
+
+h2#total {
+    position: fixed;
+    bottom: 20px;
+    color: var(--cor1);
+    right: 20px;
+    z-index: 1;
+}
+
+span.x {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 25px;
+    right: 20px;
+    border-radius: 50%;
+    background-color: var(--cor5);
+    color: var(--cor0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    cursor: pointer;
+}
