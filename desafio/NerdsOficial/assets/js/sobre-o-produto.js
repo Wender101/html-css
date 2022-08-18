@@ -1,6 +1,5 @@
 const sobreProduto1 = localStorage.getItem('sobreProduto')
 const sobreProduto2 = JSON.parse(sobreProduto1)
-console.log(sobreProduto2.imgProduto)
 
 document.querySelector('title').innerText = sobreProduto2.titulo
 
@@ -35,8 +34,6 @@ function img() {
         imgProduto.src = `${novoLink4}.png`
     }
 
-    console.log(imgProduto)
-
 } img()
 
 //! img1
@@ -59,3 +56,8 @@ img2.addEventListener('click', () => {
 
 document.getElementById('titulo').innerText = sobreProduto2.titulo
 document.getElementById('desc').innerText = sobreProduto2.desc
+
+//! Função contato
+function contato() {
+    document.getElementById('contato').href = `https://api.whatsapp.com/send?phone=+55%2061%2099935-2015&text=Estou interessado nesse produto: ${imgProduto.src}`
+}

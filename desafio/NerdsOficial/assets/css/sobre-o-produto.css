@@ -147,7 +147,7 @@ main > section#localImg {
     background-color: var(--cor0);
     overflow: hidden;
     position: relative;
-    border-radius: 20px 0px 0px 20px;
+    border-radius: 10px 0px 0px 20px;
 }
 
 main > section#localImg > img {
@@ -177,6 +177,7 @@ main > section#localImg > article#otherImgs > img {
 /* Section de texto */
 main > section#texto {
     width: 50%;
+    position: relative;
 }
 
 main > section#texto > h1 {
@@ -191,6 +192,33 @@ main > section#texto > p {
     margin: 30px auto;
     text-align: center;
     font-size: 15px;
+}
+
+main > section#texto > div#btns {
+    min-width: 300px;
+    position: absolute;
+    bottom: 50px;
+    margin-left: 50%;
+    transform: translate(-50%);
+    display: flex;
+}
+
+main > section#texto > div#btns > a > button, div#btns > button {
+    padding: 5px 20px;
+    border-radius: 5px;
+    background-color: var(--cor1);
+    color: var(--cor0);
+    font-family: var(--font-texto);
+    font-weight: 100;
+    border: 1px solid transparent;
+    margin-right: 15px;
+}
+
+main > section#texto > div#btns a > button:hover, div#btns > button:hover {
+    background-color: transparent;
+    border: 1px solid var(--cor1);
+    transform: scale(1.1);
+    
 }
 
 /* Categorias */
