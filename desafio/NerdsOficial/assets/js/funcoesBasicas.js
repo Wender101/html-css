@@ -1,3 +1,6 @@
+//! Vai adicionar um favIcon em todas as pags do site
+document.querySelector('head').innerHTML += '<link rel="shortcut icon" href="assets/img/icons/faveIcoNerds.png" type="image/x-icon">'
+
 function login() {
     const msgLogin = document.getElementById('msgLogin')
     msgLogin.style.display = 'block'
