@@ -85,10 +85,13 @@
     main > section#texto > div#btns {
         max-width: 420px;
         height: auto;
-        min-height: 50px;
         margin-left: 50%;
         display: flex;
         top: 220px;
+    }
+
+    div#btns > button, div#btns > a > button {
+        height: 50px;
     }
 }
 
@@ -114,5 +117,9 @@
         width: 100%;
         position: absolute;
         top: 0px;
+    }
+
+    div#btns > button, div#btns > a > button {
+        font-size: 11px;
     }
 }
