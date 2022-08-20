@@ -1,3 +1,16 @@
+@media screen and (max-width: 983px) {
+    main > section#texto > div#btns {
+        width: 90%;
+        min-width: 0px;
+        margin-left: 50%;
+        display: flex;
+    }
+    
+    main > section#texto > div#btns > a > button, div#btns > button {
+        margin-right: 10px;
+    }
+}
+
 @media screen and (max-width: 700px) {
     main {
         display: block;
@@ -19,9 +32,22 @@
         position: absolute;
         top: 0px;
     }
+
+    main > section#texto > div#btns {
+        max-width: 420px;
+        height: auto;
+        min-height: 30px;
+        margin-left: 50%;
+        display: flex;
+        top: 220px;
+    }
+    
+    main > section#texto > div#btns > a > button, div#btns > button {
+        margin-right: 10px;
+    }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 505px) {
     main {
         display: block;
         height: 650px;
@@ -51,7 +77,18 @@
     }
 
     main > section#texto > h1 {
-        font-size: 35px;
+        width: 90%;
+        margin: 10px auto;
+        font-size: 25px;
+    }
+
+    main > section#texto > div#btns {
+        max-width: 420px;
+        height: auto;
+        min-height: 50px;
+        margin-left: 50%;
+        display: flex;
+        top: 220px;
     }
 }
 

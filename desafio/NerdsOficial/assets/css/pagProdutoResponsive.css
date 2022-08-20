@@ -21,9 +21,9 @@
 @media screen and (max-width: 537px) {
     h1#classProduto {
         max-width: 95%;
-        margin: 40px auto 0px auto;
+        margin: 80px auto 0px auto;
         padding-left: 20px;
-        font-size: 20px;
+        font-size: 25px;
     }
 
     main {
@@ -34,6 +34,11 @@
         padding: 10px 20px 50px 0px;
         display: flex;
         flex-wrap: wrap;
+    }
+
+    #main {
+        width: 100%;
+        max-width: none;
     }
 }
 

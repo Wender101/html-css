@@ -19,11 +19,14 @@ try {
 } catch {
     carrinho = []
     document.getElementsByClassName('separacao')[0].style.display = 'none'
-
     let footer = document.querySelector('footer')
     footer.style.position = 'absolute'
     footer.style.bottom = '0px'
+    
+}
 
+if(total <= 0) {
+    document.querySelector('main').id = 'main'
 }
 
 function criaProdutos(titulo, desc, src, id) {
