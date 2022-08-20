@@ -69,7 +69,7 @@ document.getElementById('titulo').innerText = sobreProduto2.titulo
 document.getElementById('desc').innerText = sobreProduto2.desc
 
 //! Vai inviar uma msg ao vendedor informando qual é o produto
-document.getElementById('btnContato').href = `https://api.whatsapp.com/send?phone=+55%2061%2099935-2015&text=Estou interessado nesse produto: ${sobreProduto2.titulo}, link: ${imgProduto.src}`
+document.getElementById('btnContato').href = `https://api.whatsapp.com/send?phone=+55%2061%209906-3455&text=Estou interessado nesse produto: ${sobreProduto2.titulo}, link: ${imgProduto.src}`
 
 //! Vai add ao carrinho
 function addCarrinho() {
