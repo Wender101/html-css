@@ -134,7 +134,7 @@
         padding: 0px;
         display: none;
     }
-
+    
     nav > ul > hr {
         width: 100%;
         margin: 0px;
@@ -148,6 +148,7 @@
         position: fixed;
         top: 0px;
         display: none;
+        z-index: 2;
     }
 
     nav > ul {

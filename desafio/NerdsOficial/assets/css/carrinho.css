@@ -16,11 +16,16 @@ p#recado {
 
 h2#total {
     position: fixed;
-    bottom: 20px;
+    bottom: 0px;
     color: var(--cor1);
-    right: 20px;
+    right: 0px;
+    padding: 10px;
     z-index: 1;
-}
+    width: 100%;
+    font-size: 20px;
+    text-align: center;
+    background-color: var(--cor4);
+}}
 
 span.x {
     width: 40px;
@@ -37,4 +42,3 @@ span.x {
     z-index: 1;
     cursor: pointer;
 }
-
