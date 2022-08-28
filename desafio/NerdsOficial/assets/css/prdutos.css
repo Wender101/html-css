@@ -42,6 +42,7 @@ body {
     width: 100%;
     min-height: 100vh;
     font-family: var(--font-texto);
+    background-color: var(--cor4);
     background-image: linear-gradient(var(--cor4), var(--cor6));
 }
 
