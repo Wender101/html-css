@@ -81,7 +81,7 @@ function addOfertas(num) {
     }  else if(num == 5) {
         localImg.href = 'pagProduto.html'
         localImg.addEventListener('click', () => {
-            const produtoPesquisado = JSON.stringify('Error')
+            const produtoPesquisado = JSON.stringify('Outros')
             localStorage.setItem('produtoPesquisado', produtoPesquisado)
         })
 
@@ -92,7 +92,7 @@ function addOfertas(num) {
     } else if(num == 6) {
         localImg.href = 'pagProduto.html'
         localImg.addEventListener('click', () => {
-            const produtoPesquisado = JSON.stringify('Error')
+            const produtoPesquisado = JSON.stringify('Outros')
             localStorage.setItem('produtoPesquisado', produtoPesquisado)
         })
 

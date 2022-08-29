@@ -1,3 +1,9 @@
+@media screen and (min-width: 983px) {
+    main > section#texto > div#btns > a > button, div#btns > button {
+        padding: 10px 20px;
+    }
+}
+
 @media screen and (max-width: 983px) {
     main > section#texto > div#btns {
         width: 90%;
@@ -47,6 +53,12 @@
     }
 }
 
+@media screen and (max-width: 520px) {
+    div#btns > button, div#btns > a > button {
+        height: 50px;
+    }
+}
+
 @media screen and (max-width: 505px) {
     main {
         display: block;
@@ -88,10 +100,6 @@
         margin-left: 50%;
         display: flex;
         top: 220px;
-    }
-
-    div#btns > button, div#btns > a > button {
-        height: 50px;
     }
 }
 

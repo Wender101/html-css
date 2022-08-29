@@ -747,7 +747,7 @@ for(let c = 0; c < maxC; c++) {
         } 
 
     } else if(produtoPesquisado2 == 'Outros') {
-        maxC = 8
+        maxC = 9
         if(c == 0) {
             imgProduto.src = `assets/img/CatalogoNerd/Switch RJ/c352537e-436e-4f21-8e86-1957ee9b497d.jpg`
             strong.innerHTML = 'Switch RJ45'
@@ -787,6 +787,11 @@ for(let c = 0; c < maxC; c++) {
             imgProduto.src = `assets/img/CatalogoNerd/hub usb 2.0/1c5a688659.jpg`
             strong.innerHTML = 'HUB USB'
             p.innerText = 'HUB USB 2.0 -7 portas'
+
+        } else if(c == 8) {
+            imgProduto.src = `assets/img/CatalogoNerd/Fita-LEd/fita.jpeg`
+            strong.innerHTML = 'Fita Led'
+            p.innerText = 'Fita Led + controle + fonte'
 
         }
         
