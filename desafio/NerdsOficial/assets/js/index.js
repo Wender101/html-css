@@ -1,12 +1,12 @@
 function tempoRestante() {
     var one_day = 1000 * 60 * 60 * 24
     var present_date = new Date();
-    var diaX = new Date(present_date.getFullYear(), 7, 30)
+    var diaX = new Date(present_date.getFullYear(), 8, 5)
     
     if (present_date.getMonth() == 11 && present_date.getdate() > 25) diaX.setFullYear(diaX.getFullYear() + 1)
     
-    var Result = Math.round(diaX.getTime() - present_date.getTime()) / (one_day);
-    var Final_Result = Result.toFixed(0);
+    var Result = Math.round(diaX.getTime() - present_date.getTime()) / (one_day)
+    var Final_Result = Result.toFixed(0)
     
     const time = document.getElementById('time')
     const localDia = time.getElementsByTagName('span')[0]
