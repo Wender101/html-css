@@ -372,7 +372,7 @@ section#categorias > div > a:hover > img, a:hover > p {
 
 /* Fim Categoria */
 
-/*! msg login e footer  */
+/*! msg login, add carrinho e footer  */
 
 section#msgLogin {
     width: 98%;
@@ -396,6 +396,49 @@ section#msgLogin > button {
     background-color: transparent;
     padding: 10px;
     border-radius: 10px;
+}
+
+section#infAddCarrinho {
+    width: 100%;
+    min-height: 100vh;
+    position: fixed;
+    top: 0px;
+    background-color: var(--cor8);
+    z-index: 3;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+section#infAddCarrinho > article#conteudoCarrinho {
+    width: 80%;
+    max-width: 500px;
+    height: auto;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: var(--cor8);
+    color: var(--cor0);
+    text-align: center;
+    border: 2px solid var(--cor3);
+}
+
+section#infAddCarrinho > article#conteudoCarrinho > div {
+    margin-top: 30px;
+}
+
+section#infAddCarrinho > article#conteudoCarrinho > div > button {
+    padding: 5px 20px;
+    border-radius: 5px;
+    background-color: var(--cor3);
+    color: var(--cor0);
+    font-family: var(--font-texto);
+    font-weight: 100;
+    border: 1px solid transparent;
+}
+
+section#infAddCarrinho > article#conteudoCarrinho > div > button:hover {
+    background-color: transparent;
+    border: 1px solid var(--cor1);    
 }
 
 section.separacao {

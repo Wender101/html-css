@@ -100,21 +100,66 @@ if(sobreProduto2 == null) {
     btnContato.href=`https://api.whatsapp.com/send?phone=+55%2061%209906-3455&text=Estou interessado nesse produto: ${sobreProduto2.titulo}, link: ${imgProduto.src}`
 
     //! Vai add ao carrinho
-    function addCarrinho() {
-        let produto = {
-            titulo: sobreProduto2.titulo,
-            desc: sobreProduto2.desc,
-            imgProduto: sobreProduto2.imgProduto
+    function addCarrinho(addAgain = false) {
+        const carrinho1 = localStorage.getItem('carrinho')
+        const carrinho2 = JSON.parse(carrinho1)
+
+
+        try {
+            for(let c = 0; c <= carrinho.length; c++) {
+                if(sobreProduto2.titulo == carrinho2[c].titulo && sobreProduto2.desc == carrinho2[c].desc && addAgain == false) {
+                    document.getElementById('infAddCarrinho').style.display = 'flex'
+                    return
+
+                } else if(addAgain != false) {
+                    let produto = {
+                        titulo: sobreProduto2.titulo,
+                        desc: sobreProduto2.desc,
+                        imgProduto: sobreProduto2.imgProduto
+                    }
+            
+                    carrinho.push(produto)
+                    let salvarCarrinho = JSON.stringify(carrinho)
+                    localStorage.setItem('carrinho', salvarCarrinho)
+            
+                    document.getElementById('carrinho').className = 'animation'
+            
+                    setTimeout(() => {
+                        document.getElementById('carrinho').className = ''
+                    }, 700)
+
+                    return
+                }
+            }
+
+        } catch {
+
+            let produto = {
+                titulo: sobreProduto2.titulo,
+                desc: sobreProduto2.desc,
+                imgProduto: sobreProduto2.imgProduto
+            }
+    
+            carrinho.push(produto)
+            let salvarCarrinho = JSON.stringify(carrinho)
+            localStorage.setItem('carrinho', salvarCarrinho)
+    
+            document.getElementById('carrinho').className = 'animation'
+    
+            setTimeout(() => {
+                document.getElementById('carrinho').className = ''
+            }, 700)
         }
+    }
 
-        carrinho.push(produto)
-        let salvarCarrinho = JSON.stringify(carrinho)
-        localStorage.setItem('carrinho', salvarCarrinho)
-
-        document.getElementById('carrinho').className = 'animation'
-
-        setTimeout(() => {
-            document.getElementById('carrinho').className = ''
-        }, 700)
+    //! Vai fachar a section que informa que o produto já está em seu carrinho
+    function fecharInfCarrinho() {
+        document.getElementById('infAddCarrinho').style.display = 'none'
+    }
+    
+    //! Vai adicionar o produto de novo no carrinho
+    function addAgain() {
+        addCarrinho(true)
+        fecharInfCarrinho()
     }
 }
