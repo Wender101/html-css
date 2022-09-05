@@ -151,14 +151,44 @@ main > section#localImg {
     border-radius: 10px 0px 0px 20px;
 }
 
-main > section#localImg > img {
-    width: 70%;
-    display: block;
+main > section#localImg > div {
+    width: 100%;
     position: absolute;
     top: 50%;
-    right: 40px;
     transform: translateY(-50%); 
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
+main > section#localImg > div > img {
+    width: 80%;
+}
+
+
+/*  */
+
+.big{
+    width: 90%;
+    height: 90%;
+    position: absolute;
+    top: 5%;
+    overflow: hidden;
+    margin-left: 50%;
+    transform: translate(-50%);
+    display: none;
+    z-index: 1;
+    border-radius: 20px;
+    border: 2px solid var(--cor1);
+    background-color: var(--cor0);
+}
+
+.big > img{
+    width: 200%;
+    position: absolute;
+}
+
+/*  */
 
 main > section#localImg > article#otherImgs {
     width: 80px;
