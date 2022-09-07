@@ -81,14 +81,20 @@ if(sobreProduto2 == null) {
     img1.src = sobreProduto2.imgProduto
 
     // * Vai alterar a img principal para a img1
-    img1.addEventListener('click', () => imgProduto.src = img1.src)
+    img1.addEventListener('click', () => {
+        imgProduto.src = img1.src
+        zoom()
+    })
 
     //! img2
     let img2 = document.getElementById('img2')
     img2.src = imgProduto.src
 
     // * Vai alterar a img principal para a img2
-    img2.addEventListener('click', () => imgProduto.src = img2.src)
+    img2.addEventListener('click', () => {
+        imgProduto.src = img2.src
+        zoom() 
+    })
 
     //! Vai add o titulo e a descrição
     document.getElementById('titulo').innerText = sobreProduto2.titulo
@@ -98,6 +104,50 @@ if(sobreProduto2 == null) {
     let btnContato = document.getElementById('btnContato')
 
     btnContato.href=`https://api.whatsapp.com/send?phone=+55%2061%209906-3455&text=Estou interessado nesse produto: ${sobreProduto2.titulo}, link: ${imgProduto.src}`
+
+    //!Vai criar o efeito de zoom nas imgs
+    function zoom() {
+
+        let small = document.querySelector("#small")
+        let mask = document.querySelector("#mask")
+        let big = document.querySelector("#big")
+        let bigImg = document.querySelector("#big>img")
+        let imgProduto = document.querySelector("#imgProduto")
+    
+        bigImg.src = imgProduto.src
+    
+    
+        small.addEventListener("mouseenter",function(){
+            if(document.defaultView.innerWidth > 700) {
+                big.style.display = "block" 
+            }
+        })
+        small.addEventListener("mouseleave",function(){
+            big.style.display = "none" 
+        })
+    
+        small.addEventListener("mousemove",function(event){
+            try {
+                let pos = small.getBoundingClientRect()
+                let x = event.clientX -pos.x 
+                let y = event.clientY - pos.y 
+        
+                if( x< 100 ){ x = 100}
+                if( x > 400 ){  x = 400}
+        
+                ( y < 100 )&&( y = 100 )
+                ( y > 400 )&&( y = 400 )
+        
+                mask.style.left = (x-100) + "px"
+                mask.style.top = (y-100) + "px"
+        
+                bigImg.style.left = -(x-100)*2+"px"
+                bigImg.style.top = -(y-100)*2+"px"
+
+            } catch {}
+        })
+
+    } zoom()
 
     //! Vai add ao carrinho
     function addCarrinho(addAgain = false) {
