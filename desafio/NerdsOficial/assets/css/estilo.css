@@ -280,7 +280,7 @@ section#time > article > div > span {
     color: var(--cor1);
     font-size: 60px;
     font-family: var(--font-titulo);
-    text-shadow: 2px 3px 15px var(--cor3);
+    text-shadow: -1px 3px 8px var(--cor3);
 }
 
 section#time > article > div > span > p {

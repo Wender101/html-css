@@ -7,6 +7,7 @@ for(let c = 1; c <= 14; c++) {
     if(c == 1) {
         p.innerText =  'Cabos'
         a.href = `pagProduto.html`
+        a.className = 'contrario'
 
     } else if(c == 2) {
         p.innerText =  'Adaptadores'
@@ -15,6 +16,7 @@ for(let c = 1; c <= 14; c++) {
     } else if(c == 3) {
         p.innerText =  'Teclados'
         a.href = `pagProduto.html`
+        a.className = 'contrario'
         
     } else if(c == 4) {
         p.innerText =  'Mouse'
@@ -23,6 +25,7 @@ for(let c = 1; c <= 14; c++) {
     } else if(c == 5) {
         p.innerText =  'Gabinetes'
         a.href = `pagProduto.html`
+        a.className = 'contrario'
         
     } else if(c == 6) {
         p.innerText =  'Headset'
@@ -31,6 +34,7 @@ for(let c = 1; c <= 14; c++) {
     } else if(c == 7) {
         p.innerText =  'Controles'
         a.href = `pagProduto.html`
+        a.className = 'contrario'
         
     } else if(c == 8) {
         p.innerText =  'Fontes'
@@ -39,6 +43,7 @@ for(let c = 1; c <= 14; c++) {
     } else if(c == 9) {
         p.innerText =  'Mouse Pad'
         a.href = `pagProduto.html`
+        a.className = 'contrario'
         
     } else if(c == 10) {
         p.innerText =  'Processadores'
@@ -47,6 +52,7 @@ for(let c = 1; c <= 14; c++) {
     } else if(c == 11) {
         p.innerText =  'Memoria'
         a.href = `pagProduto.html`
+        a.className = 'contrario'
         
     } else if(c == 12) {
         p.innerText =  'SSD'
@@ -56,6 +62,7 @@ for(let c = 1; c <= 14; c++) {
         p.innerText =  'Coolers'
         a.href = `pagProduto.html`
         img.className = 'Coolers'
+        a.className = 'contrario'
 
     } else {
         p.innerText =  'Outros'
