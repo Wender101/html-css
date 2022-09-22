@@ -381,8 +381,8 @@ a#carrinho {
     height: 50px;
     position: fixed;
     z-index: 1;
-    right: 20px;
-    bottom: 40vh;
+    right: 15px;
+    bottom: 90px;
     background-color: var(--cor3);
     color: white;
     border-radius: 50%;

@@ -109,7 +109,7 @@ window.addEventListener("scroll", (event) => {
 
 	} else {
 		subir.style.transition = "100ms right linear"
-		subir.style.right = "20px"
+		subir.style.right = "15px"
 	}
 })
 
