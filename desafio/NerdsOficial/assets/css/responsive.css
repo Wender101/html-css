@@ -278,7 +278,8 @@
     /* Categorias */
     section#produtos > article#categorias {
         width: 293px;
-        margin: 220px;
+        margin-left: 50%;
+        transform: translate(-60%);
     }
 
     section#time > h1 {
