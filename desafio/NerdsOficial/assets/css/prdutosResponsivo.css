@@ -1,3 +1,11 @@
+@media screen and (max-width: 1255px) {
+    /* Categorias */
+    #categorias {
+        margin-left: 50%;
+        transform: translate(-55%);
+    }
+}
+
 @media screen and (max-width: 1084px) {
     section#produtos {
         max-width: 800px;
