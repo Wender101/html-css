@@ -22,11 +22,13 @@ function addOfertas(num) {
     localImg.className = 'localImg'
     divImg.className = 'img'
 
+    let pesquisa = []
     if(num == 0) {
         localImg.href = 'pagProduto.html'
 
         localImg.addEventListener('click', () => {
-            const produtoPesquisado = JSON.stringify('Headset')
+            pesquisa = ['Headset', 6]
+            const produtoPesquisado = JSON.stringify(pesquisa)
             localStorage.setItem('produtoPesquisado', produtoPesquisado)
         })
 
@@ -37,7 +39,8 @@ function addOfertas(num) {
     } else if(num == 1) {
         localImg.href = 'pagProduto.html'
         localImg.addEventListener('click', () => {
-            const produtoPesquisado = JSON.stringify('Gabinetes')
+            pesquisa = ['Gabinetes', 5]
+            const produtoPesquisado = JSON.stringify(pesquisa)
             localStorage.setItem('produtoPesquisado', produtoPesquisado)
         })
 
@@ -48,7 +51,8 @@ function addOfertas(num) {
     } else if(num == 2) {
         localImg.href = 'pagProduto.html'
         localImg.addEventListener('click', () => {
-            const produtoPesquisado = JSON.stringify('Mouse')
+            pesquisa = ['Mouse', 4]
+            const produtoPesquisado = JSON.stringify(pesquisa)
             localStorage.setItem('produtoPesquisado', produtoPesquisado)
         })
 
@@ -59,7 +63,8 @@ function addOfertas(num) {
     } else if(num == 3) {
         localImg.href = 'pagProduto.html'
         localImg.addEventListener('click', () => {
-            const produtoPesquisado = JSON.stringify('Gabinetes')
+            pesquisa = ['Gabinetes', 5]
+            const produtoPesquisado = JSON.stringify(pesquisa)
             localStorage.setItem('produtoPesquisado', produtoPesquisado)
         })
 
@@ -70,7 +75,8 @@ function addOfertas(num) {
     } else if(num == 4) {
         localImg.href = 'pagProduto.html'
         localImg.addEventListener('click', () => {
-            const produtoPesquisado = JSON.stringify('Controles')
+            pesquisa = ['Controles', 7]
+            const produtoPesquisado = JSON.stringify(pesquisa)
             localStorage.setItem('produtoPesquisado', produtoPesquisado)
         })
 
@@ -81,7 +87,8 @@ function addOfertas(num) {
     }  else if(num == 5) {
         localImg.href = 'pagProduto.html'
         localImg.addEventListener('click', () => {
-            const produtoPesquisado = JSON.stringify('Outros')
+            pesquisa = ['Outros', 14]
+            const produtoPesquisado = JSON.stringify(pesquisa)
             localStorage.setItem('produtoPesquisado', produtoPesquisado)
         })
 
@@ -92,7 +99,8 @@ function addOfertas(num) {
     } else if(num == 6) {
         localImg.href = 'pagProduto.html'
         localImg.addEventListener('click', () => {
-            const produtoPesquisado = JSON.stringify('Outros')
+            pesquisa = ['Outros', 14]
+            const produtoPesquisado = JSON.stringify(pesquisa)
             localStorage.setItem('produtoPesquisado', produtoPesquisado)
         })
 
@@ -103,7 +111,8 @@ function addOfertas(num) {
     } else if(num == 7) {
         localImg.href = 'pagProduto.html'
         localImg.addEventListener('click', () => {
-            const produtoPesquisado = JSON.stringify('Controles')
+            pesquisa = ['Controles', 7]
+            const produtoPesquisado = JSON.stringify(pesquisa)
             localStorage.setItem('produtoPesquisado', produtoPesquisado)
         })
 
@@ -114,7 +123,8 @@ function addOfertas(num) {
     } else if(num == 8) {
         localImg.href = 'pagProduto.html'
         localImg.addEventListener('click', () => {
-            const produtoPesquisado = JSON.stringify('Teclados')
+            pesquisa = ['Teclados', 3]
+            const produtoPesquisado = JSON.stringify(pesquisa)
             localStorage.setItem('produtoPesquisado', produtoPesquisado)
         })
 
@@ -125,7 +135,8 @@ function addOfertas(num) {
     } else {
         localImg.href = 'pagProduto.html'
         localImg.addEventListener('click', () => {
-            const produtoPesquisado = JSON.stringify('Coolers')
+            pesquisa = ['Coolers', 13]
+            const produtoPesquisado = JSON.stringify(pesquisa)
             localStorage.setItem('produtoPesquisado', produtoPesquisado)
         })
 

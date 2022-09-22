@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="assets/css/prdutosResponsivo.css">
     <title>Produtos</title>
 </head>
-<body>
+<body id="topo">
     <div id="sombra" onclick="fecharMenu()"></div>
     <div id="localBtnMenu"><button id="menu" onclick="abrirMenu()">Menu</button></div>
     <nav>
@@ -45,8 +45,6 @@
     </section>
 
     <main>
-        <section id="separacao"></section>
-
         <section id="produtos">
             <article id="categorias">
                 <h1>Categorias</h1>
@@ -61,13 +59,15 @@
             </article>
             
         </section>
-
-        <section id="separacao"></section>
     </main>
 
     <a id="carrinho" href="carrinho.html">
         <img src="assets/img/icons/carrinho.png" alt="">
     </a>
+
+    <div id="voltarTopo">
+        <a href="#topo" id="subir"></a>
+    </div>
 
     <footer>
         <div id="p1">
@@ -81,7 +81,7 @@
         </div>
 
         <div id="p2">
-            <strong>Rua Visconde De Porto Seguro 1161 Prédio</strong>
+            <strong><a href="https://g.page/Nerds-Formosa?share" target="_blank">Rua Visconde De Porto Seguro 1161 Prédio</a></strong>
             <p>Preços e condições de pagamento exclusivos para compras via internet e podem variar nas lojas físicas. Os preços anunciados neste site ou via e-mail promocional podem ser alterados sem aviso prévio.</p>
         </div>
 
@@ -89,7 +89,7 @@
     </footer>
 
     <script src="assets/js/produtos.js"></script>
-    <script src="assets/js/funcoesBasicas.js"></script>
     <script src="assets/js/pesquisa.js"></script>
+    <script src="assets/js/funcoesBasicas.js"></script>
 </body>
 </html>

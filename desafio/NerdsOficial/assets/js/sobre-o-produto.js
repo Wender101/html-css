@@ -16,7 +16,7 @@ try {
     carrinho = []
 }
 
-// Vai checar se o produto2 tem algum valor salvo
+//! Vai checar se o produto2 tem algum valor salvo
 if(sobreProduto2 == null) {
     document.getElementById('titulo').innerText = 'Algo deu errado :('
     document.getElementById('desc').innerText = 'Parece que nehum produto foi encotrado. Volte a página anterior e tente novamente.'
@@ -100,10 +100,14 @@ if(sobreProduto2 == null) {
     document.getElementById('titulo').innerText = sobreProduto2.titulo
     document.getElementById('desc').innerText = sobreProduto2.desc
 
-    //! Vai inviar uma msg ao vendedor informando qual é o produto
-    let btnContato = document.getElementById('btnContato')
+    //! Vai enviar uma msg ao vendedor informando qual é o produto
+    if(sobreProduto2.titulo != 'Algo deu errado!') {
+        let btnContato = document.getElementById('btnContato')
+        btnContato.href=`https://api.whatsapp.com/send?phone=+55%2061%209906-3455&text=Estou interessado nesse produto: ${sobreProduto2.titulo}, link: ${imgProduto.src}`
 
-    btnContato.href=`https://api.whatsapp.com/send?phone=+55%2061%209906-3455&text=Estou interessado nesse produto: ${sobreProduto2.titulo}, link: ${imgProduto.src}`
+    } else {
+        document.getElementById('btns').style.display = 'none'
+    }
 
     //!Vai criar o efeito de zoom nas imgs
     function zoom() {
@@ -115,8 +119,7 @@ if(sobreProduto2 == null) {
         let imgProduto = document.querySelector("#imgProduto")
     
         bigImg.src = imgProduto.src
-    
-    
+
         small.addEventListener("mouseenter",function(){
             if(document.defaultView.innerWidth > 700) {
                 big.style.display = "block" 
@@ -125,7 +128,7 @@ if(sobreProduto2 == null) {
         small.addEventListener("mouseleave",function(){
             big.style.display = "none" 
         })
-    
+
         small.addEventListener("mousemove",function(event){
             try {
                 let pos = small.getBoundingClientRect()
@@ -146,14 +149,12 @@ if(sobreProduto2 == null) {
 
             } catch {}
         })
-
     } zoom()
 
     //! Vai add ao carrinho
     function addCarrinho(addAgain = false) {
         const carrinho1 = localStorage.getItem('carrinho')
         const carrinho2 = JSON.parse(carrinho1)
-
 
         try {
             for(let c = 0; c <= carrinho.length; c++) {

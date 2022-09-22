@@ -29,6 +29,7 @@ if(total <= 0) {
     document.querySelector('main').id = 'main'
 }
 
+let idSpan
 function criaProdutos(titulo, desc, src, id) {
     document.getElementById('recado').style.display = 'none'
 
@@ -39,7 +40,6 @@ function criaProdutos(titulo, desc, src, id) {
     const imgProduto = document.createElement('img')
     const strong = document.createElement('strong')
     const p = document.createElement('p')
-    
     
     containerProduto.classList = 'containerProduto'
     containerProduto.id = `containerProduto${id}`
@@ -81,7 +81,7 @@ function criaProdutos(titulo, desc, src, id) {
     //!
     
     imgProduto.src = src
-    span.innerText = 'X'
+    span.innerText = 'x'
     strong.innerHTML = titulo
     p.innerText = desc
 
@@ -93,15 +93,11 @@ function criaProdutos(titulo, desc, src, id) {
     containerProduto.appendChild(p)
     main.appendChild(containerProduto)
 
-    //! Vai apagar o produto do carrinho
+    //! Vai perguntar se o user realmente quer remover o produto do carrinho
     span.addEventListener('click', () => {
-        carrinho.splice(span.id, 1)
-        let salvarCarrinho = JSON.stringify(carrinho)
-        localStorage.setItem('carrinho', salvarCarrinho)
-
-        location.reload()
+        document.getElementById('infRemover').style.display = 'flex'
+        idSpan = span.id
     })
-
 
     //! Vai add a memoria qual produto vai ser analizado pelo usuario 
     localImgProduto.addEventListener('click', () => {
@@ -116,4 +112,26 @@ function criaProdutos(titulo, desc, src, id) {
     })
 
     document.getElementById('total').innerText = `Total de Produtos: ${total}`
+}
+
+//! Vai remover o produto do carrinho
+function removerDoCarrinho() {
+    carrinho.splice(idSpan, 1)
+    let salvarCarrinho = JSON.stringify(carrinho)
+    localStorage.setItem('carrinho', salvarCarrinho)
+    location.reload()
+}
+
+//! Vai fechar a msg "remover o produto do carrinho"
+function fecharInfRemover() {
+    document.getElementById('infRemover').style.display = 'none'
+}
+
+//! Vai fechar a msg "remover o produto do carrinho"
+function limparCarrinho() {
+        carrinho = []
+
+    let salvarCarrinho = JSON.stringify(carrinho)
+    localStorage.setItem('carrinho', salvarCarrinho)
+    location.reload()
 }

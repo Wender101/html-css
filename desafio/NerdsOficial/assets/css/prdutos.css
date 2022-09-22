@@ -43,7 +43,9 @@ body {
     min-height: 100vh;
     font-family: var(--font-texto);
     background-color: var(--cor4);
-    background-image: linear-gradient(var(--cor4), var(--cor6));
+    background-image: url('../img/site/fundoProdutos.png');
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 article > h1, article > div > h1 {
@@ -134,12 +136,7 @@ header {
     height: 100vh;
     min-height: 800px;
     padding: 20px;
-    background-image: url('../img/site/NFT1.png');
-    background-position: center center;
-    background-size: cover;
-    background-repeat: no-repeat;
     position: relative;
-    box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.644);
     overflow: hidden;
 }
 
@@ -301,21 +298,10 @@ header > section#texto > a > button {
     margin-bottom: 33px;
 }
 
-section#separacao {
-    width: 100%;
-    height: 150px;
-    background-image: url('../img/site/NFT\ Landing.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-
 section#produtos {
     width: 100%;
     height: auto;
     padding: 20px;
-    background-image: url('../img/site/fundoProdutos.png');
-    background-size: cover;
-    background-repeat: no-repeat;
 }
 
 /* Categorias */
@@ -570,15 +556,10 @@ section#msgLogin > button {
 footer {
     width: 100%;
     height: 150px;
-    background-image: url('../img/site/NFT2.png');
-    background-position: center center;
-    background-size: cover;
-    background-repeat: no-repeat;
     color: var(--cor0);
     padding-left: 100px;
     padding-top: 63px;
     position: relative;
-    box-shadow: -2px -2px 20px rgba(0, 0, 0, 0.644);
     overflow: hidden;
     padding-bottom: 50px;
 }

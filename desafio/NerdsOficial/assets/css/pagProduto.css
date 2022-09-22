@@ -24,6 +24,7 @@
     --cor14: rgba(41, 0, 73, 1);
     --cor15: rgba(4, 253, 162, 0.555);
     --cor16: rgba(17, 9, 41, 0.801);
+    --cor17: rgba(144, 0, 255, 0.651);
 
     --font-titulo: 'Audiowide', cursive;
     --font-texto: 'JetBrains Mono', monospace;
@@ -130,6 +131,152 @@ h1#classProduto {
     color: var(--cor1);
 }
 
+/*! Categorias */
+
+#categorias {
+    max-width: 1070px;
+    width: 100%;
+    height: 364px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    margin: 100px auto 50px auto;
+    padding-left: 20px;
+    position: relative;
+}
+
+#categorias > h1 {
+    font-family: var(--font-titulo);
+    font-size: 30px;
+    color: var(--cor1);
+    margin-bottom: 20px;
+    margin-left: 30px;
+}
+
+#categorias > div#localCategorias {
+    width: 1050px;
+    height: 308px;
+    margin: 0px auto;
+    transition: 300ms margin-left linear;
+    margin-left: 0px;
+    padding: 10px;
+}
+
+
+#categorias > div > a {
+    width: 140px;
+    height: 140px;
+    border: 1px solid var(--cor5);
+    display: inline-block;
+    margin-bottom: -5px;
+    position: relative;
+    overflow: hidden;
+}
+
+#categorias > div > a::before {
+    content: '';
+    animation: 3s cat infinite;
+    position: absolute;
+    width: 150%;
+    height: 150%;
+    margin: -30px;
+    background-image: linear-gradient(var(--cor2), var(--cor1), var(--cor3), var(--cor5), var(--cor6), var(--cor4));
+}
+
+#categorias > div > a.contrario::before {
+    animation: 2s cat2 infinite;
+}
+
+#categorias > div > a::after {
+    content: '';
+    position: absolute;
+    inset: 2px;
+    background-color: var(--cor6);
+}
+
+/*? After */
+#categorias > div > a#after {
+    transition: 100ms transform linear;
+    transform: scale(1.1);
+    font-size: 17px;
+    z-index: 2;
+}
+
+#categorias > div > a#after::after {
+    background-color: var(--cor17);
+}
+
+#categorias > div:hover a#after {
+    transition: 100ms transform linear;
+    transform: scale(1);
+    font-size: 15px;
+    z-index: 1;
+}
+
+#categorias > div:hover a#after::after {
+    background-color: var(--cor6);
+}
+
+#categorias > div > a#after:hover {
+    transition: 100ms transform linear;
+    transform: scale(1.1);
+    font-size: 17px;
+    z-index: 2;
+}
+/*? Fim after */
+
+@keyframes cat {
+    0% {
+        transform: rotate(0deg);
+    }
+
+
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes cat2 {
+    0% {
+        transform: rotate(-0deg);
+    }
+
+
+
+    100% {
+        transform: rotate(-360deg);
+    }
+}
+
+#categorias > div > a > img {
+    width: 70px;
+    height: auto;
+    margin-top: 20px;
+    display: block;
+    position: absolute;
+    margin-left: 50%;
+    transform: translate(-50%);
+    z-index: 1;
+}
+
+#categorias > div > a > p {
+    width: auto;
+    margin-left: 50%;
+    transform: translate(-50%);
+    position: absolute;
+    bottom: 10px;
+    z-index: 1;
+}
+
+#categorias > div > a:hover {
+    transition: 100ms transform linear;
+    transform: scale(1.1);
+    font-size: 17px;
+    z-index: 2;
+}
+
+/*! Fim Categoria */
+
 /*! Main  */
 
 main {
@@ -204,14 +351,13 @@ a#carrinho {
     position: fixed;
     z-index: 1;
     right: 20px;
-    bottom: 20px;
+    bottom: 40vh;
     background-color: var(--cor3);
     color: white;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    
 }
 
 a#carrinho:hover {
@@ -221,121 +367,6 @@ a#carrinho:hover {
 a#carrinho > img {
     width: 60%;
 }
-
-/* Categorias */
-
-#categorias {
-    max-width: 1070px;
-    width: 100%;
-    height: 364px;
-    overflow-x: auto;
-    overflow-y: hidden;
-    margin: 0px auto 50px auto;
-    padding-left: 20px;
-    position: relative;
-}
-
-#categorias > h1 {
-    font-family: var(--font-titulo);
-    font-size: 30px;
-    color: var(--cor1);
-    margin-bottom: 20px;
-    margin-left: 30px;
-}
-
-#categorias > div#localCategorias {
-    width: 1050px;
-    height: 308px;
-    margin: 0px auto;
-    transition: 300ms margin-left linear;
-    margin-left: 0px;
-    padding: 10px;
-}
-
-
-#categorias > div > a {
-    width: 140px;
-    height: 140px;
-    border: 1px solid var(--cor5);
-    display: inline-block;
-    margin-bottom: -5px;
-    position: relative;
-    overflow: hidden;
-}
-
-#categorias > div > a::before {
-    content: '';
-    animation: 3s cat infinite;
-    position: absolute;
-    width: 150%;
-    height: 150%;
-    margin: -30px;
-    background-image: linear-gradient(var(--cor2), var(--cor1), var(--cor3), var(--cor5), var(--cor6), var(--cor4));
-}
-
-#categorias > div > a.contrario::before {
-    animation: 2s cat2 infinite;
-}
-
-#categorias > div > a::after {
-    content: '';
-    position: absolute;
-    inset: 2px;
-    background-color: var(--cor6);
-}
-
-@keyframes cat {
-    0% {
-        transform: rotate(0deg);
-    }
-
-
-
-    100% {
-        transform: rotate(360deg);
-    }
-}
-
-@keyframes cat2 {
-    0% {
-        transform: rotate(-0deg);
-    }
-
-
-
-    100% {
-        transform: rotate(-360deg);
-    }
-}
-
-#categorias > div > a > img {
-    width: 70px;
-    height: auto;
-    margin-top: 20px;
-    display: block;
-    position: absolute;
-    margin-left: 50%;
-    transform: translate(-50%);
-    z-index: 1;
-}
-
-#categorias > div > a > p {
-    width: auto;
-    margin-left: 50%;
-    transform: translate(-50%);
-    position: absolute;
-    bottom: 10px;
-    z-index: 1;
-}
-
-#categorias > div > a:hover {
-    transition: 100ms transform linear;
-    transform: scale(1.1);
-    font-size: 17px;
-    z-index: 2;
-}
-
-/* Fim Categoria */
 
 /*! Section Msg */
 section#msgLogin {
@@ -374,15 +405,10 @@ section.separacao {
 footer {
     width: 100%;
     height: 150px;
-    background-image: url('../img/site/NFT2.png');
-    background-position: center center;
-    background-size: cover;
-    background-repeat: no-repeat;
     color: var(--cor0);
     padding-left: 100px;
     padding-top: 63px;
     position: relative;
-    box-shadow: -2px -2px 20px rgba(0, 0, 0, 0.644);
     overflow: hidden;
     padding-bottom: 50px;
 }

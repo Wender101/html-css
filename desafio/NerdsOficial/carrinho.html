@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
+<head id="topo">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -33,14 +33,28 @@
         <p id="recado">Seu carrinho se encontra vazio, adicione algum produto a ele.</p>
     </main>    
 
-    <h2 id="total"></h2>
+    <div id="voltarTopo">
+        <a href="#topo" id="subir"></a>
+    </div>
+
+    <h2 id="total">Total de Produtos: 0</h2>
+
+    <section id="infRemover">
+        <article id="msgRemover">
+            <p>Tem certeza que desejá remover este produto do carrinho?</p>
+
+            <div>
+                <button onclick="removerDoCarrinho()" id="btnSim">Sim</button>
+                <button onclick="fecharInfRemover()" id="btnNao">Fechar</button>
+                <button onclick="limparCarrinho()" id="btnLimparCarrinho">Remover Todos</button>
+            </div>
+        </article>
+    </section>
 
     <section id="msgLogin">
         <p id="pMsgLogin">Ops! Ainda estamos trabalhando nisso...</p>
         <button onclick="fecharMsg()">Fechar</button>
     </section>
-
-    <section class="separacao"></section>
 
     <footer>
         <div id="p1">
@@ -54,7 +68,7 @@
         </div>
 
         <div id="p2">
-            <strong>Rua Visconde De Porto Seguro 1161 Prédio</strong>
+            <strong><a href="https://g.page/Nerds-Formosa?share" target="_blank">Rua Visconde De Porto Seguro 1161 Prédio</a></strong>
             <p>Preços e condições de pagamento exclusivos para compras via internet e podem variar nas lojas físicas. Os preços anunciados neste site ou via e-mail promocional podem ser alterados sem aviso prévio.</p>
         </div>
 

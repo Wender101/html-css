@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="assets/css/responsive.css">
     <title>Sobre o Produto</title>
 </head>
-<body>
+<body id="topo">
     <div id="sombra" onclick="fecharMenu()"></div>
     <div id="localBtnMenu"><button id="menu" onclick="abrirMenu()">Menu</button></div>
     
@@ -29,18 +29,18 @@
     <main>
         <section id="localImg">
             <article id="otherImgs">
-                <img id="img1" src=""></img>
-                <img id="img2" src=""></img>
+                <img id="img1" src="" onerror="this.src ='assets/img/site/error.png'"></img>
+                <img id="img2" src="" onerror="this.src ='assets/img/site/error2.png'"></img>
             </article>
             
             <div class="small" id="small">
-                <img src="" id="imgProduto">
+                <img src="" id="imgProduto" onerror="this.src ='assets/img/site/error2.png'">
             </div>
         </section>
         
         <section id="texto">
             <div class="big" id="big">
-                <img src="" alt="">
+                <img src="" alt="" onerror="this.src ='assets/img/site/error.png'">
             </div>
             <div class="fdj_mask" id="mask"></div>
             <!-- mask end -->
@@ -60,6 +60,10 @@
         <img src="assets/img/icons/carrinho.png" alt="">
     </a>
 
+    <div id="voltarTopo">
+        <a href="#topo" id="subir"></a>
+    </div>
+
     <section id="msgLogin">
         <p id="pMsgLogin">Ops! Ainda estamos trabalhando nisso...</p>
         <button onclick="fecharMsg()">Fechar</button>
@@ -70,8 +74,8 @@
             <p>Esse produto já foi adicionado em seu carrinho anteriormente! Deseja adiciona-lo de novo?</p>
 
             <div>
-                <button onclick="addAgain()">Sim</button>
-                <button onclick="fecharInfCarrinho()">Não</button>
+                <button onclick="addAgain()" id="btnSim">Sim</button>
+                <button onclick="fecharInfCarrinho()" id="btnNao">Não</button>
             </div>
         </article>
     </section>
@@ -82,8 +86,6 @@
 
         </div>
     </section>
-
-    <section class="separacao"></section>
 
     <footer>
         <div id="p1">
@@ -97,7 +99,7 @@
         </div>
 
         <div id="p2">
-            <strong>Rua Visconde De Porto Seguro 1161 Prédio</strong>
+            <strong><a href="https://g.page/Nerds-Formosa?share" target="_blank">Rua Visconde De Porto Seguro 1161 Prédio</a></strong>
             <p>Preços e condições de pagamento exclusivos para compras via internet e podem variar nas lojas físicas. Os preços anunciados neste site ou via e-mail promocional podem ser alterados sem aviso prévio.</p>
         </div>
 
@@ -107,6 +109,5 @@
     <script src="assets/js/funcoesBasicas.js"></script>
     <script src="assets/js/sobre-o-produto.js"></script>
     <script src="assets/js/pesquisa.js"></script>
-    <script src="assets/js/zoom.js"></script>
 </body>
 </html>

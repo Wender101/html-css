@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Dangrek&display=swap');
+
 h1#classProduto {
     max-width: 1040px;
     margin: 80px auto 0px auto;
@@ -6,7 +8,7 @@ h1#classProduto {
 }
 
 main {
-    min-height: 200px;
+    min-height: 200px;    
 }
 
 p#recado {
@@ -17,19 +19,18 @@ p#recado {
 h2#total {
     position: fixed;
     bottom: 0px;
-    color: var(--cor1);
-    right: 0px;
     padding: 10px;
+    color: var(--cor0); 
     z-index: 1;
     width: 100%;
     font-size: 20px;
     text-align: center;
-    background-color: var(--cor4);
+    background-color: var(--cor1);
 }
 
 span.x {
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     position: absolute;
     top: 25px;
     right: 20px;
@@ -41,4 +42,52 @@ span.x {
     justify-content: center;
     z-index: 1;
     cursor: pointer;
+    overflow: hidden;
+    font-size: 20px;
+    font-weight: 900;
+    font-family: 'Dangrek', cursive;
+}
+
+section#infRemover {
+    width: 100%;
+    min-height: 100vh;
+    position: fixed;
+    top: 0px;
+    background-color: var(--cor8);
+    z-index: 3;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+section#infRemover > article#msgRemover {
+    width: 80%;
+    max-width: 500px;
+    height: auto;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: var(--cor8);
+    color: var(--cor0);
+    text-align: center;
+    border: 2px solid var(--cor3);
+}
+
+section#infRemover > article#msgRemover > div {
+    margin-top: 30px;
+}
+
+section#infRemover > article#msgRemover > div > button {
+    padding: 5px 20px;
+    border-radius: 5px;
+    background-color: var(--cor3);
+    color: var(--cor0);
+    font-family: var(--font-texto);
+    font-weight: 100;
+    border: 1px solid transparent;
+    margin-bottom: 10px;
+}
+
+section#infRemover > article#msgRemover > div > button:hover {
+    background-color: transparent;
+    border: 1px solid var(--cor1);    
 }

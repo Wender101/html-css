@@ -162,12 +162,12 @@ main > section#localImg > div {
 }
 
 main > section#localImg > div > img {
-    width: 80%;
+    width: 75%;
+    margin-left: 30px;
 }
 
 
-/*  */
-
+/*? Big */
 .big{
     width: 90%;
     height: 90%;
@@ -187,8 +187,7 @@ main > section#localImg > div > img {
     width: 200%;
     position: absolute;
 }
-
-/*  */
+/*? Big */
 
 main > section#localImg > article#otherImgs {
     width: 80px;
@@ -199,7 +198,7 @@ main > section#localImg > article#otherImgs {
 }
 
 main > section#localImg > article#otherImgs > img {
-    width: 80%;
+    width: 60%;
     display: block;
     margin: 20px auto;
     cursor: pointer;
@@ -263,7 +262,6 @@ a#carrinho {
     display: flex;
     align-items: center;
     justify-content: center;
-    
 }
 
 a#carrinho:hover {
@@ -509,27 +507,13 @@ section#infAddCarrinho > article#conteudoCarrinho > div > button:hover {
     border: 1px solid var(--cor1);    
 }
 
-section.separacao {
-    width: 100%;
-    height: 150px;
-    background-image: url('../img/site/NFT\ Landing.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-    box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.644) inset;
-}
-
 footer {
     width: 100%;
     height: 150px;
-    background-image: url('../img/site/NFT2.png');
-    background-position: center center;
-    background-size: cover;
-    background-repeat: no-repeat;
     color: var(--cor0);
     padding-left: 100px;
     padding-top: 63px;
     position: relative;
-    box-shadow: -2px -2px 20px rgba(0, 0, 0, 0.644);
     overflow: hidden;
     padding-bottom: 50px;
 }

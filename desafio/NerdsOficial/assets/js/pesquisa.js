@@ -4,6 +4,8 @@ for(let c = 1; c <= 14; c++) {
     const p = document.createElement('p')
     const img = document.createElement('img')
 
+    a.id = `categoria-${c}`
+
     if(c == 1) {
         p.innerText =  'Cabos'
         a.href = `pagProduto.html`
@@ -74,40 +76,18 @@ for(let c = 1; c <= 14; c++) {
     a.appendChild(img)
     a.appendChild(p)
     localCategorias.appendChild(a)
-
+    
     // Vai guardar na memória qual produto foi pesquisado
     a.addEventListener('click', () => {
-        let pesquisa
-        pesquisa = p.innerText
+        let pesquisa = [p.innerText, c]
         const produtoPesquisado = JSON.stringify(pesquisa)
         localStorage.setItem('produtoPesquisado', produtoPesquisado)
     })
 }
 
-const localCategorias = document.getElementById('localCategorias')
-
-let res
-window.addEventListener('click', () => {
-    let largura = visualViewport.width
-
-    if(largura < 1100) {
-        res = (1100 - largura) / 7
-    }
-})
-
-function setaDireita() {
-    if(res < 1100) {
-        res++
-        localCategorias.style.transition = '300ms margin-left linear'
-        localCategorias.style.marginLeft = `${res}px`
-        console.log(res)
-    }
-}
-
-function setaEsquerda() {
-    if(res < 0) {
-        res = res - res
-        localCategorias.style.transition = '300ms margin-left linear'
-        localCategorias.style.marginLeft = `${res}px`
-    }
-}
+try {
+    const produtoQPesquisado1 = localStorage.getItem('produtoPesquisado')
+    const produtoQPesquisado2 = JSON.parse(produtoQPesquisado1)
+    document.getElementById(`categoria-${produtoQPesquisado2[1]}`).id = `after`
+    
+} catch {}

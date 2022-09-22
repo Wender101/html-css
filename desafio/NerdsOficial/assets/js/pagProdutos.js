@@ -2,8 +2,8 @@ const produtoPesquisado1 = localStorage.getItem('produtoPesquisado')
 const produtoPesquisado2 = JSON.parse(produtoPesquisado1)
 
 // Vai mudar o titulo da pág para o nome da classe pesquisada
-document.querySelector('title').innerText = produtoPesquisado2
-document.getElementById('classProduto').innerText = produtoPesquisado2
+document.querySelector('title').innerText = produtoPesquisado2[0]
+document.getElementById('classProduto').innerText = produtoPesquisado2[0]
 
 let maxC = 1
 for(let c = 0; c < maxC; c++) {
@@ -18,9 +18,12 @@ for(let c = 0; c < maxC; c++) {
     localImgProduto.className = 'localImgProduto'
     localImgProduto.href = 'sobre-o-produto.html'
     imgProduto.className = 'imgProduto'
+    imgProduto.src = 'assets/img/site/error.png'
+    strong.innerText = 'Algo deu errado!'
+    p.innerText = 'Volte a página anterior e tente novamente.'
 
     //! Produtos
-    if(produtoPesquisado2 == 'Cabos') {
+    if(produtoPesquisado2[0] == 'Cabos') {
         maxC = 21
         if(c == 0) {
             imgProduto.src = `assets/img/CatalogoNerd/Cabo AV/6b3089994518ca63a6a7a3aa87fa5f55.jpg`
@@ -129,7 +132,7 @@ for(let c = 0; c < maxC; c++) {
 
         }
 
-    } else if(produtoPesquisado2 == 'Adaptadores') {
+    } else if(produtoPesquisado2[0] == 'Adaptadores') {
         maxC = 20
         if(c == 0) {
             imgProduto.src = `assets/img/CatalogoNerd/Adaptador Bluetooth para PC/b2782e3f79dde434cfb03874214fb28b.jpg`
@@ -232,7 +235,7 @@ for(let c = 0; c < maxC; c++) {
             p.innerText = 'Cabo adaptador P3 para P2 (fone e microfone)'
         }   
 
-    } else if(produtoPesquisado2 == 'Teclados') {
+    } else if(produtoPesquisado2[0] == 'Teclados') {
         maxC = 6
         if(c == 0) {
             imgProduto.src = `assets/img/CatalogoNerd/Teclado gamer de 1 mão/90.png`
@@ -266,7 +269,7 @@ for(let c = 0; c < maxC; c++) {
 
         } 
 
-    } else if(produtoPesquisado2 == 'Mouse') {
+    } else if(produtoPesquisado2[0] == 'Mouse') {
         maxC = 23
 
         if(c == 0) {
@@ -385,7 +388,7 @@ for(let c = 0; c < maxC; c++) {
             p.innerText = 'Mouse USB' 
         }
 
-    } else if(produtoPesquisado2 == 'Gabinetes') {
+    } else if(produtoPesquisado2[0] == 'Gabinetes') {
         maxC = 6
 
         if(c == 0) {
@@ -420,7 +423,7 @@ for(let c = 0; c < maxC; c++) {
 
         } 
 
-    } else if(produtoPesquisado2 == 'Headset') {
+    } else if(produtoPesquisado2[0] == 'Headset') {
         maxC = 12
 
         if(c == 0) {
@@ -485,7 +488,7 @@ for(let c = 0; c < maxC; c++) {
 
         } 
 
-    } else if(produtoPesquisado2 == 'Controles') {
+    } else if(produtoPesquisado2[0] == 'Controles') {
         maxC = 9
 
         if(c == 0) {
@@ -535,7 +538,7 @@ for(let c = 0; c < maxC; c++) {
 
         }
 
-    } else if(produtoPesquisado2 == 'Fontes') {
+    } else if(produtoPesquisado2[0] == 'Fontes') {
         maxC = 8
 
         if(c == 0) {
@@ -580,7 +583,7 @@ for(let c = 0; c < maxC; c++) {
 
         } 
 
-    } else if(produtoPesquisado2 == 'Mouse Pad') {
+    } else if(produtoPesquisado2[0] == 'Mouse Pad') {
         maxC = 16
 
         if(c == 0) {
@@ -672,7 +675,7 @@ for(let c = 0; c < maxC; c++) {
 
         } 
 
-    } else if(produtoPesquisado2 == 'Processadores') {
+    } else if(produtoPesquisado2[0] == 'Processadores') {
         document.getElementById('classProduto').innerText = 'Produto não encontrado no estoque :('
 
         document.getElementById('classProduto').style.marginTop = '100px'
@@ -684,7 +687,7 @@ for(let c = 0; c < maxC; c++) {
         document.getElementsByClassName('separacao')[0].style.display = 'none'
         document.getElementsByClassName('separacao')[1].style.display = 'none'
 
-    } else if(produtoPesquisado2 == 'Memoria') {
+    } else if(produtoPesquisado2[0] == 'Memoria') {
         maxC = 3
         if(c == 0) {
             imgProduto.src = `assets/img/CatalogoNerd/Memoria/1322857189_1GG.jpg`
@@ -703,7 +706,7 @@ for(let c = 0; c < maxC; c++) {
 
         }
 
-    } else if(produtoPesquisado2 == 'SSD') {
+    } else if(produtoPesquisado2[0] == 'SSD') {
         maxC = 0
         if(c == 0) {
             imgProduto.src = `assets/img/CatalogoNerd/SSD/61FXsrHuILL._AC_SY450_.jpg`
@@ -712,7 +715,7 @@ for(let c = 0; c < maxC; c++) {
 
         }
 
-    } else if(produtoPesquisado2 == 'Coolers') {
+    } else if(produtoPesquisado2[0] == 'Coolers') {
         maxC = 6
         if(c == 0) {
             imgProduto.src = `assets/img/CatalogoNerd/Cooler Led Hayom/4ef814fc7095c3e036877f0b886aae9d_tn.jpg`
@@ -746,7 +749,7 @@ for(let c = 0; c < maxC; c++) {
 
         } 
 
-    } else if(produtoPesquisado2 == 'Outros') {
+    } else if(produtoPesquisado2[0] == 'Outros') {
         maxC = 9
         if(c == 0) {
             imgProduto.src = `assets/img/CatalogoNerd/Switch RJ/c352537e-436e-4f21-8e86-1957ee9b497d.jpg`
