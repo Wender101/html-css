@@ -91,3 +91,64 @@ try {
     document.getElementById(`categoria-${produtoQPesquisado2[1]}`).id = `after`
     
 } catch {}
+
+//! botões do painel de categorias
+var viewport
+let press = 0
+let q = 0
+let btnE = document.getElementsByClassName('btns')[0]
+let btnD = document.getElementsByClassName('btns')[1]
+let localCategorias = document.getElementById('localCategorias')
+setInterval(() => {
+    viewport = visualViewport.width
+
+    if(viewport > 1255) {
+        localCategorias.style.marginLeft = `0px`
+        btnE.style.display = 'none'
+        btnD.style.display = 'none'
+        press = 0
+        q = 0
+
+    } else if(viewport < 1255 && press == 0) {
+        btnD.style.display = 'block'
+    } 
+    
+    //! Vai controlar quando a seta direita vai sumir
+    if(viewport >= 1085 && press == 1) {
+        btnD.style.display = 'none'
+
+    } else if(viewport >= 883 && press == 2) {
+        btnD.style.display = 'none'
+
+    } else if(viewport <= 883 && viewport >= 644 && press == 3) {
+        btnD.style.display = 'none'
+        
+    } else if(viewport <= 644 && viewport >= 484 && press == 4) {
+        btnD.style.display = 'none'
+        
+    } else if(viewport < 484 && press == 5) {
+        btnD.style.display = 'none'
+    }
+
+    //! Vai controlar quando a seta esquerda vai sumir
+    if(press == 0) {
+        btnE.style.display = 'none'
+
+    } else {
+        btnE.style.display = 'block'
+    }
+}, 500)
+
+function btnEsquerda() {
+    q += 145
+    localCategorias.style.marginLeft = `${q}px`
+    btnD.style.display = 'block'
+    press--
+}
+
+function btnDireita() {
+    q -= 145
+    localCategorias.style.marginLeft = `${q}px`
+    btnE.style.display = 'block'
+    press++
+}

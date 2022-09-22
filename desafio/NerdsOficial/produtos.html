@@ -44,12 +44,43 @@
         <button onclick="fecharMsg()">Fechar</button>
     </section>
 
+    <!--? Slider -->
+    <div class="container">
+        <div class="slideshow">
+            <!-- carousel control buttons -->
+            <button class="slide-btn slide-btn-1"></button>
+            <button class="slide-btn slide-btn-2"></button>
+            <button class="slide-btn slide-btn-3"></button>
+            <button class="slide-btn slide-btn-4"></button>
+
+            <!-- carousel wrapper which contains all images -->
+            <div class="slideshow-wrapper">
+                <div class="slide">
+                    <img class="slide-img" src="assets/img/site/redragon.png">
+                </div>
+                <div class="slide">
+                    <img class="slide-img" src="assets/img/site/MÊS.png">
+                </div>
+                <div class="slide">
+                    <img class="slide-img" src="assets/img/site/bannerTeclado.jpg">
+                </div>
+                <div class="slide">
+                    <img class="slide-img" src="assets/img/site/bannerPC.jpg">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--? Fim Slider -->
+
     <main>
         <section id="produtos">
             <article id="categorias">
                 <h1>Categorias</h1>
                  <div id="localCategorias">
                  </div>
+
+                 <div id="btnEsquerdo" onclick="btnEsquerda()" class="btns"><</div>
+                 <div id="btnDireito" onclick="btnDireita()" class="btns">></div>
             </article>
             
             <article id="localOfertas">

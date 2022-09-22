@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  
+<head>
+    <style>
+        :root {
+            --cor0:  rgb(255, 255, 255);
+            --cor1:  rgb(253, 104, 4);
+            --cor2:  rgba(253, 137, 4, 0.582);
+            --cor3:  rgba(253, 95, 4, 0.918);
+            --cor4:  rgba(17, 9, 41, 1);
+            --cor5:  rgba(88, 10, 136, 1);
+            --cor6:  rgba(41, 0, 73, 1);
+            --cor7:  rgba(253, 116, 4, 0.678);
+            --cor8:  rgba(17, 9, 41, 0.801);
+            --cor9:  rgba(4, 253, 163, 1);
+            --cor10: rgba(28, 164, 115, 0.8);
+            --cor11: rgba(4, 253, 162, 0.918);
+            --cor12: rgba(17, 9, 41, 1);
+            --cor13: rgba(88, 10, 136, 1);
+            --cor14: rgba(41, 0, 73, 1);
+            --cor15: rgba(4, 253, 162, 0.555);
+            --cor16: rgba(17, 9, 41, 0.801);
+
+            --font-titulo: 'Audiowide', cursive;
+            --font-texto: 'JetBrains Mono', monospace;
+            --font-nerds: bitwise;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+  
+        body {
+            background-color: rgb(255, 235, 235);
+            margin-top: 100px;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: auto;
+            width: 850px;
+            height: 250px;
+        }
+  
+        .content {
+            position: relative;
+        }
+  
+        .slideshow {
+            height: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+  
+        .slideshow-wrapper {
+            display: flex;
+            width: 400%;
+            height: 100%;
+            position: relative;
+  
+            animation: slideshow 20s infinite;
+        }
+  
+        .slide {
+            width: 100%;
+            height: 100%;
+        }
+  
+        .slide-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+  
+        @keyframes slideshow {
+            0% {
+                left: 0;
+            }
+  
+            10% {
+                left: 0;
+            }
+  
+            15% {
+                left: -100%;
+            }
+  
+            25% {
+                left: -100%;
+            }
+  
+            30% {
+                left: -200%;
+            }
+  
+            40% {
+                left: -200%;
+            }
+  
+            45% {
+                left: -300%;
+            }
+  
+            55% {
+                left: -300%;
+            }
+  
+            60% {
+                left: -200%;
+            }
+  
+            70% {
+                left: -200%;
+            }
+  
+            75% {
+                left: -100%;
+            }
+  
+            85% {
+                left: -100%;
+            }
+  
+            90% {
+                left: 0%;
+            }
+        }
+  
+        .slide-btn {
+            background-color: transparent;
+            border-radius: 50%;
+            border: .2rem solid var(--cor3);
+            width: 1.2rem;
+            height: 1.2rem;
+            outline: none;
+            cursor: pointer;
+            position: absolute;
+            bottom: 3%;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 70;
+        }
+
+        .slide-btn-1 {
+            left: 45%;
+        }
+  
+        .slide-btn-2 {
+            left: 50%;
+        }
+  
+        .slide-btn-3 {
+            left: 55%;
+        }
+  
+        .slide-btn-4 {
+            left: 60%;
+        }
+  
+        .slide-btn-1:focus~.slideshow-wrapper {
+            animation: none;
+            left: 0;
+        }
+  
+        .slide-btn-2:focus~.slideshow-wrapper {
+            animation: none;
+            left: -100%;
+        }
+  
+        .slide-btn-3:focus~.slideshow-wrapper {
+            animation: none;
+            left: -200%;
+        }
+  
+        .slide-btn-4:focus~.slideshow-wrapper {
+            animation: none;
+            left: -300%;
+        }
+
+        .slide-btn:focus {
+            background-color: var(--cor3);
+        }
+    </style>
+    <title>Slider</title>
+</head>
+  
+<body>
+    <div class="container">
+        <div class="slideshow">
+            <!-- carousel control buttons -->
+            <button class="slide-btn slide-btn-1"></button>
+            <button class="slide-btn slide-btn-2"></button>
+            <button class="slide-btn slide-btn-3"></button>
+            <button class="slide-btn slide-btn-4"></button>
+
+            <!-- carousel wrapper which contains all images -->
+            <div class="slideshow-wrapper">
+                <div class="slide">
+                    <img class="slide-img" src="assets/img/site/redragon.png">
+                </div>
+                <div class="slide">
+                    <img class="slide-img" src="assets/img/site/MÊS.png">
+                </div>
+                <div class="slide">
+                    <img class="slide-img" src="assets/img/site/bannerTeclado.jpg">
+                </div>
+                <div class="slide">
+                    <img class="slide-img" src="assets/img/site/bannerPC.jpg">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+  
+</html>

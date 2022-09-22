@@ -436,6 +436,35 @@ a.animation {
     z-index: 2;
 }
 
+#categorias > div.btns {
+    width: 50px;
+    height: 47px;
+    z-index: 3;
+    position: absolute;
+    border-radius: 50%;
+    background-color: var(--cor2);
+    top: 187px;
+    color: var(--cor0);
+    font-size: 30px;
+    text-align: center;
+    padding-top: 3px;
+    display: none;
+    cursor: pointer;
+}
+
+#categorias > div.btns:hover {
+    transform: scale(1.1);
+    background-color: var(--cor1);
+}
+
+#categorias > div#btnEsquerdo {
+    left: 40px;
+}
+
+#categorias > div#btnDireito {
+    right: 10px;
+}
+
 /* Fim Categoria */
 
 /*! msg login, add carrinho e footer  */

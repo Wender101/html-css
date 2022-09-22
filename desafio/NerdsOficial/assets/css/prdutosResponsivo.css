@@ -1,30 +1,14 @@
 @media screen and (max-width: 1084px) {
-    section#produtos > article {
+    section#produtos {
         max-width: 800px;
-    }
-
-    div.seta {
-        display: block;
+        margin: auto;
     }
 }
 
-@media screen and (max-width: 880px) {
-    section#produtos > article {
-        max-width: 710px;
-    }
-
-    section#produtos > article > div.p {
-        width: 210px;
-    }
-
-    section#produtos > article > div.p > a.localImg {
-        height: 200px;
-    }
-}
-
-@media screen and (max-width: 740px) {
-    section#produtos > article {
-        max-width: 470px;
+@media screen and (max-width: 882px) {
+    section#produtos > article#localOfertas {
+        max-width: 545px;
+        margin: auto;
     }
 
     section#produtos > article > div.p {
@@ -42,10 +26,24 @@
     }
 }
 
-
 @media screen and (max-width: 572px) {
     header > section#man {
         right: 20px;
+    }
+
+    section#produtos > article#localOfertas {
+        max-width: 300px;
+        margin: auto;
+    }
+
+    section#produtos > article#localOfertas > div#ofertas {
+        margin-left: 15px;
+    }
+}
+
+@media screen and (max-width: 535px) {
+    section#produtos > article#categorias {
+        margin-top: 0px;
     }
 }
 

@@ -22,7 +22,45 @@
     transform: scale(1.1);
 }
 
+@media screen and (max-width: 1255px) {
+    /* Categorias */
+    #categorias {
+        max-width: 862px;
+        width: 90%;
+        height: 364px;
+        overflow: hidden;
+        margin-bottom: 50px;
+        margin-left: 50%;
+        transform: translate(-55%);
+        padding-left: 20px;
+        position: relative;
+    }
+
+    #categorias > div > a {
+        width: 140px;
+        height: 140px;
+        border: 1px solid var(--cor5);
+        display: inline-block;
+        margin-bottom: -5px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    #categorias > div.btns {
+        display: block;
+    }
+}
+
 @media screen and (max-width: 1072px) {
+    /* Categorias */
+    #categorias {
+        max-width: 862px;
+    }
+
+    div.seta {
+        display: block;
+    }
+
     footer {
         height: 300px;
         padding: 0px 0px 100px 0px;
@@ -47,7 +85,12 @@
     }
 }
 
-@media screen and (max-width: 790px) {
+@media screen and (max-width: 882px) {
+     /* Categorias */
+     #categorias {
+        max-width: 578px;
+    }
+
     section#produtos > div {
         width: 500px;
         height: 300px;
@@ -86,6 +129,11 @@
         height: 200px;
     }
 
+    /* Categorias */
+    #categorias {
+        max-width: 436px;
+    }
+
     section#msgLogin {
         max-width: 94%;
     }
@@ -104,6 +152,22 @@
 @media screen and (max-width: 570px) {
     section#time > article > div > span {
         font-size: 40px;
+    }
+
+    article#localOfertas {
+        max-width: 300px;
+        margin: auto;
+    }
+
+    article#localOfertas > div#ofertas {
+        margin-left: 15px;
+    }
+}
+
+@media screen and (max-width: 535px) {
+    /* Categorias */
+    #categorias {
+        margin: 240px;
     }
 }
 
@@ -209,6 +273,12 @@
         width: 90%;
         margin-top: 20px;
         margin-left: 10px;
+    }
+
+    /* Categorias */
+    section#produtos > article#categorias {
+        width: 293px;
+        margin: 220px;
     }
 
     section#time > h1 {
