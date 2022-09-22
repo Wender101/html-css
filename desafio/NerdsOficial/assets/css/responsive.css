@@ -8,7 +8,7 @@
 	position: fixed;
 	bottom: 20px;
 	right: -100px;
-    z-index: 2;
+    z-index: 4;
     background-image: url(../img/icons/subir.jpg);
     background-position: center center;
     background-size: cover;

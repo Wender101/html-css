@@ -693,9 +693,9 @@ a#carrinho {
     width: 50px;
     height: 50px;
     position: fixed;
-    z-index: 1;
-    right: 20px;
-    bottom: 40vh;
+    z-index: 4;
+    right: 15px;
+    bottom: 90px;
     background-color: var(--cor3);
     color: white;
     border-radius: 50%;
