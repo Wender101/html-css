@@ -192,3 +192,69 @@ function addOfertas(num) {
 //     })
 // }
 
+//! Sliders
+let slide = document.querySelector('.slideshow-wrapper')
+let btnSlide1 = document.getElementsByClassName('slide-btn-1')[0]
+let btnSlide2 = document.getElementsByClassName('slide-btn-2')[0]
+let anin = 0
+let stop = false
+
+setInterval( function animacao() {
+    if(stop == false) {
+        if(anin < 300) {
+            anin += 100
+            
+        } else {
+            anin = 0
+        }
+    
+        slide.style.transition = '900ms left linear'
+        slide.style.left = `-${anin}%`
+    }
+}, 3500);
+
+function btnSliderE() {
+    if(anin > 0) {
+        stop = true
+        anin -= 100
+        slide.style.transition = '900ms left linear'
+        slide.style.left = `-${anin}%`
+        btnSlide2.style.display = 'block'
+    }
+}
+
+function btnSliderD() {
+    if(anin < 300) {
+        stop = true
+        anin += 100
+        slide.style.transition = '900ms left linear'
+        slide.style.left = `-${anin}%`
+        btnSlide1.style.display = 'block'
+
+    }
+}
+
+setInterval(() => {
+    //! Vai controlar qunado o bnt1 vai aparecer ou sumir
+    if(anin == 0) {
+        btnSlide1.style.display = 'none'
+
+    } else {
+        btnSlide1.style.display = 'block'
+    } 
+
+    //! Vai controlar qunado o bnt2 vai aparecer ou sumir
+    if(anin == 300) {
+        btnSlide2.style.display = 'none'
+
+    } else {
+        btnSlide2.style.display = 'block'
+    }
+}, 500);
+
+document.addEventListener('click', (el) => {
+    let e = el.target.className
+    if(e != 'slide-btn slide-btn-1' && e != 'slide-btn slide-btn-2') {
+        stop = false
+    }
+})
