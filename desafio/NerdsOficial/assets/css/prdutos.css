@@ -337,6 +337,9 @@ section#produtos {
     width: 400%;
     height: 100%;
     position: relative;
+    transition: 900ms left linear;
+    left: 0%;
+
 }
 
 .slide {
@@ -367,6 +370,10 @@ section#produtos {
     text-align: center;
     cursor: pointer;
     border: none;
+}
+
+.slide-btn:hover {
+    background-color: var(--cor1);
 }
 
 .slide-btn-1 {
@@ -405,7 +412,8 @@ section#produtos {
     width: 1050px;
     height: 308px;
     transition: 500ms margin-left linear;
-    margin: 0px auto;
+    margin-top: 0px;
+    margin-left: 0px;
     padding: 10px;
 }
 

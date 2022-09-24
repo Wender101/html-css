@@ -67,37 +67,6 @@ setInterval(() => {
     }
 }, 10)
 
-// try {
-//     let random = Math.floor(Math.random() * 5)
-//     let ps5 = document.getElementById('ps5')
-
-//     if(random == 0) {
-//         ps5.style.backgroundImage = 'url("assets/img/site/ps5.png")'
-
-//     } else if(random == 1) {
-//         ps5.style.backgroundImage = 'url("assets/img/produtos/fontRedragon.png")'
-
-//     } else if(random == 2) {
-//         ps5.style.backgroundImage = 'url("assets/img/produtos/gabineteRedragon.webp")'
-        
-//     } else if(random == 3) {
-//         ps5.style.backgroundImage = 'url("assets/img/produtos/mouseRedragon.png")'
-        
-//     } else if(random == 4) {
-//         ps5.style.backgroundImage = 'url("assets/img/produtos/fontRedragon.png")'
-        
-//     }  else {
-//         ps5.style.backgroundImage = 'url("assets/img/site/ps5.png")'
-        
-//     }
-
-//     ps5.style.backgroundSize = 'contain'
-
-
-// } catch {
-
-// }
-
 //! btn voltar ao topo com scroll suave
 window.addEventListener("scroll", (event) => {
 	let scroll = this.scrollY
