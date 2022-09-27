@@ -43,7 +43,7 @@ for(let c = 1; c <= 14; c++) {
         a.href = `pagProduto.html`
         
     } else if(c == 9) {
-        p.innerText =  'Mouse Pad'
+        p.innerText =  'MousePad'
         a.href = `pagProduto.html`
         a.className = 'contrario'
         
@@ -52,7 +52,7 @@ for(let c = 1; c <= 14; c++) {
         a.href = `pagProduto.html`
         
     } else if(c == 11) {
-        p.innerText =  'Memoria'
+        p.innerText =  'Memória'
         a.href = `pagProduto.html`
         a.className = 'contrario'
         

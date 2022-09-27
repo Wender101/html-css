@@ -1,5 +1,4 @@
 let total = 0
-
 //! Vai pegar do browser o carrinho
 const carrinho1 = localStorage.getItem('carrinho')
 const carrinho2 = JSON.parse(carrinho1)
@@ -7,13 +6,49 @@ let carrinho = []
 
 try {
     for (let c = 0; c < carrinho2.length; c++) {
-
-        carrinho.push(carrinho2[c])
-        total++
-
-        criaProdutos(carrinho2[c].titulo, carrinho2[c].desc, carrinho2[c].imgProduto, c)
-
-        //! Vai calcular o total de produtos no carrinho
+        fetch(`assets/json/dados.json`).then(resposta => {
+            return resposta.json()
+        }).then(bancoDs => {
+            let produtoBancoDs
+    
+            carrinho.push(carrinho2[c])
+            total++
+            if(carrinho2[c].Categoria == 'Cabos') {
+                produtoBancoDs = bancoDs.Cabos[carrinho2[c].id]
+            } else if(carrinho2[c].Categoria == 'Adaptadores') {
+                produtoBancoDs = bancoDs.Adaptadores[carrinho2[c].id]
+            } else if(carrinho2[c].Categoria == 'Teclados') {
+                produtoBancoDs = bancoDs.Teclados[carrinho2[c].id]
+            } else if(carrinho2[c].Categoria == 'Mouse') {
+                produtoBancoDs = bancoDs.Mouse[carrinho2[c].id]
+            } else if(carrinho2[c].Categoria == 'Gabinetes') {
+                produtoBancoDs = bancoDs.Gabinetes[carrinho2[c].id]
+            } else if(carrinho2[c].Categoria == 'Headset') {
+                produtoBancoDs = bancoDs.Headset[carrinho2[c].id]
+            } else if(carrinho2[c].Categoria == 'Controles') {
+                produtoBancoDs = bancoDs.Controles[carrinho2[c].id]
+            } else if(carrinho2[c].Categoria == 'Fontes') {
+                produtoBancoDs = bancoDs.Fontes[carrinho2[c].id]
+            } else if(carrinho2[c].Categoria == 'MousePad') {
+                produtoBancoDs = bancoDs.MousePad[carrinho2[c].id]
+            } else if(carrinho2[c].Categoria == 'Processadores') {
+                produtoBancoDs = bancoDs.Processadores[carrinho2[c].id]
+            } else if(carrinho2[c].Categoria == 'Memória') {
+                produtoBancoDs = bancoDs.Memória[carrinho2[c].id]
+            } else if(carrinho2[c].Categoria == 'SSD') {
+                produtoBancoDs = bancoDs.SSD[carrinho2[c].id]
+            } else if(carrinho2[c].Categoria == 'Coolers') {
+                produtoBancoDs = bancoDs.Coolers[carrinho2[c].id]
+            } else if(sobreProduto2.p == 'Outros') {
+                produtoBancoDs = bancoDs.Outros[sobreProduto2.id]
+            } else {
+                produtoBancoDs = 'Error'
+            }
+             
+                criaProdutos(produtoBancoDs[1], produtoBancoDs[2], produtoBancoDs[0], c, carrinho2[c].id)
+                
+                //! Vai calcular o total de produtos no carrinho
+        })
     }
 
 } catch {
@@ -30,7 +65,7 @@ if(total <= 0) {
 }
 
 let idSpan
-function criaProdutos(titulo, desc, src, id) {
+function criaProdutos(titulo, desc, src, id, idP) {
     document.getElementById('recado').style.display = 'none'
 
     const main = document.querySelector('main')
@@ -102,9 +137,8 @@ function criaProdutos(titulo, desc, src, id) {
     //! Vai add a memoria qual produto vai ser analizado pelo usuario 
     localImgProduto.addEventListener('click', () => {
         let produto = {
-            imgProduto: imgProduto.src,
-            titulo: strong.innerText,
-            desc: p.innerText,
+            p: carrinho2[id].Categoria,
+            id: idP
         }
 
         const sobreProduto = JSON.stringify(produto)
