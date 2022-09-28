@@ -22,43 +22,45 @@ fetch(`assets/json/dados.json`).then(resposta => {
     return resposta.json()
 }).then(bancoDs => {
 
-    if(sobreProduto2.p == 'Cabos') {
-        produtoBancoDs = bancoDs.Cabos[sobreProduto2.id]
-        maxC = bancoDs.Cabos.length
-    } else if(sobreProduto2.p == 'Adaptadores') {
-        produtoBancoDs = bancoDs.Adaptadores[sobreProduto2.id]
-    } else if(sobreProduto2.p == 'Teclados') {
-        produtoBancoDs = bancoDs.Teclados[sobreProduto2.id]
-    } else if(sobreProduto2.p == 'Mouse') {
-        produtoBancoDs = bancoDs.Mouse[sobreProduto2.id]
-    } else if(sobreProduto2.p == 'Gabinetes') {
-        produtoBancoDs = bancoDs.Gabinetes[sobreProduto2.id]
-    } else if(sobreProduto2.p == 'Headset') {
-        produtoBancoDs = bancoDs.Headset[sobreProduto2.id]
-    } else if(sobreProduto2.p == 'Controles') {
-        produtoBancoDs = bancoDs.Controles[sobreProduto2.id]
-    } else if(sobreProduto2.p == 'Fontes') {
-        produtoBancoDs = bancoDs.Fontes[sobreProduto2.id]
-    } else if(sobreProduto2.p == 'MousePad') {
-        produtoBancoDs = bancoDs.MousePad[sobreProduto2.id]
-    } else if(sobreProduto2.p == 'Processadores') {
-        produtoBancoDs = bancoDs.Processadores[sobreProduto2.id]
-    } else if(sobreProduto2.p == 'Memória') {
-        produtoBancoDs = bancoDs.Memória[sobreProduto2.id]
-    } else if(sobreProduto2.p == 'SSD') {
-        produtoBancoDs = bancoDs.SSD[sobreProduto2.id]
-    } else if(sobreProduto2.p == 'Coolers') {
-        produtoBancoDs = bancoDs.Coolers[sobreProduto2.id]
-    } else if(sobreProduto2.p == 'Outros') {
-        produtoBancoDs = bancoDs.Outros[sobreProduto2.id]
-    } else {
-        produtoBancoDs = 'Error'
-    }
+    try {
+        if(sobreProduto2.p == 'Cabos') {
+            produtoBancoDs = bancoDs.Cabos[sobreProduto2.id]
+            maxC = bancoDs.Cabos.length
+        } else if(sobreProduto2.p == 'Adaptadores') {
+            produtoBancoDs = bancoDs.Adaptadores[sobreProduto2.id]
+        } else if(sobreProduto2.p == 'Teclados') {
+            produtoBancoDs = bancoDs.Teclados[sobreProduto2.id]
+        } else if(sobreProduto2.p == 'Mouse') {
+            produtoBancoDs = bancoDs.Mouse[sobreProduto2.id]
+        } else if(sobreProduto2.p == 'Gabinetes') {
+            produtoBancoDs = bancoDs.Gabinetes[sobreProduto2.id]
+        } else if(sobreProduto2.p == 'Headset') {
+            produtoBancoDs = bancoDs.Headset[sobreProduto2.id]
+        } else if(sobreProduto2.p == 'Controles') {
+            produtoBancoDs = bancoDs.Controles[sobreProduto2.id]
+        } else if(sobreProduto2.p == 'Fontes') {
+            produtoBancoDs = bancoDs.Fontes[sobreProduto2.id]
+        } else if(sobreProduto2.p == 'MousePad') {
+            produtoBancoDs = bancoDs.MousePad[sobreProduto2.id]
+        } else if(sobreProduto2.p == 'Processadores') {
+            produtoBancoDs = bancoDs.Processadores[sobreProduto2.id]
+        } else if(sobreProduto2.p == 'Memória') {
+            produtoBancoDs = bancoDs.Memória[sobreProduto2.id]
+        } else if(sobreProduto2.p == 'SSD') {
+            produtoBancoDs = bancoDs.SSD[sobreProduto2.id]
+        } else if(sobreProduto2.p == 'Coolers') {
+            produtoBancoDs = bancoDs.Coolers[sobreProduto2.id]
+        } else if(sobreProduto2.p == 'Outros') {
+            produtoBancoDs = bancoDs.Outros[sobreProduto2.id]
+        } else {
+            produtoBancoDs = 'Error'
+        }
+    } catch {}
 
-    if(sobreProduto2 == null || produtoBancoDs[0] == '' || produtoBancoDs == 'Error') {
+    if(sobreProduto2 == null || sobreProduto2.id == '' || produtoBancoDs[0] == '' || produtoBancoDs == 'Error') {
         
         document.getElementById('titulo').innerText = 'Algo deu errado :('
-        document.getElementById('desc').innerText = 'Parece que nehum produto foi encotrado. Volte para página anterior e tente novamente.'
+        document.getElementById('desc').innerText = 'Parece que nenhum produto foi encotrado. Volte para página anterior e tente novamente.'
         document.getElementById('otherImgs').style.display = 'none'
         let imgProduto = document.getElementById('imgProduto')
         imgProduto.src = 'assets/img/site/error.png'

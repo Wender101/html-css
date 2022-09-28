@@ -24,106 +24,134 @@ fetch(`assets/json/dados.json`).then(resposta => {
         imgProduto.className = 'imgProduto'
         imgProduto.src = 'assets/img/site/error.png'
         strong.innerText = 'Algo deu errado!'
-        p.innerText = 'Volte a página anterior e tente novamente.'
+        p.innerText = 'Parece que esse produto não foi carregado corretamente.'
     
         //! Produtos
         if(produtoPesquisado2[0] == 'Cabos') {
             maxC = bancoDs.Cabos.length
             let dados = bancoDs.Cabos[c]
-            imgProduto.src = dados[0]
-            strong.innerHTML = dados[1]
-            p.innerText = dados[2]
+            if(dados[0] == '') {
+                imgProduto.src = dados[0]
+                strong.innerHTML = dados[1]
+                p.innerText = dados[2]
+            }
             
         } else if(produtoPesquisado2[0] == 'Adaptadores') {
             maxC = bancoDs.Adaptadores.length
             let dados = bancoDs.Adaptadores[c]
-            imgProduto.src = dados[0]
-            strong.innerHTML = dados[1]
-            p.innerText = dados[2]
+            if(dados[0] == '') {
+                imgProduto.src = dados[0]
+                strong.innerHTML = dados[1]
+                p.innerText = dados[2]
+            }
             
         } else if(produtoPesquisado2[0] == 'Teclados') {
             maxC = bancoDs.Teclados.length
             let dados = bancoDs.Teclados[c]
-            imgProduto.src = dados[0]
-            strong.innerHTML = dados[1]
-            p.innerText = dados[2]
+            if(dados[0] == '') {
+                imgProduto.src = dados[0]
+                strong.innerHTML = dados[1]
+                p.innerText = dados[2]
+            }
             
         } else if(produtoPesquisado2[0] == 'Mouse') {
             maxC = bancoDs.Mouse.length
             let dados = bancoDs.Mouse[c]
-            imgProduto.src = dados[0]
-            strong.innerHTML = dados[1]
-            p.innerText = dados[2]
+            if(dados[0] == '') {
+                imgProduto.src = dados[0]
+                strong.innerHTML = dados[1]
+                p.innerText = dados[2]
+            }
             
         } else if(produtoPesquisado2[0] == 'Gabinetes') {
             maxC = bancoDs.Gabinetes.length
             let dados = bancoDs.Gabinetes[c]
-            imgProduto.src = dados[0]
-            strong.innerHTML = dados[1]
-            p.innerText = dados[2]
+            if(dados[0] == '') {
+                imgProduto.src = dados[0]
+                strong.innerHTML = dados[1]
+                p.innerText = dados[2]
+            }
             
         } else if(produtoPesquisado2[0] == 'Headset') {
             maxC = bancoDs.Headset.length
             let dados = bancoDs.Headset[c]
-            imgProduto.src = dados[0]
-            strong.innerHTML = dados[1]
-            p.innerText = dados[2]
+            if(dados[0] == '') {
+                imgProduto.src = dados[0]
+                strong.innerHTML = dados[1]
+                p.innerText = dados[2]
+            }
             
         } else if(produtoPesquisado2[0] == 'Controles') {
             maxC = bancoDs.Controles.length
             let dados = bancoDs.Controles[c]
-            imgProduto.src = dados[0]
-            strong.innerHTML = dados[1]
-            p.innerText = dados[2]
+            if(dados[0] == '') {
+                imgProduto.src = dados[0]
+                strong.innerHTML = dados[1]
+                p.innerText = dados[2]
+            }
             
         } else if(produtoPesquisado2[0] == 'Fontes') {
             maxC = bancoDs.Fontes.length
             let dados = bancoDs.Fontes[c]
-            imgProduto.src = dados[0]
-            strong.innerHTML = dados[1]
-            p.innerText = dados[2]
+            if(dados[0] == '') {
+                imgProduto.src = dados[0]
+                strong.innerHTML = dados[1]
+                p.innerText = dados[2]
+            }
             
         } else if(produtoPesquisado2[0] == 'MousePad') {
             maxC = bancoDs.MousePad.length
             let dados = bancoDs.MousePad[c]
-            imgProduto.src = dados[0]
-            strong.innerHTML = dados[1]
-            p.innerText = dados[2]
+            if(dados[0] == '') {
+                imgProduto.src = dados[0]
+                strong.innerHTML = dados[1]
+                p.innerText = dados[2]
+            }
             
         } else if(produtoPesquisado2[0] == 'Processadores') {
             maxC = bancoDs.Processadores.length
             let dados = bancoDs.Processadores[c]
-            imgProduto.src = dados[0]
-            strong.innerHTML = dados[1]
-            p.innerText = dados[2]
+            if(dados[0] == '') {
+                imgProduto.src = dados[0]
+                strong.innerHTML = dados[1]
+                p.innerText = dados[2]
+            }
             
         } else if(produtoPesquisado2[0] == 'Memória') {
             maxC = bancoDs.Memória.length
             let dados = bancoDs.Memória[c]
-            imgProduto.src = dados[0]
-            strong.innerHTML = dados[1]
-            p.innerText = dados[2]
+            if(dados[0] == '') {
+                imgProduto.src = dados[0]
+                strong.innerHTML = dados[1]
+                p.innerText = dados[2]
+            }
             
         } else if(produtoPesquisado2[0] == 'SSD') {
             maxC = bancoDs.SSD.length
             let dados = bancoDs.SSD[c]
-            imgProduto.src = dados[0]
-            strong.innerHTML = dados[1]
-            p.innerText = dados[2]
+            if(dados[0] == '') {
+                imgProduto.src = dados[0]
+                strong.innerHTML = dados[1]
+                p.innerText = dados[2]
+            }
             
         } else if(produtoPesquisado2[0] == 'Coolers') {
             maxC = bancoDs.Coolers.length
             let dados = bancoDs.Coolers[c]
-            imgProduto.src = dados[0]
-            strong.innerHTML = dados[1]
-            p.innerText = dados[2]
+            if(dados[0] == '') {
+                imgProduto.src = dados[0]
+                strong.innerHTML = dados[1]
+                p.innerText = dados[2]
+            }
             
         } else if(produtoPesquisado2[0] == 'Outros') {
             maxC = bancoDs.Outros.length
             let dados = bancoDs.Outros[c]
-            imgProduto.src = dados[0]
-            strong.innerHTML = dados[1]
-            p.innerText = dados[2]
+            if(dados[0] != '') {
+                imgProduto.src = dados[0]
+                strong.innerHTML = dados[1]
+                p.innerText = dados[2]
+            }
             
         } else {
             document.getElementById('classProduto').innerText = 'Algo deu Errado :('
@@ -179,7 +207,7 @@ fetch(`assets/json/dados.json`).then(resposta => {
             }
     
             const imgSelected = document.getElementById(idElemnto)
-    
+
             if(novoLink1.substr(-1) == 'e') {
                 imgSelected.src = `${novoLink4}2.jpeg`
     
@@ -193,7 +221,6 @@ fetch(`assets/json/dados.json`).then(resposta => {
             imgProduto.addEventListener('mouseout', () => {
                 imgSelected.src = el     
             })
-            
         })
     }
 })
