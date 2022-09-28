@@ -10,9 +10,10 @@ function login() {
         var viewport = visualViewport.width
         if(viewport > 535 && msgLogin.style.display == 'block') {
             window.document.getElementById("subir").style.bottom = '10%'
+
         } else if(viewport < 535 && msgLogin.style.display == 'block') {
             window.document.getElementById("subir").style.bottom = '15%'
-        }
+        } 
     }, 10)
     fecharMenu()
 }
@@ -20,8 +21,15 @@ function login() {
 function fecharMsg() {
     const msgLogin = document.getElementById('msgLogin')
     msgLogin.style.display = 'none'
-	window.document.getElementById("subir").style.bottom = '2%'
-}
+
+    let title = document.querySelector('title').innerText
+    if( title == 'Carrinho') {
+        subir.style.bottom = '8%'
+    } else {
+        window.document.getElementById("subir").style.bottom = '2%'
+    }
+    
+} fecharMsg()
 
 
 //! Vai adicionar um fundo ao menu, quando rola o scroll
