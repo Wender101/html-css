@@ -5,12 +5,22 @@ function login() {
     const msgLogin = document.getElementById('msgLogin')
     msgLogin.style.display = 'block'
     document.getElementById('pMsgLogin').innerText = 'Ops! Ainda estamos trabalhando nisso...'
+
+    setInterval(() => {
+        var viewport = visualViewport.width
+        if(viewport > 535 && msgLogin.style.display == 'block') {
+            window.document.getElementById("subir").style.bottom = '10%'
+        } else if(viewport < 535 && msgLogin.style.display == 'block') {
+            window.document.getElementById("subir").style.bottom = '15%'
+        }
+    }, 10)
     fecharMenu()
 }
 
 function fecharMsg() {
     const msgLogin = document.getElementById('msgLogin')
     msgLogin.style.display = 'none'
+	window.document.getElementById("subir").style.bottom = '2%'
 }
 
 

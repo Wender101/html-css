@@ -383,7 +383,7 @@ a#carrinho {
     position: fixed;
     z-index: 4;
     right: 15px;
-    bottom: 90px;
+    bottom: 40%;
     background-color: var(--cor3);
     color: white;
     border-radius: 50%;
