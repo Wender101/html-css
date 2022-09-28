@@ -30,7 +30,7 @@ fetch(`assets/json/dados.json`).then(resposta => {
         if(produtoPesquisado2[0] == 'Cabos') {
             maxC = bancoDs.Cabos.length
             let dados = bancoDs.Cabos[c]
-            if(dados[0] == '') {
+            if(dados[0] != '') {
                 imgProduto.src = dados[0]
                 strong.innerHTML = dados[1]
                 p.innerText = dados[2]
@@ -39,7 +39,7 @@ fetch(`assets/json/dados.json`).then(resposta => {
         } else if(produtoPesquisado2[0] == 'Adaptadores') {
             maxC = bancoDs.Adaptadores.length
             let dados = bancoDs.Adaptadores[c]
-            if(dados[0] == '') {
+            if(dados[0] != '') {
                 imgProduto.src = dados[0]
                 strong.innerHTML = dados[1]
                 p.innerText = dados[2]
@@ -48,7 +48,7 @@ fetch(`assets/json/dados.json`).then(resposta => {
         } else if(produtoPesquisado2[0] == 'Teclados') {
             maxC = bancoDs.Teclados.length
             let dados = bancoDs.Teclados[c]
-            if(dados[0] == '') {
+            if(dados[0] != '') {
                 imgProduto.src = dados[0]
                 strong.innerHTML = dados[1]
                 p.innerText = dados[2]
@@ -57,7 +57,7 @@ fetch(`assets/json/dados.json`).then(resposta => {
         } else if(produtoPesquisado2[0] == 'Mouse') {
             maxC = bancoDs.Mouse.length
             let dados = bancoDs.Mouse[c]
-            if(dados[0] == '') {
+            if(dados[0] != '') {
                 imgProduto.src = dados[0]
                 strong.innerHTML = dados[1]
                 p.innerText = dados[2]
@@ -66,7 +66,7 @@ fetch(`assets/json/dados.json`).then(resposta => {
         } else if(produtoPesquisado2[0] == 'Gabinetes') {
             maxC = bancoDs.Gabinetes.length
             let dados = bancoDs.Gabinetes[c]
-            if(dados[0] == '') {
+            if(dados[0] != '') {
                 imgProduto.src = dados[0]
                 strong.innerHTML = dados[1]
                 p.innerText = dados[2]
@@ -75,7 +75,7 @@ fetch(`assets/json/dados.json`).then(resposta => {
         } else if(produtoPesquisado2[0] == 'Headset') {
             maxC = bancoDs.Headset.length
             let dados = bancoDs.Headset[c]
-            if(dados[0] == '') {
+            if(dados[0] != '') {
                 imgProduto.src = dados[0]
                 strong.innerHTML = dados[1]
                 p.innerText = dados[2]
@@ -84,7 +84,7 @@ fetch(`assets/json/dados.json`).then(resposta => {
         } else if(produtoPesquisado2[0] == 'Controles') {
             maxC = bancoDs.Controles.length
             let dados = bancoDs.Controles[c]
-            if(dados[0] == '') {
+            if(dados[0] != '') {
                 imgProduto.src = dados[0]
                 strong.innerHTML = dados[1]
                 p.innerText = dados[2]
@@ -93,7 +93,7 @@ fetch(`assets/json/dados.json`).then(resposta => {
         } else if(produtoPesquisado2[0] == 'Fontes') {
             maxC = bancoDs.Fontes.length
             let dados = bancoDs.Fontes[c]
-            if(dados[0] == '') {
+            if(dados[0] != '') {
                 imgProduto.src = dados[0]
                 strong.innerHTML = dados[1]
                 p.innerText = dados[2]
@@ -102,7 +102,7 @@ fetch(`assets/json/dados.json`).then(resposta => {
         } else if(produtoPesquisado2[0] == 'MousePad') {
             maxC = bancoDs.MousePad.length
             let dados = bancoDs.MousePad[c]
-            if(dados[0] == '') {
+            if(dados[0] != '') {
                 imgProduto.src = dados[0]
                 strong.innerHTML = dados[1]
                 p.innerText = dados[2]
@@ -111,7 +111,7 @@ fetch(`assets/json/dados.json`).then(resposta => {
         } else if(produtoPesquisado2[0] == 'Processadores') {
             maxC = bancoDs.Processadores.length
             let dados = bancoDs.Processadores[c]
-            if(dados[0] == '') {
+            if(dados[0] != '') {
                 imgProduto.src = dados[0]
                 strong.innerHTML = dados[1]
                 p.innerText = dados[2]
@@ -120,7 +120,7 @@ fetch(`assets/json/dados.json`).then(resposta => {
         } else if(produtoPesquisado2[0] == 'Memória') {
             maxC = bancoDs.Memória.length
             let dados = bancoDs.Memória[c]
-            if(dados[0] == '') {
+            if(dados[0] != '') {
                 imgProduto.src = dados[0]
                 strong.innerHTML = dados[1]
                 p.innerText = dados[2]
@@ -129,7 +129,7 @@ fetch(`assets/json/dados.json`).then(resposta => {
         } else if(produtoPesquisado2[0] == 'SSD') {
             maxC = bancoDs.SSD.length
             let dados = bancoDs.SSD[c]
-            if(dados[0] == '') {
+            if(dados[0] != '') {
                 imgProduto.src = dados[0]
                 strong.innerHTML = dados[1]
                 p.innerText = dados[2]
@@ -138,7 +138,7 @@ fetch(`assets/json/dados.json`).then(resposta => {
         } else if(produtoPesquisado2[0] == 'Coolers') {
             maxC = bancoDs.Coolers.length
             let dados = bancoDs.Coolers[c]
-            if(dados[0] == '') {
+            if(dados[0] != '') {
                 imgProduto.src = dados[0]
                 strong.innerHTML = dados[1]
                 p.innerText = dados[2]
