@@ -39,8 +39,8 @@ try {
                 produtoBancoDs = bancoDs.SSD[carrinho2[c].id]
             } else if(carrinho2[c].Categoria == 'Coolers') {
                 produtoBancoDs = bancoDs.Coolers[carrinho2[c].id]
-            } else if(sobreProduto2.p == 'Outros') {
-                produtoBancoDs = bancoDs.Outros[sobreProduto2.id]
+            } else if(carrinho2[c].Categoria == 'Outros') {
+                produtoBancoDs = bancoDs.Outros[carrinho2[c].id]
             } else {
                 produtoBancoDs = 'Error'
             }
