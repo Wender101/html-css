@@ -71,7 +71,7 @@ function fecharMenu() {
     at = false
 }
 
-//! Vai checar qual o tamho da tela e alterar o menu de acordo com o tamanho
+//! Vai checar qual o tamaho da tela e alterar o menu de acordo com o tamanho
 setInterval(() => {
     let tamanhoTela = document.defaultView.innerWidth
     if(tamanhoTela > 480) {
