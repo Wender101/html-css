@@ -137,7 +137,7 @@ setInterval(() => {
     } else {
         btnE.style.display = 'block'
     }
-}, 500)
+}, 100)
 
 function btnEsquerda() {
     q += 145
