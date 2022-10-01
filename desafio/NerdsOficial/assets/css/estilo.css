@@ -42,7 +42,7 @@ body {
     width: 100%;
     min-height: 100vh;
     font-family: var(--font-texto);
-    background-image: linear-gradient(var(--cor4), var(--cor6));
+    background-color: var(--cor6);
 }
 
 button, li, a {
