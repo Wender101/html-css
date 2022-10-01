@@ -91,8 +91,3 @@ section#infRemover > article#msgRemover > div > button:hover {
     background-color: transparent;
     border: 1px solid var(--cor1);    
 }
-
-footer {
-    position: absolute;
-    bottom: 0px;
-}
