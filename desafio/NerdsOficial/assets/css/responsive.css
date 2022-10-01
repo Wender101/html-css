@@ -5,9 +5,9 @@
     width: 47px;
     height: 47px;
     border-radius: 50%;
-	position: fixed;
-	bottom: 2%;
-	right: -100px;
+    position: fixed;
+    bottom: 2%;
+    right: -100px;
     z-index: 4;
     background-image: url(../img/icons/subir.jpg);
     background-position: center center;
