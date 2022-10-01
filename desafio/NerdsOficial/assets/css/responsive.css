@@ -179,7 +179,7 @@
         background-color: var(--cor8);
         position: fixed;
         top: 0px;
-        z-index: 2;
+        z-index: 5;
         padding: 10px;
     }
 
@@ -208,6 +208,7 @@
     nav, nav#semFundo, nav#comFundo {
         background-color: var(--cor4);
         border: 3px solid var(--cor1);
+	z-index: 5;
     }
 
     nav {
@@ -233,7 +234,7 @@
         position: fixed;
         top: 0px;
         display: none;
-        z-index: 2;
+        z-index: 5;
     }
 
     nav > ul {
