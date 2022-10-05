@@ -45,9 +45,7 @@ try {
                 produtoBancoDs = 'Error'
             }
              
-                criaProdutos(produtoBancoDs[1], produtoBancoDs[2], produtoBancoDs[0], c, carrinho2[c].id)
-                
-                //! Vai calcular o total de produtos no carrinho
+            criaProdutos(produtoBancoDs[1], produtoBancoDs[2], produtoBancoDs[0], c, carrinho2[c].id)
         })
     }
 
