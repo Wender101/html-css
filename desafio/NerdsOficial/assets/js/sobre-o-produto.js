@@ -71,7 +71,6 @@ fetch(`assets/json/dados.json`).then(resposta => {
 
         let btnContato = document.getElementById('btnContato')
         
-        // btnContato.href = '#'
         btnContato.target = '_self'
 
         document.getElementById('btns').getElementsByTagName('a')[0].querySelector('button').innerText = 'Voltar'
@@ -142,7 +141,18 @@ fetch(`assets/json/dados.json`).then(resposta => {
         //! Vai enviar uma msg ao vendedor informando qual é o produto
         if(produtoBancoDs[1] != 'Algo deu errado!') {
             let btnContato = document.getElementById('btnContato')
-            btnContato.href=`https://api.whatsapp.com/send?phone=+55%2061%209906-3455&text=Estou interessado nesse produto: ${produtoBancoDs[1]}, link: ${produtoBancoDs[0]}`
+
+            //! Vai alterar o link da img pro formato do google
+            let linkimg = produtoBancoDs[0]
+            let novoLinkImg
+
+            for(let c = 0; c < 100; c++) {
+                novoLinkImg = linkimg.replace(" ", "%20")
+                linkimg = novoLinkImg
+            }
+            
+            let linkCompleto = `https://wender101.github.io/html-css/desafio/NerdsOficial/${novoLinkImg}`
+            btnContato.href=`https://api.whatsapp.com/send?phone=+55%2061%2099935-2015&text=Estou interessado nesse produto: ${produtoBancoDs[1]}, link:${linkCompleto}`
 
         } else {
             document.getElementById('btns').style.display = 'none'
