@@ -181,7 +181,6 @@ fetch(`assets/json/dados.json`).then(resposta => {
             const sobreProduto = JSON.stringify(produto)
             localStorage.setItem('sobreProduto', sobreProduto)
         })
-    
     }
     
     //! Vai mudar a img dos produtos ao passar o mause em cima deles

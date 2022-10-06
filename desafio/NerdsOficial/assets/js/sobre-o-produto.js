@@ -262,3 +262,132 @@ function addAgain() {
     addCarrinho(true)
     fecharInfCarrinho()
 }
+
+//! Vai colocar na tela produtos relacionados ao escolhido
+function relacionados() {
+    let sorteado = []
+    for(let c = 0; c < 4; c++) {
+        let id = Math.floor(Math.random() * 25)
+        
+        for(let c = 0; c < 4; c++) {
+            if(sorteado[c] == id) id = Math.floor(Math.random() * 25)
+        }
+
+        sorteado.push(id)
+
+        fetch(`assets/json/dados.json`).then(resposta => {
+            return resposta.json()
+        }).then(bancoDs => {
+
+            try {
+                if(sobreProduto2.p == 'Cabos') {
+                    produtoBancoDs = bancoDs.Cabos[id]
+                    maxC = bancoDs.Cabos.length
+                } else if(sobreProduto2.p == 'Adaptadores') {
+                    produtoBancoDs = bancoDs.Adaptadores[id]
+                } else if(sobreProduto2.p == 'Teclados') {
+                    produtoBancoDs = bancoDs.Teclados[id]
+                } else if(sobreProduto2.p == 'Mouse') {
+                    produtoBancoDs = bancoDs.Mouse[id]
+                } else if(sobreProduto2.p == 'Gabinetes') {
+                    produtoBancoDs = bancoDs.Gabinetes[id]
+                } else if(sobreProduto2.p == 'Headset') {
+                    produtoBancoDs = bancoDs.Headset[id]
+                } else if(sobreProduto2.p == 'Controles') {
+                    produtoBancoDs = bancoDs.Controles[id]
+                } else if(sobreProduto2.p == 'Fontes') {
+                    produtoBancoDs = bancoDs.Fontes[id]
+                } else if(sobreProduto2.p == 'MousePad') {
+                    produtoBancoDs = bancoDs.MousePad[id]
+                } else if(sobreProduto2.p == 'Processadores') {
+                    produtoBancoDs = bancoDs.Processadores[id]
+                } else if(sobreProduto2.p == 'Memória') {
+                    produtoBancoDs = bancoDs.Memória[id]
+                } else if(sobreProduto2.p == 'SSD') {
+                    produtoBancoDs = bancoDs.SSD[id]
+                } else if(sobreProduto2.p == 'Coolers') {
+                    produtoBancoDs = bancoDs.Coolers[id]
+                } else if(sobreProduto2.p == 'Outros') {
+                    produtoBancoDs = bancoDs.Outros[id]
+                } else {
+                    produtoBancoDs = 'Error'
+                }
+            } catch {}
+
+            let ProdutosRelacionados = document.getElementById('ProdutosRelacionados')
+            let containerProduto = document.createElement('div')
+            let localImgProduto = document.createElement('a')
+            let imgProduto = document.createElement('img')
+            let strong = document.createElement('strong')
+            let p = document.createElement('p')
+
+            containerProduto.className = 'containerProduto'
+            localImgProduto.className = 'localImgProduto'
+            localImgProduto.href = 'sobre-o-produto.html'
+            imgProduto.className = 'imgProduto'
+            imgProduto.id = id
+            imgProduto.src = 'assets/img/site/error.png'
+            strong.innerText = 'Algo deu errado!'
+            p.innerText = 'Parece que esse produto não foi carregado corretamente.'
+
+
+            imgProduto.src = produtoBancoDs[0]
+            strong.innerText = produtoBancoDs[1]
+            p.innerText = produtoBancoDs[2]
+
+            //? appendChild
+            containerProduto.appendChild(localImgProduto)
+            localImgProduto.appendChild(imgProduto)
+            containerProduto.appendChild(strong)
+            containerProduto.appendChild(p)
+            ProdutosRelacionados.appendChild(containerProduto)
+
+            //! Vai add a memoria qual produto vai ser analizado pelo usuario 
+            localImgProduto.addEventListener('click', () => {
+                let produto = {
+                    p: sobreProduto2.p,
+                    id: imgProduto.id
+                }
+        
+                const sobreProduto = JSON.stringify(produto)
+                localStorage.setItem('sobreProduto', sobreProduto)
+            })
+
+            //! Vai mudar a img dos produtos ao passar o mause em cima deles
+            imgProduto.addEventListener('mouseenter', (e) => {
+                const el = e.target.src
+                const idElemnto = e.target.id
+        
+                var novoLink1 = el.slice(0, -1)
+        
+                if(novoLink1.substr(-1) == 'e') {
+                    var novoLink2 = novoLink1.slice(0, -1)
+                    var novoLink23 = novoLink2.slice(0, -1)
+                    var novoLink3 = novoLink23.slice(0, -1)
+                    var novoLink4 = novoLink3.slice(0, -1)
+        
+                } else {
+                    var novoLink2 = novoLink1.slice(0, -1)
+                    var novoLink3 = novoLink2.slice(0, -1)
+                    var novoLink4 = novoLink3.slice(0, -1)
+                }
+        
+                const imgSelected = document.getElementById(idElemnto)
+
+                if(novoLink1.substr(-1) == 'e') {
+                    imgSelected.src = `${novoLink4}2.jpeg`
+        
+                } else if(novoLink2.substr(-1) == 'j') {
+                    imgSelected.src = `${novoLink4}2.jpg`
+        
+                } else {
+                    imgSelected.src = `${novoLink4}2.png`
+                }
+        
+                imgProduto.addEventListener('mouseout', () => {
+                    imgSelected.src = el     
+                })
+            })
+        })
+    }
+} relacionados()

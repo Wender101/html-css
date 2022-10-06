@@ -1,3 +1,13 @@
+@media screen and (max-width: 1058px) {
+    h1#h1Relacionados {
+        max-width: 782px;
+    }
+    
+    section#ProdutosRelacionados {
+        max-width: 782px;
+    }
+}
+
 @media screen and (min-width: 983px) {
     main > section#texto > div#btns > a > button, div#btns > button {
         padding: 10px 20px;
@@ -14,6 +24,16 @@
     
     main > section#texto > div#btns > a > button, div#btns > button {
         margin-right: 10px;
+    }
+}
+
+@media screen and (max-width: 798px) {
+    h1#h1Relacionados {
+        max-width: 520px;
+    }
+
+    section#ProdutosRelacionados {
+        max-width: 520px;
     }
 }
 
@@ -50,6 +70,22 @@
     
     main > section#texto > div#btns > a > button, div#btns > button {
         margin-right: 10px;
+    }
+}
+
+@media screen and (max-width: 537px) {
+    h1#h1Relacionados {
+        max-width: 266px;
+    }
+
+    section#ProdutosRelacionados {
+        width: 100%;
+        max-width: 266px;
+        margin: auto;
+        height: auto;
+        padding: 10px 20px 50px 0px;
+        display: flex;
+        flex-wrap: wrap;
     }
 }
 
