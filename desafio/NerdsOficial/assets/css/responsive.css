@@ -270,14 +270,8 @@
         margin: 50px 0px 0px 0px;
     }
 
-    section#produtos > article {
-        width: 90%;
-        margin-top: 20px;
-        margin-left: 10px;
-    }
-
     /* Categorias */
-    section#produtos > article#categorias {
+    article#categorias {
         width: 293px;
         margin-left: 50%;
         transform: translate(-60%);

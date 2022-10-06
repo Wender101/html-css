@@ -307,17 +307,17 @@ section#produtos {
 
 /*? Slider */
 .container {
-    max-width: 1000px;
+    max-width: 1100px;
     width: 99.5%;
     height: 250px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: auto;
+    margin-left: 50%;
+    transform: translate(-52%);
     margin-bottom: 50px;
-    border-radius: 0px;
-    border: 3px solid var(--cor4);
+    border-radius: 10px;
     background-image: url('../img/site/NFT1\ 3.png');
     background-position: center center;
     background-size: cover;
@@ -391,7 +391,7 @@ section#produtos {
 
 /* Categorias */
 #categorias {
-    max-width: 1070px;
+    max-width: 1145px;
     width: 90%;
     height: 364px;
     overflow: hidden;
