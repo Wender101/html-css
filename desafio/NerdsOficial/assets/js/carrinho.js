@@ -105,7 +105,8 @@ function criaProdutos(titulo, desc, src, id, idP) {
     localImgProduto.addEventListener('click', () => {
         let produto = {
             p: carrinho2[id].Categoria,
-            id: idP
+            id: idP,
+            maxC: carrinho2[id].maxC
         }
 
         const sobreProduto = JSON.stringify(produto)

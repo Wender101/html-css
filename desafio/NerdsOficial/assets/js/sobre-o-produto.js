@@ -216,7 +216,8 @@ function addCarrinho(addAgain = false) {
             } else if(addAgain != false) {
                 let produto = {
                     Categoria: sobreProduto2.p,
-                    id: sobreProduto2.id
+                    id: sobreProduto2.id,
+                    maxC: sobreProduto2.maxC
                 }
         
                 carrinho.push(produto)
@@ -237,7 +238,8 @@ function addCarrinho(addAgain = false) {
 
         let produto = {
             Categoria: sobreProduto2.p,
-            id: sobreProduto2.id
+            id: sobreProduto2.id,
+            maxC: sobreProduto2.maxC
         }
 
         carrinho.push(produto)
