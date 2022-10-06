@@ -175,7 +175,8 @@ fetch(`assets/json/dados.json`).then(resposta => {
             let e = imgProduto.id
             let produto = {
                 p: produtoPesquisado2[0],
-                id: e
+                id: e,
+                maxC
             }
     
             const sobreProduto = JSON.stringify(produto)

@@ -78,6 +78,10 @@
         max-width: 266px;
     }
 
+    article#categorias {
+        margin: 100px 0px 100px 48%;
+    }
+
     section#ProdutosRelacionados {
         width: 100%;
         max-width: 266px;

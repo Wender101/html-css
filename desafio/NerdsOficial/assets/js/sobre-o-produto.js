@@ -265,16 +265,21 @@ function addAgain() {
 
 //! Vai colocar na tela produtos relacionados ao escolhido
 function relacionados() {
-    let sorteado = []
-    for(let c = 0; c < 4; c++) {
-        let id = Math.floor(Math.random() * 25)
-        
-        for(let c = 0; c < 4; c++) {
-            if(sorteado[c] == id) id = Math.floor(Math.random() * 25)
+    //! Vai sortear 4 números direfentes correspontes aos produtos
+    let numeros = []
+    function numero_aleatorio() {
+        while (numeros.length < 4) {
+            let aleatoreo = Math.floor(Math.random() * sobreProduto2.maxC)
+    
+            if (numeros.indexOf(aleatoreo) == -1) numeros.push(aleatoreo)
         }
+    } numero_aleatorio()
 
-        sorteado.push(id)
 
+    for(let c = 0; c < 4; c++) {
+        let id = numeros[c]
+
+        //! Vai puxar os produtos do "json"
         fetch(`assets/json/dados.json`).then(resposta => {
             return resposta.json()
         }).then(bancoDs => {
@@ -346,7 +351,8 @@ function relacionados() {
             localImgProduto.addEventListener('click', () => {
                 let produto = {
                     p: sobreProduto2.p,
-                    id: imgProduto.id
+                    id: imgProduto.id,
+                    maxC: sobreProduto2.maxC
                 }
         
                 const sobreProduto = JSON.stringify(produto)
