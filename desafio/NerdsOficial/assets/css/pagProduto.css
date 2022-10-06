@@ -502,7 +502,7 @@ footer > div#p2 > strong {
     text-decoration: underline;
 }
 
-footer > div#p2 > strong > img {
+footer > div#p2 > strong > a > img {
     width: 40px;
     margin-bottom: -10px;
 }
