@@ -267,8 +267,11 @@ function addAgain() {
 function relacionados() {
     //! Vai sortear 4 números direfentes correspontes aos produtos
     let numeros = []
+    let max = 4
+    if(sobreProduto2.maxC < 4) max = sobreProduto2.maxC
+
     function numero_aleatorio() {
-        while (numeros.length < 4) {
+        while (numeros.length < max) {
             let aleatoreo = Math.floor(Math.random() * sobreProduto2.maxC)
     
             if (numeros.indexOf(aleatoreo) == -1) numeros.push(aleatoreo)
@@ -276,7 +279,7 @@ function relacionados() {
     } numero_aleatorio()
 
 
-    for(let c = 0; c < 4; c++) {
+    for(let c = 0; c < max; c++) {
         let id = numeros[c]
 
         //! Vai puxar os produtos do "json"
