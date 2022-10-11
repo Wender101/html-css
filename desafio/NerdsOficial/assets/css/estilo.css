@@ -373,6 +373,62 @@ section#campeonatos > article > h2 {
     margin-bottom: 30px;
 }
 
+section#infEventos {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    transition: 300ms top linear;
+    top: -110vh;
+    background-color: var(--cor8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+    overflow: hidden;
+}
+
+section#infEventos > article {
+    width: 95%;
+    height: auto;
+    max-width: 350px;
+    max-height: 620px;
+    background-color: var(--cor1);
+    border: 3px solid var(--cor1);
+    overflow: hidden;
+    position: relative;
+}
+
+section#infEventos > article > button {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 25px;
+    right: 20px;
+    border-radius: 50%;
+    background-color: var(--cor5);
+    color: var(--cor0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    cursor: pointer;
+    overflow: hidden;
+    font-size: 20px;
+    font-weight: 900;
+    font-family: 'Dangrek', cursive;
+    border: none;
+}
+
+section#infEventos > article > button > span {
+    margin-top: -10px;
+}
+
+section#infEventos > article > img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
 section#msgLogin {
     width: 98%;
     height: auto;

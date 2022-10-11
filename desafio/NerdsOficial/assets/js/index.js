@@ -65,3 +65,31 @@ function tempoRestante() {
     }, 100)
 
 } tempoRestante()
+
+//! Vai trocar os popups de acordo com a data
+let data = new Date()
+let mes = data.getMonth() + 1
+let dia = data.getDate()
+
+let infEventos =  document.getElementById('infEventos')
+let imgEventos =  document.getElementById('imgEventos')
+
+if(mes == 10 && dia >= 9 && dia <= 15) {
+    ativarPopUp('assets/img/site/diaDasCrianças.gif')
+}
+
+function ativarPopUp(url) {
+    imgEventos.src = url
+    
+    //! Vai ativar o popup
+    setTimeout(() => {
+        infEventos.style.top = '0px'
+        document.querySelector('html').style.overflow = 'hidden'
+    }, 1000);   
+}
+
+//! Vai fechar o popup
+function fecharPopUp() {
+    infEventos.style.top = '110vh'
+    document.querySelector('html').style.overflow = 'auto'
+}
