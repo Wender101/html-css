@@ -99,6 +99,19 @@ function limpar() {
 
 //! vai adicionar o produto
 let id = 0
+db.collection('Produtos').onSnapshot((data) => {
+    const main = document.querySelector('main')
+    main.innerHTML = ''
+    data.docs.map(function(val) {
+        let p = val.data()
+        construirProduto(p.classe, p.nome, p.desc, p.imagem1, p.imagem2, p.id)
+        
+        if(p.id > id) {
+            id = p.id
+        }
+    })
+}) 
+
 function construirProduto(classe, nome, desc, imagem1, imagem2 = imagem1, id) {
     if(classe == document.querySelector('title').innerText) {
         const main = document.querySelector('main')
@@ -157,7 +170,6 @@ function adicionarProduto() {
 
     if(linkImg2 == '') {
         linkImg2 = linkImg1
-
     }
     
     if(nomeProduto == '' || descProduto == '' || linkImg1 == '') {
@@ -188,16 +200,6 @@ function addNoBancoDeDados(classe, nome, desc, imagem1, imagem2, id) {
     }
     db.collection('Produtos').add(objProdutos)
 }
-
-db.collection('Produtos').onSnapshot((data) => {
-    const main = document.querySelector('main')
-    main.innerHTML = ''
-    data.docs.map(function(val) {
-        let p = val.data()
-        construirProduto(p.classe, p.nome, p.desc, p.imagem1, p.imagem2, p.id)
-        id = p.id
-    })
-}) 
 
 //! Fechar msg
 function fecharMsg() {

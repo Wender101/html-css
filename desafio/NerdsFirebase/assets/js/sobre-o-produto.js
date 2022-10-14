@@ -8,6 +8,7 @@ function urlPage() {
     if(url.substr(-1) == 'l') {
         let url = `${window.location.href}#${sobreProduto2}`
         window.location.href = url
+        location.reload()
         
     } else {
         for(let c = 1; c < 20; c++) {
