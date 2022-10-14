@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/sobre-o-produto.css">
+    <link rel="stylesheet" href="assets/css/sobre-o-produto-responsive.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <title>Sobre o Produto</title>
+</head>
+<body id="topo">
+    <div id="sombra" onclick="fecharMenu()"></div>
+    <div id="localBtnMenu"><button id="menu" onclick="abrirMenu()">Menu</button></div>
+    
+    <nav>
+        <ul>
+	    <li><a href="home.html">Home</a></li>
+	    <hr>
+            <li><a href="sobre.html">Sobre</a></li>
+            <hr>
+            <li><a href="produtos.html">Produtos</a></li>
+            <hr>
+            <button onclick="login()" id="btnLogin">Login</button>
+            <hr>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="localImg">
+            <article id="otherImgs">
+                <img id="img1" src="" onerror="this.src ='assets/img/site/error.png'"></img>
+                <img id="img2" src="" onerror="this.src ='assets/img/site/error2.png'"></img>
+            </article>
+            
+            <div class="small" id="small">
+                <img src="" id="imgProduto" onerror="this.src ='assets/img/site/error2.png'">
+            </div>
+        </section>
+        
+        <section id="texto">
+            <div class="big" id="big">
+                <img src="" onerror="this.src ='assets/img/site/error2.png'">
+            </div>
+            <div class="fdj_mask" id="mask"></div>
+        </div>
+
+            <h1 id="titulo">Ops...</h1>
+            <p id="desc">Sem conexão com a internet</p>
+            
+            <div id="btns">
+                <a target="_blank" id="btnContato"><button>Entrar em Contato</button></a>
+                <button id="btnCarrinho" onclick="addCarrinho()">Adicionar ao Carrinho</button>
+            </div>
+        </section>
+    </main>
+
+    <a id="carrinho" href="carrinho.html">
+        <img src="assets/img/icons/carrinho.png" alt="">
+    </a>
+
+    <div id="voltarTopo">
+        <a href="#topo" id="subir"></a>
+    </div>
+
+    <section id="msgLogin">
+        <p id="pMsgLogin">Ops! Ainda estamos trabalhando nisso...</p>
+        <button onclick="fecharMsg()">Fechar</button>
+    </section>
+
+    <section id="infAddCarrinho">
+        <article id="conteudoCarrinho">
+            <p>Esse produto já foi adicionado em seu carrinho anteriormente! Deseja adiciona-lo de novo?</p>
+
+            <div>
+                <button onclick="addAgain()" id="btnSim">Sim</button>
+                <button onclick="fecharInfCarrinho()" id="btnNao">Não</button>
+            </div>
+        </article>
+    </section>
+
+    <article id="categorias">
+        <h1>Categorias</h1>
+         <div id="localCategorias">
+         </div>
+
+         <div id="btnEsquerdo" onclick="btnEsquerda()" class="btns"><</div>
+         <div id="btnDireito" onclick="btnDireita()" class="btns">></div>
+    </article>
+
+    <h1 id="h1Relacionados">Relacionados</h1>
+    <section id="ProdutosRelacionados">
+    </section>
+
+    <footer>
+        <div id="p1">
+            <p>Duvidas?</p>
+            <h1>Contate-Nos!</h1>
+            <ul>
+                <li id="face"><a href="https://www.facebook.com/nerds.eti"></a></li>
+                <li id="insta"><a href="https://www.instagram.com/nerds.eti/"></a></li>
+                <li id="tw"><a></a></li>
+            </ul>
+        </div>
+
+        <div id="p2">
+            <strong><a href="https://g.page/Nerds-Formosa?share" target="_blank">Rua Visconde De Porto Seguro 1161 Prédio<img src="assets/img/icons/icons8-google-maps-96.png"></a></strong>
+            <p>Preços e condições de pagamento exclusivos para compras via internet e podem variar nas lojas físicas. Os preços anunciados neste site ou via e-mail promocional podem ser alterados sem aviso prévio.</p>
+        </div>
+
+        <div id="ps5"></div>
+    </footer>
+
+    <!--! Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-auth.js"></script>
+    <script src="assets/js/firebase.js"></script>
+
+    <!--! Script  JS-->
+    <script src="assets/js/funcoesBasicas.js"></script>
+    <script src="assets/js/sobre-o-produto.js"></script>
+    <script src="assets/js/pesquisa.js"></script>
+</body>
+</html>

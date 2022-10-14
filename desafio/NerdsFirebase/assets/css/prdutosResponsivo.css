@@ -1,0 +1,132 @@
+@media screen and (max-width: 1255px) {
+    /*? Slider */
+    .container {
+        transform: translate(-50%);
+    }
+
+    /* Categorias */
+    #categorias {
+        margin-left: 50%;
+        transform: translate(-55%);
+    }
+}
+
+@media screen and (max-width: 1084px) {
+    section#produtos {
+        max-width: 800px;
+        margin: auto;
+    }
+}
+
+@media screen and (max-width: 882px) {
+    section#produtos > article#localOfertas {
+        max-width: 545px;
+        margin: auto;
+    }
+
+    section#produtos > article > div.p {
+        width: 210px;
+    }
+
+    section#produtos > article > div.p > a.localImg {
+        height: 200px;
+    }
+}
+
+@media screen and (max-width: 626px) {
+    header > section#texto {
+        margin-left: 0px;
+    }
+}
+
+@media screen and (max-width: 572px) {
+    header > section#man {
+        right: 20px;
+    }
+
+    section#produtos > article#localOfertas {
+        max-width: 335px;
+        margin: auto;
+    }
+
+    section#produtos > article#localOfertas > div#ofertas {
+        margin-left: 15px;
+    }
+}
+
+@media screen and (max-width: 535px) {
+    section#produtos > article#categorias {
+        margin-top: 0px;
+        margin-bottom: 50px;
+    }
+}
+
+@media screen and (max-width: 401px) {
+    header > section#texto {
+        width: 80%;
+    }
+
+    header > section#texto > h1 {
+        font-family: var(--font-titulo);
+        color: var(--cor1);
+        font-size: 35px;
+        margin-bottom: 30px;
+    }
+
+    /* ------------- */
+
+    header > section#man {
+        width: 300px;
+        height: 300px;
+        position: absolute;
+        bottom: 30px;
+        right: 50px;
+        overflow: hidden;
+        margin: auto;
+    }
+    
+    header > section#man > div#computer {
+        width: 250px;
+        height: 250px;
+        background-image: url('../img/site/computer.png');
+        bottom: 50px;
+        animation: 4s computer infinite;
+    }
+    
+    header > section#man > div#teclado {
+        width: 180px;
+        height: 120px;
+        background-image: url('../img/site/teclado.png');
+        left: 100px;
+        bottom: 120px;
+        animation: 1.5s teclado infinite;
+    }
+    
+    header > section#man > div#fonte {
+        width: 120px;
+        height: 120px;
+        background-image: url('../img/site/fonte.png');
+        right: 0px;
+        bottom: 150px;
+        animation: 2s fonte infinite;
+    }
+    
+    header > section#man > div#mouse {
+        width: 100px;
+        height: 100px;
+        background-image: url('../img/site/mouse.png');
+        right: 30px;
+        bottom: 0px;
+        animation: 3s mouse infinite;
+    }
+    
+    header > section#man > #sombraProdutos {
+        width: 100%;
+        height: 20px;
+        position: absolute;
+        bottom: 0px;
+        right: 0px;
+    }
+}
+
+

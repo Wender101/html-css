@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/sobre.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="assets/css/responsiveSobre.css">
+    <title>Sobre</title>
+</head>
+<body id="topo">
+    <div id="sombra" onclick="fecharMenu()"></div>
+    <div id="localBtnMenu"><button id="menu" onclick="abrirMenu()">Menu</button></div>
+    <nav>
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <hr>
+            <li><a href="produtos.html">Produtos</a></li>
+            <hr>
+            <button onclick="login()" id="btnLogin">Login</button>
+            <hr>
+        </ul>
+    </nav>
+
+    <header>
+        <div id="girl"></div>
+        <div id="logo"></div>
+
+        <section id="p1">
+            <h1>Conheça um pouco mais sobre nós</h1>
+            <p>Quem somos e o que fazemos...</p>
+        </section>
+    </header>
+
+    <main>
+        <section id="sobre">
+            <h1>Quem Somos?</h1>
+            <p>Somos uma empresa fundada no ano de 2020, com intuito de fornecer mais do que produtos, fornecer uma experiência gamer inesquecível!</p>
+        </section>
+
+        <section id="oqueFazemos">
+            <h1>O que Fazemos?</h1>
+            <p>Além de fornecermos produdos de Informática no geral, também damos dicas e falamos sobre algumas curiosidades do mundo gamer em nosso perfil no <strong><a href="https://www.instagram.com/nerds.eti/" target="_blank">Instagram</a></strong>.</p>
+
+            <a href="https://www.instagram.com/nerds.eti/" target="_blank"><button>Conferir</button></a>
+            <div id="trabalho"></div>
+        </section>
+
+        <section id="separacao"></section>
+    </main>
+
+    <div id="voltarTopo">
+        <a href="#topo" id="subir"></a>
+    </div>
+
+    <section id="msgLogin">
+        <p id="pMsgLogin">Ops! Ainda estamos trabalhando nisso...</p>
+        <button onclick="fecharMsg()">Fechar</button>
+    </section>
+
+    <footer>
+        <div id="p1">
+            <p>Duvidas?</p>
+            <h1>Contate-Nos!</h1>
+            <ul>
+                <li id="face"><a href="https://www.facebook.com/nerds.eti"></a></li>
+                <li id="insta"><a href="https://www.instagram.com/nerds.eti/"></a></li>
+                <li id="tw"><a></a></li>
+            </ul>
+        </div>
+
+        <div id="p2">
+            <strong><a href="https://g.page/Nerds-Formosa?share" target="_blank">Rua Visconde De Porto Seguro 1161 Prédio<img src="assets/img/icons/icons8-google-maps-96.png"></a></strong>
+            <p>Preços e condições de pagamento exclusivos para compras via internet e podem variar nas lojas físicas. Os preços anunciados neste site ou via e-mail promocional podem ser alterados sem aviso prévio.</p>
+        </div>
+
+        <div id="ps5"></div>
+    </footer>
+
+    <!--! Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-auth.js"></script>
+    <script src="assets/js/firebase.js"></script>
+
+    <!--! Script  JS-->
+    <script src="assets/js/funcoesBasicas.js"></script>
+</body>
+</html>

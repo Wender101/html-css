@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head id="topo">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/carrinho.css">
+    <link rel="stylesheet" href="assets/css/pagProduto.css">
+    <link rel="stylesheet" href="assets/css/pagProdutoResponsive.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="assets/css/prdutosResponsivo.css">
+    <title>Carrinho</title>
+</head>
+<body>
+    <div id="sombra" onclick="fecharMenu()"></div>
+    <div id="localBtnMenu"><button id="menu" onclick="abrirMenu()">Menu</button></div>
+    <nav>
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <hr>
+            <li><a href="sobre.html">Sobre</a></li>
+            <hr>
+            <li><a href="produtos.html">Produtos</a></li>
+            <hr>
+            <button onclick="login()" id="btnLogin">Login</button>
+            <hr>
+        </ul>
+    </nav>
+
+    
+    <h1 id="classProduto">Carrinho</h1>
+    <main>
+        <p id="recado">Seu carrinho se encontra vazio, adicione algum produto a ele.</p>
+    </main>    
+
+    <div id="voltarTopo">
+        <a href="#topo" id="subir"></a>
+    </div>
+
+    <h2 id="total">Total de Produtos: 0</h2>
+
+    <section id="infRemover">
+        <article id="msgRemover">
+            <p>Tem certeza que desejá remover este produto do carrinho?</p>
+
+            <div>
+                <button onclick="removerDoCarrinho()" id="btnSim">Sim</button>
+                <button onclick="fecharInfRemover()" id="btnNao">Fechar</button>
+                <button onclick="limparCarrinho()" id="btnLimparCarrinho">Remover Todos</button>
+            </div>
+        </article>
+    </section>
+
+    <section id="msgLogin">
+        <p id="pMsgLogin">Ops! Ainda estamos trabalhando nisso...</p>
+        <button onclick="fecharMsg()">Fechar</button>
+    </section>
+
+    <footer>
+        <div id="p1">
+            <p>Duvidas?</p>
+            <h1>Contate-Nos!</h1>
+            <ul>
+                <li id="face"><a href="https://www.facebook.com/nerds.eti"></a></li>
+                <li id="insta"><a href="https://www.instagram.com/nerds.eti/"></a></li>
+                <li id="tw"><a></a></li>
+            </ul>
+        </div>
+
+        <div id="p2">
+            <strong><a href="https://g.page/Nerds-Formosa?share" target="_blank">Rua Visconde De Porto Seguro 1161 Prédio<img src="assets/img/icons/icons8-google-maps-96.png"></a></strong>
+            <p>Preços e condições de pagamento exclusivos para compras via internet e podem variar nas lojas físicas. Os preços anunciados neste site ou via e-mail promocional podem ser alterados sem aviso prévio.</p>
+        </div>
+
+        <div id="ps5"></div>
+    </footer>
+    
+    <!--! Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-auth.js"></script>
+    <script src="assets/js/firebase.js"></script>
+
+    <!--! Script  JS-->
+    <script src="assets/js/funcoesBasicas.js"></script>
+    <script src="assets/js/carrinho.js"></script>
+</body>
+</html>
