@@ -49,33 +49,32 @@ auth.onAuthStateChanged((val) => {
             } 
         }, 10)
 
-        fecharMenu()
-    }
+        if(val.email == 'wendernatanael2019@gmail.com') {
+            let configs = document.getElementById('configs')
+            let btnAdicionarProduto = document.createElement('button')
+            let span = document.createElement('span')
     
-    if(val.email == 'wendernatanael2019@gmail.com') {
-        let configs = document.getElementById('configs')
-        let btnAdicionarProduto = document.createElement('button')
-        let span = document.createElement('span')
-
-        btnAdicionarProduto.id = 'btnAdicionarProduto'
-        span.innerText = '+'
-
-        //! AppendChild
-        btnAdicionarProduto.appendChild(span)
-        configs.appendChild(btnAdicionarProduto)
-
-        //! Eventos de click
-        btnAdicionarProduto.addEventListener('click', () => {
-            document.getElementById('addProduto').style.display = 'flex'
-        })
-
-        addProduto.addEventListener('click', (e) => {
-            let el = e.target.id
-            if(el == 'addProduto') {
-                document.getElementById('addProduto').style.display = 'none'
-            }
-        })
-
+            btnAdicionarProduto.id = 'btnAdicionarProduto'
+            span.innerText = '+'
+    
+            //! AppendChild
+            btnAdicionarProduto.appendChild(span)
+            configs.appendChild(btnAdicionarProduto)
+    
+            //! Eventos de click
+            btnAdicionarProduto.addEventListener('click', () => {
+                document.getElementById('addProduto').style.display = 'flex'
+            })
+    
+            addProduto.addEventListener('click', (e) => {
+                let el = e.target.id
+                if(el == 'addProduto') {
+                    document.getElementById('addProduto').style.display = 'none'
+                }
+            })
+        }
+        
+        fecharMenu()
     }
 })
 //! Vai cancelar a ação de adiconar um produto
