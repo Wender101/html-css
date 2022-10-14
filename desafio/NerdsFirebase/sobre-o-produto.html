@@ -45,10 +45,12 @@
             <div class="fdj_mask" id="mask"></div>
         </div>
 
-            <h1 id="titulo">Ops...</h1>
-            <p id="desc">Sem conexão com a internet</p>
+            <h1 id="titulo" class="titulo">Carregando...</h1>
+            <p id="desc">Conectando ao banco de dados ;)</p>
+
+            <img src="assets/img/site/gifCarregameto.gif" id="gifCarregamento">
             
-            <div id="btns">
+            <div id="btns" style="display: none;">
                 <a target="_blank" id="btnContato"><button>Entrar em Contato</button></a>
                 <button id="btnCarrinho" onclick="addCarrinho()">Adicionar ao Carrinho</button>
             </div>
@@ -120,5 +122,28 @@
     <script src="assets/js/funcoesBasicas.js"></script>
     <script src="assets/js/sobre-o-produto.js"></script>
     <script src="assets/js/pesquisa.js"></script>
+
+    <script>
+        let titulo = document.getElementsByClassName('titulo')[0]
+        let desc = document.getElementById('desc')
+        let c = 0
+        setInterval(() => {
+            c++
+
+            if(desc.innerText == 'Conectando ao banco de dados ;)') {
+                if(c == 1) {
+                titulo.innerText = 'Carregando.'
+
+                } else if(c == 2) {
+                    titulo.innerText = 'Carregando..'
+
+                } else if(c == 3) {
+                    titulo.innerText = 'Carregando...'
+                    c = 0
+                }
+            } 
+
+        }, 1000);
+    </script>
 </body>
 </html>

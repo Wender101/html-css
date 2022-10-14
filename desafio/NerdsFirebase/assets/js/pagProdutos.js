@@ -73,6 +73,7 @@ auth.onAuthStateChanged((val) => {
                 }
             })
         }
+
         
         fecharMenu()
     }

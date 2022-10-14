@@ -225,6 +225,12 @@ main > section#texto > p {
     font-size: 15px;
 }
 
+main > section#texto > img#gifCarregamento {
+    width: 250px;
+    margin: auto;
+    display: block;
+}
+
 main > section#texto > div#btns {
     min-width: 400px;
     position: absolute;

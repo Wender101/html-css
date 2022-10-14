@@ -73,14 +73,14 @@ db.collection('Produtos').onSnapshot((data) => {
         let p = val.data()
 
         if(p.id == idp) {
-            construirProduto(p.classe, p.nome, p.desc, p.imagem1, p.imagem2, p.id)
+            construirProduto(p.nome, p.desc, p.imagem1, p.imagem2, p.id)
             localStorage.setItem('sobreProduto', p.id)
         }
     })
 }) 
 
 //! Vai checar se o produto2 tem algum valor salvo
-function construirProduto(classe, nome, desc, imagem1, imagem2, id) {
+function construirProduto(nome, desc, imagem1, imagem2, id) {
     if(sobreProduto2 == null) {
         
         document.getElementById('titulo').innerText = 'Algo deu errado :('
@@ -107,7 +107,8 @@ function construirProduto(classe, nome, desc, imagem1, imagem2, id) {
 
     } else {
 
-        document.querySelector('title').innerText = nome
+        let title = document.querySelector('title').innerText = nome
+
 
         const imgProduto = document.getElementById('imgProduto')
         imgProduto.src = imagem1
@@ -134,7 +135,10 @@ function construirProduto(classe, nome, desc, imagem1, imagem2, id) {
         
 
         //! Vai add o titulo e a descrição
-        document.getElementById('titulo').innerText = nome
+        let titulo = document.getElementById('titulo')
+        titulo.innerText = nome
+        document.getElementById('gifCarregamento').style.display = 'none'
+        document.getElementById('btns').style.display = 'block'
         document.getElementById('desc').innerText = desc
 
         //! Vai enviar uma msg ao vendedor informando qual é o produto
