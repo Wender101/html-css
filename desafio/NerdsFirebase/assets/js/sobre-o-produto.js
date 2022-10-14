@@ -136,9 +136,9 @@ function construirProduto(nome, desc, imagem1, imagem2, id) {
 
         //! Vai add o titulo e a descrição
         let titulo = document.getElementById('titulo')
+        titulo.className = ''
         titulo.innerText = nome
-        document.getElementById('gifCarregamento').style.display = 'none'
-        document.getElementById('btns').style.display = 'block'
+        document.getElementById('btns').style.display = 'flex'
         document.getElementById('desc').innerText = desc
 
         //! Vai enviar uma msg ao vendedor informando qual é o produto

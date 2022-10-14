@@ -122,13 +122,13 @@
     <script src="assets/js/pesquisa.js"></script>
 
     <script>
-        let titulo = document.getElementsByClassName('titulo')[0]
-        let desc = document.getElementById('desc')
         let c = 0
         setInterval(() => {
-            c++
-
-            if(desc.innerText == 'Conectando ao banco de dados ;)') {
+            let titulo = document.getElementsByClassName('titulo')[0]
+            let desc = document.getElementById('desc').innerText
+            
+            if(desc == 'Conectando ao banco de dados ;)') {
+                c++
                 if(c == 1) {
                 titulo.innerText = 'Carregando.'
 
