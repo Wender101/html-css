@@ -5,12 +5,102 @@ const produtoPesquisado2 = JSON.parse(produtoPesquisado1)
 document.querySelector('title').innerText = produtoPesquisado2[0]
 document.getElementById('classProduto').innerText = produtoPesquisado2[0]
 
-fetch(`assets/json/dados.json`).then(resposta => {
-    return resposta.json()
+var firebaseConfig = {
+    apiKey: "AIzaSyASXflrIBeCuJNyBzj_PMLUK4ogiXNrRxM",
+    authDomain: "testefirebase-f5ba5.firebaseapp.com",
+    projectId: "testefirebase-f5ba5",
+    storageBucket: "testefirebase-f5ba5.appspot.com",
+    messagingSenderId: "74488269277",
+    appId: "1:74488269277:web:920d6da919c6fa2e1bce34"
+}
 
-}).then(bancoDs => {
-    let maxC = 1
-    for(let c = 0; c < maxC; c++) {
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig)
+
+//? My code
+const auth = firebase.auth()
+const provider = new firebase.auth.GoogleAuthProvider()
+
+function login() {
+    auth.signInWithPopup(provider)
+}
+
+const db = firebase.firestore()
+
+auth.onAuthStateChanged((val) => {
+    if(val) {
+        const btnLogin = document.getElementById('btnLogin')
+        btnLogin.innerText = 'Logado'
+        const msgLogin = document.getElementById('msgLogin')
+        msgLogin.style.display = 'block'
+        document.getElementById('pMsgLogin').innerText = `Bem Vindo(a) ${val.displayName}! ;)`
+
+        setTimeout(() => {
+            msgLogin.style.display = 'none'
+        }, 3000);
+
+        setInterval(() => {
+            var viewport = visualViewport.width
+            if(viewport > 535 && msgLogin.style.display == 'block') {
+                window.document.getElementById("subir").style.bottom = '10%'
+
+            } else if(viewport < 535 && msgLogin.style.display == 'block') {
+                window.document.getElementById("subir").style.bottom = '15%'
+            } 
+        }, 10)
+
+        fecharMenu()
+    }
+    
+    if(val.email == 'wendernatanael2019@gmail.com') {
+        let configs = document.getElementById('configs')
+        let btnAdicionarProduto = document.createElement('button')
+        let span = document.createElement('span')
+
+        btnAdicionarProduto.id = 'btnAdicionarProduto'
+        span.innerText = '+'
+
+        //! AppendChild
+        btnAdicionarProduto.appendChild(span)
+        configs.appendChild(btnAdicionarProduto)
+
+        //! Eventos de click
+        btnAdicionarProduto.addEventListener('click', () => {
+            document.getElementById('addProduto').style.display = 'flex'
+        })
+
+        addProduto.addEventListener('click', (e) => {
+            let el = e.target.id
+            if(el == 'addProduto') {
+                document.getElementById('addProduto').style.display = 'none'
+            }
+        })
+
+    }
+})
+//! Vai cancelar a ação de adiconar um produto
+function cancelar() {
+    document.getElementById('addProduto').style.display = 'none'
+    document.getElementById('alert').style.display = 'none'
+    for(let c = 0; c < 4; c++) {
+        let obrigatorios = document.getElementsByClassName('obrigatorios')[c]
+        obrigatorios.style.animation = 'none'
+    }
+
+    limpar()
+}
+
+function limpar() {
+    let nomeProduto = document.getElementById('nomeProduto').value = ''
+    let descProduto = document.getElementById('descProduto').value = ''
+    let linkImg1 = document.getElementById('linkImg1').value = ''
+    let linkImg2 = document.getElementById('linkImg2').value = ''
+}
+
+//! vai adicionar o produto
+let id = 0
+function construirProduto(classe, nome, desc, imagem1, imagem2 = imagem1, id) {
+    if(classe == document.querySelector('title').innerText) {
         const main = document.querySelector('main')
         const containerProduto = document.createElement('div')
         const localImgProduto = document.createElement('a')
@@ -22,145 +112,16 @@ fetch(`assets/json/dados.json`).then(resposta => {
         localImgProduto.className = 'localImgProduto'
         localImgProduto.href = 'sobre-o-produto.html'
         imgProduto.className = 'imgProduto'
-        imgProduto.src = 'assets/img/site/error.png'
-        strong.innerText = 'Algo deu errado!'
-        p.innerText = 'Parece que esse produto não foi carregado corretamente.'
     
-        //! Produtos
-        if(produtoPesquisado2[0] == 'Cabos') {
-            maxC = bancoDs.Cabos.length
-            let dados = bancoDs.Cabos[c]
-            if(dados[0] != '') {
-                imgProduto.src = dados[0]
-                strong.innerHTML = dados[1]
-                p.innerText = dados[2]
-            }
+        try {
+            imgProduto.src = imagem1
+            strong.innerHTML = nome
+            p.innerText = desc
             
-        } else if(produtoPesquisado2[0] == 'Adaptadores') {
-            maxC = bancoDs.Adaptadores.length
-            let dados = bancoDs.Adaptadores[c]
-            if(dados[0] != '') {
-                imgProduto.src = dados[0]
-                strong.innerHTML = dados[1]
-                p.innerText = dados[2]
-            }
-            
-        } else if(produtoPesquisado2[0] == 'Teclados') {
-            maxC = bancoDs.Teclados.length
-            let dados = bancoDs.Teclados[c]
-            if(dados[0] != '') {
-                imgProduto.src = dados[0]
-                strong.innerHTML = dados[1]
-                p.innerText = dados[2]
-            }
-            
-        } else if(produtoPesquisado2[0] == 'Mouse') {
-            maxC = bancoDs.Mouse.length
-            let dados = bancoDs.Mouse[c]
-            if(dados[0] != '') {
-                imgProduto.src = dados[0]
-                strong.innerHTML = dados[1]
-                p.innerText = dados[2]
-            }
-            
-        } else if(produtoPesquisado2[0] == 'Gabinetes') {
-            maxC = bancoDs.Gabinetes.length
-            let dados = bancoDs.Gabinetes[c]
-            if(dados[0] != '') {
-                imgProduto.src = dados[0]
-                strong.innerHTML = dados[1]
-                p.innerText = dados[2]
-            }
-            
-        } else if(produtoPesquisado2[0] == 'Headset') {
-            maxC = bancoDs.Headset.length
-            let dados = bancoDs.Headset[c]
-            if(dados[0] != '') {
-                imgProduto.src = dados[0]
-                strong.innerHTML = dados[1]
-                p.innerText = dados[2]
-            }
-            
-        } else if(produtoPesquisado2[0] == 'Controles') {
-            maxC = bancoDs.Controles.length
-            let dados = bancoDs.Controles[c]
-            if(dados[0] != '') {
-                imgProduto.src = dados[0]
-                strong.innerHTML = dados[1]
-                p.innerText = dados[2]
-            }
-            
-        } else if(produtoPesquisado2[0] == 'Fontes') {
-            maxC = bancoDs.Fontes.length
-            let dados = bancoDs.Fontes[c]
-            if(dados[0] != '') {
-                imgProduto.src = dados[0]
-                strong.innerHTML = dados[1]
-                p.innerText = dados[2]
-            }
-            
-        } else if(produtoPesquisado2[0] == 'MousePad') {
-            maxC = bancoDs.MousePad.length
-            let dados = bancoDs.MousePad[c]
-            if(dados[0] != '') {
-                imgProduto.src = dados[0]
-                strong.innerHTML = dados[1]
-                p.innerText = dados[2]
-            }
-            
-        } else if(produtoPesquisado2[0] == 'Processadores') {
-            maxC = bancoDs.Processadores.length
-            let dados = bancoDs.Processadores[c]
-            if(dados[0] != '') {
-                imgProduto.src = dados[0]
-                strong.innerHTML = dados[1]
-                p.innerText = dados[2]
-            }
-            
-        } else if(produtoPesquisado2[0] == 'Memória') {
-            maxC = bancoDs.Memória.length
-            let dados = bancoDs.Memória[c]
-            if(dados[0] != '') {
-                imgProduto.src = dados[0]
-                strong.innerHTML = dados[1]
-                p.innerText = dados[2]
-            }
-            
-        } else if(produtoPesquisado2[0] == 'SSD') {
-            maxC = bancoDs.SSD.length
-            let dados = bancoDs.SSD[c]
-            if(dados[0] != '') {
-                imgProduto.src = dados[0]
-                strong.innerHTML = dados[1]
-                p.innerText = dados[2]
-            }
-            
-        } else if(produtoPesquisado2[0] == 'Coolers') {
-            maxC = bancoDs.Coolers.length
-            let dados = bancoDs.Coolers[c]
-            if(dados[0] != '') {
-                imgProduto.src = dados[0]
-                strong.innerHTML = dados[1]
-                p.innerText = dados[2]
-            }
-            
-        } else if(produtoPesquisado2[0] == 'Outros') {
-            maxC = bancoDs.Outros.length
-            let dados = bancoDs.Outros[c]
-            if(dados[0] != '') {
-                imgProduto.src = dados[0]
-                strong.innerHTML = dados[1]
-                p.innerText = dados[2]
-            }
-            
-        } else {
-            document.getElementById('classProduto').innerText = 'Algo deu Errado :('
-    
-            document.getElementById('classProduto').style.marginTop = '100px'
-            document.getElementById('categorias').style.display = 'none'
-            document.querySelector('main').style.display = 'none'
-            document.querySelector('footer').style.position = 'absolute'
-            document.querySelector('footer').style.bottom = '0px'
+        } catch {
+            imgProduto.src = 'assets/img/site/error.png'
+            strong.innerText = 'Algo deu errado!'
+            p.innerText = 'Parece que esse produto não foi carregado corretamente'
         }
     
         //! AppendChild
@@ -169,58 +130,85 @@ fetch(`assets/json/dados.json`).then(resposta => {
         containerProduto.appendChild(strong)
         containerProduto.appendChild(p)
         main.appendChild(containerProduto)
-    
-        //! Vai add a memoria qual produto vai ser analizado pelo usuario 
-        localImgProduto.addEventListener('click', () => {
-            let e = imgProduto.id
-            let produto = {
-                p: produtoPesquisado2[0],
-                id: e,
-                maxC
-            }
-    
-            const sobreProduto = JSON.stringify(produto)
-            localStorage.setItem('sobreProduto', sobreProduto)
-        })
-    }
-    
-    //! Vai mudar a img dos produtos ao passar o mause em cima deles
-    for(let c = 0; c < maxC; c++) {
-        const imgProduto = document.getElementsByClassName('imgProduto')[c]
-        imgProduto.id = c
-        imgProduto.addEventListener('mouseenter', (e) => {
-            const el = e.target.src
-            const idElemnto = e.target.id
-    
-            var novoLink1 = el.slice(0, -1)
-    
-            if(novoLink1.substr(-1) == 'e') {
-                var novoLink2 = novoLink1.slice(0, -1)
-                var novoLink23 = novoLink2.slice(0, -1)
-                var novoLink3 = novoLink23.slice(0, -1)
-                var novoLink4 = novoLink3.slice(0, -1)
-    
-            } else {
-                var novoLink2 = novoLink1.slice(0, -1)
-                var novoLink3 = novoLink2.slice(0, -1)
-                var novoLink4 = novoLink3.slice(0, -1)
-            }
-    
-            const imgSelected = document.getElementById(idElemnto)
 
-            if(novoLink1.substr(-1) == 'e') {
-                imgSelected.src = `${novoLink4}2.jpeg`
-    
-            } else if(novoLink2.substr(-1) == 'j') {
-                imgSelected.src = `${novoLink4}2.jpg`
-    
-            } else {
-                imgSelected.src = `${novoLink4}2.png`
-            }
-    
-            imgProduto.addEventListener('mouseout', () => {
-                imgSelected.src = el     
-            })
+        //!Vai trocar a img do produto ao passar o mouse em cima
+        imgProduto.addEventListener('mouseenter', () => {
+            imgProduto.src = imagem2
+        })
+
+        imgProduto.addEventListener('mouseout', () => {
+            imgProduto.src = imagem1
+        })
+
+        //! Ao clicar na img do produto
+        localImgProduto.addEventListener('click', () => {
+            localStorage.setItem('sobreProduto', id)
         })
     }
-})
+}
+
+//! Função q vai add
+function adicionarProduto() {
+    let select = document.getElementById('classe').value
+    let nomeProduto = document.getElementById('nomeProduto').value
+    let descProduto = document.getElementById('descProduto').value
+    let linkImg1 = document.getElementById('linkImg1').value
+    let linkImg2 = document.getElementById('linkImg2').value
+
+    if(linkImg2 == '') {
+        linkImg2 = linkImg1
+
+    }
+    
+    if(nomeProduto == '' || descProduto == '' || linkImg1 == '') {
+        document.getElementById('alert').style.display = 'block'
+        for(let c = 0; c < 4; c++) {
+            let obrigatorios = document.getElementsByClassName('obrigatorios')[c]
+            obrigatorios.style.animation = '1s obrigatorios infinite linear'
+        }
+        return
+
+    } else {
+        id++
+        addNoBancoDeDados(select, nomeProduto, descProduto, linkImg1, linkImg2, id)
+        document.getElementById('addProduto').style.display = 'none'
+    }
+
+    limpar()
+}
+
+function addNoBancoDeDados(classe, nome, desc, imagem1, imagem2, id) {
+    let objProdutos = {
+        classe,
+        imagem1,
+        imagem2,
+        nome,
+        desc,
+        id
+    }
+    db.collection('Produtos').add(objProdutos)
+}
+
+db.collection('Produtos').onSnapshot((data) => {
+    const main = document.querySelector('main')
+    main.innerHTML = ''
+    data.docs.map(function(val) {
+        let p = val.data()
+        construirProduto(p.classe, p.nome, p.desc, p.imagem1, p.imagem2, p.id)
+        id = p.id
+    })
+}) 
+
+//! Fechar msg
+function fecharMsg() {
+    const msgLogin = document.getElementById('msgLogin')
+    msgLogin.style.display = 'none'
+
+    let title = document.querySelector('title').innerText
+    if( title == 'Carrinho') {
+        subir.style.bottom = '8%'
+    } else {
+        window.document.getElementById("subir").style.bottom = '2%'
+    }
+    
+} fecharMsg()
