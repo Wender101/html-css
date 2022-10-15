@@ -2,35 +2,94 @@
 const sobreProduto1 = localStorage.getItem('sobreProduto')
 const sobreProduto2 = JSON.parse(sobreProduto1)
 let idp
+let okay = false
+
+//! Vai usar a URL da pág como guía para encontrar o produto
 function urlPage() {
     let url = window.location.href
 
-    if(url.substr(-1) == 'l') {
+    if (sobreProduto2 != null && url.substr(-1) == 'l') {
         let url = `${window.location.href}#${sobreProduto2}`
         window.location.href = url
         location.reload()
+
+    } else if(sobreProduto2 == null && url.substr(-1) == 'l' || url.substr(-1) == 'r') {
+        if(url.substr(-1) != 'r') {
+            let url = `${window.location.href}#error`
+            window.location.href = url
+        }
         
-    } else {
-        for(let c = 1; c < 20; c++) {
+    } else if(sobreProduto2 == null && url.substr(-1) != 'l') {
+        for(let c = 0; c < 20; c++) {
             let a = url.substr(-c)
             let ab = c.toString()
-
-            if(a.substr(-ab.length) == c ) {
-                b = a.substr(-1)
+            let ac = ab.length + 1
+            let a2 = a.substr(-ac)
+            let a3 = `#${c}`
+            
+            if(a2 == 1) {
+                a2 = `#${a2}`
+            }
+            
+            if(a2 == a3 ) {
+                let gg = ac - 1
+                b = a2.substr(-gg)
                 idp = b
                 localStorage.setItem('sobreProduto', idp)
                 return
             }
+        }
 
-            if(sobreProduto2 == null) {
+    } else {
+        for(let c = 0; c < 20; c++) {
+            let a = url.substr(-c)
+            let ab = c.toString()
+            let ac = ab.length + 1
+            let a2 = a.substr(-ac)
+            let a3 = `#${c}`
+            
+            if(a2 == 1) {
+                a2 = `#${a2}`
+            }
+
+            if(a2 == a3 ) {
+                let gg = ac - 1
+                b = a2.substr(-gg)
+                idp = b
                 localStorage.setItem('sobreProduto', idp)
-                location.reload()
+                return
             }
         }
     }
-
-
 } urlPage()
+
+setTimeout(() => {
+    let desc = document.getElementById('desc').innerText
+    if(desc == 'Conectando ao banco de dados ;)') {
+        document.getElementById('titulo').innerText = 'Algo deu errado :('
+        document.getElementById('desc').innerText = 'Parece que nenhum produto foi encotrado. Volte para página anterior e tente novamente.'
+        document.getElementById('otherImgs').style.display = 'none'
+        let imgProduto = document.getElementById('imgProduto')
+        imgProduto.src = 'assets/img/site/error.png'
+        imgProduto.style.right = 'auto'
+        imgProduto.style.top = '30%'
+        imgProduto.style.marginLeft = '50%'
+        imgProduto.style.transform = 'translate(-35%)'
+
+        let btnContato = document.getElementById('btnContato')
+        
+        btnContato.target = '_self'
+
+        document.getElementById('btns').style.display = 'flex'
+        document.getElementById('btns').getElementsByTagName('a')[0].querySelector('button').innerText = 'Voltar'
+        btnContato.style.margin = 'auto'
+        btnContato.addEventListener('click', () => {
+            window.history.back()
+        })
+        document.getElementById('btnCarrinho').style.display = 'none'
+        return
+    }
+}, 8000);
 
 // //! Vai pegar do browser o carrinho
 // const carrinho1 = localStorage.getItem('carrinho')
