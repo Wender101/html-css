@@ -20,7 +20,7 @@ function urlPage() {
         }
         
     } else if(sobreProduto2 == null && url.substr(-1) != 'l') {
-        for(let c = 0; c < 20; c++) {
+        for(let c = 0; c < 200; c++) {
             let a = url.substr(-c)
             let ab = c.toString()
             let ac = ab.length + 1
@@ -28,7 +28,9 @@ function urlPage() {
             let a3 = `#${c}`
             
             if(a2 == 1) {
-                a2 = `#${a2}`
+                if(url.substr(-2) == '#1') {
+                    a2 = `#${a2}`
+                }
             }
             
             if(a2 == a3 ) {
@@ -41,7 +43,7 @@ function urlPage() {
         }
 
     } else {
-        for(let c = 0; c < 20; c++) {
+        for(let c = 0; c < 200; c++) {
             let a = url.substr(-c)
             let ab = c.toString()
             let ac = ab.length + 1
@@ -49,9 +51,12 @@ function urlPage() {
             let a3 = `#${c}`
             
             if(a2 == 1) {
-                a2 = `#${a2}`
+                if(url.substr(-2) == '#1') {
+                    a2 = `#${a2}`
+                }
             }
-
+            
+            // console.log(a2, a3, url.substr(-2));
             if(a2 == a3 ) {
                 let gg = ac - 1
                 b = a2.substr(-gg)
