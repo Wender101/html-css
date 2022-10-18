@@ -1,69 +1,61 @@
 let total = 0
-//! Vai pegar do browser o carrinho
-const carrinho1 = localStorage.getItem('carrinho')
-const carrinho2 = JSON.parse(carrinho1)
-let carrinho = []
 
-try {
-    for (let c = 0; c < carrinho2.length; c++) {
-        fetch(`assets/json/dados.json`).then(resposta => {
-            return resposta.json()
-        }).then(bancoDs => {
-            let produtoBancoDs
-    
-            carrinho.push(carrinho2[c])
-            total++
-            if(carrinho2[c].Categoria == 'Cabos') {
-                produtoBancoDs = bancoDs.Cabos[carrinho2[c].id]
-            } else if(carrinho2[c].Categoria == 'Adaptadores') {
-                produtoBancoDs = bancoDs.Adaptadores[carrinho2[c].id]
-            } else if(carrinho2[c].Categoria == 'Teclados') {
-                produtoBancoDs = bancoDs.Teclados[carrinho2[c].id]
-            } else if(carrinho2[c].Categoria == 'Mouse') {
-                produtoBancoDs = bancoDs.Mouse[carrinho2[c].id]
-            } else if(carrinho2[c].Categoria == 'Gabinetes') {
-                produtoBancoDs = bancoDs.Gabinetes[carrinho2[c].id]
-            } else if(carrinho2[c].Categoria == 'Headset') {
-                produtoBancoDs = bancoDs.Headset[carrinho2[c].id]
-            } else if(carrinho2[c].Categoria == 'Controles') {
-                produtoBancoDs = bancoDs.Controles[carrinho2[c].id]
-            } else if(carrinho2[c].Categoria == 'Fontes') {
-                produtoBancoDs = bancoDs.Fontes[carrinho2[c].id]
-            } else if(carrinho2[c].Categoria == 'MousePad') {
-                produtoBancoDs = bancoDs.MousePad[carrinho2[c].id]
-            } else if(carrinho2[c].Categoria == 'Processadores') {
-                produtoBancoDs = bancoDs.Processadores[carrinho2[c].id]
-            } else if(carrinho2[c].Categoria == 'Memória') {
-                produtoBancoDs = bancoDs.Memória[carrinho2[c].id]
-            } else if(carrinho2[c].Categoria == 'SSD') {
-                produtoBancoDs = bancoDs.SSD[carrinho2[c].id]
-            } else if(carrinho2[c].Categoria == 'Coolers') {
-                produtoBancoDs = bancoDs.Coolers[carrinho2[c].id]
-            } else if(carrinho2[c].Categoria == 'Outros') {
-                produtoBancoDs = bancoDs.Outros[carrinho2[c].id]
-            } else {
-                produtoBancoDs = 'Error'
-            }
-             
-            criaProdutos(produtoBancoDs[1], produtoBancoDs[2], produtoBancoDs[0], c, carrinho2[c].id)
-        })
-    }
-
-} catch {
-    carrinho = []
-    document.getElementsByClassName('separacao')[0].style.display = 'none'
-    let footer = document.querySelector('footer')
-    footer.style.position = 'absolute'
-    footer.style.bottom = '0px'
-    
+var firebaseConfig = {
+    apiKey: "AIzaSyASXflrIBeCuJNyBzj_PMLUK4ogiXNrRxM",
+    authDomain: "testefirebase-f5ba5.firebaseapp.com",
+    projectId: "testefirebase-f5ba5",
+    storageBucket: "testefirebase-f5ba5.appspot.com",
+    messagingSenderId: "74488269277",
+    appId: "1:74488269277:web:920d6da919c6fa2e1bce34"
 }
+
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig)
+
+//? My code
+const auth = firebase.auth()
+const provider = new firebase.auth.GoogleAuthProvider()
+
+function login() {
+    auth.signInWithPopup(provider)
+}
+
+const db = firebase.firestore()
+
+auth.onAuthStateChanged((valor) => {
+    db.collection('Carrinho').onSnapshot((data) => {
+        
+        const main = document.querySelector('main')
+        main.innerHTML = ''
+
+        data.docs.map(function(val) {
+            let p = val.data()
+    
+            if(p.email == valor.email) {
+                for(let c = 0; c < 10; c++) {
+                    try {
+                        criaProdutos(p.carrinho[c].nome, p.carrinho[c].desc, p.carrinho[c].imagem1, p.carrinho[c].id)
+
+                    } catch {
+                        return
+                    }   
+                }
+
+            } else {
+                let footer = document.querySelector('footer')
+                footer.style.position = 'absolute'
+                footer.style.bottom = '0px'
+            }
+        })
+    }) 
+})
 
 if(total <= 0) {
     document.querySelector('main').id = 'main'
 }
 
 let idSpan
-function criaProdutos(titulo, desc, src, id, idP) {
+function criaProdutos(nome, desc, imagem1, id) {
     document.getElementById('recado').style.display = 'none'
 
     const main = document.querySelector('main')
@@ -82,9 +74,9 @@ function criaProdutos(titulo, desc, src, id, idP) {
     span.id = id
     localImgProduto.href = 'sobre-o-produto.html'
     imgProduto.className = 'imgProduto'
-    imgProduto.src = src
+    imgProduto.src = imagem1
     span.innerText = 'x'
-    strong.innerHTML = titulo
+    strong.innerHTML = nome
     p.innerText = desc
 
     //! AppendChild
@@ -103,37 +95,30 @@ function criaProdutos(titulo, desc, src, id, idP) {
 
     //! Vai add a memoria qual produto vai ser analizado pelo usuario 
     localImgProduto.addEventListener('click', () => {
-        let produto = {
-            p: carrinho2[id].Categoria,
-            id: idP,
-            maxC: carrinho2[id].maxC
-        }
-
-        const sobreProduto = JSON.stringify(produto)
-        localStorage.setItem('sobreProduto', sobreProduto)
+        localStorage.setItem('sobreProduto', id)
     })
 
     document.getElementById('total').innerText = `Total de Produtos: ${total}`
 }
 
-//! Vai remover o produto do carrinho
-function removerDoCarrinho() {
-    carrinho.splice(idSpan, 1)
-    let salvarCarrinho = JSON.stringify(carrinho)
-    localStorage.setItem('carrinho', salvarCarrinho)
-    location.reload()
-}
+// //! Vai remover o produto do carrinho
+// function removerDoCarrinho() {
+//     carrinho.splice(idSpan, 1)
+//     let salvarCarrinho = JSON.stringify(carrinho)
+//     localStorage.setItem('carrinho', salvarCarrinho)
+//     location.reload()
+// }
 
 //! Vai fechar a msg "remover o produto do carrinho"
 function fecharInfRemover() {
     document.getElementById('infRemover').style.display = 'none'
 }
 
-//! Vai fechar a msg "remover o produto do carrinho"
-function limparCarrinho() {
-        carrinho = []
+// //! Vai fechar a msg "remover o produto do carrinho"
+// function limparCarrinho() {
+//         carrinho = []
 
-    let salvarCarrinho = JSON.stringify(carrinho)
-    localStorage.setItem('carrinho', salvarCarrinho)
-    location.reload()
-}
+//     let salvarCarrinho = JSON.stringify(carrinho)
+//     localStorage.setItem('carrinho', salvarCarrinho)
+//     location.reload()
+// }

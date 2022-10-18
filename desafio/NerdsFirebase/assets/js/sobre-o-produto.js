@@ -96,20 +96,6 @@ setTimeout(() => {
     }
 }, 8000);
 
-// //! Vai pegar do browser o carrinho
-// const carrinho1 = localStorage.getItem('carrinho')
-// const carrinho2 = JSON.parse(carrinho1)
-// let carrinho = []
-
-// try {
-//     for (let c = 0; c < carrinho2.length; c++) {
-//         carrinho.push(carrinho2[c])
-//     }
-    
-// } catch {
-//     carrinho = []
-// }
-
 var firebaseConfig = {
     apiKey: "AIzaSyASXflrIBeCuJNyBzj_PMLUK4ogiXNrRxM",
     authDomain: "testefirebase-f5ba5.firebaseapp.com",
@@ -254,57 +240,80 @@ function construirProduto(nome, desc, imagem1, imagem2, id) {
     }
 }
 
+//! Vai pegar do BD o carrinho
+let arrayCarrinho = []
+auth.onAuthStateChanged((valor) => {
+    db.collection('Carrinho').onSnapshot((data) => {
+        data.docs.map(function(val) {
+            let p = val.data()
+
+            if(p.email == valor.email) {
+                for(let c = 0; c < 10; c++) {
+                    try {
+                        let objCarrinhoBD = {
+                            classe: p.carrinho[c].classe,
+                            imagem1: p.carrinho[c].imagem1,
+                            imagem2: p.carrinho[c].imagem2,
+                            nome: p.carrinho[c].nome,
+                            desc: p.carrinho[c].desc,
+                            id: p.carrinho[c].id
+                        }
+
+                        arrayCarrinho.push(objCarrinhoBD)
+
+                    } catch {
+                        return
+                    }   
+                }
+            }
+        })
+    })
+})
+
 // //! Vai add ao carrinho
-// function addCarrinho(addAgain = false) {
-//     const carrinho1 = localStorage.getItem('carrinho')
-//     const carrinho2 = JSON.parse(carrinho1)
-
-//     try {
-//         for(let c = 0; c <= carrinho.length; c++) {
-//             if(sobreProduto2.p == carrinho2[c].Categoria && sobreProduto2.id == carrinho2[c].id && addAgain == false) {
-//                 document.getElementById('infAddCarrinho').style.display = 'flex'
-//                 return
-
-//             } else if(addAgain != false) {
-//                 let produto = {
-//                     Categoria: sobreProduto2.p,
-//                     id: sobreProduto2.id,
-//                     maxC: sobreProduto2.maxC
-//                 }
+function addCarrinho() {
+    auth.onAuthStateChanged((valor) => {
+        db.collection('Produtos').onSnapshot((data) => {
+            data.docs.map(function(val) {
+                let p = val.data()
         
-//                 carrinho.push(produto)
-//                 let salvarCarrinho = JSON.stringify(carrinho)
-//                 localStorage.setItem('carrinho', salvarCarrinho)
-        
-//                 document.getElementById('carrinho').className = 'animation'
-        
-//                 setTimeout(() => {
-//                     document.getElementById('carrinho').className = ''
-//                 }, 700)
+                if(p.id == idp) {
+                    let objCarrinho = {
+                        classe: p.classe,
+                        imagem1: p.imagem1,
+                        imagem2: p.imagem2,
+                        nome: p.nome,
+                        desc: p.desc,
+                        id: p.id
+                    }
+                    
+                    arrayCarrinho.push(objCarrinho)
+                    
+                    db.collection('Carrinho').onSnapshot((data) => {
+                        data.docs.map(function(valCarrinho) {
+                            let pCar = valCarrinho.data()
 
-//                 return
-//             }
-//         }
+                            if(pCar.email == valor.email && pCar.carrinho != arrayCarrinho) {
+                                let objCarrinhoFinal = {
+                                    email: valor.email,
+                                    carrinho: arrayCarrinho
+                                }
 
-//     } catch {
+                                db.collection('Carrinho').add(objCarrinhoFinal)
+                                return
 
-//         let produto = {
-//             Categoria: sobreProduto2.p,
-//             id: sobreProduto2.id,
-//             maxC: sobreProduto2.maxC
-//         }
-
-//         carrinho.push(produto)
-//         let salvarCarrinho = JSON.stringify(carrinho)
-//         localStorage.setItem('carrinho', salvarCarrinho)
-
-//         document.getElementById('carrinho').className = 'animation'
-
-//         setTimeout(() => {
-//             document.getElementById('carrinho').className = ''
-//         }, 700)
-//     }
-// }
+                            } else {
+                                console.log('aaa');
+                                // db.collection('Carrinho').doc('TWzfNcvwOLQUU7ocawZO').update({carrinho: arrayCarrinho})
+                            }
+                        })
+                    
+                    })
+                }
+            })
+        }) 
+    })
+}
 
 // //! Vai fachar a section que informa que o produto já está em seu carrinho
 // function fecharInfCarrinho() {
