@@ -22,12 +22,10 @@ function login() {
 
 const db = firebase.firestore()
 
+let arrayCarrinho = []
+let carregado = false 
 auth.onAuthStateChanged((valor) => {
     db.collection('Carrinho').onSnapshot((data) => {
-        
-        const main = document.querySelector('main')
-        main.innerHTML = ''
-
         data.docs.map(function(val) {
             let p = val.data()
     
@@ -35,6 +33,17 @@ auth.onAuthStateChanged((valor) => {
                 for(let c = 0; c < 10; c++) {
                     try {
                         criaProdutos(p.carrinho[c].nome, p.carrinho[c].desc, p.carrinho[c].imagem1, p.carrinho[c].id)
+
+                        let objCarrinhoBD = {
+                            classe: p.carrinho[c].classe,
+                            imagem1: p.carrinho[c].imagem1,
+                            imagem2: p.carrinho[c].imagem2,
+                            nome: p.carrinho[c].nome,
+                            desc: p.carrinho[c].desc,
+                            id: p.carrinho[c].id
+                        }
+
+                        arrayCarrinho.push(objCarrinhoBD)
 
                     } catch {
                         return
@@ -54,8 +63,9 @@ if(total <= 0) {
     document.querySelector('main').id = 'main'
 }
 
+let id = 0
 let idSpan
-function criaProdutos(nome, desc, imagem1, id) {
+function criaProdutos(nome, desc, imagem1, idproduto) {
     document.getElementById('recado').style.display = 'none'
 
     const main = document.querySelector('main')
@@ -95,30 +105,49 @@ function criaProdutos(nome, desc, imagem1, id) {
 
     //! Vai add a memoria qual produto vai ser analizado pelo usuario 
     localImgProduto.addEventListener('click', () => {
-        localStorage.setItem('sobreProduto', id)
+        localStorage.setItem('sobreProduto', idproduto)
     })
 
-    document.getElementById('total').innerText = `Total de Produtos: ${total}`
+    id++
+    document.getElementById('total').innerText = `Total de Produtos: ${id}`
 }
 
 // //! Vai remover o produto do carrinho
-// function removerDoCarrinho() {
-//     carrinho.splice(idSpan, 1)
-//     let salvarCarrinho = JSON.stringify(carrinho)
-//     localStorage.setItem('carrinho', salvarCarrinho)
-//     location.reload()
-// }
+function removerDoCarrinho() {
+    let feito = false
+    auth.onAuthStateChanged((valEmail) => {
+        db.collection('Carrinho').onSnapshot((data) => {
+            data.docs.map(function(valCarrinho) {
+                let p = valCarrinho.data()
+
+                console.log(arrayCarrinho, arrayCarrinho.splice(idSpan, 1));
+
+                if(p.email == valEmail.email && feito == false) {
+                    db.collection('Carrinho').doc(valCarrinho.id).update({carrinho: arrayCarrinho.splice(idSpan, 1)})
+                    feito = true
+                }
+            })
+        })
+    })
+}
 
 //! Vai fechar a msg "remover o produto do carrinho"
 function fecharInfRemover() {
     document.getElementById('infRemover').style.display = 'none'
 }
 
-// //! Vai fechar a msg "remover o produto do carrinho"
-// function limparCarrinho() {
-//         carrinho = []
+function limparCarrinho() {
+    let feito = false
+    auth.onAuthStateChanged((valEmail) => {
+        db.collection('Carrinho').onSnapshot((data) => {
+            data.docs.map(function(valCarrinho) {
+                let p = valCarrinho.data()
 
-//     let salvarCarrinho = JSON.stringify(carrinho)
-//     localStorage.setItem('carrinho', salvarCarrinho)
-//     location.reload()
-// }
+                if(p.email == valEmail.email && feito == false) {
+                    db.collection('Carrinho').doc(valCarrinho.id).update({carrinho: arrayCarrinho = []})
+                    feito = true
+                }
+            })
+        })
+    })
+}

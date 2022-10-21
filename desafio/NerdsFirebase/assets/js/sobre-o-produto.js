@@ -116,7 +116,6 @@ function login() {
     auth.signInWithPopup(provider)
 }
 
-
 const db = firebase.firestore()
 db.collection('Produtos').onSnapshot((data) => {
     data.docs.map(function(val) {
@@ -242,12 +241,12 @@ function construirProduto(nome, desc, imagem1, imagem2, id) {
 
 //! Vai pegar do BD o carrinho
 let arrayCarrinho = []
-auth.onAuthStateChanged((valor) => {
+auth.onAuthStateChanged((valEmail) => {
     db.collection('Carrinho').onSnapshot((data) => {
-        data.docs.map(function(val) {
-            let p = val.data()
+        data.docs.map(function(valCarrinho) {
+            let p = valCarrinho.data()
 
-            if(p.email == valor.email) {
+            if(p.email == valEmail.email) {
                 for(let c = 0; c < 10; c++) {
                     try {
                         let objCarrinhoBD = {
@@ -271,60 +270,128 @@ auth.onAuthStateChanged((valor) => {
 })
 
 // //! Vai add ao carrinho
-function addCarrinho() {
-    auth.onAuthStateChanged((valor) => {
-        db.collection('Produtos').onSnapshot((data) => {
-            data.docs.map(function(val) {
-                let p = val.data()
-        
-                if(p.id == idp) {
-                    let objCarrinho = {
-                        classe: p.classe,
-                        imagem1: p.imagem1,
-                        imagem2: p.imagem2,
-                        nome: p.nome,
-                        desc: p.desc,
-                        id: p.id
-                    }
-                    
-                    arrayCarrinho.push(objCarrinho)
-                    
-                    db.collection('Carrinho').onSnapshot((data) => {
-                        data.docs.map(function(valCarrinho) {
-                            let pCar = valCarrinho.data()
+let checkEmail = false
+let checkCarrinho = false
+let idProdutoCarrinho
+function addCarrinho(addNovamente = false) {
+    let feito = false
+    db.collection('Produtos').onSnapshot((data) => {
+        data.docs.map(function(valProduto) {
+            let p = valProduto.data()
+            // db.collection('Produtos').doc(val.id).update({nome: 'GG'})
+            
+            //? Vai fazer com que apenas o produto especionado sejá adicionado ao carrinho
+            if(p.id == idp) {
+                let objCarrinho = {
+                    classe: p.classe,
+                    imagem1: p.imagem1,
+                    imagem2: p.imagem2,
+                    nome: p.nome,
+                    desc: p.desc,
+                    id: p.id
+                }
 
-                            if(pCar.email == valor.email && pCar.carrinho != arrayCarrinho) {
-                                let objCarrinhoFinal = {
-                                    email: valor.email,
+                //? Essas funções vão checar se o usuario já tem produtos no carrinho
+                checarEmail()
+                checarCarrinho(p.nome, p.desc)
+                
+                //? pegar o email do user
+                
+                
+                setTimeout(() => {
+                    console.log(checkEmail, checkCarrinho);
+                    auth.onAuthStateChanged((valEmail) => {
+
+                        if(feito == false) {
+                            //? Caso o user não tenha nenhum produto no carrinho
+                            if(checkEmail == false && checkCarrinho == false) {
+                                console.log('1');
+                                arrayCarrinho.push(objCarrinho)
+                                let car = {
+                                    email: valEmail.email,
                                     carrinho: arrayCarrinho
                                 }
+            
+                                db.collection('Carrinho').add(car)
+                                feito = true
+            
+                                //? Caso o user já tenha um produto no carrinho, mas sejá diferente do que ele vai add agr
+                            } else if(checkEmail == true && checkCarrinho == false) {
+                                console.log('2');
+                                arrayCarrinho.push(objCarrinho)
+                                db.collection('Carrinho').doc(idProdutoCarrinho).update({carrinho: arrayCarrinho})
+                                feito = true
+            
+                                //? Caso esse produto já esteja no carrinho
+                            } else if(checkEmail == true && checkCarrinho == true && addNovamente == false) {
+                                console.log('3');
+                                document.getElementById('infAddCarrinho').style.display = 'flex'
+                                feito = true
 
-                                db.collection('Carrinho').add(objCarrinhoFinal)
-                                return
-
-                            } else {
-                                console.log('aaa');
-                                // db.collection('Carrinho').doc('TWzfNcvwOLQUU7ocawZO').update({carrinho: arrayCarrinho})
+                            } else if(checkEmail == true && checkCarrinho == true && addNovamente == true) {
+                                console.log('4');
+                                arrayCarrinho.push(objCarrinho)
+                                db.collection('Carrinho').doc(idProdutoCarrinho).update({carrinho: arrayCarrinho})
+                                feito = true
                             }
-                        })
-                    
+    
+                            feito = true
+                        }
                     })
+                }, 300);
+            }
+        })     
+    })
+}
+
+//? Vai checar se o email do user existe no carrinho do banco de dados
+let feito2 = false
+function checarEmail() {
+    auth.onAuthStateChanged((valEmail) => {
+        db.collection('Carrinho').onSnapshot((data) => {
+            data.docs.map(function(valCarrinho) {
+                if(feito2 == false && valEmail.email == valCarrinho.data().email) {
+                    console.log('pass email');
+                    checkEmail = true
+                    idProdutoCarrinho = valCarrinho.id
+                    feito2 = true
                 }
             })
-        }) 
+        })
+    })
+}
+
+//? Vai checar se o produto já existe no carrinho
+let feito3 = false
+function checarCarrinho(nome, desc) {
+    auth.onAuthStateChanged((valEmail) => {
+        db.collection('Carrinho').onSnapshot((data) => {
+            data.docs.map(function(valCarrinho) {
+                for(let c = 0; c <= 10; c++) {
+                    try {
+                        if(feito3 == false && valEmail.email == valCarrinho.data().email && valCarrinho.data().carrinho[c].nome == nome && valCarrinho.data().carrinho[c].desc == desc) {
+                            console.log('pass carrinho');
+                            checkCarrinho = true
+                            feito3 = true
+                        }
+
+                    } catch {}
+                }
+            })
+        })
     })
 }
 
 // //! Vai fachar a section que informa que o produto já está em seu carrinho
-// function fecharInfCarrinho() {
-//     document.getElementById('infAddCarrinho').style.display = 'none'
-// }
+function fecharInfCarrinho() {
+    document.getElementById('infAddCarrinho').style.display = 'none'
+}
 
-// //! Vai adicionar o produto de novo no carrinho
-// function addAgain() {
-//     addCarrinho(true)
-//     fecharInfCarrinho()
-// }
+//! Vai adicionar o produto de novo no carrinho
+function addAgain() {
+    addCarrinho(true)
+    fecharInfCarrinho()
+}
 
 // //! Vai colocar na tela produtos relacionados ao escolhido
 // function relacionados() {
