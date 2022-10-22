@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="assets/css/pagProduto.css">
+    <link rel="stylesheet" href="assets/css/pagProdutoResponsive.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="assets/css/prdutosResponsivo.css">
+    <link rel="stylesheet" href="assets/css/todos-os-produtos.css">
+    <title>Todos os produtos</title>
+</head>
+<body id="topo">
+    <select id="classeProdutos">
+        <option value="Todos">Todos</option>
+        <option value="Com desconto">Com desconto</option>
+        <option value="Cabos">Cabos</option>
+        <option value="Adaptadores">Adaptadores</option>
+        <option value="Teclados">Teclados</option>
+        <option value="Mouse">Mouse</option>
+        <option value="Gabinetes">Gabinetes</option>
+        <option value="Headset">Headset</option>
+        <option value="Controles">Controles</option>
+        <option value="Fontes">Fontes</option>
+        <option value="MousePad">MousePad</option>
+        <option value="Processadores">Processadores</option>
+        <option value="Memória">Memória</option>
+        <option value="SSD">SSD</option>
+        <option value="Coolers">Coolers</option>
+        <option value="Outros">Outros</option>
+    </select>
+
+    <div id="sombra" onclick="fecharMenu()"></div>
+    <div id="localBtnMenu"><button id="menu" onclick="abrirMenu()">Menu</button></div>
+    <nav>
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <hr>
+            <li><a href="sobre.html">Sobre</a></li>
+            <hr>
+            <li><a href="produtos.html">Produtos</a></li>
+            <hr>
+            <button onclick="login()" id="btnLogin">Login</button>
+            <hr>
+        </ul>
+    </nav>
+
+    <h1 id="classProduto">Todos os Produtos</h1>
+    <main>
+    </main>    
+
+    
+    <a id="carrinho" href="carrinho.html">
+        <img src="assets/img/icons/carrinho.png">
+    </a>
+    
+    <div id="voltarTopo">
+        <a href="#topo" id="subir"></a>
+    </div>
+
+    <section id="msgLogin">
+        <p id="pMsgLogin"></p>
+        <button onclick="fecharMsg()">Fechar</button>
+    </section>
+
+    <section id="configs">
+        <article id="addProduto">
+            <div>
+                <span class="obrigatorios">*Link da imagem primária do produto</span>
+                <input type="text" placeholder="Ex: https://www.teclado.com.br" id="linkImg1">
+                <span>Link da imagem secundária do produto</span>
+                <input type="text" placeholder="Ex: https://www.teclado.com.br" id="linkImg2">
+                <span class="obrigatorios">*Classe do produto</span>
+                <select id="classe">
+                    <option value="Cabos">Cabos</option>
+                    <option value="Adaptadores">Adaptadores</option>
+                    <option value="Teclados">Teclados</option>
+                    <option value="Mouse">Mouse</option>
+                    <option value="Gabinetes">Gabinetes</option>
+                    <option value="Headset">Headset</option>
+                    <option value="Controles">Controles</option>
+                    <option value="Fontes">Fontes</option>
+                    <option value="MousePad">MousePad</option>
+                    <option value="Processadores">Processadores</option>
+                    <option value="Memória">Memória</option>
+                    <option value="SSD">SSD</option>
+                    <option value="Coolers">Coolers</option>
+                    <option value="Outros">Outros</option>
+                </select>
+                <span class="obrigatorios">*Nome do produto</span>
+                <input type="text" placeholder="Ex: Teclado semi mecanico" id="nomeProduto">
+                <span class="obrigatorios">*Descrição</span>
+                <input type="text" placeholder="Ex: Teclado semi mecanico Com iluminação RGB" id="descProduto">
+
+                <span id="alert">Preencha todos os campos obrigatórios</span>
+                <div>
+                    <button onclick="adicionarProduto()">Adicionar</button>
+                    <button onclick="cancelar()">Cancelar</button>
+                </div>
+            </div>
+        </article>
+    </section>
+
+    <section id="carregando">
+        <article>
+            <!-- início do preloader -->
+            <div id="preloader">
+                <div class="inner">
+                <!-- HTML DA ANIMAÇÃO MUITO LOUCA DO SEU PRELOADER! -->
+                <div class="bolas">
+                    <div></div>
+                    <div></div>
+                    <div></div>                    
+                </div>
+                </div>
+            </div>
+            <!-- fim do preloader --> 
+        </article>
+    </section>
+
+    <footer>
+        <div id="p1">
+            <p>Duvidas?</p>
+            <h1>Contate-Nos!</h1>
+            <ul>
+                <li id="face"><a href="https://www.facebook.com/nerds.eti"></a></li>
+                <li id="insta"><a href="https://www.instagram.com/nerds.eti/"></a></li>
+                <li id="tw"><a></a></li>
+            </ul>
+        </div>
+
+        <div id="p2">
+            <strong><a href="https://g.page/Nerds-Formosa?share" target="_blank">Rua Visconde De Porto Seguro 1161 Prédio<img src="assets/img/icons/icons8-google-maps-96.png"></a></strong>
+            <p>Preços e condições de pagamento exclusivos para compras via internet e podem variar nas lojas físicas. Os preços anunciados neste site ou via e-mail promocional podem ser alterados sem aviso prévio.</p>
+        </div>
+
+        <div id="ps5"></div>
+    </footer>
+
+    <!--! Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-auth.js"></script>
+
+    <!--! Script  JS-->
+    <script src="assets/js/todos-os-produtos.js"></script>
+    <script src="assets/js/funcoesBasicas.js"></script>
+    <script src="assets/js/pesquisa.js"></script>
+</body>
+</html>

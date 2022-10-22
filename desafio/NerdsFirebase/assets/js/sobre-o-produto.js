@@ -249,6 +249,7 @@ function construirProduto(nome, desc, imagem1, imagem2, id) {
 
 //! Vai pegar do BD o carrinho
 let arrayCarrinho = []
+let carrinhoCarregado = false
 auth.onAuthStateChanged((valEmail) => {
     db.collection('Carrinho').onSnapshot((data) => {
         setTimeout(() => {
@@ -257,15 +258,10 @@ auth.onAuthStateChanged((valEmail) => {
         data.docs.map(function(valCarrinho) {
             let p = valCarrinho.data()
 
-            if(p.email == valEmail.email) {
-                for(let c = 0; c < 10; c++) {
+            if(p.email == valEmail.email && carrinhoCarregado == false) {
+                for(let c = 0; c < p.carrinho.length; c++) {
                     try {
                         let objCarrinhoBD = {
-                            classe: p.carrinho[c].classe,
-                            imagem1: p.carrinho[c].imagem1,
-                            imagem2: p.carrinho[c].imagem2,
-                            nome: p.carrinho[c].nome,
-                            desc: p.carrinho[c].desc,
                             id: p.carrinho[c].id
                         }
 
@@ -275,6 +271,7 @@ auth.onAuthStateChanged((valEmail) => {
                         return
                     }   
                 }
+                carrinhoCarregado = true
             }
         })
     })
@@ -294,17 +291,12 @@ function addCarrinho(addNovamente = false) {
             if(p.id == idp) {
 
                 let objCarrinho = {
-                    classe: p.classe,
-                    imagem1: p.imagem1,
-                    imagem2: p.imagem2,
-                    nome: p.nome,
-                    desc: p.desc,
                     id: p.id
                 }
 
                 //! Essas funções vão checar se o usuario já tem produtos no carrinho
                 checarEmail()
-                checarCarrinho(p.nome, p.desc)
+                checarCarrinho(p.id)
                 
                 //! pegar o email do user
                 
@@ -349,6 +341,7 @@ function addCarrinho(addNovamente = false) {
                             }
     
                             feito = true
+                            return
                         }
                     })
                 }, 300);
@@ -376,13 +369,13 @@ function checarEmail() {
 
 //! Vai checar se o produto já existe no carrinho
 let feito3 = false
-function checarCarrinho(nome, desc) {
+function checarCarrinho(id) {
     auth.onAuthStateChanged((valEmail) => {
         db.collection('Carrinho').onSnapshot((data) => {
             data.docs.map(function(valCarrinho) {
                 for(let c = 0; c <= 10; c++) {
                     try {
-                        if(feito3 == false && valEmail.email == valCarrinho.data().email && valCarrinho.data().carrinho[c].nome == nome && valCarrinho.data().carrinho[c].desc == desc) {
+                        if(feito3 == false && valEmail.email == valCarrinho.data().email && valCarrinho.data().carrinho[c].id == id) {
                             console.log('pass carrinho');
                             checkCarrinho = true
                             feito3 = true

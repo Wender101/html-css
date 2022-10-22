@@ -1,3 +1,16 @@
+auth.onAuthStateChanged((val) => {
+    if(val.email == 'wendernatanael2019@gmail.com') {
+        let a = document.createElement('a')
+        let li = document.getElementById('li')
+
+        a.innerText = 'Todos'
+        a.href = 'todos-os-produtos.html'
+        li.style.display = 'block'
+        li.appendChild(a)
+    }
+})
+
+
 // Vai escolher os produtos em destaque
 const array = []
 for(let c = 0; c  < 5; c++) {

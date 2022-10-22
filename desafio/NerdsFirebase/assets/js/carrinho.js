@@ -22,7 +22,6 @@ function login() {
 
 const db = firebase.firestore()
 
-let arrayCarrinho = []
 let carregado = false 
 auth.onAuthStateChanged((valor) => {
     db.collection('Carrinho').onSnapshot((data) => {
@@ -31,30 +30,20 @@ auth.onAuthStateChanged((valor) => {
     
             if(p.email == valor.email) {
                 document.getElementById('carregando').style.display = 'none'
-                for(let c = 0; c < 10; c++) {
+                for(let c = 0; c < p.carrinho.length; c++) {
                     try {
-                        criaProdutos(p.carrinho[c].nome, p.carrinho[c].desc, p.carrinho[c].imagem1, p.carrinho[c].id)
-
-                        let objCarrinhoBD = {
-                            classe: p.carrinho[c].classe,
-                            imagem1: p.carrinho[c].imagem1,
-                            imagem2: p.carrinho[c].imagem2,
-                            nome: p.carrinho[c].nome,
-                            desc: p.carrinho[c].desc,
-                            id: p.carrinho[c].id
-                        }
-
-                        arrayCarrinho.push(objCarrinhoBD)
+                        db.collection('Produtos').onSnapshot((data) => {
+                            data.docs.map(function(val) {
+                                if(p.carrinho[c].id == val.data().id) {
+                                    criaProdutos(val.data().nome, val.data().desc, val.data().imagem1, val.data().imagem2, val.data().id, val.data().classe)
+                                }
+                            })
+                        })
 
                     } catch {
                         return
                     }   
                 }
-
-            } else {
-                let footer = document.querySelector('footer')
-                footer.style.position = 'absolute'
-                footer.style.bottom = '0px'
             }
         })
     }) 
@@ -67,9 +56,25 @@ if(total <= 0) {
 let id = 0
 let id2 = 0
 let idSpan
-function criaProdutos(nome, desc, imagem1, idproduto) {
+let arrayCarrinho = []
+function criaProdutos(nome, desc, imagem1, imagem2, idproduto, classe) {
     
     if(id2 == id) {
+        let objCarrinhoBD = {
+            classe: classe,
+            imagem1: imagem1,
+            imagem2: imagem2,
+            nome: nome,
+            desc: desc,
+            id: idproduto
+        }
+        
+        arrayCarrinho.push(objCarrinhoBD)
+        
+        //! Vai deixar o footer travado na parte de baixo
+        document.querySelector('footer').style.position = 'relative'
+        document.querySelector('footer').style.bottom = 'auto'
+
         document.getElementById('recado').style.display = 'none'
 
         const main = document.querySelector('main')
@@ -116,6 +121,12 @@ function criaProdutos(nome, desc, imagem1, idproduto) {
         id2++
         setInterval(() => {
             document.getElementById('total').innerText = `Total de Produtos: ${id2}`
+
+            if(id2 == 0) {
+                setTimeout(() => {
+                    document.getElementById('recado').style.display = 'block'
+                }, 600)
+            }
         }, 100);
     }
 }
@@ -136,9 +147,7 @@ function removerDoCarrinho() {
                     id2--
 
                     //! Vai apagar o produto da tela do user
-                    setTimeout(() => {
-                        document.getElementById('containerProduto' + idSpan).remove()
-                    }, 450)
+                    document.getElementById('containerProduto' + idSpan).remove()
                     feito = true
                 }
             })

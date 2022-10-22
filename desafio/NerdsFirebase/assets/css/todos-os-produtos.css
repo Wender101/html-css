@@ -1,0 +1,36 @@
+main {
+    min-height: 60vh;
+}
+
+select#classeProdutos {
+    width: 150px;
+    position: fixed;
+    top: 50px;
+    right: -35px;
+    z-index: 3;
+    background-color: var(--cor6);
+}
+
+select#classeProdutos > option {
+    padding: 10px;
+}
+
+.btnEdit {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 10px;
+    right: 5px;
+    border-radius: 50%;
+    background-color: var(--cor5);
+    color: var(--cor0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    cursor: pointer;
+    overflow: hidden;
+    font-size: 20px;
+    font-weight: 900;
+    font-family: 'Dangrek', cursive;
+}

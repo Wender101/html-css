@@ -48,54 +48,10 @@ auth.onAuthStateChanged((val) => {
                 window.document.getElementById("subir").style.bottom = '15%'
             } 
         }, 10)
-
-        if(val.email == 'wendernatanael2019@gmail.com') {
-            let configs = document.getElementById('configs')
-            let btnAdicionarProduto = document.createElement('button')
-            let span = document.createElement('span')
-    
-            btnAdicionarProduto.id = 'btnAdicionarProduto'
-            span.innerText = '+'
-    
-            //! AppendChild
-            btnAdicionarProduto.appendChild(span)
-            configs.appendChild(btnAdicionarProduto)
-    
-            //! Eventos de click
-            btnAdicionarProduto.addEventListener('click', () => {
-                document.getElementById('addProduto').style.display = 'flex'
-            })
-    
-            addProduto.addEventListener('click', (e) => {
-                let el = e.target.id
-                if(el == 'addProduto') {
-                    document.getElementById('addProduto').style.display = 'none'
-                }
-            })
-        }
-
-        
+  
         fecharMenu()
     }
 })
-//! Vai cancelar a ação de adiconar um produto
-function cancelar() {
-    document.getElementById('addProduto').style.display = 'none'
-    document.getElementById('alert').style.display = 'none'
-    for(let c = 0; c < 4; c++) {
-        let obrigatorios = document.getElementsByClassName('obrigatorios')[c]
-        obrigatorios.style.animation = 'none'
-    }
-
-    limpar()
-}
-
-function limpar() {
-    let nomeProduto = document.getElementById('nomeProduto').value = ''
-    let descProduto = document.getElementById('descProduto').value = ''
-    let linkImg1 = document.getElementById('linkImg1').value = ''
-    let linkImg2 = document.getElementById('linkImg2').value = ''
-}
 
 //! vai adicionar o produto
 let id = 0
@@ -168,47 +124,6 @@ function construirProduto(classe, nome, desc, imagem1, imagem2 = imagem1, id) {
     localImgProduto.addEventListener('click', () => {
         localStorage.setItem('sobreProduto', id)
     })
-}
-
-//! Função q vai add
-function adicionarProduto() {
-    let select = document.getElementById('classe').value
-    let nomeProduto = document.getElementById('nomeProduto').value
-    let descProduto = document.getElementById('descProduto').value
-    let linkImg1 = document.getElementById('linkImg1').value
-    let linkImg2 = document.getElementById('linkImg2').value
-
-    if(linkImg2 == '') {
-        linkImg2 = linkImg1
-    }
-    
-    if(nomeProduto == '' || descProduto == '' || linkImg1 == '') {
-        document.getElementById('alert').style.display = 'block'
-        for(let c = 0; c < 4; c++) {
-            let obrigatorios = document.getElementsByClassName('obrigatorios')[c]
-            obrigatorios.style.animation = '1s obrigatorios infinite linear'
-        }
-        return
-
-    } else {
-        id++
-        addNoBancoDeDados(select, nomeProduto, descProduto, linkImg1, linkImg2, id)
-        document.getElementById('addProduto').style.display = 'none'
-    }
-
-    limpar()
-}
-
-function addNoBancoDeDados(classe, nome, desc, imagem1, imagem2, id) {
-    let objProdutos = {
-        classe,
-        imagem1,
-        imagem2,
-        nome,
-        desc,
-        id
-    }
-    db.collection('Produtos').add(objProdutos)
 }
 
 //! Fechar msg
