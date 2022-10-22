@@ -28,13 +28,9 @@ auth.onAuthStateChanged((valor) => {
     db.collection('Carrinho').onSnapshot((data) => {
         data.docs.map(function(val) {
             let p = val.data()
-
-            //! Vai tirar o carregamento após a modificação ser feita no BD
-            setTimeout(() => {
-                document.getElementById('carregando').style.display = 'none'
-            }, 500)
     
             if(p.email == valor.email) {
+                document.getElementById('carregando').style.display = 'none'
                 for(let c = 0; c < 10; c++) {
                     try {
                         criaProdutos(p.carrinho[c].nome, p.carrinho[c].desc, p.carrinho[c].imagem1, p.carrinho[c].id)
@@ -118,7 +114,9 @@ function criaProdutos(nome, desc, imagem1, idproduto) {
 
         id++
         id2++
-        document.getElementById('total').innerText = `Total de Produtos: ${id}`
+        setInterval(() => {
+            document.getElementById('total').innerText = `Total de Produtos: ${id2}`
+        }, 100);
     }
 }
 

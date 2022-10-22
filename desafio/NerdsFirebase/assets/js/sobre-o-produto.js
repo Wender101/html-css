@@ -163,7 +163,6 @@ function construirProduto(nome, desc, imagem1, imagem2, id) {
 
         let title = document.querySelector('title').innerText = nome
 
-
         const imgProduto = document.getElementById('imgProduto')
         imgProduto.src = imagem1
         
@@ -197,6 +196,10 @@ function construirProduto(nome, desc, imagem1, imagem2, id) {
 
         //! Vai enviar uma msg ao vendedor informando qual é o produto
         let btnContato = document.getElementById('btnContato')
+        document.getElementById('otherImgs').style.display = 'block'
+        document.getElementById('btns').getElementsByTagName('a')[0].querySelector('button').innerText = 'Entrar em Contato'
+        btnContato.target = '_blank'
+        document.getElementById('btnCarrinho').style.display = 'block'
         
         btnContato.href=`https://api.whatsapp.com/send?phone=+55%2061%2099935-2015&text=Estou interessado nesse produto: ${nome}, link:${imagem1}`
 
@@ -250,7 +253,7 @@ auth.onAuthStateChanged((valEmail) => {
     db.collection('Carrinho').onSnapshot((data) => {
         setTimeout(() => {
             document.getElementById('carregando').style.display = 'none'
-        }, 500)
+        }, 900)
         data.docs.map(function(valCarrinho) {
             let p = valCarrinho.data()
 

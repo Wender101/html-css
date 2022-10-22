@@ -100,8 +100,8 @@ section#carregando {
     position: fixed;
     top: 0px;
     background-color: var(--cor8);
-    z-index: 3;
-    display: none;
+    z-index: 6;
+    display: flex;
     justify-content: center;
     align-items: center;
 }

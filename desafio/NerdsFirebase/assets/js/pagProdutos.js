@@ -104,60 +104,70 @@ db.collection('Produtos').onSnapshot((data) => {
     main.innerHTML = ''
     data.docs.map(function(val) {
         let p = val.data()
-        construirProduto(p.classe, p.nome, p.desc, p.imagem1, p.imagem2, p.id)
-        
-        if(p.id > id) {
-            id = p.id
+
+        if(p.classe == document.querySelector('title').innerText) {
+            document.getElementById('carregando').style.display = 'none'
+            construirProduto(p.classe, p.nome, p.desc, p.imagem1, p.imagem2, p.id)
+            
+            if(p.id > id) {
+                id = p.id
+            }
         }
+
+        setTimeout(() => {
+            let carregando = document.getElementById('carregando')
+            if(carregando.style.display != 'none') {
+                carregando.style.display = 'none'
+                document.getElementById('classProduto').innerText = 'Parece que algo deu errado :('
+            }
+        }, 8000);
     })
 }) 
 
 function construirProduto(classe, nome, desc, imagem1, imagem2 = imagem1, id) {
-    if(classe == document.querySelector('title').innerText) {
-        const main = document.querySelector('main')
-        const containerProduto = document.createElement('div')
-        const localImgProduto = document.createElement('a')
-        const imgProduto = document.createElement('img')
-        const strong = document.createElement('strong')
-        const p = document.createElement('p')
-    
-        containerProduto.className = 'containerProduto'
-        localImgProduto.className = 'localImgProduto'
-        localImgProduto.href = 'sobre-o-produto.html'
-        imgProduto.className = 'imgProduto'
-    
-        try {
-            imgProduto.src = imagem1
-            strong.innerHTML = nome
-            p.innerText = desc
-            
-        } catch {
-            imgProduto.src = 'assets/img/site/error.png'
-            strong.innerText = 'Algo deu errado!'
-            p.innerText = 'Parece que esse produto não foi carregado corretamente'
-        }
-    
-        //! AppendChild
-        localImgProduto.appendChild(imgProduto)
-        containerProduto.appendChild(localImgProduto)
-        containerProduto.appendChild(strong)
-        containerProduto.appendChild(p)
-        main.appendChild(containerProduto)
+    const main = document.querySelector('main')
+    const containerProduto = document.createElement('div')
+    const localImgProduto = document.createElement('a')
+    const imgProduto = document.createElement('img')
+    const strong = document.createElement('strong')
+    const p = document.createElement('p')
 
-        //!Vai trocar a img do produto ao passar o mouse em cima
-        imgProduto.addEventListener('mouseenter', () => {
-            imgProduto.src = imagem2
-        })
+    containerProduto.className = 'containerProduto'
+    localImgProduto.className = 'localImgProduto'
+    localImgProduto.href = 'sobre-o-produto.html'
+    imgProduto.className = 'imgProduto'
 
-        imgProduto.addEventListener('mouseout', () => {
-            imgProduto.src = imagem1
-        })
-
-        //! Ao clicar na img do produto
-        localImgProduto.addEventListener('click', () => {
-            localStorage.setItem('sobreProduto', id)
-        })
+    try {
+        imgProduto.src = imagem1
+        strong.innerHTML = nome
+        p.innerText = desc
+        
+    } catch {
+        imgProduto.src = 'assets/img/site/error.png'
+        strong.innerText = 'Algo deu errado!'
+        p.innerText = 'Parece que esse produto não foi carregado corretamente'
     }
+
+    //! AppendChild
+    localImgProduto.appendChild(imgProduto)
+    containerProduto.appendChild(localImgProduto)
+    containerProduto.appendChild(strong)
+    containerProduto.appendChild(p)
+    main.appendChild(containerProduto)
+
+    //!Vai trocar a img do produto ao passar o mouse em cima
+    imgProduto.addEventListener('mouseenter', () => {
+        imgProduto.src = imagem2
+    })
+
+    imgProduto.addEventListener('mouseout', () => {
+        imgProduto.src = imagem1
+    })
+
+    //! Ao clicar na img do produto
+    localImgProduto.addEventListener('click', () => {
+        localStorage.setItem('sobreProduto', id)
+    })
 }
 
 //! Função q vai add

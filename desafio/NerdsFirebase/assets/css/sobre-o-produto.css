@@ -628,7 +628,7 @@ section#carregando {
     position: fixed;
     top: 0px;
     background-color: var(--cor8);
-    z-index: 3;
+    z-index: 6;
     display: none;
     justify-content: center;
     align-items: center;
