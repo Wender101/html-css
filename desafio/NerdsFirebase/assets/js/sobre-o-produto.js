@@ -108,7 +108,7 @@ var firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig)
 
-//? My code
+//! My code
 const auth = firebase.auth()
 const provider = new firebase.auth.GoogleAuthProvider()
 
@@ -116,12 +116,17 @@ function login() {
     auth.signInWithPopup(provider)
 }
 
+let classeProduto
 const db = firebase.firestore()
 db.collection('Produtos').onSnapshot((data) => {
     data.docs.map(function(val) {
+        setTimeout(() => {
+            document.getElementById('carregando').style.display = 'none'
+        }, 500)
         let p = val.data()
 
         if(p.id == idp) {
+            classeProduto = p.classe
             construirProduto(p.nome, p.desc, p.imagem1, p.imagem2, p.id)
             localStorage.setItem('sobreProduto', p.id)
         }
@@ -243,6 +248,9 @@ function construirProduto(nome, desc, imagem1, imagem2, id) {
 let arrayCarrinho = []
 auth.onAuthStateChanged((valEmail) => {
     db.collection('Carrinho').onSnapshot((data) => {
+        setTimeout(() => {
+            document.getElementById('carregando').style.display = 'none'
+        }, 500)
         data.docs.map(function(valCarrinho) {
             let p = valCarrinho.data()
 
@@ -278,10 +286,10 @@ function addCarrinho(addNovamente = false) {
     db.collection('Produtos').onSnapshot((data) => {
         data.docs.map(function(valProduto) {
             let p = valProduto.data()
-            // db.collection('Produtos').doc(val.id).update({nome: 'GG'})
             
-            //? Vai fazer com que apenas o produto especionado sejá adicionado ao carrinho
+            //! Vai fazer com que apenas o produto especionado sejá adicionado ao carrinho
             if(p.id == idp) {
+
                 let objCarrinho = {
                     classe: p.classe,
                     imagem1: p.imagem1,
@@ -291,19 +299,18 @@ function addCarrinho(addNovamente = false) {
                     id: p.id
                 }
 
-                //? Essas funções vão checar se o usuario já tem produtos no carrinho
+                //! Essas funções vão checar se o usuario já tem produtos no carrinho
                 checarEmail()
                 checarCarrinho(p.nome, p.desc)
                 
-                //? pegar o email do user
-                
+                //! pegar o email do user
                 
                 setTimeout(() => {
                     console.log(checkEmail, checkCarrinho);
                     auth.onAuthStateChanged((valEmail) => {
 
                         if(feito == false) {
-                            //? Caso o user não tenha nenhum produto no carrinho
+                            //! Caso o user não tenha nenhum produto no carrinho
                             if(checkEmail == false && checkCarrinho == false) {
                                 console.log('1');
                                 arrayCarrinho.push(objCarrinho)
@@ -313,16 +320,18 @@ function addCarrinho(addNovamente = false) {
                                 }
             
                                 db.collection('Carrinho').add(car)
+                                document.getElementById('carregando').style.display = 'flex'
                                 feito = true
             
-                                //? Caso o user já tenha um produto no carrinho, mas sejá diferente do que ele vai add agr
+                                //! Caso o user já tenha um produto no carrinho, mas sejá diferente do que ele vai add agr
                             } else if(checkEmail == true && checkCarrinho == false) {
                                 console.log('2');
                                 arrayCarrinho.push(objCarrinho)
                                 db.collection('Carrinho').doc(idProdutoCarrinho).update({carrinho: arrayCarrinho})
+                                document.getElementById('carregando').style.display = 'flex'
                                 feito = true
             
-                                //? Caso esse produto já esteja no carrinho
+                                //! Caso esse produto já esteja no carrinho
                             } else if(checkEmail == true && checkCarrinho == true && addNovamente == false) {
                                 console.log('3');
                                 document.getElementById('infAddCarrinho').style.display = 'flex'
@@ -332,6 +341,7 @@ function addCarrinho(addNovamente = false) {
                                 console.log('4');
                                 arrayCarrinho.push(objCarrinho)
                                 db.collection('Carrinho').doc(idProdutoCarrinho).update({carrinho: arrayCarrinho})
+                                document.getElementById('carregando').style.display = 'flex'
                                 feito = true
                             }
     
@@ -344,7 +354,7 @@ function addCarrinho(addNovamente = false) {
     })
 }
 
-//? Vai checar se o email do user existe no carrinho do banco de dados
+//! Vai checar se o email do user existe no carrinho do banco de dados
 let feito2 = false
 function checarEmail() {
     auth.onAuthStateChanged((valEmail) => {
@@ -361,7 +371,7 @@ function checarEmail() {
     })
 }
 
-//? Vai checar se o produto já existe no carrinho
+//! Vai checar se o produto já existe no carrinho
 let feito3 = false
 function checarCarrinho(nome, desc) {
     auth.onAuthStateChanged((valEmail) => {
@@ -394,139 +404,87 @@ function addAgain() {
 }
 
 // //! Vai colocar na tela produtos relacionados ao escolhido
-// function relacionados() {
-//     //! Vai sortear 4 números direfentes correspontes aos produtos
-//     let numeros = []
-//     let max = 4
-//     if(sobreProduto2.maxC < 4) max = sobreProduto2.maxC
+function relacionados() {
+    let arrayProduto = []
+    let feito = false
+    // //! Vai sortear 4 números direfentes correspontes aos produtos
 
-//     function numero_aleatorio() {
-//         while (numeros.length < max) {
-//             let aleatoreo = Math.floor(Math.random() * sobreProduto2.maxC)
-    
-//             if (numeros.indexOf(aleatoreo) == -1) numeros.push(aleatoreo)
-//         }
-//     } numero_aleatorio()
+    db.collection('Produtos').onSnapshot((data) => {
+        data.docs.map(function(valProduto) {
+            let p = valProduto.data()
+            
+            try {
 
-
-//     for(let c = 0; c < max; c++) {
-//         let id = numeros[c]
-
-//         //! Vai puxar os produtos do "json"
-//         fetch(`assets/json/dados.json`).then(resposta => {
-//             return resposta.json()
-//         }).then(bancoDs => {
-
-//             try {
-//                 if(sobreProduto2.p == 'Cabos') {
-//                     produtoBancoDs = bancoDs.Cabos[id]
-//                     maxC = bancoDs.Cabos.length
-//                 } else if(sobreProduto2.p == 'Adaptadores') {
-//                     produtoBancoDs = bancoDs.Adaptadores[id]
-//                 } else if(sobreProduto2.p == 'Teclados') {
-//                     produtoBancoDs = bancoDs.Teclados[id]
-//                 } else if(sobreProduto2.p == 'Mouse') {
-//                     produtoBancoDs = bancoDs.Mouse[id]
-//                 } else if(sobreProduto2.p == 'Gabinetes') {
-//                     produtoBancoDs = bancoDs.Gabinetes[id]
-//                 } else if(sobreProduto2.p == 'Headset') {
-//                     produtoBancoDs = bancoDs.Headset[id]
-//                 } else if(sobreProduto2.p == 'Controles') {
-//                     produtoBancoDs = bancoDs.Controles[id]
-//                 } else if(sobreProduto2.p == 'Fontes') {
-//                     produtoBancoDs = bancoDs.Fontes[id]
-//                 } else if(sobreProduto2.p == 'MousePad') {
-//                     produtoBancoDs = bancoDs.MousePad[id]
-//                 } else if(sobreProduto2.p == 'Processadores') {
-//                     produtoBancoDs = bancoDs.Processadores[id]
-//                 } else if(sobreProduto2.p == 'Memória') {
-//                     produtoBancoDs = bancoDs.Memória[id]
-//                 } else if(sobreProduto2.p == 'SSD') {
-//                     produtoBancoDs = bancoDs.SSD[id]
-//                 } else if(sobreProduto2.p == 'Coolers') {
-//                     produtoBancoDs = bancoDs.Coolers[id]
-//                 } else if(sobreProduto2.p == 'Outros') {
-//                     produtoBancoDs = bancoDs.Outros[id]
-//                 } else {
-//                     produtoBancoDs = 'Error'
-//                 }
-//             } catch {}
-
-//             let ProdutosRelacionados = document.getElementById('ProdutosRelacionados')
-//             let containerProduto = document.createElement('div')
-//             let localImgProduto = document.createElement('a')
-//             let imgProduto = document.createElement('img')
-//             let strong = document.createElement('strong')
-//             let p = document.createElement('p')
-
-//             containerProduto.className = 'containerProduto'
-//             localImgProduto.className = 'localImgProduto'
-//             localImgProduto.href = 'sobre-o-produto.html'
-//             imgProduto.className = 'imgProduto'
-//             imgProduto.id = id
-//             imgProduto.src = 'assets/img/site/error.png'
-//             strong.innerText = 'Algo deu errado!'
-//             p.innerText = 'Parece que esse produto não foi carregado corretamente.'
-
-
-//             imgProduto.src = produtoBancoDs[0]
-//             strong.innerText = produtoBancoDs[1]
-//             p.innerText = produtoBancoDs[2]
-
-//             //? appendChild
-//             containerProduto.appendChild(localImgProduto)
-//             localImgProduto.appendChild(imgProduto)
-//             containerProduto.appendChild(strong)
-//             containerProduto.appendChild(p)
-//             ProdutosRelacionados.appendChild(containerProduto)
-
-//             //! Vai add a memoria qual produto vai ser analizado pelo usuario 
-//             localImgProduto.addEventListener('click', () => {
-//                 let produto = {
-//                     p: sobreProduto2.p,
-//                     id: imgProduto.id,
-//                     maxC: sobreProduto2.maxC
-//                 }
+                if(p.classe == classeProduto) {
+                    let objProduto = {
+                        classe: p.classe,
+                        imagem1: p.imagem1,
+                        imagem2: p.imagem2,
+                        nome: p.nome,
+                        desc: p.desc,
+                        id: p.id
+                    }
         
-//                 const sobreProduto = JSON.stringify(produto)
-//                 localStorage.setItem('sobreProduto', sobreProduto)
-//             })
+                    arrayProduto.push(objProduto)
+                }
 
-//             //! Vai mudar a img dos produtos ao passar o mause em cima deles
-//             imgProduto.addEventListener('mouseenter', (e) => {
-//                 const el = e.target.src
-//                 const idElemnto = e.target.id
-        
-//                 var novoLink1 = el.slice(0, -1)
-        
-//                 if(novoLink1.substr(-1) == 'e') {
-//                     var novoLink2 = novoLink1.slice(0, -1)
-//                     var novoLink23 = novoLink2.slice(0, -1)
-//                     var novoLink3 = novoLink23.slice(0, -1)
-//                     var novoLink4 = novoLink3.slice(0, -1)
-        
-//                 } else {
-//                     var novoLink2 = novoLink1.slice(0, -1)
-//                     var novoLink3 = novoLink2.slice(0, -1)
-//                     var novoLink4 = novoLink3.slice(0, -1)
-//                 }
-        
-//                 const imgSelected = document.getElementById(idElemnto)
+            } catch {}
 
-//                 if(novoLink1.substr(-1) == 'e') {
-//                     imgSelected.src = `${novoLink4}2.jpeg`
-        
-//                 } else if(novoLink2.substr(-1) == 'j') {
-//                     imgSelected.src = `${novoLink4}2.jpg`
-        
-//                 } else {
-//                     imgSelected.src = `${novoLink4}2.png`
-//                 }
-        
-//                 imgProduto.addEventListener('mouseout', () => {
-//                     imgSelected.src = el     
-//                 })
-//             })
-//         })
-//     }
-// } relacionados()
+            setTimeout(() => {
+                let numeros = []
+                let max = 4
+                if(arrayProduto.length < 4) max = arrayProduto.length
+                
+                function numeroAleatorio() {
+                    while (numeros.length < max) {
+                        let aleatoreo = Math.floor(Math.random() * arrayProduto.length)
+                        
+                        if (numeros.indexOf(aleatoreo) == -1) numeros.push(aleatoreo)
+                    }
+                } numeroAleatorio()
+                
+                if(feito == false) {
+                    for(let c = 0; c < max; c++) {
+                        let num = numeros[c]
+                        
+                        try {
+                            let ProdutosRelacionados = document.getElementById('ProdutosRelacionados')
+                            let containerProduto = document.createElement('div')
+                            let localImgProduto = document.createElement('a')
+                            let imgProduto = document.createElement('img')
+                            let strong = document.createElement('strong')
+                            let p = document.createElement('p')
+                
+                            containerProduto.className = 'containerProduto'
+                            localImgProduto.className = 'localImgProduto'
+                            localImgProduto.href = 'sobre-o-produto.html'
+                            imgProduto.className = 'imgProduto'
+                            imgProduto.id = arrayProduto[num].id
+                            imgProduto.src = 'assets/img/site/error.png'
+                            strong.innerText = 'Algo deu errado!'
+                            p.innerText = 'Parece que esse produto não foi carregado corretamente.'
+                
+                            imgProduto.src = arrayProduto[num].imagem1
+                            strong.innerText = arrayProduto[num].nome
+                            p.innerText = arrayProduto[num].desc
+                
+                            //! appendChild
+                            containerProduto.appendChild(localImgProduto)
+                            localImgProduto.appendChild(imgProduto)
+                            containerProduto.appendChild(strong)
+                            containerProduto.appendChild(p)
+                            ProdutosRelacionados.appendChild(containerProduto)
+                
+                            //! Vai add a memoria qual produto vai ser analizado pelo usuario
+                            localImgProduto.addEventListener('click', () => {
+                                localStorage.setItem('sobreProduto', arrayProduto[num].id)
+                            })
+                
+                        } catch {}
+                        feito = true
+                    }
+                }
+            }, 1000)
+        })
+    })
+} relacionados()

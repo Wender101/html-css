@@ -28,6 +28,11 @@ auth.onAuthStateChanged((valor) => {
     db.collection('Carrinho').onSnapshot((data) => {
         data.docs.map(function(val) {
             let p = val.data()
+
+            //! Vai tirar o carregamento após a modificação ser feita no BD
+            setTimeout(() => {
+                document.getElementById('carregando').style.display = 'none'
+            }, 500)
     
             if(p.email == valor.email) {
                 for(let c = 0; c < 10; c++) {
@@ -64,52 +69,57 @@ if(total <= 0) {
 }
 
 let id = 0
+let id2 = 0
 let idSpan
 function criaProdutos(nome, desc, imagem1, idproduto) {
-    document.getElementById('recado').style.display = 'none'
-
-    const main = document.querySelector('main')
-    const containerProduto = document.createElement('div')
-    const localImgProduto = document.createElement('a')
-    const span = document.createElement('span')
-    const imgProduto = document.createElement('img')
-    const strong = document.createElement('strong')
-    const p = document.createElement('p')
     
-    containerProduto.classList = 'containerProduto'
-    containerProduto.id = `containerProduto${id}`
+    if(id2 == id) {
+        document.getElementById('recado').style.display = 'none'
 
-    localImgProduto.className = 'localImgProduto'
-    span.classList = 'x'
-    span.id = id
-    localImgProduto.href = 'sobre-o-produto.html'
-    imgProduto.className = 'imgProduto'
-    imgProduto.src = imagem1
-    span.innerText = 'x'
-    strong.innerHTML = nome
-    p.innerText = desc
+        const main = document.querySelector('main')
+        const containerProduto = document.createElement('div')
+        const localImgProduto = document.createElement('a')
+        const span = document.createElement('span')
+        const imgProduto = document.createElement('img')
+        const strong = document.createElement('strong')
+        const p = document.createElement('p')
+        
+        containerProduto.classList = 'containerProduto'
+        containerProduto.id = `containerProduto${id}`
 
-    //! AppendChild
-    localImgProduto.appendChild(imgProduto)
-    containerProduto.appendChild(span)
-    containerProduto.appendChild(localImgProduto)
-    containerProduto.appendChild(strong)
-    containerProduto.appendChild(p)
-    main.appendChild(containerProduto)
+        localImgProduto.className = 'localImgProduto'
+        span.classList = 'x'
+        span.id = id
+        localImgProduto.href = 'sobre-o-produto.html'
+        imgProduto.className = 'imgProduto'
+        imgProduto.src = imagem1
+        span.innerText = 'x'
+        strong.innerHTML = nome
+        p.innerText = desc
 
-    //! Vai perguntar se o user realmente quer remover o produto do carrinho
-    span.addEventListener('click', () => {
-        document.getElementById('infRemover').style.display = 'flex'
-        idSpan = span.id
-    })
+        //! AppendChild
+        localImgProduto.appendChild(imgProduto)
+        containerProduto.appendChild(span)
+        containerProduto.appendChild(localImgProduto)
+        containerProduto.appendChild(strong)
+        containerProduto.appendChild(p)
+        main.appendChild(containerProduto)
 
-    //! Vai add a memoria qual produto vai ser analizado pelo usuario 
-    localImgProduto.addEventListener('click', () => {
-        localStorage.setItem('sobreProduto', idproduto)
-    })
+        //! Vai perguntar se o user realmente quer remover o produto do carrinho
+        span.addEventListener('click', () => {
+            document.getElementById('infRemover').style.display = 'flex'
+            idSpan = span.id
+        })
 
-    id++
-    document.getElementById('total').innerText = `Total de Produtos: ${id}`
+        //! Vai add a memoria qual produto vai ser analizado pelo usuario 
+        localImgProduto.addEventListener('click', () => {
+            localStorage.setItem('sobreProduto', idproduto)
+        })
+
+        id++
+        id2++
+        document.getElementById('total').innerText = `Total de Produtos: ${id}`
+    }
 }
 
 // //! Vai remover o produto do carrinho
@@ -120,20 +130,22 @@ function removerDoCarrinho() {
             data.docs.map(function(valCarrinho) {
                 let p = valCarrinho.data()
 
-                console.log(arrayCarrinho, arrayCarrinho.splice(idSpan, 1));
-
                 if(p.email == valEmail.email && feito == false) {
-                    db.collection('Carrinho').doc(valCarrinho.id).update({carrinho: arrayCarrinho.splice(idSpan, 1)})
+                    arrayCarrinho.splice(idSpan, 1)
+                    db.collection('Carrinho').doc(valCarrinho.id).update({carrinho: arrayCarrinho})
+                    fecharInfRemover()
+                    document.getElementById('carregando').style.display = 'flex'
+                    id2--
+
+                    //! Vai apagar o produto da tela do user
+                    setTimeout(() => {
+                        document.getElementById('containerProduto' + idSpan).remove()
+                    }, 450)
                     feito = true
                 }
             })
         })
     })
-}
-
-//! Vai fechar a msg "remover o produto do carrinho"
-function fecharInfRemover() {
-    document.getElementById('infRemover').style.display = 'none'
 }
 
 function limparCarrinho() {
@@ -144,10 +156,23 @@ function limparCarrinho() {
                 let p = valCarrinho.data()
 
                 if(p.email == valEmail.email && feito == false) {
-                    db.collection('Carrinho').doc(valCarrinho.id).update({carrinho: arrayCarrinho = []})
+                    arrayCarrinho = []
+                    db.collection('Carrinho').doc(valCarrinho.id).update({carrinho: arrayCarrinho})
+                    fecharInfRemover()
+                    document.getElementById('carregando').style.display = 'flex'
+                    
+                    //! Vai apagar o produto da tela do user
+                    setTimeout(() => {
+                        document.querySelector('main').innerHTML = ''
+                    }, 450)
                     feito = true
                 }
             })
         })
     })
+}
+
+//! Vai fechar a msg "remover o produto do carrinho"
+function fecharInfRemover() {
+    document.getElementById('infRemover').style.display = 'none'
 }
