@@ -7,6 +7,12 @@ h1#classProduto {
     color: var(--cor1);
 }
 
+body > div#localBtnMenu {
+    width: auto;
+    overflow: hidden;
+    background-color: transparent;
+}
+
 main {
     min-height: 50vh;    
 }
@@ -167,6 +173,10 @@ body > footer {
     bottom: 0px;
 }
 /* end: Preloader */
+
+a#subir {
+    bottom: 8%;
+}
 
 @media screen and (max-width: 519px) {
     main#main {

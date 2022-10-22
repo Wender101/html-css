@@ -6,6 +6,7 @@ auth.onAuthStateChanged((val) => {
         a.innerText = 'Todos'
         a.href = 'todos-os-produtos.html'
         li.style.display = 'block'
+        document.getElementById('hr').style.display = 'block'
         li.appendChild(a)
     }
 })
