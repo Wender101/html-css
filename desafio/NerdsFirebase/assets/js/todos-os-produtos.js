@@ -68,6 +68,20 @@ auth.onAuthStateChanged((val) => {
                     document.getElementById('addProduto').style.display = 'none'
                 }
             })
+
+            document.getElementById('classeProdutos').style.display = 'block'
+
+            setTimeout(() => {
+                for(let c = 0; c <= 999; c++) {
+                    try {
+                        document.getElementsByClassName('btnEdit')[c].style.display = 'flex'
+                        
+                    } catch {
+                        c = 999
+                    }
+                }
+            }, 500)
+
         }
         fecharMenu()
     }
@@ -76,6 +90,7 @@ auth.onAuthStateChanged((val) => {
 function cancelar() {
     document.getElementById('addProduto').style.display = 'none'
     document.getElementById('alert').style.display = 'none'
+    document.getElementById('excluirProduto').style.display = 'none'
     for(let c = 0; c < 4; c++) {
         let obrigatorios = document.getElementsByClassName('obrigatorios')[c]
         obrigatorios.style.animation = 'none'
@@ -179,6 +194,7 @@ function construirProduto(classe, nome, desc, imagem1, imagem2 = imagem1, id) {
         document.getElementById('linkImg1').value = imagem1
         document.getElementById('linkImg2').value = imagem2
 
+        document.getElementById('excluirProduto').style.display = 'block'
         document.getElementById('addProduto').style.display = 'flex'
     })
 
@@ -254,6 +270,29 @@ function addNoBancoDeDados(classe, nome, desc, imagem1, imagem2, id) {
             })
         })
     }
+    
+    document.getElementById('excluirProduto').style.display = 'none'
+}
+
+//! Vai excluir o produto do BD
+function excluirProduto() {
+    let classe = document.getElementById('classe').value
+    let nome = document.getElementById('nomeProduto').value
+    let desc = document.getElementById('descProduto').value
+    let img1 = document.getElementById('linkImg1').value
+    let img2 = document.getElementById('linkImg2').value
+
+    db.collection('Produtos').onSnapshot((data) => {
+        data.docs.map(function(val) {
+            let p = val.data()
+            if(classe == p.classe && nome == p.nome && desc == p.desc && img1 == p.imagem1 && img2 == p.imagem2) {
+                db.collection('Produtos').doc(val.id).delete()
+            }
+        })
+    })
+
+    cancelar()
+    limpar()
 }
 
 //! Vai filtrar os produtos

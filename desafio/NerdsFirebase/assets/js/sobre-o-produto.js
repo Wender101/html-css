@@ -307,7 +307,6 @@ function addCarrinho(addNovamente = false) {
                         if(feito == false) {
                             //! Caso o user não tenha nenhum produto no carrinho
                             if(checkEmail == false && checkCarrinho == false) {
-                                console.log('1');
                                 arrayCarrinho.push(objCarrinho)
                                 let car = {
                                     email: valEmail.email,
@@ -316,27 +315,28 @@ function addCarrinho(addNovamente = false) {
             
                                 db.collection('Carrinho').add(car)
                                 document.getElementById('carregando').style.display = 'flex'
+                                anim()
                                 feito = true
             
                                 //! Caso o user já tenha um produto no carrinho, mas sejá diferente do que ele vai add agr
                             } else if(checkEmail == true && checkCarrinho == false) {
-                                console.log('2');
                                 arrayCarrinho.push(objCarrinho)
                                 db.collection('Carrinho').doc(idProdutoCarrinho).update({carrinho: arrayCarrinho})
                                 document.getElementById('carregando').style.display = 'flex'
+                                anim()
                                 feito = true
             
-                                //! Caso esse produto já esteja no carrinho
+                                //! Caso esse produto já esteja no carrinho e o user n queira add novamente
                             } else if(checkEmail == true && checkCarrinho == true && addNovamente == false) {
-                                console.log('3');
                                 document.getElementById('infAddCarrinho').style.display = 'flex'
                                 feito = true
 
+                                //! Caso esse produto já esteja no carrinho e o user queira add novamente
                             } else if(checkEmail == true && checkCarrinho == true && addNovamente == true) {
-                                console.log('4');
                                 arrayCarrinho.push(objCarrinho)
                                 db.collection('Carrinho').doc(idProdutoCarrinho).update({carrinho: arrayCarrinho})
                                 document.getElementById('carregando').style.display = 'flex'
+                                anim()
                                 feito = true
                             }
     
@@ -350,6 +350,13 @@ function addCarrinho(addNovamente = false) {
     })
 }
 
+function anim() {
+    document.getElementById('carrinho').className = 'animation'
+    setTimeout(() => {
+        document.getElementById('carrinho').className = ''
+    }, 800)
+}
+
 //! Vai checar se o email do user existe no carrinho do banco de dados
 let feito2 = false
 function checarEmail() {
@@ -357,7 +364,6 @@ function checarEmail() {
         db.collection('Carrinho').onSnapshot((data) => {
             data.docs.map(function(valCarrinho) {
                 if(feito2 == false && valEmail.email == valCarrinho.data().email) {
-                    console.log('pass email');
                     checkEmail = true
                     idProdutoCarrinho = valCarrinho.id
                     feito2 = true
@@ -373,10 +379,9 @@ function checarCarrinho(id) {
     auth.onAuthStateChanged((valEmail) => {
         db.collection('Carrinho').onSnapshot((data) => {
             data.docs.map(function(valCarrinho) {
-                for(let c = 0; c <= 10; c++) {
+                for(let c = 0; c <= valCarrinho.data.carrinho.length; c++) {
                     try {
                         if(feito3 == false && valEmail.email == valCarrinho.data().email && valCarrinho.data().carrinho[c].id == id) {
-                            console.log('pass carrinho');
                             checkCarrinho = true
                             feito3 = true
                         }

@@ -12,7 +12,7 @@ auth.onAuthStateChanged((val) => {
 })
 
 
-// Vai escolher os produtos em destaque
+//! Vai escolher os produtos em destaque
 const array = []
 for(let c = 0; c  < 5; c++) {
     const num = Math.floor(Math.random() * 10)
@@ -206,7 +206,7 @@ function btnSliderD() {
 }
 
 setInterval(() => {
-    //! Vai controlar qunado o bnt1 vai aparecer ou sumir
+    //! Vai controlar quando o bnt1 vai aparecer ou sumir
     if(anin == 0) {
         btnSlide1.style.display = 'none'
 
