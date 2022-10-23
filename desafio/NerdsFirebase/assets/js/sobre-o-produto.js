@@ -301,7 +301,6 @@ function addCarrinho(addNovamente = false) {
                 //! pegar o email do user
                 
                 setTimeout(() => {
-                    console.log(checkEmail, checkCarrinho);
                     auth.onAuthStateChanged((valEmail) => {
 
                         if(feito == false) {
@@ -379,7 +378,7 @@ function checarCarrinho(id) {
     auth.onAuthStateChanged((valEmail) => {
         db.collection('Carrinho').onSnapshot((data) => {
             data.docs.map(function(valCarrinho) {
-                for(let c = 0; c <= valCarrinho.data.carrinho.length; c++) {
+                for(let c = 0; c <= valCarrinho.data().carrinho.length; c++) {
                     try {
                         if(feito3 == false && valEmail.email == valCarrinho.data().email && valCarrinho.data().carrinho[c].id == id) {
                             checkCarrinho = true
