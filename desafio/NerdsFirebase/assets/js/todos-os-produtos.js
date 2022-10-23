@@ -71,16 +71,19 @@ auth.onAuthStateChanged((val) => {
 
             document.getElementById('classeProdutos').style.display = 'block'
 
-            setTimeout(() => {
-                for(let c = 0; c <= 999; c++) {
-                    try {
-                        document.getElementsByClassName('btnEdit')[c].style.display = 'flex'
-                        
-                    } catch {
-                        c = 999
+            setInterval(() => {
+                if(document.getElementById('carregando').style.display
+                 != 'flex') {
+                    for(let c = 0; c <= 999; c++) {
+                        try {
+                            document.getElementsByClassName('btnEdit')[c].style.display = 'flex'
+                            
+                        } catch {
+                            c = 999
+                        }
                     }
                 }
-            }, 500)
+            }, 100)
 
         }
         fecharMenu()
