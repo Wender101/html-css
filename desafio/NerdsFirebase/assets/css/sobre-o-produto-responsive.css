@@ -65,6 +65,11 @@
         border-radius: 0px 0px 20px 20px;
     }
 
+    main > section#localImg > div > img {
+        width: 60%;
+        right: 20px;
+    }
+
     main > section#texto {
         width: 100%;
         position: absolute;
@@ -106,7 +111,7 @@
 @media screen and (max-width: 505px) {
     main {
         display: block;
-        height: 650px;
+        height: 760px;
         position: relative;
         border-radius: 20px;
     }
@@ -118,11 +123,6 @@
         overflow: hidden;
         position: absolute;
         bottom: 0px;
-    }
-
-    main > section#localImg > img {
-        width: 60%;
-        right: 20px;
     }
 
     main > section#texto {
@@ -137,19 +137,20 @@
         font-size: 25px;
     }
 
+    main > section#texto > div#valorDoProduto {
+        top: 220px;
+    }
+
     main > section#texto > div#btns {
         max-width: 420px;
-        height: auto;
-        margin-left: 50%;
-        display: flex;
-        top: 220px;
+        top: 330px;
     }
 }
 
 @media screen and (max-width: 380px) {
     main {
         display: block;
-        height: 600px;
+        height: 750px;
         position: relative;
     }
 
@@ -170,5 +171,14 @@
 
     div#btns > button, div#btns > a > button {
         font-size: 11px;
+    }
+
+    main > section#texto > div#valorDoProduto {
+        top: 270px;
+    }
+
+    main > section#texto > div#btns {
+        max-width: 420px;
+        top: 370px;
     }
 }
