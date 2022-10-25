@@ -5,6 +5,7 @@ for(let c = 1; c <= 14; c++) {
     const img = document.createElement('img')
 
     a.id = `categoria-${c}`
+    p.className = 'pCategoria'
 
     if(c == 1) {
         p.innerText =  'Cabos'

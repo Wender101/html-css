@@ -1,9 +1,67 @@
 const produtoPesquisado1 = localStorage.getItem('produtoPesquisado')
 const produtoPesquisado2 = JSON.parse(produtoPesquisado1)
 
-// Vai mudar o titulo da pág para o nome da classe pesquisada
-document.querySelector('title').innerText = produtoPesquisado2[0]
-document.getElementById('classProduto').innerText = produtoPesquisado2[0]
+//! Vai usar a URL da pág como guía para encontrar o produto
+function urlPage() {
+    let url = window.location.href
+
+    let l1 = url.substr(-5)
+
+    if(l1 != '.html') {
+        for (let c = 0; c <= 20; c++) {
+            let b = c - 1
+            let letra = url.substr(-c)
+            let fim = letra.substring(0, 1)
+            let qContrario
+            
+            if(fim == '#') {
+                document.querySelector('title').innerText = letra = url.substr(-b)
+                document.getElementById('classProduto').innerText = url.substr(-b)
+
+               if(url.substr(-b) == 'Cabos') {
+                    qContrario = 1
+                } else if(url.substr(-b) == 'Adaptadores') {
+                    qContrario = 2
+                } else if(url.substr(-b) == 'Teclados') {
+                    qContrario = 3
+                } else if(url.substr(-b) == 'Mouse') {
+                    qContrario = 4
+                } else if(url.substr(-b) == 'Gabinetes') {
+                    qContrario = 5
+                } else if(url.substr(-b) == 'Headset') {
+                    qContrario = 6
+                } else if(url.substr(-b) == 'Controles') {
+                    qContrario = 7
+                } else if(url.substr(-b) == 'Fontes') {
+                    qContrario = 8
+                } else if(url.substr(-b) == 'MousePad') {
+                    qContrario = 9
+                } else if(url.substr(-b) == 'Processadores') {
+                    qContrario = 10
+                } else if(url.substr(-b) == 'Memória') {
+                    qContrario = 11
+                } else if(url.substr(-b) == 'SSD') {
+                    qContrario = 12
+                } else if(url.substr(-b) == 'Coolers') {
+                    qContrario = 13
+                } else {
+                    qContrario = 14
+                }           
+
+                let a = [url.substr(-b), qContrario]
+                const produtoPesquisado = JSON.stringify(a)
+                localStorage.setItem('produtoPesquisado', produtoPesquisado)
+            }
+            
+        }
+
+    } else {
+        document.querySelector('title').innerText = produtoPesquisado2[0]
+        document.getElementById('classProduto').innerText = produtoPesquisado2[0]
+    }
+   
+    
+} urlPage()
 
 var firebaseConfig = {
     apiKey: "AIzaSyASXflrIBeCuJNyBzj_PMLUK4ogiXNrRxM",
