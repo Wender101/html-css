@@ -122,7 +122,7 @@ function chamarBD(classeSelecionada = 'Todos') {
     
             if(classeSelecionada == 'Todos') {
                 document.getElementById('carregando').style.display = 'none'
-                construirProduto(p.classe, p.nome, p.desc, p.imagem1, p.imagem2, p.id)
+                construirProduto(p.classe, p.nome, p.desc, p.imagem1, p.imagem2, p.id, p.valor, p.desconto, p.tipoDesconto)
                 
                 if(p.id > id) {
                     id = p.id
@@ -131,7 +131,7 @@ function chamarBD(classeSelecionada = 'Todos') {
             } else {
                 if(p.classe == classeSelecionada) {
                     document.getElementById('carregando').style.display = 'none'
-                    construirProduto(p.classe, p.nome, p.desc, p.imagem1, p.imagem2, p.id)
+                    construirProduto(p.classe, p.nome, p.desc, p.imagem1, p.imagem2, p.id, p.valor, p.desconto, p.tipoDesconto)
                     
                     if(p.id > id) {
                         id = p.id
@@ -152,7 +152,7 @@ function chamarBD(classeSelecionada = 'Todos') {
 
 //! Vai colocar os produtos na tela
 let editando = 0
-function construirProduto(classe, nome, desc, imagem1, imagem2 = imagem1, id) {
+function construirProduto(classe, nome, desc, imagem1, imagem2 = imagem1, id, valor, desconto, tipoDesconto) {
     const main = document.querySelector('main')
     const containerProduto = document.createElement('div')
     const localImgProduto = document.createElement('a')
@@ -197,6 +197,10 @@ function construirProduto(classe, nome, desc, imagem1, imagem2 = imagem1, id) {
         document.getElementById('linkImg1').value = imagem1
         document.getElementById('linkImg2').value = imagem2
 
+        document.getElementById('valorProduto').value =  valor
+        document.getElementById('descontoProduto').value =  desconto
+        document.getElementById('sobreDesconto').value =  tipoDesconto
+
         document.getElementById('excluirProduto').style.display = 'block'
         document.getElementById('addProduto').style.display = 'flex'
     })
@@ -224,8 +228,17 @@ function adicionarProduto() {
     let linkImg1 = document.getElementById('linkImg1').value
     let linkImg2 = document.getElementById('linkImg2').value
 
+    let valorProduto = document.getElementById('valorProduto').value
+    let descontoProduto = document.getElementById('descontoProduto').value
+    let tipoDesconto = document.getElementById('sobreDesconto').value
+
+
     if(linkImg2 == '') {
         linkImg2 = linkImg1
+    }
+
+    if(descontoProduto == '') {
+        descontoProduto = 0
     }
     
     if(nomeProduto == '' || descProduto == '' || linkImg1 == '') {
@@ -238,20 +251,23 @@ function adicionarProduto() {
 
     } else {
         id++
-        addNoBancoDeDados(select, nomeProduto, descProduto, linkImg1, linkImg2, id)
+        addNoBancoDeDados(select, nomeProduto, descProduto, linkImg1, linkImg2, id, valorProduto, descontoProduto, tipoDesconto)
         document.getElementById('addProduto').style.display = 'none'
     }
 
     limpar()
 }
 
-function addNoBancoDeDados(classe, nome, desc, imagem1, imagem2, id) {
+function addNoBancoDeDados(classe, nome, desc, imagem1, imagem2, id, valor, desconto, tipoDesconto) {
     let objProdutos = {
         classe,
         imagem1,
         imagem2,
         nome,
         desc,
+        valor,
+        desconto,
+        tipoDesconto,
         id
     }
 
@@ -266,7 +282,7 @@ function addNoBancoDeDados(classe, nome, desc, imagem1, imagem2, id) {
             data.docs.map(function(val) {
 
                 if(val.data().id == editando) {
-                    db.collection('Produtos').doc(val.id).update({classe: classe, imagem1: imagem1, imagem2: imagem2, nome: nome, desc: desc, id: editando})
+                    db.collection('Produtos').doc(val.id).update({classe: classe, imagem1: imagem1, imagem2: imagem2, nome: nome, desc: desc, id: editando, valor: valor, desconto: desconto, tipoDesconto: tipoDesconto})
                     editando = 0
                     return
                 }
@@ -284,6 +300,10 @@ function excluirProduto() {
     let desc = document.getElementById('descProduto').value
     let img1 = document.getElementById('linkImg1').value
     let img2 = document.getElementById('linkImg2').value
+    
+    // let valorProduto = document.getElementById('valorProduto').value
+    // let descontoProduto = document.getElementById('descontoProduto').value
+    // let tipoDesconto = document.getElementById('sobreDesconto').value
 
     db.collection('Produtos').onSnapshot((data) => {
         data.docs.map(function(val) {

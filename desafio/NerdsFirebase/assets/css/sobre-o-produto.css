@@ -225,6 +225,39 @@ main > section#texto > p {
     font-size: 15px;
 }
 
+main > section#texto > div#valorDoProduto {
+    width: auto;
+    margin-left: 50%;
+    transform: translate(-50%);
+    color: var(--cor0);
+    position: absolute;
+    bottom: 150px;
+    border: 1px solid var(--cor3);
+    border-radius: 5px;
+    padding: 10px 40px;
+}
+
+main > section#texto > div#valorDoProduto > p#valorNormal {
+    text-decoration: line-through;
+}
+
+main > section#texto > div#valorDoProduto > p {
+    display: flex;
+    align-items: flex-end;
+}
+
+main > section#texto > div#valorDoProduto > p > strong {
+    font-size: 25px;
+    font-family: var(--font-titulo);
+    color: var(--cor3);
+}
+
+main > section#texto > div#valorDoProduto > p > span {
+    width: 80px;
+    margin-bottom: 2px;
+    margin-left: 10px;
+}
+
 main > section#texto > img#gifCarregamento {
     width: 250px;
     margin: auto;

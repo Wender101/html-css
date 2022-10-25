@@ -74,7 +74,8 @@ select#classeProdutos > option {
 #addProduto > div {
     width: 80%;
     max-width: 500px;
-    height: auto;
+    max-height: 770px;
+    height: 90vh;
     padding: 20px;
     border-radius: 10px;
     background-color: var(--cor8);

@@ -127,14 +127,14 @@ db.collection('Produtos').onSnapshot((data) => {
 
         if(p.id == idp) {
             classeProduto = p.classe
-            construirProduto(p.nome, p.desc, p.imagem1, p.imagem2, p.id)
+            construirProduto(p.nome, p.desc, p.imagem1, p.imagem2, p.id, p.valor, p.desconto, p.tipoDesconto)
             localStorage.setItem('sobreProduto', p.id)
         }
     })
 }) 
 
 //! Vai checar se o produto2 tem algum valor salvo
-function construirProduto(nome, desc, imagem1, imagem2, id) {
+function construirProduto(nome, desc, imagem1, imagem2, id, valor, desconto, tipoDesconto) {
     if(sobreProduto2 == null) {
         
         document.getElementById('titulo').innerText = 'Algo deu errado :('
@@ -161,7 +161,7 @@ function construirProduto(nome, desc, imagem1, imagem2, id) {
 
     } else {
 
-        let title = document.querySelector('title').innerText = nome
+        document.querySelector('title').innerText = nome
 
         const imgProduto = document.getElementById('imgProduto')
         imgProduto.src = imagem1
@@ -194,6 +194,16 @@ function construirProduto(nome, desc, imagem1, imagem2, id) {
         document.getElementById('btns').style.display = 'flex'
         document.getElementById('desc').innerText = desc
 
+        //! Vai calcular o falar com o desconto implementado
+        let valor2 = parseFloat(valor)
+        let desconto2 = parseFloat(desconto)
+        let ValorComDesconto = (((desconto2 * valor2) / 100) - valor2) * -1
+
+        //! Vai add os valores
+        document.getElementById('valorNormal').innerText = `R$${valor2.toFixed(2)}`
+        document.getElementById('valor').innerText = `R$${ValorComDesconto.toFixed(2)}`
+        document.getElementById('qDesconto').innerText = `${desconto} OFF`
+
         //! Vai enviar uma msg ao vendedor informando qual é o produto
         let btnContato = document.getElementById('btnContato')
         document.getElementById('otherImgs').style.display = 'block'
@@ -201,7 +211,7 @@ function construirProduto(nome, desc, imagem1, imagem2, id) {
         btnContato.target = '_blank'
         document.getElementById('btnCarrinho').style.display = 'block'
         
-        btnContato.href=`https://api.whatsapp.com/send?phone=+55%2061%2099935-2015&text=Estou interessado nesse produto: ${nome}, link:${imagem1}`
+        btnContato.href=`https://api.whatsapp.com/send?phone=+55%2061%2099690-4580&text=Estou interessado nesse produto: link:${window.location.href}`
 
         //!Vai criar o efeito de zoom nas imgs
         function zoom() {
