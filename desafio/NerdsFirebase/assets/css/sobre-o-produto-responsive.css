@@ -1,6 +1,6 @@
-@media screen and (max-width: 1058px) {
+@media screen and (max-width: 1200px) {
     h1#h1Relacionados {
-        max-width: 782px;
+        width: 84%;
     }
     
     section#ProdutosRelacionados {
@@ -28,9 +28,9 @@
 }
 
 @media screen and (max-width: 798px) {
-    h1#h1Relacionados {
+    /* h1#h1Relacionados {
         max-width: 520px;
-    }
+    } */
 
     section#ProdutosRelacionados {
         max-width: 520px;
@@ -74,9 +74,9 @@
 }
 
 @media screen and (max-width: 537px) {
-    h1#h1Relacionados {
+    /* h1#h1Relacionados {
         max-width: 266px;
-    }
+    } */
 
     article#categorias {
         margin: 100px 0px 100px 48%;

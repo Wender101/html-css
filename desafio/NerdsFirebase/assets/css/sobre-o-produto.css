@@ -478,31 +478,34 @@ a.animation {
 
 /*! Relacionados */
 #h1Relacionados {
-    width: 1040px;
+    width: 87%;
+    max-width: 1010px;
     margin: 100px auto 0px;
     font-family: var(--font-titulo);
     font-size: 30px;
     color: var(--cor1);
 }
 
-section#ProdutosRelacionados {
-    width: 100%;
+section#sectionRelacionados {
+    width: 87%;
     max-width: 1040px;
+    overflow: auto;
     margin: auto;
-    height: auto;
-    padding: 10px 20px 50px 0px;
-    display: flex;
-    flex-wrap: wrap;
 }
 
-section#ProdutosRelacionados > div.containerProduto {
+article#ProdutosRelacionados {
+    width: 1040px;
+    height: auto;
+    display: flex;
+}
+
+article#ProdutosRelacionados > div.containerProduto {
     width: 260px;
     height: 450px;
     text-align: center;
-    position: relative;
 }
 
-section#ProdutosRelacionados > div.containerProduto > a.localImgProduto {
+article#ProdutosRelacionados > div.containerProduto > a.localImgProduto {
     width: 87%;
     height: 220px;
     border-radius: 20px;
@@ -514,14 +517,14 @@ section#ProdutosRelacionados > div.containerProduto > a.localImgProduto {
     margin: 20px auto;
 }
 
-section#ProdutosRelacionados > div.containerProduto > a.localImgProduto:hover {
+article#ProdutosRelacionados > div.containerProduto > a.localImgProduto:hover {
     transition: 300ms transform linear;
     transform: scale(1.1);
     border-radius: 20px;
     border: 2px solid var(--cor1);
 }
 
-section#ProdutosRelacionados > div.containerProduto > a.localImgProduto > img.imgProduto {
+article#ProdutosRelacionados > div.containerProduto > a.localImgProduto > img.imgProduto {
     width: 80%;
     max-height: 90%;
     height: auto;
@@ -531,7 +534,7 @@ section#ProdutosRelacionados > div.containerProduto > a.localImgProduto > img.im
     transform: translateY(-50%); 
 }
 
-section#ProdutosRelacionados > div.containerProduto > strong {
+article#ProdutosRelacionados > div.containerProduto > strong {
     width: 90%;
     color: var(--cor1);
     margin-top: 18px;
@@ -542,7 +545,7 @@ section#ProdutosRelacionados > div.containerProduto > strong {
     margin: auto;
 }
 
-section#ProdutosRelacionados > div.containerProduto > p {
+article#ProdutosRelacionados > div.containerProduto > p {
     width: 90%;
     font-family: var(--font-texto);
     font-size: 15px;
