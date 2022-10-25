@@ -99,6 +99,14 @@
     header > section {
         margin: 100px 0px 0px 20px;
     }
+    
+    body > footer > div#p2 > strong  > a {
+        font-size: 13px;
+    }
+
+    body > footer > div#p2 > p {
+        font-size: 13px;
+    }
 }
 
 @media screen and (max-width: 650px) {
