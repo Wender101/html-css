@@ -183,3 +183,17 @@ function limparCarrinho() {
 function fecharInfRemover() {
     document.getElementById('infRemover').style.display = 'none'
 }
+
+setInterval(() => {
+    let recado = document.getElementById('recado')
+    let tamanhoTela = window.visualViewport.width
+    if(recado.style.display != 'none' && tamanhoTela <= 537) {
+        document.getElementById('classProduto').style.width = '100%'
+        document.getElementById('main').style.width = '100%'
+        console.log(tamanhoTela)
+
+    } else {
+        document.getElementById('classProduto').style.width = ''
+        document.getElementById('main').style.width = ''
+    }
+}, 100);
