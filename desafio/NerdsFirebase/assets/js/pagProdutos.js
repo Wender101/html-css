@@ -58,6 +58,7 @@ function urlPage() {
     } else {
         document.querySelector('title').innerText = produtoPesquisado2[0]
         document.getElementById('classProduto').innerText = produtoPesquisado2[0]
+        window.location.href = `${url}#${produtoPesquisado2[0]}`
     }
    
     
