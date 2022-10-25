@@ -194,15 +194,17 @@ function construirProduto(nome, desc, imagem1, imagem2, id, valor, desconto, tip
         document.getElementById('btns').style.display = 'flex'
         document.getElementById('desc').innerText = desc
 
-        //! Vai calcular o falar com o desconto implementado
-        let valor2 = parseFloat(valor)
-        let desconto2 = parseFloat(desconto)
-        let ValorComDesconto = (((desconto2 * valor2) / 100) - valor2) * -1
-
-        //! Vai add os valores
-        document.getElementById('valorNormal').innerText = `R$${valor2.toFixed(2)}`
-        document.getElementById('valor').innerText = `R$${ValorComDesconto.toFixed(2)}`
-        document.getElementById('qDesconto').innerText = `${desconto} OFF`
+        if(valor != undefined || desconto != undefined) {
+            //! Vai calcular o valor com o desconto implementado
+            let valor2 = parseFloat(valor)
+            let desconto2 = parseFloat(desconto)
+            let ValorComDesconto = (((desconto2 * valor2) / 100) - valor2) * -1
+            
+            //! Vai add os valores
+            document.getElementById('valorNormal').innerText = `R$${valor2.toFixed(2)}`
+            document.getElementById('valor').innerText = `R$${ValorComDesconto.toFixed(2)}`
+            document.getElementById('qDesconto').innerText = `${desconto} OFF`
+        }
 
         //! Vai enviar uma msg ao vendedor informando qual é o produto
         let btnContato = document.getElementById('btnContato')

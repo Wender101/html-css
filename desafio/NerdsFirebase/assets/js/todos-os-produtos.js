@@ -238,7 +238,9 @@ function adicionarProduto() {
     }
 
     if(descontoProduto == '') {
-        descontoProduto = 0
+        descontoProduto = '0%'
+    } else if(descontoProduto.substr(-1) != '%') {
+        descontoProduto += '%'
     }
     
     if(nomeProduto == '' || descProduto == '' || linkImg1 == '') {
