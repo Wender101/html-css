@@ -130,11 +130,12 @@ db.collection('Produtos').onSnapshot((data) => {
             construirProduto(p.nome, p.desc, p.imagem1, p.imagem2, p.id, p.valor, p.desconto, p.tipoDesconto)
             localStorage.setItem('sobreProduto', p.id)
 
-            document.getElementById('btnCarrinho').style.display = 'block'
+            let btnContato = document.getElementById('btnCarrinho').style.display = 'block'
         
             btnContato.href=`https://api.whatsapp.com/send?phone=+55%2061%2099831-0963&text=Estou interessado nesse produto: link: ${window.location.href}`
             document.getElementById('valorDoProduto').style.display = 'block'
         }
+    
     })
 }) 
 
@@ -212,10 +213,13 @@ function construirProduto(nome, desc, imagem1, imagem2, id, valor, desconto, tip
         }
 
         //! Vai enviar uma msg ao vendedor informando qual é o produto
-        let btnContato = document.getElementById('btnContato')
         document.getElementById('otherImgs').style.display = 'block'
         document.getElementById('btns').getElementsByTagName('a')[0].querySelector('button').innerText = 'Entrar em Contato'
         btnContato.target = '_blank'
+<<<<<<< HEAD
+=======
+        document.getElementById('btnCarrinho').style.display = 'block'
+>>>>>>> 08cd6bcf6b3f7c2d09585e9712100909a4e58d47
 
         //!Vai criar o efeito de zoom nas imgs
         function zoom() {
