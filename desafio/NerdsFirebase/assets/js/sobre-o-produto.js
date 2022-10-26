@@ -213,7 +213,7 @@ function construirProduto(nome, desc, imagem1, imagem2, id, valor, desconto, tip
         btnContato.target = '_blank'
         document.getElementById('btnCarrinho').style.display = 'block'
         
-        btnContato.href=`https://api.whatsapp.com/send?phone=+55%2061%2099690-4580&text=Estou interessado nesse produto: link: ${window.location.href}`
+        btnContato.href=`https://api.whatsapp.com/send?phone=+55%2061%2099831-0963&text=Estou interessado nesse produto: link: ${window.location.href}`
 
         //!Vai criar o efeito de zoom nas imgs
         function zoom() {
