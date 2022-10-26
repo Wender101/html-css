@@ -621,30 +621,6 @@ section#produtos > article#localOfertas > div > div.p > p {
     margin: auto;
 }
 
-a#carrinho {
-    width: 50px;
-    height: 50px;
-    position: fixed;
-    z-index: 4;
-    right: 15px;
-    bottom: 40%;
-    background-color: var(--cor3);
-    color: white;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
-}
-
-a#carrinho:hover {
-    transform: scale(1.1);
-}
-
-a#carrinho > img {
-    width: 60%;
-}
-
 section#msgLogin {
     width: 98%;
     height: auto;
