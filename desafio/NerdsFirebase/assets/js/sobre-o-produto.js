@@ -216,10 +216,7 @@ function construirProduto(nome, desc, imagem1, imagem2, id, valor, desconto, tip
         document.getElementById('otherImgs').style.display = 'block'
         document.getElementById('btns').getElementsByTagName('a')[0].querySelector('button').innerText = 'Entrar em Contato'
         btnContato.target = '_blank'
-<<<<<<< HEAD
-=======
         document.getElementById('btnCarrinho').style.display = 'block'
->>>>>>> 08cd6bcf6b3f7c2d09585e9712100909a4e58d47
 
         //!Vai criar o efeito de zoom nas imgs
         function zoom() {
