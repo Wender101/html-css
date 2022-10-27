@@ -122,6 +122,13 @@ function criaProdutos(nome, desc, imagem1, imagem2, idproduto, classe) {
     }
 }
 
+setTimeout(() => {
+    let recado = document.getElementById('recado')
+    if(recado.innerText == 'Seu carrinho se encontra vazio, adicione algum produto a ele.') {
+        document.getElementById('carregando').style.display = 'none'
+    }
+}, 8000)
+
 // //! Vai remover o produto do carrinho
 function removerDoCarrinho() {
     let feito = false
