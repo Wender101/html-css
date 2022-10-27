@@ -56,7 +56,7 @@ button:hover {
 
 nav {
     width: 100%;
-    height: 30px;
+    height: 43px;
     padding: 10px;
     position: fixed;
     top: 0px;
@@ -91,6 +91,11 @@ nav > ul > hr {
 nav > ul > li {
     color: var(--cor0);
     margin-right: 60px;
+}
+
+nav > ul > li > a {
+    display: block;
+    margin-top: 10px;
 }
 
 nav > ul > li:hover{
@@ -270,30 +275,6 @@ section#separacao {
     background-image: url('../img/site/NFT\ Landing.png');
     background-size: cover;
     background-repeat: no-repeat;
-}
-
-section#msgLogin {
-    width: 98%;
-    height: auto;
-    padding: 20px 0px 20px 20px;
-    position: fixed;
-    bottom: 0px;
-    border-radius: 10px;
-    border: 1px solid var(--cor1);
-    background-color: var(--cor8);
-    color: var(--cor0);
-    display: none;
-    z-index: 3;
-}
-
-section#msgLogin > button {
-    position: absolute;
-    right: 30px;
-    top: 13px;
-    border: 1px solid var(--cor1);
-    background-color: transparent;
-    padding: 10px;
-    border-radius: 10px;
 }
 
 footer {

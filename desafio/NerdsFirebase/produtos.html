@@ -20,7 +20,8 @@
             <hr>
             <li id="li" style="display: none;"></li>
             <hr id="hr">
-            <button onclick="login()" id="btnLogin">Login</button>
+            <button onclick="login()" id="btnLogin">Conectar</button>
+            <img src="assets/img/site/error2.png" id="imgUser" onclick="login()">
             <hr>
         </ul>
     </nav>
@@ -40,11 +41,6 @@
             <p>Trabalhamos com varias marcas e produtos...</p>
         </section>
     </header>
-
-    <section id="msgLogin">
-        <p id="pMsgLogin">Ops! Ainda estamos trabalhando nisso...</p>
-        <button onclick="fecharMsg()">Fechar</button>
-    </section>
 
     <!--? Slider -->
     <div class="container">
@@ -124,10 +120,10 @@
     <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-auth.js"></script>
     <script src="assets/js/firebase.js"></script>
-
+    
     <!--! Script  JS-->
+    <script src="assets/js/funcoesBasicas.js"></script>
     <script src="assets/js/produtos.js"></script>
     <script src="assets/js/pesquisa.js"></script>
-    <script src="assets/js/funcoesBasicas.js"></script>
 </body>
 </html>

@@ -18,7 +18,10 @@
             <hr>
             <li><a href="produtos.html">Produtos</a></li>
             <hr>
-            <button onclick="login()" id="btnLogin">Login</button>
+            <li id="li" style="display: none;"></li>
+            <hr id="hr">
+            <button onclick="login()" id="btnLogin">Conectar</button>
+            <img src="assets/img/site/error2.png" id="imgUser" onclick="login()">
             <hr>
         </ul>
     </nav>
@@ -82,11 +85,6 @@
     <div id="voltarTopo">
         <a href="#topo" id="subir"></a>
     </div>
-
-    <section id="msgLogin">
-        <p id="pMsgLogin">Ops! Ainda estamos trabalhando nisso...</p>
-        <button onclick="fecharMsg()">Fechar</button>
-    </section>
 
     <footer>
         <div id="p1">

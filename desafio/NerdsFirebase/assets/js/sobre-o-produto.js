@@ -97,28 +97,11 @@ setTimeout(() => {
     }
 }, 8000)
 
-var firebaseConfig = {
-    apiKey: "AIzaSyASXflrIBeCuJNyBzj_PMLUK4ogiXNrRxM",
-    authDomain: "testefirebase-f5ba5.firebaseapp.com",
-    projectId: "testefirebase-f5ba5",
-    storageBucket: "testefirebase-f5ba5.appspot.com",
-    messagingSenderId: "74488269277",
-    appId: "1:74488269277:web:920d6da919c6fa2e1bce34"
-}
-
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig)
-
-//! My code
-const auth = firebase.auth()
-const provider = new firebase.auth.GoogleAuthProvider()
-
 function login() {
     auth.signInWithPopup(provider)
 }
 
 let classeProduto
-const db = firebase.firestore()
 db.collection('Produtos').onSnapshot((data) => {
     data.docs.map(function(val) {
 
@@ -499,7 +482,16 @@ function relacionados() {
                             containerProduto.appendChild(strong)
                             containerProduto.appendChild(p)
                             ProdutosRelacionados.appendChild(containerProduto)
-                
+
+                            //!Vai trocar a img do produto ao passar o mouse em cima
+                            imgProduto.addEventListener('mouseenter', () => {
+                                imgProduto.src = arrayProduto[num].imagem2
+                            })
+
+                            imgProduto.addEventListener('mouseout', () => {
+                                imgProduto.src = arrayProduto[num].imagem1
+                            })
+                                        
                             //! Vai add a memoria qual produto vai ser analizado pelo usuario
                             localImgProduto.addEventListener('click', () => {
                                 localStorage.setItem('sobreProduto', arrayProduto[num].id)

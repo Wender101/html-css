@@ -1,17 +1,3 @@
-auth.onAuthStateChanged((val) => {
-    if(val.email == 'wendernatanael2019@gmail.com') {
-        let a = document.createElement('a')
-        let li = document.getElementById('li')
-
-        a.innerText = 'Todos'
-        a.href = 'todos-os-produtos.html'
-        li.style.display = 'block'
-        document.getElementById('hr').style.display = 'block'
-        li.appendChild(a)
-    }
-})
-
-
 //! Vai escolher os produtos em destaque
 let numeros = []
     let max = 4
@@ -60,6 +46,15 @@ function addOfertas(num) {
                 divP.appendChild(strong)
                 divP.appendChild(desc)
                 ofertas.appendChild(divP)
+
+                //!Vai trocar a img do produto ao passar o mouse em cima
+                divImg.addEventListener('mouseenter', () => {
+                    divImg.style.backgroundImage = `url(${p.imagem2})`
+                })
+
+                divImg.addEventListener('mouseout', () => {
+                    divImg.style.backgroundImage = `url(${p.imagem1})`
+                })
             }
         })
     })

@@ -20,42 +20,30 @@ function login() {
 
 const db = firebase.firestore()
 
+let email
 auth.onAuthStateChanged((val) => {
-    if(val) {
-        const btnLogin = document.getElementById('btnLogin')
-        btnLogin.innerText = 'Logado'
-        const msgLogin = document.getElementById('msgLogin')
-        msgLogin.style.display = 'block'
-        document.getElementById('pMsgLogin').innerText = `Bem Vindo(a) ${val.displayName}! ;)`
+    if(val.email) {
+        if(email != undefined) {
+            location.reload()
 
-        setTimeout(() => {
-            msgLogin.style.display = 'none'
-        }, 3000);
+        } else {
+            const btnLogin = document.getElementById('btnLogin')
+            btnLogin.innerText = 'Conectado'
+            document.getElementById('imgUser').src = val.photoURL
 
-        setInterval(() => {
-            var viewport = visualViewport.width
-            if(viewport > 535 && msgLogin.style.display == 'block') {
-                window.document.getElementById("subir").style.bottom = '10%'
-
-            } else if(viewport < 535 && msgLogin.style.display == 'block') {
-                window.document.getElementById("subir").style.bottom = '15%'
-            } 
-        }, 10)
-
-        fecharMenu()
+            email = val.email
+    
+            let a = document.createElement('a')
+            let li = document.getElementById('li')
+    
+            a.innerText = 'Todos'
+            a.href = 'todos-os-produtos.html'
+            li.style.display = 'block'
+    
+            if(window.visualViewport.width <= 480) {
+                document.getElementById('hr').style.display = 'block'
+            }
+            li.appendChild(a)
+        }
     }
 })
-
-//! Fechar msg
-function fecharMsg() {
-    const msgLogin = document.getElementById('msgLogin')
-    msgLogin.style.display = 'none'
-
-    let title = document.querySelector('title').innerText
-    if( title == 'Carrinho') {
-        subir.style.bottom = '8%'
-    } else {
-        window.document.getElementById("subir").style.bottom = '2%'
-    }
-    
-} fecharMsg()
