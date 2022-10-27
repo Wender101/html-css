@@ -9,6 +9,18 @@
         margin-left: 50%;
         transform: translate(-55%);
     }
+
+    section#produtos > article#localOfertas {
+        width: 965px;
+        margin-left: 50%;
+        transform: translate(-59%);
+        overflow-x: auto;
+    }
+
+    section#produtos > article#localOfertas > #h1Ofertas, section#produtos > article#localOfertas > div#ofertas {
+        margin-left: 50%;
+        transform: translate(-37%);
+    }
 }
 
 @media screen and (max-width: 1084px) {
@@ -16,26 +28,74 @@
         max-width: 800px;
         margin: auto;
     }
+
+    section#produtos > article#localOfertas {
+        width: 800px;
+        margin-left: 50%;
+        transform: translate(-58%);
+    }
+
+    section#produtos > article#localOfertas > div#ofertas {
+        margin-left: 50%;
+        transform: translate(-31%);
+    }
 }
 
 @media screen and (max-width: 882px) {
+    #categorias > h1 {
+        font-size: 24px;
+    }
+
+    h1#h1Relacionados {
+        font-size: 24px;
+    }
+
     section#produtos > article#localOfertas {
-        max-width: 545px;
-        margin: auto;
+        height: 400px;
     }
 
-    section#produtos > article > div.p {
-        width: 210px;
+    section#produtos > article#localOfertas > div > div.p {
+        width: 200px;
     }
 
-    section#produtos > article > div.p > a.localImg {
-        height: 200px;
+    section#produtos > article#localOfertas > div > div.p > a.localImg {
+        height: 170px;
+    }
+
+    section#produtos > article#localOfertas > div > div.p > strong {
+        font-size: 16px;
+    }
+
+    section#produtos > article#localOfertas > div > div.p > p {
+        font-size: 14px;
+    }
+
+    section#produtos > article#localOfertas {
+        width: 670px;
+        margin-left: 50%;
+        transform: translate(-58%);
+    }
+
+    section#produtos > article#localOfertas > #h1Ofertas, section#produtos > article#localOfertas > div#ofertas, #h1Ofertas {
+        margin-left: 50%;
+        transform: translate(-25%);
     }
 }
 
-@media screen and (max-width: 626px) {
+@media screen and (max-width: 650px) {
     header > section#texto {
         margin-left: 0px;
+    }
+
+    section#produtos > article#localOfertas {
+        width: 460px;
+        margin-left: 50%;
+        transform: translate(-57%);
+    }
+
+    section#produtos > article#localOfertas > #h1Ofertas, section#produtos > article#localOfertas > div#ofertas {
+        margin-left: 50%;
+        transform: translate(-19%);
     }
 }
 
@@ -44,13 +104,15 @@
         right: 20px;
     }
 
-    section#produtos > article#localOfertas {
-        max-width: 335px;
-        margin: auto;
+    article#localOfertas {
+        width: 400px;
+        margin-left: 50%;
+        transform: translate(-60%);
     }
 
-    section#produtos > article#localOfertas > div#ofertas {
-        margin-left: 15px;
+    section#produtos > article#localOfertas > #h1Ofertas, section#produtos > article#localOfertas > div#ofertas {
+        margin-left: 50%;
+        transform: translate(-18%);
     }
 }
 
@@ -58,6 +120,19 @@
     section#produtos > article#categorias {
         margin-top: 0px;
         margin-bottom: 50px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    section#produtos > article#localOfertas {
+        width: 350px;
+        margin-left: 50%;
+        transform: translate(-65%);
+    }
+
+    section#produtos > article#localOfertas > #h1Ofertas, section#produtos > article#localOfertas > div#ofertas {
+        margin-left: 50%;
+        transform: translate(-12%);
     }
 }
 

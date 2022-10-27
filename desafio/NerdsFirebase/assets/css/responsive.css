@@ -184,15 +184,6 @@ a#carrinho > img {
     section#time > article > div > span {
         font-size: 40px;
     }
-
-    article#localOfertas {
-        max-width: 300px;
-        margin: auto;
-    }
-
-    article#localOfertas > div#ofertas {
-        margin-left: 15px;
-    }
 }
 
 @media screen and (max-width: 535px) {

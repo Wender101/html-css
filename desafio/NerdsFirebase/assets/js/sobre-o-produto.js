@@ -17,8 +17,7 @@ function urlPage() {
         if(url.substr(-1) != 'r') {
             let url = `${window.location.href}#error`
             window.location.href = url
-        }
-        
+        }  
     } else if(sobreProduto2 == null && url.substr(-1) != 'l') {
         for(let c = 0; c < 200; c++) {
             let a = url.substr(-c)
@@ -433,14 +432,13 @@ function addAgain() {
 function relacionados() {
     let arrayProduto = []
     let feito = false
-    // //! Vai sortear 4 números direfentes correspontes aos produtos
-
+    
     db.collection('Produtos').onSnapshot((data) => {
         data.docs.map(function(valProduto) {
             let p = valProduto.data()
             
             try {
-
+                
                 if(p.classe == classeProduto) {
                     let objProduto = {
                         classe: p.classe,
@@ -450,13 +448,14 @@ function relacionados() {
                         desc: p.desc,
                         id: p.id
                     }
-        
+                    
                     arrayProduto.push(objProduto)
                 }
-
+                
             } catch {}
-
+            
             setTimeout(() => {
+                // //! Vai sortear 4 números direfentes correspontes aos produtos
                 let numeros = []
                 let max = 4
                 if(arrayProduto.length < 4) max = arrayProduto.length

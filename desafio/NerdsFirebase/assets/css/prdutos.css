@@ -532,25 +532,29 @@ section#produtos {
 /* Fim Categoria */
 
 /* Local ofertas */
-section#produtos > article#localOfertas {
-    margin: auto;
-}
 
 section#produtos > article#localOfertas {
-    max-width: 1150px;
     width: 100%;
-    height: auto;
-    margin: auto;
+    height: 550px;
     margin-bottom: 50px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    margin-left: 50%;
+    transform: translate(-50%);
+}
+
+section#produtos > article#localOfertas > #h1Ofertas {
+    width: 1040px;
+    margin-left: 50%;
+    transform: translate(-55%);
 }
 
 section#produtos > article#localOfertas > div#ofertas {
-    max-width: 1150px;
-    width: 100%;
+    width: 1040px;
     height: auto;
-    margin: 20px auto;
-    display: flex;
-    flex-wrap: wrap;
+    margin-left: 50%;
+    transform: translate(-55%);
+    display: inline-block;
 }
 
 h1#h1Ofertas {
