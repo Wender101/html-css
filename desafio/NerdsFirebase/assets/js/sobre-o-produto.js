@@ -89,12 +89,14 @@ setTimeout(() => {
         document.getElementById('btns').getElementsByTagName('a')[0].querySelector('button').innerText = 'Voltar'
         btnContato.style.margin = 'auto'
         btnContato.addEventListener('click', () => {
-            window.history.back()
+            if(btnContato.innerText == 'Voltar') {
+                window.history.back()
+            }
         })
         document.getElementById('btnCarrinho').style.display = 'none'
         return
     }
-}, 8000);
+}, 8000)
 
 var firebaseConfig = {
     apiKey: "AIzaSyASXflrIBeCuJNyBzj_PMLUK4ogiXNrRxM",
@@ -120,6 +122,7 @@ let classeProduto
 const db = firebase.firestore()
 db.collection('Produtos').onSnapshot((data) => {
     data.docs.map(function(val) {
+
         setTimeout(() => {
             document.getElementById('carregando').style.display = 'none'
         }, 500)
@@ -130,10 +133,17 @@ db.collection('Produtos').onSnapshot((data) => {
             construirProduto(p.nome, p.desc, p.imagem1, p.imagem2, p.id, p.valor, p.desconto, p.tipoDesconto)
             localStorage.setItem('sobreProduto', p.id)
 
-            let btnContato = document.getElementById('btnCarrinho').style.display = 'block'
-        
-            btnContato.href=`https://api.whatsapp.com/send?phone=+55%2061%2099831-0963&text=Estou interessado nesse produto: link: ${window.location.href}`
             document.getElementById('valorDoProduto').style.display = 'block'
+
+            let btnContato = document.getElementById('btnContato')
+        
+            document.getElementById('valorDoProduto').style.display = 'block'
+            btnContato.target = '_blank'
+            document.getElementById('btns').getElementsByTagName('a')[0].querySelector('button').innerText = 'Entrar em Contato'
+            btnContato.style.margin = 'auto'
+            document.getElementById('btnCarrinho').style.display = 'block'
+    
+            btnContato.href=`https://api.whatsapp.com/send?phone=+55%2061%2099831-0963&text=Estou interessado nesse produto: link: ${window.location.href}`
         }
     
     })
@@ -152,10 +162,6 @@ function construirProduto(nome, desc, imagem1, imagem2, id, valor, desconto, tip
         imgProduto.style.top = '30%'
         imgProduto.style.marginLeft = '50%'
         imgProduto.style.transform = 'translate(-35%)'
-
-        let btnContato = document.getElementById('btnContato')
-        
-        btnContato.target = '_self'
 
         document.getElementById('btns').getElementsByTagName('a')[0].querySelector('button').innerText = 'Voltar'
         btnContato.style.margin = 'auto'
@@ -213,9 +219,14 @@ function construirProduto(nome, desc, imagem1, imagem2, id, valor, desconto, tip
         }
 
         //! Vai enviar uma msg ao vendedor informando qual é o produto
+        let btnContato = document.getElementById('btnContato')
+        
         document.getElementById('otherImgs').style.display = 'block'
         document.getElementById('btns').getElementsByTagName('a')[0].querySelector('button').innerText = 'Entrar em Contato'
         btnContato.target = '_blank'
+        btnContato.addEventListener('click', () => {
+            window.history.back()
+        })
         document.getElementById('btnCarrinho').style.display = 'block'
 
         //!Vai criar o efeito de zoom nas imgs

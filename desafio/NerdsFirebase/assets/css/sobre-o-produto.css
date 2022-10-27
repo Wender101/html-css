@@ -605,7 +605,7 @@ section#infAddCarrinho {
     position: fixed;
     top: 0px;
     background-color: var(--cor8);
-    z-index: 3;
+    z-index: 5;
     display: none;
     justify-content: center;
     align-items: center;
