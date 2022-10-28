@@ -38,17 +38,20 @@ auth.onAuthStateChanged((val) => {
 
      //! Vai add o link para a pág de Adms
     if(val.email == 'wendernatanael2019@gmail.com') {
+        try {
         let a = document.createElement('a')
         let li = document.getElementById('li')
 
-        a.innerText = 'Todos'
-        a.href = 'todos-os-produtos.html'
-        li.style.display = 'block'
-
-        //! Vai acionar o hr apenas nos dispositivos mobiles
-        if(window.visualViewport.width <= 480) {
-            document.getElementById('hr').style.display = 'block'
-        }
-        li.appendChild(a)
+            a.innerText = 'Todos'
+            a.href = 'todos-os-produtos.html'
+            li.style.display = 'block'
+            
+            
+            //! Vai acionar o hr apenas nos dispositivos mobiles
+            if(window.visualViewport.width <= 480) {
+                document.getElementById('hr').style.display = 'block'
+            }
+            li.appendChild(a)
+        } catch {}
     }
 })

@@ -4,27 +4,36 @@ function login() {
     auth.signInWithPopup(provider)
 }
 
-let carregado = false 
+let tamanhoCarrinho = 0
 auth.onAuthStateChanged((valor) => {
     db.collection('Carrinho').onSnapshot((data) => {
         data.docs.map(function(val) {
             let p = val.data()
     
             if(p.email == valor.email) {
-                document.getElementById('carregando').style.display = 'none'
-                for(let c = 0; c < p.carrinho.length; c++) {
-                    try {
-                        db.collection('Produtos').onSnapshot((data) => {
-                            data.docs.map(function(val) {
-                                if(p.carrinho[c].id == val.data().id) {
-                                    criaProdutos(val.data().nome, val.data().desc, val.data().imagem1, val.data().imagem2, val.data().id, val.data().classe)
-                                }
-                            })
-                        })
+                //! vai checar se houve alterações no carrinho(excluir / adicionar) por outro dispositivo
+                setInterval(() => {
+                    if(tamanhoCarrinho != 0 && p.carrinho.length != tamanhoCarrinho)location.reload()
+                }, 10)
 
-                    } catch {
-                        return
-                    }   
+                //! vai colocar os produtos na tela, apenas quando o banco de dados estiver alinhado com o site
+                if(tamanhoCarrinho == 0 || p.carrinho.length == tamanhoCarrinho) {
+                    tamanhoCarrinho = p.carrinho.length
+                    document.getElementById('carregando').style.display = 'none'
+                    for(let c = 0; c < p.carrinho.length; c++) {
+                        try {
+                            db.collection('Produtos').onSnapshot((data) => {
+                                data.docs.map(function(val) {
+                                    if(p.carrinho[c].id == val.data().id) {
+                                        criaProdutos(val.data().nome, val.data().desc, val.data().imagem1, val.data().imagem2, val.data().id, val.data().classe, val.data().valor, val.data().desconto)
+                                    }
+                                })
+                            })
+
+                        } catch {
+                            return
+                        }   
+                    }
                 }
             }
         })
@@ -39,8 +48,18 @@ let id = 0
 let id2 = 0
 let idSpan
 let arrayCarrinho = []
-function criaProdutos(nome, desc, imagem1, imagem2, idproduto, classe) {
-    
+let ValorComDesconto = 0.00
+let valorAMenos = 0.00
+let feitoRemover = false
+function criaProdutos(nome, desc, imagem1, imagem2, idproduto, classe, valor, desconto) {
+
+    if(valor != undefined || desconto != undefined) {
+        //! Vai calcular o valor com o desconto implementado
+        let valor2 = parseFloat(valor)
+        let desconto2 = parseFloat(desconto)
+        ValorComDesconto += (((desconto2 * valor2) / 100) - valor2) * -1
+    }
+
     if(id2 == id) {
         let objCarrinhoBD = {
             classe: classe,
@@ -111,7 +130,8 @@ function criaProdutos(nome, desc, imagem1, imagem2, idproduto, classe) {
         id++
         id2++
         setInterval(() => {
-            document.getElementById('total').innerText = `Total de Produtos: ${id2}`
+            let res = ValorComDesconto - valorAMenos
+            document.getElementById('total').innerText = `Valor total: R$${res.toFixed(2)}`
 
             if(id2 == 0) {
                 setTimeout(() => {
@@ -131,13 +151,21 @@ setTimeout(() => {
 
 // //! Vai remover o produto do carrinho
 function removerDoCarrinho() {
-    let feito = false
     auth.onAuthStateChanged((valEmail) => {
         db.collection('Carrinho').onSnapshot((data) => {
             data.docs.map(function(valCarrinho) {
                 let p = valCarrinho.data()
 
-                if(p.email == valEmail.email && feito == false) {
+                // if(p.id == arrayCarrinho[idSpan]) {
+                //     if(valor != undefined || desconto != undefined) {
+                //         //! Vai calcular o valor com o desconto implementado
+                //         let valor2 = parseFloat(p.valor)
+                //         let desconto2 = parseFloat(p.desconto)
+                //         valorAMenos = ((((desconto2 * valor2) / 100) - valor2) * -1) - ValorComDesconto
+                //     }
+                // }
+
+                if(p.email == valEmail.email && feitoRemover == false) {
                     arrayCarrinho.splice(idSpan, 1)
                     db.collection('Carrinho').doc(valCarrinho.id).update({carrinho: arrayCarrinho})
                     fecharInfRemover()
@@ -146,8 +174,9 @@ function removerDoCarrinho() {
 
                     //! Vai apagar o produto da tela do user
                     document.getElementById('containerProduto' + idSpan).remove()
-                    feito = true
+                    feitoRemover = true
                 }
+
             })
         })
     })
@@ -185,13 +214,16 @@ function fecharInfRemover() {
 setInterval(() => {
     let recado = document.getElementById('recado')
     let tamanhoTela = window.visualViewport.width
-    if(recado.style.display != 'none' && tamanhoTela <= 537) {
-        document.getElementById('classProduto').style.width = '100%'
-        document.getElementById('main').style.width = '100%'
-        console.log(tamanhoTela)
 
-    } else {
-        document.getElementById('classProduto').style.width = ''
-        document.getElementById('main').style.width = ''
-    }
+    try {
+        if(recado.style.display != 'none' && tamanhoTela <= 537) {
+            document.getElementById('classProduto').style.width = '100%'
+            document.getElementById('main').style.width = '100%'
+            console.log(tamanhoTela)
+    
+        } else {
+            document.getElementById('classProduto').style.width = ''
+            document.getElementById('main').style.width = ''
+        }
+    } catch {}
 }, 100);

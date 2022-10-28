@@ -1,6 +1,5 @@
 const produtoPesquisado1 = localStorage.getItem('produtoPesquisado')
 const produtoPesquisado2 = JSON.parse(produtoPesquisado1)
-
 //? My code
 
 function login() {
@@ -8,48 +7,51 @@ function login() {
 }
 
 auth.onAuthStateChanged((val) => {
-        if(val.email == 'wendernatanael2019@gmail.com') {
-            let configs = document.getElementById('configs')
-            let btnAdicionarProduto = document.createElement('button')
-            let span = document.createElement('span')
-    
-            btnAdicionarProduto.id = 'btnAdicionarProduto'
-            span.innerText = '+'
-    
-            //! AppendChild
-            btnAdicionarProduto.appendChild(span)
-            configs.appendChild(btnAdicionarProduto)
-    
-            //! Eventos de click
-            btnAdicionarProduto.addEventListener('click', () => {
-                document.getElementById('addProduto').style.display = 'flex'
-            })
-    
-            addProduto.addEventListener('click', (e) => {
-                let el = e.target.id
-                if(el == 'addProduto') {
-                    document.getElementById('addProduto').style.display = 'none'
-                }
-            })
+    if(val.email == 'wendernatanael2019@gmail.com') {
+        let configs = document.getElementById('configs')
+        let btnAdicionarProduto = document.createElement('button')
+        let span = document.createElement('span')
 
-            document.getElementById('classeProdutos').style.display = 'block'
+        btnAdicionarProduto.id = 'btnAdicionarProduto'
+        span.innerText = '+'
 
-            setInterval(() => {
-                if(document.getElementById('carregando').style.display
-                 != 'flex') {
-                    for(let c = 0; c <= 999; c++) {
-                        try {
-                            document.getElementsByClassName('btnEdit')[c].style.display = 'flex'
-                            
-                        } catch {
-                            c = 999
-                        }
+        //! AppendChild
+        btnAdicionarProduto.appendChild(span)
+        configs.appendChild(btnAdicionarProduto)
+
+        //! Eventos de click
+        btnAdicionarProduto.addEventListener('click', () => {
+            document.getElementById('addProduto').style.display = 'flex'
+        })
+
+        addProduto.addEventListener('click', (e) => {
+            let el = e.target.id
+            if(el == 'addProduto') {
+                document.getElementById('addProduto').style.display = 'none'
+            }
+        })
+
+        document.getElementById('classeProdutos').style.display = 'block'
+
+        setInterval(() => {
+            if(document.getElementById('carregando').style.display != 'flex') {
+                for(let c = 0; c <= 999; c++) {
+                    try {
+                        document.getElementsByClassName('btnEdit')[c].style.display = 'flex'
+                        
+                    } catch {
+                        c = 999
                     }
                 }
-            }, 100)
+            }
+        }, 100)
 
-        }
-        fecharMenu()
+    } else {
+        setInterval(() => {
+            document.querySelector('main').innerHTML = ''
+        }, 10)
+    }
+    fecharMenu()
 })
 //! Vai cancelar a ação de adiconar um produto
 function cancelar() {
@@ -91,7 +93,18 @@ function chamarBD(classeSelecionada = 'Todos') {
                 }
 
             } else {
-                if(p.classe == classeSelecionada) {
+                if(classeSelecionada == 'Com desconto') {
+                    document.getElementById('carregando').style.display = 'none'
+
+                    if(p.desconto != undefined && p.desconto != '0%') {
+                        construirProduto(p.classe, p.nome, p.desc, p.imagem1, p.imagem2, p.id, p.valor, p.desconto, p.tipoDesconto)
+                    }
+                    
+                    if(p.id > id) {
+                        id = p.id
+                    }
+
+                } else if(p.classe == classeSelecionada) {
                     document.getElementById('carregando').style.display = 'none'
                     construirProduto(p.classe, p.nome, p.desc, p.imagem1, p.imagem2, p.id, p.valor, p.desconto, p.tipoDesconto)
                     
@@ -163,6 +176,7 @@ function construirProduto(classe, nome, desc, imagem1, imagem2 = imagem1, id, va
         document.getElementById('descontoProduto').value =  desconto
         document.getElementById('sobreDesconto').value =  tipoDesconto
 
+        document.getElementById('btnAdd').innerText = 'Editar'
         document.getElementById('excluirProduto').style.display = 'block'
         document.getElementById('addProduto').style.display = 'flex'
     })
@@ -184,6 +198,9 @@ function construirProduto(classe, nome, desc, imagem1, imagem2 = imagem1, id, va
 
 //! Função q vai add
 function adicionarProduto() {
+    document.getElementById('btnAdd').innerText = 'Adicionar'
+
+
     let select = document.getElementById('classe').value
     let nomeProduto = document.getElementById('nomeProduto').value
     let descProduto = document.getElementById('descProduto').value
@@ -244,11 +261,20 @@ function addNoBancoDeDados(classe, nome, desc, imagem1, imagem2, id, valor, desc
         //! Vai editar o produto selecionado
         db.collection('Produtos').onSnapshot((data) => {
             data.docs.map(function(val) {
+                let p = val.data()
 
-                if(val.data().id == editando) {
-                    db.collection('Produtos').doc(val.id).update({classe: classe, imagem1: imagem1, imagem2: imagem2, nome: nome, desc: desc, id: editando, valor: valor, desconto: desconto, tipoDesconto: tipoDesconto})
-                    editando = 0
-                    return
+                if(tipoDesconto != 'Por classe') {
+                    if(val.data().id == editando) {
+                        db.collection('Produtos').doc(val.id).update({classe: classe, imagem1: imagem1, imagem2: imagem2, nome: nome, desc: desc, id: editando, valor: valor, desconto: desconto, tipoDesconto: tipoDesconto})
+                        editando = 0
+                        return
+                    }
+                } else if(tipoDesconto == 'Por classe') {
+                    if(val.data().classe == classe) {
+                        db.collection('Produtos').doc(val.id).update({desconto: desconto, tipoDesconto: tipoDesconto})
+                        editando = 0
+                        return
+                    }
                 }
             })
         })

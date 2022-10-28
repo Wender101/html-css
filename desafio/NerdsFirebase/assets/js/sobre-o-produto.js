@@ -187,8 +187,8 @@ function construirProduto(nome, desc, imagem1, imagem2, id, valor, desconto, tip
         titulo.innerText = nome
         document.getElementById('btns').style.display = 'flex'
         document.getElementById('desc').innerText = desc
-
-        if(valor != undefined || desconto != undefined) {
+        
+        if(valor != undefined && desconto != undefined) {
             //! Vai calcular o valor com o desconto implementado
             let valor2 = parseFloat(valor)
             let desconto2 = parseFloat(desconto)
