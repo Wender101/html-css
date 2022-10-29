@@ -5,6 +5,9 @@ function login() {
 }
 
 let tamanhoCarrinho = 0
+let ValorComDesconto = 0.00
+let valorAMenos = 0.00
+let feitoRemover = false //! vai impedir que mais de um produto seja exlcuido por vez
 auth.onAuthStateChanged((valor) => {
     db.collection('Carrinho').onSnapshot((data) => {
         data.docs.map(function(val) {
@@ -13,11 +16,11 @@ auth.onAuthStateChanged((valor) => {
             if(p.email == valor.email) {
                 //! vai checar se houve alterações no carrinho(excluir / adicionar) por outro dispositivo
                 setInterval(() => {
-                    if(tamanhoCarrinho != 0 && p.carrinho.length != tamanhoCarrinho)location.reload()
+                    if(tamanhoCarrinho != 0 && p.carrinho.length != tamanhoCarrinho && feitoRemover == false)location.reload()
                 }, 10)
 
                 //! vai colocar os produtos na tela, apenas quando o banco de dados estiver alinhado com o site
-                if(tamanhoCarrinho == 0 || p.carrinho.length == tamanhoCarrinho) {
+                if(tamanhoCarrinho == 0 || p.carrinho.length == tamanhoCarrinho || feitoRemover == true) {
                     tamanhoCarrinho = p.carrinho.length
                     document.getElementById('carregando').style.display = 'none'
                     for(let c = 0; c < p.carrinho.length; c++) {
@@ -46,21 +49,21 @@ if(total <= 0) {
 
 let id = 0
 let id2 = 0
-let idSpan
-let arrayCarrinho = []
-let ValorComDesconto = 0.00
-let valorAMenos = 0.00
-let feitoRemover = false
+let idSpan //! Vai pegar o id do produto de acordo com a posição dele no array
+let arrayCarrinho = [] //! Vai criar uma copia do carrinho do user para fazer alterações futuras
 function criaProdutos(nome, desc, imagem1, imagem2, idproduto, classe, valor, desconto) {
 
-    if(valor != undefined || desconto != undefined) {
-        //! Vai calcular o valor com o desconto implementado
-        let valor2 = parseFloat(valor)
-        let desconto2 = parseFloat(desconto)
-        ValorComDesconto += (((desconto2 * valor2) / 100) - valor2) * -1
-    }
-
     if(id2 == id) {
+        if(valor != undefined && desconto != undefined) {
+            //! Vai calcular o valor com o desconto implementado
+            let valor2 = parseFloat(valor)
+            let desconto2 = parseFloat(desconto)
+            ValorComDesconto += (((desconto2 * valor2) / 100) - valor2) * -1
+
+            let res = ValorComDesconto.toFixed(2) - valorAMenos.toFixed(2)
+            document.getElementById('total').innerText = `Valor total: R$${res.toFixed(2)}`
+        }
+
         let objCarrinhoBD = {
             classe: classe,
             imagem1: imagem1,
@@ -130,9 +133,6 @@ function criaProdutos(nome, desc, imagem1, imagem2, idproduto, classe, valor, de
         id++
         id2++
         setInterval(() => {
-            let res = ValorComDesconto - valorAMenos
-            document.getElementById('total').innerText = `Valor total: R$${res.toFixed(2)}`
-
             if(id2 == 0) {
                 setTimeout(() => {
                     document.getElementById('recado').style.display = 'block'
@@ -149,23 +149,36 @@ setTimeout(() => {
     }
 }, 8000)
 
-// //! Vai remover o produto do carrinho
+//! Vai remover o produto do carrinho e descontar o valor do produto removido do valor total
 function removerDoCarrinho() {
+    let feitoRemover2 = false
     auth.onAuthStateChanged((valEmail) => {
         db.collection('Carrinho').onSnapshot((data) => {
             data.docs.map(function(valCarrinho) {
                 let p = valCarrinho.data()
+                let idProdutoExcluido = arrayCarrinho[idSpan]
+                if(p.email == valEmail.email && feitoRemover2 == false) {
 
-                // if(p.id == arrayCarrinho[idSpan]) {
-                //     if(valor != undefined || desconto != undefined) {
-                //         //! Vai calcular o valor com o desconto implementado
-                //         let valor2 = parseFloat(p.valor)
-                //         let desconto2 = parseFloat(p.desconto)
-                //         valorAMenos = ((((desconto2 * valor2) / 100) - valor2) * -1) - ValorComDesconto
-                //     }
-                // }
+                    //! Vai descontar o preço do produto removido no valor total
+                    db.collection('Produtos').onSnapshot((data) => {
+                        data.docs.map(function(valorProduto) {
+                            let pProduto = valorProduto.data()
+                            
+                            if(idProdutoExcluido.id == pProduto.id) {
+                                
+                                //! Vai calcular o valor com o desconto implementado
+                                let valor2 = parseFloat(pProduto.valor)
+                                let desconto2 = parseFloat(pProduto.desconto)
+                                valorAMenos = (((desconto2 * valor2) / 100) - valor2) * -1
+                                
+                                let res = parseFloat(ValorComDesconto.toFixed(2)) - parseFloat(valorAMenos.toFixed(2))
+                                ValorComDesconto = res
+                                document.getElementById('total').innerText = `Valor total: R$${res.toFixed(2)}`
+                            }
+                        })
+                    })
 
-                if(p.email == valEmail.email && feitoRemover == false) {
+                    //! Vai remover o produto do banco de dados e da tela do usuario
                     arrayCarrinho.splice(idSpan, 1)
                     db.collection('Carrinho').doc(valCarrinho.id).update({carrinho: arrayCarrinho})
                     fecharInfRemover()
@@ -175,6 +188,7 @@ function removerDoCarrinho() {
                     //! Vai apagar o produto da tela do user
                     document.getElementById('containerProduto' + idSpan).remove()
                     feitoRemover = true
+                    feitoRemover2 = true
                 }
 
             })
