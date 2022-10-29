@@ -8,40 +8,42 @@ let tamanhoCarrinho = 0
 let ValorComDesconto = 0.00
 let valorAMenos = 0.00
 let feitoRemover = false //! vai impedir que mais de um produto seja exlcuido por vez
-auth.onAuthStateChanged((valor) => {
-    db.collection('Carrinho').onSnapshot((data) => {
-        data.docs.map(function(val) {
-            let p = val.data()
-    
-            if(p.email == valor.email) {
-                //! vai checar se houve alterações no carrinho(excluir / adicionar) por outro dispositivo
-                setInterval(() => {
-                    if(tamanhoCarrinho != 0 && p.carrinho.length != tamanhoCarrinho && feitoRemover == false)location.reload()
-                }, 10)
+function addNaTela() {
+    auth.onAuthStateChanged((valor) => {
+        db.collection('Carrinho').onSnapshot((data) => {
+            data.docs.map(function(val) {
+                let p = val.data()
+        
+                if(p.email == valor.email) {
+                    //! vai checar se houve alterações no carrinho(excluir / adicionar) por outro dispositivo
+                    setInterval(() => {
+                        if(tamanhoCarrinho != 0 && p.carrinho.length < tamanhoCarrinho || p.carrinho.length > tamanhoCarrinho && feitoRemover == false)location.reload()
+                    }, 100)
 
-                //! vai colocar os produtos na tela, apenas quando o banco de dados estiver alinhado com o site
-                if(tamanhoCarrinho == 0 || p.carrinho.length == tamanhoCarrinho || feitoRemover == true) {
-                    tamanhoCarrinho = p.carrinho.length
-                    document.getElementById('carregando').style.display = 'none'
-                    for(let c = 0; c < p.carrinho.length; c++) {
-                        try {
-                            db.collection('Produtos').onSnapshot((data) => {
-                                data.docs.map(function(val) {
-                                    if(p.carrinho[c].id == val.data().id) {
-                                        criaProdutos(val.data().nome, val.data().desc, val.data().imagem1, val.data().imagem2, val.data().id, val.data().classe, val.data().valor, val.data().desconto)
-                                    }
+                    //! vai colocar os produtos na tela, apenas quando o banco de dados estiver alinhado com o site
+                    if(tamanhoCarrinho == 0 || p.carrinho.length == tamanhoCarrinho || feitoRemover == true) {
+                        tamanhoCarrinho = p.carrinho.length
+                        document.getElementById('carregando').style.display = 'none'
+                        for(let c = 0; c < p.carrinho.length; c++) {
+                            try {
+                                db.collection('Produtos').onSnapshot((data) => {
+                                    data.docs.map(function(val) {
+                                        if(p.carrinho[c].id == val.data().id) {
+                                            criaProdutos(val.data().nome, val.data().desc, val.data().imagem1, val.data().imagem2, val.data().id, val.data().classe, val.data().valor, val.data().desconto)
+                                        }
+                                    })
                                 })
-                            })
 
-                        } catch {
-                            return
-                        }   
+                            } catch {
+                                return
+                            }   
+                        }
                     }
                 }
-            }
-        })
-    }) 
-})
+            })
+        }) 
+    })
+} addNaTela()
 
 if(total <= 0) {
     document.querySelector('main').id = 'main'
@@ -90,11 +92,11 @@ function criaProdutos(nome, desc, imagem1, imagem2, idproduto, classe, valor, de
         const p = document.createElement('p')
         
         containerProduto.classList = 'containerProduto'
-        containerProduto.id = `containerProduto${id}`
+        containerProduto.id = `containerProduto${idproduto}`
 
         localImgProduto.className = 'localImgProduto'
         span.classList = 'x'
-        span.id = id
+        span.id = idproduto
         localImgProduto.href = 'sobre-o-produto.html'
         imgProduto.className = 'imgProduto'
         imgProduto.src = imagem1
@@ -138,7 +140,7 @@ function criaProdutos(nome, desc, imagem1, imagem2, idproduto, classe, valor, de
                     document.getElementById('recado').style.display = 'block'
                 }, 600)
             }
-        }, 100);
+        }, 100)
     }
 }
 
@@ -156,7 +158,7 @@ function removerDoCarrinho() {
         db.collection('Carrinho').onSnapshot((data) => {
             data.docs.map(function(valCarrinho) {
                 let p = valCarrinho.data()
-                let idProdutoExcluido = arrayCarrinho[idSpan]
+                let idProdutoExcluido = idSpan
                 if(p.email == valEmail.email && feitoRemover2 == false) {
 
                     //! Vai descontar o preço do produto removido no valor total
@@ -179,18 +181,23 @@ function removerDoCarrinho() {
                     })
 
                     //! Vai remover o produto do banco de dados e da tela do usuario
-                    arrayCarrinho.splice(idSpan, 1)
-                    db.collection('Carrinho').doc(valCarrinho.id).update({carrinho: arrayCarrinho})
-                    fecharInfRemover()
-                    document.getElementById('carregando').style.display = 'flex'
-                    id2--
-
-                    //! Vai apagar o produto da tela do user
-                    document.getElementById('containerProduto' + idSpan).remove()
-                    feitoRemover = true
-                    feitoRemover2 = true
+                    for (let c = 0; c < p.carrinho.length; c++) {
+                        try {
+                            if(arrayCarrinho[c].id == idSpan) {
+                                arrayCarrinho.splice(c, 1)
+                                db.collection('Carrinho').doc(valCarrinho.id).update({carrinho: arrayCarrinho})
+                                fecharInfRemover()
+                                document.getElementById('carregando').style.display = 'flex'
+                                id2--
+    
+                                //! Vai apagar o produto da tela do user
+                                document.getElementById('containerProduto' + idSpan).remove()
+                                feitoRemover = true
+                                feitoRemover2 = true
+                            }
+                        } catch {}
+                    }
                 }
-
             })
         })
     })
