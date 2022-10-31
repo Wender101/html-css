@@ -8,7 +8,7 @@ select#classeProdutos {
     display: none;
     top: 50px;
     right: -35px;
-    z-index: 3;
+    z-index: 7;
     background-color: var(--cor6);
 }
 

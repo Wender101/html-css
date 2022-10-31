@@ -1,82 +1,61 @@
-let total = 0
-
 function login() {
     auth.signInWithPopup(provider)
 }
 
+let tCarrinho = 0
+//! Checar se ouve alteração no banco de dados
+auth.onAuthStateChanged((valorEmail) => {
+    db.collection('Carrinho').onSnapshot((data) => {
+        data.docs.map(function(valCarrinho) {
+            let pCarrinho = valCarrinho.data()
+
+            //! Vai procurar um carrinho com o seu email
+            if(valorEmail.email == pCarrinho.email) {
+                db.collection('Produtos').onSnapshot((data) => {
+                    data.docs.map(function(valProdutos) {
+
+                        let pProdutos = valProdutos.data()
+                        for (let c = 0; c < pCarrinho.carrinho.length; c++) {
+                            if(pCarrinho.carrinho[c].id == pProdutos.id) {
+                                tCarrinho = pCarrinho.carrinho.length
+                                //! Vai chamar a função que vai adicionar os produtos na tela
+                                criaProdutos(pProdutos.nome, pProdutos.desc, pProdutos.imagem1, pProdutos.imagem2, pProdutos.id, pProdutos.classe, pProdutos.valor, pProdutos.desconto)
+
+                            }
+                        }
+                    })
+                })
+            }
+        })
+    })
+})
+
 let tamanhoCarrinho = 0
 let ValorComDesconto = 0.00
 let valorAMenos = 0.00
-let feitoRemover = false //! vai impedir que mais de um produto seja exlcuido por vez
-function addNaTela() {
-    auth.onAuthStateChanged((valor) => {
-        db.collection('Carrinho').onSnapshot((data) => {
-            data.docs.map(function(val) {
-                let p = val.data()
-        
-                if(p.email == valor.email) {
-                    //! vai checar se houve alterações no carrinho(excluir / adicionar) por outro dispositivo
-                    setInterval(() => {
-                        if(tamanhoCarrinho != 0 && p.carrinho.length < tamanhoCarrinho || p.carrinho.length > tamanhoCarrinho && feitoRemover == false)location.reload()
-                    }, 100)
-
-                    //! vai colocar os produtos na tela, apenas quando o banco de dados estiver alinhado com o site
-                    if(tamanhoCarrinho == 0 || p.carrinho.length == tamanhoCarrinho || feitoRemover == true) {
-                        tamanhoCarrinho = p.carrinho.length
-                        document.getElementById('carregando').style.display = 'none'
-                        for(let c = 0; c < p.carrinho.length; c++) {
-                            try {
-                                db.collection('Produtos').onSnapshot((data) => {
-                                    data.docs.map(function(val) {
-                                        if(p.carrinho[c].id == val.data().id) {
-                                            criaProdutos(val.data().nome, val.data().desc, val.data().imagem1, val.data().imagem2, val.data().id, val.data().classe, val.data().valor, val.data().desconto)
-                                        }
-                                    })
-                                })
-
-                            } catch {
-                                return
-                            }   
-                        }
-                    }
-                }
-            })
-        }) 
-    })
-} addNaTela()
-
-if(total <= 0) {
-    document.querySelector('main').id = 'main'
-}
-
-let id = 0
-let id2 = 0
-let idSpan //! Vai pegar o id do produto de acordo com a posição dele no array
-let arrayCarrinho = [] //! Vai criar uma copia do carrinho do user para fazer alterações futuras
+let idSpan
+let idP
+let checarRepido = []
+let cloneCarrinho = []
+let idContagem = 0
+//! Função que vai colocar os produtos na tela
 function criaProdutos(nome, desc, imagem1, imagem2, idproduto, classe, valor, desconto) {
+    document.getElementById('carregando').style.display = 'none'
+    if(checarRepido.length == idContagem) {
+        let obj = {
+            id: idproduto
+        }
+        cloneCarrinho.push(obj)
 
-    if(id2 == id) {
         if(valor != undefined && desconto != undefined) {
             //! Vai calcular o valor com o desconto implementado
             let valor2 = parseFloat(valor)
             let desconto2 = parseFloat(desconto)
             ValorComDesconto += (((desconto2 * valor2) / 100) - valor2) * -1
 
-            let res = ValorComDesconto.toFixed(2) - valorAMenos.toFixed(2)
-            document.getElementById('total').innerText = `Valor total: R$${res.toFixed(2)}`
+            document.getElementById('total').innerText = `Valor total: R$${ValorComDesconto.toFixed(2)}`
         }
 
-        let objCarrinhoBD = {
-            classe: classe,
-            imagem1: imagem1,
-            imagem2: imagem2,
-            nome: nome,
-            desc: desc,
-            id: idproduto
-        }
-        
-        arrayCarrinho.push(objCarrinhoBD)
-        
         //! Vai deixar o footer travado na parte de baixo
         document.querySelector('footer').style.position = 'relative'
         document.querySelector('footer').style.bottom = 'auto'
@@ -91,12 +70,24 @@ function criaProdutos(nome, desc, imagem1, imagem2, idproduto, classe, valor, de
         const strong = document.createElement('strong')
         const p = document.createElement('p')
         
-        containerProduto.classList = 'containerProduto'
-        containerProduto.id = `containerProduto${idproduto}`
+        //! Vai checar se o produto é repido e vai diferencia-lo pelo id
+        checarRepido.push(idproduto)
+        let testId = -1
+        for(let c = 0; c <= tCarrinho; c++) {
+            if(checarRepido[c] == idproduto) {
+                testId++
+            }
 
+            if(c == tCarrinho) {
+                containerProduto.id = `containerProduto${idproduto}-${testId}`
+                span.id = `${idproduto}-${testId}`
+                testId = 0
+            }
+        }
+
+        containerProduto.classList = 'containerProduto'
         localImgProduto.className = 'localImgProduto'
         span.classList = 'x'
-        span.id = idproduto
         localImgProduto.href = 'sobre-o-produto.html'
         imgProduto.className = 'imgProduto'
         imgProduto.src = imagem1
@@ -125,102 +116,95 @@ function criaProdutos(nome, desc, imagem1, imagem2, idproduto, classe, valor, de
         span.addEventListener('click', () => {
             document.getElementById('infRemover').style.display = 'flex'
             idSpan = span.id
+            idP = idproduto
         })
 
         //! Vai add a memoria qual produto vai ser analizado pelo usuario 
         localImgProduto.addEventListener('click', () => {
             localStorage.setItem('sobreProduto', idproduto)
         })
-
-        id++
-        id2++
-        setInterval(() => {
-            if(id2 == 0) {
-                setTimeout(() => {
-                    document.getElementById('recado').style.display = 'block'
-                }, 600)
-            }
-        }, 100)
+        idContagem++
     }
 }
 
 setTimeout(() => {
-    let recado = document.getElementById('recado')
-    if(recado.innerText == 'Seu carrinho se encontra vazio, adicione algum produto a ele.') {
+    if(document.getElementById('carregando').style.display != 'none') {
+        document.getElementById('recado').style.display = 'block'
         document.getElementById('carregando').style.display = 'none'
     }
 }, 8000)
 
-//! Vai remover o produto do carrinho e descontar o valor do produto removido do valor total
+//! Vai remover o produto do carrinho
 function removerDoCarrinho() {
-    let feitoRemover2 = false
-    auth.onAuthStateChanged((valEmail) => {
+    let feito = false
+    auth.onAuthStateChanged((valorEmail) => {
         db.collection('Carrinho').onSnapshot((data) => {
             data.docs.map(function(valCarrinho) {
-                let p = valCarrinho.data()
-                let idProdutoExcluido = idSpan
-                if(p.email == valEmail.email && feitoRemover2 == false) {
+                let pCarrinho = valCarrinho.data()
 
-                    //! Vai descontar o preço do produto removido no valor total
-                    db.collection('Produtos').onSnapshot((data) => {
-                        data.docs.map(function(valorProduto) {
-                            let pProduto = valorProduto.data()
+                //! Vai descontar o preço do produto removido no valor total
+                db.collection('Produtos').onSnapshot((data) => {
+                    data.docs.map(function(valorProduto) {
+                        let pProduto = valorProduto.data()
+                        
+                        if(idP == pProduto.id && feito == false) {
                             
-                            if(idProdutoExcluido.id == pProduto.id) {
-                                
-                                //! Vai calcular o valor com o desconto implementado
-                                let valor2 = parseFloat(pProduto.valor)
-                                let desconto2 = parseFloat(pProduto.desconto)
-                                valorAMenos = (((desconto2 * valor2) / 100) - valor2) * -1
-                                
-                                let res = parseFloat(ValorComDesconto.toFixed(2)) - parseFloat(valorAMenos.toFixed(2))
-                                ValorComDesconto = res
-                                document.getElementById('total').innerText = `Valor total: R$${res.toFixed(2)}`
-                            }
-                        })
+                            //! Vai calcular o valor com o desconto implementado
+                            let valor2 = parseFloat(pProduto.valor)
+                            let desconto2 = parseFloat(pProduto.desconto)
+                            valorAMenos = (((desconto2 * valor2) / 100) - valor2) * -1
+                            
+                            let res = ValorComDesconto.toFixed(2) - valorAMenos.toFixed(2)
+                            ValorComDesconto = res
+                            document.getElementById('total').innerText = `Valor total: R$${res.toFixed(2)}`
+                            feito = true
+                        }
                     })
+                })
 
+                //! Vai procurar um carrinho com o seu email
+                if(valorEmail.email == pCarrinho.email) {
+                     
                     //! Vai remover o produto do banco de dados e da tela do usuario
-                    for (let c = 0; c < p.carrinho.length; c++) {
+                    for (let c = 0; c <= pCarrinho.carrinho.length; c++) {
                         try {
-                            if(arrayCarrinho[c].id == idSpan) {
-                                arrayCarrinho.splice(c, 1)
-                                db.collection('Carrinho').doc(valCarrinho.id).update({carrinho: arrayCarrinho})
+                            if(cloneCarrinho[c].id == idP) {
+                                cloneCarrinho.splice(c, 1)
+                                db.collection('Carrinho').doc(valCarrinho.id).update({carrinho: cloneCarrinho})
                                 fecharInfRemover()
                                 document.getElementById('carregando').style.display = 'flex'
-                                id2--
     
                                 //! Vai apagar o produto da tela do user
                                 document.getElementById('containerProduto' + idSpan).remove()
-                                feitoRemover = true
-                                feitoRemover2 = true
+                                idContagem--
                             }
                         } catch {}
                     }
                 }
+
             })
         })
     })
 }
 
+//! Vai limpar o carrinho(remover todos os produtos)
 function limparCarrinho() {
-    let feito = false
     auth.onAuthStateChanged((valEmail) => {
         db.collection('Carrinho').onSnapshot((data) => {
             data.docs.map(function(valCarrinho) {
-                let p = valCarrinho.data()
+                let pCarrinho = valCarrinho.data()
 
-                if(p.email == valEmail.email && feito == false) {
-                    arrayCarrinho = []
-                    db.collection('Carrinho').doc(valCarrinho.id).update({carrinho: arrayCarrinho})
+                if(pCarrinho.email == valEmail.email) {
+                    cloneCarrinho = []
+                    db.collection('Carrinho').doc(valCarrinho.id).update({carrinho: cloneCarrinho})
                     fecharInfRemover()
                     document.getElementById('carregando').style.display = 'flex'
-                    
-                    //! Vai apagar o produto da tela do user
-                    setTimeout(() => {
+
+                     //! Vai apagar todos os produtos da tela do user
+                     setTimeout(() => {
                         document.querySelector('main').innerHTML = ''
+                        document.getElementById('recado').style.display = 'block'
                     }, 450)
-                    feito = true
                 }
             })
         })
@@ -232,6 +216,7 @@ function fecharInfRemover() {
     document.getElementById('infRemover').style.display = 'none'
 }
 
+//! Vai melhorar a responsividade para algumas telas
 setInterval(() => {
     let recado = document.getElementById('recado')
     let tamanhoTela = window.visualViewport.width
@@ -247,4 +232,4 @@ setInterval(() => {
             document.getElementById('main').style.width = ''
         }
     } catch {}
-}, 100);
+}, 100)

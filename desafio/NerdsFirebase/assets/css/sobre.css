@@ -62,7 +62,7 @@ nav {
     top: 0px;
     left: 0px;
     background-color: transparent;
-    z-index: 2;
+    z-index: 7;
 }
 
 nav#semFundo {

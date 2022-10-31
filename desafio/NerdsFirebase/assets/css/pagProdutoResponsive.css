@@ -1,5 +1,5 @@
 @media screen and (max-width: 1058px) {
-    h1#classProduto {
+    h1#classProduto, p#recado {
         max-width: 782px;
     }
 
@@ -9,7 +9,7 @@
 }
 
 @media screen and (max-width: 798px) {
-    h1#classProduto {
+    h1#classProduto, p#recado {
         max-width: 520px;
     }
 

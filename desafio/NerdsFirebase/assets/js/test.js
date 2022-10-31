@@ -1,4 +1,5 @@
 //! Function original
+let arrayCompleto = arrayCarrinho
 function removerDoCarrinho() {
     let feitoRemover2 = false
     auth.onAuthStateChanged((valEmail) => {
@@ -39,7 +40,6 @@ function removerDoCarrinho() {
                     feitoRemover = true
                     feitoRemover2 = true
                 }
-
             })
         })
     })
