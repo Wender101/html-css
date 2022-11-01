@@ -58,7 +58,7 @@ function cancelar() {
     document.getElementById('addProduto').style.display = 'none'
     document.getElementById('alert').style.display = 'none'
     document.getElementById('excluirProduto').style.display = 'none'
-    for(let c = 0; c < 4; c++) {
+    for(let c = 0; c < 5; c++) {
         let obrigatorios = document.getElementsByClassName('obrigatorios')[c]
         obrigatorios.style.animation = 'none'
     }
@@ -67,10 +67,13 @@ function cancelar() {
 }
 
 function limpar() {
-    let nomeProduto = document.getElementById('nomeProduto').value = ''
-    let descProduto = document.getElementById('descProduto').value = ''
-    let linkImg1 = document.getElementById('linkImg1').value = ''
-    let linkImg2 = document.getElementById('linkImg2').value = ''
+    document.getElementById('nomeProduto').value = ''
+    document.getElementById('descProduto').value = ''
+    document.getElementById('linkImg1').value = ''
+    document.getElementById('linkImg2').value = ''
+    document.getElementById('valorProduto').value = 0.00
+    document.getElementById('descontoProduto').value = '0%'
+    document.getElementById('sobreDesconto').value = 'Individual'
 }
 
 //! vai adicionar o produto
@@ -125,6 +128,226 @@ function chamarBD(classeSelecionada = 'Todos') {
     }) 
 } chamarBD()
 
+let carregado = false
+let cloneBanner = []
+let editandoBanner = false
+db.collection('Banners').onSnapshot((data) => {
+    data.docs.map(function(vaBanners) {
+        let pBanners = vaBanners.data()
+
+        if(editandoBanner == true) {
+            setTimeout(() => {
+                location.reload()
+            }, 1500)
+
+        } else if(carregado == false) {
+            for (let c = 0; c < pBanners.Banner.length; c++) {
+                criaBanners(pBanners.Banner[c].imagemAltaEscala, pBanners.Banner[c].imagemPequenaEscala, pBanners.Banner[c].id)
+                cloneBanner = pBanners.Banner
+            }
+
+        } else {
+            setTimeout(() => {
+                location.reload()
+            }, 1000)
+        }
+
+    })
+})
+
+let contadorBanners = 0
+let qBanner
+let stop = false //! Vai parar a animação do banner
+let idImgSelecionada //! Vai mostar o id do banner que vai ser editado
+function criaBanners(imagem1, imagem2, id) {
+    let slideshowWrapper = document.getElementsByClassName('slideshow-wrapper')[0]
+    let divBanner = document.createElement('div')
+    let imgBanners = document.createElement('img')
+
+    slideshowWrapper.style.width = `${qBanner + 200}%`
+
+    divBanner.className = 'slide'
+    divBanner.id = id
+    imgBanners.className = 'slide-img stop'
+
+    //! Vai alterar o banner de acordo com a tela
+    setInterval(() => {
+        if(visualViewport.width <= 500) {
+            imgBanners.src = imagem2
+        } else {
+            imgBanners.src = imagem1
+        }
+    }, 100)
+
+    divBanner.appendChild(imgBanners)
+    slideshowWrapper.appendChild(divBanner)
+
+    contadorBanners++
+    qBanner = (contadorBanners * 100) - 100
+
+    imgBanners.addEventListener('click', () => {
+        document.getElementById('editarBanner').style.display = 'flex'
+        idImgSelecionada = id
+        stop = true
+    })
+}
+
+//! Vai adicionar um no banner
+function adicionarBanner() {
+    let imagem1 = document.getElementById('imgbanner1').value
+    let imagem2 = document.getElementById('imgbanner2').value
+
+    if(editandoBanner == false) {
+
+        let objBanner = {
+            imagemAltaEscala: imagem1,
+            imagemPequenaEscala: imagem2,
+            id: contadorBanners
+        }
+
+        cloneBanner.push(objBanner)
+
+        db.collection('Banners').onSnapshot((data) => {
+            data.docs.map(function(vaBanners) {
+                db.collection('Banners').doc(vaBanners.id).update({Banner: cloneBanner})
+            })
+        })
+        cacelarAddBanner()
+
+        document.getElementById('carregando').style.display = 'flex'
+        carregado = true
+
+    } else {
+        db.collection('Banners').onSnapshot((data) => {
+            data.docs.map(function(vaBanners) {
+                let pBanners = vaBanners.data()
+        
+                for (let c = 0; c < pBanners.Banner.length; c++) {
+                    if(idImgSelecionada == pBanners.Banner[c].id) {
+                        cloneBanner[c].imagemAltaEscala = imagem1
+                        cloneBanner[c].imagemPequenaEscala = imagem2
+                        db.collection('Banners').doc(vaBanners.id).update({Banner: cloneBanner})
+
+                        document.getElementById('carregando').style.display = 'flex'
+                    }
+                }
+
+            })
+        })
+    }
+}
+
+//! Vai editar um banner já existente
+function editarBanner() {
+    db.collection('Banners').onSnapshot((data) => {
+        data.docs.map(function(vaBanners) {
+            let pBanners = vaBanners.data()
+    
+            for (let c = 0; c < pBanners.Banner.length; c++) {
+                if(idImgSelecionada == pBanners.Banner[c].id) {
+                    document.getElementById('imgbanner1').value = pBanners.Banner[c].imagemAltaEscala
+                    document.getElementById('imgbanner2').value = pBanners.Banner[c].imagemPequenaEscala
+
+                    editandoBanner = true
+                }
+            }
+        })
+    })
+}
+
+//! Vai excluir o banner selecionado
+function excluirBanner() {
+    db.collection('Banners').onSnapshot((data) => {
+        data.docs.map(function(vaBanners) {
+            let pBanners = vaBanners.data()
+    
+            for (let c = 0; c < pBanners.Banner.length; c++) {
+                if(idImgSelecionada == pBanners.Banner[c].id) {
+                    cloneBanner.splice(c, 1)
+                    db.collection('Banners').doc(vaBanners.id).update({Banner: cloneBanner})
+
+                    editandoBanner = true
+                }
+            }
+        })
+    })
+}
+
+//! Vai fechar a aba de editar/ adicionar novo banner
+function cacelarAddBanner() {
+    document.getElementById('editarBanner').style.display = 'none'
+    document.getElementById('imgbanner1').value = ''
+    document.getElementById('imgbanner2').value = ''
+
+    editandoBanner = false
+}
+
+//! Sliders
+let slide = document.querySelector('.slideshow-wrapper')
+let btnSlide1 = document.getElementsByClassName('slide-btn-1')[0]
+let btnSlide2 = document.getElementsByClassName('slide-btn-2')[0]
+let anin = 0
+
+setInterval( function animacao() {
+    if(stop == false) {
+        if(anin < qBanner) {
+            anin += 100
+            
+        } else {
+            anin = 0
+        }
+    
+        slide.style.left = `-${anin}%`
+    }
+}, 3500)
+
+function btnSliderE() {
+    if(anin > 0) {
+        stop = true
+        anin -= 100
+        slide.style.left = `-${anin}%`
+        btnSlide2.style.display = 'block'
+    }
+}
+
+function btnSliderD() {
+    if(anin < qBanner) {
+        stop = true
+        anin += 100
+        slide.style.left = `-${anin}%`
+        btnSlide1.style.display = 'block'
+
+    }
+}
+
+setInterval(() => {
+    //! Vai controlar quando o bnt1 vai aparecer ou sumir
+    if(anin == 0) {
+        btnSlide1.style.display = 'none'
+
+    } else {
+        btnSlide1.style.display = 'block'
+    } 
+
+    //! Vai controlar qunado o bnt2 vai aparecer ou sumir
+    if(anin == qBanner) {
+        btnSlide2.style.display = 'none'
+
+    } else {
+        btnSlide2.style.display = 'block'
+    }
+}, 500)
+
+document.addEventListener('click', (el) => {
+    let e = el.target.className
+    let eId = el.target.id
+    if(e != 'slide-btn slide-btn-1' && e != 'slide-btn slide-btn-2' && e != 'stop' && e != 'obrigatorios stop' && e != 'slide-img stop') {
+        stop = false
+    }
+})
+//! Fim Sliders
+
+
 //! Vai colocar os produtos na tela
 let editando = 0
 function construirProduto(classe, nome, desc, imagem1, imagem2 = imagem1, id, valor, desconto, tipoDesconto) {
@@ -134,14 +357,15 @@ function construirProduto(classe, nome, desc, imagem1, imagem2 = imagem1, id, va
     const imgProduto = document.createElement('img')
     const strong = document.createElement('strong')
     const p = document.createElement('p')
-    const btnEdit = document.createElement('span')
+    const buttonEdit = document.createElement('button')
+    const spanEdit = document.createElement('span')
 
     containerProduto.className = 'containerProduto'
     localImgProduto.className = 'localImgProduto'
     localImgProduto.href = 'sobre-o-produto.html'
     imgProduto.className = 'imgProduto'
-    btnEdit.innerText = '='
-    btnEdit.className = 'btnEdit'
+    spanEdit.innerText = '='
+    buttonEdit.className = 'btnEdit'
 
     try {
         imgProduto.src = imagem1
@@ -156,14 +380,15 @@ function construirProduto(classe, nome, desc, imagem1, imagem2 = imagem1, id, va
 
     //! AppendChild
     localImgProduto.appendChild(imgProduto)
-    containerProduto.appendChild(btnEdit)
+    buttonEdit.appendChild(spanEdit)
+    containerProduto.appendChild(buttonEdit)
     containerProduto.appendChild(localImgProduto)
     containerProduto.appendChild(strong)
     containerProduto.appendChild(p)
     main.appendChild(containerProduto)
 
     //! Editar produto
-    btnEdit.addEventListener('click', () => {
+    buttonEdit.addEventListener('click', () => {
         editando = id
 
         document.getElementById('classe').value = classe
@@ -253,7 +478,6 @@ function addNoBancoDeDados(classe, nome, desc, imagem1, imagem2, id, valor, desc
     }
 
     if(editando == 0) {
-        console.log('1');
         db.collection('Produtos').add(objProdutos)
 
 

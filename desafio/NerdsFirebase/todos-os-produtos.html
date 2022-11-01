@@ -48,6 +48,36 @@
         <option value="Outros">Outros</option>
     </select>
 
+    <!--? Slider -->
+    <div class="container">
+        <div class="slideshow">
+            <!-- carousel control buttons -->
+            <button class="slide-btn slide-btn-1" onclick="btnSliderE()"><</button>
+            <button class="slide-btn slide-btn-2" onclick="btnSliderD()">></button>
+
+            <!-- carousel wrapper which contains all images -->
+            <div class="slideshow-wrapper">
+            </div>
+        </div>
+    </div>
+
+    <section id="editarBanner" class="stop">
+        <div class="stop">
+            <span class="obrigatorios stop">*Link da imagem em grande escala</span>
+            <input type="text" placeholder="Ex: https://www.banner.com.br" id="imgbanner1" class="stop">
+            <span class="obrigatorios stop">*Link da imagem em pequena escala</span>
+            <input type="text" placeholder="Ex: https://www.banner.com.br" id="imgbanner2" class="stop">
+
+            <div class="stop">
+                <button onclick="adicionarBanner()" class="stop">Adicionar</button>
+                <button onclick="editarBanner()" class="stop">Editar</button>
+                <button onclick="excluirBanner()" class="stop">Excluir</button>
+                <button onclick="cacelarAddBanner()" class="stop">Cancelar</button>
+            </div>
+        </div>
+    </section>
+    <!--? Fim Slider -->
+
     <h1 id="classProduto">Todos os Produtos</h1>
     <main>
     </main>    

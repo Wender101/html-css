@@ -21,7 +21,7 @@ a#carrinho {
     position: fixed;
     z-index: 4;
     right: 15px;
-    bottom: 40%;
+    bottom: 12%;
     background-color: var(--cor3);
     color: white;
     border-radius: 50%;

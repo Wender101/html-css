@@ -2,6 +2,7 @@ function login() {
     auth.signInWithPopup(provider)
 }
 
+let removido = false
 let tCarrinho = 0
 //! Checar se ouve alteração no banco de dados
 auth.onAuthStateChanged((valorEmail) => {
@@ -15,13 +16,24 @@ auth.onAuthStateChanged((valorEmail) => {
                     data.docs.map(function(valProdutos) {
 
                         let pProdutos = valProdutos.data()
-                        for (let c = 0; c < pCarrinho.carrinho.length; c++) {
-                            if(pCarrinho.carrinho[c].id == pProdutos.id) {
-                                tCarrinho = pCarrinho.carrinho.length
-                                //! Vai chamar a função que vai adicionar os produtos na tela
-                                criaProdutos(pProdutos.nome, pProdutos.desc, pProdutos.imagem1, pProdutos.imagem2, pProdutos.id, pProdutos.classe, pProdutos.valor, pProdutos.desconto)
-
-                            }
+                        for (let c = 0; c <= pCarrinho.carrinho.length; c++) {
+                            try {
+                                if(pCarrinho.carrinho[c].id == pProdutos.id) {
+                                    if(tCarrinho == 0 || tCarrinho == pCarrinho.carrinho.length) {
+                                        tCarrinho = pCarrinho.carrinho.length
+                                        //! Vai chamar a função que vai adicionar os produtos na tela
+                                        criaProdutos(pProdutos.nome, pProdutos.desc, pProdutos.imagem1, pProdutos.imagem2, pProdutos.id, pProdutos.classe, pProdutos.valor, pProdutos.desconto)
+    
+                                    } else if(pCarrinho.carrinho.length != tCarrinho && tCarrinho != 0 && removido == false) {
+                                        console.log(3);
+                                        setTimeout(() => {
+                                            location.reload()
+                                        }, 1400)
+                                    } else {
+                                        document.getElementById('carregando').style.display = 'none'
+                                    }
+                                }
+                            } catch {}
                         }
                     })
                 })
@@ -30,14 +42,13 @@ auth.onAuthStateChanged((valorEmail) => {
     })
 })
 
-let tamanhoCarrinho = 0
 let ValorComDesconto = 0.00
 let valorAMenos = 0.00
 let idSpan
 let idP
-let checarRepido = []
-let cloneCarrinho = []
 let idContagem = 0
+let cloneCarrinho = []
+let checarRepido = []
 //! Função que vai colocar os produtos na tela
 function criaProdutos(nome, desc, imagem1, imagem2, idproduto, classe, valor, desconto) {
     document.getElementById('carregando').style.display = 'none'
@@ -185,6 +196,8 @@ function removerDoCarrinho() {
             })
         })
     })
+
+    removido = true
 }
 
 //! Vai limpar o carrinho(remover todos os produtos)

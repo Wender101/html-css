@@ -317,9 +317,7 @@ section#produtos {
     transform: translate(-52.5%);
     margin-bottom: 50px;
     border-radius: 10px;
-    background-image: url('../img/site/NFT1\ 3.png');
-    background-position: center center;
-    background-size: cover;
+    background-color: var(--cor6);
 }
 
 .content {
@@ -334,7 +332,6 @@ section#produtos {
 
 .slideshow-wrapper {
     display: flex;
-    width: 400%;
     height: 100%;
     position: relative;
     transition: 900ms left linear;

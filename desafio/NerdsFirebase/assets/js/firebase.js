@@ -14,8 +14,11 @@ firebase.initializeApp(firebaseConfig)
 const auth = firebase.auth()
 const provider = new firebase.auth.GoogleAuthProvider()
 
+let trocarDeConta = false
 function login() {
+    trocarDeConta = true
     auth.signInWithPopup(provider)
+
 }
 
 const db = firebase.firestore()
@@ -23,7 +26,7 @@ const db = firebase.firestore()
 let email
 auth.onAuthStateChanged((val) => {
     if(val.email) {
-        if(email != undefined) {
+        if(email != undefined && trocarDeConta == true) {
             location.reload()
 
         } else {
@@ -33,6 +36,7 @@ auth.onAuthStateChanged((val) => {
             document.getElementById('imgUser').src = val.photoURL
 
             email = val.email
+            trocarDeConta = false
         }
     } 
 
