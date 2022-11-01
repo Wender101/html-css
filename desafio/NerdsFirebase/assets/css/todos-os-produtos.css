@@ -148,7 +148,7 @@ main {
 
 select#classeProdutos {
     width: 150px;
-    position: fixed;
+    position: absolute;
     display: none;
     top: 100px;
     right: -35px;
