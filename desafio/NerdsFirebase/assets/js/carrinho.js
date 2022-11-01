@@ -4,6 +4,7 @@ function login() {
 
 let removido = false
 let tCarrinho = 0
+let carregado = false
 //! Checar se ouve alteração no banco de dados
 auth.onAuthStateChanged((valorEmail) => {
     db.collection('Carrinho').onSnapshot((data) => {
@@ -11,7 +12,7 @@ auth.onAuthStateChanged((valorEmail) => {
             let pCarrinho = valCarrinho.data()
 
             //! Vai procurar um carrinho com o seu email
-            if(valorEmail.email == pCarrinho.email) {
+            if(valorEmail.email == pCarrinho.email && carregado == false) {
                 db.collection('Produtos').onSnapshot((data) => {
                     data.docs.map(function(valProdutos) {
 
@@ -23,7 +24,7 @@ auth.onAuthStateChanged((valorEmail) => {
                                         tCarrinho = pCarrinho.carrinho.length
                                         //! Vai chamar a função que vai adicionar os produtos na tela
                                         criaProdutos(pProdutos.nome, pProdutos.desc, pProdutos.imagem1, pProdutos.imagem2, pProdutos.id, pProdutos.classe, pProdutos.valor, pProdutos.desconto)
-    
+                                        
                                     } else if(pCarrinho.carrinho.length != tCarrinho && tCarrinho != 0 && removido == false) {
                                         console.log(3);
                                         setTimeout(() => {
@@ -34,6 +35,7 @@ auth.onAuthStateChanged((valorEmail) => {
                                     }
                                 }
                             } catch {}
+                            carregado = true
                         }
                     })
                 })
@@ -188,6 +190,7 @@ function removerDoCarrinho() {
                                 //! Vai apagar o produto da tela do user
                                 document.getElementById('containerProduto' + idSpan).remove()
                                 idContagem--
+                                carregado = false
                             }
                         } catch {}
                     }
