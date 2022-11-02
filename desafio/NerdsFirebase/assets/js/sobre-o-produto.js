@@ -266,20 +266,30 @@ auth.onAuthStateChanged((valEmail) => {
         data.docs.map(function(valCarrinho) {
             let p = valCarrinho.data()
 
-            if(p.email == valEmail.email && carrinhoCarregado == false) {
-                for(let c = 0; c < p.carrinho.length; c++) {
-                    try {
-                        let objCarrinhoBD = {
-                            id: p.carrinho[c].id
-                        }
+            try {
+                if(p.email == valEmail.email && carrinhoCarregado == false) {
+                    for(let c = 0; c < p.carrinho.length; c++) {
+                        try {
+                            let objCarrinhoBD = {
+                                id: p.carrinho[c].id
+                            }
 
-                        arrayCarrinho.push(objCarrinhoBD)
+                            arrayCarrinho.push(objCarrinhoBD)
 
-                    } catch {
-                        return
-                    }   
+                        } catch {
+                            return
+                        }   
+                    }
+                    carrinhoCarregado = true
+
+                    document.getElementById('btnCarrinho').addEventListener('click', () => {
+                        addCarrinho()
+                    })
                 }
-                carrinhoCarregado = true
+            } catch {
+                document.getElementById('btnCarrinho').addEventListener('click', () => {
+                    login()
+                })
             }
         })
     })
