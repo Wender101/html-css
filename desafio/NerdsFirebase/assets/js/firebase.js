@@ -24,13 +24,14 @@ function login() {
 const db = firebase.firestore()
 
 let email
+let reload = false
 auth.onAuthStateChanged((val) => {
     if(val.email) {
-        if(email != undefined && trocarDeConta == true) {
+        if(email != undefined && trocarDeConta == true || reload == true) {
             location.reload()
 
         } else {
-             //! Vai mostrar que vc está logado
+            //! Vai mostrar que vc está logado
             const btnLogin = document.getElementById('btnLogin')
             btnLogin.innerText = 'Conectado'
             document.getElementById('imgUser').src = val.photoURL
@@ -59,3 +60,13 @@ auth.onAuthStateChanged((val) => {
         } catch {}
     }
 })
+
+try {
+    document.getElementById('btnCarrinho').addEventListener('click', () => {
+        if(email == undefined)  {
+            reload = true
+
+            localStorage.setItem('reload', reload)
+        }
+    })
+} catch {}

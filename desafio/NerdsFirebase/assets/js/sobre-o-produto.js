@@ -126,6 +126,13 @@ db.collection('Produtos').onSnapshot((data) => {
             document.getElementById('btnCarrinho').style.display = 'block'
     
             btnContato.href=`https://api.whatsapp.com/send?phone=+55%2061%2099831-0963&text=Estou interessado nesse produto: link: ${window.location.href}`
+
+            //! Vai fazer com q o produto sejá add automaticamente quando o user logar na conta após clicar em add ao carrinho sem conta
+            let checarReload = localStorage.getItem('reload')
+            if(checarReload == 'true') {
+                addCarrinho()
+                localStorage.setItem('reload', false)
+            }
         }
     
     })
