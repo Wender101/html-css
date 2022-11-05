@@ -280,12 +280,17 @@ auth.onAuthStateChanged((valEmail) => {
                             return
                         }   
                     }
-                    carrinhoCarregado = true
+                }
 
+                //! Vai possibilitar que pessoas que logaram qnd foi add o produto possa add dps de logar
+                if(carrinhoCarregado == false) {
                     document.getElementById('btnCarrinho').addEventListener('click', () => {
                         addCarrinho()
                     })
                 }
+
+                carrinhoCarregado = true
+
             } catch {
                 document.getElementById('btnCarrinho').addEventListener('click', () => {
                     login()

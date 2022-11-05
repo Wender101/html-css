@@ -1,0 +1,310 @@
+/*? Slider */
+.container {
+    max-width: 1100px;
+    width: 99.5%;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 150px;
+    margin-left: 50%;
+    transform: translate(-51%);
+    margin-bottom: 50px;
+    border-radius: 10px;
+    background-color: var(--cor6);
+}
+
+.content {
+    position: relative;
+}
+
+.slideshow {
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.slideshow-wrapper {
+    display: flex;
+    height: 100%;
+    position: relative;
+    transition: 900ms left linear;
+    left: 0%;
+
+}
+
+.slide {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.slide-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    box-shadow: 3px 4px 10px black initial;
+}
+
+.slide-btn {
+    width: 50px;
+    height: 47px;
+    z-index: 3;
+    position: absolute;
+    border-radius: 50%;
+    background-color: var(--cor2);
+    top: 50%;
+    transform: translate(0, -50%);
+    color: var(--cor0);
+    font-size: 30px;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+}
+
+.slide-btn:hover {
+    background-color: var(--cor1);
+}
+
+.slide-btn-1 {
+    left: 10px;
+    padding-right: 3px;
+}
+
+.slide-btn-2 {
+    right: 10px;
+    padding-left: 3px;
+}
+
+/*? Editar slides */
+#editarBanner {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--cor8);
+    z-index: 5;
+}
+
+#editarBanner > div {
+    width: 80%;
+    max-width: 500px;
+    height: auto;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: var(--cor8);
+    color: var(--cor0);
+    border: 2px solid var(--cor3);
+}
+
+#editarBanner > div > span {
+    width: 90%;
+    display: block;
+    margin: auto;
+}
+
+#editarBanner > div > input {
+    width: 86%;
+    padding: 10px;
+    margin: 5px 0px 25px 50%;
+    transform: translate(-50%);
+    border-radius: 5px;
+    background-color: transparent;
+    border: 2px solid var(--cor3);
+    display: block;
+    color: white;
+}
+
+#editarBanner > div > div {
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+#editarBanner > div > div > button {
+    padding: 5px 20px;
+    border-radius: 5px;
+    background-color: var(--cor3);
+    color: var(--cor0);
+    font-family: var(--font-texto);
+    font-weight: 100;
+    border: 1px solid transparent;
+    margin-bottom: 10px;
+}
+
+/*? Fim Slider */
+
+
+main {
+    min-height: 60vh;
+}
+
+select#classeProdutos {
+    width: 150px;
+    position: absolute;
+    display: none;
+    top: 100px;
+    right: -35px;
+    z-index: 5;
+    background-color: var(--cor6);
+}
+
+select#classeProdutos > option {
+    padding: 10px;
+}
+
+.btnEdit {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 10px;
+    right: 5px;
+    border-radius: 50%;
+    background-color: var(--cor5);
+    color: var(--cor0);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    cursor: pointer;
+    overflow: hidden;
+    font-size: 20px;
+    font-weight: 900;
+    font-family: 'Dangrek', cursive;
+    border: none;
+}
+
+.btnEdit > span {
+    display: block;
+    margin-top: -6px;
+}
+
+/*! Funções de adiministrador */
+#btnAdicionarProduto {
+    width: 50px;
+    height: 50px;
+    position: fixed;
+    z-index: 4;
+    right: 15px;
+    bottom: 21%;
+    background-color: var(--cor3);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    z-index: 3;
+}
+
+#btnAdicionarProduto > span {
+    font-size: 40px;
+    margin-top: -5px;
+}
+
+#addProduto {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--cor8);
+    z-index: 4;
+}
+
+#addProduto > div {
+    width: 80%;
+    max-width: 500px;
+    max-height: 770px;
+    height: 90vh;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: var(--cor8);
+    color: var(--cor0);
+    border: 2px solid var(--cor3);
+}
+
+#addProduto > div > span {
+    width: 90%;
+    display: block;
+    margin: auto;
+}
+
+#addProduto > div > input, select {
+    width: 86%;
+    padding: 10px;
+    margin: 5px 0px 25px 50%;
+    transform: translate(-50%);
+    border-radius: 5px;
+    background-color: transparent;
+    border: 2px solid var(--cor3);
+    display: block;
+    color: white;
+}
+
+#addProduto > div > select {
+    width: 91%;
+}
+
+#addProduto > div > select > option {
+    background-color: var(--cor8);
+}
+
+#addProduto > div > div {
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+#addProduto > div > div > button {
+    padding: 5px 20px;
+    border-radius: 5px;
+    background-color: var(--cor3);
+    color: var(--cor0);
+    font-family: var(--font-texto);
+    font-weight: 100;
+    border: 1px solid transparent;
+    margin-bottom: 10px;
+}
+
+#addProduto > div > div > button#excluirProduto {
+    display: none;
+}
+
+#addProduto > div > div > button:hover {
+    background-color: var(--cor8);
+    border: 1px solid var(--cor3);
+}
+
+#addProduto > div > #alert {
+    color: red;
+    margin-bottom: 20px;
+    font-size: 14px;
+    display: none;
+}
+
+@keyframes obrigatorios {
+    0% {
+        color: white;
+    }
+
+    50% {
+        color: red;
+    }
+
+    100% {
+        color: white;
+    }
+}
+/*! Fim das funções de adiministrador */
