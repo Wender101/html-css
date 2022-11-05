@@ -102,6 +102,7 @@ function login() {
 }
 
 let classeProduto
+let reload2 = false
 db.collection('Produtos').onSnapshot((data) => {
     data.docs.map(function(val) {
 
@@ -129,9 +130,10 @@ db.collection('Produtos').onSnapshot((data) => {
 
             //! Vai fazer com q o produto sejá add automaticamente quando o user logar na conta após clicar em add ao carrinho sem conta
             let checarReload = localStorage.getItem('reload')
-            if(checarReload == 'true') {
+            if(checarReload == 'true' && reload2 == false) {
                 addCarrinho()
                 localStorage.setItem('reload', false)
+                reload2 = true
             }
         }
     
@@ -265,7 +267,6 @@ function construirProduto(nome, desc, imagem1, imagem2, id, valor, desconto, tip
 //! Vai pegar do BD o carrinho
 let arrayCarrinho = []
 let carrinhoCarregado = false
-let carrinhoCarregado2 = false
 auth.onAuthStateChanged((valEmail) => {
     db.collection('Carrinho').onSnapshot((data) => {
         setTimeout(() => {
@@ -281,23 +282,23 @@ auth.onAuthStateChanged((valEmail) => {
                             let objCarrinhoBD = {
                                 id: p.carrinho[c].id
                             }
-
+                            
                             arrayCarrinho.push(objCarrinhoBD)
-                            carrinhoCarregado = true
-
+                            console.log(arrayCarrinho);
+                            
                         } catch {
                             return
                         }   
                     }
+                    carrinhoCarregado = true
                 }
 
                 //! Vai possibilitar que pessoas que logaram qnd foi add o produto possa add dps de logar
-                if(carrinhoCarregado2 == false) {
-                    carrinhoCarregado2 = true
-                    document.getElementById('btnCarrinho').addEventListener('click', () => {
-                        addCarrinho()
-                    })
-                }
+                document.getElementById('btnCarrinho').addEventListener('click', () => {
+                    addCarrinho()
+                })
+
+                
 
             } catch {
                 document.getElementById('btnCarrinho').addEventListener('click', () => {
