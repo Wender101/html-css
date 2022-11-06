@@ -150,6 +150,7 @@ setTimeout(() => {
 //! Vai remover o produto do carrinho
 function removerDoCarrinho() {
     let feito = false
+    let feito2 = false
     auth.onAuthStateChanged((valorEmail) => {
         db.collection('Carrinho').onSnapshot((data) => {
             data.docs.map(function(valCarrinho) {
@@ -161,7 +162,6 @@ function removerDoCarrinho() {
                         let pProduto = valorProduto.data()
                         
                         if(idP == pProduto.id && feito == false) {
-                            
                             //! Vai calcular o valor com o desconto implementado
                             let valor2 = parseFloat(pProduto.valor)
                             let desconto2 = parseFloat(pProduto.desconto)
@@ -181,7 +181,7 @@ function removerDoCarrinho() {
                     //! Vai remover o produto do banco de dados e da tela do usuario
                     for (let c = 0; c <= pCarrinho.carrinho.length; c++) {
                         try {
-                            if(cloneCarrinho[c].id == idP) {
+                            if(cloneCarrinho[c].id == idP && feito2 == false) {
                                 cloneCarrinho.splice(c, 1)
                                 db.collection('Carrinho').doc(valCarrinho.id).update({carrinho: cloneCarrinho})
                                 fecharInfRemover()
@@ -191,6 +191,17 @@ function removerDoCarrinho() {
                                 document.getElementById('containerProduto' + idSpan).remove()
                                 idContagem--
                                 carregado = false
+                                feito2 = true
+
+                                setInterval(() => {
+                                    if(ValorComDesconto == 0) {
+                                        //! Vai apagar todos os produtos da tela do user
+                                        setTimeout(() => {
+                                            document.getElementById('recado').style.display = 'block'
+                                            document.getElementById('carregando').style.display = 'none'
+                                        }, 450)
+                                    }
+                                }, 100)
                             }
                         } catch {}
                     }

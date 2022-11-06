@@ -218,7 +218,7 @@ function construirProduto(nome, desc, imagem1, imagem2, id, valor, desconto, tip
         })
         document.getElementById('btnCarrinho').style.display = 'block'
 
-        //!Vai criar o efeito de zoom nas imgs
+        //! Vai criar o efeito de zoom nas imgs
         function zoom() {
 
             let small = document.querySelector("#small")
@@ -283,12 +283,12 @@ auth.onAuthStateChanged((valEmail) => {
                             }
 
                             arrayCarrinho.push(objCarrinhoBD)
-                            carrinhoCarregado = true
-
+                            
                         } catch {
                             return
                         }   
                     }
+                    carrinhoCarregado = true
                 }
 
                 //! Vai possibilitar que pessoas que logaram qnd foi add o produto possa add dps de logar
