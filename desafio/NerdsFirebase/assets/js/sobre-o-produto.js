@@ -97,10 +97,6 @@ setTimeout(() => {
     }
 }, 8000)
 
-function login() {
-    auth.signInWithPopup(provider)
-}
-
 let classeProduto
 db.collection('Produtos').onSnapshot((data) => {
     data.docs.map(function(val) {

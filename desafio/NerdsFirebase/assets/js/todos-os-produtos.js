@@ -21,6 +21,7 @@ auth.onAuthStateChanged((val) => {
 
         //! Eventos de click
         btnAdicionarProduto.addEventListener('click', () => {
+            document.getElementById('btnAdd').innerText = 'Adicionar'
             document.getElementById('addProduto').style.display = 'flex'
         })
 
@@ -54,10 +55,13 @@ auth.onAuthStateChanged((val) => {
     fecharMenu()
 })
 //! Vai cancelar a ação de adiconar um produto
+let editando = 0
 function cancelar() {
     document.getElementById('addProduto').style.display = 'none'
     document.getElementById('alert').style.display = 'none'
     document.getElementById('excluirProduto').style.display = 'none'
+    editando = 0
+
     for(let c = 0; c < 5; c++) {
         let obrigatorios = document.getElementsByClassName('obrigatorios')[c]
         obrigatorios.style.animation = 'none'
@@ -349,7 +353,6 @@ document.addEventListener('click', (el) => {
 
 
 //! Vai colocar os produtos na tela
-let editando = 0
 function construirProduto(classe, nome, desc, imagem1, imagem2 = imagem1, id, valor, desconto, tipoDesconto) {
     const main = document.querySelector('main')
     const containerProduto = document.createElement('div')
@@ -423,9 +426,7 @@ function construirProduto(classe, nome, desc, imagem1, imagem2 = imagem1, id, va
 
 //! Função q vai add
 function adicionarProduto() {
-    document.getElementById('btnAdd').innerText = 'Adicionar'
-
-
+    
     let select = document.getElementById('classe').value
     let nomeProduto = document.getElementById('nomeProduto').value
     let descProduto = document.getElementById('descProduto').value

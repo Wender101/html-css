@@ -64,10 +64,6 @@ function urlPage() {
     
 } urlPage()
 
-function login() {
-    auth.signInWithPopup(provider)
-}
-
 //! vai adicionar o produto
 let id = 0
 db.collection('Produtos').onSnapshot((data) => {

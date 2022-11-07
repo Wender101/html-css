@@ -285,11 +285,6 @@ main > section#texto > div#btns > a > button, div#btns > button {
     border: 1px solid transparent;
 }
 
-main > section#texto > div#btns a > button:hover, div#btns > button:hover {
-    background-color: transparent;
-    border: 1px solid var(--cor1);    
-}
-
 a#carrinho:hover {
     transform: scale(1.1);
 }

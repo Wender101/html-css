@@ -4,10 +4,18 @@
     }
 }
 
+/*! Vai adicionar animação aos btnsa ao passar o mouse em cima deles */
+@media screen and (min-width: 600px) {
+    main > section#texto > div#btns a > button:hover, div#btns > button:hover {
+        background-color: transparent;
+        border: 1px solid var(--cor1);    
+    }    
+}
+
 @media screen and (min-width: 983px) {
     main > section#texto > div#btns > a > button, div#btns > button {
         padding: 10px 20px;
-    }
+    } 
 }
 
 @media screen and (max-width: 983px) {

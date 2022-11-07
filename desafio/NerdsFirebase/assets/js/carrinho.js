@@ -1,7 +1,3 @@
-function login() {
-    auth.signInWithPopup(provider)
-}
-
 let removido = false
 let tCarrinho = 0
 let carregado = false
@@ -231,6 +227,10 @@ function limparCarrinho() {
                      setTimeout(() => {
                         document.querySelector('main').innerHTML = ''
                         document.getElementById('recado').style.display = 'block'
+
+                        //! Vai zerar o "Valor total"
+                        ValorComDesconto = 0.00
+                        document.getElementById('total').innerText = `Valor total: R$${ValorComDesconto.toFixed(2)}`
                     }, 450)
                 }
             })
