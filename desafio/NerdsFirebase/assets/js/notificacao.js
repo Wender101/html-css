@@ -96,13 +96,11 @@ function criar(pergunta, resposta, data, id) {
                         }, 1000)
                     } else if(email == 'wendernatanael2019@gmail.com') {
                         document.getElementById('carregando').style.display = 'flex'
-                        setTimeout(() => {
-                            window.location.href = `http://127.0.0.1:5501/sobre-o-produto.html#${id}`
+                        window.location.href = `http://127.0.0.1:5501/sobre-o-produto.html#${id}`
 
-                            setTimeout(() => {
-                                location.reload()
-                            }, 1000)
-                        }, 1000)
+                        setTimeout(() => {
+                          location.reload()
+                       }, 1000)
                     }
                 }
             })
