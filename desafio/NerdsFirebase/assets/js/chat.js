@@ -15,11 +15,13 @@ db.collection('Chat').onSnapshot((data) => {
         let chat = valChat.data()
 
         if(chatCarregado == false) {
-            for(let c = 0; c < chat.Perguntas.length; c++) {
-                if(chat.Perguntas[c].id == idProdutoChat) {
-                    criaPergunta(chat.Perguntas[c].PerguntasFeitas, chat.Perguntas[c].Resposta, chat.Perguntas[c].DataResposta)
+            try {
+                for(let c = 0; c < chat.Perguntas.length; c++) {
+                    if(chat.Perguntas[c].id == idProdutoChat) {
+                        criaPergunta(chat.Perguntas[c].PerguntasFeitas, chat.Perguntas[c].Resposta, chat.Perguntas[c].DataResposta)
+                    }
                 }
-            }
+            } catch {}
 
             setTimeout(() => {
                 chatCarregado = true
@@ -38,8 +40,6 @@ function perguntar() {
     let pergunta = document.getElementById('inputChat').value
 
     if(pergunta != '' && pergunta.length > 4) {
-        criaPergunta(pergunta)
-
         let obj = {
             PerguntasFeitas: pergunta,
             Resposta: '...',
@@ -48,6 +48,10 @@ function perguntar() {
         }
 
         cloneChat.push(obj)
+
+        if(cloneChat.length > 1) {
+            criaPergunta(pergunta)
+        }
 
         salvarPergunta(cloneChat)
     }
@@ -131,22 +135,26 @@ function criaPergunta(pergunta = '', resposta = '...', data = '') {
 
 //! Vai salvar as perguntas no bando de dados
 function salvarPergunta(chatclonado) {
+    let salvo = false
 
     db.collection('Chat').onSnapshot((data) => {
         data.docs.map(function(valChat) {
             let chat = valChat.data()
-            if(chat.Perguntas.length > 0) {
-                if(chat.email == email) {
-                    db.collection('Chat').doc(valChat.id).update({Perguntas: 
-                    chatclonado})
-                } 
-                
-            } else {
-                let obj = {
-                    email: email,
-                    Perguntas: chatclonado
+            if(salvo == false) {
+                if(cloneChat.length > 1) {
+                    if(chat.email == email) {
+                        db.collection('Chat').doc(valChat.id).update({Perguntas: 
+                        chatclonado})
+                    } 
+                    
+                } else {
+                    let objCriado = {
+                        email: email,
+                        Perguntas: chatclonado
+                    }
+                    db.collection('Chat').add(objCriado)
                 }
-                db.collection('Chat').add(obj)
+                salvo = true
             }
         })
     })

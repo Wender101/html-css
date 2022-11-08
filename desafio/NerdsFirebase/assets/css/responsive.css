@@ -480,11 +480,6 @@ section#carregando > article {
     section#time > article > div > span > p {
         font-size: 13px;
     }
-	
-    section#produtos > article {
-       margin-left: 0px;
-    }
-	
 
     footer {
         height: 300px;
