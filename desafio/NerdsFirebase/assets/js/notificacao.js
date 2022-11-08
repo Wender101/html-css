@@ -101,7 +101,7 @@ function criar(pergunta, resposta, data, id) {
 
                             setTimeout(() => {
                                 location.reload()
-                            }, 200)
+                            }, 1000)
                         }, 1000)
                     }
                 }
