@@ -490,6 +490,111 @@ a.animation {
 
 /*! Fim Categoria */
 
+/*! Chat */
+section#containerChat {
+    width: 1000px;
+    margin: 50px 0px 0px 50%;
+    transform: translate(-51%);
+}
+
+section#containerChat > h1, section#containerChat h3 {
+    width: 87%;
+    max-width: 1010px;
+    margin: 40px 0px 10px;
+    font-family: var(--font-titulo);
+    font-size: 30px;
+    color: var(--cor1);
+}
+
+section#containerChat > h3 {
+    font-size: 22px;
+    font-weight: 100;
+    color: var(--cor0);
+
+}
+
+section#containerChat > div {
+    width: 100%;
+    height: 50px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+section#containerChat > div > input {
+    width: 75%;
+    border-radius: 10px;
+    padding-left: 10px;
+}
+
+input:focus {
+    box-shadow: 0 0 0 0;
+    outline: 0;
+}
+
+section#containerChat > div > button {
+    width: 20%;
+    background-color: var(--cor3);
+    border: none;
+    border-radius: 10px;
+}
+
+/*? Perguntas feitas */
+article#perguntasFeitas {
+    color: var(--cor0);
+    font-weight: 100;
+    font-size: 15px;
+    max-height: 350px;
+    overflow-x: auto;
+}
+
+article#perguntasFeitas > div {
+    margin-top: 50px;
+}
+
+article#perguntasFeitas > div > p {
+    color: var(--cor1);
+    font-size: 18px;
+    margin-bottom: 15px;
+    display: block;
+}
+
+article#perguntasFeitas > div > span {
+    position: relative;
+    padding-left: 40px;
+}
+
+article#perguntasFeitas > div > span > img {
+    width: 30px;
+    position: absolute;
+    top: -8px;
+    left: 0px;
+}
+
+article#perguntasFeitas > div > span > span {
+    color: var(--cor7);
+    margin-left: 10px;
+}
+
+article#perguntasFeitas > div > span > input {
+    background: transparent;
+    border-left: none;
+    border-top: none;
+    border-right: none;
+    border-bottom: 1px solid var(--cor5);
+    color: var(--cor0);
+}
+
+article#perguntasFeitas > div > span > button {
+    margin-left: 20px;
+    background-color: var(--cor1);
+    padding: 8px;
+    border-radius: 5px;
+    border: none;
+}
+
+/*! Fim Chat */
+
 /*! Relacionados */
 #h1Relacionados {
     width: 87%;
@@ -612,77 +717,6 @@ section#infAddCarrinho > article#conteudoCarrinho > div > button:hover {
     background-color: transparent;
     border: 1px solid var(--cor1);    
 }
-
-/* ini: Preloader */
-
-section#carregando {
-    width: 100%;
-    min-height: 100vh;
-    position: fixed;
-    top: 0px;
-    background-color: var(--cor8);
-    z-index: 6;
-    display: none;
-    justify-content: center;
-    align-items: center;
-}
-
-section#carregando > article {
-    width: 80%;
-    color: var(--cor0);
-}
- 
-#preloader .inner {
-    position: absolute;
-    top: 50%; /* centralizar a parte interna do preload (onde fica a animação)*/
-    left: 50%;
-    transform: translate(-50%, -50%);  
-}
-.bolas > div {
-  display: inline-block;
-  background-color: #fff;
-  width: 25px;
-  height: 25px;
-  border-radius: 100%;
-  margin: 3px;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
-  animation-name: animarBola;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-   
-}
-.bolas > div:nth-child(1) {
-    animation-duration:0.75s ;
-    animation-delay: 0;
-}
-.bolas > div:nth-child(2) {
-    animation-duration: 0.75s ;
-    animation-delay: 0.12s;
-}
-.bolas > div:nth-child(3) {
-    animation-duration: 0.75s  ;
-    animation-delay: 0.24s;
-}
- 
-@keyframes animarBola {
-  0% {
-    -webkit-transform: scale(1);
-    transform: scale(1);
-    opacity: 1;
-  }
-  16% {
-    -webkit-transform: scale(0.1);
-    transform: scale(0.1);
-    opacity: 0.7;
-  }
-  33% {
-    -webkit-transform: scale(1);
-    transform: scale(1);
-    opacity: 1; 
-  } 
-}
-/* end: Preloader */
 
 footer {
     width: 100%;

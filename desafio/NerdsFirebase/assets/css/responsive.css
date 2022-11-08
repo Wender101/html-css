@@ -15,6 +15,97 @@ nav > ul > li > a {
     margin-top: 10px;
 }
 
+/*! Chat */
+div#notificacaoChat {
+    width: 60px;
+    height: 60px;
+    position: fixed;
+    z-index: 4;
+    right: 8px;
+    bottom: 20%;
+    color: var(--cor0);
+    overflow: hidden;
+}
+
+div#notificacaoChat > div#containerNotificacao {
+    width: 80%;
+    height: auto;
+    max-height: 210px;
+    background-color: var(--cor3);
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    padding: 0px 10px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: block;
+    border-radius: 10px;
+}
+
+div#notificacaoChat > div#containerNotificacao > a {
+    width: 99%;
+    padding: 10px;
+    display: block;
+}
+
+div#notificacaoChat > div#containerNotificacao > a > p {
+    color: var(--cor5);
+    font-size: 18px;
+    margin-bottom: 15px;
+    display: block;
+    font-weight: 600;
+}
+
+div#notificacaoChat > div#containerNotificacao > a > span {
+    position: relative;
+    padding-left: 40px;
+}
+
+div#notificacaoChat > div#containerNotificacao > a > span > img {
+    width: 30px;
+    position: absolute;
+    top: -8px;
+    left: 0px;
+}
+
+div#notificacaoChat > div#containerNotificacao > a > span > span {
+    color: var(--cor6);
+    margin-left: 10px;
+}
+
+/*? btn */
+div#notificacaoChat > div#btnChat {
+    width: 50px;
+    height: 50px;
+    background-color: var(--cor3);
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: 7px;
+    bottom: 2%;
+    overflow: visible;
+}
+
+div#btnChat:hover {
+    transform: scale(1.1);
+}
+
+div#notificacaoChat > div#btnChat > p#numNotifi {
+    position: absolute;
+    top: 3px;
+    right: 0px;
+    color: var(--cor0);
+    display: none;
+}
+
+div#notificacaoChat > div#btnChat > img {
+    width: 35px;
+}
+/*! Chat */
+
 a#carrinho {
     width: 50px;
     height: 50px;
@@ -59,6 +150,79 @@ a#carrinho > img {
     transform: scale(1.1);
 }
 
+/* ini: Preloader */
+
+section#carregando {
+    width: 100%;
+    min-height: 100vh;
+    position: fixed;
+    top: 0px;
+    background-color: var(--cor8);
+    z-index: 6;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+section#carregando > article {
+    width: 80%;
+    color: var(--cor0);
+}
+ 
+#preloader .inner {
+    position: absolute;
+    top: 50%; /* centralizar a parte interna do preload (onde fica a animação)*/
+    left: 50%;
+    transform: translate(-50%, -50%);  
+}
+
+.bolas > div {
+  display: inline-block;
+  background-color: #fff;
+  width: 25px;
+  height: 25px;
+  border-radius: 100%;
+  margin: 3px;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  animation-name: animarBola;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+   
+}
+.bolas > div:nth-child(1) {
+    animation-duration:0.75s ;
+    animation-delay: 0;
+}
+.bolas > div:nth-child(2) {
+    animation-duration: 0.75s ;
+    animation-delay: 0.12s;
+}
+.bolas > div:nth-child(3) {
+    animation-duration: 0.75s  ;
+    animation-delay: 0.24s;
+}
+ 
+@keyframes animarBola {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+  }
+  16% {
+    -webkit-transform: scale(0.1);
+    transform: scale(0.1);
+    opacity: 0.7;
+  }
+  33% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 1; 
+  } 
+}
+/* end: Preloader */
+
+/*! Media */
 @media screen and (max-width: 1255px) {
     /* Categorias */
     #categorias {

@@ -55,13 +55,12 @@ function urlPage() {
                 }
             }
             
-            // console.log(a2, a3, url.substr(-2));
             if(a2 == a3 ) {
                 let gg = ac - 1
                 b = a2.substr(-gg)
                 idp = b
                 localStorage.setItem('sobreProduto', idp)
-                return
+                return idp
             }
         }
     }

@@ -65,6 +65,16 @@
         </section>
     </main>
 
+    <!--! Icone de notificação -->
+    <div id="notificacaoChat">
+        <div id="containerNotificacao">
+        </div>
+        <div id="btnChat" onclick="abrirAbaNotificacao()">
+            <p id="numNotifi">0</p>
+            <img src="assets/img/icons/iconeCoversa.png" alt="">
+        </div>
+    </div>
+
     <a id="carrinho" href="carrinho.html">
         <img src="assets/img/icons/carrinho.png" alt="">
     </a>
@@ -93,6 +103,18 @@
          <div id="btnDireito" onclick="btnDireita()" class="btns">></div>
     </article>
 
+    <!--! Chat -->
+    <section id="containerChat">
+        <h1>Pergunte ao vendedor</h1>
+        <div><input type="text" id="inputChat" placeholder="Faça sua pergunta..."> <button id="btnPerguntar" onclick="perguntar()">Perguntar</button></div>
+        <h3>Perguntas já feitas:</h3>
+
+        <!--! Perguntas feitas -->
+        <article id="perguntasFeitas">
+        </article>
+    </section>
+
+    <!--! Relacionados -->
     <h1 id="h1Relacionados">Relacionados</h1>
     <section id="sectionRelacionados">
         <article id="ProdutosRelacionados">
@@ -100,12 +122,12 @@
         </article>
     </section>
 
+    <!--! Animação de carregamento -->
     <section id="carregando">
         <article>
-            <!-- início do preloader -->
+            <!--! início do preloader -->
             <div id="preloader">
                 <div class="inner">
-                <!-- HTML DA ANIMAÇÃO MUITO LOUCA DO SEU PRELOADER! -->
                 <div class="bolas">
                     <div></div>
                     <div></div>
@@ -113,7 +135,7 @@
                 </div>
                 </div>
             </div>
-            <!-- fim do preloader --> 
+            <!--! fim do preloader --> 
         </article>
     </section>
 
@@ -146,6 +168,8 @@
     <script src="assets/js/funcoesBasicas.js"></script>
     <script src="assets/js/sobre-o-produto.js"></script>
     <script src="assets/js/pesquisa.js"></script>
+    <script src="assets/js/chat.js"></script>
+    <script src="assets/js/notificacao.js"></script>
 
     <script>
         let c = 0

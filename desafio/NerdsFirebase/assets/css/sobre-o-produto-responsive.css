@@ -2,6 +2,10 @@
     h1#h1Relacionados {
         width: 84%;
     }
+
+    section#containerChat {
+        width: 862px;
+    }
 }
 
 /*! Vai adicionar animação aos btnsa ao passar o mouse em cima deles */
@@ -31,13 +35,28 @@
     }
 }
 
+@media screen and (max-width: 967px) {
+    section#containerChat {
+        width: 90%;
+        transform: translate(-50%);
+    }
+}
+
 @media screen and (max-width: 880px) {
     #categorias > h1 {
         font-size: 24px;
     }
 
-    h1#h1Relacionados {
+    h1#h1Relacionados, section#containerChat > h1 {
         font-size: 24px;
+    }
+
+    section#containerChat > h1 {
+        width: 302px;
+    }
+
+    section#containerChat > h3 {
+        font-size: 18px;
     }
 
     article#ProdutosRelacionados > div.containerProduto {
@@ -152,6 +171,10 @@
     main > section#texto > div#btns {
         max-width: 420px;
         top: 330px;
+    }
+
+    section#containerChat > div {
+        height: 40px;
     }
 }
 

@@ -263,11 +263,12 @@ section#time > article {
     height: 100px;
     display: flex;
 }
-    
+
 section#time > article > div {
     width: auto;
     margin: auto;
     height: 100px;
+    overflow: hidden;
 }
 
 section#time > article > div > span#dia {

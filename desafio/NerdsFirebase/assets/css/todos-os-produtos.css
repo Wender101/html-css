@@ -186,6 +186,10 @@ select#classeProdutos > option {
     margin-top: -6px;
 }
 
+div#notificacaoChat {
+    bottom: 30%;
+}
+
 /*! Funções de adiministrador */
 #btnAdicionarProduto {
     width: 50px;
