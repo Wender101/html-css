@@ -37,11 +37,11 @@ db.collection('Chat').onSnapshot((data) => {
 
 //! Vai adicionar uma nova pergunta
 function perguntar() {
-    let pergunta = document.getElementById('inputChat').value
+    let pergunta = document.getElementById('inputChat')
 
-    if(pergunta != '' && pergunta.length > 4) {
+    if(pergunta.value != '' && pergunta.value.length > 4) {
         let obj = {
-            PerguntasFeitas: pergunta,
+            PerguntasFeitas: pergunta.value,
             Resposta: '...',
             id: idProdutoChat,
             Visto: false
@@ -50,10 +50,11 @@ function perguntar() {
         cloneChat.push(obj)
 
         if(cloneChat.length > 1) {
-            criaPergunta(pergunta)
+            criaPergunta(pergunta.value)
         }
 
         salvarPergunta(cloneChat)
+        pergunta.value = ''
     }
 }
 
