@@ -1,8 +1,20 @@
 let contadorNotificacao = 0
+let notCheck = false
 db.collection('Chat').onSnapshot((data) => {
     data.docs.map(function(valChat) {
         let chat = valChat.data()
+
+        setTimeout(() => {
+            notCheck = true
+        }, 1000)
     
+        //! Vai zerar as not evitando repitição
+        if(notCheck == true) {
+            document.getElementById('containerNotificacao').innerHTML = ''
+            document.getElementById('numNotifi').innerText = 0
+            contadorNotificacao = 0
+        }
+
         try {
             for(let c = 0; c <= chat.Perguntas.length; c++) {
                 try {
@@ -14,11 +26,26 @@ db.collection('Chat').onSnapshot((data) => {
     
                     } else if(chat.email == email && chat.Perguntas[c].Visto == false && chat.Perguntas[c].Resposta != '...') {
                         criar(chat.Perguntas[c].PerguntasFeitas, chat.Perguntas[c].Resposta, chat.Perguntas[c].DataResposta, chat.Perguntas[c].id, chat.Perguntas.length, chat.email, chat.Perguntas)
+                        notCheck = false
                     }
+                    
                 } catch {}
+
             }
         } catch {}
+        
     })
+})
+
+//! Vai abrir e fechar a aba de notificações
+document.addEventListener('click', (e) => {
+    let elem = e.target.className
+    console.log(elem);
+    let aba =  document.getElementById('containerNotificacao')
+
+    if(elem != 'iconeNot' && aba.style.display == 'block') {
+        abrirAbaNotificacao()
+    }
 })
 
 function abrirAbaNotificacao() {

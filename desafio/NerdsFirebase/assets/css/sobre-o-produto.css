@@ -513,6 +513,12 @@ section#containerChat > h3 {
 
 }
 
+section#containerChat > h3 > span {
+    font-size: 18px;
+    margin-left: 10px;
+    color: var(--cor1);
+}
+
 section#containerChat > div {
     width: 100%;
     height: 50px;
@@ -544,8 +550,12 @@ article#perguntasFeitas {
     color: var(--cor0);
     font-weight: 100;
     font-size: 15px;
-    max-height: 350px;
+    max-height: 450px;
     overflow-x: auto;
+    background-color: var(--cor8);
+    padding-left: 15px;
+    padding-bottom: 30px;
+    display: none;
 }
 
 article#perguntasFeitas > div {

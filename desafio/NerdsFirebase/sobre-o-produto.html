@@ -67,11 +67,11 @@
 
     <!--! Icone de notificação -->
     <div id="notificacaoChat">
-        <div id="containerNotificacao">
+        <div id="containerNotificacao" class="iconeNot">
         </div>
-        <div id="btnChat" onclick="abrirAbaNotificacao()">
-            <p id="numNotifi">0</p>
-            <img src="assets/img/icons/iconeCoversa.png" alt="">
+        <div id="btnChat" onclick="abrirAbaNotificacao()" class="iconeNot">
+            <p id="numNotifi" class="iconeNot">0</p>
+            <img src="assets/img/icons/iconeCoversa.png" alt="" class="iconeNot">
         </div>
     </div>
 
@@ -107,7 +107,7 @@
     <section id="containerChat">
         <h1>Pergunte ao vendedor</h1>
         <div><input type="text" id="inputChat" placeholder="Faça sua pergunta..."> <button id="btnPerguntar" onclick="perguntar()">Perguntar</button></div>
-        <h3>Perguntas já feitas:</h3>
+        <h3>Perguntas já feitas: <span id="avisoChat">Nehuma pergunta ainda...</span></h3>
 
         <!--! Perguntas feitas -->
         <article id="perguntasFeitas">

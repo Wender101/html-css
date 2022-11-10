@@ -1,6 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap');
 
+/*! Scroll */
+::-webkit-scrollbar {
+    width: 12px;               /* width of the entire scrollbar */
+}
+
+::-webkit-scrollbar-track {
+    background: var(--cor8);        /* color of the tracking area */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--cor5);    /* color of the scroll thumb */
+    border-radius: 1px;       /*roundness of the scroll thumb
+    /* border: 3px solid var(--cor0);  creates padding around scroll thumb */
+}
+/*! Fim Scroll */
+
 nav > ul > img#imgUser {
     width: 40px;
     height: 40px;
@@ -31,25 +47,29 @@ div#notificacaoChat > div#containerNotificacao {
     width: 80%;
     height: auto;
     max-height: 210px;
-    background-color: var(--cor3);
+    background-color: var(--cor4);
     position: absolute;
     left: 0px;
     bottom: 0px;
-    padding: 0px 10px;
     overflow-y: auto;
     overflow-x: hidden;
     display: block;
-    border-radius: 10px;
+    border: 1px solid var(--cor5);
 }
 
 div#notificacaoChat > div#containerNotificacao > a {
-    width: 99%;
-    padding: 10px;
+    width: 100%;
+    padding: 10px 0px 10px 10px;
     display: block;
+    border: 1px solid transparent;
+}
+
+div#notificacaoChat > div#containerNotificacao > a:hover {
+    border: 1px solid var(--cor0);
 }
 
 div#notificacaoChat > div#containerNotificacao > a > p {
-    color: var(--cor5);
+    color: var(--cor3);
     font-size: 18px;
     margin-bottom: 15px;
     display: block;
@@ -69,7 +89,7 @@ div#notificacaoChat > div#containerNotificacao > a > span > img {
 }
 
 div#notificacaoChat > div#containerNotificacao > a > span > span {
-    color: var(--cor6);
+    color: var(--cor3);
     margin-left: 10px;
 }
 

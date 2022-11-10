@@ -9,24 +9,32 @@ document.addEventListener('keypress', (e) => {
 
 //! Ao fazer uma nova pergunta
 let cloneChat = []
-let chatCarregado = false
+let checkChat = false
 db.collection('Chat').onSnapshot((data) => {
     data.docs.map(function(valChat) {
         let chat = valChat.data()
 
-        if(chatCarregado == false) {
-            try {
-                for(let c = 0; c < chat.Perguntas.length; c++) {
-                    if(chat.Perguntas[c].id == idProdutoChat) {
-                        criaPergunta(chat.Perguntas[c].PerguntasFeitas, chat.Perguntas[c].Resposta, chat.Perguntas[c].DataResposta)
-                    }
-                }
-            } catch {}
+        setTimeout(() => {
+            checkChat = true
+        }, 1000)
 
-            setTimeout(() => {
-                chatCarregado = true
-            }, 1000)
+        if(checkChat == true) {
+            document.getElementById('perguntasFeitas').innerHTML = ''
         }
+
+        try {
+            for(let c = 0; c < chat.Perguntas.length; c++) {
+                if(chat.Perguntas[c].id == idProdutoChat) {
+                    criaPergunta(chat.Perguntas[c].PerguntasFeitas, chat.Perguntas[c].Resposta, chat.Perguntas[c].DataResposta)
+                }
+            }
+
+            checkChat = false
+        } catch {}
+
+        setTimeout(() => {
+            chatCarregado = true
+        }, 1000)
 
         //! Vai fazer um clone de todas as perguntas do user
         if(chat.email == email) {
@@ -49,11 +57,7 @@ function perguntar() {
 
         cloneChat.push(obj)
 
-        if(cloneChat.length > 1) {
-            criaPergunta(pergunta.value)
-        }
-
-        salvarPergunta(cloneChat)
+        salvarPergunta(cloneChat, pergunta.value)
         pergunta.value = ''
     }
 }
@@ -61,8 +65,12 @@ function perguntar() {
 //! Vai colocar as perguntas na tela
 let idInput = 0
 function criaPergunta(pergunta = '', resposta = '...', data = '') {
-    
+
     let perguntasFeitas = document.getElementById('perguntasFeitas')
+    let avisoChat = document.getElementById('avisoChat')
+    perguntasFeitas.style.display = 'block'
+    avisoChat.style.display = 'none'
+    
     let div = document.createElement('div')
     let p = document.createElement('p')
     let span = document.createElement('span')
@@ -112,6 +120,7 @@ function criaPergunta(pergunta = '', resposta = '...', data = '') {
                             db.collection('Chat').doc(valChat.id).update({Perguntas: clone})
                         }
                     }
+
                 })
             })
 
@@ -135,27 +144,30 @@ function criaPergunta(pergunta = '', resposta = '...', data = '') {
 }
 
 //! Vai salvar as perguntas no bando de dados
-function salvarPergunta(chatclonado) {
+function salvarPergunta(chatclonado, pergunta) {
     let salvo = false
 
     db.collection('Chat').onSnapshot((data) => {
         data.docs.map(function(valChat) {
             let chat = valChat.data()
             if(salvo == false) {
-                if(cloneChat.length > 1) {
-                    if(chat.email == email) {
-                        db.collection('Chat').doc(valChat.id).update({Perguntas: 
-                        chatclonado})
-                    } 
-                    
-                } else {
+                if(cloneChat.length <= 1) {
                     let objCriado = {
                         email: email,
                         Perguntas: chatclonado
                     }
                     db.collection('Chat').add(objCriado)
+                    salvo = true
+                    criaPergunta(pergunta)
+
+                } else {
+                    if(chat.email == email) {
+                        db.collection('Chat').doc(valChat.id).update({Perguntas: 
+                        chatclonado})
+                        salvo = true
+                    } 
+                    
                 }
-                salvo = true
             }
         })
     })

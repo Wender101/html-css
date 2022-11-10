@@ -87,7 +87,7 @@ db.collection('Produtos').onSnapshot((data) => {
                 carregando.style.display = 'none'
                 document.getElementById('classProduto').innerText = 'Parece que algo deu errado :('
             }
-        }, 8000);
+        }, 8000)
     })
 }) 
 

@@ -5,10 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="assets/css/pagProduto.css">
-    <link rel="stylesheet" href="assets/css/pagProdutoResponsive.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
     <link rel="stylesheet" href="assets/css/prdutosResponsivo.css">
+    <link rel="stylesheet" href="assets/css/pagProduto.css">
+    <link rel="stylesheet" href="assets/css/pagProdutoResponsive.css">
     <title>Pesquisa</title>
 </head>
 <body id="topo">
@@ -52,30 +52,13 @@
         <a href="#topo" id="subir"></a>
     </div>
 
-    <section id="carregando">
-        <article>
-            <!-- início do preloader -->
-            <div id="preloader">
-                <div class="inner">
-                <!-- HTML DA ANIMAÇÃO MUITO LOUCA DO SEU PRELOADER! -->
-                <div class="bolas">
-                    <div></div>
-                    <div></div>
-                    <div></div>                    
-                </div>
-                </div>
-            </div>
-            <!-- fim do preloader --> 
-        </article>
-    </section>
-
     <!--! Icone de notificação -->
     <div id="notificacaoChat">
-        <div id="containerNotificacao">
+        <div id="containerNotificacao" class="iconeNot">
         </div>
-        <div id="btnChat" onclick="abrirAbaNotificacao()">
-            <p id="numNotifi">0</p>
-            <img src="assets/img/icons/iconeCoversa.png" alt="">
+        <div id="btnChat" onclick="abrirAbaNotificacao()" class="iconeNot">
+            <p id="numNotifi" class="iconeNot">0</p>
+            <img src="assets/img/icons/iconeCoversa.png" alt="" class="iconeNot">
         </div>
     </div>
 
