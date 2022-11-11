@@ -10,7 +10,7 @@ db.collection('Manutenção').onSnapshot((data) => {
             }, 300)
 
         } else if(checkManutencao == false && window.location.pathname == '/Manutencao.html') {
-            window.location.pathname = 'https://wender101.github.io/html-css/desafio/NerdsFirebase/home'
+            window.location.pathname = 'https://wender101.github.io/html-css/desafio/NerdsFirebase/home.html'
             setTimeout(() => {
                 window.history.back()
             }, 300)
