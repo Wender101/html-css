@@ -8,11 +8,27 @@ db.collection('Chat').onSnapshot((data) => {
             notCheck = true
         }, 1000)
     
-        //! Vai zerar as not evitando repitição
+        //! Vai zerar as notificações evitando repitição
         if(notCheck == true) {
             document.getElementById('containerNotificacao').innerHTML = ''
-            document.getElementById('numNotifi').innerText = 0
+            document.getElementById('numNotifi').innerText = ''
             contadorNotificacao = 0
+
+            //! Vai reconstruir o aviso "sem notificações"
+            let containerNotificacao = document.getElementById('containerNotificacao')
+            let a = document.createElement('a')
+            let p = document.createElement('p')
+            let span = document.createElement('span')
+            let img = document.createElement('img')
+            
+            a.id = 'avisoSemNot'
+            p.innerText = 'Nenhuma notificação:'
+            img.src = 'assets/img/icons/setinhaChat.png'
+            span.innerText = 'Você será avisado assim que uma notificação chegar :)'
+            a.appendChild(p)
+            a.appendChild(span)
+            span.appendChild(img)
+            containerNotificacao.appendChild(a)
         }
 
         try {
@@ -37,37 +53,44 @@ db.collection('Chat').onSnapshot((data) => {
     })
 })
 
-//! Vai abrir e fechar a aba de notificações
+//! Caso a aba de notificações esteja aberta e o user clicar fora dela, ela será fechada
 document.addEventListener('click', (e) => {
     let elem = e.target.className
-    console.log(elem);
     let aba =  document.getElementById('containerNotificacao')
-
+    
     if(elem != 'iconeNot' && aba.style.display == 'block') {
         abrirAbaNotificacao()
     }
 })
 
+//! Vai abrir e fechar a aba de notificações
 function abrirAbaNotificacao() {
     let aba =  document.getElementById('containerNotificacao')
-    let pNot =  document.getElementById('numNotifi')
     let notificacaoChat = document.getElementById('notificacaoChat')
     let containerNotificacao = document.getElementById('containerNotificacao')
 
     if(aba.style.display == 'none') {
         aba.style.display = 'block'
 
-        if(pNot.innerText > 0) {
-            if(visualViewport.width > 490) {
+        //! Vai apagar o aviso "sem notificações" da aba de notificações
+        if(contadorNotificacao > 0) {
+            document.getElementById('avisoSemNot').style.display = 'none'    
+        }  else {
+            document.getElementById('avisoSemNot').style.display = 'block'    
+        }
+
+        //! Vai controlar a responsividade da aba de notificações
+        setInterval(() => {
+            if(visualViewport.width > 490 && aba.style.display == 'block') {
                 notificacaoChat.style.width = '450px'
                 notificacaoChat.style.height = '400px'
-
-            } else {
+                
+            } else if(aba.style.display == 'block') {
                 notificacaoChat.style.width = '90%'
                 notificacaoChat.style.height = '400px'
                 containerNotificacao.style.width = '73%'
             }
-        }
+        }, 100)
 
     } else {
         aba.style.display = 'none'

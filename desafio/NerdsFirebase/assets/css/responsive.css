@@ -38,7 +38,7 @@ div#notificacaoChat {
     position: fixed;
     z-index: 4;
     right: 8px;
-    bottom: 20%;
+    bottom: 300px;
     color: var(--cor0);
     overflow: hidden;
 }
@@ -58,7 +58,7 @@ div#notificacaoChat > div#containerNotificacao {
 }
 
 div#notificacaoChat > div#containerNotificacao > a {
-    width: 100%;
+    width: 96.8%;
     padding: 10px 0px 10px 10px;
     display: block;
     border: 1px solid transparent;
@@ -132,7 +132,7 @@ a#carrinho {
     position: fixed;
     z-index: 4;
     right: 15px;
-    bottom: 12%;
+    bottom: 230px;
     background-color: var(--cor3);
     color: white;
     border-radius: 50%;
@@ -154,7 +154,7 @@ a#carrinho > img {
     height: 47px;
     border-radius: 50%;
     position: fixed;
-    bottom: 2%;
+    bottom: 30px;
     right: -100px;
     z-index: 4;
     background-image: url(../img/icons/subir.jpg);
@@ -550,7 +550,7 @@ section#carregando > article {
     }
 }
 
-/*! height  */
+/*! height ------------------------- */
 @media screen and (max-height: 500px) {
     nav#semFundo {
         background-color: var(--cor8);
@@ -559,5 +559,15 @@ section#carregando > article {
     header > div#man {
         width: 550px;
         height: 550px;
+    }
+}
+
+@media screen and (max-height: 600px) {
+    div#notificacaoChat {
+        bottom: 165px;
+    }
+
+    a#carrinho {
+        bottom: 100px;
     }
 }

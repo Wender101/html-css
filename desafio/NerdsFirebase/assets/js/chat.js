@@ -127,7 +127,7 @@ function criaPergunta(pergunta = '', resposta = '...', data = '') {
             document.getElementById('carregando').style.display = 'flex'
 
             setTimeout(() => {
-                location.reload()
+                document.getElementById('carregando').style.display = 'none'
             }, 1500)
         })
 

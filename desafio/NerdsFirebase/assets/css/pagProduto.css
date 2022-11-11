@@ -378,7 +378,7 @@ main > div.containerProduto > p {
 }
 /* ini: Preloader */
 
-section#carregando {
+#topo > #carregando {
     width: 100%;
     min-height: 100vh;
     position: fixed;
