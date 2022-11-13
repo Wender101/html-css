@@ -137,18 +137,22 @@ function criar(pergunta, resposta, data, id) {
                         db.collection('Chat').doc(valChat.id).update({Perguntas: clone1})
                         document.getElementById('carregando').style.display = 'flex'
 
-                        window.location.href = `https://wender101.github.io/html-css/desafio/NerdsFirebase/sobre-o-produto.html#${id}`
-
+                        
                         setTimeout(() => {
-                          location.reload()
-                        }, 1000)
+                            window.location.href = `https://wender101.github.io/html-css/desafio/NerdsFirebase/sobre-o-produto.html#${id}`
+                            setTimeout(() => {
+                                location.reload()
+                            }, 500)
+                        }, 500)
                     } else if(email == 'wendernatanael2019@gmail.com') {
                         document.getElementById('carregando').style.display = 'flex'
-                        window.location.href = `https://wender101.github.io/html-css/desafio/NerdsFirebase/sobre-o-produto.html#${id}`
-
+                        
                         setTimeout(() => {
-                          location.reload()
-                       }, 1000)
+                            window.location.href = `https://wender101.github.io/html-css/desafio/NerdsFirebase/sobre-o-produto.html#${id}`
+                            setTimeout(() => {
+                                location.reload()
+                            }, 500)
+                        }, 500)
                     }
                 }
             })
