@@ -49,7 +49,7 @@ auth.onAuthStateChanged((val) => {
 
     } else {
         setInterval(() => {
-            window.location.pathname = 'home.html'
+            window.location.href = 'https://wender101.github.io/html-css/desafio/NerdsFirebase/home.html'
         }, 10)
     }
     fecharMenu()
