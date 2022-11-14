@@ -197,7 +197,7 @@ div#notificacaoChat {
     position: fixed;
     z-index: 4;
     right: 15px;
-    bottom: 21%;
+    bottom: 180px;
     background-color: var(--cor3);
     color: white;
     border-radius: 50%;
@@ -311,4 +311,20 @@ div#notificacaoChat {
         color: white;
     }
 }
-/*! Fim das funções de adiministrador */
+
+/*! btns */
+div#notificacaoChat {
+    width: 60px;
+    height: 60px;
+    position: fixed;
+    z-index: 4;
+    right: 8px;
+    bottom: 300px;
+    color: var(--cor0);
+    overflow: hidden;
+}
+
+a#carrinho {
+    bottom: 240px;
+}
+

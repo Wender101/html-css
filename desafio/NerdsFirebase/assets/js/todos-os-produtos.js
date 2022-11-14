@@ -49,7 +49,7 @@ auth.onAuthStateChanged((val) => {
 
     } else {
         setInterval(() => {
-            document.querySelector('main').innerHTML = ''
+            window.location.pathname = 'home.html'
         }, 10)
     }
     fecharMenu()
