@@ -306,9 +306,9 @@ section#produtos {
 
 /*? Slider */
 .container {
-    max-width: 1100px;
+    max-width: 1000px;
     width: 99.5%;
-    height: 250px;
+    height: 280px;
     display: flex;
     flex-direction: column;
     justify-content: center;

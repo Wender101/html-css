@@ -325,7 +325,6 @@ function addCarrinho(addNovamente = false) {
                 checarCarrinho(p.id)
                 
                 //! pegar o email do user
-                
                 setTimeout(() => {
                     auth.onAuthStateChanged((valEmail) => {
 

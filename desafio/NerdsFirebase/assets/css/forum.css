@@ -1,0 +1,334 @@
+html {
+    font-family: var(--font-texto);
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    font-family: var(--font-texto);
+    background-color: var(--cor6);
+    background-image: url(../img/site/NFT1\ 3.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+main {
+    width: 100%;
+    margin-top: 100px;
+    min-height: 100vh;
+    position: relative;
+}
+
+section#localPerguntas {
+    width: 70%;
+    min-height: 100vh;
+    margin-left: 45%;
+    transform: translate(-50%);
+}
+
+section#localPerguntas > div#pesquisarPergunta {
+    width: 95%;
+    height: auto;
+    margin: auto;
+    border-radius: 5px;
+    border: 3px solid var(--cor3);
+    position: relative;
+}
+
+section#localPerguntas > div#pesquisarPergunta > input {
+    width: 100%;
+    background-color: transparent;
+    padding: 10px;
+    height: 40px;
+    border: none;
+    color: var(--cor0);
+    font-size: 20px;
+    font-weight: 100;
+    font-family: var(--font-texto);
+}
+
+section#localPerguntas > div#pesquisarPergunta > input:focus {
+    box-shadow: 0 0 0 0;
+    outline: 0;
+}
+
+section#localPerguntas > div#pesquisarPergunta > button {
+    width: 45px;
+    height: 45px;
+    position: absolute; 
+    padding: 20px;
+    color: var(--cor0);
+    border: none;
+    top: 8px;
+    right: 10px;
+    background-color: var(--cor1);
+    border-radius: 4px;
+}
+
+
+section#localPerguntas > article {
+    width: 90%;
+    height: auto;
+    margin: 50px auto;
+    color: var(--cor0);
+    padding: 40px 40px 100px 40px;
+    background-color: var(--cor8);
+    text-align: center;
+    position: relative;
+}
+
+
+section#localPerguntas > article > h1 {
+    font-family: var(--font-titulo);
+    color: var(--cor1);
+    font-size: 40px;
+    margin-bottom: 30px;
+}
+
+
+section#localPerguntas > article > div.infPesquisador {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+
+section#localPerguntas > article > div.infPesquisador > img {
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+    margin-right: 20px;
+    border: 3px solid var(--cor3);
+}
+
+
+section#localPerguntas > article > div.infPesquisador > div > span {
+    color: var(--cor3);
+    display: block;
+    margin-top: 10px;
+    font-size: 14px;
+    text-align: left;
+}
+
+
+section#localPerguntas > article > div.btns {
+    margin-top: 30px;
+}
+
+
+section#localPerguntas > article > div.btns > button {
+    width: 50%;
+    padding: 15px;
+    background-color: var(--cor3);
+    margin: auto;
+    display: block;
+    border-radius: 10px;
+    text-align: left;
+    margin-top: 10px;
+    color: var(--cor0);
+    border: 1px solid transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+
+section#localPerguntas > article > div.btns > button:hover {
+    background-color: transparent;
+    border: 1px solid var(--cor3);
+}
+
+
+section#localPerguntas > article > div.btns > button > .rank {
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    right: 10px;
+    font-family: var(--font-titulo);
+    padding: 10px;
+    background-color: var(--cor6);
+    border-radius: 50%;
+    top: 10px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--cor0);
+    display: none;
+}
+
+section#localPerguntas > article > p.avisoXP {
+    position: absolute;
+    left: 50px;
+    bottom: 30px;
+}
+
+section#localPerguntas > article > p.avisoXP > .XP {
+    color: var(--cor3);
+}
+
+/*! Lateral */
+section#lateralMenu {
+    width: 18%;
+    max-width: 200px;
+    height: 85vh;
+    background-color: var(--cor8);
+    position: fixed;
+    top: 100px;
+    right: 0px;
+    color: var(--cor0);
+    padding: 0px 20px;
+    text-align: center;
+}
+
+section#lateralMenu > h3 {
+    font-family: var(--font-titulo);
+    color: var(--cor3);
+    font-weight: 100;
+    margin-top: 30px;
+}
+
+section#lateralMenu > #comoProsseguir {
+    width: 85%;
+    margin: 10px auto;
+    text-align: start;
+    font-size: 14px;
+}
+
+section#lateralMenu > div#Nivel {
+    overflow: hidden;
+    padding-left: 4px;
+    position: relative;
+    margin: 10px auto;
+}
+
+section#lateralMenu > div#Nivel > img#elo {
+    height: 120px;
+    position: absolute;
+    left: 0px;
+    margin-left: 50%;
+    transform: translate(-50%);
+    z-index: 1;
+}
+
+section#lateralMenu > div#Nivel > img#imgUserNivel {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    display: block;
+    margin: 26px auto;
+    object-fit: cover;
+    object-position: center center;
+}
+
+section#lateralMenu > div#Nivel > p {
+    padding: 0px 15px;
+    border-radius: 20px;
+    background-color: var(--cor3);
+    position: absolute;
+    bottom: 1px;
+    margin-left: 48%;
+    transform: translate(-50%);
+    z-index: 3;
+    font-size: 10;
+    cursor: pointer;
+}
+
+section#sobreONivel {
+    width: 200px;
+    height: 60px;
+    position: fixed;
+    right: 170px;
+    top: 230px;
+    background-color: var(--cor6);
+    overflow: visible;
+    display: none;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+    border: 1px solid var(--cor0);
+}
+
+section#lateralMenu > div#localNivel {
+    margin-top: 30px;
+}
+
+section#sobreONivel > div#triangulo {
+    width: 0; 
+    height: 0; 
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    border-left: 20px solid var(--cor6);
+    top: 20px;
+    position: absolute;
+    right: -20px;
+    z-index: 2;
+}
+
+section#sobreONivel > div#triangulo2 {
+    width: 0; 
+    height: 0; 
+    border-top: 21px solid transparent;
+    border-bottom: 21px solid transparent;
+    border-left: 23px solid var(--cor0);
+    top: 19px;
+    position: absolute;
+    right: -22.5px;
+    z-index: 1;
+}
+
+section#sobreONivel > div {
+    width: 100%;
+    overflow: visible;
+    display: flex;
+    align-items: center;
+}
+
+section#sobreONivel > div > span {
+    width: 40px;
+    height: 30px;
+    border-radius: 50%;
+    padding-top: 8px;
+    background-color: var(--cor1);
+    color: var(--cor0);
+    border: 2px solid var(--cor0);
+}
+
+
+section#sobreONivel > div#nivelAboutNivel > div#barraNivel {
+    width: 80%;
+    height: 30px;
+    margin-left: -5px;
+    background-color: var(--cor4);
+    z-index: -1;
+    overflow: hidden;
+    position: relative;
+    font-size: 14px;
+    color: var(--cor0);
+    border-top: 1px; 
+    border-right: 1px; 
+    border-bottom: 1px; 
+    border-left: 0px; 
+    border-color: var(--cor0);
+    border-style: solid;
+}
+
+section#sobreONivel > div#nivelAboutNivel > div#barraNivel > div#porcentagem {
+    height: 100%;
+    padding-top: 6px;
+    background-color: var(--cor3);
+    color: transparent;
+}
+
+section#sobreONivel > div#nivelAboutNivel > div#barraNivel > span {
+    text-align: center;
+    top: 6px;
+    position: absolute;
+    left: 0px;
+    margin-left: 50%;
+    transform: translate(-50%);
+}
+
+/*! Carregamento */
+section#carregando {
+    display: flex;
+}

@@ -118,6 +118,16 @@ function criaBanners(imagem1, imagem2, id) {
 
     contadorBanners++
     qBanner = (contadorBanners * 100) - 100
+
+    //? Banner Monte seu Pc
+    let bannerMonteSeuPc = document.getElementsByClassName('slide-img stop')[0]
+
+    //? Vai centralizar o primeiro banner(Monte seu pc)
+    bannerMonteSeuPc.style.objectPosition = 'center 80%'
+
+    bannerMonteSeuPc.addEventListener('click', () => {
+        location.pathname = '/monteSeuPc.html'
+    })
 }
 
 //! Sliders

@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="assets/css/prdutos.css">
+        <link rel="stylesheet" href="assets/css/responsive.css">
+        <link rel="stylesheet" href="assets/css/prdutosResponsivo.css">
+        <link rel="stylesheet" href="assets/css/monteSeuPc.css">
+        <title>Monte seu PC aqui...</title>
+    </head>
+    <body id="topo">
+        <div id="sombra" onclick="fecharMenu()"></div>
+        <div id="localBtnMenu"><button id="menu" onclick="abrirMenu()">Menu</button></div>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <hr>
+                <li><a href="produtos.html">Produtos</a></li>
+                <hr>
+                <li id="li" style="display: none;"></li>
+                <hr id="hr">
+                <button onclick="login()" id="btnLogin">Conectar</button>
+                <img src="assets/img/site/error2NavBar.jpg" id="imgUser" onclick="login()">
+                <hr>
+            </ul>
+        </nav>
+
+        <!--? Slider -->
+        <div class="container">
+            <div class="slideshow">
+                <!-- carousel control buttons -->
+                <button class="slide-btn slide-btn-1" onclick="btnSliderE()"><</button>
+                <button class="slide-btn slide-btn-2" onclick="btnSliderD()">></button>
+
+                <!-- carousel wrapper which contains all images -->
+                <div class="slideshow-wrapper">
+                </div>
+            </div>
+        </div>
+        <!--? Fim Slider -->
+
+        <main>
+            <section>
+                <div class="localImgProduto">
+                    <p class="nomeComponete">Gabinete</p>
+                    <img src="" class="imagemProduto">
+                </div>
+
+                <div class="infProduto">
+                    <h3 class="nomeProduto">SELECIONE OS COMPONENTES</h3>
+                    <p class="desc">
+                        Escolha os componentes para o seu computador
+                    </p>
+
+                    <div class="valorDoProduto">
+                        <p class="valorNormal" class="infoDesconto">R$0.00</p>
+                        <p>
+                            <strong class="valor">R$0.00</strong> 
+                            <span class="qDesconto" class="infoDesconto">0% OFF</span>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="btns">
+                    <button class="selecionar">Selecionar</button>
+                    <button class="alterar" style="display: none;">Alterar</button>
+                    <button class="remover" style="display: none;">Remover</button>
+                </div>
+            </section>
+
+            <section>
+                <div class="localImgProduto">
+                    <p class="nomeComponete">Fonte</p>
+                    <img src="" class="imagemProduto">
+                </div>
+
+                <div class="infProduto">
+                    <h3 class="nomeProduto">SELECIONE OS COMPONENTES</h3>
+                    <p class="desc">
+                        Escolha os componentes para o seu computador
+                    </p>
+
+                    <div class="valorDoProduto">
+                        <p class="valorNormal" class="infoDesconto">R$0.00</p>
+                        <p>
+                            <strong class="valor">R$0.00</strong> 
+                            <span class="qDesconto" class="infoDesconto">0% OFF</span>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="btns">
+                    <button class="selecionar">Selecionar</button>
+                    <button class="alterar" style="display: none;">Alterar</button>
+                    <button class="remover" style="display: none;">Remover</button>
+                </div>
+            </section>
+
+            <section>
+                <div class="localImgProduto">
+                    <p class="nomeComponete">Placa Mãe</p>
+                    <img src="" class="imagemProduto">
+                </div>
+
+                <div class="infProduto">
+                    <h3 class="nomeProduto">SELECIONE OS COMPONENTES</h3>
+                    <p class="desc">
+                        Escolha os componentes para o seu computador
+                    </p>
+
+                    <div class="valorDoProduto">
+                        <p class="valorNormal" class="infoDesconto">R$0.00</p>
+                        <p>
+                            <strong class="valor">R$0.00</strong> 
+                            <span class="qDesconto" class="infoDesconto">0% OFF</span>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="btns">
+                    <button class="selecionar">Selecionar</button>
+                    <button class="alterar" style="display: none;">Alterar</button>
+                    <button class="remover" style="display: none;">Remover</button>
+                </div>
+            </section>
+
+            <section>
+                <div class="localImgProduto">
+                    <p class="nomeComponete">Processador</p>
+                    <img src="" class="imagemProduto">
+                </div>
+
+                <div class="infProduto">
+                    <h3 class="nomeProduto">SELECIONE OS COMPONENTES</h3>
+                    <p class="desc">
+                        Escolha os componentes para o seu computador
+                    </p>
+
+                    <div class="valorDoProduto">
+                        <p class="valorNormal" class="infoDesconto">R$0.00</p>
+                        <p>
+                            <strong class="valor">R$0.00</strong> 
+                            <span class="qDesconto" class="infoDesconto">0% OFF</span>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="btns">
+                    <button class="selecionar">Selecionar</button>
+                    <button class="alterar" style="display: none;">Alterar</button>
+                    <button class="remover" style="display: none;">Remover</button>
+                </div>
+            </section>
+
+            <section>
+                <div class="localImgProduto">
+                    <p class="nomeComponete">Memória RAM</p>
+                    <img src="" class="imagemProduto">
+                </div>
+
+                <div class="infProduto">
+                    <h3 class="nomeProduto">SELECIONE OS COMPONENTES</h3>
+                    <p class="desc">
+                        Escolha os componentes para o seu computador
+                    </p>
+
+                    <div class="valorDoProduto">
+                        <p class="valorNormal" class="infoDesconto">R$0.00</p>
+                        <p>
+                            <strong class="valor">R$0.00</strong> 
+                            <span class="qDesconto" class="infoDesconto">0% OFF</span>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="btns">
+                    <button class="selecionar">Selecionar</button>
+                    <button class="alterar" style="display: none;">Alterar</button>
+                    <button class="remover" style="display: none;">Remover</button>
+                </div>
+            </section>
+
+            <section>
+                <div class="localImgProduto">
+                    <p class="nomeComponete">Placa de vídeo</p>
+                    <img src="" class="imagemProduto">
+                </div>
+
+                <div class="infProduto">
+                    <h3 class="nomeProduto">SELECIONE OS COMPONENTES</h3>
+                    <p class="desc">
+                        Escolha os componentes para o seu computador
+                    </p>
+
+                    <div class="valorDoProduto">
+                        <p class="valorNormal" class="infoDesconto">R$0.00</p>
+                        <p>
+                            <strong class="valor">R$0.00</strong> 
+                            <span class="qDesconto" class="infoDesconto">0% OFF</span>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="btns">
+                    <button class="selecionar">Selecionar</button>
+                    <button class="alterar" style="display: none;">Alterar</button>
+                    <button class="remover" style="display: none;">Remover</button>
+                </div>
+            </section>
+
+            <section>
+                <div class="localImgProduto">
+                    <p class="nomeComponete">SSD</p>
+                    <img src="" class="imagemProduto">
+                </div>
+
+                <div class="infProduto">
+                    <h3 class="nomeProduto">SELECIONE OS COMPONENTES</h3>
+                    <p class="desc">
+                        Escolha os componentes para o seu computador
+                    </p>
+
+                    <div class="valorDoProduto">
+                        <p class="valorNormal" class="infoDesconto">R$0.00</p>
+                        <p>
+                            <strong class="valor">R$0.00</strong> 
+                            <span class="qDesconto" class="infoDesconto">0% OFF</span>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="btns">
+                    <button class="selecionar">Selecionar</button>
+                    <button class="alterar" style="display: none;">Alterar</button>
+                    <button class="remover" style="display: none;">Remover</button>
+                </div>
+            </section>
+
+            <section>
+                <div class="localImgProduto">
+                    <p class="nomeComponete">HD</p>
+                    <img src="" class="imagemProduto">
+                </div>
+
+                <div class="infProduto">
+                    <h3 class="nomeProduto">SELECIONE OS COMPONENTES</h3>
+                    <p class="desc">
+                        Escolha os componentes para o seu computador
+                    </p>
+
+                    <div class="valorDoProduto">
+                        <p class="valorNormal" class="infoDesconto">R$0.00</p>
+                        <p>
+                            <strong class="valor">R$0.00</strong> 
+                            <span class="qDesconto" class="infoDesconto">0% OFF</span>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="btns">
+                    <button class="selecionar">Selecionar</button>
+                    <button class="alterar" style="display: none;">Alterar</button>
+                    <button class="remover" style="display: none;">Remover</button>
+                </div>
+            </section>
+        </main>
+
+        <!--! Aba Componentes -->
+        <section id="abaComponentes">
+            <article id="conteudoAbaComponetes">
+            </article>
+        </section>
+        <!--! fim Aba Componentes -->
+        
+        <a id="carrinho" href="carrinho.html">
+            <img src="assets/img/icons/carrinho.png" alt="">
+        </a>
+
+        <div id="voltarTopo">
+        <a href="#topo" id="subir"></a>
+        </div>
+
+        <!--! Icone de notificação -->
+        <div id="notificacaoChat">
+            <div id="containerNotificacao" class="iconeNot">
+                <a id="avisoSemNot">
+                    <p>Nenhuma notificação:</p>
+                    <span><img src="assets/img/icons/setinhaChat.png"> Você será avisado assim que uma notificação chegar :)</span>
+                </a>
+            </div>
+            <div id="btnChat" onclick="abrirAbaNotificacao()" class="iconeNot">
+                <p id="numNotifi" class="iconeNot">0</p>
+                <img src="assets/img/icons/iconeCoversa.png" alt="" class="iconeNot">
+            </div>
+        </div>
+
+        <div id="voltarTopo">
+            <a href="#topo" id="subir"></a>
+        </div>
+
+        <!--! Animação de carregamento -->
+        <section id="carregando">
+            <article>
+                <!--! início do preloader -->
+                <div id="preloader">
+                    <div class="inner">
+                    <div class="bolas">
+                        <div></div>
+                        <div></div>
+                        <div></div>                    
+                    </div>
+                    </div>
+                </div>
+                <!--! fim do preloader --> 
+            </article>
+        </section>
+        
+        <footer>
+            <div id="p1">
+                <p>Duvidas?</p>
+                <h1>Contate-Nos!</h1>
+                <ul>
+                    <li id="face"><a href="https://www.facebook.com/nerds.eti"></a></li>
+                    <li id="insta"><a href="https://www.instagram.com/nerds.eti/"></a></li>
+                    <li id="tw"><a></a></li>
+                </ul>
+            </div>
+
+            <div id="p2">
+                <strong><a href="https://g.page/Nerds-Formosa?share" target="_blank">Rua Visconde De Porto Seguro 1161 Prédio<img src="assets/img/icons/icons8-google-maps-96.png"></a></strong>
+                <p>Preços e condições de pagamento exclusivos para compras via internet e podem variar nas lojas físicas. Os preços anunciados neste site ou via e-mail promocional podem ser alterados sem aviso prévio.</p>
+            </div>
+
+            <div id="ps5"></div>
+        </footer>
+
+        <!--! Firebase -->
+        <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-auth.js"></script>
+        <script src="assets/js/firebase.js"></script>
+        
+        <!--! Check Manutenção -->
+        <script src="assets/js/checkManutencao.js"></script>
+
+        <!--! Script  JS-->
+        <script src="assets/js/funcoesBasicas.js"></script>
+        <script src="assets/js/notificacao.js"></script>
+        <script src="assets/js/monteSeuPc.js"></script>
+
+        <script>
+            //! Sliders
+            let carregado = false
+            let cloneBanner = []
+            let editandoBanner = false
+            db.collection('Banners').onSnapshot((data) => {
+                data.docs.map(function(vaBanners) {
+                    let pBanners = vaBanners.data()
+
+                    if(cloneBanner.length != 0 && pBanners.Banner.length != cloneBanner.length) {
+                        setTimeout(() => {
+                            location.reload()
+                        }, 1000)
+
+                    } else if(carregado == false) {
+                        for (let c = 0; c < pBanners.Banner.length; c++) {
+                            criaBanners(pBanners.Banner[c].imagemAltaEscala, pBanners.Banner[c].imagemPequenaEscala, pBanners.Banner[c].id)
+                            cloneBanner = pBanners.Banner
+                        }
+
+                    } else {
+                        setTimeout(() => {
+                            location.reload()
+                        }, 1000)
+                    }
+
+                })
+            })
+
+            let contadorBanners = 0
+            let qBanner
+            let stop = false //! Vai parar a animação do banner
+            let idImgSelecionada //! Vai mostar o id do banner que vai ser editado
+            function criaBanners(imagem1, imagem2, id) {
+                let slideshowWrapper = document.getElementsByClassName('slideshow-wrapper')[0]
+                let divBanner = document.createElement('div')
+                let imgBanners = document.createElement('img')
+
+                slideshowWrapper.style.width = `${qBanner + 200}%`
+
+                divBanner.className = 'slide'
+                divBanner.id = id
+                imgBanners.className = 'slide-img stop'
+
+                //! Vai alterar o banner de acordo com a tela
+                setInterval(() => {
+                    if(visualViewport.width <= 500) {
+                        imgBanners.src = imagem2
+                    } else {
+                        imgBanners.src = imagem1
+                    }
+                }, 100)
+
+                divBanner.appendChild(imgBanners)
+                slideshowWrapper.appendChild(divBanner)
+
+                contadorBanners++
+                qBanner = (contadorBanners * 100) - 100
+
+                //? Banner Monte seu Pc
+                let bannerMonteSeuPc = document.getElementsByClassName('slide-img stop')[0]
+
+                //? Vai centralizar o primeiro banner(Monte seu pc)
+                bannerMonteSeuPc.style.objectPosition = 'center 80%'
+
+                bannerMonteSeuPc.addEventListener('click', () => {
+                    location.pathname = '/monteSeuPc.html'
+                })
+            }
+
+            //! Sliders
+            let slide = document.querySelector('.slideshow-wrapper')
+            let btnSlide1 = document.getElementsByClassName('slide-btn-1')[0]
+            let btnSlide2 = document.getElementsByClassName('slide-btn-2')[0]
+            let anin = 0
+
+            setInterval( function animacao() {
+                if(stop == false) {
+                    if(anin < qBanner) {
+                        anin += 100
+                        
+                    } else {
+                        anin = 0
+                    }
+                
+                    slide.style.left = `-${anin}%`
+                }
+            }, 3500)
+
+            function btnSliderE() {
+                if(anin > 0) {
+                    stop = true
+                    anin -= 100
+                    slide.style.left = `-${anin}%`
+                    btnSlide2.style.display = 'block'
+                }
+            }
+
+            function btnSliderD() {
+                if(anin < qBanner) {
+                    stop = true
+                    anin += 100
+                    slide.style.left = `-${anin}%`
+                    btnSlide1.style.display = 'block'
+
+                }
+            }
+
+            setInterval(() => {
+                //! Vai controlar quando o bnt1 vai aparecer ou sumir
+                if(anin == 0) {
+                    btnSlide1.style.display = 'none'
+
+                } else {
+                    btnSlide1.style.display = 'block'
+                } 
+
+                //! Vai controlar qunado o bnt2 vai aparecer ou sumir
+                if(anin == qBanner) {
+                    btnSlide2.style.display = 'none'
+
+                } else {
+                    btnSlide2.style.display = 'block'
+                }
+            }, 500)
+
+            document.addEventListener('click', (el) => {
+                let e = el.target.className
+                let eId = el.target.id
+                if(e != 'slide-btn slide-btn-1' && e != 'slide-btn slide-btn-2' && e != 'stop' && e != 'obrigatorios stop' && e != 'slide-img stop') {
+                    stop = false
+                }
+            })
+            //! Fim Sliders
+        </script>
+    </body>
+</html>

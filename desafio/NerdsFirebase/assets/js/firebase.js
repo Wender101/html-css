@@ -18,7 +18,6 @@ let trocarDeConta = false
 function login() {
     trocarDeConta = true
     auth.signInWithPopup(provider)
-
 }
 
 const db = firebase.firestore()

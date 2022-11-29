@@ -1,7 +1,7 @@
 function tempoRestante() {
     var one_day = 1000 * 60 * 60 * 24
     var present_date = new Date();
-    var diaX = new Date(present_date.getFullYear(), 9, 1)
+    var diaX = new Date(present_date.getFullYear(), 12, 1)
     
     if (present_date.getMonth() == 11 && present_date.getdate() > 25) diaX.setFullYear(diaX.getFullYear() + 1)
     

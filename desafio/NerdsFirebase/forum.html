@@ -1,24 +1,20 @@
 <!DOCTYPE html>
-<html lang="pt-br" id="html" style="overflow-x: hidden;">
-<head id="topo">
+<html lang="pt-br">
+<head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/carrinho.css">
-    <link rel="stylesheet" href="assets/css/pagProduto.css">
-    <link rel="stylesheet" href="assets/css/pagProdutoResponsive.css">
+    <link rel="stylesheet" href="assets/css/estilo.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
-    <link rel="stylesheet" href="assets/css/prdutosResponsivo.css">
-    <title>Carrinho</title>
+    <link rel="stylesheet" href="assets/css/forum.css">
+    <title>Forum</title>
 </head>
-<body>
+<body id="topo">
     <div id="sombra" onclick="fecharMenu()"></div>
-    <div id="localBtnMenu"><p.carrinho[0].nomebutton id="menu" onclick="abrirMenu()">Menu</button></div>
+    <div id="localBtnMenu"><button id="menu" onclick="abrirMenu()">Menu</button></div>
     <nav>
         <ul>
             <li><a href="home.html">Home</a></li>
-            <hr>
-            <li><a href="sobre.html">Sobre</a></li>
             <hr>
             <li><a href="produtos.html">Produtos</a></li>
             <hr>
@@ -30,30 +26,56 @@
         </ul>
     </nav>
 
-    
-    <h1 id="classProduto">Carrinho</h1>
-    <p id="recado">Seu carrinho se encontra vazio, adicione algum produto a ele.</p>
-    <main>
-    </main>    
+    <!--! Main -->
+   <main>
+        <!--! Parte central(perguntas e enquetes) -->
+       <section id="localPerguntas">
+            <div id="pesquisarPergunta">
+                <input type="text" id="pesquisar">
+                <button></button>
+            </div>
 
+            <!--! Perguntas -->
+        </section>
+
+        <!--! Parte lateral -->
+        <section id="lateralMenu">
+            <h3>Sobre mim</h3>
+            <div id="Nivel">
+                <img src="assets/img/nivel/ouro.png" id="elo">
+                <img src="assets/img/site/error2NavBar.jpg" alt="imagem do Usuario" id="imgUserNivel">
+                <p id="nivelUser">34</p>
+            </div>
+
+            <p id="nomeUser"></p>
+
+            <h3>Como Funciona?</h3>
+            <p id="comoProsseguir">Responda as enquetes, ganhe XP, suba de nivel e conquiste seus cupons de descontos.</p>
+        </section>
+
+        <!--! Vai mostrar a porcentagem de XP -->
+        <section id="sobreONivel">
+            <div id="triangulo"></div>
+            <div id="triangulo2"></div>
+
+            <div id="nivelAboutNivel">
+                <span>34</span>
+                <div id="barraNivel">
+                    <div id="porcentagem">
+                    </div>
+                    <span id="porcentagem2"></span>
+                </div>
+            </div>
+        </section>
+
+   </main>
+
+    <!--! Vlt ao topo -->
     <div id="voltarTopo">
         <a href="#topo" id="subir"></a>
     </div>
 
-    <h2 id="total">Valor Total: 0.00</h2>
-
-    <section id="infRemover">
-        <article id="msgRemover">
-            <p>Tem certeza que desejá remover este produto do carrinho?</p>
-
-            <div>
-                <button onclick="removerDoCarrinho()" id="btnSim">Sim</button>
-                <button onclick="fecharInfRemover()" id="btnNao">Fechar</button>
-                <button onclick="limparCarrinho()" id="btnLimparCarrinho">Remover Todos</button>
-            </div>
-        </article>
-    </section>
-
+    <!--! Animação de carregamento -->
     <section id="carregando">
         <article>
             <!-- início do preloader -->
@@ -71,6 +93,8 @@
         </article>
     </section>
 
+
+   <!--! Footer -->
     <footer>
         <div id="p1">
             <p>Duvidas?</p>
@@ -89,7 +113,7 @@
 
         <div id="ps5"></div>
     </footer>
-    
+
     <!--! Firebase -->
     <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-firestore.js"></script>
@@ -99,8 +123,8 @@
     <!--! Check Manutenção -->
     <script src="assets/js/checkManutencao.js"></script>
 
-    <!--! Script  JS-->
+    <!--! Scripts -->
     <script src="assets/js/funcoesBasicas.js"></script>
-    <script src="assets/js/carrinho.js"></script>
+    <script src="assets/js/forum.js"></script>
 </body>
 </html>
