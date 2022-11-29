@@ -1,5 +1,6 @@
 let idSection
-for(let c = 0; c < 8; c++) {
+let hrefPage = location.href.replace('Desempenho', '')
+for(let c = 0; c < 9; c++) {
     let selecionar = document.getElementsByClassName('selecionar')[c]
     let alterar = document.getElementsByClassName('alterar')[c]
     let remover = document.getElementsByClassName('remover')[c]
@@ -129,6 +130,7 @@ function colocarNaTela(nome) {
     })
 }
 
+//? Vai adiconar na tela o componente que foi escolhido pelo usuario
 function adicinarComponente(img, nome, desc, valor, desconto) {
     document.getElementsByClassName('nomeComponete')[parseInt(idSection)].style.display = 'none'
     document.getElementsByClassName('imagemProduto')[parseInt(idSection)].src = img
@@ -149,6 +151,7 @@ function adicinarComponente(img, nome, desc, valor, desconto) {
     document.getElementsByClassName('remover')[parseInt(idSection)].style.display = 'block'
 }
 
+//? Vai remover o componente
 function removerComponente(c) {
     document.getElementsByClassName('nomeComponete')[parseInt(c)].style.display = 'block'
     document.getElementsByClassName('imagemProduto')[parseInt(c)].src = ''
@@ -163,4 +166,53 @@ function removerComponente(c) {
     document.getElementsByClassName('selecionar')[parseInt(c)].style.display = 'block'
     document.getElementsByClassName('alterar')[parseInt(c)].style.display = 'none'
     document.getElementsByClassName('remover')[parseInt(c)].style.display = 'none'
+}
+
+//? Vai colocar os jogos na tela
+function jogos() {
+    let jogos = document.getElementById('jogos')
+    jogos.innerHTML = ''
+
+    fetch(`assets/json/requisitosMinimosDosJogos.json`).then(resposta => {
+        return resposta.json()
+    }).then(requisitos => {
+        for(let c = 0; c < requisitos.Jogo.length; c++) {
+            let resp = requisitos.Jogo[c]
+
+            let div = document.createElement('div')
+            let img = document.createElement('img')
+
+            img.src = resp.img
+            div.href = '#Desempenho'
+
+            div.appendChild(img)
+            jogos.appendChild(div)
+
+            div.addEventListener('click', () => {
+                testarDesempenho(resp.Nome)
+                location.href = hrefPage + '#Desempenho' 
+            })
+        }
+    })
+}
+
+//? Testar Desempenho
+function testarDesempenho(jogo) {
+    //? Vai puxar o requisitos mínimos do arquivo.json
+    fetch(`assets/json/requisitosMinimosDosJogos.json`).then(resposta => {
+        return resposta.json()
+    }).then(requisitos => {
+        for(let c = 0; c < requisitos.Jogo.length; c++) {
+            let resp = requisitos.Jogo[c]
+            if(resp.Nome == jogo) {
+                document.getElementsByClassName('infJogo')[0].style.display = 'block'
+                document.getElementById('localImgInfJogo').src = resp.img
+                document.getElementById('nomeGame').innerText = resp.Nome
+                document.getElementById('placaDeVideo').innerText = resp.PlacaDeVideo
+                document.getElementById('processador').innerText = resp.Processador
+                document.getElementById('memoria').innerText = resp.Memoria
+                document.getElementById('armazenamento').innerText = resp.Armazenamento
+            }
+        }
+    })
 }

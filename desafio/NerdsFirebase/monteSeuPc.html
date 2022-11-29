@@ -157,6 +157,34 @@
 
             <section>
                 <div class="localImgProduto">
+                    <p class="nomeComponete">Cooler</p>
+                    <img src="" class="imagemProduto">
+                </div>
+
+                <div class="infProduto">
+                    <h3 class="nomeProduto">SELECIONE OS COMPONENTES</h3>
+                    <p class="desc">
+                        Escolha os componentes para o seu computador
+                    </p>
+
+                    <div class="valorDoProduto">
+                        <p class="valorNormal" class="infoDesconto">R$0.00</p>
+                        <p>
+                            <strong class="valor">R$0.00</strong> 
+                            <span class="qDesconto" class="infoDesconto">0% OFF</span>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="btns">
+                    <button class="selecionar">Selecionar</button>
+                    <button class="alterar" style="display: none;">Alterar</button>
+                    <button class="remover" style="display: none;">Remover</button>
+                </div>
+            </section>
+
+            <section>
+                <div class="localImgProduto">
                     <p class="nomeComponete">Memória RAM</p>
                     <img src="" class="imagemProduto">
                 </div>
@@ -265,6 +293,37 @@
                     <button class="alterar" style="display: none;">Alterar</button>
                     <button class="remover" style="display: none;">Remover</button>
                 </div>
+            </section>
+
+            <!--! parte final(btn comprar e testar) -->
+            <div id="btnsFinais">
+                <button onclick="jogos()">Testar Desempenho</button>
+                <button>Comprar</button>
+            </div>
+
+            <section class="infJogo" id="#Desempenho">
+                <h1>Teste de Desempenho</h1>
+                <div id="part1Jogo">
+                    <img src="" id="localImgInfJogo">
+                </div>
+
+                <div>
+                    <strong>Requisitos oficiais do sistema de <span id="nomeGame"></span></strong>
+
+                    <p id="avisoJogo">Este é o hardware aconselhado pelos programadores para executar o em configurações mínimas e recomendadas. Estes requisitos são normalmente muito aproximados, mas ainda podem ser utilizados para determinar o nível indicativo de hardware necessário para jogar o jogo.</p>
+
+                    
+                    <div id="requisitos">
+                        <strong>Requisitos mínimos:</strong>
+                        <p>Placa de vídeo: <span id="placaDeVideo"></span></p>
+                        <p>Processador: <span id="processador"></span></p>
+                        <p>Memória: <span id="memoria"></span></p>
+                        <p>Armazenamento: <span id="armazenamento"></span></p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="jogos">
             </section>
         </main>
 

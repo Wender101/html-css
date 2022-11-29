@@ -46,6 +46,7 @@ main > section > .localImgProduto {
 
 main > section > .localImgProduto > p {
     color: var(--cor3);
+    text-align: center;
 }
 
 main > section > .infProduto {
@@ -226,3 +227,95 @@ article#conteudoAbaComponetes > div > .valorDoProduto {
 }
 /*? Fim Aba componentes */
 
+/*? Btns Finais */
+div#btnsFinais {
+    width: 300px;
+    height: auto;
+    display: block;
+    margin: 50px auto; 
+}
+
+div#btnsFinais > button {
+    padding: 5px 20px;
+    border-radius: 5px;
+    background-color: var(--cor1);
+    color: var(--cor0);
+    font-family: var(--font-texto);
+    font-weight: 100;
+    border: 1px solid transparent;
+    margin-top: 20px;
+}
+
+div#btnsFinais > button:hover {
+    background-color: transparent;
+    border: 1px solid var(--cor3);
+}
+/*? Fim Btns Finais */
+
+section.infJogo {
+    width: 99%;
+    height: auto;
+    display: block;
+    padding: 20px;
+    font-family: var(--font-texto);
+    display: none;
+}
+
+section.infJogo > h1 {
+    text-align: center;
+    margin: 30px 0px;
+    font-family: var(--font-nerds);
+    color: var(--cor3);
+    font-size: 40px;
+    margin-bottom: 30px;
+}
+
+section.infJogo div#part1Jogo > img {
+    width: 400px;
+    display: block;
+    margin: 20px auto 60px;
+    border-radius: 10px;
+    object-fit: cover;
+    object-position: center center;
+}
+
+section.infJogo > div > strong > span {
+    color: var(--cor3);
+}
+
+section.infJogo > div > p#avisoJogo {
+    margin: 40px 0px;
+    font-size: 14px;
+}
+
+section.infJogo > div > div#requisitos > strong {
+    margin-bottom: 20px;
+    display: block;
+}
+
+section.infJogo > div > div#requisitos > p {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+section.infJogo > div > div#requisitos > p > span {
+    color: var(--cor3);
+}
+
+/*? Section Jogos */
+section#jogos {
+    background-color: transparent;
+    flex-wrap: wrap;
+    justify-content: start;
+}
+
+section#jogos > div {
+    width: 250px;
+    height: 200px;
+    overflow: hidden;
+    margin-left: 20px;
+}
+
+section#jogos > div > img {
+    width: 100%;
+}

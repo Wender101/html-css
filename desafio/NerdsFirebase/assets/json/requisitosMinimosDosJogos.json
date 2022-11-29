@@ -1,0 +1,66 @@
+{
+    "Jogo": [
+        {
+            "Nome": "GTA V",
+            "Processador": "Intel Core 2 Quad 2.40GHz",
+            "Memoria": "4 GB",
+            "PlacaDeVideo": "NVIDIA 9800 GT 1GB",
+            "Armazenamento": "90 GB",
+            "img": "https://assets.reedpopcdn.com/gta-1621612236056.jpg/BROK/resize/1200x1200%3E/format/jpg/quality/70/gta-1621612236056.jpg"
+        },
+
+        {
+            "Nome": "Valorant",
+            "Processador": "Intel Core 2 Duo E8400",
+            "Memoria": "4 GB",
+            "PlacaDeVideo": "Intel HD 3000",
+            "Armazenamento": "10 GB",
+            "img": "https://noticias.maisesports.com.br/wp-content/uploads/2022/03/VALORANT-Riot.jpg"
+        },
+    
+        {
+            "Nome": "CS:GO",
+            "Processador": "Intel Core2 Duo E6600",
+            "Memoria": "2 GB",
+            "PlacaDeVideo": "256 MB",
+            "Armazenamento": "15 GB",
+            "img": "https://cdn.cloudflare.steamstatic.com/steam/apps/730/capsule_616x353.jpg?t=1668125812"
+        },
+    
+        {
+            "Nome": "Minecraft",
+            "Processador": "Intel Core i3",
+            "Memoria": "4 GB",
+            "PlacaDeVideo": "Intel HD Graphics 4000",
+            "Armazenamento": "1 GB",
+            "img": "https://i.ytimg.com/vi/GXr5glhGkzE/maxresdefault.jpg"
+        },
+
+        {
+            "Nome": " Call of Duty: Warzone 2.0",
+            "Processador": "Intel Core i3-6100",
+            "Memoria": "8 GB",
+            "PlacaDeVideo": "NVIDIA GeForce GTX 960",
+            "Armazenamento": "116 GB",
+            "img": "https://s2.glbimg.com/_zeY3fv1sg3WGl-i6ahfJGBwMjc=/1200x/smart/filters:cover():strip_icc()/i.s3.glbimg.com/v1/AUTH_08fbf48bc0524877943fe86e43087e7a/internal_photos/bs/2022/N/w/55mOdlSLmWYgrQehQ08Q/call-of-duty-warzone-20-nao-substitui-original-activision-blizzard.jpg"
+        },
+
+        {
+            "Nome": "Fortnite",
+            "Processador": "Core i3-3225 3.3 GHz",
+            "Memoria": "4 GB",
+            "PlacaDeVideo": "Intel HD 4000",
+            "Armazenamento": "30 GB",
+            "img": "https://cdn2.unrealengine.com/key-art-1920x1080-3251a6ec218c.jpg"
+        },
+
+        {
+            "Nome": "PUBG",
+            "Processador": "Intel Core i5-4430",
+            "Memoria": "8 GB",
+            "PlacaDeVideo": "nVidia GeForce GTX 960 2GB",
+            "Armazenamento": "40 GB",
+            "img": "https://meups.com.br/wp-content/uploads/2022/01/PUBG-Battlegrounds-soldado.jpg"
+        }
+    ]
+}
