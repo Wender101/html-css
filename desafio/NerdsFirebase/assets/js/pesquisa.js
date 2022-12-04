@@ -163,7 +163,7 @@ document.addEventListener('keypress', (e) => {
         localStorage.setItem('produtoPesquisado', produtoPesquisado)
 
         if(location.pathname != '/pagProduto.html') {
-            location.href = 'http://127.0.0.1:5501/pagProduto.html'
+            location.href = 'https://wender101.github.io/html-css/desafio/NerdsFirebase/pagProduto.html'
         }
     }
 })
@@ -174,6 +174,6 @@ document.getElementById('btnPesquisar').addEventListener('click', () => {
     localStorage.setItem('produtoPesquisado', produtoPesquisado)
 
     if(location.pathname != '/pagProduto.html') {
-        location.href = 'http://127.0.0.1:5501/pagProduto.html'
+        location.href = 'https://wender101.github.io/html-css/desafio/NerdsFirebase/pagProduto.html'
     }
 })
