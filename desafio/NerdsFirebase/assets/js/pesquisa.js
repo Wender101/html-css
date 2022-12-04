@@ -162,7 +162,7 @@ document.addEventListener('keypress', (e) => {
         const produtoPesquisado = JSON.stringify(pesquisa)
         localStorage.setItem('produtoPesquisado', produtoPesquisado)
 
-        if(location.href != 'https://wender101.github.io/html-css/desafio/NerdsFirebase/pagProduto.html') {
+        if(location.pathname != '/html-css/desafio/NerdsFirebase/pagProduto.html') {
             location.href = 'https://wender101.github.io/html-css/desafio/NerdsFirebase/pagProduto.html'
         }
     }
@@ -173,7 +173,7 @@ document.getElementById('btnPesquisar').addEventListener('click', () => {
     const produtoPesquisado = JSON.stringify(pesquisa)
     localStorage.setItem('produtoPesquisado', produtoPesquisado)
 
-    if(location.href != 'https://wender101.github.io/html-css/desafio/NerdsFirebase/pagProduto.html') {
+    if(location.pathname != '/html-css/desafio/NerdsFirebase/pagProduto.html') {
         location.href = 'https://wender101.github.io/html-css/desafio/NerdsFirebase/pagProduto.html'
     }
 })
