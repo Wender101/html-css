@@ -1,3 +1,9 @@
+@media screen and (max-width: 1255px) {
+    div#pesquisarPergunta {
+        transform: translate(-50%);
+    }
+}
+
 @media screen and (max-width: 1058px) {
     h1#classProduto, p#recado {
         max-width: 782px;

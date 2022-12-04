@@ -385,7 +385,60 @@ section#produtos {
 
 /*? Fim Slider */
 
-/* Categorias */
+/*? input */
+main > div#pesquisarPergunta {
+    width: 95%;
+    max-width: 1000px;
+    height: auto;
+    margin-left: 50%;
+    transform: translate(-53%);
+    border-radius: 5px;
+    border: 3px solid var(--cor3);
+    position: relative;
+}
+
+main > div#pesquisarPergunta > input {
+    width: 100%;
+    background-color: transparent;
+    padding: 10px;
+    height: 40px;
+    border: none;
+    color: var(--cor0);
+    font-size: 20px;
+    font-weight: 100;
+    font-family: var(--font-texto);
+}
+
+main > div#pesquisarPergunta > input:focus {
+    box-shadow: 0 0 0 0;
+    outline: 0;
+}
+
+main > div#pesquisarPergunta > button {
+    width: 45px;
+    height: 45px;
+    position: absolute; 
+    padding: 20px;
+    color: var(--cor0);
+    border: none;
+    top: 8px;
+    right: 10px;
+    background-color: var(--cor1);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+main > div#pesquisarPergunta > button > img {
+    width: 30px;
+    display: block;
+    margin-left: 50%;
+    transform: translate(-50%);
+    top: 15%;
+    left: 0px;
+    position: absolute;
+}
+
+/*? Categorias */
 #categorias {
     max-width: 1145px;
     width: 90%;

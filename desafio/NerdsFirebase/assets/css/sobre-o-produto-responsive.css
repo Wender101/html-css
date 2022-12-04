@@ -6,6 +6,10 @@
     section#containerChat {
         width: 862px;
     }
+
+    div#pesquisarPergunta {
+        transform: translate(-51%);
+    }
 }
 
 /*! Vai adicionar animação aos btnsa ao passar o mouse em cima deles */

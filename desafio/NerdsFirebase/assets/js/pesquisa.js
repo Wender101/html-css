@@ -153,3 +153,27 @@ function btnDireita() {
     btnE.style.display = 'block'
     press++
 }
+
+//? Barra de pesquisa
+let input = document.getElementById('pesquisar')
+document.addEventListener('keypress', (e) => {
+    if(e.keyCode == 13 && input.value.length > 5) {
+        let pesquisa = [input.value, 15]
+        const produtoPesquisado = JSON.stringify(pesquisa)
+        localStorage.setItem('produtoPesquisado', produtoPesquisado)
+
+        if(location.pathname != '/pagProduto.html') {
+            location.href = 'http://127.0.0.1:5501/pagProduto.html'
+        }
+    }
+})
+
+document.getElementById('btnPesquisar').addEventListener('click', () => {
+    let pesquisa = [input.value, 15]
+    const produtoPesquisado = JSON.stringify(pesquisa)
+    localStorage.setItem('produtoPesquisado', produtoPesquisado)
+
+    if(location.pathname != '/pagProduto.html') {
+        location.href = 'http://127.0.0.1:5501/pagProduto.html'
+    }
+})

@@ -21,6 +21,10 @@
         margin-left: 50%;
         transform: translate(-37%);
     }
+
+    main > div#pesquisarPergunta {
+        transform: translate(-50%);
+    }
 }
 
 @media screen and (max-width: 1084px) {

@@ -1,0 +1,223 @@
+@media screen and (max-width: 1082px) {
+    section#jogos {
+        width: 825px;
+        margin-left: 50%;
+        transform: translate(-50%);
+    }
+}
+
+@media screen and (max-width: 773px) {
+    section#jogos {
+        width: 555px;
+    }
+}
+
+@media screen and (max-width: 835px) {
+    article#conteudoAbaComponetes {
+        width: 100%;
+        max-width: none;
+    }
+
+    article#conteudoAbaComponetes > div {
+        height: auto;
+        min-height: 250px;
+    }
+
+    article#conteudoAbaComponetes > div > div.localImg {
+        width: 170px;
+        height: 100%;
+    }
+
+    article#conteudoAbaComponetes > div > div.texto {
+        width: 63%;
+        top: 20px;
+    }
+
+    article#conteudoAbaComponetes > div > .valorDoProduto {
+        right: auto;
+        margin-left: 50%;
+        transform: translate(-20%);
+        bottom: 15px;
+    }
+}
+
+/*? Arrumando as section onde vão os produtos */
+@media screen and (max-width: 620px) {
+    .nomeProduto {
+        width: 150%;
+        font-size: 14px;
+    }
+
+    .infProduto {
+        width: 40%;
+    }
+
+    .desc {
+        font-size: 13px;
+    }
+
+    div.valorDoProduto {
+        min-width: 157px;
+        margin-left: 55%;
+    }
+
+    div.valorDoProduto > p {
+        font-size: 13px;
+    }
+
+    div.valorDoProduto > p > strong.valor {
+        font-size: 14px;
+    }
+
+    main > section > div.btns {
+        padding-right: 0px;
+    }
+
+    main > section > div.btns > button {
+        font-size: 13px;
+        padding: 5px 10px;
+        margin-left: 10px;
+    }
+
+    main > section > div.btns > button.selecionar {
+        right: 0px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    /*? Sections */
+    main > section {
+        min-height: 250px;
+    }
+
+    main > section > .infProduto {
+        width: 70%;
+    }
+
+    div.valorDoProduto {
+        transform: translate(-56%);
+    }
+
+    main > section > div.btns {
+        width: auto;
+        min-width: 150px;
+        height: 35px;
+        display: flex;
+        position: absolute;
+        bottom: 20px;
+        margin-left: 56%;
+        transform: translate(-24%);
+    }
+
+    main > section > div.btns > button {
+        top: -0px;
+        margin-top: 0px;
+    }
+
+    main > section > div.btns > button.selecionar {
+        top: -0px;
+        right: auto;
+        left: 25px;
+        display: block;
+    }
+}
+
+@media screen and (max-width: 514px) {
+
+    div.valorDoProduto {
+        min-width: 140px;
+    }
+
+    div.valorDoProduto > p {
+        font-size: 12px;
+    }
+
+    div.valorDoProduto > p > strong.valor {
+        font-size: 13px;
+    }
+
+    h2#total {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 502px) {
+    article#conteudoAbaComponetes > div {
+        width: 100%;
+        max-width: none;
+        height: 270px;
+    }
+
+    article#conteudoAbaComponetes > div > div.localImg {
+        width: 130px;
+    }
+
+    article#conteudoAbaComponetes > div > div.texto {
+        margin-left: 140px;
+    }
+
+    article#conteudoAbaComponetes > div > div.texto > h3 {
+        width: 90%;
+        font-size: 15px;
+        margin-bottom: 5px;
+    }
+
+    article#conteudoAbaComponetes > div > div.texto > span {
+        width: 90%;
+        font-size: 14px;
+    }
+
+    article#conteudoAbaComponetes > div > .valorDoProduto {
+        width: 135px;
+    }
+
+    article#conteudoAbaComponetes > div > .valorDoProduto > p {
+        font-size: 13px;
+    }
+
+    article#conteudoAbaComponetes > div > .valorDoProduto > p > strong {
+        font-size: 14px;
+    } 
+}
+
+@media screen and (max-width: 483px) {
+    section.infJogo > h1 {
+        font-size: 30px;
+    }
+    
+    section#jogos {
+        width: 99%;
+    }
+
+    section.infJogo > div > strong {
+        width: 98%;
+        font-size: 14px;
+    }
+
+    section.infJogo > div > #avisoJogo {
+        text-align: center;
+    }
+
+    section#jogos > div {
+        width: 90%;
+        margin-bottom: 10px;
+    }
+
+}
+
+@media screen and (max-width: 420px) {
+    section.infJogo {
+        padding: 5px;
+    }
+
+    section.infJogo > div#part1Jogo {
+        width: 98%;
+        transform: translate(-50%);
+    }
+}
+
+@media screen and (max-width: 381px) {
+    div.valorDoProduto {
+        min-width: 120px;
+    }
+}

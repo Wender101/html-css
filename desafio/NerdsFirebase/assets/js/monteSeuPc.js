@@ -1,5 +1,5 @@
 let idSection
-let hrefPage = location.href.replace('Desempenho', '')
+let hrefPage = location.href.replace('#Desempenho', '')
 for(let c = 0; c < 9; c++) {
     let selecionar = document.getElementsByClassName('selecionar')[c]
     let alterar = document.getElementsByClassName('alterar')[c]
@@ -10,17 +10,17 @@ for(let c = 0; c < 9; c++) {
     })
 
     alterar.addEventListener('click', () => {
-        mostrarNaTela()
+        mostrarNaTela(c)
     })
 
     remover.addEventListener('click', () => {
         removerComponente(c)
     })
 
-    function mostrarNaTela() {
+    function mostrarNaTela(contador = null) {
         //? Vai pegar o nome do componente assim que clicar em selecionar
         let nomeComponente = document.getElementsByClassName('nomeComponete')[c]
-        colocarNaTela(nomeComponente.innerText)
+        colocarNaTela(nomeComponente.innerText, contador)
         abrirAbaComponetes()
         idSection = c
     }
@@ -65,7 +65,7 @@ function fecharAbaComponetes(e) {
 }
 
 //? Vai colocar os componentes na tela
-function colocarNaTela(nome) {
+function colocarNaTela(nome, c) {
 
     db.collection('Produtos').onSnapshot((data) => {
         data.docs.map(function(val) {
@@ -100,9 +100,14 @@ function colocarNaTela(nome) {
                 img.src = valProduto.imagem1
                 h3.innerText = valProduto.nome
                 span.innerText = valProduto.desc
-                valorNormal.innerText = `R$${valProduto.valor}`
-                valor.innerText = `R$${valProduto.valor}`
-                qDesconto.innerText = ` ${valProduto.desconto} OFF`
+
+                //? Vai calcular o valor com o desconto
+                let valor2 = parseFloat(valProduto.valor)
+                let desconto2 = parseFloat(valProduto.desconto)
+                let ValorComDesconto = (((desconto2 * valor2) / 100) - valor2) * -1
+                valorNormal.innerText = `R$${valor2.toFixed(2)}`
+                valor.innerText = `R$${ValorComDesconto.toFixed(2)}`
+                qDesconto.innerText = ` ${desconto2}% OFF`
 
                 //? Apenchild
                 localImg.appendChild(img)
@@ -122,6 +127,9 @@ function colocarNaTela(nome) {
 
                 //? click
                 div.addEventListener('click', () => {
+                    if(c != null) {
+                        removerComponente(c)
+                    }
                     adicinarComponente(valProduto.imagem1, valProduto.nome, valProduto.desc, valProduto.valor, valProduto.desconto)
                     fecharAbaComponetes('abaComponentes')
                 })
@@ -149,10 +157,34 @@ function adicinarComponente(img, nome, desc, valor, desconto) {
     document.getElementsByClassName('selecionar')[parseInt(idSection)].style.display = 'none'
     document.getElementsByClassName('alterar')[parseInt(idSection)].style.display = 'block'
     document.getElementsByClassName('remover')[parseInt(idSection)].style.display = 'block'
+
+    //? Vai diminuir o tamanho do h3
+    document.getElementsByClassName('nomeProduto')[parseInt(idSection)].style.width = '100%'
+
+    //? Vai colocar o valor na tela
+    somarValorComponentes(ValorComDesconto.toFixed(2), '+')
+}
+
+//? Vai somar o valor dos componentes
+let valorComponentes = 0
+function somarValorComponentes(valor, calculo) {
+
+    if(calculo == '+') {
+        valorComponentes += parseFloat(valor)
+    } else {
+        valorComponentes -= parseFloat(valor)
+    }
+
+    document.getElementById('total').innerText = `Valor total: R$${valorComponentes.toFixed(2)}`
 }
 
 //? Vai remover o componente
 function removerComponente(c) {
+    //? Vai descontar o valor do produto removido
+    let valorDescontado = document.getElementsByClassName('valor')[parseInt(c)].innerText
+    let valorDescontado2 = parseFloat(valorDescontado.replace('R$', ''))
+    somarValorComponentes(valorDescontado2.toFixed(2), '-')
+
     document.getElementsByClassName('nomeComponete')[parseInt(c)].style.display = 'block'
     document.getElementsByClassName('imagemProduto')[parseInt(c)].src = ''
     document.getElementsByClassName('nomeProduto')[parseInt(c)].innerText = 'SELECIONE OS COMPONENTES'
@@ -212,7 +244,60 @@ function testarDesempenho(jogo) {
                 document.getElementById('processador').innerText = resp.Processador
                 document.getElementById('memoria').innerText = resp.Memoria
                 document.getElementById('armazenamento').innerText = resp.Armazenamento
+
+                for(let c = 0; c < 6; c++) {
+                    checarDesempenho(resp.rankingPlacaDeVideo, resp.rankingProcessa, resp.Memoria.replace(' GB', ''), resp.Armazenamento.replace(' GB', ''))
+                }
             }
         }
+    })
+}
+
+let contador = [3, 5, 6, 7, 8]
+let cPlus = 0
+function checarDesempenho(placaDeVideo, processador, ram, armazenamento) {
+    for(let c = 0; c < 4; c++) {
+        document.getElementsByClassName('imgAboutComponente')[c].src = 'assets/img/site/errado.png'
+        cPlus = 0
+    }
+
+    db.collection('Produtos').onSnapshot((data) => {
+        data.docs.map(function(val) {
+            let valProduto = val.data()
+
+           try {
+                if(document.getElementsByClassName('imagemProduto')[parseInt(contador[cPlus])].src == valProduto.imagem1) {
+
+                    if(valProduto.ranking  <= processador) {
+                        document.getElementsByClassName('imgAboutComponente')[1].src = 'assets/img/site/correto.png'
+                    } 
+
+                    //? Vai pegar a qnt de RAM na desc do memória
+                    let descMinuscula = valProduto.desc.toLowerCase()
+                    let localGB = descMinuscula.lastIndexOf('gb')
+                    let numGB = valProduto.desc.toLowerCase().substring(localGB - 2, localGB)
+                    if(valProduto.nome.includes('Memória RAM') && parseFloat(numGB) >= parseFloat(ram)) {
+                        document.getElementsByClassName('imgAboutComponente')[2].src = 'assets/img/site/correto.png'
+                    }
+
+                    //? Vai checar a placa de video
+                    if(valProduto.ranking  <= placaDeVideo) {
+                        document.getElementsByClassName('imgAboutComponente')[0].src = 'assets/img/site/correto.png'
+                    } 
+
+                    //? Vai checar o armazenamento
+                    numGB = valProduto.desc.toLowerCase().substring(localGB - 3, localGB)
+                    if(valProduto.nome.includes('SSD') || valProduto.nome.includes('HD') && parseFloat(numGB) >= parseFloat(armazenamento)) {
+                        document.getElementsByClassName('imgAboutComponente')[3].src = 'assets/img/site/correto.png'
+                    }
+
+                    if(valProduto.nome.includes('HD') && parseFloat(numGB) >= parseFloat(armazenamento)) {
+                        document.getElementsByClassName('imgAboutComponente')[3].src = 'assets/img/site/correto.png'
+                    }
+
+                    cPlus++
+                }
+           } catch{}
+        })
     })
 }
