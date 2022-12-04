@@ -126,7 +126,7 @@ function criaBanners(imagem1, imagem2, id) {
     bannerMonteSeuPc.style.objectPosition = 'center 80%'
 
     bannerMonteSeuPc.addEventListener('click', () => {
-        location.href = '/https://wender101.github.io/html-css/desafio/NerdsFirebase/monteSeuPc.html'
+        location.href = 'https://wender101.github.io/html-css/desafio/NerdsFirebase/monteSeuPc.html'
     })
 }
 
