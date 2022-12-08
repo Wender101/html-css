@@ -12,7 +12,7 @@ for(let c = 1; c <= 14; c++) {
 
     p.innerText = nomeCategoria[c-1]
 
-    if(window.location.pathname != '/pagProduto.html') {
+    if(window.location.href != 'https://wender101.github.io/html-css/desafio/NerdsFirebase/pagProduto.html') {
         a.href = `pagProduto.html`
     }
 
@@ -121,7 +121,7 @@ document.getElementById('btnPesquisar').addEventListener('click', () => {
 })
 
 function pesquisarProduto(pesquisa = '') {
-    if(location.pathname != '/pagProduto.html') {
+    if(location.href != 'https://wender101.github.io/html-css/desafio/NerdsFirebase/pagProduto.html') {
         let valPesquisa
         if(pesquisa != '') {
             valPesquisa = pesquisa
@@ -149,13 +149,13 @@ function pesquisarProduto(pesquisa = '') {
                     const produtoPesquisado = JSON.stringify(pesquisa)
                     localStorage.setItem('produtoPesquisado', produtoPesquisado)
                     inputFeito = true
-                    location.href = 'http://127.0.0.1:5501/pagProduto.html'
+                    location.href = 'https://wender101.github.io/html-css/desafio/NerdsFirebase/pagProduto.html'
             
                 } else if(nomeCat != valPesquisa && c == 13) {
                     let pesquisa = [valPesquisa, c + 2]
                     const produtoPesquisado = JSON.stringify(pesquisa)
                     localStorage.setItem('produtoPesquisado', produtoPesquisado)
-                    location.href = 'http://127.0.0.1:5501/pagProduto.html'
+                    location.href = 'https://wender101.github.io/html-css/desafio/NerdsFirebase/pagProduto.html'
                 }
             }
         }
@@ -207,7 +207,7 @@ function sugetaoPesquisa(pesquisa) {
 
                 //? Ao clicar no p
                 p.addEventListener('click', () => {
-                    if(location.pathname != '/pagProduto.html') {
+                    if(location.href != 'https://wender101.github.io/html-css/desafio/NerdsFirebase/pagProduto.html') {
                         pesquisarProduto(p.innerText)
                     } else {
                         pesquisarProd(p.innerText)
