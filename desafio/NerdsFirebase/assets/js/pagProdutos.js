@@ -3,94 +3,147 @@ const produtoPesquisado2 = JSON.parse(produtoPesquisado1)
 
 //! Vai usar a URL da pág como guía para encontrar o produto
 let pesquisaInput = false
+let urlSemProduto = window.location.origin + window.location.pathname
+let urlFinal
 function urlPage() {
+    let pageFeito = false
+    let pageFeito2 = false
     let url = window.location.href
-
+    
     let l1 = url.substr(-5)
     for(let c = 0; c < 20; c++) {
-       url = url.replace("%20", " ")
+        url = url.replace("%20", " ")
     }
+    
+    //? Esse número "100" vai limitaor o número de caracteris no nome do produto da url
+    for (let c = 0; c <= 100; c++) {
+        let b = c - 1
+        let letra = url.substr(-c)
+        let fim = letra.substring(0, 1)
+        
+        //? vai carregar a pesquisa da barra de pesquisa
+        if(fim == '#' && pageFeito2 == false) {
+            urlFinal = url.substr(-b).replace("%20", " ")
+            document.querySelector('title').innerText = urlFinal
+            document.getElementById('classProduto').innerText = urlFinal
+            let cSalvo
+            for(let c = 0; c < 14; c++) {
+                let nomeCategoria = ['Cabos', 'Adaptadores', 'Teclados', 'Mouse', 'Gabinetes', 'Headset', 'Controles', 'Fontes', 'MousePad', 'Processadores', 'Memória', 'SSD', 'Coolers', 'Outros']
+                let nomeCat = nomeCategoria[c]
+                nomeCat = nomeCat.toLocaleLowerCase()
+                nomeCat = nomeCat.normalize('NFD').replace(/[\u0300-\u036f]/g, "") //? Vai remover os acentos
+                nomeCat = nomeCat.replace(/\s/g, '') //? Vai remover os espaços
+                
+                let pesquisaInp = urlFinal
+                pesquisaInp = pesquisaInp.toLocaleLowerCase()
+                pesquisaInp = pesquisaInp.normalize('NFD').replace(/[\u0300-\u036f]/g, "") //? Vai remover os acentos
+                pesquisaInp = pesquisaInp.replace(/\s/g, '') //? Vai remover os espaços
 
-    if(l1 != '.html') {
-        for (let c = 0; c <= 20; c++) {
-            let b = c - 1
-            let letra = url.substr(-c)
-            let fim = letra.substring(0, 1)
-            let qContrario
-            
-            if(fim == '#') {
-                let urlFinal = url.substr(-b).replace("%20", " ")
-                document.querySelector('title').innerText = urlFinal
-                document.getElementById('classProduto').innerText = urlFinal
-
-               if(urlFinal == 'Cabos') {
-                    qContrario = 1
-                } else if(urlFinal == 'Adaptadores') {
-                    qContrario = 2
-                } else if(urlFinal == 'Teclados') {
-                    qContrario = 3
-                } else if(urlFinal == 'Mouse') {
-                    qContrario = 4
-                } else if(urlFinal == 'Gabinetes') {
-                    qContrario = 5
-                } else if(urlFinal == 'Headset') {
-                    qContrario = 6
-                } else if(urlFinal == 'Controles') {
-                    qContrario = 7
-                } else if(urlFinal == 'Fontes') {
-                    qContrario = 8
-                } else if(urlFinal == 'MousePad') {
-                    qContrario = 9
-                } else if(urlFinal == 'Processadores') {
-                    qContrario = 10
-                } else if(urlFinal == 'Memória') {
-                    qContrario = 11
-                } else if(urlFinal == 'SSD') {
-                    qContrario = 12
-                } else if(urlFinal == 'Coolers') {
-                    qContrario = 13
-                } else if(urlFinal == 'Outros') {
-                    qContrario = 14
-                } else {
-                    qContrario = 15
-                    pesquisaInput = true
+                if(nomeCat == pesquisaInp && pageFeito == false) {
+                    cSalvo = c + 1
+                    pageFeito = true
+                } else if(c == 13 && pageFeito == false) {
+                    pageFeito = true
                 }
 
-                let a = [urlFinal, qContrario]
-                const produtoPesquisado = JSON.stringify(a)
-                localStorage.setItem('produtoPesquisado', produtoPesquisado)
-            }
-            
-        }
+                if(pageFeito == true) {
+                    let array = [urlFinal, cSalvo]
+                    const produtoPesquisado = JSON.stringify(array)
+                    localStorage.setItem('produtoPesquisado', produtoPesquisado)
 
-    } else {
-        document.querySelector('title').innerText = produtoPesquisado2[0]
-        document.getElementById('classProduto').innerText = produtoPesquisado2[0]
-        window.location.href = `${url}#${produtoPesquisado2[0]}`
+                    //? Vai dar um reload caso o user n tenha uma pesquisa salva
+                    if(produtoPesquisado2 == null) {
+                        location.reload()
+                    }
+                }
+            }
+            pageFeito2 = true
+
+        } else if(c == 100 && pageFeito2 == false) {
+            document.querySelector('title').innerText = produtoPesquisado2[0]
+            document.getElementById('classProduto').innerText = produtoPesquisado2[0]
+            window.location.href = `${urlSemProduto}#${produtoPesquisado2[0]}`
+        }
     }
-   
-    
 } urlPage()
 
 //? Vai pesquisar o produto ao pressionar o enter
 let inputPesquisar = document.getElementById('pesquisar')
 let btnPesquisarInput = document.getElementById('btnPesquisar')
 document.addEventListener('keypress', (e) => {
-    if(e.keyCode == 13 && inputPesquisar.value.length > 5) {
-        document.querySelector('title').innerText = inputPesquisar.value
-        document.getElementById('classProduto').innerText = inputPesquisar.value
-        pesquisaInput = true
-        colocarNatelaPesquisa()
+    if(e.keyCode == 13 && inputPesquisar.value.length > 1) {
+        pesquisarProd()
     }
 })
 
 //? Vai pesquisar o produto ao apertar na lupa
 btnPesquisarInput.addEventListener('click', () => {
-    document.querySelector('title').innerText = inputPesquisar.value
-    document.getElementById('classProduto').innerText = inputPesquisar.value
-    pesquisaInput = true
-    colocarNatelaPesquisa()
+    if(inputPesquisar.value.length > 1) {
+        pesquisarProd()
+    }
 })
+
+// let pesquisaSalva = produtoPesquisado2[0]
+// setInterval(() => {
+//     const produtoPesquisado1 = localStorage.getItem('produtoPesquisado')
+//     const produtoPesquisado2 = JSON.parse(produtoPesquisado1)
+//     if(pesquisaSalva != produtoPesquisado2[0]) {
+//         pesquisarProd(produtoPesquisado2[0])
+//         pesquisaSalva = produtoPesquisado2[0]
+//     }
+// }, 100)
+
+//? ao pesquisar
+function pesquisarProd(pesquisaFeita = '') {
+    document.querySelector('title').innerText = pesquisaFeita
+    document.getElementById('classProduto').innerText = pesquisaFeita
+    window.location.href = `${urlSemProduto}#${pesquisaFeita}`
+    let prodPesquisado = pesquisaFeita.toLocaleLowerCase()
+    if(pesquisaFeita == '') {
+        document.querySelector('title').innerText = inputPesquisar.value
+        document.getElementById('classProduto').innerText = inputPesquisar.value
+        window.location.href = `${urlSemProduto}#${inputPesquisar.value}`
+        prodPesquisado = inputPesquisar.value.toLocaleLowerCase()
+        pesquisaInput = true
+    }
+
+    colocarNatelaPesquisa()
+
+    let aneminFeito = false
+    let salveC
+    for (let c = 0; c < 14; c++) {
+        let div = document.getElementById('localCategorias')
+        let aCategoria = div.getElementsByTagName('a')[c]
+        aCategoria.id = `categoria-${c}`
+        let aCategoriaTexto = aCategoria.innerText
+
+        //? Vai tirar os espaços, acentos e deixar todos as letras em minusculo para comparar a pesquisa com as classes
+        prodPesquisado = prodPesquisado.normalize('NFD').replace(/[\u0300-\u036f]/g, "") //? Vai remover os acentos
+        prodPesquisado = prodPesquisado.replace(/\s/g, '') //? Vai remover os espaços
+
+        aCategoriaTexto = aCategoriaTexto.toLowerCase()
+        aCategoriaTexto = aCategoriaTexto.normalize('NFD').replace(/[\u0300-\u036f]/g, "") //? Vai remover os acentos
+        aCategoriaTexto = aCategoriaTexto.replace(/\s/g, '') //? Vai remover os espaços
+
+        //? Vai colocar animação na classe pesquisada        
+        if(aCategoriaTexto == prodPesquisado && aneminFeito == false) {
+            salveC = c + 1
+            aneminFeito = true
+
+            setTimeout(() => {
+                aCategoria.id = 'after'
+            }, 100)
+        }
+
+        //? Vai salvar oq foi pesquisado
+        if(c == 13) {
+            let array = [urlFinal, salveC]
+            const produtoPesquisado = JSON.stringify(array)
+            localStorage.setItem('produtoPesquisado', produtoPesquisado)
+        }
+    }
+    input.value = ''
+}
 
 //! vai adicionar o produto
 let id = 0

@@ -6,69 +6,13 @@ for(let c = 1; c <= 14; c++) {
 
     a.id = `categoria-${c}`
     p.className = 'pCategoria'
+    a.className = 'contrario'
 
-    if(c == 1) {
-        p.innerText =  'Cabos'
-        a.href = `pagProduto.html`
-        a.className = 'contrario'
+    let nomeCategoria = ['Cabos', 'Adaptadores', 'Teclados', 'Mouse', 'Gabinetes', 'Headset', 'Controles', 'Fontes', 'MousePad', 'Processadores', 'Memória', 'SSD', 'Coolers', 'Outros']
 
-    } else if(c == 2) {
-        p.innerText =  'Adaptadores'
-        a.href = `pagProduto.html`
+    p.innerText = nomeCategoria[c-1]
 
-    } else if(c == 3) {
-        p.innerText =  'Teclados'
-        a.href = `pagProduto.html`
-        a.className = 'contrario'
-        
-    } else if(c == 4) {
-        p.innerText =  'Mouse'
-        a.href = `pagProduto.html`
-        
-    } else if(c == 5) {
-        p.innerText =  'Gabinetes'
-        a.href = `pagProduto.html`
-        a.className = 'contrario'
-        
-    } else if(c == 6) {
-        p.innerText =  'Headset'
-        a.href = `pagProduto.html`
-        
-    } else if(c == 7) {
-        p.innerText =  'Controles'
-        a.href = `pagProduto.html`
-        a.className = 'contrario'
-        
-    } else if(c == 8) {
-        p.innerText =  'Fontes'
-        a.href = `pagProduto.html`
-        
-    } else if(c == 9) {
-        p.innerText =  'MousePad'
-        a.href = `pagProduto.html`
-        a.className = 'contrario'
-        
-    } else if(c == 10) {
-        p.innerText =  'Processadores'
-        a.href = `pagProduto.html`
-        
-    } else if(c == 11) {
-        p.innerText =  'Memória'
-        a.href = `pagProduto.html`
-        a.className = 'contrario'
-        
-    } else if(c == 12) {
-        p.innerText =  'SSD'
-        a.href = `pagProduto.html`
-        
-    } else if(c == 13) {
-        p.innerText =  'Coolers'
-        a.href = `pagProduto.html`
-        img.className = 'Coolers'
-        a.className = 'contrario'
-
-    } else {
-        p.innerText =  'Outros'
+    if(window.location.pathname != '/pagProduto.html') {
         a.href = `pagProduto.html`
     }
 
@@ -78,8 +22,17 @@ for(let c = 1; c <= 14; c++) {
     a.appendChild(p)
     localCategorias.appendChild(a)
     
-    // Vai guardar na memória qual produto foi pesquisado
-    a.addEventListener('click', () => {
+    //? Vai guardar na memória qual produto foi pesquisado
+    a.addEventListener('click', (c) => {
+        for(let b = 1; b <= 14; b++) {
+            a.id = `categoria-${b}`
+        }
+
+        setTimeout(() => {
+            document.getElementById(`categoria-${c}`).id = 'after'
+        }, 100)
+
+        pesquisarProd(p.innerText)
         let pesquisa = [p.innerText, c]
         const produtoPesquisado = JSON.stringify(pesquisa)
         localStorage.setItem('produtoPesquisado', produtoPesquisado)
@@ -90,7 +43,6 @@ try {
     const produtoQPesquisado1 = localStorage.getItem('produtoPesquisado')
     const produtoQPesquisado2 = JSON.parse(produtoQPesquisado1)
     document.getElementById(`categoria-${produtoQPesquisado2[1]}`).id = `after`
-    
 } catch {}
 
 //! botões do painel de categorias
@@ -157,23 +109,120 @@ function btnDireita() {
 //? Barra de pesquisa
 let input = document.getElementById('pesquisar')
 document.addEventListener('keypress', (e) => {
-    if(e.keyCode == 13 && input.value.length > 5) {
-        let pesquisa = [input.value, 15]
-        const produtoPesquisado = JSON.stringify(pesquisa)
-        localStorage.setItem('produtoPesquisado', produtoPesquisado)
-
-        if(location.pathname != '/pagProduto.html') {
-            location.href = 'http://127.0.0.1:5501/pagProduto.html'
-        }
+    if(e.keyCode == 13 && input.value.length > 1) {
+        pesquisarProduto()
     }
 })
 
 document.getElementById('btnPesquisar').addEventListener('click', () => {
-    let pesquisa = [input.value, 15]
-    const produtoPesquisado = JSON.stringify(pesquisa)
-    localStorage.setItem('produtoPesquisado', produtoPesquisado)
+    if(input.value.length > 1) {
+        pesquisarProduto()
+    }
+})
 
+function pesquisarProduto(pesquisa = '') {
     if(location.pathname != '/pagProduto.html') {
-        location.href = 'http://127.0.0.1:5501/pagProduto.html'
+        let valPesquisa
+        if(pesquisa != '') {
+            valPesquisa = pesquisa
+        } else {
+            valPesquisa = input.value
+        }
+        inputFeito = false
+        let nomeCategoria = ['Cabos', 'Adaptadores', 'Teclados', 'Mouse', 'Gabinetes', 'Headset', 'Controles', 'Fontes', 'MousePad', 'Processadores', 'Memória', 'SSD', 'Coolers', 'Outros']
+        
+        for(let c = 0; c < 14; c++) {
+            let nomeCat = nomeCategoria[c]
+            nomeCat = nomeCat.toLocaleLowerCase()
+            nomeCat = nomeCat.normalize('NFD').replace(/[\u0300-\u036f]/g, "") //? Vai remover os acentos
+            nomeCat = nomeCat.replace(/\s/g, '') //? Vai remover os espaços
+        
+            let pesquisaInp = valPesquisa
+            pesquisaInp = pesquisaInp.toLocaleLowerCase()
+            pesquisaInp = pesquisaInp.normalize('NFD').replace(/[\u0300-\u036f]/g, "") //? Vai remover os acentos
+            pesquisaInp = pesquisaInp.replace(/\s/g, '') //? Vai remover os espaços
+
+            if(inputFeito == false) {
+
+                if(nomeCat == pesquisaInp) {
+                    let pesquisa = [valPesquisa, c + 1]
+                    const produtoPesquisado = JSON.stringify(pesquisa)
+                    localStorage.setItem('produtoPesquisado', produtoPesquisado)
+                    inputFeito = true
+                    location.href = 'http://127.0.0.1:5501/pagProduto.html'
+            
+                } else if(nomeCat != valPesquisa && c == 13) {
+                    let pesquisa = [valPesquisa, c + 2]
+                    const produtoPesquisado = JSON.stringify(pesquisa)
+                    localStorage.setItem('produtoPesquisado', produtoPesquisado)
+                    location.href = 'http://127.0.0.1:5501/pagProduto.html'
+                }
+            }
+        }
+        input.value = ''
+    }
+}
+
+//? Sugestão de pesquisa 
+let tamanhoAtual = 0
+let containerSugestao = document.getElementById('containerSugestao')
+setInterval(() => {
+    //? Vai chamar a function sugetaoPesquisa sempre que o user digitar ou apagar algo no input
+    let pesquisa = document.getElementById('pesquisar').value
+    if(pesquisa.length != tamanhoAtual) {
+        sugetaoPesquisa(pesquisa)
+        tamanhoAtual = pesquisa.length
+    } else if(pesquisa.length == 0) {
+        containerSugestao.style.display = 'none'
+    }
+}, 100)
+
+function sugetaoPesquisa(pesquisa) {
+    let max = 0 //? Vai determinar o maximo de sugestões
+    
+    db.collection('Produtos').onSnapshot((data) => {
+        const main = document.querySelector('main')
+        containerSugestao.innerHTML = ''
+        data.docs.map(function(val) {
+            let valSugetao = val.data()
+
+            nomeProd = valSugetao.nome.toLowerCase()
+            nomeProd = nomeProd.normalize('NFD').replace(/[\u0300-\u036f]/g, "") //? Vai remover os acentos
+            nomeProd = nomeProd.replace(/\s/g, '') //? Vai remover os espaços
+
+            pesquisaProd = pesquisa.toLowerCase()
+            pesquisaProd = pesquisaProd.normalize('NFD').replace(/[\u0300-\u036f]/g, "") //? Vai remover os acentos
+            pesquisaProd = pesquisaProd.replace(/\s/g, '') //? Vai remover os espaços
+            if(nomeProd.includes(pesquisaProd) && max < 6) {
+                containerSugestao.style.display = 'block'
+                let p = document.createElement('p')
+                let img = document.createElement('img')
+                
+                img.src = 'assets/img/site/search-grey.png'
+                p.appendChild(img)
+                p.innerText = valSugetao.nome
+
+                containerSugestao.appendChild(p)
+                max++
+
+                //? Ao clicar no p
+                p.addEventListener('click', () => {
+                    if(location.pathname != '/pagProduto.html') {
+                        pesquisarProduto(p.innerText)
+                    } else {
+                        pesquisarProd(p.innerText)
+                    }
+                })
+            } else if(max == 0) {
+                containerSugestao.style.display = 'none'
+            }
+        })
+    })
+}
+
+document.addEventListener('click', (e) => {
+    let el = e.target.id
+    if(el != 'containerSugestao') {
+        containerSugestao.style.display = 'none'
     }
 })

@@ -138,10 +138,12 @@ div#pesquisarPergunta {
     height: auto;
     margin-top: 100px;
     margin-left: 50%;
-    transform: translate(-52%);
+    transform: translate(-51.6%);
     border-radius: 5px;
-    border: 3px solid var(--cor3);
     position: relative;
+    overflow: visible;
+    z-index: 1;
+    border: 3px solid var(--cor3);
 }
 
 div#pesquisarPergunta > input {
@@ -183,6 +185,34 @@ div#pesquisarPergunta > button > img {
     top: 15%;
     left: 0px;
     position: absolute;
+}
+
+div#pesquisarPergunta > div#containerSugestao {
+    width: 99.9%;
+    height: auto;
+    background-color: var(--cor1);
+    position: absolute;
+    left: -2px;
+    padding-top: 0px;
+    border: 3px solid var(--cor3);
+    display: none;
+}
+
+div#pesquisarPergunta > div#containerSugestao > p {
+    display: flex;
+    font-size: 17px;
+    color: var(--cor0);
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+div#pesquisarPergunta > div#containerSugestao > p:hover {
+    background-color: var(--cor6);
+}
+
+div#pesquisarPergunta > div#containerSugestao > p > img {
+    width: 25px;
+    margin-right: 20px;
 }
 
 /*! Categorias */
