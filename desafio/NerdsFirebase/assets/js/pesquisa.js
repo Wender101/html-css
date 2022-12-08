@@ -109,14 +109,34 @@ function btnDireita() {
 //? Barra de pesquisa
 let input = document.getElementById('pesquisar')
 document.addEventListener('keypress', (e) => {
+<<<<<<< HEAD
     if(e.keyCode == 13 && input.value.length > 1) {
         pesquisarProduto()
+=======
+    if(e.keyCode == 13 && input.value.length > 5) {
+        let pesquisa = [input.value, 15]
+        const produtoPesquisado = JSON.stringify(pesquisa)
+        localStorage.setItem('produtoPesquisado', produtoPesquisado)
+
+        if(location.pathname != '/html-css/desafio/NerdsFirebase/pagProduto.html') {
+            location.href = 'https://wender101.github.io/html-css/desafio/NerdsFirebase/pagProduto.html'
+        }
+>>>>>>> 8b161be06b01692ca79ba25775e838803a166db7
     }
 })
 
 document.getElementById('btnPesquisar').addEventListener('click', () => {
+<<<<<<< HEAD
     if(input.value.length > 1) {
         pesquisarProduto()
+=======
+    let pesquisa = [input.value, 15]
+    const produtoPesquisado = JSON.stringify(pesquisa)
+    localStorage.setItem('produtoPesquisado', produtoPesquisado)
+
+    if(location.pathname != '/html-css/desafio/NerdsFirebase/pagProduto.html') {
+        location.href = 'https://wender101.github.io/html-css/desafio/NerdsFirebase/pagProduto.html'
+>>>>>>> 8b161be06b01692ca79ba25775e838803a166db7
     }
 })
 
