@@ -12,13 +12,6 @@ for(let c = 1; c <= 14; c++) {
 
     p.innerText = nomeCategoria[c-1]
 
-<<<<<<< Updated upstream
-    if(window.location.pathname != '/html-css/desafio/NerdsFirebase/pagProduto.html') {
-        a.href = `pagProduto.html`
-    }
-
-=======
->>>>>>> Stashed changes
     img.src = `assets/img/icons/${c}.png`
 
     a.appendChild(img)
@@ -131,10 +124,7 @@ document.getElementById('btnPesquisar').addEventListener('click', () => {
 })
 
 function pesquisarProduto(pesquisa = '') {
-<<<<<<< Updated upstream
-=======
     //? location.pathname != '/pagProduto.html'
->>>>>>> Stashed changes
     if(window.location.pathname != '/html-css/desafio/NerdsFirebase/pagProduto.html') {
         let valPesquisa
         if(pesquisa != '') {
@@ -163,20 +153,14 @@ function pesquisarProduto(pesquisa = '') {
                     const produtoPesquisado = JSON.stringify(pesquisa)
                     localStorage.setItem('produtoPesquisado', produtoPesquisado)
                     inputFeito = true
-<<<<<<< Updated upstream
-=======
                     //? 'http://127.0.0.1:5501/pagProduto.html'
->>>>>>> Stashed changes
                     location.href = 'https://wender101.github.io/html-css/desafio/NerdsFirebase/pagProduto.html'
             
                 } else if(nomeCat != valPesquisa && c == 13) {
                     let pesquisa = [valPesquisa, c + 2]
                     const produtoPesquisado = JSON.stringify(pesquisa)
                     localStorage.setItem('produtoPesquisado', produtoPesquisado)
-<<<<<<< Updated upstream
-=======
                     //? 'http://127.0.0.1:5501/pagProduto.html'
->>>>>>> Stashed changes
                     location.href = 'https://wender101.github.io/html-css/desafio/NerdsFirebase/pagProduto.html'
                 }
             }
@@ -229,10 +213,7 @@ function sugetaoPesquisa(pesquisa) {
 
                 //? Ao clicar no p
                 p.addEventListener('click', () => {
-<<<<<<< Updated upstream
-=======
                     //? location.pathname != '/pagProduto.html' 
->>>>>>> Stashed changes
                     if(window.location.pathname != '/html-css/desafio/NerdsFirebase/pagProduto.html') {
                         pesquisarProduto(p.innerText)
                     } else {
