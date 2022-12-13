@@ -44,7 +44,7 @@ function fecharMenu() {
 //! Vai checar qual o tamaho da tela e alterar o menu de acordo com o tamanho
 setInterval(() => {
     let tamanhoTela = document.defaultView.innerWidth
-    if(tamanhoTela > 480) {
+    if(tamanhoTela > 721) {
         const nav = document.querySelector('nav')
         const menu = document.getElementById('menu')
         nav.style.display = 'block'

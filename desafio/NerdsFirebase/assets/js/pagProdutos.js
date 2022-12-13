@@ -83,16 +83,6 @@ btnPesquisarInput.addEventListener('click', () => {
     }
 })
 
-// let pesquisaSalva = produtoPesquisado2[0]
-// setInterval(() => {
-//     const produtoPesquisado1 = localStorage.getItem('produtoPesquisado')
-//     const produtoPesquisado2 = JSON.parse(produtoPesquisado1)
-//     if(pesquisaSalva != produtoPesquisado2[0]) {
-//         pesquisarProd(produtoPesquisado2[0])
-//         pesquisaSalva = produtoPesquisado2[0]
-//     }
-// }, 100)
-
 //? ao pesquisar
 function pesquisarProd(pesquisaFeita = '') {
     document.querySelector('title').innerText = pesquisaFeita
@@ -112,9 +102,8 @@ function pesquisarProd(pesquisaFeita = '') {
     let aneminFeito = false
     let salveC
     for (let c = 0; c < 14; c++) {
-        let div = document.getElementById('localCategorias')
-        let aCategoria = div.getElementsByTagName('a')[c]
-        aCategoria.id = `categoria-${c}`
+        let aCategoria = document.getElementsByClassName(`contrario`)[c]
+        aCategoria.id = `categoria-${c+1}`
         let aCategoriaTexto = aCategoria.innerText
 
         //? Vai tirar os espaços, acentos e deixar todos as letras em minusculo para comparar a pesquisa com as classes

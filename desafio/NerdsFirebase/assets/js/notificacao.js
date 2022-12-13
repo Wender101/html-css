@@ -70,8 +70,6 @@ function abrirAbaNotificacao() {
     let containerNotificacao = document.getElementById('containerNotificacao')
 
     if(aba.style.display == 'none') {
-        aba.style.display = 'block'
-
         //! Vai apagar o aviso "sem notificações" da aba de notificações
         if(contadorNotificacao > 0) {
             document.getElementById('avisoSemNot').style.display = 'none'    
@@ -90,7 +88,9 @@ function abrirAbaNotificacao() {
                 notificacaoChat.style.height = '400px'
                 containerNotificacao.style.width = '73%'
             }
+            aba.style.display = 'block'
         }, 100)
+
 
     } else {
         aba.style.display = 'none'

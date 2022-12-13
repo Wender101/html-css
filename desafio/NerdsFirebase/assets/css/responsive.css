@@ -332,60 +332,7 @@ section#carregando > article {
     }
 }
 
-@media screen and (max-width: 650px) {
-    header {
-        padding-bottom: 100px;
-    }
-
-    header > div#man {
-        width: 600px;
-        height: 600px;
-    }
-
-    header > section {
-        width: 80%;
-        margin: 100px 0px 0px 10px;
-    }
-
-    header > section > p {
-        width: 70%;
-    }
-
-    section#time > article > div > span {
-        font-size: 50px;
-    }
-
-    section#produtos > div {
-        width: 400px;
-        height: 200px;
-    }
-
-    /* Categorias */
-    #categorias {
-        max-width: 436px;
-    }
-
-    footer > div#p1 > h1 {
-        color: var(--cor1);
-        font-size: 22px;
-        font-weight: 100;
-    }
-}
-
-@media screen and (max-width: 570px) {
-    section#time > article > div > span {
-        font-size: 40px;
-    }
-}
-
-@media screen and (max-width: 535px) {
-    /* Categorias */
-    #categorias {
-        margin: 240px;
-    }
-}
-
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 721px) {
     div#localBtnMenu {
         display: block;
         width: 100%;
@@ -441,6 +388,10 @@ section#carregando > article {
         border: 1px solid var(--cor1);
     }
 
+    img#imgUser {
+        display: none;
+    }
+
     div#sombra {
         width: 100%;
         height: 100vh;
@@ -474,7 +425,62 @@ section#carregando > article {
         margin: 15px 0px 15px 10px;
         font-size: 16px;
     }
+}
 
+@media screen and (max-width: 650px) {
+    header {
+        padding-bottom: 100px;
+    }
+
+    header > div#man {
+        width: 600px;
+        height: 600px;
+    }
+
+    header > section {
+        width: 80%;
+        margin: 100px 0px 0px 10px;
+    }
+
+    header > section > p {
+        width: 70%;
+    }
+
+    section#time > article > div > span {
+        font-size: 50px;
+    }
+
+    section#produtos > div {
+        width: 400px;
+        height: 200px;
+    }
+
+    /* Categorias */
+    #categorias {
+        max-width: 436px;
+    }
+
+    footer > div#p1 > h1 {
+        color: var(--cor1);
+        font-size: 22px;
+        font-weight: 100;
+    }
+}
+
+@media screen and (max-width: 570px) {
+    section#time > article > div > span {
+        font-size: 40px;
+    }
+}
+
+@media screen and (max-width: 535px) {
+    /* Categorias */
+    #categorias {
+        margin: 240px;
+    }
+}
+
+@media screen and (max-width: 480px) {
     header > div#man {
         width: 500px;
         height: 500px;

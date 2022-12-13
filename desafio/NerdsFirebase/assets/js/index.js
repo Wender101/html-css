@@ -1,9 +1,9 @@
 function tempoRestante() {
     var one_day = 1000 * 60 * 60 * 24
     var present_date = new Date();
-    var diaX = new Date(present_date.getFullYear(), 11, 11)
+    var diaX = new Date(present_date.getFullYear(), 12, 2)
     
-    if (present_date.getMonth() == 11 && present_date.getdate() > 25) diaX.setFullYear(diaX.getFullYear() + 1)
+    if (present_date.getMonth() == 12 && present_date.getdate() > 0) diaX.setFullYear(diaX.getFullYear() + 1)
     
     var Result = Math.round(diaX.getTime() - present_date.getTime()) / (one_day)
     var Final_Result = Result.toFixed(0)
@@ -71,10 +71,12 @@ let data = new Date()
 let mes = data.getMonth() + 1
 let dia = data.getDate()
 
+console.log(mes, dia);
+
 let infEventos =  document.getElementById('infEventos')
 let imgEventos =  document.getElementById('imgEventos')
 
-if(mes == 10 && dia >= 9 && dia <= 15) {
+if(mes == 9 && dia >= 9 && dia <= 15) {
     ativarPopUp('assets/img/site/diaDasCrianças.gif')
 }
 

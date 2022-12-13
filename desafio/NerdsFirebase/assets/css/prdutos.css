@@ -635,14 +635,6 @@ section#produtos > article#localOfertas > div#ofertas {
     display: inline-block;
 }
 
-h1#h1Ofertas {
-    font-family: var(--font-titulo);
-    font-size: 30px;
-    color: var(--cor1);
-    margin-top: 20px;
-    margin-left: 15px;
-}
-
 section#produtos > article#localOfertas > div {
     display: block;
 }

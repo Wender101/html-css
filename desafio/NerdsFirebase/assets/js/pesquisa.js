@@ -12,10 +12,13 @@ for(let c = 1; c <= 14; c++) {
 
     p.innerText = nomeCategoria[c-1]
 
+<<<<<<< Updated upstream
     if(window.location.pathname != '/html-css/desafio/NerdsFirebase/pagProduto.html') {
         a.href = `pagProduto.html`
     }
 
+=======
+>>>>>>> Stashed changes
     img.src = `assets/img/icons/${c}.png`
 
     a.appendChild(img)
@@ -23,19 +26,26 @@ for(let c = 1; c <= 14; c++) {
     localCategorias.appendChild(a)
     
     //? Vai guardar na memória qual produto foi pesquisado
-    a.addEventListener('click', (c) => {
+    a.addEventListener('click', () => {
         for(let b = 1; b <= 14; b++) {
-            a.id = `categoria-${b}`
+            document.getElementsByClassName(`contrario`)[b-1].id = `categoria-${b}`
         }
 
         setTimeout(() => {
-            document.getElementById(`categoria-${c}`).id = 'after'
+            document.getElementsByClassName(`contrario`)[c-1].id = 'after'
         }, 100)
 
-        pesquisarProd(p.innerText)
         let pesquisa = [p.innerText, c]
         const produtoPesquisado = JSON.stringify(pesquisa)
         localStorage.setItem('produtoPesquisado', produtoPesquisado)
+
+        //? window.location.pathname != '/pagProduto.html'
+        if(window.location.pathname != '/html-css/desafio/NerdsFirebase/pagProduto.html') {
+            //? http://127.0.0.1:5501/pagProduto.html
+            window.location.href = `https://wender101.github.io/html-css/desafio/NerdsFirebase/pagProduto.html`
+        } else {
+            pesquisarProd(p.innerText)
+        }
     })
 }
 
@@ -121,6 +131,10 @@ document.getElementById('btnPesquisar').addEventListener('click', () => {
 })
 
 function pesquisarProduto(pesquisa = '') {
+<<<<<<< Updated upstream
+=======
+    //? location.pathname != '/pagProduto.html'
+>>>>>>> Stashed changes
     if(window.location.pathname != '/html-css/desafio/NerdsFirebase/pagProduto.html') {
         let valPesquisa
         if(pesquisa != '') {
@@ -149,12 +163,20 @@ function pesquisarProduto(pesquisa = '') {
                     const produtoPesquisado = JSON.stringify(pesquisa)
                     localStorage.setItem('produtoPesquisado', produtoPesquisado)
                     inputFeito = true
+<<<<<<< Updated upstream
+=======
+                    //? 'http://127.0.0.1:5501/pagProduto.html'
+>>>>>>> Stashed changes
                     location.href = 'https://wender101.github.io/html-css/desafio/NerdsFirebase/pagProduto.html'
             
                 } else if(nomeCat != valPesquisa && c == 13) {
                     let pesquisa = [valPesquisa, c + 2]
                     const produtoPesquisado = JSON.stringify(pesquisa)
                     localStorage.setItem('produtoPesquisado', produtoPesquisado)
+<<<<<<< Updated upstream
+=======
+                    //? 'http://127.0.0.1:5501/pagProduto.html'
+>>>>>>> Stashed changes
                     location.href = 'https://wender101.github.io/html-css/desafio/NerdsFirebase/pagProduto.html'
                 }
             }
@@ -207,10 +229,15 @@ function sugetaoPesquisa(pesquisa) {
 
                 //? Ao clicar no p
                 p.addEventListener('click', () => {
+<<<<<<< Updated upstream
+=======
+                    //? location.pathname != '/pagProduto.html' 
+>>>>>>> Stashed changes
                     if(window.location.pathname != '/html-css/desafio/NerdsFirebase/pagProduto.html') {
                         pesquisarProduto(p.innerText)
                     } else {
                         pesquisarProd(p.innerText)
+                        console.log(1);
                     }
                 })
             } else if(max == 0) {

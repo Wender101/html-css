@@ -1,16 +1,19 @@
 function ligando() {
     const title = document.querySelector('title')
     title.innerText = 'Inicializando'
+    let timeRandom1 = Math.random() * 2000 + 1000
+    let timeRandom2 = Math.random() * 6000 + 3000
     setTimeout(() => {
         const localLogo = document.getElementById('localLogo')
         localLogo.style.display = 'block'
-    }, 1000) // 2000
+        
+        setTimeout(() => {
+            const telaIniciando = document.getElementById('telaIniciando')
+            telaIniciando.style.display = 'none'
+            start()
+        }, timeRandom2) // 6000
+    }, timeRandom1) // 2000
 
-    setTimeout(() => {
-        const telaIniciando = document.getElementById('telaIniciando')
-        telaIniciando.style.display = 'none'
-        start()
-    }, 1000) // 6000
 } ligando()
 
 function start() {
