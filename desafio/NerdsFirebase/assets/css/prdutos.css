@@ -43,7 +43,7 @@ body {
     min-height: 100vh;
     font-family: var(--font-texto);
     background-color: var(--cor4);
-    background-image: url('../img/site/fundoProdutos.png');
+    background-image: url(../img/site/NFT1\ 3.png);
     background-size: cover;
     background-repeat: no-repeat;
 }

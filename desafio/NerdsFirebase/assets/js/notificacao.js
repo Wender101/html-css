@@ -76,7 +76,8 @@ function abrirAbaNotificacao() {
         }  else {
             document.getElementById('avisoSemNot').style.display = 'block'    
         }
-
+        
+        aba.style.display = 'block'
         //! Vai controlar a responsividade da aba de notificações
         setInterval(() => {
             if(visualViewport.width > 490 && aba.style.display == 'block') {
@@ -88,7 +89,6 @@ function abrirAbaNotificacao() {
                 notificacaoChat.style.height = '400px'
                 containerNotificacao.style.width = '73%'
             }
-            aba.style.display = 'block'
         }, 100)
 
 

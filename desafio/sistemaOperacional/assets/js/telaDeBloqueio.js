@@ -11,8 +11,8 @@ function ligando() {
             const telaIniciando = document.getElementById('telaIniciando')
             telaIniciando.style.display = 'none'
             start()
-        }, timeRandom2) // 6000
-    }, timeRandom1) // 2000
+        }, 0) // timeRandom2
+    }, 0) // timeRandom1
 
 } ligando()
 
@@ -93,13 +93,14 @@ function start() {
 
     setInterval(() => {
         exibirData()
-    }, 100)
+    }, 0) // 100
 
     let log = false
 
+    logar() // deletear
     document.addEventListener('click', () => {
         if(log == false) {
-            logar()
+            // logar()
             log = true
         }
     })
@@ -127,11 +128,13 @@ function start() {
             logar.style.filter = 'opacity(100%)'
             filter.style.transition = '1s filter linear'
             filter.style.filter = 'blur(6px)'
-        }, 1000)
+        }, 0) // 1000
 
         let timeIniciar = Math.floor(Math.random() * 5000)
 
-        if(timeIniciar < 2000) timeIniciar = 2000
+        if(timeIniciar < 2000) {
+             timeIniciar = 2000
+        }
 
         setTimeout(() => {
 
@@ -150,7 +153,7 @@ function start() {
 
             const title = document.querySelector('title')
             title.innerText = 'Aréa de Trabalho'
-        }, timeIniciar)
+        }, 0) // timeIniciar
     }
 
 }

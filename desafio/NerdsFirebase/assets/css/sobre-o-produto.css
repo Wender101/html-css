@@ -633,7 +633,6 @@ article#perguntasFeitas {
     font-size: 15px;
     max-height: 450px;
     overflow-x: auto;
-    background-color: var(--cor8);
     padding-left: 15px;
     padding-bottom: 30px;
     display: none;
@@ -660,6 +659,10 @@ article#perguntasFeitas > div > span > img {
     position: absolute;
     top: -8px;
     left: 0px;
+}
+
+article#perguntasFeitas > div > span > a {
+    text-decoration: underline var(--cor1);
 }
 
 article#perguntasFeitas > div > span > span {

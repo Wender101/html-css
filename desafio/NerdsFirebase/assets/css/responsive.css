@@ -333,6 +333,10 @@ section#carregando > article {
 }
 
 @media screen and (max-width: 721px) {
+    body {
+        background-image: url(../img/site/cellPhoneBackground2.png);
+    }
+
     div#localBtnMenu {
         display: block;
         width: 100%;

@@ -25,7 +25,7 @@ db.collection('Chat').onSnapshot((data) => {
         try {
             for(let c = 0; c < chat.Perguntas.length; c++) {
                 if(chat.Perguntas[c].id == idProdutoChat) {
-                    criaPergunta(chat.Perguntas[c].PerguntasFeitas, chat.Perguntas[c].Resposta, chat.Perguntas[c].DataResposta)
+                    criaPergunta(chat.Perguntas[c].PerguntasFeitas, chat.Perguntas[c].Resposta, chat.Perguntas[c].DataResposta, c, chat.email)
                 }
             }
 
@@ -64,7 +64,7 @@ function perguntar() {
 
 //! Vai colocar as perguntas na tela
 let idInput = 0
-function criaPergunta(pergunta = '', resposta = '...', data = '') {
+function criaPergunta(pergunta = '', resposta = '...', data = '', divID, emailPergunta) {
 
     let perguntasFeitas = document.getElementById('perguntasFeitas')
     let avisoChat = document.getElementById('avisoChat')
@@ -82,6 +82,7 @@ function criaPergunta(pergunta = '', resposta = '...', data = '') {
 
     //! Vai criar os inputs que serão usados para responder as perguntas
     if(email == 'wendernatanael2019@gmail.com' && resposta == '...') {
+        div.className = `${emailPergunta}-${divID}` //? vai aparece o email da pessoa que fez a pergunta
         let input = document.createElement('input')
         let btnEnviarResposta = document.createElement('button')
 
@@ -106,21 +107,29 @@ function criaPergunta(pergunta = '', resposta = '...', data = '') {
 
             let inputSelct = document.getElementsByClassName(`${el}`)[0].value
 
+            //? Vai identificar o email de quem fez a pergunta e o num da pergunta o array
+            for (let c = 1; c <= 100; c++) {
+                var numID = div.className.substr(-c)
+                var emailUser = div.className.substr(-c)
+                let fim = numID.substring(0, 1)
+                if(fim == '-') {
+                    emailUser = div.className.replace(numID, '')
+                    numID = div.className.substr(-c + 1)
+                    c = 101
+                }
+            }
+
             db.collection('Chat').onSnapshot((data) => {
                 data.docs.map(function(valChat) {
                     let chat = valChat.data()
                     let clone = []
-                    for(let c = 0; c < chat.Perguntas.length; c++) {
+                    if(chat.email == emailUser && chat.Perguntas[numID].id == idProdutoChat && chat.Perguntas[numID].PerguntasFeitas == p.innerText) {
+                        clone = chat.Perguntas
+                        clone[numID].Resposta = inputSelct
+                        clone[numID].DataResposta = `${dia}/${mes}/${ano}`
 
-                        if(chat.Perguntas[c].id == idProdutoChat && chat.Perguntas[c].PerguntasFeitas == p.innerText) {
-                            clone = chat.Perguntas
-                            clone[c].Resposta = inputSelct
-                            clone[c].DataResposta = `${dia}/${mes}/${ano}`
-
-                            db.collection('Chat').doc(valChat.id).update({Perguntas: clone})
-                        }
+                        db.collection('Chat').doc(valChat.id).update({Perguntas: clone})
                     }
-
                 })
             })
 
@@ -132,8 +141,24 @@ function criaPergunta(pergunta = '', resposta = '...', data = '') {
         })
 
     } else {
-        span.innerText = resposta
+        //? Vai identificar se há um link e separalo do resto do texto
+        let linkFinal = ''
+        if(resposta.includes('</a>')) {
+            for (let c = resposta.indexOf(); c < resposta.length; c++) {
+                let linkResposta = resposta.substr(-c)
+                let linkResposta2 = linkResposta.substring(0, 3)
+
+                if(linkResposta2 == '<a>') {
+                    linkFinal = resposta.substr(-c)
+                    linkFinal = linkFinal.replace('<a>', '')
+                    linkFinal = linkFinal.replace('</a>', '')
+                }
+            }
+            span.querySelector('a').href = linkFinal
+        }
+        span.innerHTML = resposta
         span2.innerText = data
+
     }
     
     span.appendChild(span2)

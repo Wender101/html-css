@@ -137,6 +137,7 @@ function pesquisarProd(pesquisaFeita = '') {
 //! vai adicionar o produto
 let id = 0
 function colocarNatelaPesquisa() {
+    let produtoEncotrado = false
     db.collection('Produtos').onSnapshot((data) => {
         const main = document.querySelector('main')
         main.innerHTML = ''
@@ -165,6 +166,7 @@ function colocarNatelaPesquisa() {
             if(nomeProd.includes(pesquisa) || descProd.includes(pesquisa) || classProd.includes(pesquisa)) {
                 document.getElementById('carregando').style.display = 'none'
                 construirProduto(p.classe, p.nome, p.desc, p.imagem1, p.imagem2, p.id)
+                produtoEncotrado = true
                 
                 if(p.id > id) {
                     id = p.id
@@ -178,12 +180,11 @@ function colocarNatelaPesquisa() {
             } catch {}
     
             setTimeout(() => {
-                let carregando = document.getElementById('carregando')
-                if(carregando.style.display != 'none') {
+                if(produtoEncotrado == false) {
                     carregando.style.display = 'none'
-                    document.getElementById('classProduto').innerText = 'Parece que algo deu errado :('
+                    document.getElementById('classProduto').innerText = 'Produto não encontrado :('
                 }
-            }, 8000)
+            }, 500)
         })
     }) 
 } colocarNatelaPesquisa()

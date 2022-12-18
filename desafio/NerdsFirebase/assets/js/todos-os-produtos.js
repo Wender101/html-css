@@ -19,6 +19,10 @@ auth.onAuthStateChanged((val) => {
         btnAdicionarProduto.appendChild(span)
         configs.appendChild(btnAdicionarProduto)
 
+        //! Vai colocar os produtos, banners e etc na tela
+        chamarBD()
+        colocarBannerNaTela() 
+
         //! Eventos de click
         btnAdicionarProduto.addEventListener('click', () => {
             document.getElementById('btnAdd').innerText = 'Adicionar'
@@ -48,9 +52,8 @@ auth.onAuthStateChanged((val) => {
         }, 100)
 
     } else {
-        setInterval(() => {
-            window.location.href = 'https://wender101.github.io/html-css/desafio/NerdsFirebase/home.html'
-        }, 10)
+        window.location.href = 'https://wender101.github.io/html-css/desafio/NerdsFirebase/home.html'
+        // window.location.href = 'http://127.0.0.1:5501/home.html'
     }
     fecharMenu()
 })
@@ -130,34 +133,36 @@ function chamarBD(classeSelecionada = 'Todos') {
             }, 8000)
         })
     }) 
-} chamarBD()
+}
 
 let carregado = false
 let cloneBanner = []
 let editandoBanner = false
-db.collection('Banners').onSnapshot((data) => {
-    data.docs.map(function(vaBanners) {
-        let pBanners = vaBanners.data()
-
-        if(editandoBanner == true) {
-            setTimeout(() => {
-                location.reload()
-            }, 1500)
-
-        } else if(carregado == false) {
-            for (let c = 0; c < pBanners.Banner.length; c++) {
-                criaBanners(pBanners.Banner[c].imagemAltaEscala, pBanners.Banner[c].imagemPequenaEscala, pBanners.Banner[c].id)
-                cloneBanner = pBanners.Banner
+function colocarBannerNaTela() {
+    db.collection('Banners').onSnapshot((data) => {
+        data.docs.map(function(vaBanners) {
+            let pBanners = vaBanners.data()
+    
+            if(editandoBanner == true) {
+                setTimeout(() => {
+                    location.reload()
+                }, 1500)
+    
+            } else if(carregado == false) {
+                for (let c = 0; c < pBanners.Banner.length; c++) {
+                    criaBanners(pBanners.Banner[c].imagemAltaEscala, pBanners.Banner[c].imagemPequenaEscala, pBanners.Banner[c].id)
+                    cloneBanner = pBanners.Banner
+                }
+    
+            } else {
+                setTimeout(() => {
+                    location.reload()
+                }, 1000)
             }
-
-        } else {
-            setTimeout(() => {
-                location.reload()
-            }, 1000)
-        }
-
+    
+        })
     })
-})
+}
 
 let contadorBanners = 0
 let qBanner
