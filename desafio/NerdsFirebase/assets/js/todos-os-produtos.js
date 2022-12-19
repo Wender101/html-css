@@ -1,43 +1,38 @@
 const produtoPesquisado1 = localStorage.getItem('produtoPesquisado')
 const produtoPesquisado2 = JSON.parse(produtoPesquisado1)
-//? My code
 
-function login() {
-    auth.signInWithPopup(provider)
-}
-
-auth.onAuthStateChanged((val) => {
-    if(val.email == 'wendernatanael2019@gmail.com') {
+setTimeout(() => {
+    if(countCheck == true) {
         let configs = document.getElementById('configs')
         let btnAdicionarProduto = document.createElement('button')
         let span = document.createElement('span')
-
+    
         btnAdicionarProduto.id = 'btnAdicionarProduto'
         span.innerText = '+'
-
+    
         //! AppendChild
         btnAdicionarProduto.appendChild(span)
         configs.appendChild(btnAdicionarProduto)
-
+    
         //! Vai colocar os produtos, banners e etc na tela
         chamarBD()
         colocarBannerNaTela() 
-
+    
         //! Eventos de click
         btnAdicionarProduto.addEventListener('click', () => {
             document.getElementById('btnAdd').innerText = 'Adicionar'
             document.getElementById('addProduto').style.display = 'flex'
         })
-
+    
         addProduto.addEventListener('click', (e) => {
             let el = e.target.id
             if(el == 'addProduto') {
                 document.getElementById('addProduto').style.display = 'none'
             }
         })
-
+    
         document.getElementById('classeProdutos').style.display = 'block'
-
+    
         setInterval(() => {
             if(document.getElementById('carregando').style.display != 'flex') {
                 for(let c = 0; c <= 999; c++) {
@@ -50,13 +45,15 @@ auth.onAuthStateChanged((val) => {
                 }
             }
         }, 100)
-
+    
     } else {
-        window.location.href = 'https://wender101.github.io/html-css/desafio/NerdsFirebase/home.html'
-        // window.location.href = 'http://127.0.0.1:5501/home.html'
+        // window.location.href = 'https://wender101.github.io/html-css/desafio/NerdsFirebase/home.html'
+        window.location.href = 'http://127.0.0.1:5501/home.html'
     }
-    fecharMenu()
-})
+}, 1000)
+
+fecharMenu()
+
 //! Vai cancelar a ação de adiconar um produto
 let editando = 0
 function cancelar() {

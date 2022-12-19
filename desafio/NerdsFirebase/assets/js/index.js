@@ -71,8 +71,6 @@ let data = new Date()
 let mes = data.getMonth() + 1
 let dia = data.getDate()
 
-console.log(mes, dia);
-
 let infEventos =  document.getElementById('infEventos')
 let imgEventos =  document.getElementById('imgEventos')
 

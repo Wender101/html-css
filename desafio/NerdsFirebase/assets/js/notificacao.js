@@ -34,7 +34,7 @@ db.collection('Chat').onSnapshot((data) => {
         try {
             for(let c = 0; c <= chat.Perguntas.length; c++) {
                 try {
-                    if(email == 'wendernatanael2019@gmail.com') {
+                    if(countCheck == true) {
                         if(chat.Perguntas[c].Resposta == '...') {
     
                             criar(chat.Perguntas[c].PerguntasFeitas, chat.Perguntas[c].Resposta, '00/00/00', chat.Perguntas[c].id, chat.Perguntas.length, chat.email, chat.Perguntas)
@@ -144,7 +144,7 @@ function criar(pergunta, resposta, data, id) {
                                 location.reload()
                             }, 500)
                         }, 500)
-                    } else if(email == 'wendernatanael2019@gmail.com') {
+                    } else if(countCheck == true) {
                         document.getElementById('carregando').style.display = 'flex'
                         
                         setTimeout(() => {

@@ -11,25 +11,23 @@ function urlPage() {
     let url = window.location.href
     
     let l1 = url.substr(-5)
-    for(let c = 0; c < 20; c++) {
-        url = url.replace("%20", " ")
-    }
     
     //? Esse número "100" vai limitaor o número de caracteris no nome do produto da url
     for (let c = 0; c <= 100; c++) {
+        url = url.replace("%20", " ")
         let b = c - 1
         let letra = url.substr(-c)
         let fim = letra.substring(0, 1)
         
         //? vai carregar a pesquisa da barra de pesquisa
         if(fim == '#' && pageFeito2 == false) {
-            urlFinal = url.substr(-b).replace("%20", " ")
+            urlFinal = url.substr(-b)
             document.querySelector('title').innerText = urlFinal
             document.getElementById('classProduto').innerText = urlFinal
             let cSalvo
-            for(let c = 0; c < 14; c++) {
+            for(let c2 = 0; c2 < 14; c2++) {
                 let nomeCategoria = ['Cabos', 'Adaptadores', 'Teclados', 'Mouse', 'Gabinetes', 'Headset', 'Controles', 'Fontes', 'MousePad', 'Processadores', 'Memória', 'SSD', 'Coolers', 'Outros']
-                let nomeCat = nomeCategoria[c]
+                let nomeCat = nomeCategoria[c2]
                 nomeCat = nomeCat.toLocaleLowerCase()
                 nomeCat = nomeCat.normalize('NFD').replace(/[\u0300-\u036f]/g, "") //? Vai remover os acentos
                 nomeCat = nomeCat.replace(/\s/g, '') //? Vai remover os espaços
@@ -40,9 +38,9 @@ function urlPage() {
                 pesquisaInp = pesquisaInp.replace(/\s/g, '') //? Vai remover os espaços
 
                 if(nomeCat == pesquisaInp && pageFeito == false) {
-                    cSalvo = c + 1
+                    cSalvo = c2 + 1
                     pageFeito = true
-                } else if(c == 13 && pageFeito == false) {
+                } else if(c2 == 13 && pageFeito == false) {
                     pageFeito = true
                 }
 
@@ -62,7 +60,7 @@ function urlPage() {
         } else if(c == 100 && pageFeito2 == false) {
             document.querySelector('title').innerText = produtoPesquisado2[0]
             document.getElementById('classProduto').innerText = produtoPesquisado2[0]
-            window.location.href = `${urlSemProduto}#${produtoPesquisado2[0]}`
+            window.location.href = `${urlSemProduto}#${produtoPesquisado2[0].normalize('NFD').replace(/[\u0300-\u036f]/g, "")}`
         }
     }
 } urlPage()
@@ -87,12 +85,12 @@ btnPesquisarInput.addEventListener('click', () => {
 function pesquisarProd(pesquisaFeita = '') {
     document.querySelector('title').innerText = pesquisaFeita
     document.getElementById('classProduto').innerText = pesquisaFeita
-    window.location.href = `${urlSemProduto}#${pesquisaFeita}`
+    window.location.href = `${urlSemProduto}#${pesquisaFeita.normalize('NFD').replace(/[\u0300-\u036f]/g, "")}`
     let prodPesquisado = pesquisaFeita.toLocaleLowerCase()
     if(pesquisaFeita == '') {
         document.querySelector('title').innerText = inputPesquisar.value
         document.getElementById('classProduto').innerText = inputPesquisar.value
-        window.location.href = `${urlSemProduto}#${inputPesquisar.value}`
+        window.location.href = `${urlSemProduto}#${inputPesquisar.value.normalize('NFD').replace(/[\u0300-\u036f]/g, "")}`
         prodPesquisado = inputPesquisar.value.toLocaleLowerCase()
         pesquisaInput = true
     }
@@ -127,6 +125,7 @@ function pesquisarProd(pesquisaFeita = '') {
         //? Vai salvar oq foi pesquisado
         if(c == 13) {
             let array = [urlFinal, salveC]
+            console.log(salveC);
             const produtoPesquisado = JSON.stringify(array)
             localStorage.setItem('produtoPesquisado', produtoPesquisado)
         }

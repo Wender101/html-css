@@ -13,6 +13,7 @@ firebase.initializeApp(firebaseConfig)
 //? My code
 const auth = firebase.auth()
 const provider = new firebase.auth.GoogleAuthProvider()
+const db = firebase.firestore()
 
 let trocarDeConta = false
 function login() {
@@ -20,10 +21,9 @@ function login() {
     auth.signInWithPopup(provider)
 }
 
-const db = firebase.firestore()
-
 let email
 let reload = false
+var countCheck = false
 auth.onAuthStateChanged((val) => {
     if(val.email) {
         if(email != undefined && trocarDeConta == true || reload == true) {
@@ -40,24 +40,37 @@ auth.onAuthStateChanged((val) => {
         }
     } 
 
-     //! Vai add o link para a pág de Adms
-    if(val.email == 'wendernatanael2019@gmail.com') {
-        try {
-        let a = document.createElement('a')
-        let li = document.getElementById('li')
+    //! Vai checar se o user conectado é um administrador
+    db.collection('Manutenção').onSnapshot((data) => {
+        data.docs.map(function(manutencao) {
 
-            a.innerText = 'Todos'
-            a.href = 'todos-os-produtos.html'
-            li.style.display = 'block'
-            
-            
-            //! Vai acionar o hr apenas nos dispositivos mobiles
-            if(window.visualViewport.width <= 480) {
-                document.getElementById('hr').style.display = 'block'
+            const admins = manutencao.data().Admins
+            for(let c = 0; c < admins.length; c++) {
+                if(admins[c].email == email) {
+                    countCheck = true
+
+                    //! Vai add o link para a pág de Adms
+                    if(countCheck == true) {
+                        try {
+                        let a = document.createElement('a')
+                        let li = document.getElementById('li')
+                
+                            a.innerText = 'Todos'
+                            a.href = 'todos-os-produtos.html'
+                            li.style.display = 'block'
+                            
+                            
+                            //! Vai acionar o hr apenas nos dispositivos mobiles
+                            if(window.visualViewport.width <= 480) {
+                                document.getElementById('hr').style.display = 'block'
+                            }
+                            li.appendChild(a)
+                        } catch {}
+                    }
+                }
             }
-            li.appendChild(a)
-        } catch {}
-    }
+        })
+    })
 })
 
 try {

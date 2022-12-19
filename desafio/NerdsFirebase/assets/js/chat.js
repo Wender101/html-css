@@ -81,7 +81,7 @@ function criaPergunta(pergunta = '', resposta = '...', data = '', divID, emailPe
     img.src = 'assets/img/icons/setinhaChat.png'
 
     //! Vai criar os inputs que serão usados para responder as perguntas
-    if(email == 'wendernatanael2019@gmail.com' && resposta == '...') {
+    if(countCheck == true && resposta == '...') {
         div.className = `${emailPergunta}-${divID}` //? vai aparece o email da pessoa que fez a pergunta
         let input = document.createElement('input')
         let btnEnviarResposta = document.createElement('button')
@@ -137,7 +137,7 @@ function criaPergunta(pergunta = '', resposta = '...', data = '', divID, emailPe
 
             setTimeout(() => {
                 document.getElementById('carregando').style.display = 'none'
-            }, 1500)
+            }, 100)
         })
 
     } else {

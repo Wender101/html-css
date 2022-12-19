@@ -100,9 +100,6 @@ let classeProduto
 db.collection('Produtos').onSnapshot((data) => {
     data.docs.map(function(val) {
 
-        setTimeout(() => {
-            document.getElementById('carregando').style.display = 'none'
-        }, 500)
         let p = val.data()
 
         if(p.id == idp) {
