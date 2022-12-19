@@ -181,7 +181,7 @@ setInterval(() => {
     } else if(pesquisa.length == 0) {
         containerSugestao.style.display = 'none'
     }
-}, 100)
+}, 10)
 
 function sugetaoPesquisa(pesquisa) {
     let max = 0 //? Vai determinar o maximo de sugestões
