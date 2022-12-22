@@ -221,8 +221,8 @@ div#notificacaoChat {
     display: none;
     align-items: center;
     justify-content: center;
-    background-color: var(--cor8);
-    z-index: 4;
+    background-color: var(--cor18);
+    z-index: 7;
 }
 
 #addProduto > div {
@@ -317,7 +317,7 @@ div#notificacaoChat {
     width: 60px;
     height: 60px;
     position: fixed;
-    z-index: 4;
+    z-index: 3;
     right: 8px;
     bottom: 300px;
     color: var(--cor0);

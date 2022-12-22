@@ -20,3 +20,14 @@ fundo.addEventListener('click', function() {
     contato.style.display = 'none'
     fundo.style.display = 'none'
 })
+
+// Vai atualizar a idade sempre que passar do meu aniversario
+function atualizarIdade() {
+    let anoReferencia = 2022
+    let idade = 17
+    let data = new Date()
+    let anoAtual = data.getFullYear()
+
+    document.getElementById('idade').innerText = (anoAtual - anoReferencia) + idade
+    
+} atualizarIdade()

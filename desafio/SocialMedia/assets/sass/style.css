@@ -1,0 +1,271 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+* {
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+  text-decoration: none;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  overflow-x: hidden;
+}
+body div#carregando {
+  width: 100%;
+  height: 100vh;
+  background-color: #ffffff;
+  position: fixed;
+  top: 0px;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+body div#carregando div .c-loader {
+  -webkit-animation: is-rotating 1s infinite;
+          animation: is-rotating 1s infinite;
+  border: 6px solid #e5e5e5;
+  border-radius: 50%;
+  border-top-color: #51d4db;
+  height: 50px;
+  width: 50px;
+  margin: auto;
+  margin-bottom: 20px;
+}
+@-webkit-keyframes is-rotating {
+  to {
+    transform: rotate(1turn);
+  }
+}
+@keyframes is-rotating {
+  to {
+    transform: rotate(1turn);
+  }
+}
+body main {
+  display: flex;
+  font-size: 12px;
+}
+body main section#lateralContatos {
+  width: 400px;
+  height: 100vh;
+  padding: 40px 0px;
+  position: fixed;
+  background-color: #edf6f9;
+  box-shadow: 3px 0px 20px rgba(105, 104, 104, 0.6039215686);
+  z-index: 1;
+}
+body main section#lateralContatos div {
+  position: relative;
+}
+body main section#lateralContatos div img {
+  position: absolute;
+  top: 11px;
+  left: 30px;
+}
+body main section#lateralContatos div input {
+  width: 78%;
+  display: block;
+  margin: auto;
+  border-radius: 10px;
+  border: 0px;
+  outline: none;
+  font-weight: 300;
+  font-family: "Poppins", sans-serif;
+  box-shadow: 0px 0px 2px 0px #000000;
+  padding: 15px 0px 15px 40px;
+}
+body main section#lateralContatos article#localContatos {
+  margin-top: 41px;
+}
+body main section#lateralContatos article#localContatos div.contatos {
+  width: 78%;
+  max-height: 58px;
+  margin: auto;
+  background-color: #ffffff;
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  flex-wrap: wrap;
+  box-shadow: 0px 3px 10px rgba(105, 104, 104, 0.6039215686);
+  margin-bottom: 27px;
+  cursor: pointer;
+  overflow: hidden;
+}
+body main section#lateralContatos article#localContatos div.contatos:hover {
+  transform: scale(1.03);
+}
+body main section#lateralContatos article#localContatos div.contatos div.lineOnline {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 3px solid #8ddce2;
+  position: relative;
+}
+body main section#lateralContatos article#localContatos div.contatos div.lineOnline img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  position: absolute;
+  left: 1px;
+  top: 1px;
+}
+body main section#lateralContatos article#localContatos div.contatos div.localNomeEmsgContato {
+  width: 78%;
+}
+body main section#lateralContatos article#localContatos div.contatos div.localNomeEmsgContato strong {
+  margin: 10px 0px;
+  font-weight: 500;
+}
+body main section#lateralContatos article#localContatos div.contatos div.localNomeEmsgContato p {
+  max-height: 40px;
+  color: #9E9E9E;
+  overflow: hidden;
+}
+body main section#localConversa {
+  width: calc(100% - 400px);
+  min-height: 110vh;
+  position: absolute;
+  right: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+body main section#localConversa div#fundoMsg {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0px;
+  z-index: -1;
+  background-image: url("../img/background-icon.jpg");
+  opacity: 0.2;
+  background-color: #ffffff;
+}
+body main section#localConversa div#recadoInicial {
+  display: block;
+  text-align: center;
+}
+body main section#localConversa div#recadoInicial h1 {
+  font-size: 23px;
+  font-weight: 200;
+}
+body main section#localConversa div#recadoInicial p {
+  font-size: 16px;
+  font-weight: 200;
+}
+body main section#localConversa article#msg {
+  width: 100%;
+  height: auto;
+  min-height: 100vh;
+  display: none;
+  position: relative;
+}
+body main section#localConversa article#msg div#sobreContato {
+  width: 200px;
+  margin: 41px auto;
+  text-align: center;
+}
+body main section#localConversa article#msg div#sobreContato div#imgContato {
+  width: 82px;
+  height: 82px;
+  border-radius: 50%;
+  border: 3px solid #8ddce2;
+  position: relative;
+  margin-left: 50%;
+  transform: translate(-50%);
+}
+body main section#localConversa article#msg div#sobreContato div#imgContato div#circuloOnline {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  position: absolute;
+  top: 6px;
+  right: 0px;
+  z-index: 2;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+body main section#localConversa article#msg div#sobreContato div#imgContato div#circuloOnline p {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #5AF041;
+}
+body main section#localConversa article#msg div#sobreContato div#imgContato img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  position: absolute;
+  left: 1px;
+  top: 1px;
+}
+body main section#localConversa article#msg div#sobreContato h2 {
+  font-weight: 500;
+}
+body main section#localConversa article#msg div#sobreContato p {
+  font-weight: 500;
+}
+body main section#localConversa article#msg div#localMsg {
+  width: 100%;
+  margin: 150px 0px;
+}
+body main section#localConversa article#msg div#localMsg p {
+  max-width: 500px;
+  padding: 20px;
+  border-radius: 0px 20px 20px 20px;
+  margin: 16px 17px 0px;
+  box-shadow: 0px 0px 40px rgba(105, 104, 104, 0.6039215686);
+}
+body main section#localConversa article#msg div#localMsg p.msgContato {
+  background-color: rgba(158, 240, 245, 0.7529411765);
+}
+body main section#localConversa article#msg div#localMsg p.tuaMsg {
+  background-color: rgba(0, 255, 128, 0.568627451);
+  margin-left: calc(100% - 500px);
+  border-radius: 20px 0px 20px 20px;
+}
+body main section#localConversa article#msg div#barraResponder {
+  width: calc(100% - 400px);
+  padding: 20px;
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
+  background-color: #edf6f9;
+  z-index: 1;
+  box-shadow: 50px -3px 20px rgba(105, 104, 104, 0.6039215686);
+  display: flex;
+}
+body main section#localConversa article#msg div#barraResponder input#inputResponder {
+  width: 87%;
+  display: block;
+  margin: auto;
+  border-radius: 15px;
+  border: 0px;
+  outline: none;
+  font-weight: 300;
+  font-family: "Poppins", sans-serif;
+  box-shadow: 0px 0px 2px 0px #000000;
+  padding: 15px;
+}
+body main section#localConversa article#msg div#barraResponder button#enviar {
+  width: 60px;
+  height: 60px;
+  border: none;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+body main section#localConversa article#msg div#barraResponder button#enviar img#imgEnviar {
+  width: 30px;
+  display: none;
+  margin-left: -3px;
+}
+body main section#localConversa article#msg div#barraResponder button#enviar img#pet {
+  width: 100%;
+}/*# sourceMappingURL=style.css.map */

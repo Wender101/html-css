@@ -5,7 +5,6 @@
     --branco: white;
 
     /* Fonts */
-
     --letras: 'Inter', sans-serif;
 }
 
@@ -99,7 +98,7 @@ section#part2 {
     margin: 124px auto 0px;
 }
 
-section#part2 > h2 {
+h2 {
     margin-bottom: 50px;
     text-align: center;
 }
@@ -167,22 +166,29 @@ article#projetos > a {
 /* Estilizando a parte que fala sobre as tecnologias usadas nos projetos */
 article#projetos > a > article{
     position: absolute;
-    width: 101%;
+    width: 100%;
     height: 50px;
     background-color: rgb(255, 255, 255);
     color: black;
     box-shadow: 0px -3px 10px rgba(14, 14, 14, 0.384);
     border-radius: 0px 0px 20px 20px;
+    border: 2px solid white;
     bottom: -5px;
     text-align: center;
     padding-top: 20px;
 }
 
+.aHover {
+    transform: scale(1.1);
+    border-radius: 20px;
+    box-shadow: -0px 0px 20px rgba(255, 255, 255, 0.788);
+}
+
 /* Estilizando os projetos */
 article#projetos > a  > div{
     width: 100%;
-    height: 100%;
-    border-radius: 20px;
+    height: 78%;
+    border-radius: 20px 20px 0px;
     background-color: white;
     cursor: pointer;
     border: 2px solid white;
@@ -192,6 +198,50 @@ div.proj {
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
+}
+
+/* part4 */
+#part4 {
+    min-height: 300px;
+    display: none;
+    position: relative;
+}
+
+#part4 > img {
+    width: 50px;
+    position: absolute;
+    margin-left: 50%;
+    top: -70px;
+    transform: translate(-50%);
+    animation: 700ms seta infinite;
+}
+
+@keyframes seta {
+    0% {
+        margin-top: 0px;
+    }
+
+    25% {
+        margin-top: -10px;
+    }
+
+    50% {
+        margin-top: -20px;
+    }
+
+    75% {
+        margin-top: -10px;
+    }
+
+    100% {
+        margin-top: 0px;
+    }
+}
+
+#part4 > p {
+    max-width: 900px;
+    margin: auto;
+    text-align: center;
 }
 
 /* Fale Comigo */

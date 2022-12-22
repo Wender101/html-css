@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/sass/personalizarConta.css">
+    <title>Personalizar Conta</title>
+</head>
+<body>
+    <div id="fundo"></div>
+
+    <main>
+        <div id="localImgUser">
+            <img src="assets/img/UserImg.png" id="imgUser">
+        </div>
+        <strong>Nome</strong>
+        <input type="text" placeholder="Seu nome vai aqui ;)" id="inputNome">
+        <strong>Recado</strong>
+        <input type="text" placeholder="Coloque um recado pro seus contatos" id="inputRecado">
+        <p id="codigo">Gerando Código...</p>
+        <button id="btnPronto">Aguardando...</button>
+    </main>
+
+     <!--? Firebase -->
+     <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-app.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-firestore.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-auth.js"></script>
+     <script src="assets/js/firebase.js"></script>
+
+     <!--? Scirpts -->
+     <script src="assets/js/personalizar.js"></script>
+</body>
+</html>

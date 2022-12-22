@@ -1,0 +1,308 @@
+@import 'geral.scss';
+
+body {
+    font-family: $fonteTexto;
+    overflow-x: hidden;
+
+    div#carregando {
+        width: 100%;
+        height: 100vh;
+        background-color: $cor2;
+        position: fixed;
+        top: 0px;
+        z-index: 3;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        div {
+            .c-loader {
+                animation: is-rotating 1s infinite;
+                border: 6px solid #e5e5e5;
+                border-radius: 50%;
+                border-top-color: #51d4db;
+                height: 50px;
+                width: 50px;
+                margin: auto;
+                margin-bottom: 20px;
+              }
+              
+              @keyframes is-rotating {
+                to {
+                  transform: rotate(1turn);
+                }
+              }
+        }
+
+    }
+
+    //? Main
+    main {
+        display: flex;
+        font-size: 12px;
+
+        //? Parte lateral
+        section#lateralContatos {
+            width: 400px;
+            height: 100vh;
+            padding: 40px 0px;
+            position: fixed;
+            background-color: $corFundo;
+            box-shadow: 3px 0px 20px $corSombra;
+            z-index: 1;
+
+            div {
+                position: relative;
+                
+                img {
+                    position: absolute;
+                    top: 11px;
+                    left: 30px;
+                }
+                
+                //? Input
+                input {
+                    width: $tamanhoElementoLateral;
+                    display: block;
+                    margin: auto;
+                    border-radius: 10px;
+                    border: 0px;
+                    outline: none;
+                    font-weight: 300;
+                    font-family: $fonteTexto;
+                    box-shadow: 0px 0px 2px 0px $cor1;
+                    padding: 15px 0px 15px 40px;
+                }
+            }
+
+            //? Contatos / Conversas
+            article#localContatos {
+                margin-top: 41px;
+
+                div.contatos {
+                    width: $tamanhoElementoLateral;
+                    max-height: 58px;
+                    margin: auto;
+                    background-color: $cor2;
+                    border-radius: 20px;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 10px 20px;
+                    flex-wrap: wrap;
+                    box-shadow: 0px 3px 10px $corSombra;
+                    margin-bottom: 27px;
+                    cursor: pointer;
+                    overflow: hidden;
+
+                    &:hover {
+                        transform: scale(1.03);
+                    }
+
+                    //? Img
+                    div.lineOnline {
+                        width: 52px;
+                        height: 52px;
+                        border-radius: 50%;
+                        border: 3px solid $cor3;
+                        position: relative;
+
+                        img {
+                            width: 50px;
+                            height: 50px;
+                            border-radius: 50%;
+                            position: absolute;
+                            left: 1px;
+                            top: 1px;
+                        }
+                    }
+
+                    div.localNomeEmsgContato {
+                        width: 78%;
+
+                        strong {
+                            margin: 10px 0px;
+                            font-weight: 500;
+                        }
+                         
+                        p {
+                            max-height: 40px;
+                            color: $corTextoClaro;
+                            overflow: hidden;
+                        }
+                    }
+                }
+            }
+        }
+
+        //? Parte conversa
+        section#localConversa {
+            width: calc(100% - 400px);
+            min-height: 110vh;
+            position: absolute;
+            right: 0px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            div#fundoMsg {
+                width: 100%;
+                height: 100vh;
+                position: fixed;
+                top: 0px;
+                z-index: -1;
+                background-image: url('../img/background-icon.jpg');
+                opacity: 0.2;
+                background-color: $cor2;
+            }
+
+            div#recadoInicial {
+                display: block;
+                text-align: center;
+
+                h1 {
+                    font-size: 23px;
+                    font-weight: 200;
+                }
+
+                p {
+                    font-size: 16px;
+                    font-weight: 200;
+                }
+            }
+
+            article#msg {
+                width: 100%;
+                height: auto;
+                min-height: 100vh;
+                display: none;
+                position: relative;
+
+                div#sobreContato {
+                    width: 200px;
+                    margin: 41px auto;
+                    text-align: center;
+
+                    div#imgContato {
+                        width: 82px;
+                        height: 82px;
+                        border-radius: 50%;
+                        border: 3px solid $cor3;
+                        position: relative;
+                        margin-left: 50%;
+                        transform: translate(-50%);
+
+                        div#circuloOnline {
+                            width: 16px;
+                            height: 16px;
+                            border-radius: 50%;
+                            background-color: $cor2;
+                            position: absolute;
+                            top: 6px;
+                            right: 0px;
+                            z-index: 2;
+                            display: none;
+                            align-items: center;
+                            justify-content: center;
+
+                            p {
+                                width: 12px;
+                                height: 12px;
+                                border-radius: 50%;
+                                background-color: $corOnline;
+                            }
+                        }
+
+                        img {
+                            width: 80px;
+                            height: 80px;
+                            border-radius: 50%;
+                            position: absolute;
+                            left: 1px;
+                            top: 1px;
+                        }
+
+                    }
+
+                    h2 {
+                        font-weight: 500;
+                    }
+
+                    p {
+                        font-weight: 500;
+                    }
+                }
+
+                //? localMsg
+                div#localMsg {
+                    width: 100%;
+                    margin: 150px 0px;
+                    
+                    p {
+                        max-width: 500px;
+                        padding: 20px;
+                        border-radius: 0px 20px 20px 20px;
+                        margin: 16px 17px 0px;
+                        box-shadow: 0px 0px 40px $corSombra;
+                    }
+
+                    p.msgContato {
+                        background-color: $corBalaoContato;
+                    }
+
+                    p.tuaMsg {
+                        background-color: $corTeuBalao;
+                        margin-left: calc(100% - 500px);
+                        border-radius: 20px 0px 20px 20px;
+                    }
+                }
+
+                div#barraResponder {
+                    width: calc(100% - 400px);
+                    padding: 20px;
+                    position: fixed;
+                    bottom: 0px;
+                    right: 0px;
+                    background-color: $corFundo;
+                    z-index: 1;
+                    box-shadow: 50px -3px 20px $corSombra;
+                    display: flex;
+
+                    input#inputResponder {
+                        width: 87%;
+                        display: block;
+                        margin: auto;
+                        border-radius: 15px;
+                        border: 0px;
+                        outline: none;
+                        font-weight: 300;
+                        font-family: $fonteTexto;
+                        box-shadow: 0px 0px 2px 0px $cor1;
+                        padding: 15px;
+                    }
+
+                    button#enviar {
+                        width: 60px;
+                        height: 60px;
+                        border: none;
+                        border-radius: 12px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        cursor: pointer;
+
+                        img#imgEnviar {
+                            width: 30px;
+                            display: none;
+                            margin-left: -3px;
+                        }
+
+                        img#pet {
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

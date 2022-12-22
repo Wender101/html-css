@@ -57,7 +57,11 @@ function urlPage() {
             }
             pageFeito2 = true
 
-        } else if(c == 100 && pageFeito2 == false) {
+        } else if(c == 100 && produtoPesquisado2[0] == null || c == 100 && produtoPesquisado2[0] == undefined) {
+            document.querySelector('title').innerText = 'Produto não encontrado :('
+            document.getElementById('classProduto').innerText = 'Produto não encontrado :('
+
+        } else if(c == 100 && pageFeito2 == false && produtoPesquisado2[0] != null && produtoPesquisado2[0] != undefined) {
             document.querySelector('title').innerText = produtoPesquisado2[0]
             document.getElementById('classProduto').innerText = produtoPesquisado2[0]
             window.location.href = `${urlSemProduto}#${produtoPesquisado2[0].normalize('NFD').replace(/[\u0300-\u036f]/g, "")}`

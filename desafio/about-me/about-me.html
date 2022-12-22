@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="assets/img/icons/portifolio.png" type="image/x-icon">
     <link rel="stylesheet" href="assets/css/estilo.css">
     <link rel="stylesheet" href="assets/css/responsividade.css">
     <title>Sobre Mim</title>
@@ -28,7 +29,7 @@
             </section>
             <section id="part2">
                 <h2 id="sobre">Sobre Mim</h2>
-                <p>Prazer! Eu sou o Wender Natanael, tenho 16 anos e moro em Formosa Go desde que nasci. Sempre fui apaixonado por tecnologia e desde pequeno eu gostava de solucionar problemas e criar formas mais faceis e rapidas de fazer algo.</p>
+                <p>Prazer! Eu sou o Wender Natanael, tenho <strong id="idade">17</strong> anos e moro em Formosa Go desde que nasci. Sempre fui apaixonado por tecnologia e desde pequeno eu gostava de solucionar problemas e criar formas mais faceis e rapidas de fazer algo.</p>
                 <p>Entrei pra área por engano em 2020 haha, mas me apaixonei logo de cara! Foi neste dia que a minha jornada começou!</p>
                 <button id="btnContato">Fale Comigo</button>
             </section>
@@ -40,20 +41,20 @@
                                 <article>HMTL, CSS e JS</article>
                                 <div class="proj"></div>
                             </a>
-                            <a href="https://wender101.github.io/html-css/desafio/responsive/index" target="_blank">
-                                <article>HTML e CSS</article>
+                            <a href="https://wender101.github.io/html-css/desafio/NerdsFirebase/home" target="_blank">
+                                <article>HTML, CSS, JS e FireBase</article>
                                 <div class="proj"></div>
                             </a>
                             <a href="https://wender101.github.io/html-css/desafio/Segundo-projeto/home" target="_blank">
-                                <article>HTML, CSS e Js</article>
+                                <article>HTML, CSS e JS</article>
                                 <div class="proj"></div>
                             </a>
                             <a href="https://wender101.github.io/JavaScript-no-html/JS/treinos/jogo-da-velha/" target="_blank">
-                                <article>HTML, CSS e Js</article>
+                                <article>HTML, CSS e JS</article>
                                 <div class="proj"></div>
                             </a>
-                            <a href="https://wender101.github.io/html-css/desafio/de010" target="_blank">
-                                <article>HMTL e CSS</article>
+                            <a href="https://wender101.github.io/html-css/desafio/clone-youtube/index.html" target="_blank">
+                                <article>HMTL, CSS JS</article>
                                 <div class="proj"></div>
                             </a>
                             <a href="https://wender101.github.io/html-css/desafio/site-quimica/" target="_blank">
@@ -61,21 +62,28 @@
                                 <div class="proj"></div>
                             </a>
                             <a href="https://wender101.github.io/JavaScript-no-html/JS/treinos/gerador-de-senha/index.html" target="_blank">
-                                <article>HTML, CSS e Js</article>
+                                <article>HTML, CSS e JS</article>
                                 <div class="proj"></div>
                             </a>
                             <a href="https://wender101.github.io/JavaScript-no-html/JS/treinos/lampada/index.html" target="_blank">
-                                <article>HTML, CSS e Js</article>
+                                <article>HTML, CSS e JS</article>
                                 <div class="proj"></div>
                             </a>
                             <a href="https://wender101.github.io/JavaScript-no-html/JS/treinos/To-Do-List/index.html" target="_blank">
-                                <article>HTML, CSS e Js</article>
+                                <article>HTML, CSS e JS</article>
                                 <div class="proj"></div>
                             </a>
                         </article>
                     </section>
             </section>
+
+            <section id="part4">
+                <img src="assets/img/icons/seta.png" alt="setinha para baixo">
+                <h2>Sobre o projeto</h2>
+                <p id="sobreProjeto"></p>
+            </section>
         </main>
+
         <div id="fundo"></div>
         <div id="fale-comigo">
             <h3>Estou a sua disposição</h3>
@@ -93,13 +101,28 @@
             </a>
         </div>
     </section>
-
+    
+    <script src="assets/js/index.js"></script>
     <script>
         for(let c = 0; c < 10; c++) {
             const div = document.getElementsByClassName('proj')[c]
             div.style.backgroundImage = `url(assets/img/projeto${c}.jpg)`
+
+            let a = document.getElementById('projetos').getElementsByTagName('a')[c]
+            a.addEventListener('mouseenter', () => {
+                for(let c = 0; c < 10; c++) {
+                    try {
+                        document.getElementById('projetos').getElementsByTagName('a')[c].className = ''
+                    } catch {}
+                }
+                let arraySobreProjeto = ['Um joguinho simples estilo o famoso jogo do dinosauro o "T-Rex Running".', 'Um site de E-commerce feito em parceria com empresa Nerds - Hardware Delivery.', 'Um site de E-commerce feito em parceria com empresa Nerds - Hardware Delivery. Esse foi o primeiro protótipo.', 'o famoso joguinho de pedra papel e tesoura.', 'Um clone do Yt, por enquanto ele passa longe do Yt real! Mas a ideia era treinar as funçoes basicas do JS que havia aprendido :)', 'Uma solução que fiz pro meu professor de química, na época ele queria um site para colocar os links de suas provas online. Não ficou a melhor coisa do mundo, mas fiz o que pude no tempo que tinha ;)', 'Um gerador de senhas feito para testar meus conhecimentos em JS.', 'Vi esse projeto no  linkedin e quis tentar resproduzir para testar meus conhecimentos em JS.', 'Uma lista de tarefas. Foi o meu primeiro projeto com a capacidade de salvar uma informação para reutilizar depois. No caso usei o "localStorage"']
+
+                a.className = 'aHover'
+                document.getElementById('part4').style.display = 'block'
+                document.getElementById('sobreProjeto').innerText = arraySobreProjeto[c]
+                            
+            })
         }
     </script>
-    <script src="assets/js/index.js"></script>
 </body>
 </html>

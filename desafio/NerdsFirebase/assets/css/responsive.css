@@ -36,7 +36,7 @@ div#notificacaoChat {
     width: 60px;
     height: 60px;
     position: fixed;
-    z-index: 4;
+    z-index: 3;
     right: 8px;
     bottom: 300px;
     color: var(--cor0);
