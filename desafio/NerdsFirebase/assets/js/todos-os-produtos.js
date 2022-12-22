@@ -47,8 +47,8 @@ setTimeout(() => {
         }, 100)
     
     } else {
-        // window.location.href = 'https://wender101.github.io/html-css/desafio/NerdsFirebase/home.html'
-        window.location.href = 'http://127.0.0.1:5501/home.html'
+        window.location.href = 'https://wender101.github.io/html-css/desafio/NerdsFirebase/home.html'
+        // window.location.href = 'http://127.0.0.1:5501/home.html'
     }
 }, 1700)
 
