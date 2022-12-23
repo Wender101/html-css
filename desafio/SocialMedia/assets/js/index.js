@@ -26,7 +26,7 @@ db.collection('SobreUser').onSnapshot((data) => {
                         }
                     } catch {}
 
-                    criaContatos(valorSobreUser.Contatos[c].SobreContato.FotoPerfil, valorSobreUser.Contatos[c].SobreContato.Nome, ultimaMsgEnviada, valorSobreUser.Contatos[c].SobreContato.CodigoContato)
+                    criaContatos(valorSobreUser.Contatos[c].SobreContato.FotoPerfil, valorSobreUser.Contatos[c].SobreContato.Nome, ultimaMsgEnviada, valorSobreUser.Contatos[c].SobreContato.Recado, valorSobreUser.Contatos[c].SobreContato.CodigoContato)
                 }
             }
         } catch {}
@@ -42,8 +42,9 @@ db.collection('SobreUser').onSnapshot((data) => {
     })
 })
 
-let codigoContatoSelecionado
-function criaContatos(imagem, nome, ultMsg, codigoContato) {
+let codigoContatoSelecionado = {}
+let ContatoSelecionado
+function criaContatos(imagem, nome, ultMsg, recado, codigoContato) {
     let localContatos = document.getElementById('localContatos')
     let contatos = document.createElement('div')
     let lineOnline = document.createElement('div')
@@ -80,11 +81,30 @@ function criaContatos(imagem, nome, ultMsg, codigoContato) {
         document.getElementById('localConversa').style.display = 'block'
         document.getElementById('msg').style.display = 'block'
 
-        document.getElementById('imgContato').src = imagem
+        document.getElementById('imgContato2').src = imagem
         document.getElementById('nomeContato').innerText = nome
 
         criaMsg(codigoContato)
         codigoContatoSelecionado = codigoContato
+
+        //? Vai trocar o recado
+        ContatoSelecionado = {
+            imagem, 
+            nome, 
+            ultMsg, 
+            recado, 
+            codigoContato
+        }
+        document.getElementById('ImgSobreContatoScroll').src = imagem
+        document.getElementById('nomeSobreContato').innerText = nome
+        document.getElementById('recadoSobreContato').innerText = recado
+
+        window.addEventListener("scroll", (event) => {
+            let scroll = this.scrollY
+            if(scroll > 100) {
+                document.getElementById('recadoScroll0').innerText = ContatoSelecionado.recado
+            }
+        })
     })
 }
 
@@ -180,7 +200,7 @@ function enviarMsg() {
                                 }
                             }
                         }
-                    } catch (error){ console.log(error);}
+                    } catch (error){ console.warn(error)}
                 })
             })
         }
@@ -250,10 +270,44 @@ function addContato() {
                     }
                 
                     cloneContatos2.Contatos.push(objContatos2)
-                    console.log(cogidoDoContatoAdicionado);
                     db.collection('SobreUser').doc(cogidoDoContatoAdicionado).update({Contatos: cloneContatos2.Contatos})
                 }
             } catch {}
         })
     })
 }
+
+//? Vai abrir o sobreContatoLocal
+function abrirSobreContato() {
+    let sobreContatoLocal = document.getElementById('sobreContatoLocal')
+    let localSobreContato = document.getElementById('localSobreContato')
+    sobreContatoLocal.style.display = 'block'
+    localSobreContato.style.right = '0px'
+
+    sobreContatoLocal.addEventListener('click', (e) => {
+        let el = e.target.id
+        if(el == 'sobreContatoLocal') {
+            sobreContatoLocal.style.display = 'none'
+            localSobreContato.style.right = '-100%'
+        }
+    })
+}
+
+//? Vai mudar a parte sobre o contado
+window.addEventListener("scroll", (event) => {
+	let scroll = this.scrollY
+	if(scroll > 100) {
+        document.getElementById('sobreContato').id = 'sobreContatoScroll'
+        document.getElementById('recadoScroll0').innerText = ContatoSelecionado.recado
+        document.getElementById('ImgSobreContatoScroll').src = ContatoSelecionado.imagem
+        document.getElementById('imgContato').src = ContatoSelecionado.imagem
+        document.getElementById('nomeSobreContato').innerText = ContatoSelecionado.nome
+        document.getElementById('recadoSobreContato').innerText = ContatoSelecionado.recado
+
+    } else if(scroll < 100) {
+        document.getElementById('sobreContatoScroll').id = 'sobreContato'
+        document.getElementById('recadoScroll0').innerText = 'Esse é o inicio de uma boa conversa'
+    }
+
+    console.log(scroll);
+})
