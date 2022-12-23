@@ -26,7 +26,6 @@ auth.onAuthStateChanged((val) => {
     if(logado == true) {
         //? Vai mandar o user para a pagina de personalização da conta
         const link = location.origin + location.pathname
-        link.replace('home.html', '')
         window.location.href = link.replace('login.html', '') + 'Personalizar.html'
     }
 
