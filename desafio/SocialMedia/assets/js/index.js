@@ -109,6 +109,8 @@ function criaMsg(codigo) {
                                 if(valorSobreUser.Contatos[c].Msgs[b].MsgContato != undefined) {
                                     p.className = 'msgContato'
                                     p.innerText = valorSobreUser.Contatos[c].Msgs[b].MsgContato
+                                    const audio = new Audio('../img/Tome\ -\ Efeito\ Sonoro\ \(320\ kbps\).mp3')
+                                    audio.play()
 
                                 } else if(valorSobreUser.Contatos[c].Msgs[b].TuaMsg != undefined) {
                                     p.className = 'tuaMsg'
@@ -201,6 +203,7 @@ localAdd.addEventListener('click', (e) => {
 //? função de adicionar contato
 function addContato() {
     let adicionado = false
+    let adicionado2 = false
     let cogidoDoContatoAdicionado = ''
     let inputAddContato = document.getElementById('inputAddContato').value
 
@@ -232,23 +235,24 @@ function addContato() {
                 }
 
                 // //? vai salvar seu contato na parte contatos do individuo q vc adiconou
-                // if(valorSobreUser.Sobre.Email == email) {
-                //     let cloneContatos2 = valorSobreUser
-                //     let objContatos2 = {
-                //         Msgs: [],
+                if(valorSobreUser.Sobre.Email == email && adicionado2 == false) {
+                    adicionado2 = true
+                    let cloneContatos2 = valorSobreUser
+                    let objContatos2 = {
+                        Msgs: [],
                 
-                //         SobreContato: {
-                //             FotoPerfil: valorSobreUser.Sobre.FotoPerfil,
-                //             Nome: valorSobreUser.Sobre.Nome,
-                //             Recado: valorSobreUser.Sobre.Recado,
-                //             CodigoContato: valorSobreUser.Sobre.Codigo,
-                //         }
-                //     }
+                        SobreContato: {
+                            FotoPerfil: valorSobreUser.Sobre.FotoPerfil,
+                            Nome: valorSobreUser.Sobre.Nome,
+                            Recado: valorSobreUser.Sobre.Recado,
+                            CodigoContato: valorSobreUser.Sobre.Codigo,
+                        }
+                    }
                 
-                //     cloneContatos2.Contatos.push(objContatos2)
-                //     console.log(cogidoDoContatoAdicionado);
-                //     db.collection('SobreUser').doc(cogidoDoContatoAdicionado).update({Contatos: cloneContatos2.Contatos})
-                //}
+                    cloneContatos2.Contatos.push(objContatos2)
+                    console.log(cogidoDoContatoAdicionado);
+                    db.collection('SobreUser').doc(cogidoDoContatoAdicionado).update({Contatos: cloneContatos2.Contatos})
+                }
             } catch {}
         })
     })
