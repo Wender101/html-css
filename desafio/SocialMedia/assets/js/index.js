@@ -294,19 +294,25 @@ function abrirSobreContato() {
 }
 
 //? Vai mudar a parte sobre o contado
+let sobreContato = document.getElementById('sobreContato')
 window.addEventListener("scroll", (event) => {
 	let scroll = this.scrollY
-	if(scroll > 100) {
-        document.getElementById('sobreContato').id = 'sobreContatoScroll'
+	if(scroll >= 100) {
+        sobreContato.id = 'sobreContatoScroll'
+        document.getElementById('msg').style.paddingTop = '200px'
         document.getElementById('recadoScroll0').innerText = ContatoSelecionado.recado
         document.getElementById('ImgSobreContatoScroll').src = ContatoSelecionado.imagem
         document.getElementById('imgContato').src = ContatoSelecionado.imagem
         document.getElementById('nomeSobreContato').innerText = ContatoSelecionado.nome
         document.getElementById('recadoSobreContato').innerText = ContatoSelecionado.recado
+        scroll = 140
 
-    } else if(scroll < 100) {
-        document.getElementById('sobreContatoScroll').id = 'sobreContato'
+    } else {
+        sobreContato.id = 'sobreContato'
         document.getElementById('recadoScroll0').innerText = 'Esse é o inicio de uma boa conversa'
+        document.getElementById('msg').style.paddingTop = '0px'
     }
+
+    console.log(scroll);
 
 })
