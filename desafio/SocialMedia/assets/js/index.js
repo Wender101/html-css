@@ -175,7 +175,7 @@ function enviarMsg() {
                                 }
                             }
                         }
-                    } catch {}
+                    } catch (error){ console.log(error);}
                 })
             })
         }
