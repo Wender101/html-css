@@ -60,19 +60,6 @@ setInterval(() => {
 
 function cadastrarUSer(img, nome, recado, emailUser, codigo) {
 
-    let objContatos = {
-        Msgs: [],
-
-        SobreContato: {
-            FotoPerfil: '',
-            Nome: '',
-            Recado: '',
-            CodigoContato: '',
-        }
-    }
-
-    let arrayContato = [objContatos]
-
     const objFinal = {
         Sobre: {
             FotoPerfil: img,
@@ -82,7 +69,7 @@ function cadastrarUSer(img, nome, recado, emailUser, codigo) {
             Codigo: codigo,
         },
 
-        Contatos: arrayContato
+        Contatos: []
     }
 
     
