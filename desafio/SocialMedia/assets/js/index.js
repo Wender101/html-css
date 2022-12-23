@@ -1,24 +1,32 @@
 let emailEncontrado = false
+let cloneContatos = ''
+let codigoLocalUser
+let codigoPessoal
 db.collection('SobreUser').onSnapshot((data) => {
     data.docs.map(function(val) {
         let valorSobreUser = val.data()
 
         try {
-            if(valorSobreUser.Sobre.Email == email) {
+            if(valorSobreUser.Sobre.Email == email && emailEncontrado == false) {
                 emailEncontrado = true
+                codigoLocalUser = val.id
+                cloneContatos = valorSobreUser
+                codigoPessoal = valorSobreUser.Sobre.Codigo
                 var carregando = document.getElementById('carregando')
                 carregando.style.display = 'none'
     
-                for(let c = 0; c < valorSobreUser.Contatos.length; c++) {
+                for(let c = 0; c <= valorSobreUser.Contatos.length; c++) {
                     let ultimaMsgEnviada = ''
 
-                    if(valorSobreUser.Contatos[c].Msgs[valorSobreUser.Contatos[c].Msgs.length - 1].MsgContato != undefined) {
-                        ultimaMsgEnviada = valorSobreUser.Contatos[c].Msgs[valorSobreUser.Contatos[c].Msgs.length - 1].MsgContato
-                    } else if(valorSobreUser.Contatos[c].Msgs[valorSobreUser.Contatos[c].Msgs.length - 1].TuaMsg != undefined) {
-                        ultimaMsgEnviada = valorSobreUser.Contatos[c].Msgs[valorSobreUser.Contatos[c].Msgs.length - 1].TuaMsg
-                    }
+                    try {
+                        if(valorSobreUser.Contatos[c].Msgs[valorSobreUser.Contatos[c].Msgs.length - 1].MsgContato != undefined) {
+                            ultimaMsgEnviada = valorSobreUser.Contatos[c].Msgs[valorSobreUser.Contatos[c].Msgs.length - 1].MsgContato
+                        } else if(valorSobreUser.Contatos[c].Msgs[valorSobreUser.Contatos[c].Msgs.length - 1].TuaMsg != undefined) {
+                            ultimaMsgEnviada = valorSobreUser.Contatos[c].Msgs[valorSobreUser.Contatos[c].Msgs.length - 1].TuaMsg
+                        }
+                    } catch {}
 
-                    criaContatos(valorSobreUser.Contatos[c].SobreContato.FotoPerfil, valorSobreUser.Contatos[c].SobreContato.Nome, ultimaMsgEnviada, valorSobreUser.Contatos[c].SobreContato.codigoContato)
+                    criaContatos(valorSobreUser.Contatos[c].SobreContato.FotoPerfil, valorSobreUser.Contatos[c].SobreContato.Nome, ultimaMsgEnviada, valorSobreUser.Contatos[c].SobreContato.CodigoContato)
                 }
             }
         } catch {}
@@ -81,8 +89,7 @@ function criaContatos(imagem, nome, ultMsg, codigoContato) {
 }
 
 //? Função que vai criar as msgs
-let arrayCloneChat = []
-let codigoLocalUser
+let arrayCloneChat
 function criaMsg(codigo) {
     db.collection('SobreUser').onSnapshot((data) => {
         data.docs.map(function(val) {
@@ -90,14 +97,13 @@ function criaMsg(codigo) {
     
             try {
                 if(valorSobreUser.Sobre.Email == email) {
-                    for(let c = 0; c < valorSobreUser.Contatos.length; c++) {
-                        for(let b = 0; b < valorSobreUser.Contatos[c].Msgs.length; b++) {
+                    for(let c = 0; c <= valorSobreUser.Contatos.length; c++) {
+                        for(let b = 0; b <= valorSobreUser.Contatos[c].Msgs.length; b++) {
 
                             //? Vai mostrar as msg apenas do contato selecionado
-                            if(valorSobreUser.Contatos[c].SobreContato.codigoContato == codigo) {
+                            if(valorSobreUser.Contatos[c].SobreContato.CodigoContato == codigo) {
                                 let p = document.createElement('p')
-                                arrayCloneChat.push(valorSobreUser.Contatos)
-                                codigoLocalUser = val.id
+                                arrayCloneChat = valorSobreUser.Contatos
 
                                 if(valorSobreUser.Contatos[c].Msgs[b].MsgContato != undefined) {
                                     p.className = 'msgContato'
@@ -138,18 +144,40 @@ document.addEventListener('keypress', (e) => {
 })
 
 function enviarMsg() {
+    let msgEnviada = false
     let inputMsg = document.getElementById('inputResponder').value
     for(let c = 0; c < arrayCloneChat.length; c++) {
-        if(inputMsg.length > 0 && codigoContatoSelecionado == arrayCloneChat[c][c].SobreContato.codigoContato) {
+        if(inputMsg.length > 0 && codigoContatoSelecionado == arrayCloneChat[c].SobreContato.CodigoContato) {
             let obj = {
                 TuaMsg: inputMsg
             }
-            arrayCloneChat[c][c].Msgs.push(obj)
-            db.collection('SobreUser').doc(codigoLocalUser).update({Contatos: arrayCloneChat[0]})
+            arrayCloneChat[c].Msgs.push(obj)
+            db.collection('SobreUser').doc(codigoLocalUser).update({Contatos: arrayCloneChat})
 
             document.getElementById('localMsg').innerHTML = ''
             document.getElementById('localContatos').innerHTML = ''
             document.getElementById('inputResponder').value =  ''
+
+            db.collection('SobreUser').onSnapshot((data) => {
+                data.docs.map(function(val) {
+                    let valorSobreUser = val.data()
+                    try {
+                        if(valorSobreUser.Sobre.Codigo == codigoContatoSelecionado) {
+                            for(let c = 0; c < valorSobreUser.Contatos.length; c++) {
+                                if(valorSobreUser.Contatos[c].SobreContato.CodigoContato == codigoPessoal &&msgEnviada == false) {
+                                    msgEnviada = true
+                                    let arrayCloneChat2 = valorSobreUser.Contatos
+                                    let obj2 = {
+                                        MsgContato: inputMsg
+                                    }
+                                    arrayCloneChat2[c].Msgs.push(obj2)
+                                    db.collection('SobreUser').doc(val.id).update({Contatos: arrayCloneChat2})
+                                }
+                            }
+                        }
+                    } catch {}
+                })
+            })
         }
     }
 }
@@ -166,3 +194,59 @@ localAdd.addEventListener('click', (e) => {
         localAdd.style.display = 'none'
     }
 }) 
+
+//? função de adicionar contato
+function addContato() {
+    let adicionado = false
+    let cogidoDoContatoAdicionado = ''
+    let inputAddContato = document.getElementById('inputAddContato').value
+
+    db.collection('SobreUser').onSnapshot((data) => {
+        data.docs.map(function(val) {
+            let valorSobreUser = val.data()
+
+            
+            try {
+                //? Vai adicionar ao seus conatatos uma nova pessoa
+                if(inputAddContato.length > 0 && valorSobreUser.Sobre.Codigo == inputAddContato && adicionado == false) {
+                    adicionado = true
+                    cogidoDoContatoAdicionado = val.id
+
+                    let objContatos = {
+                        Msgs: [],
+                
+                        SobreContato: {
+                            FotoPerfil: valorSobreUser.Sobre.FotoPerfil,
+                            Nome: valorSobreUser.Sobre.Nome,
+                            Recado: valorSobreUser.Sobre.Recado,
+                            CodigoContato: valorSobreUser.Sobre.Codigo,
+                        }
+                    }
+
+                    cloneContatos.Contatos.push(objContatos)
+                    db.collection('SobreUser').doc(codigoLocalUser).update({Contatos: cloneContatos.Contatos})
+                    criaContatos(valorSobreUser.Sobre.FotoPerfil, valorSobreUser.Sobre.Nome, '...', valorSobreUser.Sobre.Codigo)
+                }
+
+                //? vai salvar seu contato na parte contatos do individuo q vc adiconou
+                if(valorSobreUser.Sobre.Email == email) {
+                    let cloneContatos2 = valorSobreUser
+                    let objContatos2 = {
+                        Msgs: [],
+                
+                        SobreContato: {
+                            FotoPerfil: valorSobreUser.Sobre.FotoPerfil,
+                            Nome: valorSobreUser.Sobre.Nome,
+                            Recado: valorSobreUser.Sobre.Recado,
+                            CodigoContato: valorSobreUser.Sobre.Codigo,
+                        }
+                    }
+
+                    cloneContatos2.Contatos.push(objContatos2)
+
+                    db.collection('SobreUser').doc(cogidoDoContatoAdicionado).update({Contatos: cloneContatos2.Contatos})
+                }
+            } catch {}
+        })
+    })
+}
