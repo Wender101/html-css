@@ -231,24 +231,24 @@ function addContato() {
                     criaContatos(valorSobreUser.Sobre.FotoPerfil, valorSobreUser.Sobre.Nome, '...', valorSobreUser.Sobre.Codigo)
                 }
 
-                //? vai salvar seu contato na parte contatos do individuo q vc adiconou
-                if(valorSobreUser.Sobre.Email == email) {
-                    let cloneContatos2 = valorSobreUser
-                    let objContatos2 = {
-                        Msgs: [],
+                // //? vai salvar seu contato na parte contatos do individuo q vc adiconou
+                // if(valorSobreUser.Sobre.Email == email) {
+                //     let cloneContatos2 = valorSobreUser
+                //     let objContatos2 = {
+                //         Msgs: [],
                 
-                        SobreContato: {
-                            FotoPerfil: valorSobreUser.Sobre.FotoPerfil,
-                            Nome: valorSobreUser.Sobre.Nome,
-                            Recado: valorSobreUser.Sobre.Recado,
-                            CodigoContato: valorSobreUser.Sobre.Codigo,
-                        }
-                    }
-
-                    cloneContatos2.Contatos.push(objContatos2)
-
-                    db.collection('SobreUser').doc(cogidoDoContatoAdicionado).update({Contatos: cloneContatos2.Contatos})
-                }
+                //         SobreContato: {
+                //             FotoPerfil: valorSobreUser.Sobre.FotoPerfil,
+                //             Nome: valorSobreUser.Sobre.Nome,
+                //             Recado: valorSobreUser.Sobre.Recado,
+                //             CodigoContato: valorSobreUser.Sobre.Codigo,
+                //         }
+                //     }
+                
+                //     cloneContatos2.Contatos.push(objContatos2)
+                //     console.log(cogidoDoContatoAdicionado);
+                //     db.collection('SobreUser').doc(cogidoDoContatoAdicionado).update({Contatos: cloneContatos2.Contatos})
+                //}
             } catch {}
         })
     })
