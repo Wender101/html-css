@@ -312,7 +312,4 @@ window.addEventListener("scroll", (event) => {
         document.getElementById('recadoScroll0').innerText = 'Esse é o inicio de uma boa conversa'
         document.getElementById('msg').style.paddingTop = '0px'
     }
-
-    console.log(scroll);
-
 })
