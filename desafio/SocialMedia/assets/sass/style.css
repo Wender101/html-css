@@ -124,7 +124,7 @@ body main section#lateralContatos article#localContatos div.contatos div.localNo
   color: #9E9E9E;
   overflow: hidden;
 }
-body main section#lateralContatos div#addContato {
+body main div#addContato {
   width: 50px;
   height: 50px;
   border-radius: 50%;
@@ -136,8 +136,9 @@ body main section#lateralContatos div#addContato {
   position: fixed;
   bottom: 20px;
   left: 10px;
+  z-index: 1;
 }
-body main section#lateralContatos div#localAdd {
+body main div#localAdd {
   width: 100%;
   height: 100vh;
   position: fixed;
@@ -146,9 +147,9 @@ body main section#lateralContatos div#localAdd {
   align-items: center;
   justify-content: center;
   background-color: rgba(105, 104, 104, 0.6039215686);
-  z-index: 3;
+  z-index: 2;
 }
-body main section#lateralContatos div#localAdd div {
+body main div#localAdd div {
   width: 100%;
   max-width: 500px;
   height: auto;
@@ -158,24 +159,24 @@ body main section#lateralContatos div#localAdd div {
   box-shadow: 0px 0px 20px rgba(105, 104, 104, 0.6039215686);
   padding: 10px;
 }
-body main section#lateralContatos div#localAdd div strong, body main section#lateralContatos div#localAdd div p {
+body main div#localAdd div strong, body main div#localAdd div p {
   font-size: 18px;
   font-weight: 400;
   display: block;
   text-align: center;
 }
-body main section#lateralContatos div#localAdd div p {
+body main div#localAdd div p {
   font-size: 14px;
   font-weight: 200;
   margin: 10px;
   display: block;
   text-align: center;
 }
-body main section#lateralContatos div#localAdd div input {
+body main div#localAdd div input#inputAddContato {
   width: 87%;
   margin-left: 50%;
   transform: translate(-50%);
-  padding-left: 15px;
+  padding: 15px 0px 15px 10px;
   border-radius: 12px;
   border: 0px;
   outline: none;
@@ -183,7 +184,7 @@ body main section#lateralContatos div#localAdd div input {
   font-family: "Poppins", sans-serif;
   box-shadow: 0px 0px 2px 0px #000000;
 }
-body main section#lateralContatos div#localAdd div button {
+body main div#localAdd div button {
   width: 90%;
   display: block;
   margin: 30px auto 5px;
@@ -202,6 +203,7 @@ body main section#localConversa {
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 1;
 }
 body main section#localConversa div#fundoMsg {
   width: 100%;
@@ -228,6 +230,7 @@ body main section#localConversa div#recadoInicial p {
 body main section#localConversa article#msg {
   width: 100%;
   height: auto;
+  padding-bottom: 100px;
   min-height: 100vh;
   display: none;
   position: relative;
@@ -305,7 +308,7 @@ body main section#localConversa article#msg div#barraResponder {
   bottom: 0px;
   right: 0px;
   background-color: #edf6f9;
-  z-index: 1;
+  z-index: 0;
   box-shadow: 50px -3px 20px rgba(105, 104, 104, 0.6039215686);
   display: flex;
 }
