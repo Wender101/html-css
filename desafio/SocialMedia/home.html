@@ -30,11 +30,12 @@
             </article>
 
             <div id="addContato" onclick="abrirAddContato()"></div>
-            <div id="localAdd" onclick="fecharAddContato()">
+            <div id="localAdd">
                 <div>
                     <strong>Adicione um contato.</strong>
                     <p>Coloque o código dele(a) aqui</p>
                     <input type="text" id="inputAddContato" placeholder="Ex: e4Bb2H*m9E+k2Dm8B">
+                    <button oncanplay="addContato()" id="btnAddContato">Adicionar</button>
                 </div>
             </div>
         </section>
@@ -73,8 +74,8 @@
 
     <!--? Firebase -->
     <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-auth.js"></script>
     <script src="assets/js/firebase.js"></script>
 
     <!--? Scripts -->

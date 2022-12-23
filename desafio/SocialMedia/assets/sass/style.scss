@@ -163,7 +163,7 @@ body {
                 div {
                     width: 100%;
                     max-width: 500px;
-                    height: 140px;
+                    height: auto;
                     background-color: $cor2;
                     position: relative;
                     border-radius: 20px;
@@ -180,16 +180,35 @@ body {
                     p {
                         font-size: 14px;
                         font-weight: 200;
-                        margin-top: 10px;
+                        margin: 10px;
                         display: block;
                         text-align: center;
                     }
 
                     input {
+                        width: 87%;
                         margin-left: 50%;
                         transform: translate(-50%);
-                        position: absolute;
-                        bottom: 20px;
+                        padding-left: 15px;
+                        border-radius: 12px;
+                        border: 0px;
+                        outline: none;
+                        font-weight: 300;
+                        font-family: $fonteTexto;
+                        box-shadow: 0px 0px 2px 0px $cor1;
+
+                    }
+
+                    button {
+                        width: 90%;
+                        display: block;
+                        margin: 30px auto 5px;
+                        padding: 15px 25px;
+                        border-radius: 12px;
+                        border: 1px solid $cor3;
+                        background-color: $cor3;
+                        color: $cor2;
+                        cursor: pointer;
                     }
                 }
 
