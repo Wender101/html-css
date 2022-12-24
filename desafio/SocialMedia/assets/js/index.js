@@ -2,32 +2,45 @@ let emailEncontrado = false
 let cloneContatos = ''
 let codigoLocalUser
 let codigoPessoal
+let feito11 = false
 db.collection('SobreUser').onSnapshot((data) => {
     data.docs.map(function(val) {
         let valorSobreUser = val.data()
 
         try {
             if(valorSobreUser.Sobre.Email == email && emailEncontrado == false) {
+                document.getElementById('carregando').style.display = 'none'
                 emailEncontrado = true
                 codigoLocalUser = val.id
                 cloneContatos = valorSobreUser
                 codigoPessoal = valorSobreUser.Sobre.Codigo
-                var carregando = document.getElementById('carregando')
-                carregando.style.display = 'none'
+                let codigoContatoFirst = valorSobreUser.Contatos
     
-                for(let c = 0; c <= valorSobreUser.Contatos.length; c++) {
-                    let ultimaMsgEnviada = ''
+                //? Vai pegar as infs do contato
+                db.collection('SobreUser').onSnapshot((data) => {
+                    data.docs.map(function(val) {
+                        let valorSobreUser2 = val.data()
 
-                    try {
-                        if(valorSobreUser.Contatos[c].Msgs[valorSobreUser.Contatos[c].Msgs.length - 1].MsgContato != undefined) {
-                            ultimaMsgEnviada = valorSobreUser.Contatos[c].Msgs[valorSobreUser.Contatos[c].Msgs.length - 1].MsgContato
-                        } else if(valorSobreUser.Contatos[c].Msgs[valorSobreUser.Contatos[c].Msgs.length - 1].TuaMsg != undefined) {
-                            ultimaMsgEnviada = valorSobreUser.Contatos[c].Msgs[valorSobreUser.Contatos[c].Msgs.length - 1].TuaMsg
-                        }
-                    } catch {}
+                        for(let c = 0; c <= codigoContatoFirst.length; c++) {
+                            let ultimaMsgEnviada = ''
+                            try {
+                                if(valorSobreUser2.Sobre.Codigo == codigoContatoFirst[c].SobreContato.CodigoContato && feito11 == false) {
+                                    feito11 = true
 
-                    criaContatos(valorSobreUser.Contatos[c].SobreContato.FotoPerfil, valorSobreUser.Contatos[c].SobreContato.Nome, ultimaMsgEnviada, valorSobreUser.Contatos[c].SobreContato.Recado, valorSobreUser.Contatos[c].SobreContato.CodigoContato)
-                }
+                                    for(let b = 0; b < valorSobreUser.Contatos[c].Msgs.length; b++) {
+                                        
+                                        if(valorSobreUser.Contatos[b].Msgs[valorSobreUser.Contatos[b].Msgs.length - 1].MsgContato != undefined) {
+                                            ultimaMsgEnviada = valorSobreUser.Contatos[b].Msgs[valorSobreUser.Contatos[b].Msgs.length - 1].MsgContato
+                                        } else if(valorSobreUser.Contatos[b].Msgs[valorSobreUser.Contatos[b].Msgs.length - 1].TuaMsg != undefined) {
+                                            ultimaMsgEnviada = valorSobreUser.Contatos[b].Msgs[valorSobreUser.Contatos[b].Msgs.length - 1].TuaMsg
+                                        }    
+                                    }
+                                    criaContatos(valorSobreUser2.Sobre.FotoPerfil, valorSobreUser2.Sobre.Nome, ultimaMsgEnviada, valorSobreUser2.Sobre.Recado, valorSobreUser2.Sobre.Codigo)
+                                }
+                            } catch {}
+                        } 
+                    })
+                })
             }
         } catch {}
 
@@ -57,7 +70,6 @@ function criaContatos(imagem, nome, ultMsg, recado, codigoContato) {
     img.src = imagem
     nameContato.innerText = nome
     ultimaMsg.innerText = ultMsg
-
     
     //? Classes
     contatos.className = 'contatos'
@@ -98,6 +110,8 @@ function criaContatos(imagem, nome, ultMsg, recado, codigoContato) {
         document.getElementById('ImgSobreContatoScroll').src = imagem
         document.getElementById('nomeSobreContato').innerText = nome
         document.getElementById('recadoSobreContato').innerText = recado
+        document.getElementById('qmContato').innerText = nome
+        document.getElementById('codigoQmContato').innerText = codigoContato
 
         window.addEventListener("scroll", (event) => {
             let scroll = this.scrollY
@@ -242,9 +256,6 @@ function addContato() {
                         Msgs: [],
                 
                         SobreContato: {
-                            FotoPerfil: valorSobreUser.Sobre.FotoPerfil,
-                            Nome: valorSobreUser.Sobre.Nome,
-                            Recado: valorSobreUser.Sobre.Recado,
                             CodigoContato: valorSobreUser.Sobre.Codigo,
                         }
                     }
@@ -262,9 +273,6 @@ function addContato() {
                         Msgs: [],
                 
                         SobreContato: {
-                            FotoPerfil: valorSobreUser.Sobre.FotoPerfil,
-                            Nome: valorSobreUser.Sobre.Nome,
-                            Recado: valorSobreUser.Sobre.Recado,
                             CodigoContato: valorSobreUser.Sobre.Codigo,
                         }
                     }

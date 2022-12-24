@@ -314,6 +314,7 @@ body main section#localConversa article#msg div#localMsg p {
   border-radius: 0px 20px 20px 20px;
   margin: 16px 17px 0px;
   box-shadow: 0px 0px 40px rgba(105, 104, 104, 0.6039215686);
+  z-index: -1;
 }
 body main section#localConversa article#msg div#localMsg p.msgContato {
   background-color: rgba(158, 240, 245, 0.7529411765);
@@ -402,13 +403,23 @@ body main section#localConversa article#sobreContatoLocal > div#localSobreContat
   font-weight: 400;
   display: block;
   text-align: center;
+  margin-bottom: 30px;
 }
 body main section#localConversa article#sobreContatoLocal > div#localSobreContato p {
   text-align: center;
   font-size: 14px;
-  font-weight: 200;
+  font-weight: 300;
+  max-width: 80%;
+  margin: auto;
+  word-wrap: break-word;
+}
+body main section#localConversa article#sobreContatoLocal > div#localSobreContato p span {
+  font-weight: 500;
 }
 body main section#localConversa article#sobreContatoLocal > div#localSobreContato p#recadoSobreContato {
-  font-weight: 300;
-  font-size: 18px;
+  margin-bottom: 50px;
+}
+body main section#localConversa article#sobreContatoLocal > div#localSobreContato p.pBold {
+  font-weight: 500;
+  font-size: 14px;
 }/*# sourceMappingURL=style.css.map */
