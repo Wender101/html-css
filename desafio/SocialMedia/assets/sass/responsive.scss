@@ -1,0 +1,69 @@
+@import 'geral.scss';
+
+@media screen and (max-width: 1000px) {
+    body {
+        main {
+            section#localConversa {
+                article#msg {
+                    div#localMsg {
+                        p {
+                            max-width: 300px;
+                        }
+
+                        p.tuaMsg {
+                            margin-left: calc(100% - 300px);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 850px) {
+    body {
+        main {
+            section#localConversa {
+                article#msg {
+                    div#barraResponder {
+                        width: 95%;
+                    }
+
+                    div#sobreContatoScroll {
+                        width: 100%;
+                    }
+                }
+            }
+
+            section#lateralContatos {
+                width: 100vw;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 515px) {
+    body {
+        main {
+            section#localConversa {
+                article#msg {
+                    div#localMsg {
+                        p {
+                            max-width: 200px;
+                            padding: 15px;
+                            border-radius: 0px 20px 20px 20px;
+                            margin: 16px 10px 0px;
+                            box-shadow: 0px 0px 40px $corSombra;
+                            z-index: -1;
+                        }
+
+                        p.tuaMsg {
+                            margin-left: calc(100% - 200px);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+

@@ -28,16 +28,17 @@ db.collection('SobreUser').onSnapshot((data) => {
                                     feito11 = true
 
                                     for(let b = 0; b < valorSobreUser.Contatos[c].Msgs.length; b++) {
-                                        
-                                        if(valorSobreUser.Contatos[b].Msgs[valorSobreUser.Contatos[b].Msgs.length - 1].MsgContato != undefined) {
-                                            ultimaMsgEnviada = valorSobreUser.Contatos[b].Msgs[valorSobreUser.Contatos[b].Msgs.length - 1].MsgContato
-                                        } else if(valorSobreUser.Contatos[b].Msgs[valorSobreUser.Contatos[b].Msgs.length - 1].TuaMsg != undefined) {
-                                            ultimaMsgEnviada = valorSobreUser.Contatos[b].Msgs[valorSobreUser.Contatos[b].Msgs.length - 1].TuaMsg
-                                        }    
+                                        try {
+                                            if(valorSobreUser.Contatos[b].Msgs[valorSobreUser.Contatos[b].Msgs.length - 1].MsgContato != undefined) {
+                                                ultimaMsgEnviada = valorSobreUser.Contatos[b].Msgs[valorSobreUser.Contatos[b].Msgs.length - 1].MsgContato
+                                            } else if(valorSobreUser.Contatos[b].Msgs[valorSobreUser.Contatos[b].Msgs.length - 1].TuaMsg != undefined) {
+                                                ultimaMsgEnviada = valorSobreUser.Contatos[b].Msgs[valorSobreUser.Contatos[b].Msgs.length - 1].TuaMsg
+                                            }    
+                                        } catch {}
                                     }
                                     criaContatos(valorSobreUser2.Sobre.FotoPerfil, valorSobreUser2.Sobre.Nome, ultimaMsgEnviada, valorSobreUser2.Sobre.Recado, valorSobreUser2.Sobre.Codigo)
                                 }
-                            } catch {}
+                            } catch (error) {}
                         } 
                     })
                 })
@@ -119,6 +120,15 @@ function criaContatos(imagem, nome, ultMsg, recado, codigoContato) {
                 document.getElementById('recadoScroll0').innerText = ContatoSelecionado.recado
             }
         })
+
+        if(window.visualViewport.width <= 845) {
+            document.getElementById('lateralContatos').style.display = 'none'
+            document.getElementById('localConversa').style.width = '100%'
+            document.getElementById('addContato').style.display = 'none'
+        } else {
+            document.getElementById('lateralContatos').style.display = 'block'
+            document.getElementById('addContato').style.display = 'block'
+        }
     })
 }
 
@@ -314,10 +324,23 @@ window.addEventListener("scroll", (event) => {
         document.getElementById('nomeSobreContato').innerText = ContatoSelecionado.nome
         document.getElementById('recadoSobreContato').innerText = ContatoSelecionado.recado
         scroll = 140
+        document.getElementById('btnVoltar').id = 'btnVoltar2'
 
     } else {
         sobreContato.id = 'sobreContato'
         document.getElementById('recadoScroll0').innerText = 'Esse é o inicio de uma boa conversa'
         document.getElementById('msg').style.paddingTop = '0px'
+        document.getElementById('btnVoltar2').id = 'btnVoltar'
     }
 })
+
+//? Função voltar para os contatos
+function voltarParaContatos() {
+    if(document.getElementById('sobreContatoLocal').style.display == 'block') {
+        document.getElementById('sobreContatoLocal').style.display = 'none'
+        
+    } else {
+        document.getElementById('lateralContatos').style.display = 'block'
+        document.getElementById('addContato').style.display = 'block'
+    }
+}

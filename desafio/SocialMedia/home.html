@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/sass/style.css">
     <link rel="stylesheet" href="assets/sass/geral.css">
+    <link rel="stylesheet" href="assets/sass/responsive.css">
     <title>ZapoZapo2BigZero</title>
 </head>
 <body>
@@ -17,19 +18,6 @@
     </div>
 
     <main>
-        <section id="lateralContatos">
-
-            <!--? Input -->
-            <div>
-                <img src="assets/img/Search.png" alt="icone pesquisa">
-                <input type="text" placeholder="Pesquisar ou começar uma nova conversa">
-            </div>
-
-            <!--? Local onde ficará os contatos -->
-            <article id="localContatos">
-            </article>
-        </section>
-
         <div id="addContato" onclick="abrirAddContato()"></div>
         <div id="localAdd">
             <div>
@@ -48,6 +36,9 @@
 
             <article id="msg">
                 <div id="fundoMsg"></div>
+                <div id="btnVoltar" onclick="voltarParaContatos()">
+                    <img src="assets/img/iconeVoltar.png" alt="setinha voltar">
+                </div>
 
                 <div id="sobreContato" onclick="abrirSobreContato()">
                     <div id="imgContato">
@@ -85,6 +76,19 @@
                     <p>Código de serie para entrar em contato com <span id="qmContato"></span>:</p>
                     <p class="pBold" id="codigoQmContato">...</p>
                 </div>
+            </article>
+        </section>
+
+        <section id="lateralContatos">
+
+            <!--? Input -->
+            <div>
+                <img src="assets/img/Search.png" alt="icone pesquisa">
+                <input type="text" placeholder="Pesquisar ou começar uma nova conversa">
+            </div>
+
+            <!--? Local onde ficará os contatos -->
+            <article id="localContatos">
             </article>
         </section>
     </main>

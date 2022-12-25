@@ -4,15 +4,79 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Cadastro</title>
+    <title>Cadastro</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap%27');
+
+        body {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        div#div-com-texto {
+            background-image: linear-gradient(to right, rgb(255, 255, 255), rgba(255, 255, 255, 0.438));
+            /* background-color: white; */
+            width: 98%;
+            max-width: 500px;
+            height: 550px;
+            border-radius: 20px;
+            z-index: 1;
+        }
+
+        strong {
+            font-family: "Poppins", sans-serif;
+            font-weight: 500;
+            margin: 20px 0px 5px;
+            font-size: 20px;
+            display: block;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        div#fundo {
+            position: fixed;
+            top: 0px;
+            width: 100%;
+            height: 100vh;
+            background-image: url('assets/img/background-icon.jpg');
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            opacity: 0.2;
+        }
+
+        div#div-com-texto > button {
+            padding: 15px;
+            border-radius: 10px;
+            margin: auto;
+            display: block;
+            background-color: #3baab0;
+            font-family: "Poppins", sans-serif;
+            margin-top: 20px;
+            cursor: pointer;
+            width: 350px;
+            color: white;
+            border: 0px;
+        }
+
+        div#div-com-texto > img {
+            display: block;
+            margin: 43px auto 55px;
+
+        }
+
+    </style>
 </head>
 <body>
-    <button onclick="login()">Login</button>
-
-    <!--? Firebase -->
-    <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-auth.js"></script>
-    <script src="assets/js/firebase.js"></script>
+    <div id="fundo"></div>
+    <div id="div-com-texto" >
+        <div id="div-bostil"></div>
+        <strong>cadastre-se na mais nova <br> rede social :)</strong> 
+        <img src="/assets/img/etus-evolucao-redes-sociais-scaled 1.png" alt="">
+        <button onclick="login()">Cadastro</button>
+    </div>
 </body>
 </html>

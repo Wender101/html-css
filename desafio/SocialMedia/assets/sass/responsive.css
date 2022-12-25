@@ -1,0 +1,40 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+* {
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+  text-decoration: none;
+}
+
+@media screen and (max-width: 1000px) {
+  body main section#localConversa article#msg div#localMsg p {
+    max-width: 300px;
+  }
+  body main section#localConversa article#msg div#localMsg p.tuaMsg {
+    margin-left: calc(100% - 300px);
+  }
+}
+@media screen and (max-width: 850px) {
+  body main section#localConversa article#msg div#barraResponder {
+    width: 95%;
+  }
+  body main section#localConversa article#msg div#sobreContatoScroll {
+    width: 100%;
+  }
+  body main section#lateralContatos {
+    width: 100vw;
+  }
+}
+@media screen and (max-width: 515px) {
+  body main section#localConversa article#msg div#localMsg p {
+    max-width: 200px;
+    padding: 15px;
+    border-radius: 0px 20px 20px 20px;
+    margin: 16px 10px 0px;
+    box-shadow: 0px 0px 40px rgba(105, 104, 104, 0.6039215686);
+    z-index: -1;
+  }
+  body main section#localConversa article#msg div#localMsg p.tuaMsg {
+    margin-left: calc(100% - 200px);
+  }
+}/*# sourceMappingURL=responsive.css.map */

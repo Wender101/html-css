@@ -147,7 +147,7 @@ body {
             position: fixed;
             bottom: 20px;
             left: 10px;
-            z-index: 1;
+            z-index: 2;
 
         }
 
@@ -235,6 +235,36 @@ body {
                 background-image: url('../img/background-icon.jpg');
                 opacity: 0.2;
                 background-color: $cor2;
+            }
+
+            div#btnVoltar {
+                position: absolute;
+                top: 0px;
+                left: 20px;
+            }
+
+            div#btnVoltar, div#btnVoltar2 {
+                width: 50px;
+                height: 50px;
+                cursor: pointer;
+                background-color: $cor2;
+                border-radius: 50%;
+                border: 2px solid $cor3;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                z-index: 5;
+
+                img {
+                    width: 30px;
+                }
+            }
+
+            div#btnVoltar2 {
+                position: fixed;
+                right: 20px;
+                top: 20px;
+                z-index: 2;
             }
 
             div#recadoInicial {
