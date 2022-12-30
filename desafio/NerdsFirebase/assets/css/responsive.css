@@ -41,6 +41,7 @@ div#notificacaoChat {
     bottom: 300px;
     color: var(--cor0);
     overflow: hidden;
+    display: none;
 }
 
 div#notificacaoChat > div#containerNotificacao {

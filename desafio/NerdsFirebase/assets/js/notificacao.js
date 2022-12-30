@@ -101,6 +101,7 @@ function abrirAbaNotificacao() {
 
 //! function construtora
 function criar(pergunta, resposta, data, id) {
+    document.getElementById('notificacaoChat').style.display = 'block'
     contadorNotificacao++
     let pNot = document.getElementById('numNotifi')
     pNot.innerText = contadorNotificacao

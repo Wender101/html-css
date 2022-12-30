@@ -2,7 +2,7 @@
 .container {
     max-width: 1100px;
     width: 99.5%;
-    height: 250px;
+    height: 300px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -182,8 +182,13 @@ select#classeProdutos > option {
 }
 
 .btnEdit > span {
+    width: 60%;
+    height: 60%;
     display: block;
-    margin-top: -6px;
+    background-position: center;
+    background-image: url('../img/icons/editar.png');
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
 div#notificacaoChat {

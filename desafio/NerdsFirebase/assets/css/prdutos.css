@@ -13,7 +13,7 @@
     --cor3:  rgba(253, 95, 4, 0.918);
     --cor4:  rgba(17, 9, 41, 1);
     --cor5:  rgba(88, 10, 136, 1);
-    --cor6:  rgba(41, 0, 73, 1);
+    --cor6:  rgb(41, 0, 73);
     --cor7:  rgba(253, 116, 4, 0.678);
     --cor8:  rgba(17, 9, 41, 0.801);
     --cor9:  rgba(4, 253, 163, 1);
@@ -313,9 +313,8 @@ section#produtos {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-left: 50%;
+    margin: 100px 0px 50px 50%;
     transform: translate(-52.5%);
-    margin-bottom: 50px;
     border-radius: 10px;
     background-color: var(--cor6);
 }
@@ -533,8 +532,6 @@ div#pesquisarPergunta > div#containerSugestao > p > img {
         transform: rotate(0deg);
     }
 
-
-
     100% {
         transform: rotate(360deg);
     }
@@ -544,8 +541,6 @@ div#pesquisarPergunta > div#containerSugestao > p > img {
     0% {
         transform: rotate(-0deg);
     }
-
-
 
     100% {
         transform: rotate(-360deg);
@@ -777,10 +772,11 @@ footer > div#p2 > p {
 footer > div#ps5 {
     width: 200px;
     height: 200px;
-    background-image: url('../img/site/ps5.png');
+    background-image: url('../img/site/psBoxSeries.png');
     background-position: center center;
-    background-size: cover;
+    background-size: contain;
     background-repeat: no-repeat;
+    transform: rotate(-45deg);
     position: absolute;
     right: 100px;
     top: -10px;

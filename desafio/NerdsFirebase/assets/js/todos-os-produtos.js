@@ -47,8 +47,8 @@ setTimeout(() => {
         }, 100)
     
     } else {
-        window.location.href = 'https://wender101.github.io/html-css/desafio/NerdsFirebase/home.html'
-        // window.location.href = 'http://127.0.0.1:5501/home.html'
+        // window.location.href = 'https://wender101.github.io/html-css/desafio/NerdsFirebase/home.html'
+        window.location.href = 'http://127.0.0.1:5501/home.html'
     }
 }, 1700)
 
@@ -143,7 +143,7 @@ function colocarBannerNaTela() {
             if(editandoBanner == true) {
                 setTimeout(() => {
                     location.reload()
-                }, 1500)
+                }, 2000)
     
             } else if(carregado == false) {
                 for (let c = 0; c < pBanners.Banner.length; c++) {
@@ -154,7 +154,7 @@ function colocarBannerNaTela() {
             } else {
                 setTimeout(() => {
                     location.reload()
-                }, 1000)
+                }, 2000)
             }
     
         })
@@ -369,7 +369,6 @@ function construirProduto(classe, nome, desc, imagem1, imagem2 = imagem1, id, va
     localImgProduto.className = 'localImgProduto'
     localImgProduto.href = 'sobre-o-produto.html'
     imgProduto.className = 'imgProduto'
-    spanEdit.innerText = '='
     buttonEdit.className = 'btnEdit'
 
     try {

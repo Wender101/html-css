@@ -80,6 +80,7 @@ setTimeout(() => {
         imgProduto.style.transform = 'translate(-35%)'
 
         let btnContato = document.getElementById('btnContato')
+        let btnContatoBtn = document.getElementById('btnContato').querySelector('button')
         
         btnContato.target = '_self'
 
@@ -87,8 +88,12 @@ setTimeout(() => {
         document.getElementById('btns').getElementsByTagName('a')[0].querySelector('button').innerText = 'Voltar'
         btnContato.style.margin = 'auto'
         btnContato.addEventListener('click', () => {
-            if(btnContato.innerText == 'Voltar') {
+            if(btnContatoBtn.innerText == 'Voltar') {
                 window.history.back()
+
+                setTimeout(() => {
+                    location.reload()
+                }, 500)
             }
         })
         document.getElementById('btnCarrinho').style.display = 'none'
@@ -117,7 +122,7 @@ db.collection('Produtos').onSnapshot((data) => {
             btnContato.style.margin = 'auto'
             document.getElementById('btnCarrinho').style.display = 'block'
     
-            btnContato.href=`https://api.whatsapp.com/send?phone=+55%2061%2099831-0963&text=Estou interessado nesse produto: link: ${window.location.href}`
+            btnContato.href=`https://api.whatsapp.com/send?phone=+55%2061%2099831-0963&text=Estou interessado nesse produto: id:${p.id}`
 
             //! Vai fazer com q o produto sejá add automaticamente quando o user logar na conta após clicar em add ao carrinho sem conta
             let checarReload = localStorage.getItem('reload')
@@ -144,10 +149,18 @@ function construirProduto(nome, desc, imagem1, imagem2, id, valor, desconto, tip
         imgProduto.style.marginLeft = '50%'
         imgProduto.style.transform = 'translate(-35%)'
 
-        document.getElementById('btns').getElementsByTagName('a')[0].querySelector('button').innerText = 'Voltar'
+        let btnContato = document.getElementById('btnContato')
+        let btnContatoBtn = document.getElementById('btnContato').querySelector('button')
+        btnContatoBtn.innerText = 'Voltar'
         btnContato.style.margin = 'auto'
         btnContato.addEventListener('click', () => {
-            window.history.back()
+            if(btnContatoBtn.innerText == 'Voltar') {
+                window.history.back()
+
+                setTimeout(() => {
+                    location.reload()
+                }, 500)
+            }
         })
         document.getElementById('btnCarrinho').style.display = 'none'
 
@@ -203,10 +216,17 @@ function construirProduto(nome, desc, imagem1, imagem2, id, valor, desconto, tip
         let btnContato = document.getElementById('btnContato')
         
         document.getElementById('otherImgs').style.display = 'block'
-        document.getElementById('btns').getElementsByTagName('a')[0].querySelector('button').innerText = 'Entrar em Contato'
         btnContato.target = '_blank'
+        let btnContatoBtn = document.getElementById('btnContato').querySelector('button')
+        btnContatoBtn.innerText = 'Voltar'
         btnContato.addEventListener('click', () => {
-            window.history.back()
+            if(btnContatoBtn.innerText == 'Voltar') {
+                window.history.back()
+
+                setTimeout(() => {
+                    location.reload()
+                }, 500)
+            }
         })
         document.getElementById('btnCarrinho').style.display = 'block'
 
@@ -470,6 +490,7 @@ function relacionados() {
                         let num = numeros[c]
                         
                         try {
+                            document.getElementById('h1Relacionados').innerText = 'Relacionados'
                             let ProdutosRelacionados = document.getElementById('ProdutosRelacionados')
                             let containerProduto = document.createElement('div')
                             let localImgProduto = document.createElement('a')

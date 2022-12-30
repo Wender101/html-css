@@ -894,10 +894,11 @@ footer > div#p2 > p {
 footer > div#ps5 {
     width: 200px;
     height: 200px;
-    background-image: url('../img/site/ps5.png');
+    background-image: url('../img/site/psBoxSeries.png');
     background-position: center center;
-    background-size: cover;
+    background-size: contain;
     background-repeat: no-repeat;
+    transform: rotate(-45deg);
     position: absolute;
     right: 100px;
     top: -10px;

@@ -34,8 +34,8 @@ for(let c = 1; c <= 14; c++) {
 
         if(window.location.pathname != '/pagProduto.html') {
             if(window.location.pathname != '/html-css/desafio/NerdsFirebase/pagProduto.html') {
-                // window.location.href = 'http://127.0.0.1:5501/pagProduto.html'
-                window.location.href = `https://wender101.github.io/html-css/desafio/NerdsFirebase/pagProduto.html`
+                window.location.href = 'http://127.0.0.1:5501/pagProduto.html'
+                // window.location.href = `https://wender101.github.io/html-css/desafio/NerdsFirebase/pagProduto.html`
             } else {
                 pesquisarProd(p.innerText)
             }
@@ -110,14 +110,6 @@ function btnDireita() {
     press++
 }
 
-//? Barra de pesquisa
-let input = document.getElementById('pesquisar')
-document.addEventListener('keypress', (e) => {
-    if(e.keyCode == 13 && input.value.length > 1) {
-        pesquisarProduto()
-    }
-})
-
 document.getElementById('btnPesquisar').addEventListener('click', () => {
     if(input.value.length > 1) {
         pesquisarProduto()
@@ -125,8 +117,8 @@ document.getElementById('btnPesquisar').addEventListener('click', () => {
 })
 
 function pesquisarProduto(pesquisa = '') {
-    // if(window.location.pathname != '/pagProduto.html') {
-    if(window.location.pathname != '/html-css/desafio/NerdsFirebase/pagProduto.html') {
+    if(window.location.pathname != '/pagProduto.html') {
+    // if(window.location.pathname != '/html-css/desafio/NerdsFirebase/pagProduto.html') {
         let valPesquisa
         if(pesquisa != '') {
             valPesquisa = pesquisa
@@ -154,15 +146,15 @@ function pesquisarProduto(pesquisa = '') {
                     const produtoPesquisado = JSON.stringify(pesquisa)
                     localStorage.setItem('produtoPesquisado', produtoPesquisado)
                     inputFeito = true
-                    // location.href = 'http://127.0.0.1:5501/pagProduto.html'
-                    location.href = 'https://wender101.github.io/html-css/desafio/NerdsFirebase/pagProduto.html'
+                    location.href = 'http://127.0.0.1:5501/pagProduto.html'
+                    // location.href = 'https://wender101.github.io/html-css/desafio/NerdsFirebase/pagProduto.html'
             
                 } else if(nomeCat != valPesquisa && c == 13) {
                     let pesquisa = [valPesquisa, c + 2]
                     const produtoPesquisado = JSON.stringify(pesquisa)
                     localStorage.setItem('produtoPesquisado', produtoPesquisado)
-                    // location.href = 'http://127.0.0.1:5501/pagProduto.html'
-                    location.href = 'https://wender101.github.io/html-css/desafio/NerdsFirebase/pagProduto.html'
+                    location.href = 'http://127.0.0.1:5501/pagProduto.html'
+                    // location.href = 'https://wender101.github.io/html-css/desafio/NerdsFirebase/pagProduto.html'
                 }
             }
         }
@@ -172,13 +164,16 @@ function pesquisarProduto(pesquisa = '') {
 
 //? Sugestão de pesquisa 
 let tamanhoAtual = 0
+let key
 let containerSugestao = document.getElementById('containerSugestao')
 setInterval(() => {
     //? Vai chamar a function sugetaoPesquisa sempre que o user digitar ou apagar algo no input
     let pesquisa = document.getElementById('pesquisar').value
     if(pesquisa.length != tamanhoAtual) {
-        sugetaoPesquisa(pesquisa)
-        tamanhoAtual = pesquisa.length
+        if(key != 'ArrowUp' && key != 'ArrowDown') {
+            sugetaoPesquisa(pesquisa)
+            tamanhoAtual = pesquisa.length
+        }
     } else if(pesquisa.length == 0) {
         containerSugestao.style.display = 'none'
     }
@@ -188,7 +183,6 @@ function sugetaoPesquisa(pesquisa) {
     let max = 0 //? Vai determinar o maximo de sugestões
     
     db.collection('Produtos').onSnapshot((data) => {
-        const main = document.querySelector('main')
         containerSugestao.innerHTML = ''
         data.docs.map(function(val) {
             let valSugetao = val.data()
@@ -203,10 +197,7 @@ function sugetaoPesquisa(pesquisa) {
             if(nomeProd.includes(pesquisaProd) && max < 6) {
                 containerSugestao.style.display = 'block'
                 let p = document.createElement('p')
-                let img = document.createElement('img')
-                
-                img.src = 'assets/img/site/search-grey.png'
-                p.appendChild(img)
+                p.id = `pSugestao${max}`
                 p.innerText = valSugetao.nome
 
                 containerSugestao.appendChild(p)
@@ -214,13 +205,42 @@ function sugetaoPesquisa(pesquisa) {
 
                 //? Ao clicar no p
                 p.addEventListener('click', () => {
-                    // if(location.pathname != '/pagProduto.html' ) {
-                    if(window.location.pathname != '/html-css/desafio/NerdsFirebase/pagProduto.html') {
+                    if(location.pathname != '/pagProduto.html' ) {
+                    // if(window.location.pathname != '/html-css/desafio/NerdsFirebase/pagProduto.html') {
                         pesquisarProduto(p.innerText)
                     } else {
                         pesquisarProd(p.innerText)
-                        console.log(1);
                     }
+                })
+
+                //? Vai selecionar as sugestões ao precionar as teclas de subir ou decer
+                let contadorSugestao = -1
+                document.getElementById('pesquisar').addEventListener('keydown', function(event) {
+                    key = event.key
+                    switch (event.key) {
+                        case "ArrowUp":
+                            if(contadorSugestao > 0) {
+                                contadorSugestao--
+                            }
+                        break;
+
+                        case "ArrowDown":
+                            if(contadorSugestao < 5) {
+                                contadorSugestao++
+                            }
+                        break;
+                    }
+
+                    try {
+                        for(let c = 0; c < max; c++) {
+                            const pSelecionado = document.getElementById(`pSugestao${c}`)
+                            pSelecionado.style.background = 'transparent'
+                        }
+
+                        const pSelecionado = document.getElementById(`pSugestao${contadorSugestao}`)
+                        pSelecionado.style.background = 'rgb(41, 0, 73)'
+                        input.value = pSelecionado.innerText
+                    } catch {}
                 })
             } else if(max == 0) {
                 containerSugestao.style.display = 'none'
@@ -233,5 +253,13 @@ document.addEventListener('click', (e) => {
     let el = e.target.id
     if(el != 'containerSugestao') {
         containerSugestao.style.display = 'none'
+    }
+})
+
+//? Barra de pesquisa
+let input = document.getElementById('pesquisar')
+document.addEventListener('keypress', (e) => {
+    if(e.keyCode == 13 && input.value.length > 1) {
+        pesquisarProduto()
     }
 })
