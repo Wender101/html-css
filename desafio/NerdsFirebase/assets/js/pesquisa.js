@@ -34,8 +34,8 @@ for(let c = 1; c <= 14; c++) {
 
         if(window.location.pathname != '/pagProduto.html') {
             if(window.location.pathname != '/html-css/desafio/NerdsFirebase/pagProduto.html') {
-                window.location.href = 'http://127.0.0.1:5501/pagProduto.html'
-                // window.location.href = `https://wender101.github.io/html-css/desafio/NerdsFirebase/pagProduto.html`
+                // window.location.href = 'http://127.0.0.1:5501/pagProduto.html'
+                window.location.href = `https://wender101.github.io/html-css/desafio/NerdsFirebase/pagProduto.html`
             } else {
                 pesquisarProd(p.innerText)
             }
@@ -117,8 +117,8 @@ document.getElementById('btnPesquisar').addEventListener('click', () => {
 })
 
 function pesquisarProduto(pesquisa = '') {
-    if(window.location.pathname != '/pagProduto.html') {
-    // if(window.location.pathname != '/html-css/desafio/NerdsFirebase/pagProduto.html') {
+    // if(window.location.pathname != '/pagProduto.html') {
+    if(window.location.pathname != '/html-css/desafio/NerdsFirebase/pagProduto.html') {
         let valPesquisa
         if(pesquisa != '') {
             valPesquisa = pesquisa
@@ -146,15 +146,15 @@ function pesquisarProduto(pesquisa = '') {
                     const produtoPesquisado = JSON.stringify(pesquisa)
                     localStorage.setItem('produtoPesquisado', produtoPesquisado)
                     inputFeito = true
-                    location.href = 'http://127.0.0.1:5501/pagProduto.html'
-                    // location.href = 'https://wender101.github.io/html-css/desafio/NerdsFirebase/pagProduto.html'
+                    // location.href = 'http://127.0.0.1:5501/pagProduto.html'
+                    location.href = 'https://wender101.github.io/html-css/desafio/NerdsFirebase/pagProduto.html'
             
                 } else if(nomeCat != valPesquisa && c == 13) {
                     let pesquisa = [valPesquisa, c + 2]
                     const produtoPesquisado = JSON.stringify(pesquisa)
                     localStorage.setItem('produtoPesquisado', produtoPesquisado)
-                    location.href = 'http://127.0.0.1:5501/pagProduto.html'
-                    // location.href = 'https://wender101.github.io/html-css/desafio/NerdsFirebase/pagProduto.html'
+                    // location.href = 'http://127.0.0.1:5501/pagProduto.html'
+                    location.href = 'https://wender101.github.io/html-css/desafio/NerdsFirebase/pagProduto.html'
                 }
             }
         }
@@ -205,8 +205,8 @@ function sugetaoPesquisa(pesquisa) {
 
                 //? Ao clicar no p
                 p.addEventListener('click', () => {
-                    if(location.pathname != '/pagProduto.html' ) {
-                    // if(window.location.pathname != '/html-css/desafio/NerdsFirebase/pagProduto.html') {
+                    // if(location.pathname != '/pagProduto.html' ) {
+                    if(window.location.pathname != '/html-css/desafio/NerdsFirebase/pagProduto.html') {
                         pesquisarProduto(p.innerText)
                     } else {
                         pesquisarProd(p.innerText)
