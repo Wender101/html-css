@@ -52,7 +52,7 @@ section#popUpAddProd > article > p {
     margin-top: 40px;
 }
 
-section#popUpAddProd > article > input {
+section#popUpAddProd > article > input, textarea {
     width: 90%;
     display: block;
     padding: 15px 0px 15px 40px;
@@ -62,6 +62,11 @@ section#popUpAddProd > article > input {
     outline: 0;
     background-color: var(--cor3);
     margin-top: 10px;
+}
+
+section#popUpAddProd > article > textarea {
+    max-width: 680px;
+    padding: 15px 40px;
 }
 
 section#popUpAddProd > div#prodEx {
@@ -165,6 +170,20 @@ section#popUpAddProd > div#ex2 > div#infos > div > button {
     font-family: var(--font-texto);
     font-weight: 100;
     border: 1px solid transparent;
+}
+
+/*? descricaoDetalhada */
+section#descricaoDetalhada {
+    width: 100%;
+    max-width: 1000px;
+    color: var(--cor6);
+    margin: auto;
+    padding-bottom: 50px;
+}
+
+section#descricaoDetalhada > h1 {
+    margin-bottom: 10px;
+    text-align: left;
 }
 
 section#popUpAddProd > button {

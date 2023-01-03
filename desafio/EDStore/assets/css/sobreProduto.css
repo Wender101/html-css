@@ -1,0 +1,212 @@
+header {
+    z-index: 2;
+    position: absolute;
+    top: 0px;
+}
+
+/* ini: Preloader */
+#carregando {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0px;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    background-color: var(--cor1);
+    align-items: center;
+}
+
+section#carregando > article {
+    width: 80%;
+    color: var(--cor0);
+}
+ 
+#preloader .inner {
+    position: absolute;
+    top: 50%; /* centralizar a parte interna do preload (onde fica a animação)*/
+    left: 50%;
+    transform: translate(-50%, -50%);  
+}
+.bolas > div {
+  display: inline-block;
+  background-color: var(--cor4);
+  box-shadow: 2px 2px 3px var(--sombra);
+  width: 25px;
+  height: 25px;
+  border-radius: 100%;
+  margin: 3px;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  animation-name: animarBola;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+   
+}
+.bolas > div:nth-child(1) {
+    animation-duration:0.75s ;
+    animation-delay: 0;
+}
+.bolas > div:nth-child(2) {
+    animation-duration: 0.75s ;
+    animation-delay: 0.12s;
+}
+.bolas > div:nth-child(3) {
+    animation-duration: 0.75s  ;
+    animation-delay: 0.24s;
+}
+ 
+@keyframes animarBola {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+  }
+  16% {
+    -webkit-transform: scale(0.1);
+    transform: scale(0.1);
+    opacity: 0.7;
+  }
+  33% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 1; 
+  } 
+}
+/* end: Preloader */
+
+main {
+    width: 90%;
+    max-width: 1000px;
+    height: 500px;
+    margin: 200px auto;
+    border-radius: 16px;
+    background-color: var(--cor7);
+    box-shadow: 2px 2px 20px var(--sombra);
+    display: flex;
+}
+
+main > div#localImgEx {
+    width: 50%;
+    height: 100%;
+    background-color: var(--cor1);
+    border-radius: 16px 0px 0px 16px;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+main > div#localImgEx > div#othersImgs {
+    position: absolute;
+    width: 70px;
+    height: 100%;
+    border-radius: 16px 0px 0px 16px;
+    padding-top: 40px;
+}
+
+main > div#localImgEx > div#othersImgs > img {
+    width: 50px;
+    margin: 5px 10px;
+}
+
+main > div#localImgEx > img.imgPrincipal {
+    max-width: calc(100% - 90px);
+    padding-left: 60px;
+    max-height: 500px;
+    display: block;
+    margin: auto;
+}
+
+main > div#infos {
+    width: 50%;
+    border-radius: 0px 16px 16px 0px;
+    color: var(--cor1);
+}
+
+main > div#infos > h1 {
+    text-align: center;
+    margin-top: 20px;
+}
+
+main > div#infos > p {
+    width: 80%;
+    max-height: 100px;
+    overflow: hidden;
+    margin: 20px auto;
+    text-align: center;
+}
+
+main > div#infos > div#valorDoProduto {
+    width: auto;
+    min-width: 200px;
+    margin-left: 50%;
+    transform: translate(-50%);
+    color: var(--cor1);
+    border: 1px solid var(--cor3);
+    display: none;
+    border-radius: 5px;
+    padding: 10px 40px;
+    margin-top: 10px;
+}
+
+main > div#infos > div#valorDoProduto > #valorNormal {
+    text-decoration: line-through;
+}
+
+main > div#infos > div#valorDoProduto > p > strong {
+    font-size: 25px;
+    font-family: var(--font-titulo);
+    color: var(--cor1);
+}
+
+main > div#infos > div#localBtns {
+    max-width: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin:  80px auto;
+}
+
+main > div#infos > div > button {
+    background-color: var(--cor1);
+    color: var(--cor2);
+    font-family: var(--font-texto);
+    font-weight: 100;
+    border: 1px solid transparent;
+    margin-top: 19px;
+}
+
+main > div#infos > div > button#modelo1 {
+    min-width: 150px;
+    padding: 11.5px 20px;
+    border-radius: 2px;
+}
+
+main > div#infos > div > button#modelo2 {
+    min-width: 136px;
+    padding: 12px 20px;
+    border-radius: 2px;
+    position: absolute;
+    right: 34px;
+    bottom: -130px;
+}
+
+main > div#infos > div > button#modelo3 {
+    min-width: 150px;
+    padding: 11.5px 20px;
+    position: relative;
+    margin-left: 50%;
+    transform: translate(-60%);
+}
+
+/*? descricaoDetalhada */
+section#descricaoDetalhada {
+    width: 100%;
+    max-width: 1000px;
+    color: var(--cor6);
+    margin: auto;
+}
+
+section#descricaoDetalhada > h1 {
+    margin-bottom: 10px;
+}

@@ -72,7 +72,7 @@ header > section > button#configBtn {
     margin-right: 16px;
 }
 
-header > section#parte1Header > img {
+header > section#parte1Header > a > img {
     height: 35px;
 }
 
@@ -106,6 +106,31 @@ header > section > div > button {
     background-image: url(../img/icon/list.png);
     background-position: center;
     background-color: transparent;
+}
+
+header > section > div > div#recomend {
+    width: 100%;
+    position: absolute;
+    display: none;
+    color: var(--cor4);
+    border-radius: 0px 0px 16px 16px;
+    background-color: var(--cor1);
+    box-shadow: 5px 20px 20px var(--sombra);
+    z-index: 1;
+}
+
+header > section > div > div#recomend > p {
+    padding: 10px 20px;
+}
+
+header > section > div > div#recomend > p:last-child {
+    border-radius: 0px 0px 16px 16px;
+}
+
+header > section > div > div#recomend > p:hover {
+    background-color: var(--cor4);
+    color: var(--cor1);
+    cursor: pointer;
 }
 
 header > section > button {

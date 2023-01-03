@@ -10,7 +10,7 @@
     <!--? Css page -->
     <link rel="stylesheet" href="assets/css/home.css">
     <link rel="stylesheet" href="assets/css/adminPage.css">
-    <title>EDStore - Admin Page</title>
+    <title>EDStore - Produtos</title>
 </head>
 <body>
     <header>
@@ -69,86 +69,6 @@
         </article>
     </section>
 
-    <button id="addProduto" onclick="abrirAddProduto()"><span>+</span></button>
-
-    <section id="popUpAddProd">
-        <button id="fecharPopUp" onclick="fecharPopUp()">x</button>
-
-        <article>
-            <h1>Coloque as informações do produto aqui</h1>
-            <p>Imagens do Produto</p>
-            <input type="text" class="imgProd" placeholder="Ex: https://img">
-            <input type="text" class="imgProd" placeholder="Ex: https://img">
-            <input type="text" class="imgProd" placeholder="Ex: https://img">
-            <input type="text" class="imgProd" placeholder="Ex: https://img">
-
-            <p>Id do Produto</p>
-            <input type="text" id="idDoProduto">
-            <p>Nome do Produto</p>
-            <input type="text" id="nomeProdutoAdd" placeholder="Ex: Celular S22 Ultra" maxlength="28">
-            <p>Descrição Resumida</p>
-            <input type="text" id="descProd" placeholder="Ex: o melhos celular do Brasil" maxlength="236">
-            <p>Descrição Mais Detalhada</p>
-            <textarea id="descDetalhada" cols="30" rows="10"></textarea>
-            <p>Valor do Produto</p>
-            <input type="text" id="valorProd" placeholder="Ex: 2.000">
-            <p>Desconto</p>
-            <input type="text" placeholder="Ex: 8" id="descontoInput">
-        </article>
-
-        <div class="prod" id="prodEx">
-            <div class="localImg">
-                <img src="" class="imgPrincipal" onerror="this.src ='assets/img/site/error.png'">
-            </div>
-
-            <div class="sobreProd">
-                <p class="nameProd">Lorem ipsum dolor</p>
-                <p><strong class="valorProdAdd">R$0</strong> <span id="valorSemDc">R$0</span></p>
-
-                <span id="salvo">Salvo - R$0</span>
-            </div>
-        </div>
-
-        <div id="ex2">
-            <div id="localImgEx">
-                <div id="othersImgs">
-                    <img src="" onerror="this.src ='assets/img/site/error2.png'" class="imgEX">
-                    <img src="" onerror="this.src ='assets/img/site/error2.png'" class="imgEX">
-                    <img src="" onerror="this.src ='assets/img/site/error2.png'" class="imgEX">
-                    <img src="" onerror="this.src ='assets/img/site/error2.png'" class="imgEX">
-                </div>
-
-                <img src="" class="imgPrincipal" onerror="this.src ='assets/img/site/error.png'">
-            </div>
-
-            <div id="infos">
-                <h1 class="nameProd">Lorem ipsum dolor</h1>
-                <p id="desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt nam ea reprehenderit iure voluptatum cum sed officia delectus.</p>
-
-                <div id="valorDoProduto" style="display: block;">
-                    <p id="valorNormal" class="infoDesconto">R$0.00</p>
-                        <p>
-                            <strong class="valorProdAdd">R$0.00</strong> 
-                            <span id="qDesconto" class="infoDesconto">0% OFF</span></p>
-                        <p>
-                </p>
-            </div>
-
-                <div>
-                    <button>Comprar</button>
-                    <button>Adiconar ao Carrinho</button>
-                </div>
-            </div>
-        </div>
-
-        <section id="descricaoDetalhada">
-            <h1>Descrição:</h1>
-            <p id="descricaoP"></p>
-          </section>
-
-        <button onclick="addProduto()" id="AddBtn">Adicionar Produto</button>
-    </section>
-
     <main>
     </main>
 
@@ -159,7 +79,7 @@
     <script src="assets/js/firebase.js"></script>
 
     <!--? Scripts -->
-    <script src="assets/js/admin.js"></script>
+    <script src="assets/js/pagProduto.js"></script>
     <script src="assets/js/pesquisar.js"></script>
 </body>
 </html>
