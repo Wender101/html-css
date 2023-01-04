@@ -63,6 +63,7 @@ header > section {
 button {
     border: none;
     cursor: pointer;
+    background-color: transparent;
 }
 
 header > section > button#configBtn {
@@ -82,7 +83,9 @@ header > section > div {
 }
 
 header > section > div > input {
-    width: 800px;
+    max-width: 800px;
+    width: 40vw;
+    margin-left: 20px;
     padding: 15px 0px 15px 40px;
     border-radius: 10px;
     border: none;
@@ -93,7 +96,7 @@ header > section > div > input {
 
 header > section > div > img {
     position: absolute;
-    margin: 14px 0px 0px 12px;
+    margin: 14px 0px 0px 32px;
 }
 
 header > section > div > button {
@@ -140,6 +143,7 @@ header > section > button {
 /*? Nav Bar */
 nav {
     width: 95%;
+    overflow: hidden;
     height: auto;
     margin: 10px auto;
 }
@@ -147,7 +151,6 @@ nav {
 nav > ul {
     display: flex;
     align-items: center;
-    justify-content: space-between;
 }
 
 nav > ul > li {
@@ -158,6 +161,7 @@ nav > ul > li {
     font-size: 12px;
     background-color: var(--cor3);
     cursor: pointer;
+    margin-right: 20px;
 }
 
 nav > ul > li > img {
@@ -204,8 +208,10 @@ footer > hr {
 }
 
 footer > p {
+    width: 90%;
     max-width: 900px;
     margin: auto;
+    font-size: 0.9rem;
 }
 
 footer > div#ballFooter {
@@ -227,4 +233,39 @@ footer > div#ballFooter > div {
     height: 300px;
     border-radius: 50%;
     background-color: #05ABF3;
+}
+
+@media screen and (max-width: 963px) {
+    header > section#parte1Header > a > img {
+        height: 25px;
+    }
+
+    header > section > div > input {
+        width: 30vw;
+    }
+}
+
+@media screen and (max-width: 797px) {
+    header > section#parte1Header > a > img {
+        display: none;
+    }
+
+    header > section > div > input {
+        width: 45vw;
+    }
+
+    header > section > button > span {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 560px) {
+
+    header > section > div > input {
+        width: 60vw;
+    }
+
+    header > section#parte3Header > button {
+        display: none;
+    }
 }

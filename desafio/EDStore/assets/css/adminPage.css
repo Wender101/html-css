@@ -1,3 +1,7 @@
+main {
+    max-width: 1210px;
+}
+
 main > div {
     display: inline-block;
 }
@@ -197,4 +201,52 @@ section#popUpAddProd > button {
     margin-left: 50%;
     transform: translate(-50%);
     cursor: auto;
+}
+
+@media screen and (max-width: 1194px) {
+    main {
+        max-width: 956px;
+    }
+}
+
+@media screen and (max-width: 955px) {
+    main {
+        max-width: 636px;
+    }
+
+    main > div.prod {
+        width: 200px;
+        margin: 5px 5px;
+    }
+
+    div.prod > div.sobreProd > p {
+        font-size: 11px;
+    }
+}
+
+@media screen and (max-width: 638px) {
+    main {
+        max-width: 430px;
+    }
+}
+
+@media screen and (max-width: 478px) {
+    main {
+        width: 364px;
+    }
+
+    main > div.prod {
+        width: 170px;
+        margin: 5px 5px;
+    }
+
+    div.prod > div.sobreProd > p {
+        font-size: 11px;
+        word-wrap: break-word;
+    }
+
+    div.prod > div.sobreProd > p > strong {
+        width: 100%;
+        display: block;
+    }
 }

@@ -79,7 +79,7 @@ main {
     width: 90%;
     max-width: 1000px;
     height: 500px;
-    margin: 200px auto;
+    margin: 200px auto 50px;
     border-radius: 16px;
     background-color: var(--cor7);
     box-shadow: 2px 2px 20px var(--sombra);
@@ -209,4 +209,95 @@ section#descricaoDetalhada {
 
 section#descricaoDetalhada > h1 {
     margin-bottom: 10px;
+}
+
+/*? Prods */
+section#relacionados {
+    width: 95%;
+    max-width: 1000px;
+    overflow: auto;
+    margin-top: 100px;
+    margin-left: 50%;
+    transform: translate(-50%);
+    margin-bottom: 100px;
+}
+
+section#relacionados > article {
+    width: auto;
+    display: inline-flex;
+}
+
+div.text > h1 {
+    font-size: 24px;
+    color: var(--cor4);
+}
+
+div.text > h1 > span {
+    color: var(--cor4);
+}
+
+div.text > hr {
+    width: 300px;
+    margin-top: 16px;
+    border: 1px solid var(--cor4);
+}
+
+div.prod {
+    width: 217px;
+    height: 295px;
+    margin-top: 40px;
+    border-radius: 16px;
+    border: 0.5px solid var(--cor3);
+    box-shadow: 2px 2px 20px var(--sombra);
+    margin: 16px 10px;
+}
+
+div.prod:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+div.prod > div.localImg {
+    width: 100%;
+    height: 181px;
+    background-color: var(--cor1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px 16px 0px 0px;
+}
+
+div.prod > div.localImg > img {
+    max-width: 150px;
+    max-height: 150px;
+    height: auto;
+    display: block;
+}
+
+div.prod > div.sobreProd {
+    padding: 10px;
+}
+
+div.prod > div.sobreProd > p {
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+div.prod > div.sobreProd > p > strong {
+    margin-right: 20px;
+}
+
+div.prod > div.sobreProd > p > strong, div.prod > div.sobreProd > p > span {
+    font-size: 13px;
+}
+
+div.prod > div.sobreProd > p > span {
+    text-decoration: line-through;
+}
+
+div.prod > div.sobreProd > span {
+    color: var(--cor5);
+    font-size: 12px;
+    display: block;
+    margin-top: 20px;
 }
