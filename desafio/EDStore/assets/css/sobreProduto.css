@@ -76,7 +76,7 @@ section#carregando > article {
 /* end: Preloader */
 
 main {
-    width: 90%;
+    width: 100%;
     max-width: 1000px;
     height: 500px;
     margin: 200px auto 50px;
@@ -126,10 +126,11 @@ main > div#infos {
 main > div#infos > h1 {
     text-align: center;
     margin-top: 20px;
+    font-size: 1.7rem;
 }
 
 main > div#infos > p {
-    width: 80%;
+    width: 90%;
     max-height: 100px;
     overflow: hidden;
     margin: 20px auto;
@@ -154,7 +155,7 @@ main > div#infos > div#valorDoProduto > #valorNormal {
 }
 
 main > div#infos > div#valorDoProduto > p > strong {
-    font-size: 25px;
+    font-size: 1.3rem;
     font-family: var(--font-titulo);
     color: var(--cor1);
 }
@@ -228,7 +229,7 @@ section#relacionados > article {
 }
 
 div.text > h1 {
-    font-size: 24px;
+    font-size: 1.7rem;
     color: var(--cor4);
 }
 
@@ -279,7 +280,7 @@ div.prod > div.sobreProd {
 }
 
 div.prod > div.sobreProd > p {
-    font-size: 14px;
+    font-size: 0.8rem;
     margin-top: 10px;
 }
 
@@ -288,7 +289,7 @@ div.prod > div.sobreProd > p > strong {
 }
 
 div.prod > div.sobreProd > p > strong, div.prod > div.sobreProd > p > span {
-    font-size: 13px;
+    font-size: 0.8rem;
 }
 
 div.prod > div.sobreProd > p > span {
@@ -297,7 +298,74 @@ div.prod > div.sobreProd > p > span {
 
 div.prod > div.sobreProd > span {
     color: var(--cor5);
-    font-size: 12px;
+    font-size: 0.8rem;
     display: block;
     margin-top: 20px;
+}
+
+@media screen and (max-width: 1116px) {
+    section#descricaoDetalhada {
+        width: 90%;
+        margin: auto;
+        padding-left: 20px;
+    }
+}
+
+@media screen and (max-width: 1013px) {
+    main {
+        border-radius: 0px;
+    }
+
+    main > div#infos {
+        border-radius: 0px;
+    }
+
+    main > div#localImgEx {
+        border-radius: 0px;
+    }
+
+    section#descricaoDetalhada {
+        margin-top: 600px;
+    }
+}
+
+@media screen and (max-width: 745px) {
+    main {
+        width: 90%;
+        margin-top: 100px;
+        position: relative;
+    }
+
+    main > div#infos {
+        width: 100%;
+        position: absolute;
+        top: 0px;
+        background-color: var(--cor4);
+    }
+
+    main > div#localImgEx {
+        width: 100%;
+        position: absolute;
+        padding: 50px 0px;
+        bottom: -520px;
+    }
+}
+
+@media screen and (max-width: 539px) {
+    main {
+        width: 100%;
+    }
+
+    main > div#infos > h1 {
+        font-size: 1.3rem;
+    }
+    
+    main > div#infos > p {
+        width: 90%;
+        font-size: 0.8rem;
+    }
+
+    main > div#localImgEx > div#othersImgs {
+        top: 70px;
+    }
 }
