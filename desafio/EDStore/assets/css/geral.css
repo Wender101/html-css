@@ -204,6 +204,7 @@ div#menu > ul > div#fecharMenu {
     align-items: center;
     justify-content: center;
     z-index: 2;
+    cursor: pointer;
 }
 
 div#menu > ul {

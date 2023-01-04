@@ -49,9 +49,14 @@ function sugetaoPesquisa(pesquisa) {
 
                 // //? Ao clicar no p
                 p.addEventListener('click', () => {
-                    if(location.pathname != '/pagProduto.html' ) {
+                    if(location.host == '127.0.0.1:5500') {
                         localStorage.setItem('produtoPagProduto', p.innerText)
                         location.pathname = '/pagProduto.html'
+
+                    } else if(location.host == 'wender101.github.io') {
+                        localStorage.setItem('produtoPagProduto', p.innerText)
+                        location.pathname = '/html-css/desafio/EDStore/pagProduto.html'
+
                     } else {
                         localStorage.setItem('produtoPagProduto', p.innerText)
                         input.value = ''
