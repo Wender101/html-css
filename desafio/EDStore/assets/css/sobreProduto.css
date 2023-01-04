@@ -345,12 +345,13 @@ div.prod > div.sobreProd > span {
 @media screen and (max-width: 745px) {
     main {
         width: 90%;
-        margin-top: 100px;
+        margin-top: 150px;
         position: relative;
     }
 
     main > div#infos {
         width: 100%;
+        min-height: 450px;
         position: absolute;
         top: 0px;
         background-color: var(--cor4);
@@ -360,7 +361,7 @@ div.prod > div.sobreProd > span {
         width: 100%;
         position: absolute;
         padding: 50px 0px;
-        bottom: -520px;
+        bottom: -550px;
     }
 
     section#descricaoDetalhada {
