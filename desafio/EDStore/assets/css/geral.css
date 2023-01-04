@@ -71,10 +71,12 @@ header > section > button#configBtn {
     height: 48px;
     background-image: url(../img/icon/configIcon.png);
     margin-right: 16px;
+    display: none;
 }
 
 header > section#parte1Header > a > img {
     height: 35px;
+    margin-left: 40px;
 }
 
 header > section > div {
@@ -174,6 +176,58 @@ nav > ul > li#selected {
     padding: 9px 12px;
 }
 
+/*? Menu */
+div#menu {
+    width: 100%;
+    min-height: 100vh;
+    position: fixed;
+    top: 0px;
+    background-color: var(--sombra);
+    z-index: 2;
+    display: none;
+}
+
+div#menu > ul {
+    position: relative;
+}
+
+div#menu > ul > div#fecharMenu {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: var(--cor1);
+    box-shadow: 2px 2px 10px var(--sombra);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+
+div#menu > ul {
+    width: 100%;
+    max-width: 400px;
+    min-height: 110vh;
+    background-color: var(--cor1);
+}
+
+div#menu > ul > li > a {
+    text-decoration: none;
+    color: var(--cor2);
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid var(--cor4);
+}
+
+div#menu > ul > li > a > img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
 /*? footer */
 footer {
     width: 100%;
@@ -256,6 +310,10 @@ footer > div#ballFooter > div {
 
     header > section > button > span {
         display: none;
+    }
+
+    header > section > button#configBtn {
+        display: block;
     }
 }
 

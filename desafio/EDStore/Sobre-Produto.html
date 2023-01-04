@@ -14,7 +14,7 @@
 <body>
   <header>
     <section id="parte1Header">
-        <button id="configBtn"></button>
+        <button id="configBtn" onclick="abrirMenu()"></button>
         <a href="Home.html"><img src="assets/img/site/letraComFundo.png" alt="Logo EDStore"></a>
     </section>
 
@@ -34,6 +34,15 @@
         <button><img src="assets/img/icon/cartIcon.png" alt="icone carrinho"> <span>Carrinho</span></button>
     </section>
   </header>
+
+  <div id="menu">
+    <ul>
+      <div id="fecharMenu" onclick="fecharMenu()"><span>x</span></div>
+        <li><a href="Home.html"><img src="assets/img/icon/home.png"> Home</a></li>
+        <li><a onclick="login()"><img src="assets/img/icon/user.png"> Login/Cadastro</a></li>
+        <li><a href="Carrinho.html"><img src="assets/img/icon/cartIcon.png" alt=""> Carrinho</a></li>
+    </ul>
+  </div>
 
    <!--? Animação de carregamento -->
    <section id="carregando">
@@ -122,6 +131,7 @@
     <script src="assets/js/firebase.js"></script>
 
    <!--? Scripts -->
+   <script src="assets/js/funcoesBasicas.js"></script>
    <script src="assets/js/sobreProduto.js"></script>
    <script src="assets/js/pesquisar.js"></script>
 
