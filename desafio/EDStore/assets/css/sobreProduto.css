@@ -216,8 +216,7 @@ section#descricaoDetalhada > h1 {
 section#relacionados {
     width: 95%;
     max-width: 1000px;
-    overflow: auto;
-    margin-top: 100px;
+    overflow-x: auto;
     margin-left: 50%;
     transform: translate(-50%);
     margin-bottom: 100px;
@@ -228,8 +227,15 @@ section#relacionados > article {
     display: inline-flex;
 }
 
+div.text {
+    width: 95%;
+    max-width: 1000px;
+    margin: 50px 10px 10px 50%;
+    transform: translate(-50%);
+}
+
 div.text > h1 {
-    font-size: 1.7rem;
+    font-size: 1.4rem;
     color: var(--cor4);
 }
 
@@ -323,9 +329,16 @@ div.prod > div.sobreProd > span {
     main > div#localImgEx {
         border-radius: 0px;
     }
+}
 
-    section#descricaoDetalhada {
-        margin-top: 600px;
+@media screen and (max-width: 955px) {
+    div.prod {
+        width: 200px;
+        margin: 5px 5px;
+    }
+
+    div.prod > div.sobreProd > p {
+        font-size: 11px;
     }
 }
 
@@ -348,6 +361,10 @@ div.prod > div.sobreProd > span {
         position: absolute;
         padding: 50px 0px;
         bottom: -520px;
+    }
+
+    section#descricaoDetalhada {
+        margin-top: 600px;
     }
 }
 
