@@ -62,7 +62,7 @@ function sugetaoPesquisa(pesquisa) {
                         }
                         
                     } else if(location.host == 'wender101.github.io') {
-                        if(location.href = 'https://wender101.github.io/html-css/desafio/EDStore/pagProduto.html') {
+                        if(location.href == 'https://wender101.github.io/html-css/desafio/EDStore/pagProduto.html') {
                             chamarDB()
                             input.value = ''
                         } else {
@@ -147,7 +147,7 @@ document.addEventListener('keypress', (e) => {
             }
             
         } else if(location.host == 'wender101.github.io') {
-            if(location.href = 'https://wender101.github.io/html-css/desafio/EDStore/pagProduto.html') {
+            if(location.href == 'https://wender101.github.io/html-css/desafio/EDStore/pagProduto.html') {
                 chamarDB()
                 input.value = ''
             } else {
