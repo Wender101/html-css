@@ -75,6 +75,46 @@ section#carregando > article {
 }
 /* end: Preloader */
 
+/*? pop-Up-AddProdutoNovamente */
+section#pop-Up-AddProdutoNovamente {
+    width: 100%;
+    height: 110vh;
+    background-color: var(--sombra2);
+    z-index: 2;
+    position: fixed;
+    top: 0px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+section#pop-Up-AddProdutoNovamente div#popUp {
+    width: 80%;
+    max-width: 500px;
+    height: auto;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: var(--cor1);
+    color: var(--cor0);
+    text-align: center;
+    border: 2px solid var(--cor3);
+}
+
+section#pop-Up-AddProdutoNovamente div#popUp > div {
+    margin-top: 30px;
+}
+
+section#pop-Up-AddProdutoNovamente div#popUp > div > button {
+    padding: 5px 20px;
+    border-radius: 5px;
+    background-color: var(--cor3);
+    color: var(--cor0);
+    font-family: var(--font-texto);
+    font-weight: 100;
+    border: 1px solid transparent;
+}
+
+/*? Main */
 main {
     width: 100%;
     max-width: 1000px;
@@ -166,6 +206,7 @@ main > div#infos > div#localBtns {
     align-items: center;
     justify-content: center;
     margin:  80px auto;
+    position: relative;
 }
 
 main > div#infos > div > button {
@@ -175,6 +216,7 @@ main > div#infos > div > button {
     font-weight: 100;
     border: 1px solid transparent;
     margin-top: 19px;
+    border-radius: 2px;
 }
 
 main > div#infos > div > button#modelo1 {
@@ -186,7 +228,6 @@ main > div#infos > div > button#modelo1 {
 main > div#infos > div > button#modelo2 {
     min-width: 136px;
     padding: 12px 20px;
-    border-radius: 2px;
     position: absolute;
     right: 34px;
     bottom: -130px;
@@ -198,6 +239,14 @@ main > div#infos > div > button#modelo3 {
     position: relative;
     margin-left: 50%;
     transform: translate(-60%);
+}
+
+main > div#infos > div > button#modelo4 {
+    min-width: 134px;
+    padding: 11.5px 20px;
+    position: absolute;
+    right: 36px;
+    bottom: 1px;
 }
 
 /*? descricaoDetalhada */
@@ -309,6 +358,34 @@ div.prod > div.sobreProd > span {
     margin-top: 20px;
 }
 
+div#infAddCarrinho {
+    width: 100%;
+    height: auto;
+    padding: 10px 20px;
+    display: flex;
+    background-color: var(--cor4);
+    color: var(--cor1);
+    justify-content: space-between;
+    text-align: center;
+    position: fixed;
+    transition: 200ms bottom linear;
+    bottom: -100px;
+}
+
+div#infAddCarrinho > p {
+    margin-top: 12px;
+}
+
+div#infAddCarrinho > a {
+    color: var(--cor2);
+    padding: 10px;
+    border-radius: 2px;
+    background-color: var(--cor1);
+    text-decoration: none;
+    margin-right: 30px;
+}
+
+/*? Add carrinho */
 @media screen and (max-width: 1116px) {
     section#descricaoDetalhada {
         width: 90%;

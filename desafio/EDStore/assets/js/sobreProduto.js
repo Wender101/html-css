@@ -138,3 +138,102 @@ function criaRelacionados(Img1 ,Img2, Img3, Img4, Nome, Desc, Valor, Desconto, I
         window.location.pathname = '/Sobre-Produto.html'
     })
 }
+
+//? Adicionar o produto ao carrinho
+let cloneCarrinho = []
+function salvarNoCarrinho(addNovamente = false) {
+    let checkTemCarrinho = false
+    let carrinhoCarregado = false
+    let feito = false
+    db.collection('Carrinho').onSnapshot((data) => {
+        data.docs.map(function(valCarrinho) {
+            let Carrinho = valCarrinho.data()
+
+            //? Caso o usar já tenha um carrinho criado ele vai adicionar o produto direto
+            if(Carrinho.EmailUser == email && carrinhoCarregado == false) {
+                carrinhoCarregado = true
+                checkTemCarrinho = true
+                cloneCarrinho = Carrinho.Carrinho
+
+                db.collection('Produtos').onSnapshot((data) => {
+                    data.docs.map(function(val) {
+                        let Produto = val.data()
+
+                        if(Produto.Id == idProdSelecionado) {
+                            let jaTemProdutoADDNoCarrinho = false
+
+                            for(let c = 0; c < cloneCarrinho.length; c++) {
+                                if(cloneCarrinho[c].Id == idProdSelecionado && feito == false) {
+                                    jaTemProdutoADDNoCarrinho = true
+                                    document.getElementById('pop-Up-AddProdutoNovamente').style.display = 'flex'
+                        
+                                    if(addNovamente == true && feito == false) {
+                                        feito = true
+                                        fecharPopUp()
+                                        let obj = {
+                                            Id: Produto.Id
+                                        }
+                                        cloneCarrinho.push(obj)
+                                        db.collection('Carrinho').doc(valCarrinho.id).update({Carrinho: cloneCarrinho})
+                                        document.getElementById('infAddCarrinho').style.bottom = '0px'
+                                        setTimeout(() => {
+                                            document.getElementById('infAddCarrinho').style.bottom = '-100px'
+                                        }, 10000)
+                                    }
+
+                                } else if(c + 1 == cloneCarrinho.length && jaTemProdutoADDNoCarrinho == false && feito == false) {
+                                    feito = true
+                                    let obj = {
+                                        Id: Produto.Id
+                                    }
+                                    cloneCarrinho.push(obj)
+                                    db.collection('Carrinho').doc(valCarrinho.id).update({Carrinho: cloneCarrinho})
+                                    document.getElementById('infAddCarrinho').style.bottom = '0px'
+                                    setTimeout(() => {
+                                        document.getElementById('infAddCarrinho').style.bottom = '-100px'
+                                    }, 10000)
+                                }
+                            }
+                        }
+                    })
+                })
+            }
+
+            //? Caso o user ainda n tenha um carrinho, ele vai criar um e adionar o produto
+            setTimeout(() => {
+                if(checkTemCarrinho == false && carrinhoCarregado == false) {
+                    carrinhoCarregado = true
+                    db.collection('Produtos').onSnapshot((data) => {
+                        data.docs.map(function(val) {
+                            let Produto = val.data()
+
+                            if(Produto.Id == idProdSelecionado) {
+
+                                let obj = {
+                                    Id: Produto.Id
+                                }
+                                cloneCarrinho.push(obj)
+
+                                let objCarrinho = {
+                                    Carrinho: cloneCarrinho,
+                                    EmailUser: email
+                                }
+
+                                db.collection('Carrinho').add(objCarrinho)
+                                document.getElementById('infAddCarrinho').style.bottom = '0px'
+                                setTimeout(() => {
+                                    document.getElementById('infAddCarrinho').style.bottom = '-100px'
+                                }, 10000)
+                            }
+                        })
+                    })
+                }
+            }, 500)
+        })
+    })
+}
+
+//? Vai fechar o pop up
+function fecharPopUp() {
+    document.getElementById('pop-Up-AddProdutoNovamente').style.display = 'none'
+}

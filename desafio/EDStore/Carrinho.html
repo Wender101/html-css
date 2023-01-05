@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="assets/img/site/logoIcon.png" type="image/x-icon">
     <!--? Css Geral -->
     <link rel="stylesheet" href="assets/css/geral.css">
     <!--? Css page -->
     <link rel="stylesheet" href="assets/css/home.css">
     <link rel="stylesheet" href="assets/css/adminPage.css">
-    <title>EDStore - Produtos</title>
+    <link rel="stylesheet" href="assets/css/carrinho.css">
+    <title>EDStore - Carrinho</title>
 </head>
 <body>
     <header>
@@ -35,10 +35,6 @@
             <button><img src="assets/img/icon/cartIcon.png" alt="icone carrinho"> <a href="Carrinho.html">Carrinho</a></button>
         </section>
     </header>
-    <nav>
-        <ul>
-        </ul>
-    </nav>
 
     <div id="menu">
         <ul>
@@ -49,23 +45,44 @@
         </ul>
     </div>
 
-    <!--? Banner Local -->
-    <section class="containerBanner">
-        <!-- carousel control buttons -->
-        <button class="slide-btn slide-btn-1"><</button>
-        <button class="slide-btn slide-btn-2">></button>
-
-        <article class="slideshow">
-            <!-- carousel wrapper which contains all images -->
-            <div class="slideshow-wrapper">
-                <div class="slide">
-                    <img src="assets/img/banners/banner1.png" class="slide-img">
-                </div>
-            </div>
+    <!--? Animação de carregamento -->
+   <section id="carregando">
+    <article>
+      <div id="preloader">
+          <div class="inner">
+          <div class="bolas">
+              <div></div>
+              <div></div>
+              <div></div>                    
+          </div>
+          </div>
+        </div>
         </article>
     </section>
+    <!--? fim do preloader --> 
+
+    <div id="confimarRemoverProduto">
+        <div id="popUp">
+            <p>Tem certeza que desejá remover este produto do carrinho?</p>
+            <div>
+                <button onclick="remover('um')">Remover</button>
+                <button onclick="fecharPopUp()">Cancelar</button>
+                <button onclick="remover('todos')">Remover Todos</button>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="text">
+        <h1>Seu Carrinho</h1>
+        <hr>
+    </div>
 
     <main>
+        <div id="fala">
+            <h1>Parece bem vazio por aqui...</h1>
+            <img src="assets/img/site/Fishing.gif" alt="">
+        </div>
     </main>
 
     <footer>
@@ -86,15 +103,15 @@
         </div>
     </footer>
 
-    <!--? Firebase -->
-    <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-auth.js"></script>
-    <script src="assets/js/firebase.js"></script>
-
-    <!--? Scripts -->
-   <script src="assets/js/funcoesBasicas.js"></script>
-    <script src="assets/js/pagProduto.js"></script>
+     <!--? Firebase -->
+     <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-app.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-firestore.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-auth.js"></script>
+     <script src="assets/js/firebase.js"></script>
+ 
+     <!--? Scripts -->
+    <script src="assets/js/funcoesBasicas.js"></script>
     <script src="assets/js/pesquisar.js"></script>
+     <script src="assets/js/carrinho.js"></script>
 </body>
 </html>

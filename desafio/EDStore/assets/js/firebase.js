@@ -16,10 +16,12 @@ const provider = new firebase.auth.GoogleAuthProvider()
 const db = firebase.firestore()
 
 let trocarDeConta = false
+let email
 function login() {
     trocarDeConta = true
     auth.signInWithPopup(provider)
 }
 
 auth.onAuthStateChanged((val) => {
+    email = val.email
 })

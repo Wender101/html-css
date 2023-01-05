@@ -31,7 +31,7 @@
 
     <section id="parte3Header">
         <button id="login" onclick="login()"><img src="assets/img/icon/user.png" alt="icone usuario"> <span>Login/Cadastro</span></button>
-        <button><img src="assets/img/icon/cartIcon.png" alt="icone carrinho"> <span>Carrinho</span></button>
+        <button><img src="assets/img/icon/cartIcon.png" alt="icone carrinho"> <a href="Carrinho.html">Carrinho</a></button>
     </section>
   </header>
 
@@ -61,6 +61,16 @@
   </section>
   <!--? fim do preloader --> 
 
+  <section id="pop-Up-AddProdutoNovamente">
+    <div id="popUp">
+      <p>Esse produto já foi adicionado em seu carrinho anteriormente! Deseja adiciona-lo de novo?</p>
+      <div>
+        <button onclick="salvarNoCarrinho(true)">Sim</button>
+        <button onclick="fecharPopUp()">Não</button>
+      </div>
+    </div>
+  </section>
+
   <main>
     <div id="localImgEx">
       <div id="othersImgs">
@@ -88,7 +98,7 @@
 
         <div id="localBtns">
             <div id='product-component-1672774067883'></div>
-            <button id="modelo1" class="btnSalvar">Salvar</button>
+            <button id="modelo1" class="btnSalvar" onclick="salvarNoCarrinho()">Salvar</button>
         </div>
     </div>
   </main>
@@ -105,6 +115,11 @@
   <section id="relacionados">
     <article id="relacionadosLocal"></article>
   </section>
+
+  <div id="infAddCarrinho">
+    <p>O Produto foi adicionado ao carrinho com sucesso! :)</p>
+    <a href="Carrinho.html">Ir ao Carrinho</a>
+  </div>
 
     <footer>
       <div id="contato">
@@ -308,8 +323,12 @@
         div.style.top = '-70px'
         div.style.left = '50%'
         div.style.transform = 'translate(-50%)'
+        
       } else if(document.getElementById('product-component-1672774067883').querySelector('iframe').style.height == '') {
         document.getElementsByClassName('btnSalvar')[0].id = 'modelo3'
+
+      } else if(document.getElementById('product-component-1672774067883').querySelector('iframe').style.height == '94px') {
+        document.getElementsByClassName('btnSalvar')[0].id = 'modelo4'
       }
     }, 1000)
   </script>

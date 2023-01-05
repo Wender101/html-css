@@ -9,6 +9,7 @@
     --cor6: #666666;
     --cor7: #008ECC;
     --sombra: rgba(0, 0, 0, 0.377);
+    --sombra2: rgba(0, 0, 0, 0.658);
 
     /*? Fonts */
     --font-text: 'Varela Round', sans-serif;
@@ -79,14 +80,15 @@ header > section#parte1Header > a > img {
     margin-left: 40px;
 }
 
-header > section > div {
+header > section > div#localInput {
+    max-width: 800px;
+    width: 40vw;
     position: relative;
     margin-right: 30px;
 }
 
 header > section > div > input {
-    max-width: 800px;
-    width: 40vw;
+    width: calc(100% - 40px);
     margin-left: 20px;
     padding: 15px 0px 15px 40px;
     border-radius: 10px;
@@ -94,6 +96,8 @@ header > section > div > input {
     box-shadow: 0 0 0 0;
     outline: 0;
     background-color: var(--cor3);
+    margin-left: 50%;
+    transform: translate(-50%);
 }
 
 header > section > div > img {
@@ -113,6 +117,11 @@ header > section > div > button {
     background-color: transparent;
 }
 
+header > section > button > a {
+    text-decoration: none;
+    color: var(--cor6);
+}
+
 header > section > div > div#recomend {
     width: 100%;
     position: absolute;
@@ -122,6 +131,8 @@ header > section > div > div#recomend {
     background-color: var(--cor1);
     box-shadow: 5px 20px 20px var(--sombra);
     z-index: 1;
+    margin-left: 50%;
+    transform: translate(-50%);
 }
 
 header > section > div > div#recomend > p {
@@ -295,7 +306,7 @@ footer > div#ballFooter > div {
         height: 25px;
     }
 
-    header > section > div > input {
+    header > section > div#localInput {
         width: 30vw;
     }
 }
@@ -305,7 +316,7 @@ footer > div#ballFooter > div {
         display: none;
     }
 
-    header > section > div > input {
+    header > section > div#localInput {
         width: 45vw;
     }
 
@@ -320,7 +331,7 @@ footer > div#ballFooter > div {
 
 @media screen and (max-width: 560px) {
 
-    header > section > div > input {
+    header > section > div#localInput {
         width: 60vw;
     }
 

@@ -11,8 +11,9 @@ setInterval(() => {
         }
     } else if(pesquisa.length == 0) {
         containerSugestao.style.display = 'none'
+        document.getElementById('pesquisaInput').style.borderRadius = '10px'
     }
-}, 100)
+}, 10)
 
 function sugetaoPesquisa(pesquisa) {
     let max = 0 //? Vai determinar o maximo de sugestões
@@ -40,6 +41,7 @@ function sugetaoPesquisa(pesquisa) {
             if(nome.includes(pesquisaInp) && max < 6 || desc.includes(pesquisaInp) && max < 6) {
                 achado = true
                 containerSugestao.style.display = 'block'
+                document.getElementById('pesquisaInput').style.borderRadius = '10px 10px 0px 0px'
                 let p = document.createElement('p')
                 p.id = `pSugestao${max}`
                 p.innerText = valSugetao.Nome
@@ -49,6 +51,8 @@ function sugetaoPesquisa(pesquisa) {
 
                 // //? Ao clicar no p
                 p.addEventListener('click', () => {
+                    localStorage.setItem('produtoPagProduto', p.innerText)
+
                     if(location.host == '127.0.0.1:5500') {
                         if(location.pathname == '/pagProduto.html') {
                             input.value = ''
@@ -72,6 +76,7 @@ function sugetaoPesquisa(pesquisa) {
                 document.getElementById('pesquisaInput').addEventListener('keydown', function(event) {
                     key = event.key
                     switch (event.key) {
+
                         case "ArrowUp":
                             if(contadorSugestao > 0) {
                                 contadorSugestao--
@@ -88,6 +93,10 @@ function sugetaoPesquisa(pesquisa) {
                             if(contadorSugestao != -1) {
                                 contadorSugestao = -1
                             }
+                        break;
+
+                        case "Enter":
+                            contadorSugestao = -1
                         break;
                     }
 
@@ -106,6 +115,7 @@ function sugetaoPesquisa(pesquisa) {
                 })
             } else if(max == 0) {
                 containerSugestao.style.display = 'none'
+                document.getElementById('pesquisaInput').style.borderRadius = '10px'
             }
         })
     })
@@ -115,6 +125,7 @@ document.addEventListener('click', (e) => {
     let el = e.target.id
     if(el != 'pesquisaInput') {
         containerSugestao.style.display = 'none'
+        document.getElementById('pesquisaInput').style.borderRadius = '10px'
     }
 })
 
@@ -123,25 +134,25 @@ let input = document.getElementById('pesquisaInput')
 document.addEventListener('keypress', (e) => {
     if(e.keyCode == 13 && input.value.length > 1) {
         localStorage.setItem('produtoPagProduto', input.value)
-        input.value = ''
         containerSugestao.style.display = 'none'
-        // //? Ao clicar no p
+        document.getElementById('pesquisaInput').style.borderRadius = '10px'
+        tamanhoAtual = 0
+
         if(location.host == '127.0.0.1:5500') {
             if(location.pathname == '/pagProduto.html') {
                 chamarDB()
-                input.value = ''
             } else {
                 location.pathname = '/pagProduto.html'
             }
-
+            
         } else if(location.host == 'wender101.github.io') {
             if(location.pathname == '/html-css/desafio/EDStore/pagProduto.html') {
                 chamarDB()
-                input.value = ''
             } else {
                 location.pathname = '/html-css/desafio/EDStore/pagProduto.html'
             }
         }
+        input.value = ''
     }
 })
 

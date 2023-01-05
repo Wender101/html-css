@@ -209,7 +209,7 @@ section#popUpAddProd > button {
     }
 }
 
-@media screen and (max-width: 955px) {
+@media screen and (max-width: 965px) {
     main {
         max-width: 636px;
     }
