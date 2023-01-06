@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="assets/img/site/logoIcon.png" type="image/x-icon">
+    <!--? Css Geral -->
+    <link rel="stylesheet" href="assets/css/geral.css">
+    <!--? Css page -->
+    <link rel="stylesheet" href="assets/css/home.css">
+    <link rel="stylesheet" href="assets/css/adminPage.css">
+    <link rel="stylesheet" href="assets/css/carrinho.css">
+    <title>EDStore - Carrinho</title>
+</head>
+<body>
+    <header>
+        <section id="parte1Header">
+            <button id="configBtn" onclick="abrirMenu()"></button>
+            <a href="Home.html"><img src="assets/img/site/letraComFundo.png" alt="Logo EDStore"></a>
+        </section>
+
+        <section id="parte2Header">
+            <div id="localInput">
+                <img src="assets/img/icon/Search.png" alt="icone lupa">
+                <input type="text" placeholder="Digite aqui oque procura..." id="pesquisaInput">
+                <button id="classeBtn"></button>
+
+                <div id="recomend">
+                </div>
+            </div>
+        </section>
+
+        <section id="parte3Header">
+            <button id="login" onclick="login()"><img src="assets/img/icon/user.png" alt="icone usuario"> <span>Login/Cadastro</span></button>
+            <button><img src="assets/img/icon/cartIcon.png" alt="icone carrinho"> <a href="Carrinho.html">Carrinho</a></button>
+        </section>
+    </header>
+
+    <div id="menu">
+        <ul>
+            <div id="fecharMenu" onclick="fecharMenu()"><span>x</span></div>
+            
+            <li><a href="Home.html"><img src="assets/img/icon/home.png" alt=""> Home</a></li>
+            <li><a href="Carrinho.html"><img src="assets/img/icon/cartIcon.png" alt=""> Carrinho</a></li>
+            <li><a onclick="login()"><img src="assets/img/icon/user.png"> Login/Cadastro</a></li>
+        </ul>
+    </div>
+
+    <!--? Animação de carregamento -->
+   <section id="carregando">
+    <article>
+      <div id="preloader">
+          <div class="inner">
+          <div class="bolas">
+              <div></div>
+              <div></div>
+              <div></div>                    
+          </div>
+          </div>
+        </div>
+        </article>
+    </section>
+    <!--? fim do preloader --> 
+
+    <div id="confimarRemoverProduto">
+        <div id="popUp">
+            <p>Tem certeza que desejá remover este produto do carrinho?</p>
+            <div>
+                <button onclick="remover('um')">Remover</button>
+                <button onclick="fecharPopUp()">Cancelar</button>
+                <button onclick="remover('todos')">Remover Todos</button>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="text">
+        <h1>Seu Carrinho</h1>
+        <hr>
+    </div>
+
+    <main>
+        <div id="fala">
+            <h1>Parece bem vazio por aqui...</h1>
+            <img src="assets/img/site/Fishing.gif" alt="">
+        </div>
+    </main>
+
+    <footer>
+        <div id="contato">
+            <p>Contato</p>
+            <a href=""><img src="assets/img/icon/faceboock.png" alt=""></a>
+            <a href=""><img src="assets/img/icon/insta.png" alt=""></a>
+            <a href=""><img src="assets/img/icon/tele.png" alt=""></a>
+            <a href=""><img src="assets/img/icon/link.png" alt=""></a>
+        </div>
+
+        <p>Preços e condições de pagamento exclusivos para compras via internet e podem variar nas lojas. Os preços anunciados neste site ou via e-mail promocional podem ser alterados sem aviso prévio.</p>
+        <hr>
+        
+        <!--?--- -->
+        <div id="ballFooter">
+            <div></div>
+        </div>
+    </footer>
+
+     <!--? Firebase -->
+     <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-app.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-firestore.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-auth.js"></script>
+     <script src="assets/js/firebase.js"></script>
+ 
+     <!--? Scripts -->
+    <script src="assets/js/funcoesBasicas.js"></script>
+    <script src="assets/js/pesquisar.js"></script>
+     <script src="assets/js/carrinho.js"></script>
+</body>
+</html>
