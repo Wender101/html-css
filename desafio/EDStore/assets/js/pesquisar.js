@@ -218,9 +218,7 @@ function criaCategorias() {
                             }
                         })
                     }
-                } catch (error) {
-                    console.warn(error);
-                }
+                } catch (error) {}
                 
             }
         })

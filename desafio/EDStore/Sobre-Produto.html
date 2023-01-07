@@ -110,9 +110,12 @@
     <h1>Pergunte ao vendedor</h1>
     <div>
       <input type="text" id="perguntaUser" placeholder="Faça sua pergunta..."> 
-      <button id="enviarPergunta">Perguntar</button>
+      <button id="enviarPergunta" onclick="enviarPergunta()">Perguntar</button>
     </div>
     <strong>Perguntas já feitas: <span id="sejaPrimeiro">sejá o primeiro :)</span></strong>
+
+    <article id="localPerguntas">
+    </article>
   </section>
 
   <div class="text">
@@ -126,6 +129,11 @@
   <div id="infAddCarrinho">
     <p>O Produto foi adicionado ao carrinho com sucesso! :)</p>
     <a href="Carrinho.html">Ir ao Carrinho</a>
+  </div>
+  
+  <div id="infChat">
+    <p>Você fez muitas perguntas em pouco tempo. Espere até que sejam respondidas.</p>
+    <button onclick="fecharMsgChat()">Fechar</button>
   </div>
 
     <footer>
@@ -156,6 +164,7 @@
    <script src="assets/js/funcoesBasicas.js"></script>
    <script src="assets/js/sobreProduto.js"></script>
    <script src="assets/js/pesquisar.js"></script>
+   <script src="assets/js/chat.js"></script>
 
    <script type="text/javascript">
       /*<![CDATA[*/

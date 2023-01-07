@@ -153,3 +153,18 @@ function recomendacaoComBaseEmPesquisa(Img1 ,Img2, Img3, Img4, Nome, Desc, Valor
         }
     })
 }
+
+//? vai adicionar uma função de click as categorais
+for(let c = 0; c < 4; c ++) {
+    let div = document.getElementsByClassName('categorias')[c]
+
+    div.addEventListener('click', () => {
+        localStorage.setItem('produtoPagProduto' , div.querySelector('p').innerText)
+        if(location.host == '127.0.0.1:5500') {
+            location.pathname = '/pagProduto.html'
+            
+        } else if(location.host == 'wender101.github.io') {
+            location.href = 'https://wender101.github.io/html-css/desafio/EDStore/pagProduto.html'
+        }
+    })
+}

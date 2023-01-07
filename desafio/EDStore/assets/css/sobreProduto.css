@@ -360,7 +360,7 @@ div.prod > div.sobreProd > span {
     margin-top: 20px;
 }
 
-div#infAddCarrinho {
+div#infAddCarrinho, div#infChat {
     width: 100%;
     height: auto;
     padding: 10px 20px;
@@ -375,23 +375,27 @@ div#infAddCarrinho {
     z-index: 2;
 }
 
-div#infAddCarrinho > p {
+div#infAddCarrinho > p, div#infChat > p {
     margin-top: 12px;
 }
 
-div#infAddCarrinho > a {
+div#infAddCarrinho > a, div#infChat > button {
     color: var(--cor2);
     padding: 10px;
     border-radius: 2px;
     background-color: var(--cor1);
     text-decoration: none;
     margin-right: 30px;
-}
+    border: 0px;
+} 
 
 /*? Chat */
 section#chat {
     width: 100%;
     max-width: 1000px;
+    border-top: 1px solid var(--cor4);
+    border-bottom: 1px solid var(--cor4);
+    padding: 30px 0px;
     margin: 100px auto;
 }
 
@@ -430,6 +434,41 @@ section#chat > strong {
 
 section#chat > strong > span {
     color: var(--cor4);
+}
+
+section#chat > article#localPerguntas {
+    width: calc(100% - 10px);
+    height: auto;
+    margin-top: 30px;
+    padding: 0px 0px 0px 10px;
+    max-height: 300px;
+    overflow: auto;
+}
+
+section#chat > article#localPerguntas > div {
+    margin-top: 40px;
+    position: relative;
+}
+
+section#chat > article#localPerguntas > div > p {
+    font-weight: 900;
+    color: var(--cor4);
+}
+
+section#chat > article#localPerguntas > div > span {
+    margin: 20px 0px 20px 60px;
+    display: block;
+}
+
+section#chat > article#localPerguntas > div > span > img {
+    width: 30px;
+    position: absolute;
+    left: 20px;
+}
+
+section#chat > article#localPerguntas > div > span > span {
+    color: var(--cor4);
+    margin-left: 20px;
 }
 
 /*? Responsive */

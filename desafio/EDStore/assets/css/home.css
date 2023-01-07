@@ -222,7 +222,7 @@ section#localCategorias > article > div:hover {
     cursor: pointer;
 }
 
-section#localCategorias > article > div > div {
+section#localCategorias > article > div > img {
     width: 132px;
     height: 132px;
     border-radius: 50%;
@@ -230,10 +230,7 @@ section#localCategorias > article > div > div {
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-section#localCategorias > article > div > div > img {
-    height: 90%;
+    box-shadow: 1px 1px 10px var(--sombra);
 }
 
 section#localCategorias > article > div > p {

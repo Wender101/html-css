@@ -23,5 +23,9 @@ function login() {
 }
 
 auth.onAuthStateChanged((val) => {
+    if(trocarDeConta == true) {
+        location.reload()
+    }
+
     email = val.email
 })

@@ -3,6 +3,19 @@ function criaProduto() {
     db.collection('Produtos').onSnapshot((data) => {
         data.docs.map(function(val) {
             let Produtos = val.data()
+
+            //? Caso o user tenha se conectado a conta google dps de clicar em salvar ao carrinho, o produto sera salvo altomatico após o reload
+            try {
+                let reloadPage = localStorage.getItem('reloadPage')
+
+                if(reloadPage == '1') {
+                    localStorage.setItem('reloadPage', '2')
+                    salvarNoCarrinho()
+                }
+            } catch (error) {}
+
+            //? Vai criar os produtos
+
             if(Produtos.Id == idProdSelecionado) {
                 document.getElementsByClassName('imgPrincipal')[0].src = Produtos.Img1 
                 document.getElementsByClassName('imgEX')[0].src = Produtos.Img1 
@@ -11,7 +24,11 @@ function criaProduto() {
                 document.getElementsByClassName('imgEX')[3].src = Produtos.Img4
                 document.getElementsByClassName('nameProd')[0].innerText = Produtos.Nome
                 document.getElementById('desc').innerText = Produtos.Desc
-                document.getElementById('descricaoP').innerHTML = Produtos.DescDetalhada
+                if(Produtos.DescDetalhada != undefined) {
+                    document.getElementById('descricaoP').innerHTML = Produtos.DescDetalhada
+                } else {
+                    document.getElementById('descricaoDetalhada').querySelector('h1').style.display = 'none'
+                }
 
                 let valorComDesconto = (((Produtos.Desconto * Produtos.Valor) / 100) - Produtos.Valor) * -1
                 var res = valorComDesconto
@@ -149,34 +166,48 @@ function criaRelacionados(Img1 ,Img2, Img3, Img4, Nome, Desc, Valor, Desconto, I
 //? Adicionar o produto ao carrinho
 let cloneCarrinho = []
 function salvarNoCarrinho(addNovamente = false) {
-    let checkTemCarrinho = false
-    let carrinhoCarregado = false
-    let feito = false
-    db.collection('Carrinho').onSnapshot((data) => {
-        data.docs.map(function(valCarrinho) {
-            let Carrinho = valCarrinho.data()
-
-            //? Caso o usar já tenha um carrinho criado ele vai adicionar o produto direto
-            if(Carrinho.EmailUser == email && carrinhoCarregado == false) {
-                carrinhoCarregado = true
-                checkTemCarrinho = true
-                cloneCarrinho = Carrinho.Carrinho
-
-                db.collection('Produtos').onSnapshot((data) => {
-                    data.docs.map(function(val) {
-                        let Produto = val.data()
-
-                        if(Produto.Id == idProdSelecionado) {
-                            let jaTemProdutoADDNoCarrinho = false
-
-                            for(let c = 0; c < cloneCarrinho.length; c++) {
-                                if(cloneCarrinho[c].Id == idProdSelecionado && feito == false) {
-                                    jaTemProdutoADDNoCarrinho = true
-                                    document.getElementById('pop-Up-AddProdutoNovamente').style.display = 'flex'
-                        
-                                    if(addNovamente == true && feito == false) {
+    if(email != undefined) {
+        let checkTemCarrinho = false
+        let carrinhoCarregado = false
+        let feito = false
+        db.collection('Carrinho').onSnapshot((data) => {
+            data.docs.map(function(valCarrinho) {
+                let Carrinho = valCarrinho.data()
+    
+                //? Caso o usar já tenha um carrinho criado ele vai adicionar o produto direto
+                if(Carrinho.EmailUser == email && carrinhoCarregado == false) {
+                    carrinhoCarregado = true
+                    checkTemCarrinho = true
+                    cloneCarrinho = Carrinho.Carrinho
+    
+                    db.collection('Produtos').onSnapshot((data) => {
+                        data.docs.map(function(val) {
+                            let Produto = val.data()
+    
+                            if(Produto.Id == idProdSelecionado) {
+                                let jaTemProdutoADDNoCarrinho = false
+    
+                                for(let c = 0; c < cloneCarrinho.length; c++) {
+                                    if(cloneCarrinho[c].Id == idProdSelecionado && feito == false) {
+                                        jaTemProdutoADDNoCarrinho = true
+                                        document.getElementById('pop-Up-AddProdutoNovamente').style.display = 'flex'
+                            
+                                        if(addNovamente == true && feito == false) {
+                                            feito = true
+                                            fecharPopUp()
+                                            let obj = {
+                                                Id: Produto.Id
+                                            }
+                                            cloneCarrinho.push(obj)
+                                            db.collection('Carrinho').doc(valCarrinho.id).update({Carrinho: cloneCarrinho})
+                                            document.getElementById('infAddCarrinho').style.bottom = '0px'
+                                            setTimeout(() => {
+                                                document.getElementById('infAddCarrinho').style.bottom = '-100px'
+                                            }, 10000)
+                                        }
+    
+                                    } else if(c + 1 == cloneCarrinho.length && jaTemProdutoADDNoCarrinho == false && feito == false) {
                                         feito = true
-                                        fecharPopUp()
                                         let obj = {
                                             Id: Produto.Id
                                         }
@@ -187,57 +218,50 @@ function salvarNoCarrinho(addNovamente = false) {
                                             document.getElementById('infAddCarrinho').style.bottom = '-100px'
                                         }, 10000)
                                     }
-
-                                } else if(c + 1 == cloneCarrinho.length && jaTemProdutoADDNoCarrinho == false && feito == false) {
-                                    feito = true
+                                }
+                            }
+                        })
+                    })
+                }
+    
+                //? Caso o user ainda n tenha um carrinho, ele vai criar um e adionar o produto
+                setTimeout(() => {
+                    if(checkTemCarrinho == false && carrinhoCarregado == false) {
+                        carrinhoCarregado = true
+                        db.collection('Produtos').onSnapshot((data) => {
+                            data.docs.map(function(val) {
+                                let Produto = val.data()
+    
+                                if(Produto.Id == idProdSelecionado) {
+    
                                     let obj = {
                                         Id: Produto.Id
                                     }
                                     cloneCarrinho.push(obj)
-                                    db.collection('Carrinho').doc(valCarrinho.id).update({Carrinho: cloneCarrinho})
+    
+                                    let objCarrinho = {
+                                        Carrinho: cloneCarrinho,
+                                        EmailUser: email
+                                    }
+    
+                                    db.collection('Carrinho').add(objCarrinho)
                                     document.getElementById('infAddCarrinho').style.bottom = '0px'
                                     setTimeout(() => {
                                         document.getElementById('infAddCarrinho').style.bottom = '-100px'
                                     }, 10000)
                                 }
-                            }
-                        }
-                    })
-                })
-            }
-
-            //? Caso o user ainda n tenha um carrinho, ele vai criar um e adionar o produto
-            setTimeout(() => {
-                if(checkTemCarrinho == false && carrinhoCarregado == false) {
-                    carrinhoCarregado = true
-                    db.collection('Produtos').onSnapshot((data) => {
-                        data.docs.map(function(val) {
-                            let Produto = val.data()
-
-                            if(Produto.Id == idProdSelecionado) {
-
-                                let obj = {
-                                    Id: Produto.Id
-                                }
-                                cloneCarrinho.push(obj)
-
-                                let objCarrinho = {
-                                    Carrinho: cloneCarrinho,
-                                    EmailUser: email
-                                }
-
-                                db.collection('Carrinho').add(objCarrinho)
-                                document.getElementById('infAddCarrinho').style.bottom = '0px'
-                                setTimeout(() => {
-                                    document.getElementById('infAddCarrinho').style.bottom = '-100px'
-                                }, 10000)
-                            }
+                            })
                         })
-                    })
-                }
-            }, 500)
+                    }
+                }, 500)
+            })
         })
-    })
+
+        //? O user n estaja logado á uma conta google
+    } else {
+        localStorage.setItem('reloadPage', '1')
+        login()
+    }
 }
 
 //? Vai fechar o pop up
