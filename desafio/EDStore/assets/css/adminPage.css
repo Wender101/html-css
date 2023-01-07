@@ -257,6 +257,29 @@ section#popUpAddProd > button {
     margin-bottom: 200px;
 }
 
+/*? Prod */
+div.prod > div.divEdit {
+    width: 30px;
+    height: 30px;
+    background-color: var(--cor4);
+    border-radius: 50%;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+div.prod > div.divEdit > span {
+    width: 60%;
+    height: 60%;
+    background-image: url(../img/icon/editar.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
 @media screen and (max-width: 1194px) {
     main {
         max-width: 956px;

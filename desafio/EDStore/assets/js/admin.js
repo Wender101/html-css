@@ -207,9 +207,13 @@ function criaProduto(Img1 ,Img2, Img3, Img4, Nome, Desc, Valor, Desconto, Id) {
     let valorStrong = document.createElement('strong')
     let valorSemDescontoT = document.createElement('span')
     let valorSalvo = document.createElement('span')
+    let divEdit = document.createElement('div')
+    let spanEdit = document.createElement('span')
 
     //? Class
     prod.className = 'prod'
+    spanEdit.className = 'spanEdit'
+    divEdit.className = 'divEdit'
     localImg.className = 'localImg'
     imgProduto.className = 'imgProduto'
     sobreProd.className = 'sobreProd'
@@ -236,24 +240,30 @@ function criaProduto(Img1 ,Img2, Img3, Img4, Nome, Desc, Valor, Desconto, Id) {
     valorSalvo.innerText = 'Salvo - R$' + (res - valorComDesconto).toFixed(2)
     
     //? AppendChild
+    divEdit.appendChild(spanEdit)
     p.appendChild(valorStrong)
     p.appendChild(valorSemDescontoT)
     localImg.appendChild(imgProduto)
     sobreProd.appendChild(nameProd)
     sobreProd.appendChild(p)
     sobreProd.appendChild(valorSalvo)
+    prod.appendChild(divEdit)
     prod.appendChild(localImg)
     prod.appendChild(sobreProd)
     main.appendChild(prod)
 
     //? Funções de click
-    prod.addEventListener('click', () => {
-        localStorage.setItem('sobreProduto', Id)
-        if(location.host == '127.0.0.1:5500') {
-            location.pathname = '/Sobre-Produto.html'
-            
-        } else if(location.host == 'wender101.github.io') {
-            location.href = 'https://wender101.github.io/html-css/desafio/EDStore/Sobre-Produto.html'
+    prod.addEventListener('click', (e) => {
+        let el = e.target.className
+        if(el != 'divEdit' && el != 'spanEdit') {
+
+            localStorage.setItem('sobreProduto', Id)
+            if(location.host == '127.0.0.1:5500') {
+                location.pathname = '/Sobre-Produto.html'
+                
+            } else if(location.host == 'wender101.github.io') {
+                location.href = 'https://wender101.github.io/html-css/desafio/EDStore/Sobre-Produto.html'
+            }
         }
     })
 }
