@@ -4,13 +4,18 @@
     --cor1: #fff;
     --cor2: #000;
     --cor3: #e5edf0;
-    --cor4: #089fdb;
+    --cor4: #04b3ff;
     --cor5: #6900f3; 
     --cor5: #249B3E; 
     --cor6: #666666;
-    --cor7: #008ECC;
+    --cor7: #00a1ff;
+    
     --sombra: rgba(0, 0, 0, 0.377);
     --sombra2: rgba(0, 0, 0, 0.658);
+
+    /*? Cores Antigas */
+    --antigo4: #089fdb;
+    --antigo7: #008ECC;
 
     /*? Fonts */
     --font-text: 'Varela Round', sans-serif;

@@ -16,7 +16,7 @@
 .containerBanner {
     max-width: 1200px;
     width: 90%;
-    height: 400px;
+    height: 300px;
     display: flex;
     flex-direction: column;
     justify-content: center;

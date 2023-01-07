@@ -254,7 +254,8 @@ section#descricaoDetalhada {
 }
 
 section#descricaoDetalhada > h1 {
-    margin-bottom: 10px;
+    margin-bottom: 20px;
+    color: var(--cor4);
 }
 
 /*? Prods */
@@ -387,7 +388,51 @@ div#infAddCarrinho > a {
     margin-right: 30px;
 }
 
-/*? Add carrinho */
+/*? Chat */
+section#chat {
+    width: 100%;
+    max-width: 1000px;
+    margin: 100px auto;
+}
+
+section#chat > h1 {
+    color: var(--cor4);
+}
+
+section#chat > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+section#chat > div > input {
+    width: 80%;
+    border-radius: 6px;
+    border: none;
+    box-shadow: 0 0 0 0;
+    outline: 0;
+    background-color: var(--cor3);
+    padding: 15px;
+    margin: 10px 0px 30px;
+}
+
+section#chat > div > button {
+    padding: 15px;
+    margin-top: -15px;
+    color: var(--cor1);
+    border-radius: 6px;
+    background-color: var(--cor4);
+}
+
+section#chat > strong {
+    color: var(--cor6);
+}
+
+section#chat > strong > span {
+    color: var(--cor4);
+}
+
+/*? Responsive */
 @media screen and (max-width: 1116px) {
     section#descricaoDetalhada {
         width: 90%;
