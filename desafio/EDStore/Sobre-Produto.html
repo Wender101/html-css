@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="assets/img/site/logoIcon.png" type="image/x-icon">
+    <!--? Css Geral -->
+    <link rel="stylesheet" href="assets/css/geral.css">
+    <!--? Css page -->
+    <link rel="stylesheet" href="assets/css/sobreProduto.css">
+    <title>EDStore - Sobre o Produto</title>
+</head>
+<body>
+  <header>
+    <section id="parte1Header">
+        <button id="configBtn" onclick="abrirMenu()"></button>
+        <a href="Home.html"><img src="assets/img/site/letraComFundo.png" alt="Logo EDStore"></a>
+    </section>
+
+    <section id="parte2Header">
+      <div id="localInput">
+          <img src="assets/img/icon/Search.png" alt="icone lupa">
+          <input type="text" placeholder="Digite aqui oque procura..." id="pesquisaInput">
+          <button id="classeBtn"></button>
+
+          <div id="recomend">
+          </div>
+      </div>
+    </section>
+
+    <section id="parte3Header">
+        <button id="login" onclick="login()"><img src="assets/img/icon/user.png" alt="icone usuario"> <span>Login/Cadastro</span></button>
+        <button><img src="assets/img/icon/cartIcon.png" alt="icone carrinho"> <a href="Carrinho.html">Carrinho</a></button>
+    </section>
+  </header>
+
+  <div id="menu">
+    <ul>
+      <div id="fecharMenu" onclick="fecharMenu()"><span>x</span></div>
+        <li><a href="Home.html"><img src="assets/img/icon/home.png"> Home</a></li>
+        <li><a href="Carrinho.html"><img src="assets/img/icon/cartIcon.png" alt=""> Carrinho</a></li>
+        <li><a onclick="login()"><img src="assets/img/icon/user.png"> Login/Cadastro</a></li>
+    </ul>
+  </div>
+
+   <!--? Animação de carregamento -->
+   <section id="carregando">
+    <article>
+      <!--! início do preloader -->
+      <div id="preloader">
+          <div class="inner">
+          <div class="bolas">
+              <div></div>
+              <div></div>
+              <div></div>                    
+          </div>
+          </div>
+      </div>
+    </article>
+  </section>
+  <!--? fim do preloader --> 
+
+  <section id="pop-Up-AddProdutoNovamente">
+    <div id="popUp">
+      <p>Esse produto já foi adicionado em seu carrinho anteriormente! Deseja adiciona-lo de novo?</p>
+      <div>
+        <button onclick="salvarNoCarrinho(true)">Sim</button>
+        <button onclick="fecharPopUp()">Não</button>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <div id="localImgEx">
+      <div id="othersImgs">
+          <img src="" onerror="this.src ='assets/img/site/error2.png'" class="imgEX">
+          <img src="" onerror="this.src ='assets/img/site/error2.png'" class="imgEX">
+          <img src="" onerror="this.src ='assets/img/site/error2.png'" class="imgEX">
+          <img src="" onerror="this.src ='assets/img/site/error2.png'" class="imgEX">
+      </div>
+
+      <img src="" class="imgPrincipal" onerror="this.src ='assets/img/site/error.png'">
+    </div>
+
+    <div id="infos">
+        <h1 class="nameProd">Lorem ipsum dolor</h1>
+        <p id="desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt nam ea reprehenderit iure voluptatum cum sed officia delectus.</p>
+
+        <div id="valorDoProduto" style="display: block;">
+            <p id="valorNormal" class="infoDesconto">R$0.00</p>
+                <p>
+                    <strong class="valorProdAdd">R$0.00</strong> 
+                    <span id="qDesconto" class="infoDesconto">0% OFF</span></p>
+                <p>
+        </p>
+    </div>
+
+        <div id="localBtns">
+            <div id='product-component-1672774067883'></div>
+            <button id="modelo1" class="btnSalvar" onclick="salvarNoCarrinho()">Salvar</button>
+        </div>
+    </div>
+  </main>
+
+  <section id="descricaoDetalhada">
+    <h1>Descrição:</h1>
+    <p id="descricaoP"></p>
+  </section>
+
+  <div class="text">
+    <h1>Podem ser do seu interesse</h1>
+    <hr>
+  </div>
+  <section id="relacionados">
+    <article id="relacionadosLocal"></article>
+  </section>
+
+  <div id="infAddCarrinho">
+    <p>O Produto foi adicionado ao carrinho com sucesso! :)</p>
+    <a href="Carrinho.html">Ir ao Carrinho</a>
+  </div>
+
+    <footer>
+      <div id="contato">
+          <p>Contato</p>
+          <a href=""><img src="assets/img/icon/faceboock.png" alt=""></a>
+          <a href=""><img src="assets/img/icon/insta.png" alt=""></a>
+          <a href=""><img src="assets/img/icon/tele.png" alt=""></a>
+          <a href=""><img src="assets/img/icon/link.png" alt=""></a>
+      </div>
+
+      <p>Preços e condições de pagamento exclusivos para compras via internet e podem variar nas lojas. Os preços anunciados neste site ou via e-mail promocional podem ser alterados sem aviso prévio.</p>
+      <hr>
+      
+      <!--?--- -->
+      <div id="ballFooter">
+          <div></div>
+      </div>
+    </footer>
+
+    <!--? Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-auth.js"></script>
+    <script src="assets/js/firebase.js"></script>
+
+   <!--? Scripts -->
+   <script src="assets/js/funcoesBasicas.js"></script>
+   <script src="assets/js/sobreProduto.js"></script>
+   <script src="assets/js/pesquisar.js"></script>
+
+   <script type="text/javascript">
+      /*<![CDATA[*/
+      (function () {
+        var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
+        if (window.ShopifyBuy) {
+          if (window.ShopifyBuy.UI) {
+            ShopifyBuyInit();
+          } else {
+            loadScript();
+          }
+        } else {
+          loadScript();
+        }
+        function loadScript() {
+          var script = document.createElement('script');
+          script.async = true;
+          script.src = scriptURL;
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
+          script.onload = ShopifyBuyInit;
+        }
+        function ShopifyBuyInit() {
+          var client = ShopifyBuy.buildClient({
+            domain: '80d2cb.myshopify.com',
+            storefrontAccessToken: '441eaa5336e32428c35179b6d0a97095',
+          });
+          ShopifyBuy.UI.onReady(client).then(function (ui) {
+            ui.createComponent('product', {
+              id: idProdSelecionado,
+              node: document.getElementById('product-component-1672774067883'),
+              moneyFormat: 'R%24%20%7B%7Bamount_with_comma_separator%7D%7D',
+              options: {
+                "product": {
+                  "styles": {
+                    "product": {
+                      "@media (min-width: 601px)": {
+                        "max-width": "calc(25% - 20px)",
+                        "margin-left": "20px",
+                        "margin-bottom": "50px"
+                      },
+                      "text-align": "left"
+                    },
+                    "button": {
+                      "color": "#000000",
+                      ":hover": {
+                        "color": "#000000",
+                        "background-color": "#e6e6e6"
+                      },
+                      "background-color": "#ffffff",
+                      ":focus": {
+                        "background-color": "#e6e6e6"
+                      }
+                    }
+                  },
+                  "buttonDestination": "checkout",
+                  "contents": {
+                    "img": false,
+                    "title": false,
+                    "price": false
+                  },
+                  "text": {
+                    "button": "Comprar"
+                  }
+                },
+                "productSet": {
+                  "styles": {
+                    "products": {
+                      "@media (min-width: 601px)": {
+                        "margin-left": "-20px"
+                      }
+                    }
+                  }
+                },
+                "modalProduct": {
+                  "contents": {
+                    "img": false,
+                    "imgWithCarousel": true,
+                    "button": false,
+                    "buttonWithQuantity": true
+                  },
+                  "styles": {
+                    "product": {
+                      "@media (min-width: 601px)": {
+                        "max-width": "100%",
+                        "margin-left": "0px",
+                        "margin-bottom": "0px"
+                      }
+                    },
+                    "button": {
+                      "color": "#000000",
+                      ":hover": {
+                        "color": "#000000",
+                        "background-color": "#e6e6e6"
+                      },
+                      "background-color": "#ffffff",
+                      ":focus": {
+                        "background-color": "#e6e6e6"
+                      }
+                    }
+                  },
+                  "text": {
+                    "button": "Add to cart"
+                  }
+                },
+                "option": {
+                  "styles": {
+                    "label": {
+                      "color": "#ffffff"
+                    }
+                  }
+                },
+                "cart": {
+                  "styles": {
+                    "button": {
+                      "color": "#000000",
+                      ":hover": {
+                        "color": "#000000",
+                        "background-color": "#e6e6e6"
+                      },
+                      "background-color": "#ffffff",
+                      ":focus": {
+                        "background-color": "#e6e6e6"
+                      }
+                    }
+                  },
+                  "text": {
+                    "total": "Subtotal",
+                    "empty": "Seu carrinho está vazio ",
+                    "button": "Comprar"
+                  }
+                },
+                "toggle": {
+                  "styles": {
+                    "toggle": {
+                      "background-color": "#ffffff",
+                      ":hover": {
+                        "background-color": "#e6e6e6"
+                      },
+                      ":focus": {
+                        "background-color": "#e6e6e6"
+                      }
+                    },
+                    "count": {
+                      "color": "#000000",
+                      ":hover": {
+                        "color": "#000000"
+                      }
+                    },
+                    "iconPath": {
+                      "fill": "#000000"
+                    }
+                  }
+                }
+              },
+            });
+          });
+        }
+      })();
+      /*]]>*/
+   </script>
+
+  <script>
+    setTimeout(() => {
+      document.getElementById('carregando').style.display = 'none'
+      if(document.getElementById('product-component-1672774067883').querySelector('iframe').style.height == '200px') {
+        document.getElementsByClassName('btnSalvar')[0].id = 'modelo2'
+        
+        document.getElementById('localBtns').style.position = 'relative'
+        let div = document.getElementById('product-component-1672774067883')
+        div.style.width = '550px'
+        div.style.position = 'absolute'
+        div.style.top = '-70px'
+        div.style.left = '50%'
+        div.style.transform = 'translate(-50%)'
+        
+      } else if(document.getElementById('product-component-1672774067883').querySelector('iframe').style.height == '') {
+        document.getElementsByClassName('btnSalvar')[0].id = 'modelo3'
+
+      } else if(document.getElementById('product-component-1672774067883').querySelector('iframe').style.height == '94px') {
+        document.getElementsByClassName('btnSalvar')[0].id = 'modelo4'
+      } else if(document.getElementById('product-component-1672774067883').querySelector('iframe').style.height == '18px') {
+        location.reload()
+      }
+    }, 1500)
+  </script>
+</body>
+</html>
