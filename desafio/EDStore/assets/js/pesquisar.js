@@ -3,13 +3,14 @@ let key
 let containerSugestao = document.getElementById('recomend')
 setInterval(() => {
     //? Vai chamar a function sugetaoPesquisa sempre que o user digitar ou apagar algo no input
-    let pesquisa = document.getElementById('pesquisaInput').value
-    if(pesquisa.length != tamanhoAtual) {
+    let pesquisa = document.getElementById('pesquisaInput')
+
+    if(pesquisa.value.length != tamanhoAtual) {
         if(key != 'ArrowUp' && key != 'ArrowDown') {
-            sugetaoPesquisa(pesquisa)
-            tamanhoAtual = pesquisa.length
+            sugetaoPesquisa(pesquisa.value)
+            tamanhoAtual = pesquisa.value.length
         }
-    } else if(pesquisa.length == 0) {
+    } else if(pesquisa.value.length == 0) {
         containerSugestao.style.display = 'none'
         document.getElementById('pesquisaInput').style.borderRadius = '10px'
     }

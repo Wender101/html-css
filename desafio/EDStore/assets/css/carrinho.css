@@ -146,18 +146,23 @@ main {
 }
 
 main > div#fala {
-    width: 100%;
+    width: 90%;
+    margin-left: 50%;
+    transform: translate(-50%);
 }
 
 main > div#fala > h1 {
+    width: 90%;
+    margin: auto;
     color: var(--cor4);
     text-align: center;
     margin: 30px 0px;
+    font-size: 1.6rem;
 }
 
 main > div#fala > img {
     max-width: 400px;
     width: 100%;
-    margin-left: 50%;
-    transform: translate(-50%);
+    display: block;
+    margin: auto;
 }
