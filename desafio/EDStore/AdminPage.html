@@ -165,6 +165,16 @@
     <script src="assets/js/firebase.js"></script>
 
     <!--? Scripts -->
+    <script>
+        if(localStorage.getItem('conectado') != 'true') {
+            if(location.host == '127.0.0.1:5500') {
+                location.pathname = '/EntrarPagAdmin.html'
+                
+            } else if(location.host == 'wender101.github.io') {
+                location.href = 'https://wender101.github.io/html-css/desafio/EDStore//EntrarPagAdmin.html'
+            }
+        }
+    </script>
    <script src="assets/js/funcoesBasicas.js"></script>
     <script src="assets/js/admin.js"></script>
     <script src="assets/js/pesquisar.js"></script>

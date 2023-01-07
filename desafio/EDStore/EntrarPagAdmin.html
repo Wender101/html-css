@@ -135,6 +135,7 @@
 
                     if(document.getElementById('emailInput').value == Admins.Senha.Email  && document.getElementById('senhaInput').value == Admins.Senha.Senha) {
                         document.getElementById('recado').innerText = 'Bem Vindo'
+                        localStorage.setItem('conectado', 'true')
 
                         setTimeout(() => {
                             if(location.host == '127.0.0.1:5500') {
