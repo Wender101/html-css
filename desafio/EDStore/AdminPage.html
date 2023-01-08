@@ -153,10 +153,42 @@
           </section>
 
         <button onclick="addProduto()" id="AddBtn">Adicionar Produto</button>
+
+        <div id="btnsAdemin">
+            <button id="salveEdit">Salvar Edição</button>
+            <button onclick="ecluirProd()" id="excluirBtn">Excluir</button>
+            <button id="cancelEdit" onclick="fecharPopUp()">Cancelar Edição</button>
+        </div>
+
+        <div id="confirmarExcluir">
+            <div>
+                <p>Os arquivos excluidos não poderão ser recuperados! Proceguir?</p>
+                <div>
+                    <button id="cancelarExcluir" onclick="fecharConfirmarExcluir()">Cancelar</button>
+                    <button id="confirmarExcluir" onclick="ecluirProdutoConfimado()">Excluir</button>
+                </div>
+            </div>
+        </div>
     </section>
 
     <main>
     </main>
+
+    <!--? Animação de carregamento -->
+   <section id="carregando">
+    <article>
+      <div id="preloader">
+          <div class="inner">
+          <div class="bolas">
+              <div></div>
+              <div></div>
+              <div></div>                    
+          </div>
+          </div>
+        </div>
+        </article>
+    </section>
+    <!--? fim do preloader --> 
 
     <!--? Firebase -->
     <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-app.js"></script>

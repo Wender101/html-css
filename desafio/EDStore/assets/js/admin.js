@@ -9,11 +9,14 @@ function abrirAddProduto() {
 function fecharPopUp() {
     document.getElementById('popUpAddProd').style.display = 'none'
     document.querySelector('html').style.overflow = 'auto'
+    document.getElementById('AddBtn').style.display = 'block'
+    document.getElementById('btnsAdemin').style.display = 'none'
     limpar()
 }
 
 //? Vai limpar os inputs de add
 function limpar() {
+
     let imagem1 = document.getElementsByClassName('imgProd')[0].value = ''
     let imagem2 = document.getElementsByClassName('imgProd')[1].value = ''
     let imagem3 = document.getElementsByClassName('imgProd')[2].value = ''
@@ -62,9 +65,7 @@ setInterval(() => {
                 try {
                     imgEX.src = inputImg
                     
-                } catch (error) {
-                    
-                }
+                } catch (error) {}
             }
 
             if(nameProd.length != valInput2) {
@@ -191,13 +192,12 @@ function carregarProduto() {
     db.collection('Produtos').onSnapshot((data) => {
         data.docs.map(function(val) {
             let Produtos = val.data()
-
-            criaProduto(Produtos.Img1, Produtos.Img2, Produtos.Img3, Produtos.Img4, Produtos.Nome, Produtos.Desc , Produtos.Valor, Produtos.Desconto, Produtos.Id)
+            criaProduto(Produtos.Img1, Produtos.Img2, Produtos.Img3, Produtos.Img4, Produtos.Nome, Produtos.Desc, Produtos.Tags, Produtos.DescDetalhada, Produtos.Categoria, Produtos.Valor, Produtos.Desconto, Produtos.Id)
         })
     })
 } carregarProduto()
 
-function criaProduto(Img1 ,Img2, Img3, Img4, Nome, Desc, Valor, Desconto, Id) {
+function criaProduto(Img1, Img2, Img3, Img4, Nome, Desc, Tags, DescDetalhada, Categoria, Valor, Desconto, Id) {
     let prod = document.createElement('div')
     let localImg = document.createElement('div')
     let imgProduto = document.createElement('img')
@@ -266,10 +266,14 @@ function criaProduto(Img1 ,Img2, Img3, Img4, Nome, Desc, Valor, Desconto, Id) {
             }
         }
     })
+
+    divEdit.addEventListener('click', () => {
+        editarProduto(Img1, Img2, Img3, Img4, Nome, Desc, Tags, DescDetalhada, Categoria, Valor, Desconto, Id)
+    })
 }
 
 //? Vai criar as categorias 
-function criaCategorias(Img1 ,Img2, Img3, Img4, Nome, Desc, DescDetalhada, Valor, Desconto, Id){
+function criaCategorias() {
     let todasAsCategorias = ['...']
     db.collection('Produtos').onSnapshot((data) => {
         data.docs.map(function(val) {
@@ -290,41 +294,96 @@ function criaCategorias(Img1 ,Img2, Img3, Img4, Nome, Desc, DescDetalhada, Valor
                         select.appendChild(option)
                     }
                 } catch (error) {
-                    console.warn(error);
+                    console.warn(error)
                 }
-                
             }
         })
     })
 } criaCategorias()
 
 //? Editar Produto
-function editarProduto() {
+let valId
+function editarProduto(Img1 ,Img2, Img3, Img4, Nome, Desc, Tags, DescDetalhada, categoria, Valor, Desconto, Id) {
+    let editado = false
     db.collection('Produtos').onSnapshot((data) => {
         data.docs.map(function(val) {
             let Produtos = val.data()
 
-            if(Produtos.Id == ) {
-                let imagem1 = document.getElementsByClassName('imgProd')[0].value = ''
-                let imagem2 = document.getElementsByClassName('imgProd')[1].value = ''
-                let imagem3 = document.getElementsByClassName('imgProd')[2].value = ''
-                let imagem4 = document.getElementsByClassName('imgProd')[3].value = ''
-                let name = document.getElementById('nomeProdutoAdd').value = ''
-                let desccription = document.getElementById('descProd').value = ''
-                let val = document.getElementById('valorProd').value = ''
-                let descontoProd = document.getElementById('descontoInput').value = ''
-    
-                let imgEX1 = document.getElementsByClassName('imgEX')[0].src = ''
-                let imgEX2 = document.getElementsByClassName('imgEX')[1].src = ''
-                let imgEX3 = document.getElementsByClassName('imgEX')[2].src = ''
-                let imgEX4 = document.getElementsByClassName('imgEX')[3].src = ''
-                let imgPrincipal = document.getElementsByClassName('imgPrincipal')[0].src = ''
-                let imgPrincipal2 = document.getElementsByClassName('imgPrincipal')[1].src = ''
-                let idDoProduto = document.getElementById('idDoProduto').value = ''
-                let tags = document.getElementById('tags').value = ''
-                let descDetalhada = document.getElementById('descDetalhada').value = ''
-                let selecCategoria = document.getElementById('selecCategoria').value = ''
+            if(Produtos.Id == Id && editado == false) {
+                editado = true
+                valId = val.id
+                abrirAddProduto()
+                document.getElementById('AddBtn').style.display = 'none'
+                document.getElementById('btnsAdemin').style.display = 'flex'
+                let salveEdit = document.getElementById('salveEdit')
+
+                let imagem1 = document.getElementsByClassName('imgProd')[0].value = Img1
+                let imagem2 = document.getElementsByClassName('imgProd')[1].value = Img2
+                let imagem3 = document.getElementsByClassName('imgProd')[2].value = Img3
+                let imagem4 = document.getElementsByClassName('imgProd')[3].value = Img4
+                let name = document.getElementById('nomeProdutoAdd').value = Nome
+                let desccription = document.getElementById('descProd').value = Desc
+                let valor = document.getElementById('valorProd').value = Valor
+                let descontoProd = document.getElementById('descontoInput').value = Desconto
+                let imgEX1 = document.getElementsByClassName('imgEX')[0].src = Img1
+                let imgEX2 = document.getElementsByClassName('imgEX')[1].src = Img2
+                let imgEX3 = document.getElementsByClassName('imgEX')[2].src = Img3
+                let imgEX4 = document.getElementsByClassName('imgEX')[3].src = Img4
+                let imgPrincipal = document.getElementsByClassName('imgPrincipal')[0].src = Img1
+                let imgPrincipal2 = document.getElementsByClassName('imgPrincipal')[1].src = Img2
+                let idDoProduto = document.getElementById('idDoProduto').value = Id
+                let tags = document.getElementById('tags').value = Tags
+                let descDetalhada = document.getElementById('descDetalhada').value = DescDetalhada
+                let selecCategoria = document.getElementById('selecCategoria').value = categoria
             }
+
+            salveEdit.addEventListener('click', () => {
+                salvarEdit()
+            })
         })
     })
+}
+
+//? Salvar Alteração
+function salvarEdit() {
+    document.getElementById('carregando').style.display = 'flex'
+
+    let imagem1 = document.getElementsByClassName('imgProd')[0].value
+    let imagem2 = document.getElementsByClassName('imgProd')[1].value
+    let imagem3 = document.getElementsByClassName('imgProd')[2].value
+    let imagem4 = document.getElementsByClassName('imgProd')[3].value
+    let name = document.getElementById('nomeProdutoAdd').value
+    let desccription = document.getElementById('descProd').value
+    let valor = document.getElementById('valorProd').value
+    let descontoProd = document.getElementById('descontoInput').value
+    let tags = document.getElementById('tags').value
+    let descDetalhada = document.getElementById('descDetalhada').value
+    let selecCategoria = document.getElementById('selecCategoria').value
+    let idDoProduto = document.getElementById('idDoProduto').value
+
+    db.collection('Produtos').doc(valId).update({Img1: imagem1 ,Img2: imagem2, Img3: imagem3, Img4: imagem4, Nome: name, Desc: desccription, Tags: tags, DescDetalhada: descDetalhada, categoria: selecCategoria, Valor: valor, Desconto: descontoProd, Id: idDoProduto})
+
+    setTimeout(() => {
+        location.reload()
+    }, 1000)
+}
+
+//? Vai perdir confirmação para excluir o produto
+function ecluirProd() {
+    document.getElementById('confirmarExcluir').style.display = 'flex'
+}
+
+//? Vai fechar a confirmação para excluir o produto
+function fecharConfirmarExcluir() {
+    document.getElementById('confirmarExcluir').style.display = 'none'
+    document.getElementById('carregando').style.display = 'flex'
+    setTimeout(() => {
+        location.reload()
+    }, 1000)
+}
+
+//? Vai excluir o produto
+function ecluirProdutoConfimado() {
+    db.collection('Produtos').doc(valId).delete()
+    fecharConfirmarExcluir()
 }
