@@ -231,7 +231,7 @@ section#popUpAddProd > div#ex2 > div#infos > div > button {
 
 /*? descricaoDetalhada */
 section#descricaoDetalhada {
-    width: 100%;
+    width: 95%;
     max-width: 1000px;
     color: var(--cor6);
     margin: auto;
@@ -258,17 +258,18 @@ section#popUpAddProd > button {
 }
 
 section#popUpAddProd > div#btnsAdemin {
-    width: 100%;
-    max-width: 400px;
+    width: 95%;
+    max-width: 450px;
     height: 150px;
     display: none;
     align-items: center;
     justify-content: space-around;
     margin: auto;
+    margin-bottom: 100px;
 }
 
 section#popUpAddProd > div#btnsAdemin > button {
-    padding: 10px 20px;
+    padding: 10px 7px;
     border-radius: 5px;
     background-color: var(--cor6);
     color: var(--cor1);
