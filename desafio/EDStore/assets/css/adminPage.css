@@ -258,6 +258,10 @@ section#popUpAddProd > button {
 }
 
 /*? Prod */
+div.prod {
+    position: relative;
+}
+
 div.prod > div.divEdit {
     width: 30px;
     height: 30px;

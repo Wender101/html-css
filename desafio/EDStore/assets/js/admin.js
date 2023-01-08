@@ -269,7 +269,7 @@ function criaProduto(Img1 ,Img2, Img3, Img4, Nome, Desc, Valor, Desconto, Id) {
 }
 
 //? Vai criar as categorias 
-function criaCategorias() {
+function criaCategorias(Img1 ,Img2, Img3, Img4, Nome, Desc, DescDetalhada, Valor, Desconto, Id){
     let todasAsCategorias = ['...']
     db.collection('Produtos').onSnapshot((data) => {
         data.docs.map(function(val) {
@@ -297,3 +297,34 @@ function criaCategorias() {
         })
     })
 } criaCategorias()
+
+//? Editar Produto
+function editarProduto() {
+    db.collection('Produtos').onSnapshot((data) => {
+        data.docs.map(function(val) {
+            let Produtos = val.data()
+
+            if(Produtos.Id == ) {
+                let imagem1 = document.getElementsByClassName('imgProd')[0].value = ''
+                let imagem2 = document.getElementsByClassName('imgProd')[1].value = ''
+                let imagem3 = document.getElementsByClassName('imgProd')[2].value = ''
+                let imagem4 = document.getElementsByClassName('imgProd')[3].value = ''
+                let name = document.getElementById('nomeProdutoAdd').value = ''
+                let desccription = document.getElementById('descProd').value = ''
+                let val = document.getElementById('valorProd').value = ''
+                let descontoProd = document.getElementById('descontoInput').value = ''
+    
+                let imgEX1 = document.getElementsByClassName('imgEX')[0].src = ''
+                let imgEX2 = document.getElementsByClassName('imgEX')[1].src = ''
+                let imgEX3 = document.getElementsByClassName('imgEX')[2].src = ''
+                let imgEX4 = document.getElementsByClassName('imgEX')[3].src = ''
+                let imgPrincipal = document.getElementsByClassName('imgPrincipal')[0].src = ''
+                let imgPrincipal2 = document.getElementsByClassName('imgPrincipal')[1].src = ''
+                let idDoProduto = document.getElementById('idDoProduto').value = ''
+                let tags = document.getElementById('tags').value = ''
+                let descDetalhada = document.getElementById('descDetalhada').value = ''
+                let selecCategoria = document.getElementById('selecCategoria').value = ''
+            }
+        })
+    })
+}
