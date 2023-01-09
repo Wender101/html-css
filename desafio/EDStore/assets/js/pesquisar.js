@@ -183,6 +183,7 @@ function criaCategorias() {
                         span.innerText = Produtos.Categoria
                         img.src = 'assets/img/icon/setaAzul.png'
 
+                        console.log(localStorage.getItem('produtoPagProduto'), Produtos.Categoria);
                         if(localStorage.getItem('produtoPagProduto') == Produtos.Categoria) {
                             li.id = 'selected'
                             img.src = 'assets/img/icon/setaBranca.png'

@@ -142,6 +142,7 @@ function remover(modo = 'um') {
                     if(cloneCarrinhoAtual.length <= 0) {
                         db.collection('Carrinho').doc(valUser).delete()
                         document.getElementsByClassName('text')[0].style.display = 'none'
+                        document.querySelector('main').style.width = '50%'
                         document.getElementById('fala').style.display = 'block'
                     }
                 }

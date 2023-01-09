@@ -453,9 +453,9 @@ section#carregando > article {
 }
 /* end: Preloader */
 
-@media screen and (max-width: 1194px) {
+@media screen and (max-width: 1206px) {
     main {
-        max-width: 956px;
+        max-width: 957px;
     }
 
     section#popUpAddProd > div#ex2 {
@@ -471,9 +471,9 @@ section#carregando > article {
     }
 }
 
-@media screen and (max-width: 965px) {
+@media screen and (max-width: 967px) {
     main {
-        max-width: 636px;
+        max-width: 640px;
     }
 
     main > div.prod {
@@ -486,7 +486,11 @@ section#carregando > article {
     }
 }
 
-@media screen and (max-width: 745px) {
+@media screen and (max-width: 645px) {
+    main {
+        max-width: 425px;
+    }
+
     section#popUpAddProd > div#ex2 > div#localImgEx > div#othersImgs {
         padding-top: 200px;
     }
@@ -518,10 +522,6 @@ section#carregando > article {
 }
 
 @media screen and (max-width: 638px) {
-    main {
-        max-width: 430px;
-    }
-
     section#popUpAddProd {
         padding-top: 100px;
     }
@@ -556,7 +556,7 @@ section#carregando > article {
 
 @media screen and (max-width: 478px) {
     main {
-        width: 364px;
+        width: 365px;
     }
 
     main > div.prod {
@@ -575,7 +575,7 @@ section#carregando > article {
     }
 }
 
-@media screen and (max-width: 366px) {
+@media screen and (max-width: 368px) {
     main {
         width: 220px;
     }
