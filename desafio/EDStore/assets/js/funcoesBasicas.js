@@ -48,17 +48,21 @@ function modoPage(modo = '') {
         setTimeout(() => {
         try {
             document.getElementById('carregando').style.display = 'none'
+            document.getElementsByClassName('slide-btn')[0].style.backgroundColor = cor2
+            document.getElementsByClassName('slide-btn')[1].style.backgroundColor = cor2
+            document.getElementsByClassName('slide-btn')[0].style.color = cor1
+            document.getElementsByClassName('slide-btn')[1].style.color = cor1
         } catch {}
-        document.getElementById('mainP').style.backgroundColor = '#363636'
+        try {
+            document.getElementById('mainP').style.backgroundColor = '#363636'
+        } catch (error) {
+            
+        }
         document.getElementById('modoClaro').style.backgroundImage = 'url(assets/img/icon/sol.png)'
         document.querySelector('body').style.backgroundColor = cor2
         document.querySelector('body').style.color = cor1
         document.querySelector('header').querySelector('span').style.color = cor1
         document.getElementById('aCarrinho').style.color = cor1
-        document.getElementsByClassName('slide-btn')[0].style.backgroundColor = cor2
-        document.getElementsByClassName('slide-btn')[1].style.backgroundColor = cor2
-        document.getElementsByClassName('slide-btn')[0].style.color = cor1
-        document.getElementsByClassName('slide-btn')[1].style.color = cor1
         document.getElementById('pesquisaInput')
 
         for(let c = 0; c < 100; c++) {
@@ -80,17 +84,19 @@ function modoPage(modo = '') {
         setTimeout(() => {
         try {
             document.getElementById('carregando').style.display = 'none'
+            document.getElementsByClassName('slide-btn')[0].style.backgroundColor = cor1
+            document.getElementsByClassName('slide-btn')[1].style.backgroundColor = cor1
+            document.getElementsByClassName('slide-btn')[0].style.color = cor0
+            document.getElementsByClassName('slide-btn')[1].style.color = cor0
         } catch {}
-        document.getElementById('mainP').style.backgroundColor = '#04b3ff'
+        try {
+            document.getElementById('mainP').style.backgroundColor = '#04b3ff'
+        } catch {}
         document.getElementById('modoClaro').style.backgroundImage = 'url(assets/img/icon/lua.png)'
         document.querySelector('body').style.backgroundColor = cor1
         document.querySelector('body').style.color = cor0
         document.querySelector('header').querySelector('span').style.color = cor0
         document.getElementById('aCarrinho').style.color = cor0
-        document.getElementsByClassName('slide-btn')[0].style.backgroundColor = cor1
-        document.getElementsByClassName('slide-btn')[1].style.backgroundColor = cor1
-        document.getElementsByClassName('slide-btn')[0].style.color = cor0
-        document.getElementsByClassName('slide-btn')[1].style.color = cor0
         
         for(let c = 0; c < 100; c++) {
             try {
@@ -99,7 +105,7 @@ function modoPage(modo = '') {
                     document.getElementById('selected').style.backgroundColor = cor4
                     document.getElementById('selected').style.color = cor1
                     document.getElementsByClassName('Categorias')[c].style.border = '1px solid var(--cor3)'
-                } catch (error) {console.warn(error)}
+                } catch {}
             }
         }, 1000)
     }
