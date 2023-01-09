@@ -53,7 +53,7 @@ function modoPage(modo = '') {
         try {
             document.getElementById('carregando').style.backgroundColor = cor2
         } catch {
-            document.getElementById('carregando1').style.backgroundColor = cor2
+            document.getElementById('carregando-1').style.backgroundColor = cor2
         }
         
         setTimeout(() => {
