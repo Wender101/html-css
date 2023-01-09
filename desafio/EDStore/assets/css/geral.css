@@ -427,7 +427,7 @@ footer > div#ballFooter > div {
     background-color: #05ABF3;
 }
 
-@media screen and (max-width: 963px) {
+@media screen and (max-width: 1139px) {
     header > section#parte1Header > a > img {
         height: 25px;
     }
@@ -437,29 +437,37 @@ footer > div#ballFooter > div {
     }
 
     header > section > div#localInput {
-        width: 30vw;
+        width: 60vw;
+    }
+
+    header > section > div > img {
+        margin: 14px 0px 0px 70px;
+    }
+    
+    header > section > div > input {
+        margin-left: 60%;
     }
 }
 
 @media screen and (max-width: 797px) {
-    header > section#parte1Header > a > img {
-        display: none;
+    header {
+        height: 50px;
     }
 
-    header > section > div#localInput {
-        width: 45vw;
-    }
-
-    header > section > button > span,  header > section > button > a {
-        display: none;
-    }
-
-    header > section > button#configBtn {
+    header > section#parte1Header > #configBtn {
         display: block;
     }
 
-    header > section#parte3Header > button#login {
-        display: none;
+    header > section#parte1Header > a > img {
+       display: none;
+    }
+
+    header > section > div#localInput {
+        width: 80vw;
+    }
+
+    header > section > div > img {
+        margin: 14px 0px 0px 12%;
     }
 }
 
@@ -468,16 +476,18 @@ footer > div#ballFooter > div {
         width: 100%;
         overflow: hidden;
     }
+}
 
-    header > section#parte2Header {
-        width: 50vw;
+@media screen and (max-width: 383px) {
+    header > section > div#localInput {
+        width: 60vw;
     }
 
-    header > section#parte2Header > div#localInput {
-        width: 100%;
+    header > section > div > input {
+        margin-left: 70%;
     }
 
-    header > section#parte3Header > button {
-        display: none;
+    header > section > div > img {
+        margin: 14px 0px 0px 25%;
     }
 }
