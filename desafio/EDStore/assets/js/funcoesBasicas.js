@@ -39,10 +39,16 @@ function modoPage(modo = '') {
     let cor4 = '#04b3ff'
 
     if(darkModeAtivo == true || darkModeAtivo == 'true') {
-        document.getElementById('carregando').style.backgroundColor = cor2
+        try {
+            document.getElementById('carregando').style.backgroundColor = cor2
+        } catch {
+            document.getElementById('carregando1').style.backgroundColor = cor2
+        }
         
         setTimeout(() => {
-        document.getElementById('carregando').style.display = 'none'
+        try {
+            document.getElementById('carregando').style.display = 'none'
+        } catch {}
         document.getElementById('mainP').style.backgroundColor = '#363636'
         document.getElementById('modoClaro').style.backgroundImage = 'url(assets/img/icon/sol.png)'
         document.querySelector('body').style.backgroundColor = cor2
@@ -66,9 +72,15 @@ function modoPage(modo = '') {
         }, 1000)
 
     } else {
-        document.getElementById('carregando').style.backgroundColor = cor1
+        try {
+            document.getElementById('carregando').style.backgroundColor = cor1
+        } catch {
+            document.getElementById('carregando1').style.backgroundColor = cor1
+        }
         setTimeout(() => {
-        document.getElementById('carregando').style.display = 'none'
+        try {
+            document.getElementById('carregando').style.display = 'none'
+        } catch {}
         document.getElementById('mainP').style.backgroundColor = '#04b3ff'
         document.getElementById('modoClaro').style.backgroundImage = 'url(assets/img/icon/lua.png)'
         document.querySelector('body').style.backgroundColor = cor1
