@@ -9,6 +9,7 @@ let localPerguntas = document.getElementById('localPerguntas')
 let chatCarregado = false
 function cirarChat(pergunta = inputPergunta.value, resp = '...', data = '', emailUser, lengthPerguntas) {
     if(pergunta.length > 0 && qtnsPergunta < 4) {
+        console.log(qtnsPergunta)
         document.getElementById('sejaPrimeiro').style.display = 'none'
 
         let divPergunta = document.createElement('div')
@@ -130,17 +131,24 @@ function chat() {
                         }
                     }
                 } catch (error) {}
+            } else {
+                chatCarregado = false
+                localPerguntas.innerHTML = ''
+                setTimeout(() => {
+                    chat()
+                }, 100)
             }
         })
     })
 
     setTimeout(() => {
         chatCarregado = true
-    }, 1000)
+    }, 100)
 } chat()
 
 //? Vai salvar a pergunta
 function salvarPergunta(pergunta) {
+    qtnsPergunta++
     if(email != undefined) {
         if(qtnsPergunta < 4) {
             let perguntaFeita = false
