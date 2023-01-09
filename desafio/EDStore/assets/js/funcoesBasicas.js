@@ -71,7 +71,7 @@ function modoPage(modo = '') {
                     document.getElementsByClassName('Categorias')[c].style.color = cor1
                     document.getElementsByClassName('Categorias')[c].style.border = '1px solid var(--cor4)'
                     document.getElementById('selected').style.backgroundColor = cor4
-                } catch (error) {console.warn(error)}
+                } catch {}
             }
         }, 1000)
 
