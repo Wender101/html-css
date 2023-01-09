@@ -69,7 +69,7 @@ function modoPage(modo = '') {
         } catch (error) {
             
         }
-        document.getElementById('menu').querySelector('ul').style.background = cor0
+        document.getElementById('menu').querySelector('ul').style.background = cor2
         document.getElementById('menu').querySelector('ul').style.color = cor1
         document.getElementsByClassName('modoClaro')[0].style.backgroundImage = 'url(assets/img/icon/sol.png)'
         document.getElementsByClassName('modoClaro')[1].style.backgroundImage = 'url(assets/img/icon/sol.png)'
