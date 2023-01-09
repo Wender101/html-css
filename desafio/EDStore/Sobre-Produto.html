@@ -329,7 +329,8 @@
   <script>
     setTimeout(() => {
       document.getElementById('carregando').style.display = 'none'
-      if(document.getElementById('product-component-1672774067883').querySelector('iframe').style.height == '200px') {
+      let heightIframe = document.getElementById('product-component-1672774067883').querySelector('iframe').style.height
+      if(heightIframe == '190px' || heightIframe == '191px' || heightIframe == '192px' || heightIframe == '193px' || heightIframe == '194px' || heightIframe == '195px' || heightIframe == '196px' || heightIframe == '197px' || heightIframe == '198px' || heightIframe == '199px' || heightIframe == '200px' || heightIframe == '201px') {
         document.getElementsByClassName('btnSalvar')[0].id = 'modelo2'
         
         document.getElementById('localBtns').style.position = 'relative'
@@ -340,12 +341,12 @@
         div.style.left = '50%'
         div.style.transform = 'translate(-50%)'
         
-      } else if(document.getElementById('product-component-1672774067883').querySelector('iframe').style.height == '') {
+      } else if(heightIframe == '') {
         document.getElementsByClassName('btnSalvar')[0].id = 'modelo3'
 
-      } else if(document.getElementById('product-component-1672774067883').querySelector('iframe').style.height == '94px') {
+      } else if(heightIframe == '94px') {
         document.getElementsByClassName('btnSalvar')[0].id = 'modelo4'
-      } else if(document.getElementById('product-component-1672774067883').querySelector('iframe').style.height == '18px') {
+      } else if(heightIframe === '18px') {
         location.reload()
       }
     }, 1500)
