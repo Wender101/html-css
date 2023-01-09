@@ -1,3 +1,8 @@
+//? Trabalhamos com Cookies
+function fecharAviso() {
+    document.getElementById('cookies').style.display = 'none'
+}
+
 let menu = document.getElementById('menu')
 function abrirMenu() {
     menu.style.display = 'block'
@@ -24,7 +29,6 @@ if(localStorage.getItem('Modo') == null || localStorage.getItem('Modo') == undef
 }
 
 function modoPage(modo = '') {
-    console.log(modoAtual);
     //? Vai alterar o modo
     if(modoAtual == false && modo == '' || modoAtual == 'false'  && modo == '') {
         modoAtual = true
@@ -38,6 +42,12 @@ function modoPage(modo = '') {
     let cor2 = '#181a1b' 
     let cor3 = '#e5edf0'
     let cor4 = '#04b3ff'
+
+    for(let c = 0; c < 10; c++) {
+        try {
+            document.getElementsByClassName('aDivMenu')[c].querySelector('span').id = 'spanDark' + (c + 1)
+        } catch {}
+    }
 
     if(modoAtual == false || modoAtual == 'false') {
         try {
@@ -59,7 +69,10 @@ function modoPage(modo = '') {
         } catch (error) {
             
         }
-        document.getElementById('modoClaro').style.backgroundImage = 'url(assets/img/icon/sol.png)'
+        document.getElementById('menu').querySelector('ul').style.background = cor0
+        document.getElementById('menu').querySelector('ul').style.color = cor1
+        document.getElementsByClassName('modoClaro')[0].style.backgroundImage = 'url(assets/img/icon/sol.png)'
+        document.getElementsByClassName('modoClaro')[1].style.backgroundImage = 'url(assets/img/icon/sol.png)'
         document.querySelector('body').style.backgroundColor = cor2
         document.querySelector('body').style.color = cor1
         document.querySelector('header').querySelector('span').style.color = cor1
@@ -68,14 +81,20 @@ function modoPage(modo = '') {
 
         for(let c = 0; c < 100; c++) {
             try {
-                    document.getElementsByClassName('Categorias')[c].style.backgroundColor = cor2
-                    document.getElementsByClassName('Categorias')[c].style.color = cor1
-                    document.getElementsByClassName('Categorias')[c].style.border = '1px solid var(--cor4)'
-                    document.getElementById('selected').style.backgroundColor = cor4
-                } catch {}
-            }
+                document.getElementById('spanDark' + c).style.color = cor1
+                document.getElementById('spanDark-1').style.color = cor0
+            } catch {}
+
+            try {
+                document.getElementsByClassName('Categorias')[c].style.backgroundColor = cor2
+                document.getElementsByClassName('Categorias')[c].style.color = cor1
+                document.getElementsByClassName('Categorias')[c].style.border = '1px solid var(--cor4)'
+                document.getElementById('selected').style.backgroundColor = cor4
+            } catch {}
+        }
         }, 1000)
 
+        //! ---------------------------------------------------------------
     } else {
         try {
             document.getElementById('carregando').style.backgroundColor = cor1
@@ -83,24 +102,32 @@ function modoPage(modo = '') {
             document.getElementById('carregando1').style.backgroundColor = cor1
         }
         setTimeout(() => {
-        try {
-            document.getElementById('carregando').style.display = 'none'
-            document.getElementsByClassName('slide-btn')[0].style.backgroundColor = cor1
-            document.getElementsByClassName('slide-btn')[1].style.backgroundColor = cor1
-            document.getElementsByClassName('slide-btn')[0].style.color = cor0
-            document.getElementsByClassName('slide-btn')[1].style.color = cor0
-        } catch {}
-        try {
-            document.getElementById('mainP').style.backgroundColor = '#04b3ff'
-        } catch {}
-        document.getElementById('modoClaro').style.backgroundImage = 'url(assets/img/icon/lua.png)'
-        document.querySelector('body').style.backgroundColor = cor1
-        document.querySelector('body').style.color = cor0
-        document.querySelector('header').querySelector('span').style.color = cor0
-        document.getElementById('aCarrinho').style.color = cor0
-        
-        for(let c = 0; c < 100; c++) {
             try {
+                document.getElementById('menu').querySelector('ul').style.background = cor1
+                document.getElementById('menu').querySelector('ul').style.color = cor0
+                document.getElementById('carregando').style.display = 'none'
+                document.getElementsByClassName('slide-btn')[0].style.backgroundColor = cor1
+                document.getElementsByClassName('slide-btn')[1].style.backgroundColor = cor1
+                document.getElementsByClassName('slide-btn')[0].style.color = cor0
+                document.getElementsByClassName('slide-btn')[1].style.color = cor0
+            } catch {}
+            try {
+                document.getElementById('mainP').style.backgroundColor = '#04b3ff'
+            } catch {}
+            document.getElementsByClassName('modoClaro')[0].style.backgroundImage = 'url(assets/img/icon/lua.png)'
+            document.getElementsByClassName('modoClaro')[1].style.backgroundImage = 'url(assets/img/icon/lua.png)'
+            document.querySelector('body').style.backgroundColor = cor1
+            document.querySelector('body').style.color = cor0
+            document.querySelector('header').querySelector('span').style.color = cor0
+            document.getElementById('aCarrinho').style.color = cor0
+            
+            for(let c = 0; c < 100; c++) {
+                try {
+                    document.getElementById('spanDark' + c).style.color = cor0
+                    document.getElementById('spanDark-1').style.color = cor0
+                } catch {}
+
+                try {
                     document.getElementsByClassName('Categorias')[c].style.backgroundColor = cor3
                     document.getElementsByClassName('Categorias')[c].style.color = cor0
                     document.getElementById('selected').style.backgroundColor = cor4

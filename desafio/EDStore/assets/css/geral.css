@@ -140,12 +140,25 @@ section#carregando > article {
 }
 /* end: Preloader */
 
-#modoClaro {
+.modoClaro {
     width: 30px;
     height: 30px;
     background-image: url(../img/icon/sol.png);
     background-position: center;
     background-size: contain;
+}
+
+div#menu > ul > li > .modoClaro {
+    margin: 20px;
+}
+
+div#menu > ul > li > .modoClaro > span {
+    margin-left: 40px;
+    font-size: 18px;
+}
+
+div#menu > ul > li {
+    border-bottom: 2px solid var(--cor4);
 }
 
 strong {
@@ -345,7 +358,6 @@ div#menu > ul > li > a {
     display: flex;
     align-items: center;
     padding: 20px;
-    border-bottom: 1px solid var(--cor4);
 }
 
 div#menu > ul > li > a > img {
@@ -420,6 +432,10 @@ footer > div#ballFooter > div {
         height: 25px;
     }
 
+    header > section#parte3Header > button {
+        display: none;
+    }
+
     header > section > div#localInput {
         width: 30vw;
     }
@@ -434,12 +450,16 @@ footer > div#ballFooter > div {
         width: 45vw;
     }
 
-    header > section > button > span,  header > section > button > a{
+    header > section > button > span,  header > section > button > a {
         display: none;
     }
 
     header > section > button#configBtn {
         display: block;
+    }
+
+    header > section#parte3Header > button#login {
+        display: none;
     }
 }
 

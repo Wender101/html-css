@@ -30,9 +30,9 @@
         </section>
 
         <section id="parte3Header">
-            <button id="modoClaro" onclick="modoPage()"></button>
+            <button class="modoClaro" onclick="modoPage()"></button>
             <button id="login" onclick="login()"><img src="assets/img/icon/user.png" alt="icone usuario"> <span>Login/Cadastro</span></button>
-            <button><img src="assets/img/icon/cartIcon.png" alt="icone carrinho"> <a id="aCarrinho" href="Carrinho.html">Carrinho</a></button>
+            <button><a id="aCarrinho" href="Carrinho.html"><img src="assets/img/icon/cartIcon.png" alt="icone carrinho">  Carrinho</a></button>
         </section>
     </header>
     <nav>
@@ -42,11 +42,12 @@
 
     <div id="menu">
         <ul>
-            <div id="fecharMenu" onclick="fecharMenu()"><span>x</span></div>
+            <div id="fecharMenu" onclick="fecharMenu()"><span id="spanDark-1">x</span></div>
             
-            <li><a href="Home.html"><img src="assets/img/icon/home.png" alt=""> Home</a></li>
-            <li><a href="Carrinho.html"><img src="assets/img/icon/cartIcon.png" alt=""> Carrinho</a></li>
-            <li><a onclick="login()"><img src="assets/img/icon/user.png"> Login/Cadastro</a></li>
+            <li><a class="aDivMenu" href="Home.html"><img src="assets/img/icon/home.png" alt=""> Home</a></li>
+            <li><a class="aDivMenu" href="Carrinho.html"><img src="assets/img/icon/cartIcon.png" alt=""> Carrinho</a></li>
+            <li><a class="aDivMenu" onclick="login()"><img src="assets/img/icon/user.png"> Login/Cadastro</a></li>
+            <li><button class="modoClaro" onclick="modoPage()"><span id="spanDark0">Tema</span></button></li>
         </ul>
     </div>
 
