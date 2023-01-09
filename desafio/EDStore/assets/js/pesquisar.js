@@ -179,11 +179,10 @@ function criaCategorias() {
                         let span = document.createElement('span')
                         let img = document.createElement('img')
 
-                        li.className = 'Tags'
+                        li.className = 'Categorias'
                         span.innerText = Produtos.Categoria
                         img.src = 'assets/img/icon/setaAzul.png'
 
-                        console.log(localStorage.getItem('produtoPagProduto'), Produtos.Categoria);
                         if(localStorage.getItem('produtoPagProduto') == Produtos.Categoria) {
                             li.id = 'selected'
                             img.src = 'assets/img/icon/setaBranca.png'
@@ -199,7 +198,7 @@ function criaCategorias() {
                         li.addEventListener('click', () => {
                             try {
                                 for(let c = 0; c < 30; c++) {
-                                    let othersLi = document.getElementsByClassName('Tags')[0]
+                                    let othersLi = document.getElementsByClassName('Categorias')[0]
                                     let imgs = othersLi.querySelector('img')
                                     othersLi.id = ''
                                     imgs.src = 'assets/img/icon/setaAzul.png'

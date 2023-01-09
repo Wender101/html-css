@@ -277,7 +277,7 @@ section#popUpAddProd > button {
 
 section#popUpAddProd > div#btnsAdemin {
     width: 95%;
-    max-width: 450px;
+    max-width: 550px;
     height: 150px;
     display: none;
     align-items: center;
@@ -307,6 +307,10 @@ section#popUpAddProd > div#btnsAdemin > button#excluirBtn {
 
 section#popUpAddProd > div#btnsAdemin > button#cancel {
     background-color: var(--cor3);
+}
+
+section#popUpAddProd > div#btnsAdemin > button#suspenderProd {
+    background-color: var(--cor8);
 }
 
 /*? Confirmarexcluir produto */
@@ -381,77 +385,6 @@ div.prod > div.divEdit > span {
     background-repeat: no-repeat;
     background-position: center;
 }
-
-/* ini: Preloader */
-#carregando {
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    top: 0px;
-    z-index: 10;
-    display: none;
-    justify-content: center;
-    background-color: var(--cor1);
-    align-items: center;
-}
-
-section#carregando > article {
-    width: 80%;
-    color: var(--cor0);
-}
- 
-#preloader .inner {
-    position: absolute;
-    top: 50%; /* centralizar a parte interna do preload (onde fica a animação)*/
-    left: 50%;
-    transform: translate(-50%, -50%);  
-}
-.bolas > div {
-  display: inline-block;
-  background-color: var(--cor4);
-  box-shadow: 2px 2px 3px var(--sombra);
-  width: 25px;
-  height: 25px;
-  border-radius: 100%;
-  margin: 3px;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
-  animation-name: animarBola;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-   
-}
-.bolas > div:nth-child(1) {
-    animation-duration:0.75s ;
-    animation-delay: 0;
-}
-.bolas > div:nth-child(2) {
-    animation-duration: 0.75s ;
-    animation-delay: 0.12s;
-}
-.bolas > div:nth-child(3) {
-    animation-duration: 0.75s  ;
-    animation-delay: 0.24s;
-}
- 
-@keyframes animarBola {
-  0% {
-    -webkit-transform: scale(1);
-    transform: scale(1);
-    opacity: 1;
-  }
-  16% {
-    -webkit-transform: scale(0.1);
-    transform: scale(0.1);
-    opacity: 0.7;
-  }
-  33% {
-    -webkit-transform: scale(1);
-    transform: scale(1);
-    opacity: 1; 
-  } 
-}
-/* end: Preloader */
 
 @media screen and (max-width: 1206px) {
     main {

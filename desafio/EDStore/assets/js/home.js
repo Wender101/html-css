@@ -65,7 +65,6 @@ db.collection('Produtos').onSnapshot((data) => {
             if(pesquisaInp.includes(categ) && achado == false || categ.includes(pesquisaInp) && achado == false) {
                 achado = true
                 pesquisarPorCat = true
-                console.log(categ.slice(-1));
                 if(categ.slice(-1) != 's' && categ.slice(-1) != 'S') {
                     document.getElementById('ideal').innerText = 'ideal'
                 }

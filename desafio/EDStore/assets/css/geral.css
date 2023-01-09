@@ -9,7 +9,25 @@
     --cor5: #0ae715; 
     --cor6: #666666;
     --cor7: #00a1ff;
+    --cor8: #ffe600;
     
+    --darkreader-bg--cor1: #181a1b;
+    --darkreader-text--cor1: #e8e6e3;
+    --darkreader-text--cor2: #e8e6e3;
+    --darkreader-bg--cor3: #1c2a30;
+    --darkreader-border--cor3: #2a4048;
+    --darkreader-bg--cor4: #008dca;
+    --darkreader-text--cor4: #1cbaff;
+    --darkreader-border--cor4: #007cb1;
+    --darkreader-text--cor5: #2cf636;
+    --darkreader-bg--cor6: #4d5356;
+    --darkreader-text--cor6: #a8a095;
+    --darkreader-bg--cor7: #0081cc;
+    --darkreader-text--cor7: #1aaaff;
+    --darkreader-bg--cor8: #998a00;
+    --darkreader-bg--sombra: rgba(0, 0, 0, 0.38);
+    --sombra2: rgba(0, 0, 0, 0.658);
+
     --sombra: rgba(0, 0, 0, 0.377);
     --sombra2: rgba(0, 0, 0, 0.658);
 
@@ -48,6 +66,86 @@ body {
     min-height: 100vh;
     font-family: var(--font-text);
     overflow-x: hidden;
+    background-color: var(--cor1);
+}
+
+/* ini: Preloader */
+#carregando {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0px;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    background-color: var(--cor1);
+    align-items: center;
+}
+
+section#carregando > article {
+    width: 80%;
+    color: var(--cor0);
+}
+ 
+#preloader .inner {
+    position: absolute;
+    top: 50%; /* centralizar a parte interna do preload (onde fica a animação)*/
+    left: 50%;
+    transform: translate(-50%, -50%);  
+}
+.bolas > div {
+  display: inline-block;
+  background-color: var(--cor4);
+  box-shadow: 2px 2px 3px var(--sombra);
+  width: 25px;
+  height: 25px;
+  border-radius: 100%;
+  margin: 3px;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  animation-name: animarBola;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+   
+}
+.bolas > div:nth-child(1) {
+    animation-duration:0.75s ;
+    animation-delay: 0;
+}
+.bolas > div:nth-child(2) {
+    animation-duration: 0.75s ;
+    animation-delay: 0.12s;
+}
+.bolas > div:nth-child(3) {
+    animation-duration: 0.75s  ;
+    animation-delay: 0.24s;
+}
+ 
+@keyframes animarBola {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+  }
+  16% {
+    -webkit-transform: scale(0.1);
+    transform: scale(0.1);
+    opacity: 0.7;
+  }
+  33% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 1; 
+  } 
+}
+/* end: Preloader */
+
+#modoClaro {
+    width: 30px;
+    height: 30px;
+    background-image: url(../img/icon/sol.png);
+    background-position: center;
+    background-size: contain;
 }
 
 strong {
@@ -133,7 +231,7 @@ header > section > div > img {
 
 header > section > button > a {
     text-decoration: none;
-    color: var(--cor6);
+    color: var(--cor1);
 }
 
 header > section > div > div#recomend {

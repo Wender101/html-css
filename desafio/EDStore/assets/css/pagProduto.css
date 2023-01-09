@@ -7,7 +7,3 @@ strong#naoEncotrado {
     text-align: center;
     display: none;
 }
-
-#carregando {
-    display: flex;
-}
