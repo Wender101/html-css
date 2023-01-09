@@ -231,7 +231,6 @@ header > section > div > img {
 
 header > section > button > a {
     text-decoration: none;
-    color: var(--cor1);
 }
 
 header > section > div > div#recomend {
