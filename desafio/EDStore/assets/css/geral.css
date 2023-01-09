@@ -172,8 +172,7 @@ span.valorSemDescontoT {
 header {
     width: 100%;
     height: auto;
-    display: flex;
-    justify-content: space-between;
+    display: inline-flex;
     align-items: center;
     padding-top: 20px;
     border: 0.5px solid var(--cor3);
@@ -206,7 +205,7 @@ header > section#parte1Header > a > img {
     margin-left: 40px;
 }
 
-header > section#parte2Header {
+div#localInput {
     position: absolute;
     margin-left: 50%;
     transform: translate(-50%);
@@ -215,14 +214,19 @@ header > section#parte2Header {
     z-index: 2;
 }
 
-header > section > div#localInput {
+header > section#parte3Header {
+    position: absolute;
+    right: 0px;
+}
+
+div#localInput {
     max-width: 800px;
     width: 40vw;
-    position: relative;
+    position: absolute;
     margin-right: 30px;
 }
 
-header > section > div > input {
+div#localInput > input {
     width: calc(100% - 40px);
     margin-left: 20px;
     padding: 15px 0px 15px 40px;
@@ -235,7 +239,7 @@ header > section > div > input {
     transform: translate(-50%);
 }
 
-header > section > div > img {
+div#localInput > img {
     position: absolute;
     margin: 14px 0px 0px 10px;
     z-index: 1;
@@ -246,7 +250,7 @@ header > section > button > a {
     text-decoration: none;
 }
 
-header > section > div > div#recomend {
+div#localInput > div#recomend {
     width: 100%;
     position: absolute;
     display: none;
@@ -254,19 +258,17 @@ header > section > div > div#recomend {
     border-radius: 0px 0px 16px 16px;
     background-color: var(--cor1);
     box-shadow: 5px 20px 20px var(--sombra);
-    margin-left: 50%;
-    transform: translate(-50%);
 }
 
-header > section > div > div#recomend > p {
-    padding: 10px 20px;
+div#localInput > div#recomend > p {
+    padding: 10px 10px;
 }
 
-header > section > div > div#recomend > p:last-child {
+div#localInput > div#recomend > p:last-child {
     border-radius: 0px 0px 16px 16px;
 }
 
-header > section > div > div#recomend > p:hover {
+div#localInput > div#recomend > p:hover {
     background-color: var(--cor4);
     color: var(--cor1);
     cursor: pointer;
@@ -432,26 +434,18 @@ footer > div#ballFooter > div {
         height: 25px;
     }
 
-    header > section#parte3Header > button {
-        display: none;
-    }
-
-    header > section > div#localInput {
-        width: 60vw;
-    }
-
-    header > section > div > img {
-        margin: 14px 0px 0px 70px;
-    }
-    
-    header > section > div > input {
-        margin-left: 60%;
+    div#localInput {
+        margin-left: 40%;
     }
 }
 
-@media screen and (max-width: 797px) {
+@media screen and (max-width: 885px) {
     header {
         height: 50px;
+    }
+
+    header > section#parte3Header > button {
+        display: none;
     }
 
     header > section#parte1Header > #configBtn {
@@ -462,19 +456,15 @@ footer > div#ballFooter > div {
        display: none;
     }
 
-    header > section > div#localInput {
+    div#localInput {
         width: 80vw;
+        height: 200px;
+        overflow: hidden;
+        margin-left: 55%;
     }
 
     header > section > div > img {
         margin: 14px 0px 0px 12%;
-    }
-}
-
-@media screen and (max-width: 560px) {
-    header {
-        width: 100%;
-        overflow: hidden;
     }
 }
 
