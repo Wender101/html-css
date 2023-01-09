@@ -6,7 +6,7 @@
     --cor3: #e5edf0;
     --cor4: #04b3ff;
     --cor5: #6900f3; 
-    --cor5: #249B3E; 
+    --cor5: #0ae715; 
     --cor6: #666666;
     --cor7: #00a1ff;
     
@@ -168,20 +168,24 @@ header > section > button {
 
 /*? Nav Bar */
 nav {
-    width: 95%;
-    overflow: hidden;
+    width: 100%;
     height: auto;
-    margin: 10px auto;
+    margin-top: 10px;
+    padding: 20px 0px;
+    overflow: auto;
 }
 
 nav > ul {
-    display: flex;
-    align-items: center;
+    width: auto;
+    height: 40px;
+    display: inline-flex;
 }
 
 nav > ul > li {
+    min-width: 110px;
     display: flex;
     align-items: center;
+    justify-content: center;
     border-radius: 18px;
     padding: 11px 14px;
     font-size: 12px;

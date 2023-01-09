@@ -10,6 +10,7 @@
     <!--? Css page -->
     <link rel="stylesheet" href="assets/css/home.css">
     <link rel="stylesheet" href="assets/css/adminPage.css">
+    <link rel="stylesheet" href="assets/css/pagProduto.css">
     <title>EDStore - Produtos</title>
 </head>
 <body>
@@ -60,7 +61,27 @@
             </div>
         </article>
     </section>
+
+    <!--? Animação de carregamento -->
+   <section id="carregando">
+    <article>
+      <!--! início do preloader -->
+      <div id="preloader">
+          <div class="inner">
+          <div class="bolas">
+              <div></div>
+              <div></div>
+              <div></div>                    
+          </div>
+          </div>
+      </div>
+    </article>
+  </section>
+  <!--? fim do preloader --> 
+
     
+    <strong id="naoEncotrado">O produto não foi encontrado, mas fique atento. Ele poderá ser adicionado em breve ;)</strong>
+
     <main>
     </main>
 
@@ -89,6 +110,7 @@
     <script src="assets/js/firebase.js"></script>
 
     <!--? Scripts -->
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
    <script src="assets/js/funcoesBasicas.js"></script>
     <script src="assets/js/pagProduto.js"></script>
     <script src="assets/js/pesquisar.js"></script>

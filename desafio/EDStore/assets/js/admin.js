@@ -209,9 +209,12 @@ function criaProduto(Img1, Img2, Img3, Img4, Nome, Desc, Tags, DescDetalhada, Ca
     let valorSalvo = document.createElement('span')
     let divEdit = document.createElement('div')
     let spanEdit = document.createElement('span')
+    let chat = document.createElement('button')
 
     //? Class
     prod.className = 'prod'
+    chat.className = 'openChat'
+    chat.id = 'chat-' + Id
     spanEdit.className = 'spanEdit'
     divEdit.className = 'divEdit'
     localImg.className = 'localImg'
@@ -247,6 +250,7 @@ function criaProduto(Img1, Img2, Img3, Img4, Nome, Desc, Tags, DescDetalhada, Ca
     sobreProd.appendChild(nameProd)
     sobreProd.appendChild(p)
     sobreProd.appendChild(valorSalvo)
+    prod.appendChild(chat)
     prod.appendChild(divEdit)
     prod.appendChild(localImg)
     prod.appendChild(sobreProd)
@@ -387,3 +391,21 @@ function ecluirProdutoConfimado() {
     db.collection('Produtos').doc(valId).delete()
     fecharConfirmarExcluir()
 }
+
+//? Chat responder
+function informarPergunta() {
+    db.collection('Chat').onSnapshot((data) => {
+        data.docs.map(function(val) {
+            let chat = val.data()
+
+            try {
+                for(let c = 0; c < chat.Perguntas.length; c++) {
+                    if(chat.Perguntas[c].Resposta == '...') {
+                        document.getElementById(`chat-${chat.Perguntas[c].Id}`).style.display = 'block'
+                    }
+                }
+            } catch (error) {}
+            
+        })
+    })
+} informarPergunta()

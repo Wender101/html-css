@@ -13,7 +13,25 @@ button#addProduto {
     position: fixed;
     bottom: 30%;
     right: 10px;
+    background-color: var(--cor4);
+    color: var(--cor1);
+    font-size: 20px;
+    box-shadow: 2px 2px 10px var(--sombra);
+    z-index: 1;
+}
+
+button.openChat {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    position: absolute;
+    top: 0px;
+    right: 40px;
+    display: none;
     background-color: var(--cor3);
+    background-image: url(../img/icon/chat2.png);
+    background-position: center;
+    background-size: cover;
     box-shadow: 2px 2px 10px var(--sombra);
     z-index: 1;
 }

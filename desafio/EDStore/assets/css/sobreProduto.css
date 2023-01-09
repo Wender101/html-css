@@ -391,7 +391,7 @@ div#infAddCarrinho > a, div#infChat > button {
 
 /*? Chat */
 section#chat {
-    width: 100%;
+    width: 95%;
     max-width: 1000px;
     border-top: 1px solid var(--cor4);
     border-bottom: 1px solid var(--cor4);
@@ -422,7 +422,7 @@ section#chat > div > input {
 
 section#chat > div > button {
     padding: 15px;
-    margin-top: -15px;
+    margin-top: -17px;
     color: var(--cor1);
     border-radius: 6px;
     background-color: var(--cor4);
@@ -457,7 +457,8 @@ section#chat > article#localPerguntas > div > p {
 
 section#chat > article#localPerguntas > div > span {
     margin: 20px 0px 20px 60px;
-    display: block;
+    display: flex;
+    align-items: center;
 }
 
 section#chat > article#localPerguntas > div > span > img {
@@ -471,8 +472,44 @@ section#chat > article#localPerguntas > div > span > span {
     margin-left: 20px;
 }
 
+section#chat > article#localPerguntas > div > span > input {
+    width: 100%;
+    max-width: 200px;
+    border-radius: 6px;
+    border: none;
+    box-shadow: 0 0 0 0;
+    outline: 0;
+    background-color: var(--cor3);
+    padding: 12px;
+    margin-top: 10px;
+}
+
+section#chat > article#localPerguntas > div > span > button {
+    width: 30px;
+    height: 30px;
+    transform: rotate(30deg);
+    background-image: url(../img/icon/enviar.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
 /*? Responsive */
 @media screen and (max-width: 1116px) {
+    section#chat {
+        padding-left: 10px;
+    }
+
+    section#chat > div > input {
+        width: 70%;
+    }
+
+    section#chat > div > button {
+        margin-right: 5px;
+    }
+
     section#descricaoDetalhada {
         width: 90%;
         margin: auto;
@@ -547,5 +584,28 @@ section#chat > article#localPerguntas > div > span > span {
 
     main > div#localImgEx > div#othersImgs {
         top: 70px;
+    }
+
+    section#chat > div > input {
+        width: 60%;
+    }
+
+    section#chat > article#localPerguntas > div > span {
+        margin: 20px 0px 20px 35px;
+        display: block;
+    }
+    
+    section#chat > article#localPerguntas > div > span > img {
+        width: 30px;
+        position: absolute;
+        left: 0px;
+    }
+
+    section#chat > article#localPerguntas > div > span > input {
+        max-width: 100px;
+    }
+    
+    section#chat > article#localPerguntas > div > span > button {
+        padding: 10px 10px;
     }
 }
