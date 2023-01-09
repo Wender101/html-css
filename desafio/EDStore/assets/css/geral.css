@@ -171,7 +171,7 @@ span.valorSemDescontoT {
 
 header {
     width: 100%;
-    height: auto;
+    height: 45px;
     display: inline-flex;
     align-items: center;
     padding-top: 20px;
@@ -205,38 +205,32 @@ header > section#parte1Header > a > img {
     margin-left: 40px;
 }
 
-div#localInput {
-    position: absolute;
-    margin-left: 50%;
-    transform: translate(-50%);
-    top: 22px;
-    display: block;
-    z-index: 2;
-}
-
 header > section#parte3Header {
     position: absolute;
     right: 0px;
 }
 
+
 div#localInput {
+    width: 100vw;
     max-width: 800px;
-    width: 40vw;
     position: absolute;
-    margin-right: 30px;
+    top: 23px;
+    left: 0px;
+    margin-left: 46%;
+    transform: translate(-50%);
+    display: block;
+    z-index: 2;
 }
 
 div#localInput > input {
     width: calc(100% - 40px);
-    margin-left: 20px;
     padding: 15px 0px 15px 40px;
     border-radius: 10px;
     border: none;
     box-shadow: 0 0 0 0;
     outline: 0;
     background-color: var(--cor3);
-    margin-left: 50%;
-    transform: translate(-50%);
 }
 
 div#localInput > img {
@@ -429,21 +423,32 @@ footer > div#ballFooter > div {
     background-color: #05ABF3;
 }
 
-@media screen and (max-width: 1139px) {
+@media screen and (max-width: 1392px) {
     header > section#parte1Header > a > img {
         height: 25px;
     }
 
     div#localInput {
-        margin-left: 40%;
+        max-width: 700px;
+        margin-left: 43%;
     }
 }
 
-@media screen and (max-width: 885px) {
-    header {
-        height: 50px;
+@media screen and (max-width: 1250px) {
+    div#localInput {
+        max-width: 600px;
+        margin-left: 43%;
     }
+}
 
+@media screen and (max-width: 1147px) {
+    div#localInput {
+        max-width: 400px;
+        margin-left: 43%;
+    }
+}
+
+@media screen and (max-width: 975px) {
     header > section#parte3Header > button {
         display: none;
     }
@@ -458,8 +463,7 @@ footer > div#ballFooter > div {
 
     div#localInput {
         width: 80vw;
-        height: 200px;
-        overflow: hidden;
+        max-width: 800px;
         margin-left: 55%;
     }
 
