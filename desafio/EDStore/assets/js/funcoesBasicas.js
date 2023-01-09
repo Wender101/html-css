@@ -14,31 +14,32 @@ function fecharMenu() {
     menu.style.display = 'none'
 }
 
-let darkModeAtivo = false
+let modoAtual = false
 if(localStorage.getItem('Modo') == null || localStorage.getItem('Modo') == undefined) {
-    darkModeAtivo = false 
-    modoPage(darkModeAtivo)
+    modoAtual = false 
+    modoPage(modoAtual)
 } else {
-    darkModeAtivo = localStorage.getItem('Modo')
-    modoPage(darkModeAtivo)
+    modoAtual = localStorage.getItem('Modo')
+    modoPage(modoAtual)
 }
 
 function modoPage(modo = '') {
+    console.log(modoAtual);
     //? Vai alterar o modo
-    if(darkModeAtivo == false && modo == '' || darkModeAtivo == 'false'  && modo == '') {
-        darkModeAtivo = true
-    } else if(darkModeAtivo == true && modo == '' || darkModeAtivo == 'true' && modo == '') {
-        darkModeAtivo = false
+    if(modoAtual == false && modo == '' || modoAtual == 'false'  && modo == '') {
+        modoAtual = true
+    } else if(modoAtual == true && modo == '' || modoAtual == 'true' && modo == '') {
+        modoAtual = false
     }
 
-    localStorage.setItem('Modo', darkModeAtivo)
+    localStorage.setItem('Modo', modoAtual)
     let cor0 = 'black'
     let cor1 = '#fff' 
     let cor2 = '#181a1b' 
     let cor3 = '#e5edf0'
     let cor4 = '#04b3ff'
 
-    if(darkModeAtivo == true || darkModeAtivo == 'true') {
+    if(modoAtual == false || modoAtual == 'false') {
         try {
             document.getElementById('carregando').style.backgroundColor = cor2
         } catch {
