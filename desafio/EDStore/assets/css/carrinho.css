@@ -142,17 +142,20 @@ div#confimarRemoverProduto div#popUp > div > button {
 
 /*? Main */
 main {
+    width: 50%;
+    min-height: 100vh;
+    margin: auto;
     padding-top: 30px;
 }
 
 main > div#fala {
-    width: 90%;
+    width: 100%;
     margin-left: 50%;
     transform: translate(-50%);
 }
 
 main > div#fala > h1 {
-    width: 90%;
+    width: 100%;
     margin: auto;
     color: var(--cor4);
     text-align: center;
@@ -165,4 +168,15 @@ main > div#fala > img {
     width: 100%;
     display: block;
     margin: auto;
+}
+
+@media screen and (max-width: 400px) {
+    main > div#fala > h1 {
+        width: 100%;
+        margin: auto;
+        color: var(--cor4);
+        text-align: center;
+        margin: 30px 0px;
+        font-size: 1.3rem;
+    }
 }
