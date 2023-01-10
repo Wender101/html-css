@@ -67,9 +67,21 @@ function modoPage(modo = '') {
             document.getElementsByClassName('slide-btn')[1].style.color = cor1
         } catch {}
         try {
-            document.getElementById('mainP').style.backgroundColor = '#363636'
+            document.getElementById('mainP').style.backgroundColor = cor2
         } catch (error) {
             
+        }
+
+        try {
+            document.getElementById('cookies').querySelector('article').style.background = '#1c1c1c'
+            document.getElementById('cookies').querySelector('article').querySelector('button').style.background = cor5
+            document.querySelector('footer').style.background = cor5
+        } catch {
+            document.getElementById('popUpAddProd').style.background = cor2
+            document.getElementById('prodEx').style.background = cor2
+            document.getElementById('ex2').style.background = cor2
+            document.getElementById('ex2').style.color = cor1
+
         }
         document.getElementById('menu').querySelector('ul').style.background = cor2
         document.getElementById('menu').querySelector('ul').style.color = cor1
@@ -79,9 +91,6 @@ function modoPage(modo = '') {
         document.querySelector('body').style.color = cor1
         document.querySelector('header').querySelector('span').style.color = cor1
         document.getElementById('aCarrinho').style.color = cor1
-        document.getElementById('cookies').querySelector('article').style.background = '#1c1c1c'
-        document.getElementById('cookies').querySelector('article').querySelector('button').style.background = cor5
-        document.querySelector('footer').style.background = cor5
         document.getElementById('pesquisaInput')
 
         for(let c = 0; c < 100; c++) {
@@ -121,15 +130,18 @@ function modoPage(modo = '') {
             try {
                 document.getElementById('mainP').style.backgroundColor = '#04b3ff'
             } catch {}
+
+            try {
+                document.getElementById('cookies').querySelector('article').style.background = cor1
+                document.getElementById('cookies').querySelector('article').querySelector('button').style.background = 'var(--cor4)'
+                document.querySelector('footer').style.background = 'var(--cor4)'
+            } catch {}
             document.getElementsByClassName('modoClaro')[0].style.backgroundImage = 'url(assets/img/icon/lua.png)'
             document.getElementsByClassName('modoClaro')[1].style.backgroundImage = 'url(assets/img/icon/lua.png)'
             document.querySelector('body').style.backgroundColor = cor1
             document.querySelector('body').style.color = cor0
             document.querySelector('header').querySelector('span').style.color = cor0
             document.getElementById('aCarrinho').style.color = cor0
-            document.getElementById('cookies').querySelector('article').style.background = cor1
-            document.querySelector('footer').style.background = 'var(--cor4)'
-            document.getElementById('cookies').querySelector('article').querySelector('button').style.background = 'var(--cor4)'
             
             for(let c = 0; c < 100; c++) {
                 try {

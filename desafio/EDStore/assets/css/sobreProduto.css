@@ -108,7 +108,7 @@ main > div#infos > div#valorDoProduto {
     margin-left: 50%;
     transform: translate(-50%);
     color: var(--cor1);
-    border: 1px solid var(--cor3);
+    border: 1px solid var(--cor4);
     display: none;
     border-radius: 5px;
     padding: 10px 40px;
