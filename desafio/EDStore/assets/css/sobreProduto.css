@@ -203,6 +203,15 @@ section#descricaoDetalhada > h1 {
     color: var(--cor4);
 }
 
+section#descricaoDetalhada > pre#descricaoP {
+    width: 100%;
+    font-size: 1em;
+    font-family: var(--font-texto);
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
 /*? Prods */
 section#relacionados {
     width: 95%;

@@ -161,32 +161,32 @@ function prodNaoEncontrado() {
             document.getElementById('carregando').style.display = 'none'
             document.getElementById('naoEncotrado').style.display = 'block'
     
-            // //? Vai guardar a pesquisa para adicionar o produto mais tarde
-            // if(email != undefined) {
-            //     let PesquisaNaoEncontradaJaEmAndamento = false
-            //     db.collection('PesquisaNaoEncontrada').onSnapshot((data) => {
-            //         data.docs.map(function(val) {
-            //             let PesquisaNaoEncontrada = val.data()
-            //             for(let c = 0; c < PesquisaNaoEncontrada.Pesquisa.length; c++) {
-            //                 if(PesquisaNaoEncontrada.Email == email && PesquisaNaoEncontrada.Pesquisa[c] == localStorage.getItem('produtoPagProduto')) {
-            //                     PesquisaNaoEncontradaJaEmAndamento = true
-            //                 } else if(PesquisaNaoEncontrada.Email == email && Pesquisa[c] != localStorage.getItem('produtoPagProduto')) {
+            //? Vai guardar a pesquisa para adicionar o produto mais tarde
+            if(email != undefined) {
+                let PesquisaNaoEncontradaJaEmAndamento = false
+                db.collection('PesquisaNaoEncontrada').onSnapshot((data) => {
+                    data.docs.map(function(val) {
+                        let PesquisaNaoEncontrada = val.data()
+                        for(let c = 0; c < PesquisaNaoEncontrada.Pesquisa.length; c++) {
+                            if(PesquisaNaoEncontrada.Email == email && PesquisaNaoEncontrada.Pesquisa[c] == localStorage.getItem('produtoPagProduto')) {
+                                PesquisaNaoEncontradaJaEmAndamento = true
+                            } else if(PesquisaNaoEncontrada.Email == email && Pesquisa[c] != localStorage.getItem('produtoPagProduto')) {
                                 
-            //                 }
+                            }
                             
-            //                 setTimeout(() => {
-            //                     if(Pesquisa != localStorage.getItem('produtoPagProduto') && PesquisaNaoEncontradaJaEmAndamento == false) {
-            //                         let obj = {
-            //                             Email: email,
-            //                             Pesquisa: localStorage.getItem('produtoPagProduto')
-            //                         }
-            //                         db.collection('PesquisaNaoEncontrada').add(obj)
-            //                     }
-            //                 }, 1000)
-            //             }
-            //         })
-            //     })
-            // }
+                            setTimeout(() => {
+                                if(Pesquisa != localStorage.getItem('produtoPagProduto') && PesquisaNaoEncontradaJaEmAndamento == false) {
+                                    let obj = {
+                                        Email: email,
+                                        Pesquisa: localStorage.getItem('produtoPagProduto')
+                                    }
+                                    db.collection('PesquisaNaoEncontrada').add(obj)
+                                }
+                            }, 1000)
+                        }
+                    })
+                })
+            }
         }
-    }, 2000)
+    }, 1000)
 }

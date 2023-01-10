@@ -15,8 +15,6 @@ function criaProduto() {
             } catch (error) {}
 
             //? Vai criar os produtos
-            console.log(Produtos.Estado);
-
             if(Produtos.Id == idProdSelecionado && Produtos.Estado != 'Suspenso') {
                 document.getElementById('valorDoProduto').style.display = 'block'
                 document.getElementById('localBtns').style.display = 'flex'
@@ -35,10 +33,10 @@ function criaProduto() {
                 document.getElementsByClassName('imgEX')[3].src = Produtos.Img4
                 document.getElementsByClassName('nameProd')[0].innerText = Produtos.Nome
                 document.getElementById('desc').innerText = Produtos.Desc
-                if(Produtos.DescDetalhada != undefined) {
+                if(Produtos.DescDetalhada != undefined && Produtos.DescDetalhada != 'undefined') {
                     document.getElementById('descricaoP').innerHTML = Produtos.DescDetalhada
                 } else {
-                    document.getElementById('descricaoDetalhada').querySelector('h1').style.display = 'none'
+                    document.getElementById('descricaoDetalhada').style.display = 'none'
                 }
 
                 let valorComDesconto = (((Produtos.Desconto * Produtos.Valor) / 100) - Produtos.Valor) * -1
@@ -197,90 +195,107 @@ function salvarNoCarrinho(addNovamente = false) {
         let checkTemCarrinho = false
         let carrinhoCarregado = false
         let feito = false
-        db.collection('Carrinho').onSnapshot((data) => {
+        db.collection('User').onSnapshot((data) => {
             data.docs.map(function(valCarrinho) {
-                let Carrinho = valCarrinho.data()
+                let User = valCarrinho.data()
     
                 //? Caso o usar já tenha um carrinho criado ele vai adicionar o produto direto
-                if(Carrinho.EmailUser == email && carrinhoCarregado == false) {
-                    carrinhoCarregado = true
-                    checkTemCarrinho = true
-                    cloneCarrinho = Carrinho.Carrinho
+                if(User.Email == email && carrinhoCarregado == false) {
+                    cloneCarrinho = User.Carrinho
     
                     db.collection('Produtos').onSnapshot((data) => {
                         data.docs.map(function(val) {
                             let Produto = val.data()
     
-                            if(Produto.Id == idProdSelecionado) {
-                                let jaTemProdutoADDNoCarrinho = false
-    
-                                for(let c = 0; c < cloneCarrinho.length; c++) {
-                                    if(cloneCarrinho[c].Id == idProdSelecionado && feito == false) {
-                                        jaTemProdutoADDNoCarrinho = true
-                                        document.getElementById('pop-Up-AddProdutoNovamente').style.display = 'flex'
-                            
-                                        if(addNovamente == true && feito == false) {
+                            try {
+                            if(Produto.Id == idProdSelecionado && cloneCarrinho.length > 0) {
+                                    let jaTemProdutoADDNoCarrinho = false
+                                    for(let c = 0; c < cloneCarrinho.length; c++) {
+
+                                        if(cloneCarrinho[c].Id == idProdSelecionado && feito == false) {
+                                            jaTemProdutoADDNoCarrinho = true
+                                            document.getElementById('pop-Up-AddProdutoNovamente').style.display = 'flex'
+                                
+                                            if(addNovamente == true && feito == false) {
+                                                feito = true
+                                                fecharPopUp()
+                                                let obj = {
+                                                    Id: Produto.Id
+                                                }
+                                                cloneCarrinho.push(obj)
+                                                db.collection('User').doc(valCarrinho.id).update({Carrinho: cloneCarrinho})
+                                                document.getElementById('infAddCarrinho').style.bottom = '0px'
+                                                setTimeout(() => {
+                                                    document.getElementById('infAddCarrinho').style.bottom = '-100px'
+                                                }, 10000)
+                                            }
+        
+                                        } else if(c + 1 == cloneCarrinho.length && jaTemProdutoADDNoCarrinho == false && feito == false) {
                                             feito = true
-                                            fecharPopUp()
                                             let obj = {
                                                 Id: Produto.Id
                                             }
                                             cloneCarrinho.push(obj)
-                                            db.collection('Carrinho').doc(valCarrinho.id).update({Carrinho: cloneCarrinho})
+                                            db.collection('User').doc(valCarrinho.id).update({Carrinho: cloneCarrinho})
                                             document.getElementById('infAddCarrinho').style.bottom = '0px'
                                             setTimeout(() => {
                                                 document.getElementById('infAddCarrinho').style.bottom = '-100px'
                                             }, 10000)
                                         }
-    
-                                    } else if(c + 1 == cloneCarrinho.length && jaTemProdutoADDNoCarrinho == false && feito == false) {
-                                        feito = true
-                                        let obj = {
-                                            Id: Produto.Id
-                                        }
-                                        cloneCarrinho.push(obj)
-                                        db.collection('Carrinho').doc(valCarrinho.id).update({Carrinho: cloneCarrinho})
-                                        document.getElementById('infAddCarrinho').style.bottom = '0px'
-                                        setTimeout(() => {
-                                            document.getElementById('infAddCarrinho').style.bottom = '-100px'
-                                        }, 10000)
                                     }
+
+                                } else if(Produto.Id == idProdSelecionado && cloneCarrinho.length <= 0) {
+                                    setTimeout(() => {
+                                        carrinhoCarregado = true
+                                        db.collection('Produtos').onSnapshot((data) => {
+                                            data.docs.map(function(val) {
+                                                let Produto = val.data()
+                    
+                                                if(Produto.Id == idProdSelecionado) {
+                                                    cloneCarrinho = []
+                                                    let obj = {
+                                                        Id: Produto.Id
+                                                    }
+                                                    cloneCarrinho.push(obj)
+                    
+                                                    db.collection('User').doc(valCarrinho.id).update({Carrinho: cloneCarrinho})
+                                                    document.getElementById('infAddCarrinho').style.bottom = '0px'
+                                                    setTimeout(() => {
+                                                        document.getElementById('infAddCarrinho').style.bottom = '-100px'
+                                                    }, 10000)
+                                                }
+                                            })
+                                        })
+                                    }, 500)
                                 }
+                            } catch {
+                                setTimeout(() => {
+                                    carrinhoCarregado = true
+                                    db.collection('Produtos').onSnapshot((data) => {
+                                        data.docs.map(function(val) {
+                                            let Produto = val.data()
+                
+                                            if(Produto.Id == idProdSelecionado) {
+                                                cloneCarrinho = []
+                                                let obj = {
+                                                    Id: Produto.Id
+                                                }
+                                                cloneCarrinho.push(obj)
+                
+                                                db.collection('User').doc(valCarrinho.id).update({Carrinho: cloneCarrinho})
+                                                document.getElementById('infAddCarrinho').style.bottom = '0px'
+                                                setTimeout(() => {
+                                                    document.getElementById('infAddCarrinho').style.bottom = '-100px'
+                                                }, 10000)
+                                            }
+                                        })
+                                    })
+                                }, 500)
                             }
                         })
                     })
                 }
-    
-                //? Caso o user ainda n tenha um carrinho, ele vai criar um e adionar o produto
-                setTimeout(() => {
-                    if(checkTemCarrinho == false && carrinhoCarregado == false) {
-                        carrinhoCarregado = true
-                        db.collection('Produtos').onSnapshot((data) => {
-                            data.docs.map(function(val) {
-                                let Produto = val.data()
-    
-                                if(Produto.Id == idProdSelecionado) {
-    
-                                    let obj = {
-                                        Id: Produto.Id
-                                    }
-                                    cloneCarrinho.push(obj)
-    
-                                    let objCarrinho = {
-                                        Carrinho: cloneCarrinho,
-                                        EmailUser: email
-                                    }
-    
-                                    db.collection('Carrinho').add(objCarrinho)
-                                    document.getElementById('infAddCarrinho').style.bottom = '0px'
-                                    setTimeout(() => {
-                                        document.getElementById('infAddCarrinho').style.bottom = '-100px'
-                                    }, 10000)
-                                }
-                            })
-                        })
-                    }
-                }, 500)
+
             })
         })
 

@@ -9,7 +9,6 @@ let localPerguntas = document.getElementById('localPerguntas')
 let chatCarregado = false
 function cirarChat(pergunta = inputPergunta.value, resp = '...', data = '', emailUser, lengthPerguntas) {
     if(pergunta.length > 0 && qtnsPergunta < 4) {
-        console.log(qtnsPergunta)
         document.getElementById('sejaPrimeiro').style.display = 'none'
 
         let divPergunta = document.createElement('div')
@@ -41,12 +40,12 @@ function cirarChat(pergunta = inputPergunta.value, resp = '...', data = '', emai
 
         //? Enviar Resposta
         btnEnviarResposta.addEventListener('click', () => {
-            db.collection('Chat').onSnapshot((data) => {
+            db.collection('User').onSnapshot((data) => {
                 data.docs.map(function(val) {
-                    let Chat = val.data()
+                    let User = val.data()
 
                     try {
-                        if(emailUser == Chat.Email && Chat.Perguntas[lengthPerguntas].Pergunta == pergunta) {
+                        if(emailUser == User.Email && User.Chat[lengthPerguntas].Pergunta == pergunta) {
                             localPerguntas.innerHTML = ''
                             setTimeout(() => {
                                 let data = new Date()
@@ -62,10 +61,10 @@ function cirarChat(pergunta = inputPergunta.value, resp = '...', data = '', emai
                                 }
                                 let ano = data.getFullYear()
 
-                                let obj = Chat.Perguntas
+                                let obj = User.Chat
                                 obj[lengthPerguntas].Data = `${dia}/${mes}/${ano}`
                                 obj[lengthPerguntas].Resposta = inputResp.value
-                                db.collection('Chat').doc(val.id).update({Perguntas: obj})
+                                db.collection('User').doc(val.id).update({Chat: obj})
                                 chatCarregado = false
                                 chat()
                             }, 100)
@@ -96,9 +95,9 @@ let arrayPerguntas = []
 let perguntaLocalStorage = false
 function chat() {
     localPerguntas.innerHTML = ''
-    db.collection('Chat').onSnapshot((data) => {
+    db.collection('User').onSnapshot((data) => {
         data.docs.map(function(val) {
-            let Chat = val.data()
+            let User = val.data()
 
             //? Vai pegar as perguntas do local storage
             try {
@@ -115,19 +114,19 @@ function chat() {
             //? Vai criar o chat
             if(chatCarregado == false) {
                 try {
-                    for(let c = 0; c < Chat.Perguntas.length; c++) {
-                        if(Chat.Perguntas[c].Id == idProdSelecionado) {
-                            cirarChat(Chat.Perguntas[c].Pergunta, Chat.Perguntas[c].Resposta, Chat.Perguntas[c].Data, Chat.Email, c)
+                    for(let c = 0; c < User.Chat.length; c++) {
+                        if(User.Chat[c].Id == idProdSelecionado) {
+                            cirarChat(User.Chat[c].Pergunta, User.Chat[c].Resposta, User.Chat[c].Data, User.Email, c)
                         }
         
-                        if(Chat.Email == email) {
+                        if(User.Email == email) {
                             //? Vai impedir que o user espame o chat
-                            if(Chat.Perguntas[c].Id == idProdSelecionado && Chat.Perguntas[c].Resposta == '...') {
+                            if(User.Chat[c].Id == idProdSelecionado && User.Chat[c].Resposta == '...') {
                                 qtnsPergunta++
     
                             }
     
-                           arrayPerguntas = Chat.Perguntas
+                           arrayPerguntas = User.Chat
                         }
                     }
                 } catch (error) {}
@@ -156,12 +155,12 @@ function salvarPergunta(pergunta) {
     
             cirarChat(pergunta, '...', '')
     
-            db.collection('Chat').onSnapshot((data) => {
+            db.collection('User').onSnapshot((data) => {
                 data.docs.map(function(val) {
-                    let Chat = val.data()
+                    let User = val.data()
     
                     if(perguntaFeita == false) {
-                        if(Chat.Email == email) {
+                        if(User.Email == email) {
                             perguntaFeita = true
                             temChat = true
             
@@ -174,7 +173,7 @@ function salvarPergunta(pergunta) {
             
                             arrayPerguntas.push(obj)
             
-                            db.collection('Chat').doc(val.id).update({Perguntas: arrayPerguntas})
+                            db.collection('User').doc(val.id).update({Chat: arrayPerguntas})
                         }
             
                         setTimeout(() => {
@@ -195,7 +194,7 @@ function salvarPergunta(pergunta) {
                                     Perguntas: arrayPerguntas
                                 }
                 
-                                db.collection('Chat').add(objFinal)
+                                db.collection('User').doc(val.id).update({Chat: objFinal})
                             }
                         }, 1000)
                     }

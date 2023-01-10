@@ -378,7 +378,7 @@ function salvarEdit() {
     let selecCategoria = document.getElementById('selecCategoria').value
     let idDoProduto = document.getElementById('idDoProduto').value
 
-    db.collection('Produtos').doc(valId).update({Img1: imagem1 ,Img2: imagem2, Img3: imagem3, Img4: imagem4, Nome: name, Desc: desccription, Tags: tags, DescDetalhada: descDetalhada, categoria: selecCategoria, Valor: valor, Desconto: descontoProd, Id: idDoProduto})
+    db.collection('Produtos').doc(valId).update({Img1: imagem1 ,Img2: imagem2, Img3: imagem3, Img4: imagem4, Nome: name, Desc: desccription, Tags: tags, DescDetalhada: descDetalhada, Categoria: selecCategoria, Valor: valor, Desconto: descontoProd, Id: idDoProduto})
 
     setTimeout(() => {
         location.reload()
@@ -407,14 +407,14 @@ function ecluirProdutoConfimado() {
 
 //? Chat responder
 function informarPergunta() {
-    db.collection('Chat').onSnapshot((data) => {
+    db.collection('User').onSnapshot((data) => {
         data.docs.map(function(val) {
-            let chat = val.data()
+            let User = val.data()
 
             try {
-                for(let c = 0; c < chat.Perguntas.length; c++) {
-                    if(chat.Perguntas[c].Resposta == '...') {
-                        document.getElementById(`chat-${chat.Perguntas[c].Id}`).style.display = 'block'
+                for(let c = 0; c < User.Chat.Perguntas.length; c++) {
+                    if(User.Chat.Perguntas[c].Resposta == '...') {
+                        document.getElementById(`chat-${User.Chat.Perguntas[c].Id}`).style.display = 'block'
                     }
                 }
             } catch (error) {}

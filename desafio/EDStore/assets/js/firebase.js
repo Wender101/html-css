@@ -28,4 +28,35 @@ auth.onAuthStateChanged((val) => {
     }
 
     email = val.email
+
+    let perfilEencontrado = false
+    //? Caso o user n tenha conta, após logar em uma será criado o seu perfil no site
+    db.collection('User').onSnapshot((data) => {
+        data.docs.map(function(valCarrinho) {
+            let User = valCarrinho.data()
+            if(User.Email == email) {
+                perfilEencontrado = true
+            }
+
+        })
+    })
+
+    setTimeout(() => {
+        if(perfilEencontrado == false) {
+
+            let Perquisa = []
+            let objPesquisa = {
+                Perquisa: Perquisa
+            }
+
+            let objPerfilUser = {
+                APesquisaNaoEncontrada: objPesquisa,
+                Carrinho: [],
+                Chat: [],
+                Email: email
+            }
+
+            db.collection('User').add(objPerfilUser)
+        }
+    }, 4000)
 })

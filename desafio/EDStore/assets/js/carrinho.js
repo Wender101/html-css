@@ -1,21 +1,21 @@
 let valUser
 let carrinhoCarregado = false
 function carregarCarrinho() {
-    db.collection('Carrinho').onSnapshot((data) => {
+    db.collection('User').onSnapshot((data) => {
         data.docs.map(function(val) {
-            let Carrinho = val.data()
-
-            if(Carrinho.EmailUser == email && carrinhoCarregado == false) {
+            let User = val.data()
+            
+            if(User.Email == email && carrinhoCarregado == false) {
                 carrinhoCarregado = true
                 valUser = val.id
-                for(let c = 0; c < Carrinho.Carrinho.length; c++) {
+                for(let c = 0; c < User.Carrinho.length; c++) {
 
                     db.collection('Produtos').onSnapshot((data) => {
                         data.docs.map(function(val) {
                             let Produtos = val.data()
 
                             try {
-                                if(Produtos.Id == Carrinho.Carrinho[c].Id) {
+                                if(Produtos.Id == User.Carrinho[c].Id) {
                                     document.getElementsByClassName('text')[0].style.display = 'block'
                                     document.getElementById('fala').style.display = 'none'
 
@@ -137,10 +137,11 @@ function remover(modo = 'um') {
                     feito = true
                     document.getElementById(idSelecionado).remove()
                     cloneCarrinhoAtual.splice(c, 1)
-                    db.collection('Carrinho').doc(valUser).update({Carrinho: cloneCarrinhoAtual})
+                    db.collection('User').doc(valUser).update({Carrinho: cloneCarrinhoAtual})
 
                     if(cloneCarrinhoAtual.length <= 0) {
-                        db.collection('Carrinho').doc(valUser).delete()
+                        cloneCarrinhoAtual = []
+                        db.collection('User').doc(valUser).update({Carrinho: cloneCarrinhoAtual})
                         document.getElementsByClassName('text')[0].style.display = 'none'
                         document.querySelector('main').style.width = '50%'
                         document.getElementById('fala').style.display = 'block'
@@ -150,7 +151,8 @@ function remover(modo = 'um') {
         }
 
     } else if(modo == 'todos') {
-        db.collection('Carrinho').doc(valUser).delete()
+        cloneCarrinhoAtual = []
+        db.collection('User').doc(valUser).update({Carrinho: cloneCarrinhoAtual})
         document.getElementsByClassName('text')[0].style.display = 'none'
         document.getElementById('fala').style.display = 'block'
 

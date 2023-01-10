@@ -138,3 +138,8 @@ function modoPage(modo = '') {
         }, 1000)
     }
 }
+
+//? Vai fechar os cookies
+function fecharCookies() {
+    document.getElementById('cookies').style.display = 'none'
+}

@@ -261,6 +261,15 @@ section#descricaoDetalhada > h1 {
     text-align: left;
 }
 
+section#descricaoDetalhada > pre#descricaoP {
+    width: 100%;
+    font-size: 1em;
+    font-family: var(--font-texto);
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
 section#popUpAddProd > button {
     padding: 10px 20px;
     border-radius: 5px;
