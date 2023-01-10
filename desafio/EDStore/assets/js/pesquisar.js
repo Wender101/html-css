@@ -39,7 +39,7 @@ function sugetaoPesquisa(pesquisa) {
             pesquisaInp = pesquisaInp.normalize('NFD').replace(/[\u0300-\u036f]/g, "") //? Vai remover os acentos
             pesquisaInp = pesquisaInp.replace(/\s/g, '') //? Vai remover os espaços
 
-            if(nome.includes(pesquisaInp) && max < 6 || desc.includes(pesquisaInp) && max < 6) {
+            if(nome.includes(pesquisaInp) && max < 6 && valSugetao.Estado != 'Suspenso' || desc.includes(pesquisaInp) && max < 6 && valSugetao.Estado != 'Suspenso') {
                 achado = true
                 containerSugestao.style.display = 'block'
                 document.getElementById('pesquisaInput').style.borderRadius = '10px 10px 0px 0px'
@@ -57,6 +57,8 @@ function sugetaoPesquisa(pesquisa) {
                     if(location.host == '127.0.0.1:5500') {
                         if(location.pathname == '/pagProduto.html') {
                             chamarDB()
+                            prodEncontrado = false
+                            prodNaoEncontrado()
                             input.value = ''
                         } else {
                             location.pathname = '/pagProduto.html'
@@ -65,6 +67,8 @@ function sugetaoPesquisa(pesquisa) {
                     } else if(location.host == 'wender101.github.io') {
                         if(location.href == 'https://wender101.github.io/html-css/desafio/EDStore/pagProduto.html') {
                             chamarDB()
+                            prodEncontrado = false
+                            prodNaoEncontrado()
                             input.value = ''
                         } else {
                             location.href = 'https://wender101.github.io/html-css/desafio/EDStore/pagProduto.html'
@@ -142,6 +146,8 @@ document.addEventListener('keypress', (e) => {
         if(location.host == '127.0.0.1:5500') {
             if(location.pathname == '/pagProduto.html') {
                 chamarDB()
+                prodEncontrado = false
+                prodNaoEncontrado()
                 input.value = ''
             } else {
                 location.pathname = '/pagProduto.html'
@@ -150,6 +156,8 @@ document.addEventListener('keypress', (e) => {
         } else if(location.host == 'wender101.github.io') {
             if(location.href == 'https://wender101.github.io/html-css/desafio/EDStore/pagProduto.html') {
                 chamarDB()
+                prodEncontrado = false
+                prodNaoEncontrado()
                 input.value = ''
             } else {
                 location.href = 'https://wender101.github.io/html-css/desafio/EDStore/pagProduto.html'

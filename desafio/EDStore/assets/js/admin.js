@@ -192,12 +192,12 @@ function carregarProduto() {
     db.collection('Produtos').onSnapshot((data) => {
         data.docs.map(function(val) {
             let Produtos = val.data()
-            criaProduto(Produtos.Img1, Produtos.Img2, Produtos.Img3, Produtos.Img4, Produtos.Nome, Produtos.Desc, Produtos.Tags, Produtos.DescDetalhada, Produtos.Categoria, Produtos.Valor, Produtos.Desconto, Produtos.Id)
+            criaProduto(Produtos.Img1, Produtos.Img2, Produtos.Img3, Produtos.Img4, Produtos.Nome, Produtos.Desc, Produtos.Tags, Produtos.DescDetalhada, Produtos.Categoria, Produtos.Valor, Produtos.Desconto, Produtos.Id, Produtos.Estado)
         })
     })
 } carregarProduto()
 
-function criaProduto(Img1, Img2, Img3, Img4, Nome, Desc, Tags, DescDetalhada, Categoria, Valor, Desconto, Id) {
+function criaProduto(Img1, Img2, Img3, Img4, Nome, Desc, Tags, DescDetalhada, Categoria, Valor, Desconto, Id, Estado) {
     let prod = document.createElement('div')
     let localImg = document.createElement('div')
     let imgProduto = document.createElement('img')
@@ -212,7 +212,12 @@ function criaProduto(Img1, Img2, Img3, Img4, Nome, Desc, Tags, DescDetalhada, Ca
     let chat = document.createElement('button')
 
     //? Class
-    prod.className = 'prod'
+    if(Estado == 'Suspenso') {
+        prod.className = 'suspenso'
+    } else {
+        prod.className = 'prod'
+    }
+
     chat.className = 'openChat'
     chat.id = 'chat-' + Id
     spanEdit.className = 'spanEdit'
@@ -339,6 +344,14 @@ function editarProduto(Img1 ,Img2, Img3, Img4, Nome, Desc, Tags, DescDetalhada, 
                 let tags = document.getElementById('tags').value = Tags
                 let descDetalhada = document.getElementById('descDetalhada').value = DescDetalhada
                 let selecCategoria = document.getElementById('selecCategoria').value = categoria
+
+                if(Produtos.Estado == 'Suspenso') {
+                    document.getElementById('suspenderProd').style.display = 'none'
+                    document.getElementById('disponibilizarProd').style.display = 'block'
+                } else {
+                    document.getElementById('suspenderProd').style.display = 'block'
+                    document.getElementById('disponibilizarProd').style.display = 'none'
+                }
             }
 
             salveEdit.addEventListener('click', () => {
@@ -409,3 +422,21 @@ function informarPergunta() {
         })
     })
 } informarPergunta()
+
+//? Suspender o Produto 
+function suspenderProd() {
+    document.getElementById('carregando').style.display = 'flex'
+    db.collection('Produtos').doc(valId).update({Estado: 'Suspenso'})
+    setTimeout(() => {
+        location.reload()
+    }, 1000)
+}
+
+//? Vai disponibilizar o Produto suspenso 
+function disponibilizarProd() {
+    document.getElementById('carregando').style.display = 'flex'
+    db.collection('Produtos').doc(valId).update({Estado: 'Disponível'})
+    setTimeout(() => {
+        location.reload()
+    }, 1000)
+}

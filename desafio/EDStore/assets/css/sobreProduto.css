@@ -144,6 +144,22 @@ main > div#infos > div > button {
     border-radius: 2px;
 }
 
+button#voltar {
+    min-width: 150px;
+    padding: 11.5px 20px;
+    margin-left: 50%;
+    transform: translate(-50%);
+    position: absolute;
+    bottom: 50px;
+    background-color: var(--cor1);
+    color: var(--cor2);
+    font-family: var(--font-texto);
+    font-weight: 100;
+    border: 1px solid transparent;
+    margin-top: 19px;
+    border-radius: 2px;
+}
+
 main > div#infos > div > button#modelo1 {
     min-width: 150px;
     padding: 11.5px 20px;

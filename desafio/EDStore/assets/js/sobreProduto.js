@@ -15,8 +15,19 @@ function criaProduto() {
             } catch (error) {}
 
             //? Vai criar os produtos
+            console.log(Produtos.Estado);
 
-            if(Produtos.Id == idProdSelecionado) {
+            if(Produtos.Id == idProdSelecionado && Produtos.Estado != 'Suspenso') {
+                document.getElementById('valorDoProduto').style.display = 'block'
+                document.getElementById('localBtns').style.display = 'flex'
+                document.getElementById('othersImgs').style.display = 'block'
+                document.getElementById('chat').style.display = 'block'
+                document.getElementById('descricaoDetalhada').style.display = 'block'
+                document.getElementsByClassName('text')[0].style.display = 'block'
+                document.getElementById('infos').style.position = ''
+                document.getElementById('voltar').style.display = 'none'
+
+                //? --------------------------------
                 document.getElementsByClassName('imgPrincipal')[0].src = Produtos.Img1 
                 document.getElementsByClassName('imgEX')[0].src = Produtos.Img1 
                 document.getElementsByClassName('imgEX')[1].src = Produtos.Img2
@@ -49,6 +60,20 @@ function criaProduto() {
                         document.getElementsByClassName('imgPrincipal')[0].src = imgClick.src
                     })
                 }
+            } else if(Produtos.Estado == 'Suspenso') {
+                document.getElementsByClassName('nameProd')[0].innerText = 'Oops'
+                document.getElementById('desc').innerText = 'O Produto se encontra suspenso ou fora de estoque. Tente novamente mais tarde.'
+                document.getElementById('valorDoProduto').style.display = 'none'
+                document.getElementById('localBtns').style.display = 'none'
+                document.getElementById('othersImgs').style.display = 'none'
+                document.getElementById('chat').style.display = 'none'
+                document.getElementById('descricaoDetalhada').style.display = 'none'
+                document.getElementsByClassName('text')[0].style.display = 'none'
+                document.getElementById('infos').style.position = 'relative'
+                document.getElementById('voltar').style.display = 'block'
+                document.getElementById('voltar').addEventListener('click', () => {
+                    window.history.back()
+                })
             }
         })
     })
@@ -91,8 +116,10 @@ function produtosRelacionados(relacionados = '') {
                         if(arrayProd[b] == Produtos.Nome) {
                             igual = true
                         } else if(b + 1 == arrayProd.length && igual == false) {
-                            arrayProd.push(Produtos.Nome)
-                            criaRelacionados(Produtos.Img1, Produtos.Img2, Produtos.Img3, Produtos.Img4, Produtos.Nome, Produtos.Desc , Produtos.Valor, Produtos.Desconto, Produtos.Id)
+                            if(Produtos.Estado != 'Suspenso') {
+                                arrayProd.push(Produtos.Nome)
+                                criaRelacionados(Produtos.Img1, Produtos.Img2, Produtos.Img3, Produtos.Img4, Produtos.Nome, Produtos.Desc , Produtos.Valor, Produtos.Desconto, Produtos.Id)
+                            }
                         }
                     }
                 }

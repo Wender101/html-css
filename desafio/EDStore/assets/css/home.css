@@ -165,7 +165,7 @@ section#localProdRecomendado > article {
     padding: 0px 20px;
 }
 
-div.prod {
+div.prod, div.suspenso {
     width: 217px;
     height: 295px;
     margin-top: 40px;
@@ -175,12 +175,17 @@ div.prod {
     margin: 16px 10px;
 }
 
-div.prod:hover {
+div.suspenso {
+    opacity: 0.4;
+    border: 1px solid var(--cor8);
+}
+
+div.prod:hover, div.suspenso:hover {
     transform: scale(1.05);
     cursor: pointer;
 }
 
-div.prod > div.localImg {
+div.prod > div.localImg, div.suspenso > div.localImg {
     width: 100%;
     height: 181px;
     background-color: var(--cor1);
@@ -190,35 +195,35 @@ div.prod > div.localImg {
     border-radius: 16px 16px 0px 0px;
 }
 
-div.prod > div.localImg > img {
+div.prod > div.localImg > img, div.suspenso > div.localImg > img {
     max-width: 150px;
     max-height: 150px;
     height: auto;
     display: block;
 }
 
-div.prod > div.sobreProd {
+div.prod > div.sobreProd, div.suspenso > div.sobreProd  {
     padding: 10px;
 }
 
-div.prod > div.sobreProd > p {
+div.prod > div.sobreProd > p, div.suspenso > div.sobreProd > p {
     font-size: 14px;
     margin-top: 10px;
 }
 
-div.prod > div.sobreProd > p > strong {
+div.prod > div.sobreProd > p > strong, div.suspenso > div.sobreProd > p > strong {
     margin-right: 20px;
 }
 
-div.prod > div.sobreProd > p > strong, div.prod > div.sobreProd > p > span {
+div.prod > div.sobreProd > p > strong, div.prod > div.sobreProd > p > span, div.suspenso > div.sobreProd > p > strong, div.suspenso > div.sobreProd > p > span {
     font-size: 13px;
 }
 
-div.prod > div.sobreProd > p > span {
+div.prod > div.sobreProd > p > span, div.suspenso > div.sobreProd > p > span {
     text-decoration: line-through;
 }
 
-div.prod > div.sobreProd > span {
+div.prod > div.sobreProd > span, div.suspenso > div.sobreProd > span {
     color: var(--cor5);
     font-size: 12px;
     display: block;

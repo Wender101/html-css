@@ -313,6 +313,11 @@ section#popUpAddProd > div#btnsAdemin > button#suspenderProd {
     background-color: var(--cor8);
 }
 
+section#popUpAddProd > div#btnsAdemin > button#disponibilizarProd {
+    background-color: var(--cor5);
+    display: none;
+}
+
 /*? Confirmarexcluir produto */
 div#confirmarExcluir {
     width: 100%;
@@ -360,11 +365,11 @@ div#confirmarExcluir > div > div > button:first-child {
 }
 
 /*? Prod */
-div.prod {
+div.prod, div.suspenso {
     position: relative;
 }
 
-div.prod > div.divEdit {
+div.prod > div.divEdit, div.suspenso > div.divEdit {
     width: 30px;
     height: 30px;
     background-color: var(--cor4);
@@ -372,12 +377,13 @@ div.prod > div.divEdit {
     position: absolute;
     top: 0px;
     right: 0px;
+    z-index: 1;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-div.prod > div.divEdit > span {
+div.prod > div.divEdit > span, div.suspenso > div.divEdit > span {
     width: 60%;
     height: 60%;
     background-image: url(../img/icon/editar.png);
@@ -409,12 +415,12 @@ div.prod > div.divEdit > span {
         max-width: 640px;
     }
 
-    main > div.prod {
+    main > div.prod, div.suspenso {
         width: 200px;
         margin: 5px 5px;
     }
 
-    div.prod > div.sobreProd > p {
+    div.prod > div.sobreProd > p, div.suspenso > div.sobreProd > p {
         font-size: 11px;
     }
 }
@@ -492,17 +498,17 @@ div.prod > div.divEdit > span {
         width: 365px;
     }
 
-    main > div.prod {
+    main > div.prod, div.suspenso {
         width: 170px;
         margin: 5px 5px;
     }
 
-    div.prod > div.sobreProd > p {
+    div.prod > div.sobreProd > p, div.suspenso > div.sobreProd > p {
         font-size: 11px;
         word-wrap: break-word;
     }
 
-    div.prod > div.sobreProd > p > strong {
+    div.prod > div.sobreProd > p > strong, div.suspenso > div.sobreProd > p > strong {
         width: 100%;
         display: block;
     }
@@ -513,17 +519,17 @@ div.prod > div.divEdit > span {
         width: 220px;
     }
 
-    main > div.prod {
+    main > div.prod, div.suspenso {
         width: 100%;
         margin: 25px 5px;
     }
 
-    div.prod > div.sobreProd > p {
+    div.prod > div.sobreProd > p, div.suspenso > div.sobreProd > p {
         font-size: 11px;
         word-wrap: break-word;
     }
 
-    div.prod > div.sobreProd > p > strong {
+    div.prod >  div.sobreProd > p > strong, div.suspenso > div.sobreProd > p > strong {
         width: 100%;
         display: block;
     }

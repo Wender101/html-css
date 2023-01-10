@@ -63,31 +63,37 @@ db.collection('Produtos').onSnapshot((data) => {
             categ = categ.replace(/\s/g, '') //? Vai remover os espaços
 
             if(pesquisaInp.includes(categ) && achado == false || categ.includes(pesquisaInp) && achado == false) {
-                achado = true
-                pesquisarPorCat = true
-                if(categ.slice(-1) != 's' && categ.slice(-1) != 'S') {
-                    document.getElementById('ideal').innerText = 'ideal'
+                if(Produtos.Estado != 'Suspenso') {
+                    achado = true
+                    pesquisarPorCat = true
+                    if(categ.slice(-1) != 's' && categ.slice(-1) != 'S') {
+                        document.getElementById('ideal').innerText = 'ideal'
+                    }
+                    nameRecomend.innerText = Produtos.Categoria
+                    recomendacaoComBaseEmPesquisa(Produtos.Img1, Produtos.Img2, Produtos.Img3, Produtos.Img4, Produtos.Nome, Produtos.Desc , Produtos.Valor, Produtos.Desconto, Produtos.Id)
                 }
-                nameRecomend.innerText = Produtos.Categoria
-                recomendacaoComBaseEmPesquisa(Produtos.Img1, Produtos.Img2, Produtos.Img3, Produtos.Img4, Produtos.Nome, Produtos.Desc , Produtos.Valor, Produtos.Desconto, Produtos.Id)
             }
 
             setTimeout(() => {
                 if(pesquisarPorCat == false && max < 5) {
-                    max++
-                    document.getElementById('ideal').innerText = 'ideais'
-                    nameRecomend.innerText = 'Produtos'
-                    recomendacaoComBaseEmPesquisa(Produtos.Img1, Produtos.Img2, Produtos.Img3, Produtos.Img4, Produtos.Nome, Produtos.Desc , Produtos.Valor, Produtos.Desconto, Produtos.Id)
+                    if(Produtos.Estado != 'Suspenso') {
+                        max++
+                        document.getElementById('ideal').innerText = 'ideais'
+                        nameRecomend.innerText = 'Produtos'
+                        recomendacaoComBaseEmPesquisa(Produtos.Img1, Produtos.Img2, Produtos.Img3, Produtos.Img4, Produtos.Nome, Produtos.Desc , Produtos.Valor, Produtos.Desconto, Produtos.Id)
+                    }
                 }
             }, 200)
 
         } catch(error) {
             setTimeout(() => {
                 if(pesquisarPorCat == false && max < 5) {
-                    max++
-                    document.getElementById('ideal').innerText = 'ideais'
-                    nameRecomend.innerText = 'Produtos'
-                    recomendacaoComBaseEmPesquisa(Produtos.Img1, Produtos.Img2, Produtos.Img3, Produtos.Img4, Produtos.Nome, Produtos.Desc , Produtos.Valor, Produtos.Desconto, Produtos.Id)
+                    if(Produtos.Estado != 'Suspenso') {
+                        max++
+                        document.getElementById('ideal').innerText = 'ideais'
+                        nameRecomend.innerText = 'Produtos'
+                        recomendacaoComBaseEmPesquisa(Produtos.Img1, Produtos.Img2, Produtos.Img3, Produtos.Img4, Produtos.Nome, Produtos.Desc , Produtos.Valor, Produtos.Desconto, Produtos.Id)
+                    }
                 }
             }, 200)
         }
