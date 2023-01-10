@@ -42,6 +42,7 @@ function modoPage(modo = '') {
     let cor2 = '#181a1b' 
     let cor3 = '#e5edf0'
     let cor4 = '#04b3ff'
+    let cor5 = '#0075a7'
 
     for(let c = 0; c < 10; c++) {
         try {
@@ -50,6 +51,7 @@ function modoPage(modo = '') {
     }
 
     if(modoAtual == false || modoAtual == 'false') {
+        //! Modo dark
         try {
             document.getElementById('carregando').style.backgroundColor = cor2
         } catch {
@@ -77,6 +79,9 @@ function modoPage(modo = '') {
         document.querySelector('body').style.color = cor1
         document.querySelector('header').querySelector('span').style.color = cor1
         document.getElementById('aCarrinho').style.color = cor1
+        document.getElementById('cookies').querySelector('article').style.background = '#1c1c1c'
+        document.getElementById('cookies').querySelector('article').querySelector('button').style.background = cor5
+        document.querySelector('footer').style.background = cor5
         document.getElementById('pesquisaInput')
 
         for(let c = 0; c < 100; c++) {
@@ -95,6 +100,8 @@ function modoPage(modo = '') {
         }, 1000)
 
         //! ---------------------------------------------------------------
+
+        //! Modo claro
     } else {
         try {
             document.getElementById('carregando').style.backgroundColor = cor1
@@ -120,6 +127,9 @@ function modoPage(modo = '') {
             document.querySelector('body').style.color = cor0
             document.querySelector('header').querySelector('span').style.color = cor0
             document.getElementById('aCarrinho').style.color = cor0
+            document.getElementById('cookies').querySelector('article').style.background = cor1
+            document.querySelector('footer').style.background = 'var(--cor4)'
+            document.getElementById('cookies').querySelector('article').querySelector('button').style.background = 'var(--cor4)'
             
             for(let c = 0; c < 100; c++) {
                 try {
@@ -141,5 +151,61 @@ function modoPage(modo = '') {
 
 //? Vai fechar os cookies
 function fecharCookies() {
-    document.getElementById('cookies').style.display = 'none'
+    document.getElementById('cookies').querySelector('article').style.transition = '1s bottom cubic-bezier(0.18, 0.89, 0.32, 1.28)'
+    document.getElementById('cookies').querySelector('article').style.bottom = '-300px'
+
+    setTimeout(() => {
+        document.getElementById('cookies').style.display = 'none'
+    }, 150)
+
+    //? Vai salvar a info que o user aceitou o cookie
+    db.collection('User').onSnapshot((data) => {
+        data.docs.map(function(valCarrinho) {
+            let User = valCarrinho.data()
+
+            if(User.Email == email) {
+                db.collection('User').doc(valCarrinho.id).update({Cookie: true})
+            }
+        })
+    })
 }
+
+//? Vai abrir os cookies
+function abrirCookies() {
+    document.getElementById('cookies').style.display = 'block'
+    setTimeout(() => {
+        document.getElementById('cookies').querySelector('article').style.transition = '1s bottom cubic-bezier(0.18, 0.89, 0.32, 1.28)'
+        document.getElementById('cookies').querySelector('article').style.bottom = '0px'
+    }, 100)
+}
+
+let cookie = false
+setInterval(() => {
+    try {
+        if(document.getElementById('carregando').style.display == 'none' && cookie == false && email != undefined && email != 'undefined') {
+            db.collection('User').onSnapshot((data) => {
+                data.docs.map(function(valCarrinho) {
+                    let User = valCarrinho.data()
+        
+                    if(User.Email == email && User.Cookie != true) {
+                        cookie = true
+                        abrirCookies()
+                    }
+                })
+            })
+        }
+    } catch {
+        if(document.getElementById('carregando1').style.display == 'none' && cookie == false && email != undefined && email != 'undefined') {
+            db.collection('User').onSnapshot((data) => {
+                data.docs.map(function(valCarrinho) {
+                    let User = valCarrinho.data()
+        
+                    if(User.Email == email && User.Cookie != true) {
+                        cookie = true
+                        abrirCookies()
+                    }
+                })
+            })
+        }
+    }
+}, 100)

@@ -7,7 +7,7 @@
     --cor4: #04b3ff;
     --cor5: #6900f3; 
     --cor5: #0ae715; 
-    --cor6: #666666;
+    --cor6: #6e6d6d;
     --cor7: #00a1ff;
     --cor8: #ffe600;
     
@@ -199,7 +199,6 @@ header > section > button#configBtn {
     margin-right: 16px;
     display: none;
 }
-
 header > section#parte1Header > a > img {
     height: 35px;
     margin-left: 40px;
@@ -210,6 +209,34 @@ header > section#parte3Header {
     right: 0px;
 }
 
+img.imgEmailUser {
+    width: 35px;
+    height: 35px;
+    display: none;
+    border-radius: 50%;
+    margin-right: 40px;
+    cursor: pointer;
+}
+
+li#localImgUser {
+    display: none;
+    position: relative;
+}
+
+li#localImgUser > img.imgEmailUser {
+    position: absolute;
+    top: -8px;
+    left: 17px;
+}
+
+li#localImgUser > span {
+    margin: 25px 0px 25px 60px;
+    display: block;
+}
+
+div#menu > ul > li {
+    cursor: pointer;
+}
 
 div#localInput {
     width: 100vw;
@@ -366,26 +393,35 @@ div#menu > ul > li > a > img {
 section#cookies {
     width: 100%;
     height: 110vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: none;
     background-color: var(--sombra2);
     z-index: 2;
     left: 0px;
     position: fixed;
     bottom: 0px;
-    padding: 20px;
     overflow: hidden;
 }
 
 section#cookies > article {
-    width: 95%;
-    max-width: 500px;
+    width: 100%;
     height: auto;
     background-color: var(--cor1);
     color: var(--cor6);
-    padding: 30px;
-    border-radius: 10px;
+    overflow: hidden;
+    display: block;
+    position: absolute;
+    bottom: -300px;
+    padding-bottom: 30px;
+}
+
+section#cookies > article > h2 {
+    margin-top: 20px;
+    font-size: 1.2em;
+}
+
+section#cookies > article > h2, section#cookies > article > p {
+    padding: 0px 20px;
+
 }
 
 section#cookies > article > p {
