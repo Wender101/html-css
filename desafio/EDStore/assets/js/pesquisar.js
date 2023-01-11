@@ -56,11 +56,13 @@ function sugetaoPesquisa(pesquisa) {
 
                     if(location.host == '127.0.0.1:5500') {
                         if(location.pathname == '/pagProduto.html') {
+                            
                             chamarDB()
                             prodEncontrado = false
                             prodNaoEncontrado()
                             input.value = ''
                         } else {
+                            
                             location.pathname = '/pagProduto.html'
                         }
                         
@@ -145,11 +147,13 @@ document.addEventListener('keypress', (e) => {
 
         if(location.host == '127.0.0.1:5500') {
             if(location.pathname == '/pagProduto.html') {
+                
                 chamarDB()
                 prodEncontrado = false
                 prodNaoEncontrado()
                 input.value = ''
             } else {
+                
                 location.pathname = '/pagProduto.html'
             }
             
@@ -219,9 +223,11 @@ function criaCategorias() {
 
                             localStorage.setItem('produtoPagProduto', span.innerText)
                             if(location.host == '127.0.0.1:5500') {
+                                
                                 location.pathname = '/pagProduto.html'
                                 
                             } else if(location.host == 'wender101.github.io') {
+                                
                                 location.href = 'https://wender101.github.io/html-css/desafio/EDStore/pagProduto.html'
                             }
                         })

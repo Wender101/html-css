@@ -4,32 +4,36 @@ const sobreProduto2 = JSON.parse(sobreProduto1)
 let idProdSelecionado = sobreProduto2[1]
 let descProdSelecionado = sobreProduto2[0]
 let urlSemProduto
+let pesquisado = false
 //? Vai mudar a url
 function trocarURL() {
-    let url = window.location.href
-    if(url.substr(-4) != 'html') {
-        for(let c = 0; c < 150; c++) {
-            let a = url.substr(-c)
-            if(a.substr(1, 1) == '?') {
-                let ab = c - 2
-                descProdSelecionado = url.substr(-ab)
-                let pDescEnviar = descProdSelecionado
-                pDescEnviar = pDescEnviar.replace(/[`~!@#$%^&*()_\-+=\[\]{};:'"\\|\/,.<>?\s]/g, ' ').toLowerCase()
-                pDescEnviar = pDescEnviar.normalize('NFD').replace(/[\u0300-\u036f]/g, "")
-                pDescEnviar = pDescEnviar.replace(/^\s+|\s+$/gm,'')
-                pDescEnviar = pDescEnviar.replace(/\s+/g, '-')
-                let array = [descProdSelecionado, idProdSelecionado]
-                localStorage.setItem('sobreProduto', JSON.stringify(array))
-                urlSemProduto = window.location.href.replace(`?${descProdSelecionado}`, '')
+    if(document.querySelector('title').innerText != 'EDStore - Produtos' && pesquisado == false) {
+        pesquisado = true
+        let url = window.location.href
+        if(url.substr(-4) != 'html') {
+            for(let c = 0; c < 150; c++) {
+                let a = url.substr(-c)
+                if(a.substr(1, 1) == '?') {
+                    let ab = c - 2
+                    descProdSelecionado = url.substr(-ab)
+                    let pDescEnviar = descProdSelecionado
+                    pDescEnviar = pDescEnviar.replace(/[`~!@#$%^&*()_\-+=\[\]{};:'"\\|\/,.<>?\s]/g, ' ').toLowerCase()
+                    pDescEnviar = pDescEnviar.normalize('NFD').replace(/[\u0300-\u036f]/g, "")
+                    pDescEnviar = pDescEnviar.replace(/^\s+|\s+$/gm,'')
+                    pDescEnviar = pDescEnviar.replace(/\s+/g, '-')
+                    let array = [descProdSelecionado, idProdSelecionado]
+                    localStorage.setItem('sobreProduto', JSON.stringify(array))
+                    urlSemProduto = window.location.href.replace(`?${descProdSelecionado}`, '')
+                }
             }
+        } else if(sobreProduto2[0] != undefined && sobreProduto2[0] != null && url.substr(-1) == 'l') {
+            descProdSelecionado = descProdSelecionado.replace(/[`~!@#$%^&*()_\-+=\[\]{};:'"\\|\/,.<>?\s]/g, ' ').toLowerCase()
+            descProdSelecionado = descProdSelecionado.normalize('NFD').replace(/[\u0300-\u036f]/g, "")
+            descProdSelecionado = descProdSelecionado.replace(/^\s+|\s+$/gm,'')
+            descProdSelecionado = descProdSelecionado.replace(/\s+/g, '-')
+            window.location.href += '?' + descProdSelecionado
+            trocarURL()
         }
-    } else if(sobreProduto2[0] != undefined && sobreProduto2[0] != null && url.substr(-1) == 'l') {
-        descProdSelecionado = descProdSelecionado.replace(/[`~!@#$%^&*()_\-+=\[\]{};:'"\\|\/,.<>?\s]/g, ' ').toLowerCase()
-        descProdSelecionado = descProdSelecionado.normalize('NFD').replace(/[\u0300-\u036f]/g, "")
-        descProdSelecionado = descProdSelecionado.replace(/^\s+|\s+$/gm,'')
-        descProdSelecionado = descProdSelecionado.replace(/\s+/g, '-')
-        window.location.href += '?' + descProdSelecionado
-        trocarURL()
     }
 } trocarURL()
 
