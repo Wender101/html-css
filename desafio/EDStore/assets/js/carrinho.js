@@ -103,7 +103,8 @@ function criaProduto(Img1 ,Img2, Img3, Img4, Nome, Desc, Valor, Desconto, Id) {
         let el = e.target.className
 
         if(el != 'btnX' && el != 'xRemover') {
-            localStorage.setItem('sobreProduto', Id)
+            let array = [Desc, Id]
+            localStorage.setItem('sobreProduto', JSON.stringify(array))
             if(location.host == '127.0.0.1:5500') {
                 location.pathname = '/Sobre-Produto.html'
                 

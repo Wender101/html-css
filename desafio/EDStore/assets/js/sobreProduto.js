@@ -5,6 +5,7 @@ let idProdSelecionado = sobreProduto2[1]
 let descProdSelecionado = sobreProduto2[0]
 let urlSemProduto
 let pesquisado = false
+let errorProduto = false
 //? Vai mudar a url
 function trocarURL() {
     if(document.querySelector('title').innerText != 'EDStore - Produtos' && pesquisado == false) {
@@ -28,7 +29,6 @@ function trocarURL() {
                 }
             }
         } else if(sobreProduto2[0] != undefined && sobreProduto2[0] != null && url.substr(-1) == 'l') {
-            console.log(2);
             descProdSelecionado = descProdSelecionado.replace(/[`~!@#$%^&*()_\-+=\[\]{};:'"\\|\/,.<>?\s]/g, ' ').toLowerCase()
             descProdSelecionado = descProdSelecionado.normalize('NFD').replace(/[\u0300-\u036f]/g, "")
             descProdSelecionado = descProdSelecionado.replace(/^\s+|\s+$/gm,'')
@@ -37,7 +37,6 @@ function trocarURL() {
             trocarURL()
 
         } else if(sobreProduto2[0] != undefined && sobreProduto2[0] != null && url.substr(-1) != 'l') {
-            console.log(3);
             descProdSelecionado = descProdSelecionado.replace(/[`~!@#$%^&*()_\-+=\[\]{};:'"\\|\/,.<>?\s]/g, ' ').toLowerCase()
             descProdSelecionado = descProdSelecionado.normalize('NFD').replace(/[\u0300-\u036f]/g, "")
             descProdSelecionado = descProdSelecionado.replace(/^\s+|\s+$/gm,'')
@@ -120,8 +119,10 @@ function criaProduto() {
                         document.getElementById('imgSecundaria').src = imgClick.src
                     })
                 }
-            } else if(Produtos.Id == descProdSelecionado && Produtos.Estado == 'Suspenso') {
-                document.getElementsByClassName('nameProd')[0].innerText = 'Oops'
+            } else if(pDesc == descProdSelecionado && Produtos.Estado == 'Suspenso') {
+                document.querySelector("#imgPrincipal").src = 'assets/img/site/error2.png'
+                document.querySelector("#imgSecundaria").src = 'assets/img/site/error2.png'
+                document.getElementsByClassName('nameProd')[0].innerText = 'Ops'
                 document.getElementById('desc').innerText = 'O Produto se encontra suspenso ou fora de estoque. Tente novamente mais tarde.'
                 document.getElementById('valorDoProduto').style.display = 'none'
                 document.getElementById('localBtns').style.display = 'none'
@@ -185,14 +186,13 @@ function criaProduto() {
 } zoom()
 
 //? Caso o produto não seje encontrado
-let error = false
 function errorProd() {
-    if(error == false) {
-        error = true
+    if(errorProduto == false) {
+        errorProduto = true
 
         document.querySelector("#imgPrincipal").src = 'assets/img/site/produtonaoencontrado.jpg'
         document.querySelector("#imgSecundaria").src = 'assets/img/site/produtonaoencontrado.jpg'
-        document.getElementsByClassName('nameProd')[0].innerText = 'Oops'
+        document.getElementsByClassName('nameProd')[0].innerText = 'Ops'
         document.getElementById('desc').innerText = 'O produto não foi encontrado.'
         document.getElementById('valorDoProduto').style.display = 'none'
         document.getElementById('localBtns').style.display = 'none'
