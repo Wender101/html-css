@@ -10,7 +10,8 @@ function trocarURL() {
     if(document.querySelector('title').innerText != 'EDStore - Produtos' && pesquisado == false) {
         pesquisado = true
         let url = window.location.href
-        if(url.substr(-4) != 'html') {
+        if(url.substr(-4) != 'html' && url.substr(-1) != '?') {
+            console.log(1);
             for(let c = 0; c < 150; c++) {
                 let a = url.substr(-c)
                 if(a.substr(1, 1) == '?') {
@@ -27,14 +28,27 @@ function trocarURL() {
                 }
             }
         } else if(sobreProduto2[0] != undefined && sobreProduto2[0] != null && url.substr(-1) == 'l') {
+            console.log(2);
             descProdSelecionado = descProdSelecionado.replace(/[`~!@#$%^&*()_\-+=\[\]{};:'"\\|\/,.<>?\s]/g, ' ').toLowerCase()
             descProdSelecionado = descProdSelecionado.normalize('NFD').replace(/[\u0300-\u036f]/g, "")
             descProdSelecionado = descProdSelecionado.replace(/^\s+|\s+$/gm,'')
             descProdSelecionado = descProdSelecionado.replace(/\s+/g, '-')
             window.location.href += '?' + descProdSelecionado
             trocarURL()
+
+        } else if(sobreProduto2[0] != undefined && sobreProduto2[0] != null && url.substr(-1) != 'l') {
+            console.log(3);
+            descProdSelecionado = descProdSelecionado.replace(/[`~!@#$%^&*()_\-+=\[\]{};:'"\\|\/,.<>?\s]/g, ' ').toLowerCase()
+            descProdSelecionado = descProdSelecionado.normalize('NFD').replace(/[\u0300-\u036f]/g, "")
+            descProdSelecionado = descProdSelecionado.replace(/^\s+|\s+$/gm,'')
+            descProdSelecionado = descProdSelecionado.replace(/\s+/g, '-')
+            window.location.href += descProdSelecionado
+            trocarURL()
+
+        } else {
+            errorProd()
         }
-    }
+    } 
 } trocarURL()
 
 function criaProduto() {
@@ -72,7 +86,8 @@ function criaProduto() {
                 document.getElementById('voltar').style.display = 'none'
 
                 //? --------------------------------
-                document.getElementsByClassName('imgPrincipal')[0].src = Produtos.Img1 
+                document.getElementById('imgPrincipal').src = Produtos.Img1 
+                document.getElementById('imgSecundaria').src = Produtos.Img1 
                 document.getElementsByClassName('imgEX')[0].src = Produtos.Img1 
                 document.getElementsByClassName('imgEX')[1].src = Produtos.Img2
                 document.getElementsByClassName('imgEX')[2].src = Produtos.Img3
@@ -101,7 +116,8 @@ function criaProduto() {
                 for (let c = 0; c < 4; c++) {
                     let imgClick = document.getElementsByClassName('imgEX')[c]
                     imgClick.addEventListener('mouseenter', () => {
-                        document.getElementsByClassName('imgPrincipal')[0].src = imgClick.src
+                        document.getElementById('imgPrincipal').src = imgClick.src
+                        document.getElementById('imgSecundaria').src = imgClick.src
                     })
                 }
             } else if(Produtos.Id == descProdSelecionado && Produtos.Estado == 'Suspenso') {
@@ -118,10 +134,79 @@ function criaProduto() {
                 document.getElementById('voltar').addEventListener('click', () => {
                     window.history.back()
                 })
+            } else {
+                errorProd()
             }
         })
     })
 } criaProduto()
+
+
+ //? Vai criar o efeito de zoom nas imgs
+ function zoom() {
+
+    let small = document.querySelector("#small")
+    let mask = document.querySelector("#mask")
+    let big = document.querySelector("#big")
+    let bigImg = document.querySelector("#big>img")
+    let imgProduto = document.querySelector("#imgPrincipal")
+
+    bigImg.src = imgProduto.src
+
+    small.addEventListener("mouseenter",function(){
+        if(document.defaultView.innerWidth > 700) {
+            big.style.display = "block" 
+        }
+    })
+    small.addEventListener("mouseleave",function(){
+        big.style.display = "none" 
+    })
+
+    small.addEventListener("mousemove",function(event){
+        try {
+            let pos = small.getBoundingClientRect()
+            let x = event.clientX -pos.x 
+            let y = event.clientY - pos.y 
+    
+            if( x< 100 ){ x = 100}
+            if( x > 400 ){  x = 400}
+    
+            ( y < 100 )&&( y = 100 )
+            ( y > 400 )&&( y = 400 )
+    
+            mask.style.left = (x-100) + "px"
+            mask.style.top = (y-100) + "px"
+    
+            bigImg.style.left = -(x-100)*2+"px"
+            bigImg.style.top = -(y-100)*2+"px"
+
+        } catch {}
+    })
+} zoom()
+
+//? Caso o produto não seje encontrado
+let error = false
+function errorProd() {
+    if(error == false) {
+        error = true
+
+        document.querySelector("#imgPrincipal").src = 'assets/img/site/produtonaoencontrado.jpg'
+        document.querySelector("#imgSecundaria").src = 'assets/img/site/produtonaoencontrado.jpg'
+        document.getElementsByClassName('nameProd')[0].innerText = 'Oops'
+        document.getElementById('desc').innerText = 'O produto não foi encontrado.'
+        document.getElementById('valorDoProduto').style.display = 'none'
+        document.getElementById('localBtns').style.display = 'none'
+        document.getElementById('othersImgs').style.display = 'none'
+        document.getElementById('chat').style.display = 'none'
+        document.getElementById('descricaoDetalhada').style.display = 'none'
+        document.getElementsByClassName('text')[0].style.display = 'none'
+        document.getElementById('infos').style.position = 'relative'
+        document.getElementById('voltar').style.display = 'block'
+        document.getElementById('voltar').addEventListener('click', () => {
+            window.history.back()
+        })
+    }
+}
 
 //? Vai criar os produtos relacionados
 function produtosRelacionados(relacionados = '') {
