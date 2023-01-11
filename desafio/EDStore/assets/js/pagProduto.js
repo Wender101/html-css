@@ -186,7 +186,7 @@ function criaProduto(Img1 ,Img2, Img3, Img4, Nome, Desc, Valor, Desconto, Id) {
             location.href = `http://${location.host}/Sobre-Produto.html`
             
         } else if(location.host == 'wender101.github.io') {
-            location.href = `https://${location.host}/Sobre-Produto.html`
+            location.href = `https://${location.host}/html-css/desafio/EDStore/Sobre-Produto.html`
         }
     })
 }
