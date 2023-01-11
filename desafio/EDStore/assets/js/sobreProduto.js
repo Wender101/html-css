@@ -1,4 +1,26 @@
-let idProdSelecionado = localStorage.getItem('sobreProduto')
+//! Vai pegar do browser o produto que foi salvo
+const sobreProduto1 = localStorage.getItem('sobreProduto')
+const sobreProduto2 = JSON.parse(sobreProduto1)
+let idProdSelecionado
+let urlSemProduto
+//? Vai mudar a url
+function trocarURL() {
+    let url = window.location.href
+    if(url.substr(-1) != 'l') {
+        for(let c = 0; c < 50; c++) {
+            let a = url.substr(-c)
+            if(a.substr(1, 1) == '#') {
+                let ab = c - 2
+                idProdSelecionado = url.substr(-ab)
+                localStorage.setItem('sobreProduto', idProdSelecionado)
+                urlSemProduto = window.location.href.replace(`#${idProdSelecionado}`, '')
+            }
+        }
+    } else if(sobreProduto2 != undefined && sobreProduto2 != null) {
+        window.location.href += '#' + sobreProduto2
+        trocarURL()
+    }
+} trocarURL()
 function criaProduto() {
     db.collection('Produtos').onSnapshot((data) => {
         data.docs.map(function(val) {
@@ -36,7 +58,7 @@ function criaProduto() {
                 if(Produtos.DescDetalhada != undefined && Produtos.DescDetalhada != 'undefined') {
                     document.getElementById('descricaoP').innerHTML = Produtos.DescDetalhada
                 } else {
-                    document.getElementById('descricaoDetalhada').style.display = 'none'
+                    document.getElementById('descricaoP').innerHTML = 'Este produto não contém uma descrição mais detalhado do produto ;/'
                 }
 
                 let valorComDesconto = (((Produtos.Desconto * Produtos.Valor) / 100) - Produtos.Valor) * -1
@@ -58,7 +80,7 @@ function criaProduto() {
                         document.getElementsByClassName('imgPrincipal')[0].src = imgClick.src
                     })
                 }
-            } else if(Produtos.Estado == 'Suspenso') {
+            } else if(Produtos.Id == idProdSelecionado && Produtos.Estado == 'Suspenso') {
                 document.getElementsByClassName('nameProd')[0].innerText = 'Oops'
                 document.getElementById('desc').innerText = 'O Produto se encontra suspenso ou fora de estoque. Tente novamente mais tarde.'
                 document.getElementById('valorDoProduto').style.display = 'none'
@@ -179,12 +201,11 @@ function criaRelacionados(Img1 ,Img2, Img3, Img4, Nome, Desc, Valor, Desconto, I
     //? Funções de click
     prod.addEventListener('click', () => {
         localStorage.setItem('sobreProduto', Id)
-        if(location.host == '127.0.0.1:5500') {
-            location.pathname = '/Sobre-Produto.html'
-            
-        } else if(location.host == 'wender101.github.io') {
-            location.href = 'https://wender101.github.io/html-css/desafio/EDStore/Sobre-Produto.html'
-        }
+        window.location.href = urlSemProduto + '#' + Id
+        trocarURL()
+        setTimeout(() => {
+            location.href = urlSemProduto
+        }, 100)
     })
 }
 

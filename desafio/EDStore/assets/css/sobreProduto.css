@@ -108,7 +108,7 @@ main > div#infos > div#valorDoProduto {
     margin-left: 50%;
     transform: translate(-50%);
     color: var(--cor1);
-    border: 1px solid var(--cor4);
+    border: 1px solid var(--cor3);
     display: none;
     border-radius: 5px;
     padding: 10px 40px;
@@ -179,7 +179,7 @@ main > div#infos > div > button#modelo3 {
     padding: 11.5px 20px;
     position: relative;
     margin-left: 50%;
-    transform: translate(-60%);
+    transform: translate(-70%);
 }
 
 main > div#infos > div > button#modelo4 {

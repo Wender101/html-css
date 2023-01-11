@@ -68,6 +68,8 @@ function modoPage(modo = '') {
         } catch {}
         try {
             document.getElementById('mainP').style.backgroundColor = cor2
+            document.getElementById('infos').style.backgroundColor = cor2
+            document.getElementById('valorDoProduto').style.border = '1px solid var(--cor4)'
         } catch (error) {
             
         }
@@ -129,6 +131,9 @@ function modoPage(modo = '') {
             } catch {}
             try {
                 document.getElementById('mainP').style.backgroundColor = '#04b3ff'
+                document.getElementById('infos').style.backgroundColor = '#04b3ff'
+                document.getElementById('valorDoProduto').style.border = '1px solid var(--cor3)'
+
             } catch {}
 
             try {
