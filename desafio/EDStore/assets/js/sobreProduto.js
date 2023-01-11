@@ -1,26 +1,38 @@
 //! Vai pegar do browser o produto que foi salvo
 const sobreProduto1 = localStorage.getItem('sobreProduto')
 const sobreProduto2 = JSON.parse(sobreProduto1)
-let idProdSelecionado
+let idProdSelecionado = sobreProduto2[1]
+let descProdSelecionado = sobreProduto2[0]
 let urlSemProduto
 //? Vai mudar a url
 function trocarURL() {
     let url = window.location.href
-    if(url.substr(-1) != 'l') {
-        for(let c = 0; c < 50; c++) {
+    if(url.substr(-4) != 'html') {
+        for(let c = 0; c < 150; c++) {
             let a = url.substr(-c)
-            if(a.substr(1, 1) == '#') {
+            if(a.substr(1, 1) == '?') {
                 let ab = c - 2
-                idProdSelecionado = url.substr(-ab)
-                localStorage.setItem('sobreProduto', idProdSelecionado)
-                urlSemProduto = window.location.href.replace(`#${idProdSelecionado}`, '')
+                descProdSelecionado = url.substr(-ab)
+                let pDescEnviar = descProdSelecionado
+                pDescEnviar = pDescEnviar.replace(/[`~!@#$%^&*()_\-+=\[\]{};:'"\\|\/,.<>?\s]/g, ' ').toLowerCase()
+                pDescEnviar = pDescEnviar.normalize('NFD').replace(/[\u0300-\u036f]/g, "")
+                pDescEnviar = pDescEnviar.replace(/^\s+|\s+$/gm,'')
+                pDescEnviar = pDescEnviar.replace(/\s+/g, '-')
+                let array = [descProdSelecionado, idProdSelecionado]
+                localStorage.setItem('sobreProduto', JSON.stringify(array))
+                urlSemProduto = window.location.href.replace(`?${descProdSelecionado}`, '')
             }
         }
-    } else if(sobreProduto2 != undefined && sobreProduto2 != null) {
-        window.location.href += '#' + sobreProduto2
+    } else if(sobreProduto2[0] != undefined && sobreProduto2[0] != null && url.substr(-1) == 'l') {
+        descProdSelecionado = descProdSelecionado.replace(/[`~!@#$%^&*()_\-+=\[\]{};:'"\\|\/,.<>?\s]/g, ' ').toLowerCase()
+        descProdSelecionado = descProdSelecionado.normalize('NFD').replace(/[\u0300-\u036f]/g, "")
+        descProdSelecionado = descProdSelecionado.replace(/^\s+|\s+$/gm,'')
+        descProdSelecionado = descProdSelecionado.replace(/\s+/g, '-')
+        window.location.href += '?' + descProdSelecionado
         trocarURL()
     }
 } trocarURL()
+
 function criaProduto() {
     db.collection('Produtos').onSnapshot((data) => {
         data.docs.map(function(val) {
@@ -36,8 +48,16 @@ function criaProduto() {
                 }
             } catch (error) {}
 
+            //? Vai pesquisar de acordo com a Url
+            let pDesc = Produtos.Desc
+            pDesc = pDesc.replace(/[`~!@#$%^&*()_\-+=\[\]{};:'"\\|\/,.<>?\s]/g, ' ').toLowerCase()
+            pDesc = pDesc.normalize('NFD').replace(/[\u0300-\u036f]/g, "")
+            pDesc = pDesc.replace(/^\s+|\s+$/gm,'')
+            pDesc = pDesc.replace(/\s+/g, '-')
+
             //? Vai criar os produtos
-            if(Produtos.Id == idProdSelecionado && Produtos.Estado != 'Suspenso') {
+            if(pDesc == descProdSelecionado && Produtos.Estado != 'Suspenso') {
+                idProdSelecionado = Produtos.Id
                 document.getElementById('valorDoProduto').style.display = 'block'
                 document.getElementById('localBtns').style.display = 'flex'
                 document.getElementById('othersImgs').style.display = 'block'
@@ -80,7 +100,7 @@ function criaProduto() {
                         document.getElementsByClassName('imgPrincipal')[0].src = imgClick.src
                     })
                 }
-            } else if(Produtos.Id == idProdSelecionado && Produtos.Estado == 'Suspenso') {
+            } else if(Produtos.Id == descProdSelecionado && Produtos.Estado == 'Suspenso') {
                 document.getElementsByClassName('nameProd')[0].innerText = 'Oops'
                 document.getElementById('desc').innerText = 'O Produto se encontra suspenso ou fora de estoque. Tente novamente mais tarde.'
                 document.getElementById('valorDoProduto').style.display = 'none'
@@ -200,11 +220,21 @@ function criaRelacionados(Img1 ,Img2, Img3, Img4, Nome, Desc, Valor, Desconto, I
 
     //? Funções de click
     prod.addEventListener('click', () => {
-        localStorage.setItem('sobreProduto', Id)
-        window.location.href = urlSemProduto + '#' + Id
-        trocarURL()
+        let pDescEnviar = Desc
+        pDescEnviar = pDescEnviar.replace(/[`~!@#$%^&*()_\-+=\[\]{};:'"\\|\/,.<>?\s]/g, ' ').toLowerCase()
+        pDescEnviar = pDescEnviar.normalize('NFD').replace(/[\u0300-\u036f]/g, "")
+        pDescEnviar = pDescEnviar.replace(/^\s+|\s+$/gm,'')
+        pDescEnviar = pDescEnviar.replace(/\s+/g, '-')
+
+        let array = [pDescEnviar, Id]
+        localStorage.setItem('sobreProduto', JSON.stringify(array))
         setTimeout(() => {
-            location.href = urlSemProduto
+            if(location.host == '127.0.0.1:5500') {
+                location.href = `http://${location.host}${location.pathname}?${pDescEnviar}`
+                
+            } else if(location.host == 'wender101.github.io') {
+                location.href = `https://${location.host}${location.pathname}?${pDescEnviar}`
+            }
         }, 100)
     })
 }
@@ -229,11 +259,11 @@ function salvarNoCarrinho(addNovamente = false) {
                             let Produto = val.data()
     
                             try {
-                            if(Produto.Id == idProdSelecionado && cloneCarrinho.length > 0) {
+                            if(Produto.Id == descProdSelecionado && cloneCarrinho.length > 0) {
                                     let jaTemProdutoADDNoCarrinho = false
                                     for(let c = 0; c < cloneCarrinho.length; c++) {
 
-                                        if(cloneCarrinho[c].Id == idProdSelecionado && feito == false) {
+                                        if(cloneCarrinho[c].Id == descProdSelecionado && feito == false) {
                                             jaTemProdutoADDNoCarrinho = true
                                             document.getElementById('pop-Up-AddProdutoNovamente').style.display = 'flex'
                                 
@@ -265,14 +295,14 @@ function salvarNoCarrinho(addNovamente = false) {
                                         }
                                     }
 
-                                } else if(Produto.Id == idProdSelecionado && cloneCarrinho.length <= 0) {
+                                } else if(Produto.Id == descProdSelecionado && cloneCarrinho.length <= 0) {
                                     setTimeout(() => {
                                         carrinhoCarregado = true
                                         db.collection('Produtos').onSnapshot((data) => {
                                             data.docs.map(function(val) {
                                                 let Produto = val.data()
                     
-                                                if(Produto.Id == idProdSelecionado) {
+                                                if(Produto.Id == descProdSelecionado) {
                                                     cloneCarrinho = []
                                                     let obj = {
                                                         Id: Produto.Id
@@ -296,7 +326,7 @@ function salvarNoCarrinho(addNovamente = false) {
                                         data.docs.map(function(val) {
                                             let Produto = val.data()
                 
-                                            if(Produto.Id == idProdSelecionado) {
+                                            if(Produto.Id == descProdSelecionado) {
                                                 cloneCarrinho = []
                                                 let obj = {
                                                     Id: Produto.Id

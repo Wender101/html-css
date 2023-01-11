@@ -145,7 +145,13 @@ function criaProduto(Img1 ,Img2, Img3, Img4, Nome, Desc, Valor, Desconto, Id) {
 
     //? Funções de click
     prod.addEventListener('click', () => {
-        localStorage.setItem('sobreProduto', Id)
+        let pDescEnviar = Desc
+        pDescEnviar = pDescEnviar.replace(/[`~!@#$%^&*()_\-+=\[\]{};:'"\\|\/,.<>?\s]/g, ' ').toLowerCase()
+        pDescEnviar = pDescEnviar.normalize('NFD').replace(/[\u0300-\u036f]/g, "")
+        pDescEnviar = pDescEnviar.replace(/^\s+|\s+$/gm,'')
+        pDescEnviar = pDescEnviar.replace(/\s+/g, '-')
+        let array = [pDescEnviar, Id]
+        localStorage.setItem('sobreProduto', JSON.stringify(array))
         if(location.host == '127.0.0.1:5500') {
             location.pathname = '/Sobre-Produto.html'
             
