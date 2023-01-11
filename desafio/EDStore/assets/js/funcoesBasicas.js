@@ -83,8 +83,9 @@ function modoPage(modo = '') {
             document.getElementById('prodEx').style.background = cor2
             document.getElementById('ex2').style.background = cor2
             document.getElementById('ex2').style.color = cor1
-
+            document.getElementById('confirmarExcluir').querySelector('div').style.background = cor2
         }
+
         document.getElementById('menu').querySelector('ul').style.background = cor2
         document.getElementById('menu').querySelector('ul').style.color = cor1
         document.getElementsByClassName('modoClaro')[0].style.backgroundImage = 'url(assets/img/icon/sol.png)'
@@ -140,7 +141,15 @@ function modoPage(modo = '') {
                 document.getElementById('cookies').querySelector('article').style.background = cor1
                 document.getElementById('cookies').querySelector('article').querySelector('button').style.background = 'var(--cor4)'
                 document.querySelector('footer').style.background = 'var(--cor4)'
-            } catch {}
+            } catch {
+                document.getElementById('popUpAddProd').style.background = cor1
+                document.getElementById('prodEx').style.background = cor1
+                document.getElementById('ex2').style.background = 'var(--cor4)'
+                document.getElementById('ex2').style.color = cor0
+                document.getElementById('valorDoProduto').style.border = '1px solid var(--cor1)'
+                document.getElementById('confirmarExcluir').querySelector('div').style.background = cor1
+            }
+
             document.getElementsByClassName('modoClaro')[0].style.backgroundImage = 'url(assets/img/icon/lua.png)'
             document.getElementsByClassName('modoClaro')[1].style.backgroundImage = 'url(assets/img/icon/lua.png)'
             document.querySelector('body').style.backgroundColor = cor1
