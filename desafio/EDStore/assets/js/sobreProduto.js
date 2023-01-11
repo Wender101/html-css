@@ -348,11 +348,12 @@ function salvarNoCarrinho(addNovamente = false) {
                             let Produto = val.data()
     
                             try {
-                            if(Produto.Id == descProdSelecionado && cloneCarrinho.length > 0) {
+                            if(Produto.Id == idProdSelecionado && cloneCarrinho.length > 0) {
                                     let jaTemProdutoADDNoCarrinho = false
                                     for(let c = 0; c < cloneCarrinho.length; c++) {
 
-                                        if(cloneCarrinho[c].Id == descProdSelecionado && feito == false) {
+                                        if(cloneCarrinho[c].Id == idProdSelecionado && feito == false && checkTemCarrinho == false) {
+                                            checkTemCarrinho = true
                                             jaTemProdutoADDNoCarrinho = true
                                             document.getElementById('pop-Up-AddProdutoNovamente').style.display = 'flex'
                                 
@@ -384,14 +385,14 @@ function salvarNoCarrinho(addNovamente = false) {
                                         }
                                     }
 
-                                } else if(Produto.Id == descProdSelecionado && cloneCarrinho.length <= 0) {
+                                } else if(Produto.Id == idProdSelecionado && cloneCarrinho.length <= 0) {
                                     setTimeout(() => {
                                         carrinhoCarregado = true
                                         db.collection('Produtos').onSnapshot((data) => {
                                             data.docs.map(function(val) {
                                                 let Produto = val.data()
                     
-                                                if(Produto.Id == descProdSelecionado) {
+                                                if(Produto.Id == idProdSelecionado) {
                                                     cloneCarrinho = []
                                                     let obj = {
                                                         Id: Produto.Id
@@ -415,7 +416,7 @@ function salvarNoCarrinho(addNovamente = false) {
                                         data.docs.map(function(val) {
                                             let Produto = val.data()
                 
-                                            if(Produto.Id == descProdSelecionado) {
+                                            if(Produto.Id == idProdSelecionado) {
                                                 cloneCarrinho = []
                                                 let obj = {
                                                     Id: Produto.Id
