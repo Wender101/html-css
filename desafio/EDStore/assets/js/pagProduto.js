@@ -4,7 +4,7 @@ let prodEncontrado = false
 //! Vai pegar do browser o produto que foi salvo
 const produtoPagProduto = localStorage.getItem('produtoPagProduto')
 let pesquisaFeita = produtoPagProduto
-let pPesquisa = pesquisaFeita
+let pPesquisa = produtoPagProduto
 pPesquisa = pPesquisa.replace(/[`~!@#$%^&*()_\-+=\[\]{};:'"\\|\/,.<>?\s]/g, ' ').toLowerCase()
 pPesquisa = pPesquisa.normalize('NFD').replace(/[\u0300-\u036f]/g, "")
 pPesquisa = pPesquisa.replace(/^\s+|\s+$/gm,'')
@@ -22,11 +22,15 @@ function trocarURL() {
                     if(a.substr(1, 1) == '?') {
                         let ab = c - 2
                         pesquisaFeita = url.substr(-ab)
-                        localStorage.setItem('produtoPagProduto', JSON.stringify(pPesquisa))
+                        localStorage.setItem('produtoPagProduto', JSON.stringify(pesquisaFeita))
                     }
                 }
             } else if(pesquisaFeita != undefined && pesquisaFeita != null && url.substr(-1) == 'l') {
-                window.location.href += '?' + pPesquisa
+                pesquisaFeita = pesquisaFeita.replace(/[`~!@#$%^&*()_\-+=\[\]{};:'"\\|\/,.<>?\s]/g, ' ').toLowerCase()
+                pesquisaFeita = pesquisaFeita.normalize('NFD').replace(/[\u0300-\u036f]/g, "")
+                pesquisaFeita = pesquisaFeita.replace(/^\s+|\s+$/gm,'')
+                pesquisaFeita = pesquisaFeita.replace(/\s+/g, '-')
+                window.location.href += '?' + pesquisaFeita
                 trocarURL()
             }
         }
