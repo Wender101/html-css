@@ -9,7 +9,6 @@
     align-items: center;
     margin: 100px 0px 50px 50%;
     transform: translate(-50.5%);
-    border-radius: 10px;
     background-color: var(--cor0);
     overflow: visible;
 }
@@ -23,7 +22,6 @@
     height: 100%;
     overflow: hidden;
     position: relative;
-    border-radius: 16px;
 }
 
 .slideshow-wrapper {
@@ -169,15 +167,37 @@ div.prod, div.suspenso {
     width: 217px;
     height: 295px;
     margin-top: 40px;
-    border-radius: 16px;
-    border: 0.5px solid var(--cor3);
     box-shadow: 2px 2px 20px var(--sombra);
     margin: 16px 10px;
+    position: relative;
 }
 
-div.suspenso {
+div.prod > div.descontoPartProd, div.suspenso > div.descontoPartProd {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 0px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    right: 0px;
+    color: var(--cor1);
+    background-color: var(--cor4);
+    border-radius: 0px 16px 0px 16px;
+}
+
+div.prod > div.descontoPartProd > span, div.suspenso > div.descontoPartProd > span {
+    display: block;
+    font-size: 0.8em;
+    text-align: center;
+}
+
+.valor {
+    color: var(--cor0);
+}
+
+div.suspenso > .localImg, div.suspenso > .imgProduto, div.suspenso > .sobreProd {
     opacity: 0.4;
-    border: 1px solid var(--cor8);
 }
 
 div.prod:hover, div.suspenso:hover {
@@ -192,7 +212,6 @@ div.prod > div.localImg, div.suspenso > div.localImg {
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 16px 16px 0px 0px;
 }
 
 div.prod > div.localImg > img, div.suspenso > div.localImg > img {

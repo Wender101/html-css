@@ -111,9 +111,12 @@ function recomendacaoComBaseEmPesquisa(Img1 ,Img2, Img3, Img4, Nome, Desc, Valor
     let valorStrong = document.createElement('strong')
     let valorSemDescontoT = document.createElement('span')
     let valorSalvo = document.createElement('span')
+    let descontoPartProd = document.createElement('div')
+    let spanDesconto = document.createElement('span')
 
     //? Class
     prod.className = 'prod'
+    descontoPartProd.className = 'descontoPartProd'
     localImg.className = 'localImg'
     imgProduto.className = 'imgProduto'
     sobreProd.className = 'sobreProd'
@@ -125,6 +128,13 @@ function recomendacaoComBaseEmPesquisa(Img1 ,Img2, Img3, Img4, Nome, Desc, Valor
     //?---
     imgProduto.src = Img1
     nameProd.innerText = Nome
+
+    if(Desconto > 0) {
+        prod.style.borderRadius = ' 0px 70px 0px 0px'
+        localImg.style.borderRadius = ' 0px 16px 0px 0px'
+        spanDesconto.innerText = `${Desconto}% OFF`
+        descontoPartProd.style.display = 'flex'
+    }
 
     if(Desconto <= 0) {
         Desconto = 0
@@ -146,6 +156,8 @@ function recomendacaoComBaseEmPesquisa(Img1 ,Img2, Img3, Img4, Nome, Desc, Valor
     sobreProd.appendChild(nameProd)
     sobreProd.appendChild(p)
     sobreProd.appendChild(valorSalvo)
+    descontoPartProd.appendChild(spanDesconto)
+    prod.appendChild(descontoPartProd)
     prod.appendChild(localImg)
     prod.appendChild(sobreProd)
     localRecomend.appendChild(prod)

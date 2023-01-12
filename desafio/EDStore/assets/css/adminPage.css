@@ -381,21 +381,34 @@ div.prod, div.suspenso {
 div.prod > div.divEdit, div.suspenso > div.divEdit {
     width: 30px;
     height: 30px;
-    background-color: var(--cor4);
+    background-color: var(--cor9);
     border-radius: 50%;
     position: absolute;
     top: 0px;
-    right: 0px;
+    left: 0px;
     z-index: 1;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-div.prod > div.divEdit > span, div.suspenso > div.divEdit > span {
-    width: 60%;
-    height: 60%;
+div.prod > div.divEdit > span {
+    width: 55%;
+    height: 55%;
     background-image: url(../img/icon/editar.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+div.suspenso > div.divEdit {
+    background-color: var(--sombra2);
+}
+
+div.suspenso > div.divEdit > span {
+    width: 100%;
+    height: 100%;
+    background-image: url(../img/icon/suspenso.png);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;

@@ -109,7 +109,7 @@ function criaProduto() {
                 document.getElementById('qDesconto').innerText = Produtos.Desconto + '% OFF'
                 //Produtos.Id
 
-                produtosRelacionados(Produtos.Nome)
+                produtosRelacionados(Produtos.Nome, Produtos.Categoria)
 
                 //? Funções de click
                 for (let c = 0; c < 4; c++) {
@@ -209,7 +209,7 @@ function errorProd() {
 }
 
 //? Vai criar os produtos relacionados
-function produtosRelacionados(relacionados = '') {
+function produtosRelacionados(relacionados = '', classeProd = '') {
     let arrayProd = []
     let kdPalavra = relacionados.split(' ')
     let max = 0
@@ -237,7 +237,7 @@ function produtosRelacionados(relacionados = '') {
                 desc = desc.normalize('NFD').replace(/[\u0300-\u036f]/g, "") //? Vai remover os acentos
                 desc = desc.replace(/\s/g, '') //? Vai remover os espaços
                 
-                if(nome.includes(palavraSeparada) && max < 6 || desc.includes(palavraSeparada) && max < 6) {
+                if(nome.includes(palavraSeparada) && max < 6 || desc.includes(palavraSeparada) && max < 6 || Produtos.Categoria.includes(classeProd) && max < 6) {
                     max++
                     let igual = false
                     //? Vai impedir que os produtos se repitam
@@ -268,9 +268,12 @@ function criaRelacionados(Img1 ,Img2, Img3, Img4, Nome, Desc, Valor, Desconto, I
     let valorStrong = document.createElement('strong')
     let valorSemDescontoT = document.createElement('span')
     let valorSalvo = document.createElement('span')
+    let descontoPartProd = document.createElement('div')
+    let spanDesconto = document.createElement('span')
 
     //? Class
     prod.className = 'prod'
+    descontoPartProd.className = 'descontoPartProd'
     localImg.className = 'localImg'
     imgProduto.className = 'imgProduto'
     sobreProd.className = 'sobreProd'
@@ -282,6 +285,13 @@ function criaRelacionados(Img1 ,Img2, Img3, Img4, Nome, Desc, Valor, Desconto, I
     //?---
     imgProduto.src = Img1
     nameProd.innerText = Nome
+
+    if(Desconto > 0) {
+        prod.style.borderRadius = ' 0px 70px 0px 0px'
+        localImg.style.borderRadius = ' 0px 16px 0px 0px'
+        spanDesconto.innerText = `${Desconto}% OFF`
+        descontoPartProd.style.display = 'flex'
+    }
 
     if(Desconto <= 0) {
         Desconto = 0
@@ -303,6 +313,8 @@ function criaRelacionados(Img1 ,Img2, Img3, Img4, Nome, Desc, Valor, Desconto, I
     sobreProd.appendChild(nameProd)
     sobreProd.appendChild(p)
     sobreProd.appendChild(valorSalvo)
+    descontoPartProd.appendChild(spanDesconto)
+    prod.appendChild(descontoPartProd)
     prod.appendChild(localImg)
     prod.appendChild(sobreProd)
     relacionadosLocal.appendChild(prod)

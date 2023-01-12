@@ -1,7 +1,7 @@
 div.text {
     width: 95%;
     max-width: 1200px;
-    margin: 50px 10px 10px 50%;
+    margin: 200px 10px 10px 50%;
     transform: translate(-50%);
     display: none;
 }
@@ -19,12 +19,12 @@ button.btnX {
     width: 30px;
     height: 30px;
     position: absolute;
-    right: -5px;
+    left: -5px;
     top: -5px;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--cor4);
+    background-color: rgba(255, 3, 3, 0.842);
     box-shadow: 2px 2px 10px var(--sombra);
     border-radius: 50%;
     color: var(--cor1);
@@ -67,6 +67,7 @@ div#confimarRemoverProduto div#popUp > div > button {
     font-family: var(--font-texto);
     font-weight: 100;
     border: 1px solid transparent;
+    margin-top: 15px;
 }
 
 /*? Main */
@@ -79,6 +80,7 @@ main {
 
 main > div#fala {
     width: 100%;
+    margin-top: 200px;
     margin-left: 50%;
     transform: translate(-50%);
 }

@@ -19,12 +19,12 @@
     </section>
 
     <section id="parte3Header">
-        <button class="modoClaro" onclick="modoPage()"></button>
+        <button class="modoClaro" onclick="modoPage()"> <span class="spans">Tema</span></button>
         <img src="assets/img/site/error2NavBar.jpg" class="imgEmailUser">
-        <button id="login" onclick="login()"><img src="assets/img/icon/user.png" alt="icone usuario"> <span>Login/Cadastro</span></button>
-        <button><a id="aCarrinho" href="Carrinho.html"><img src="assets/img/icon/cartIcon.png" alt="icone carrinho">  Carrinho</a></button>
+        <button id="login" onclick="login()"><img src="assets/img/icon/user.png" alt="icone usuario"> <span class="spans">Login/Cadastro</span></button>
+        <button><a id="aCarrinho" href="Carrinho.html"><img src="assets/img/icon/cartIcon.png" alt="icone carrinho"><span class="spans">Carrinho</span></a></button>
     </section>
-</header>
+  </header>
 
 <div id="localInput">
     <img src="assets/img/icon/Search.png" alt="icone lupa">
@@ -366,8 +366,12 @@
 
       } else if(heightIframe == '94px') {
         document.getElementsByClassName('btnSalvar')[0].id = 'modelo4'
-      } else if(heightIframe === '18px') {
-        location.reload()
+      } else {
+        for (let c = 0; c < 62; c++) {
+          if(heightIframe == `${c}px`) {
+            location.reload()
+          }
+        }
       }
     }, 1500)
   </script>

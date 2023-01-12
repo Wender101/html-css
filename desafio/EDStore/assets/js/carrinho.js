@@ -53,9 +53,12 @@ function criaProduto(Img1 ,Img2, Img3, Img4, Nome, Desc, Valor, Desconto, Id) {
     let valorSalvo = document.createElement('span')
     let btnExluirProduto = document.createElement('button')
     let x = document.createElement('span')
+    let descontoPartProd = document.createElement('div')
+    let spanDesconto = document.createElement('span')
 
     //? Class
     prod.className = 'prod'
+    descontoPartProd.className = 'descontoPartProd'
     prod.id = 'prod' + contador
     localImg.className = 'localImg'
     imgProduto.className = 'imgProduto'
@@ -71,6 +74,13 @@ function criaProduto(Img1 ,Img2, Img3, Img4, Nome, Desc, Valor, Desconto, Id) {
     imgProduto.src = Img1
     nameProd.innerText = Nome
     x.innerText = 'x'
+
+    if(Desconto > 0) {
+        prod.style.borderRadius = ' 0px 70px 0px 0px'
+        localImg.style.borderRadius = ' 0px 16px 0px 0px'
+        spanDesconto.innerText = `${Desconto}% OFF`
+        descontoPartProd.style.display = 'flex'
+    }
 
     if(Desconto <= 0) {
         Desconto = 0
@@ -94,6 +104,8 @@ function criaProduto(Img1 ,Img2, Img3, Img4, Nome, Desc, Valor, Desconto, Id) {
     sobreProd.appendChild(p)
     sobreProd.appendChild(valorSalvo)
     prod.appendChild(btnExluirProduto)
+    descontoPartProd.appendChild(spanDesconto)
+    prod.appendChild(descontoPartProd)
     prod.appendChild(localImg)
     prod.appendChild(sobreProd)
     main.appendChild(prod)

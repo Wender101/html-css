@@ -77,7 +77,7 @@ function modoPage(modo = '') {
         try {
             document.getElementById('cookies').querySelector('article').style.background = '#1c1c1c'
             document.getElementById('cookies').querySelector('article').querySelector('button').style.background = cor5
-            document.querySelector('footer').style.background = cor5
+            document.querySelector('footer').style.background = 'var(--cor9)'
         } catch {
             document.getElementById('popUpAddProd').style.background = cor2
             document.getElementById('prodEx').style.background = cor2
@@ -85,13 +85,16 @@ function modoPage(modo = '') {
             document.getElementById('ex2').style.color = cor1
 
         }
+        document.querySelector('header').style.backgroundColor = cor2
         document.getElementById('menu').querySelector('ul').style.background = cor2
         document.getElementById('menu').querySelector('ul').style.color = cor1
         document.getElementsByClassName('modoClaro')[0].style.backgroundImage = 'url(assets/img/icon/sol.png)'
         document.getElementsByClassName('modoClaro')[1].style.backgroundImage = 'url(assets/img/icon/sol.png)'
         document.querySelector('body').style.backgroundColor = cor2
         document.querySelector('body').style.color = cor1
-        document.querySelector('header').querySelector('span').style.color = cor1
+        document.getElementsByClassName('spans')[0].style.color = cor1
+        document.getElementsByClassName('spans')[1].style.color = cor1
+        document.getElementsByClassName('spans')[2].style.color = cor1
         document.getElementById('aCarrinho').style.color = cor1
         document.getElementById('pesquisaInput')
 
@@ -160,13 +163,17 @@ function modoPage(modo = '') {
             try {
                 document.getElementById('cookies').querySelector('article').style.background = cor1
                 document.getElementById('cookies').querySelector('article').querySelector('button').style.background = 'var(--cor4)'
-                document.querySelector('footer').style.background = 'var(--cor4)'
+                document.querySelector('footer').style.background = cor5
             } catch {}
+
+            document.querySelector('header').style.backgroundColor = cor1
             document.getElementsByClassName('modoClaro')[0].style.backgroundImage = 'url(assets/img/icon/lua.png)'
             document.getElementsByClassName('modoClaro')[1].style.backgroundImage = 'url(assets/img/icon/lua.png)'
             document.querySelector('body').style.backgroundColor = cor1
             document.querySelector('body').style.color = cor0
-            document.querySelector('header').querySelector('span').style.color = cor0
+            document.getElementsByClassName('spans')[0].style.color = 'var(--cor6)'
+            document.getElementsByClassName('spans')[1].style.color = 'var(--cor6)'
+            document.getElementsByClassName('spans')[2].style.color = 'var(--cor6)'
             document.getElementById('aCarrinho').style.color = cor0
             
             for(let c = 0; c < 100; c++) {
