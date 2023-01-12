@@ -103,7 +103,12 @@ function criaProduto(Img1 ,Img2, Img3, Img4, Nome, Desc, Valor, Desconto, Id) {
         let el = e.target.className
 
         if(el != 'btnX' && el != 'xRemover') {
-            let array = [Desc, Id]
+            let desc2 = Desc
+            desc2 = desc2.replace(/[`~!@#$%^&*()_\-+=\[\]{};:'"\\|\/,.<>?\s]/g, ' ').toLowerCase()
+            desc2 = desc2.normalize('NFD').replace(/[\u0300-\u036f]/g, "")
+            desc2 = desc2.replace(/^\s+|\s+$/gm,'')
+            desc2 = desc2.replace(/\s+/g, '-')
+            let array = [desc2, Id]
             localStorage.setItem('sobreProduto', JSON.stringify(array))
             if(location.host == '127.0.0.1:5500') {
                 location.pathname = '/Sobre-Produto.html'

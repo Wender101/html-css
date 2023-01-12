@@ -93,11 +93,6 @@ function modoPage(modo = '') {
         document.querySelector('body').style.color = cor1
         document.querySelector('header').querySelector('span').style.color = cor1
         document.getElementById('aCarrinho').style.color = cor1
-        document.getElementById('popUp').style.color = cor1
-        document.getElementById('popUp').getElementsByTagName('button')[0].style.color = cor0
-        document.getElementById('popUp').getElementsByTagName('button')[1].style.color = cor0
-        document.getElementById('popUp').getElementsByTagName('button')[2].style.color = cor0
-        document.getElementById('popUp').style.background = cor2
         document.getElementById('pesquisaInput')
 
         for(let c = 0; c < 100; c++) {
@@ -111,13 +106,15 @@ function modoPage(modo = '') {
                 document.getElementsByClassName('Categorias')[c].style.color = cor1
                 document.getElementsByClassName('Categorias')[c].style.border = '1px solid var(--cor4)'
                 document.getElementById('selected').style.backgroundColor = cor4
-            } catch {
+            } catch {}
+
+            try {
                 document.getElementById('popUp').style.color = cor1
                 document.getElementById('popUp').getElementsByTagName('button')[0].style.color = cor0
                 document.getElementById('popUp').getElementsByTagName('button')[1].style.color = cor0
                 document.getElementById('popUp').getElementsByTagName('button')[2].style.color = cor0
                 document.getElementById('popUp').style.background = cor2
-            }
+            } catch {}
         }
         }, 1000)
 
@@ -150,13 +147,15 @@ function modoPage(modo = '') {
                 document.getElementById('popUp').getElementsByTagName('button')[1].style.color = cor0
                 document.getElementById('popUp').getElementsByTagName('button')[2].style.color = cor0
 
-            } catch {
+            } catch {}
+
+            try {
                 document.getElementById('popUp').style.background = cor1
                 document.getElementById('popUp').style.color = cor0
                 document.getElementById('popUp').getElementsByTagName('button')[0].style.color = cor0
                 document.getElementById('popUp').getElementsByTagName('button')[1].style.color = cor0
                 document.getElementById('popUp').getElementsByTagName('button')[2].style.color = cor0
-            }
+            } catch {}
 
             try {
                 document.getElementById('cookies').querySelector('article').style.background = cor1
