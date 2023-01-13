@@ -77,7 +77,7 @@ function modoPage(modo = '') {
         try {
             document.getElementById('cookies').querySelector('article').style.background = '#1c1c1c'
             document.getElementById('cookies').querySelector('article').querySelector('button').style.background = cor5
-            document.querySelector('footer').style.background = 'var(--cor9)'
+            document.querySelector('footer').id = 'footerDarkMode'
         } catch {
             document.getElementById('popUpAddProd').style.background = cor2
             document.getElementById('prodEx').style.background = cor2
@@ -163,7 +163,7 @@ function modoPage(modo = '') {
             try {
                 document.getElementById('cookies').querySelector('article').style.background = cor1
                 document.getElementById('cookies').querySelector('article').querySelector('button').style.background = 'var(--cor4)'
-                document.querySelector('footer').style.background = cor5
+                document.querySelector('footer').id = ''
             } catch {}
 
             document.querySelector('header').style.backgroundColor = cor1
