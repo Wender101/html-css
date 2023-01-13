@@ -36,25 +36,27 @@ auth.onAuthStateChanged((val) => {
             let User = valCarrinho.data()
             if(User.Email == email) {
                 perfilEencontrado = true
-                document.getElementById('login').style.display = 'none'
-                document.getElementById('login2').style.display = 'none'
-                let img1 = document.getElementsByClassName('imgEmailUser')[0]
-                let img2 = document.getElementsByClassName('imgEmailUser')[1]
-                img1.src = val.photoURL
-                img2.src = val.photoURL
-                img1.style.display = 'block'
-                img2.style.display = 'block'
-                
+                try {
+                    document.getElementById('login').style.display = 'none'
+                    document.getElementById('login2').style.display = 'none'
+                    let img1 = document.getElementsByClassName('imgEmailUser')[0]
+                    let img2 = document.getElementsByClassName('imgEmailUser')[1]
+                    img1.src = val.photoURL
+                    img2.src = val.photoURL
+                    img1.style.display = 'block'
+                    img2.style.display = 'block'
+                    
 
-                let localImgUser = document.getElementById('localImgUser')
-                localImgUser.style.display = 'block'
-                localImgUser.addEventListener('click', () => {
-                    login()
-                })
+                    let localImgUser = document.getElementById('localImgUser')
+                    localImgUser.style.display = 'block'
+                    localImgUser.addEventListener('click', () => {
+                        login()
+                    })
 
-                img1.addEventListener('click', () => {
-                    login()
-                })
+                    img1.addEventListener('click', () => {
+                        login()
+                    })
+                } catch (error) {}
             }
 
         })
