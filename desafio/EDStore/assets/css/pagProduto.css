@@ -1,0 +1,9 @@
+strong#naoEncotrado {
+    width: 90%;
+    margin: auto;
+    display: block;
+    font-size: 1.4em;
+    margin: 150px auto 0px;
+    text-align: center;
+    display: none;
+}
