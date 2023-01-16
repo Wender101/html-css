@@ -87,6 +87,10 @@ function criaProduto() {
                 document.getElementById('infos').style.position = ''
                 document.getElementById('voltar').style.display = 'none'
 
+                if(conectado == true && Produtos.Estado == 'Suspenso') {
+                    document.getElementById('suspensoAvisoPageProduto').style.display = 'block'
+                }
+
                 //? --------------------------------
                 document.getElementById('imgPrincipal').src = Produtos.Img1 
                 document.getElementById('imgSecundaria').src = Produtos.Img1 

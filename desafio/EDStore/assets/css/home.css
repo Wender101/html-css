@@ -1,6 +1,7 @@
 /*? Local Banner */
 .containerBanner {
-    width: 100%;
+    max-width: 1200px;
+    width: 90%;
     height: 400px;
     display: flex;
     flex-direction: column;
@@ -68,12 +69,12 @@
 }
 
 .slide-btn-1 {
-    left: 40px;
+    left: 0px;
     padding-right: 3px;
 }
 
 .slide-btn-2 {
-    right: 40px;
+    right: 0px;
     padding-left: 3px;
 }
 /*? Main */

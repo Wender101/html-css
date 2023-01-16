@@ -80,10 +80,10 @@
     </section>
 
     <!--? Btn abrir parte de adicionar produto -->
-    <button id="addProduto" onclick="abrirAddProduto()"><span>+</span></button>
+    <p id="addProduto" class="move" ondblclick="abrirAddProduto()"><span>+</span></p>
 
     <!--? Btn Adicionar administrador -->
-    <button id="addNovoAdministrador" onclick="addNovoAdmin()"></button>
+    <p id="addNovoAdministrador" ondblclick="addNovoAdmin()" class="move"></p>
 
     <section id="popAddNovoAdmin">
         <article id="artNovoAdmin">
@@ -93,12 +93,12 @@
             <div id="localEmailAdmin">
             </div>
 
-            <button id="adicionar" onclick="addNovoAdminNoDB()">Adicionar</button>
+            <button id="adicionar" ondblclick="addNovoAdminNoDB()">Adicionar</button>
         </article>
     </section>
 
     <!--? suspender site -->
-    <button onclick="suspenderSite()" id="btnSuspender"><span></span></button>
+    <p ondblclick="suspenderSite()" id="btnSuspender" class="move"><span></span></p>
 
     <section id="seuspenderSite">
         <article>
@@ -249,6 +249,15 @@
      <!--? Check Manutenção -->
      <script src="assets/js/checkManutencao.js"></script>
 
+     <!-- Divs movel -->
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+    <script>
+    $( function() {
+        $( ".move" ).draggable();
+    } );
+    </script>
+
     <!--? Scripts -->
     <script>
         if(localStorage.getItem('conectado') != 'true') {
@@ -260,8 +269,8 @@
             }
         }
     </script>
-   <script src="assets/js/funcoesBasicas.js"></script>
-   <script src="assets/js/banner.js"></script>
+    <script src="assets/js/funcoesBasicas.js"></script>
+    <script src="assets/js/banner.js"></script>
     <script src="assets/js/admin.js"></script>
     <script src="assets/js/pesquisar.js"></script>
 </body>
