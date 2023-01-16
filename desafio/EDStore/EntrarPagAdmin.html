@@ -131,8 +131,6 @@
                 data.docs.map(function(val) {
                     let Admins = val.data()
 
-                    console.log(Admins.Senha.Email);
-
                     if(document.getElementById('emailInput').value == Admins.Senha.Email  && document.getElementById('senhaInput').value == Admins.Senha.Senha) {
                         document.getElementById('recado').innerText = 'Bem Vindo'
                         localStorage.setItem('conectado', 'true')

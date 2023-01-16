@@ -134,6 +134,8 @@ function recomendacaoComBaseEmPesquisa(Img1 ,Img2, Img3, Img4, Nome, Desc, Valor
         localImg.style.borderRadius = ' 0px 16px 0px 0px'
         spanDesconto.innerText = `${Desconto}% OFF`
         descontoPartProd.style.display = 'flex'
+    } else {
+        valorSalvo.style.opacity = '0'
     }
 
     if(Desconto <= 0) {

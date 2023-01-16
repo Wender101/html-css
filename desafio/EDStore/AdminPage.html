@@ -64,8 +64,51 @@
         </article>
     </section>
 
+    <section id="editarBanner">
+        <article>
+            <p>Imagem em alta escala:</p>
+            <input type="text" name="" id="inputImagemAltaEscala" required placeholder="Img para pc">
+            <p>Imagem em pequena escala:</p>
+            <input type="text" id="inputImagemPequenaEscala" required placeholder="img pro cell">
+            <div>
+                <button id="addNovoBanner" onclick="addNovoBanner()">Adicionar</button>
+                <button id="editarBannerBtn" onclick="editBanner()">Editar</button>
+                <button id="excluirBanner" onclick="excluirBanner()">Excluir</button>
+                <button id="cancelBanner" onclick="fecharAddBanner()">Cancelar</button>
+            </div>
+        </article>
+    </section>
+
     <!--? Btn abrir parte de adicionar produto -->
     <button id="addProduto" onclick="abrirAddProduto()"><span>+</span></button>
+
+    <!--? Btn Adicionar administrador -->
+    <button id="addNovoAdministrador" onclick="addNovoAdmin()"></button>
+
+    <section id="popAddNovoAdmin">
+        <article id="artNovoAdmin">
+            <p>Email do Novo Admin</p>
+            <input type="email" name="" id="emaiNovoAdminGGP" placeholder="Ex: admin@gmail.com">
+
+            <div id="localEmailAdmin">
+            </div>
+
+            <button id="adicionar" onclick="addNovoAdminNoDB()">Adicionar</button>
+        </article>
+    </section>
+
+    <!--? suspender site -->
+    <button onclick="suspenderSite()" id="btnSuspender"><span></span></button>
+
+    <section id="seuspenderSite">
+        <article>
+            <p id="infoSuspenderSite">O site ficará fora do ar para todos os usuário, apenas os administradores poderão navegar nele. Caso ainda deseje continuar digite: <strong>Suspender</strong></p>
+
+            <input type="text" required id="inputSuspender" placeholder="Espero que saiba oque está fazendo" oninput="SuspenderSiteConfirmar()">
+
+            <button id="btnSuspenderSiteContinuar">Continuar</button>
+        </article>
+    </section>
 
     <section id="popUpAddProd">
         <button id="fecharPopUp" onclick="fecharPopUp()">x</button>
@@ -218,8 +261,8 @@
         }
     </script>
    <script src="assets/js/funcoesBasicas.js"></script>
+   <script src="assets/js/banner.js"></script>
     <script src="assets/js/admin.js"></script>
     <script src="assets/js/pesquisar.js"></script>
-    <script src="assets/js/banner.js"></script>
 </body>
 </html>

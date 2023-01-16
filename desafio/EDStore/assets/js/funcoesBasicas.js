@@ -66,13 +66,16 @@ function modoPage(modo = '') {
             document.getElementsByClassName('slide-btn')[0].style.color = cor1
             document.getElementsByClassName('slide-btn')[1].style.color = cor1
         } catch {}
+
         try {
             document.getElementById('mainP').style.backgroundColor = cor2
             document.getElementById('infos').style.backgroundColor = cor2
             document.getElementById('valorDoProduto').style.border = '1px solid var(--cor4)'
-        } catch (error) {
-            
-        }
+            document.getElementById('popUpCarrinho').style.background = cor2
+            document.getElementById('popUpCarrinho').style.color = cor1
+            document.getElementById('popUpCarrinho').querySelector('div').querySelectorAll('button')[0].style.color = cor0
+            document.getElementById('popUpCarrinho').querySelector('div').querySelectorAll('button')[1].style.color = cor0
+        } catch {}
 
         try {
             document.getElementById('cookies').querySelector('article').style.background = '#1c1c1c'
@@ -83,8 +86,11 @@ function modoPage(modo = '') {
             document.getElementById('prodEx').style.background = cor2
             document.getElementById('ex2').style.background = cor2
             document.getElementById('ex2').style.color = cor1
-
+            document.getElementById('artNovoAdmin').style.background = cor2
+            document.getElementById('seuspenderSite').querySelector('article').style.background = cor2
+            document.getElementById('seuspenderSite').querySelector('article').style.color = cor1
         }
+
         document.querySelector('header').style.backgroundColor = cor2
         document.getElementById('menu').querySelector('ul').style.background = cor2
         document.getElementById('menu').querySelector('ul').style.color = cor1
@@ -144,11 +150,8 @@ function modoPage(modo = '') {
                 document.getElementById('mainP').style.backgroundColor = '#04b3ff'
                 document.getElementById('infos').style.backgroundColor = '#04b3ff'
                 document.getElementById('valorDoProduto').style.border = '1px solid var(--cor3)'
-                document.getElementById('popUp').style.background = cor1
-                document.getElementById('popUp').style.color = cor0
-                document.getElementById('popUp').getElementsByTagName('button')[0].style.color = cor0
-                document.getElementById('popUp').getElementsByTagName('button')[1].style.color = cor0
-                document.getElementById('popUp').getElementsByTagName('button')[2].style.color = cor0
+                document.getElementById('popUpCarrinho').style.background = cor1
+                document.getElementById('popUpCarrinho').style.color = cor0
 
             } catch {}
 
@@ -164,7 +167,16 @@ function modoPage(modo = '') {
                 document.getElementById('cookies').querySelector('article').style.background = cor1
                 document.getElementById('cookies').querySelector('article').querySelector('button').style.background = 'var(--cor4)'
                 document.querySelector('footer').id = ''
-            } catch {}
+            } catch {
+                document.getElementById('artNovoAdmin').style.backgroundColor = cor1
+                document.getElementById('popUpAddProd').style.backgroundColor = cor1
+                document.getElementById('prodEx').style.backgroundColor = cor1
+                document.getElementById('ex2').style.backgroundColor = 'var(--cor7)'
+                document.getElementById('ex2').style.color = cor2
+                document.getElementById('artNovoAdmin').style.backgroundColor = cor1
+                document.getElementById('seuspenderSite').querySelector('article').style.background = cor1
+            document.getElementById('seuspenderSite').querySelector('article').style.color = cor0
+            }
 
             document.querySelector('header').style.backgroundColor = cor1
             document.getElementsByClassName('modoClaro')[0].style.backgroundImage = 'url(assets/img/icon/lua.png)'

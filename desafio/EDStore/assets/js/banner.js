@@ -2,6 +2,7 @@
 let carregado = false
 let cloneBanner = []
 let editandoBanner = false
+let bannerSelect
 db.collection('Banners').onSnapshot((data) => {
     data.docs.map(function(vaBanners) {
         let pBanners = vaBanners.data()
@@ -38,7 +39,7 @@ function criaBanners(imagem1, imagem2, id) {
     slideshowWrapper.style.width = `${qBanner + 200}%`
 
     divBanner.className = 'slide'
-    divBanner.id = id
+    divBanner.id = `Bannrer-${id}`
     imgBanners.className = 'slide-img stop'
 
     //! Vai alterar o banner de acordo com a tela
@@ -53,8 +54,15 @@ function criaBanners(imagem1, imagem2, id) {
     divBanner.appendChild(imgBanners)
     slideshowWrapper.appendChild(divBanner)
 
+    qBanner = (contadorBanners * 100) 
+    
     contadorBanners++
-    qBanner = (contadorBanners * 100) - 100
+    divBanner.addEventListener('click', () => {
+        try {
+            bannerSelect = id
+            document.getElementById('editarBanner').style.display = 'flex'
+        } catch {}
+    })
 }
 
 //! Sliders

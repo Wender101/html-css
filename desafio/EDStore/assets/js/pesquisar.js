@@ -52,15 +52,16 @@ function sugetaoPesquisa(pesquisa) {
 
                 // //? Ao clicar no p
                 p.addEventListener('click', () => {
+                    let pesquisaFeita = localStorage.getItem('produtoPagProduto')
+                    pesquisaFeita = JSON.parse(pesquisaFeita)
+                    location.href = location.href.replace('?' + pesquisaFeita, '')
                     localStorage.setItem('produtoPagProduto', p.innerText)
 
                     if(location.host == '127.0.0.1:5500') {
                         if(location.pathname == '/pagProduto.html') {
-                            
-                            chamarDB()
-                            prodEncontrado = false
-                            prodNaoEncontrado()
-                            input.value = ''
+                            setTimeout(() => {
+                                location.reload()
+                            }, 1000)
                         } else {
                             
                             location.pathname = '/pagProduto.html'
@@ -68,10 +69,9 @@ function sugetaoPesquisa(pesquisa) {
                         
                     } else if(location.host == 'wender101.github.io') {
                         if(location.href == 'https://wender101.github.io/html-css/desafio/EDStore/pagProduto.html') {
-                            chamarDB()
-                            prodEncontrado = false
-                            prodNaoEncontrado()
-                            input.value = ''
+                            setTimeout(() => {
+                                location.reload()
+                            }, 1000)
                         } else {
                             location.href = 'https://wender101.github.io/html-css/desafio/EDStore/pagProduto.html'
                         }
@@ -140,6 +140,9 @@ document.addEventListener('click', (e) => {
 let input = document.getElementById('pesquisaInput')
 document.addEventListener('keypress', (e) => {
     if(e.keyCode == 13 && input.value.length > 1) {
+        let pesquisaFeita = localStorage.getItem('produtoPagProduto')
+        pesquisaFeita = JSON.parse(pesquisaFeita)
+        location.href = location.href.replace('?' + pesquisaFeita, '')
         localStorage.setItem('produtoPagProduto', input.value)
         containerSugestao.style.display = 'none'
         document.getElementById('pesquisaInput').style.borderRadius = '10px'
@@ -147,22 +150,19 @@ document.addEventListener('keypress', (e) => {
 
         if(location.host == '127.0.0.1:5500') {
             if(location.pathname == '/pagProduto.html') {
-                
-                chamarDB()
-                prodEncontrado = false
-                prodNaoEncontrado()
-                input.value = ''
+                setTimeout(() => {
+                    location.reload()
+                }, 1000)
+
             } else {
-                
                 location.pathname = '/pagProduto.html'
             }
             
         } else if(location.host == 'wender101.github.io') {
             if(location.href == 'https://wender101.github.io/html-css/desafio/EDStore/pagProduto.html') {
-                chamarDB()
-                prodEncontrado = false
-                prodNaoEncontrado()
-                input.value = ''
+                setTimeout(() => {
+                    location.reload()
+                }, 1000)
             } else {
                 location.href = 'https://wender101.github.io/html-css/desafio/EDStore/pagProduto.html'
             }

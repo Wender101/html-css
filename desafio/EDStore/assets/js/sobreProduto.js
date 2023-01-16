@@ -1,5 +1,7 @@
 //! Vai pegar do browser o produto que foi salvo
 const sobreProduto1 = localStorage.getItem('sobreProduto')
+const conect = localStorage.getItem('conectado')
+const conectado = JSON.parse(conect)
 const sobreProduto2 = JSON.parse(sobreProduto1)
 let idProdSelecionado = sobreProduto2[1]
 let descProdSelecionado = sobreProduto2[0]
@@ -45,6 +47,7 @@ function trocarURL() {
             trocarURL()
 
         } else {
+            console.log('else da função');
             errorProd()
         }
     } 
@@ -73,7 +76,7 @@ function criaProduto() {
             pDesc = pDesc.replace(/\s+/g, '-')
 
             //? Vai criar os produtos
-            if(pDesc == descProdSelecionado && Produtos.Estado != 'Suspenso') {
+            if(pDesc == descProdSelecionado && Produtos.Estado != 'Suspenso' || pDesc == descProdSelecionado && conectado == true) {
                 idProdSelecionado = Produtos.Id
                 document.getElementById('valorDoProduto').style.display = 'block'
                 document.getElementById('localBtns').style.display = 'flex'
@@ -93,6 +96,7 @@ function criaProduto() {
                 document.getElementsByClassName('imgEX')[3].src = Produtos.Img4
                 document.getElementsByClassName('nameProd')[0].innerText = Produtos.Nome
                 document.getElementById('desc').innerText = Produtos.Desc
+
                 if(Produtos.DescDetalhada != undefined && Produtos.DescDetalhada != 'undefined') {
                     document.getElementById('descricaoP').innerHTML = Produtos.DescDetalhada
                 } else {
@@ -101,9 +105,11 @@ function criaProduto() {
 
                 let valorComDesconto = (((Produtos.Desconto * Produtos.Valor) / 100) - Produtos.Valor) * -1
                 var res = valorComDesconto
+
                 if(Produtos.Desconto != 0) {
                     res = (Produtos.Valor - valorComDesconto) + valorComDesconto
                 }
+
                 document.getElementById('valorNormal').innerText = 'R$' + res.toFixed(2)
                 document.getElementsByClassName('valorProdAdd')[0].innerText = 'R$' + valorComDesconto.toFixed(2)
                 document.getElementById('qDesconto').innerText = Produtos.Desconto + '% OFF'
@@ -132,11 +138,10 @@ function criaProduto() {
                 document.getElementsByClassName('text')[0].style.display = 'none'
                 document.getElementById('infos').style.position = 'relative'
                 document.getElementById('voltar').style.display = 'block'
+
                 document.getElementById('voltar').addEventListener('click', () => {
                     window.history.back()
                 })
-            } else {
-                errorProd()
             }
         })
     })
@@ -291,6 +296,9 @@ function criaRelacionados(Img1 ,Img2, Img3, Img4, Nome, Desc, Valor, Desconto, I
         localImg.style.borderRadius = ' 0px 16px 0px 0px'
         spanDesconto.innerText = `${Desconto}% OFF`
         descontoPartProd.style.display = 'flex'
+
+    } else {
+        valorSalvo.style.opacity = '0'
     }
 
     if(Desconto <= 0) {
@@ -343,6 +351,7 @@ function criaRelacionados(Img1 ,Img2, Img3, Img4, Nome, Desc, Valor, Desconto, I
 //? Adicionar o produto ao carrinho
 let cloneCarrinho = []
 function salvarNoCarrinho(addNovamente = false) {
+    let jaTemProdutoADDNoCarrinho = false
     if(email != undefined) {
         let checkTemCarrinho = false
         let carrinhoCarregado = false
@@ -361,7 +370,6 @@ function salvarNoCarrinho(addNovamente = false) {
     
                             try {
                             if(Produto.Id == idProdSelecionado && cloneCarrinho.length > 0) {
-                                    let jaTemProdutoADDNoCarrinho = false
                                     for(let c = 0; c < cloneCarrinho.length; c++) {
 
                                         if(cloneCarrinho[c].Id == idProdSelecionado && feito == false && checkTemCarrinho == false) {
@@ -370,6 +378,7 @@ function salvarNoCarrinho(addNovamente = false) {
                                             document.getElementById('pop-Up-AddProdutoNovamente').style.display = 'flex'
                                 
                                             if(addNovamente == true && feito == false) {
+                                                console.log(111);
                                                 feito = true
                                                 fecharPopUp()
                                                 let obj = {
@@ -382,7 +391,6 @@ function salvarNoCarrinho(addNovamente = false) {
                                                     document.getElementById('infAddCarrinho').style.bottom = '-100px'
                                                 }, 10000)
                                             }
-        
                                         } else if(c + 1 == cloneCarrinho.length && jaTemProdutoADDNoCarrinho == false && feito == false) {
                                             feito = true
                                             let obj = {

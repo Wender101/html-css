@@ -19,7 +19,7 @@ function carregarCarrinho() {
                                     document.getElementsByClassName('text')[0].style.display = 'block'
                                     document.getElementById('fala').style.display = 'none'
 
-                                    criaProduto(Produtos.Img1, Produtos.Img2, Produtos.Img3, Produtos.Img4, Produtos.Nome, Produtos.Desc , Produtos.Valor, Produtos.Desconto, Produtos.Id)
+                                    criaProduto(Produtos.Img1, Produtos.Img2, Produtos.Img3, Produtos.Img4, Produtos.Nome, Produtos.Desc , Produtos.Valor, Produtos.Desconto, Produtos.Id, Produtos.Estado)
                                 }
                                 
                             } catch {}
@@ -35,7 +35,7 @@ let cloneCarrinhoAtual = []
 let prodSelecionadoParaRemover
 let idSelecionado
 let contador = 0
-function criaProduto(Img1 ,Img2, Img3, Img4, Nome, Desc, Valor, Desconto, Id) {
+function criaProduto(Img1 ,Img2, Img3, Img4, Nome, Desc, Valor, Desconto, Id, Estado) {
     let obj = {
         Id: Id
     }
@@ -57,7 +57,16 @@ function criaProduto(Img1 ,Img2, Img3, Img4, Nome, Desc, Valor, Desconto, Id) {
     let spanDesconto = document.createElement('span')
 
     //? Class
-    prod.className = 'prod'
+    if(Estado != 'Suspenso') {
+        prod.className = 'prod'
+    } else {
+        prod.className = 'suspenso'
+        let info = document.createElement('p')
+        info.className = 'suspensoAviso'
+        info.title = 'Produto suspenso'
+        prod.appendChild(info)
+    }
+
     descontoPartProd.className = 'descontoPartProd'
     prod.id = 'prod' + contador
     localImg.className = 'localImg'
@@ -80,11 +89,15 @@ function criaProduto(Img1 ,Img2, Img3, Img4, Nome, Desc, Valor, Desconto, Id) {
         localImg.style.borderRadius = ' 0px 16px 0px 0px'
         spanDesconto.innerText = `${Desconto}% OFF`
         descontoPartProd.style.display = 'flex'
+
+    } else {
+        valorSalvo.style.opacity = '0'
     }
 
     if(Desconto <= 0) {
         Desconto = 0
     }
+
     let valorComDesconto = (((Desconto * Valor) / 100) - Valor) * -1
     var res = valorComDesconto
     if(Desconto != 0) {
@@ -93,6 +106,7 @@ function criaProduto(Img1 ,Img2, Img3, Img4, Nome, Desc, Valor, Desconto, Id) {
 
     valorStrong.innerText = 'R$' + valorComDesconto.toFixed(2)
     valorSemDescontoT.innerText = 'R$' + parseInt(Valor).toFixed(2)
+
     valorSalvo.innerText = 'Salvo - R$' + (res - valorComDesconto).toFixed(2)
     
     //? AppendChild

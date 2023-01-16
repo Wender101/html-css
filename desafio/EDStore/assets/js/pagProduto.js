@@ -10,9 +10,11 @@ pPesquisa = pPesquisa.normalize('NFD').replace(/[\u0300-\u036f]/g, "")
 pPesquisa = pPesquisa.replace(/^\s+|\s+$/gm,'')
 pPesquisa = pPesquisa.replace(/\s+/g, '-')
 let pesquisado = false
+let repesquisado = false
 //? Vai mudar a url
 function trocarURL() {
     if(pesquisado == false) {
+        //location.href = location.href.replace(`?${pesquisaFeita}`, '')
         pesquisado = true
         if(document.querySelector('title').innerText == 'EDStore - Produtos') {
             let url = window.location.href
@@ -55,7 +57,6 @@ function chamarDB() {
                     produtoExpecifico = true
                     criaProduto(Produtos.Img1, Produtos.Img2, Produtos.Img3, Produtos.Img4, Produtos.Nome, Produtos.Desc , Produtos.Valor, Produtos.Desconto, Produtos.Id)
                 }
-
             } 
 
             //? Vai pesquisar por Tag
@@ -157,6 +158,8 @@ function criaProduto(Img1 ,Img2, Img3, Img4, Nome, Desc, Valor, Desconto, Id) {
         localImg.style.borderRadius = ' 0px 16px 0px 0px'
         spanDesconto.innerText = `${Desconto}% OFF`
         descontoPartProd.style.display = 'flex'
+    } else {
+        valorSalvo.style.opacity = '0'
     }
 
     if(Desconto <= 0) {

@@ -80,4 +80,17 @@ auth.onAuthStateChanged((val) => {
             db.collection('User').add(objPerfilUser)
         }
     }, 4000)
+
+    localStorage.setItem('conectado', 'false')
+    db.collection('Admins').onSnapshot((data) => {
+        data.docs.map(function(val) {
+            let Admins = val.data()
+
+                for(let c = 0; c < Admins.Email.length; c++) {
+                    if(Admins.Email[c] == email) {
+                        localStorage.setItem('conectado', 'true')
+                    }
+                }
+        })
+    })
 })

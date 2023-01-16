@@ -418,7 +418,7 @@ section#cookies {
     height: 110vh;
     display: none;
     background-color: var(--sombra2);
-    z-index: 2;
+    z-index: 5;
     left: 0px;
     position: fixed;
     bottom: 0px;

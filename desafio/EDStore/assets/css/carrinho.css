@@ -15,6 +15,10 @@ div.prod {
     position: relative;
 }
 
+.descontoPartProd {
+    z-index: 1;
+}
+
 button.btnX {
     width: 30px;
     height: 30px;
@@ -28,6 +32,20 @@ button.btnX {
     box-shadow: 2px 2px 10px var(--sombra);
     border-radius: 50%;
     color: var(--cor1);
+    z-index: 1;
+}
+
+div.suspenso > p.suspensoAviso {
+    width: 25px;
+    height: 25px;
+    bottom: 10px;
+    right: 10px;
+    background-image: url(../img/icon/info.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    z-index: 1;
 }
 
 /*? Remover Prod do carrinho */

@@ -11,7 +11,7 @@ section#pop-Up-AddProdutoNovamente {
     justify-content: center;
 }
 
-section#pop-Up-AddProdutoNovamente div#popUp {
+section#pop-Up-AddProdutoNovamente div#popUpCarrinho {
     width: 80%;
     max-width: 500px;
     height: auto;
@@ -23,11 +23,11 @@ section#pop-Up-AddProdutoNovamente div#popUp {
     border: 2px solid var(--cor3);
 }
 
-section#pop-Up-AddProdutoNovamente div#popUp > div {
+section#pop-Up-AddProdutoNovamente div#popUpCarrinho > div {
     margin-top: 30px;
 }
 
-section#pop-Up-AddProdutoNovamente div#popUp > div > button {
+section#pop-Up-AddProdutoNovamente div#popUpCarrinho > div > button {
     padding: 5px 20px;
     border-radius: 5px;
     background-color: var(--cor3);
@@ -42,7 +42,7 @@ main {
     width: 100%;
     max-width: 1000px;
     height: 500px;
-    margin: 200px auto;
+    margin: 200px auto 50px;
     background-color: var(--cor7);
     box-shadow: 2px 2px 20px var(--sombra);
     display: flex;

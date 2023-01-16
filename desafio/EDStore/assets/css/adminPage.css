@@ -11,7 +11,7 @@ button#addProduto {
     height: 50px;
     border-radius: 50%;
     position: fixed;
-    bottom: 30%;
+    bottom: 200px;
     right: 10px;
     background-color: var(--cor4);
     color: var(--cor1);
@@ -20,13 +20,244 @@ button#addProduto {
     z-index: 1;
 }
 
+section#editarBanner {
+    width: 100%;
+    height: 110vh;
+    position: fixed;
+    top: 0px;
+    background-color: var(--sombra2);
+    z-index: 2;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+section#editarBanner > article {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    background-color: var(--cor1);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+section#editarBanner > article > input {
+    width: calc(100% - 20px);
+    display: block;
+    padding: 15px 0px 15px 20px;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0 0 0 0;
+    outline: 0;
+    background-color: var(--cor3);
+    margin: 10px 0px 30px;
+}
+
+section#editarBanner > article > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+section#editarBanner > article > div > button {
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: var(--cor4);
+    color: var(--cor1);
+    font-family: var(--font-texto);
+    font-weight: 100;
+    border: 1px solid transparent;
+    margin-top: 30px;
+}
+
+section#editarBanner > article > div > button#editarBannerBtn {
+    background-color: var(--cor5);
+}
+
+section#editarBanner > article > div > button#cancelBanner {
+    background-color: var(--cor6);
+}
+
+section#editarBanner > article > div > button#excluirBanner {
+    background-color: red;
+}
+
+button#addNovoAdministrador {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    position: fixed;
+    bottom: 270px;
+    right: 10px;
+    background-color: var(--cor4);
+    background-image: url(../img/icon/addContato.png);
+    background-position: center;
+    background-size: contain;
+    color: var(--cor1);
+    font-size: 20px;
+    box-shadow: 2px 2px 10px var(--sombra);
+    z-index: 1;
+}
+
+section#popAddNovoAdmin {
+    width: 100%;
+    height: 110vh;
+    position: fixed;
+    top: 0px;
+    background-color: var(--sombra2);
+    z-index: 2;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+section#popAddNovoAdmin > article {
+    width: 100%;
+    height: auto;
+    max-width: 500px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: var(--cor1);
+}
+
+section#popAddNovoAdmin > article > input {
+    width: calc(100% - 20px);
+    display: block;
+    padding: 15px 0px 15px 20px;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0 0 0 0;
+    outline: 0;
+    background-color: var(--cor3);
+    margin-top: 10px;
+}
+
+section#popAddNovoAdmin > article > p {
+    margin: 10px;
+}
+
+section#popAddNovoAdmin > article > div {
+    padding: 10px;
+}
+
+section#popAddNovoAdmin > article > div > p {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+section#popAddNovoAdmin > article > div > p > span {
+    width: 25px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+section#popAddNovoAdmin > article > div > p > span > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+section#popAddNovoAdmin > article > button {
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: var(--cor4);
+    color: var(--cor1);
+    font-family: var(--font-texto);
+    font-weight: 100;
+    border: 1px solid transparent;
+    margin-top: 30px;
+    margin-left: 50%;
+    transform: translate(-50%);
+}
+
+button#btnSuspender {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    position: fixed;
+    bottom: 130px;
+    right: 10px;
+    background-color: var(--cor6);
+    color: var(--cor1);
+    font-size: 20px;
+    box-shadow: 2px 2px 10px var(--sombra);
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button#btnSuspender > span {
+    width: 100%;
+    height: 100%;
+    display: block;
+    background-image: url(../img/site/image\ -\ freepik.com.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    margin-left: -18px;
+}
+
+section#seuspenderSite {
+    width: 100%;
+    height: 110vh;
+    position: fixed;
+    top: 0px;
+    background-color: var(--sombra2);
+    z-index: 2;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+section#seuspenderSite > article {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: var(--cor1);
+    color: var(--cor2);
+}
+
+section#seuspenderSite > article > input {
+    width: calc(100% - 20px);
+    display: block;
+    padding: 15px 0px 15px 20px;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0 0 0 0;
+    outline: 0;
+    background-color: var(--cor3);
+    margin: 20px 0px;
+}
+
+section#seuspenderSite > article > button {
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: var(--cor6);
+    color: var(--cor1);
+    font-family: var(--font-texto);
+    font-weight: 100;
+    border: 1px solid transparent;
+    margin-top: 30px;
+    margin-left: 50%;
+    transform: translate(-50%);
+}
+
 button.openChat {
     width: 30px;
     height: 30px;
     border-radius: 50%;
     position: absolute;
     top: 0px;
-    right: 40px;
+    left: 40px;
     display: none;
     background-color: var(--cor3);
     background-image: url(../img/icon/chat2.png);

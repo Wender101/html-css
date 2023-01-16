@@ -216,10 +216,15 @@ function criaProduto(Img1, Img2, Img3, Img4, Nome, Desc, Tags, DescDetalhada, Ca
     //? Class
     if(Estado == 'Suspenso') {
         prod.className = 'suspenso'
+        let info = document.createElement('p')
+        info.className = 'suspensoAviso'
+        info.title = 'Produto suspenso'
+        prod.appendChild(info)
     } else {
         prod.className = 'prod'
     }
 
+    prod.id = Id
     chat.className = 'openChat'
     descontoPartProd.className = 'descontoPartProd'
     chat.id = 'chat-' + Id
@@ -242,6 +247,8 @@ function criaProduto(Img1, Img2, Img3, Img4, Nome, Desc, Tags, DescDetalhada, Ca
         localImg.style.borderRadius = ' 0px 16px 0px 0px'
         spanDesconto.innerText = `${Desconto}% OFF`
         descontoPartProd.style.display = 'flex'
+    } else {
+        valorSalvo.style.opacity = '0'
     }
 
 
@@ -299,6 +306,22 @@ function criaProduto(Img1, Img2, Img3, Img4, Nome, Desc, Tags, DescDetalhada, Ca
         editarProduto(Img1, Img2, Img3, Img4, Nome, Desc, Tags, DescDetalhada, Categoria, Valor, Desconto, Id)
     })
 }
+
+//? Vai indicar quais produtos tem perguntas não respondidas
+db.collection('User').onSnapshot((data) => {
+    data.docs.map(function(val) {
+        let User = val.data()
+        for(let c = 0; c < User.Chat.length; c++) {
+            
+            try {
+                if(User.Chat[c].Resposta == '...') {
+                    document.getElementById(`chat-${User.Chat[c].Id}`).style.display = 'block'
+                }
+            } catch {}
+        }
+    })
+})
+
 
 //? Vai criar as categorias 
 function criaCategorias() {
@@ -455,6 +478,210 @@ function suspenderProd() {
 function disponibilizarProd() {
     document.getElementById('carregando').style.display = 'flex'
     db.collection('Produtos').doc(valId).update({Estado: 'Disponível'})
+    setTimeout(() => {
+        location.reload()
+    }, 1000)
+}
+
+function addNovoAdmin() {
+    document.getElementById('popAddNovoAdmin').style.display = 'flex'
+    addNovoAdministrador()
+}
+
+function addNovoAdministrador() {
+    let emailCarregado = false
+    document.getElementById('localEmailAdmin').innerHTML = ''
+    db.collection('Admins').onSnapshot((data) => {
+        data.docs.map(function(val) {
+            let Admins = val.data()
+
+            if(emailCarregado == false) {
+                for(let c = 0; c < Admins.Email.length; c++) {
+                    let localEmailAdmin = document.getElementById('localEmailAdmin')
+                    emailCarregado = true
+                    let p = document.createElement('p')
+                    let span = document.createElement('span')
+                    let img = document.createElement('img')
+                    img.src = 'assets/img/icon/excluir.jpg'
+                    span.appendChild(img)
+                    p.innerText = `${Admins.Email[c]}`
+                    p.appendChild(span)
+                    localEmailAdmin.appendChild(p)
+
+                    //? Vai remover a conta de admin
+                    span.addEventListener('click', () => {
+                        let salvo = false
+                        db.collection('Admins').onSnapshot((data) => {
+                            data.docs.map(function(val) {
+                                let Admins = val.data()
+                    
+                                if(salvo == false) {
+                                    salvo = true
+                                    const emailsAdmin = Admins.Email
+                                    emailsAdmin.splice(c, 1)
+                                    db.collection('Admins').doc(val.id).update({Email: emailsAdmin})
+                                    document.getElementById('popAddNovoAdmin').style.display = 'none'
+                                    document.getElementById('emaiNovoAdminGGP').value = ''
+                                }
+                            })
+                        })
+                    })
+                }
+            }
+        })
+    })
+}
+
+let popAddNovoAdmin = document.getElementById('popAddNovoAdmin')
+popAddNovoAdmin.addEventListener('click', (e) => {
+    let el = e.target.id
+    if(el == 'popAddNovoAdmin') {
+        document.getElementById('popAddNovoAdmin').style.display = 'none'
+        document.getElementById('emaiNovoAdminGGP').value = ''
+    }
+})
+
+function addNovoAdminNoDB() {
+    let salvo = false
+    db.collection('Admins').onSnapshot((data) => {
+        data.docs.map(function(val) {
+            let Admins = val.data()
+
+            if(salvo == false) {
+                salvo = true
+                let emaiNovoAdminGGP = document.getElementById('emaiNovoAdminGGP')
+                const emailsAdmin = Admins.Email
+                emailsAdmin.push(emaiNovoAdminGGP.value)
+                db.collection('Admins').doc(val.id).update({Email: emailsAdmin})
+            }
+        })
+    })
+
+    document.getElementById('popAddNovoAdmin').style.display = 'none'
+    setTimeout(() => {
+        emaiNovoAdminGGP.value = ''
+    }, 1000)
+}
+
+function suspenderSite() {
+    document.getElementById('seuspenderSite').style.display = 'flex'
+    let infoSuspenderSite = document.getElementById('infoSuspenderSite')
+
+    if(estadoSite == 'Em Manutenção') {
+        infoSuspenderSite.innerHTML = 'O site está fora do ar neste momento, caso deseje desfazer digite: <strong>No Ar</strong>'
+
+    } else if(estadoSite == 'Normal') {
+        infoSuspenderSite.innerHTML = 'O site ficará fora do ar para todos os usuário, apenas os administradores poderão navegar nele. Caso ainda deseje continuar digite: <strong>Suspender</strong>'
+    }
+
+    document.getElementById('seuspenderSite').addEventListener('click', (e) => {
+        let el = e.target.id
+        if(el == 'seuspenderSite') {
+            document.getElementById('seuspenderSite').style.display = 'none'
+        }
+    })
+}
+
+function SuspenderSiteConfirmar() {
+    let inputSuspender = document.getElementById('inputSuspender')
+    let btnSuspenderSiteContinuar = document.getElementById('btnSuspenderSiteContinuar')
+    if(inputSuspender.value == 'Suspender' && estadoSite == 'Normal') {
+        btnSuspenderSiteContinuar.style.backgroundColor = 'red'
+
+        btnSuspenderSiteContinuar.addEventListener('click', () => {
+            if(inputSuspender.value == 'Suspender') {
+                db.collection('Admins').onSnapshot((data) => {
+                    data.docs.map(function(val) {
+                        let Admins = val.data()
+                        db.collection('Admins').doc(val.id).update({EmManutencao: true})
+                        document.getElementById('seuspenderSite').style.display = 'none'
+                        document.getElementById('btnSuspender').style.backgroundColor = 'red'
+                        inputSuspender.value = ''
+                        setTimeout(() => {
+                            estadoSite = 'Em Manutenção'
+                        }, 100)
+                    })
+                })
+            }
+        })
+
+    } else if(inputSuspender.value == 'No Ar' && estadoSite == 'Em Manutenção') {
+        btnSuspenderSiteContinuar.style.backgroundColor = 'var(--cor4)'
+
+        btnSuspenderSiteContinuar.addEventListener('click', () => {
+            if(inputSuspender.value == 'No Ar') {
+                db.collection('Admins').onSnapshot((data) => {
+                    data.docs.map(function(val) {
+                        let Admins = val.data()
+                        db.collection('Admins').doc(val.id).update({EmManutencao: false})
+                        document.getElementById('seuspenderSite').style.display = 'none'
+                        setTimeout(() => {
+                           location.reload()
+                        }, 500)
+                    })
+                })
+            }
+        })
+
+    } else {
+        btnSuspenderSiteContinuar.style.backgroundColor = 'var(--cor6)'
+    }
+}
+
+//? Vai adicionar os banners
+function abrirConfigBanner() {
+
+}
+
+let inputImagemAltaEscala = document.getElementById('inputImagemAltaEscala')
+let inputImagemPequenaEscala = document.getElementById('inputImagemPequenaEscala')
+
+//? Vai fechar o add banner 
+function fecharAddBanner() {
+    document.getElementById('editarBanner').style.display = 'none'
+    document.getElementById('editarBannerBtn').innerText = 'Editar'
+    setTimeout(() => {
+        inputImagemAltaEscala.value = ''
+        inputImagemPequenaEscala.value = ''
+    }, 500)
+}
+
+function editBanner() {
+    let editarBanner = document.getElementById('editarBannerBtn')
+    if(editarBanner.innerText == 'Editar') {
+        inputImagemAltaEscala.value = cloneBanner[parseInt(bannerSelect)].imagemAltaEscala
+        inputImagemPequenaEscala.value = cloneBanner[parseInt(bannerSelect)].imagemPequenaEscala
+        editarBanner.innerText = 'Salvar'
+
+    } else {
+        cloneBanner[parseInt(bannerSelect)].imagemAltaEscala = inputImagemAltaEscala.value
+        cloneBanner[parseInt(bannerSelect)].imagemPequenaEscala = inputImagemPequenaEscala.value
+        editarBanner.innerText = 'Editar'
+        salvarEditBanner()
+        fecharAddBanner()
+    }
+}
+
+function addNovoBanner() {
+    contadorBanners++
+    let obj = {
+        id: contadorBanners,
+        imagemAltaEscala: inputImagemAltaEscala.value,
+        imagemPequenaEscala: inputImagemPequenaEscala.value
+    }
+
+    cloneBanner.push(obj)
+    salvarEditBanner()
+}
+
+function excluirBanner() {
+    cloneBanner.splice(parseInt(bannerSelect), 1)
+    document.getElementById('carregando').style.display = 'flex'
+    //salvarEditBanner()
+}
+
+function salvarEditBanner() {
+    db.collection('Banners').doc('NJ4rSz7FKLuIr2GJFCH7').update({Banner: cloneBanner})
     setTimeout(() => {
         location.reload()
     }, 1000)
