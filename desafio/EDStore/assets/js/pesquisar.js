@@ -62,7 +62,6 @@ function sugetaoPesquisa(pesquisa) {
                             setTimeout(() => {
                                 location.reload()
                             }, 1000)
-
                         } else {
                             
                             location.pathname = '/pagProduto.html'
@@ -73,7 +72,6 @@ function sugetaoPesquisa(pesquisa) {
                             setTimeout(() => {
                                 location.reload()
                             }, 1000)
-
                         } else {
                             location.href = 'https://wender101.github.io/html-css/desafio/EDStore/pagProduto.html'
                         }
@@ -165,7 +163,6 @@ document.addEventListener('keypress', (e) => {
                 setTimeout(() => {
                     location.reload()
                 }, 1000)
-                
             } else {
                 location.href = 'https://wender101.github.io/html-css/desafio/EDStore/pagProduto.html'
             }

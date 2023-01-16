@@ -182,7 +182,6 @@ header {
     top: 0px;
     z-index: 2;
     background-color: var(--cor1);
-    box-shadow: 2px 2px 25px var(--sombra);
 }
 
 header > section {
@@ -325,7 +324,7 @@ header > section#parte3Header > button.modoClaro > span {
 /*? Nav Bar */
 nav {
     width: 100%;
-    height: auto;
+    height: 40px;
     margin-top: 100px;
     padding: 20px 0px;
     overflow: auto;

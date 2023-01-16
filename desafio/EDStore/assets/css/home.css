@@ -1,13 +1,12 @@
 /*? Local Banner */
 .containerBanner {
-    max-width: 1200px;
-    width: 90%;
-    height: 300px;
+    width: 100%;
+    height: 400px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 100px 0px 50px 50%;
+    margin: 0px 0px 50px 50%;
     transform: translate(-50.5%);
     background-color: var(--cor0);
     overflow: visible;
@@ -41,7 +40,7 @@
 .slide-img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     object-position: center center;
     box-shadow: 3px 4px 10px black initial;
 }
@@ -69,12 +68,12 @@
 }
 
 .slide-btn-1 {
-    left: -40px;
+    left: 40px;
     padding-right: 3px;
 }
 
 .slide-btn-2 {
-    right: -40px;
+    right: 40px;
     padding-left: 3px;
 }
 /*? Main */
@@ -268,7 +267,7 @@ div.prod > div.sobreProd > span, div.suspenso > div.sobreProd > span {
 
 @media screen and (max-width: 1150px) {
     .containerBanner {
-        height: 210px;
+        height: 310px;
     }
 
     .slide-btn {
@@ -278,32 +277,39 @@ div.prod > div.sobreProd > span, div.suspenso > div.sobreProd > span {
     }
 
     .slide-btn-1 {
-        left: -25px;
+        left: 10px;
         padding-right: 3px;
     }
     
     .slide-btn-2 {
-        right: -25px;
+        right: 10px;
         padding-left: 3px;
     }
 }
 
 @media screen and (max-width: 800px) {
     .containerBanner {
-        height: 180px;
+        height: 280px;
     }
 }
 
 @media screen and (max-width: 700px) {
     .containerBanner {
-        height: 140px;
+        height: 240px;
+    }
+
+    .slide-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 20px;
+        z-index: 3;
     }
 }
 
 @media screen and (max-width: 400px) {
     .containerBanner {
         width: 100%;
-        height: 210px;
+        height: 150px;
     }
 
     .slide {

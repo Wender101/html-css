@@ -188,11 +188,27 @@ function addProduto() {
 
 //? Vai carregar o produto na tela
 function carregarProduto() {
+    let carregado = false
+    let recarregado = false
     main.innerHTML = ''
+
     db.collection('Produtos').onSnapshot((data) => {
         data.docs.map(function(val) {
             let Produtos = val.data()
-            criaProduto(Produtos.Img1, Produtos.Img2, Produtos.Img3, Produtos.Img4, Produtos.Nome, Produtos.Desc, Produtos.Tags, Produtos.DescDetalhada, Produtos.Categoria, Produtos.Valor, Produtos.Desconto, Produtos.Id, Produtos.Estado)
+
+            if(carregado == false) {
+                setTimeout(() => {
+                    carregado = true
+                }, 3000)
+
+                criaProduto(Produtos.Img1, Produtos.Img2, Produtos.Img3, Produtos.Img4, Produtos.Nome, Produtos.Desc, Produtos.Tags, Produtos.DescDetalhada, Produtos.Categoria, Produtos.Valor, Produtos.Desconto, Produtos.Id, Produtos.Estado)
+            } else {
+                if(recarregado == false) {
+                    recarregado = true
+                    main.innerHTML = ''
+                    carregarProduto()
+                }
+            }
         })
     })
 } carregarProduto()
