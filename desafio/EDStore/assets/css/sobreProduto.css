@@ -97,6 +97,7 @@ main > div#infos > p#suspensoAvisoPageProduto {
     background-size: cover;
     position: absolute;
     z-index: 1;
+    display: none;
 }
 
 /*? Big */
@@ -145,12 +146,17 @@ main > div#infos > div#valorDoProduto {
 
 main > div#infos > div#valorDoProduto > #valorNormal {
     text-decoration: line-through;
+    color: red;
 }
 
 main > div#infos > div#valorDoProduto > p > strong {
     font-size: 1.3rem;
     font-family: var(--font-titulo);
     color: var(--cor1);
+}
+
+main > div#infos > div#valorDoProduto > p > span {
+    color: var(--cor4);
 }
 
 main > div#infos > div#localBtns {

@@ -116,7 +116,11 @@ function criaProduto() {
 
                 document.getElementById('valorNormal').innerText = 'R$' + res.toFixed(2)
                 document.getElementsByClassName('valorProdAdd')[0].innerText = 'R$' + valorComDesconto.toFixed(2)
-                document.getElementById('qDesconto').innerText = Produtos.Desconto + '% OFF'
+                if(Produtos.Desconto <= 0) {
+                    document.getElementById('qDesconto').innerText = ' 0% OFF'
+                } else {
+                    document.getElementById('qDesconto').innerText = Produtos.Desconto + '% OFF'
+                }
                 //Produtos.Id
 
                 produtosRelacionados(Produtos.Nome, Produtos.Categoria)
@@ -218,6 +222,7 @@ function errorProd() {
 }
 
 //? Vai criar os produtos relacionados
+let relacionadosCarregado = false
 function produtosRelacionados(relacionados = '', classeProd = '') {
     let arrayProd = []
     let kdPalavra = relacionados.split(' ')
@@ -229,34 +234,39 @@ function produtosRelacionados(relacionados = '', classeProd = '') {
             data.docs.map(function(val) {
                 let Produtos = val.data()
 
-                try {
-                    palavraSeparada = palavraSeparada.toLocaleLowerCase()
-                    palavraSeparada = palavraSeparada.normalize('NFD').replace(/[\u0300-\u036f]/g, "") //? Vai remover os acentos
-                    palavraSeparada = palavraSeparada.replace(/\s/g, '') //? Vai remover os espaços
-                } catch (error) {}
-                
-
-                let nome = Produtos.Nome
-                nome = nome.toLocaleLowerCase()
-                nome = nome.normalize('NFD').replace(/[\u0300-\u036f]/g, "") //? Vai remover os acentos
-                nome = nome.replace(/\s/g, '') //? Vai remover os espaços
-        
-                let desc = Produtos.Desc
-                desc = desc.toLocaleLowerCase()
-                desc = desc.normalize('NFD').replace(/[\u0300-\u036f]/g, "") //? Vai remover os acentos
-                desc = desc.replace(/\s/g, '') //? Vai remover os espaços
-                
-                if(nome.includes(palavraSeparada) && max < 6 || desc.includes(palavraSeparada) && max < 6 || Produtos.Categoria.includes(classeProd) && max < 6) {
-                    max++
-                    let igual = false
-                    //? Vai impedir que os produtos se repitam
-                    for(let b = -1; b < arrayProd.length; b++) {
-                        if(arrayProd[b] == Produtos.Nome) {
-                            igual = true
-                        } else if(b + 1 == arrayProd.length && igual == false) {
-                            if(Produtos.Estado != 'Suspenso') {
-                                arrayProd.push(Produtos.Nome)
-                                criaRelacionados(Produtos.Img1, Produtos.Img2, Produtos.Img3, Produtos.Img4, Produtos.Nome, Produtos.Desc , Produtos.Valor, Produtos.Desconto, Produtos.Id)
+                if(relacionadosCarregado == false) {
+                    setTimeout(() => {
+                        relacionadosCarregado = true
+                    }, 1500)
+                    try {
+                        palavraSeparada = palavraSeparada.toLocaleLowerCase()
+                        palavraSeparada = palavraSeparada.normalize('NFD').replace(/[\u0300-\u036f]/g, "") //? Vai remover os acentos
+                        palavraSeparada = palavraSeparada.replace(/\s/g, '') //? Vai remover os espaços
+                    } catch (error) {}
+                    
+    
+                    let nome = Produtos.Nome
+                    nome = nome.toLocaleLowerCase()
+                    nome = nome.normalize('NFD').replace(/[\u0300-\u036f]/g, "") //? Vai remover os acentos
+                    nome = nome.replace(/\s/g, '') //? Vai remover os espaços
+            
+                    let desc = Produtos.Desc
+                    desc = desc.toLocaleLowerCase()
+                    desc = desc.normalize('NFD').replace(/[\u0300-\u036f]/g, "") //? Vai remover os acentos
+                    desc = desc.replace(/\s/g, '') //? Vai remover os espaços
+                    
+                    if(nome.includes(palavraSeparada) && max < 6 || desc.includes(palavraSeparada) && max < 6 || Produtos.Categoria.includes(classeProd) && max < 6) {
+                        max++
+                        let igual = false
+                        //? Vai impedir que os produtos se repitam
+                        for(let b = -1; b < arrayProd.length; b++) {
+                            if(arrayProd[b] == Produtos.Nome) {
+                                igual = true
+                            } else if(b + 1 == arrayProd.length && igual == false) {
+                                if(Produtos.Estado != 'Suspenso') {
+                                    arrayProd.push(Produtos.Nome)
+                                    criaRelacionados(Produtos.Img1, Produtos.Img2, Produtos.Img3, Produtos.Img4, Produtos.Nome, Produtos.Desc , Produtos.Valor, Produtos.Desconto, Produtos.Id)
+                                }
                             }
                         }
                     }
@@ -303,6 +313,7 @@ function criaRelacionados(Img1 ,Img2, Img3, Img4, Nome, Desc, Valor, Desconto, I
 
     } else {
         valorSalvo.style.opacity = '0'
+        valorSemDescontoT.style.opacity = '0'
     }
 
     if(Desconto <= 0) {
