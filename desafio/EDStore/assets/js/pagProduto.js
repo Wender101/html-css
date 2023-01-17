@@ -160,6 +160,7 @@ function criaProduto(Img1 ,Img2, Img3, Img4, Nome, Desc, Valor, Desconto, Id) {
         descontoPartProd.style.display = 'flex'
     } else {
         valorSalvo.style.opacity = '0'
+        valorSemDescontoT.style.opacity = '0'
     }
 
     if(Desconto <= 0) {
