@@ -110,6 +110,14 @@
         </article>
     </section>
 
+    <section id="carregandoPag">
+        <h1>Carregando...</h1>
+        <div id="localCarregando">
+            <p id="numCarregar">0%</p>
+            <div id="parteCarregada"></div>
+        </div>
+    </section>
+
     <section id="popUpAddProd">
         <button id="fecharPopUp" onclick="fecharPopUp()">x</button>
 
@@ -117,6 +125,8 @@
             <div>
                 <p>Nome da Nova Categoria</p>
                 <input type="text" id="novaCat" placeholder="Nova Categoria">
+                <p>Imagem da nova categoria</p>
+                <input type="file" id="imgCategoria">
                 <button id="criarCat">Criar</button>
             </div>
         </div>
@@ -221,6 +231,26 @@
         </div>
     </section>
 
+    <!--? Categorias -->
+    <section id="categorias">
+        <section id="localCategorias">
+            <article>
+            </article>
+        </section>
+    </section>
+
+    <section id="editarCategorias">
+        <article>
+            <p>Editar texto da categoria</p>
+            <input type="text" id="textoCategoriaEditar" placeholder="Nome da categoria...">
+            <div>
+                <button id="salveEditCat">Salvar Alteração</button>
+                <button id="ExcluirCat">Excluir</button>
+                <button id="calcelEditCat">Cancelar</button>
+            </div>
+        </article>
+    </section>
+
     <main>
     </main>
 
@@ -244,6 +274,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-storage.js"></script>
     <script src="assets/js/firebase.js"></script>
 
      <!--? Check Manutenção -->

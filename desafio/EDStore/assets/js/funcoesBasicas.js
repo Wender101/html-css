@@ -89,6 +89,8 @@ function modoPage(modo = '') {
             document.getElementById('artNovoAdmin').style.background = cor2
             document.getElementById('seuspenderSite').querySelector('article').style.background = cor2
             document.getElementById('seuspenderSite').querySelector('article').style.color = cor1
+            document.getElementById('editarBanner').querySelector('article').style.backgroundColor = cor2
+            document.getElementById('editarBanner').querySelector('article').style.color = cor1
         }
 
         document.querySelector('header').style.backgroundColor = cor2
@@ -175,7 +177,9 @@ function modoPage(modo = '') {
                 document.getElementById('ex2').style.color = cor2
                 document.getElementById('artNovoAdmin').style.backgroundColor = cor1
                 document.getElementById('seuspenderSite').querySelector('article').style.background = cor1
-            document.getElementById('seuspenderSite').querySelector('article').style.color = cor0
+                document.getElementById('seuspenderSite').querySelector('article').style.color = cor0
+                document.getElementById('editarBanner').querySelector('article').style.backgroundColor = cor1
+                document.getElementById('editarBanner').querySelector('article').style.color = cor0
             }
 
             document.querySelector('header').style.backgroundColor = cor1

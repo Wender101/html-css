@@ -129,3 +129,95 @@ document.addEventListener('click', (el) => {
     }
 })
 //! Fim Sliders
+
+//? Categorias
+let catCarregada = false
+let catRecarregada = false
+let cloneCat = []
+function chamaCategorias() {
+    document.getElementById('localCategorias').querySelector('article').innerHTML = ''
+    db.collection('Categorias').onSnapshot((data) => {
+        data.docs.map(function(val) {
+            let Categorias = val.data()
+            cloneCat = Categorias.TodasCategorias
+
+            if(catCarregada == false) {
+                catCarregada = true
+                catRecarregada = false
+                for(let c = 0; c < Categorias.TodasCategorias.length; c++) {
+                    document.getElementById('localCategorias').style.display = 'block'
+                    let localCategorias = document.getElementById('localCategorias').querySelector('article')
+                    let categorias = document.createElement('div')
+                    let img = document.createElement('img')
+                    let p = document.createElement('p')
+    
+                    categorias.className = 'categorias'
+    
+                    img.src = Categorias.TodasCategorias[c].UrlImg
+                    p.innerText = Categorias.TodasCategorias[c].Nome
+    
+                    categorias.appendChild(img)
+                    categorias.appendChild(p)
+                    localCategorias.appendChild(categorias)
+
+                    categorias.addEventListener('click', () => {
+
+                        //? Vai levar o user para a pág de pesquisa
+                        if(document.querySelector('title').innerText != 'EDStore - Admin Page') {
+                            let pesquisaFeita = localStorage.getItem('produtoPagProduto')
+                            pesquisaFeita = JSON.parse(pesquisaFeita)
+                            location.href = location.href.replace('?' + pesquisaFeita, '')
+                            localStorage.setItem('produtoPagProduto', p.innerText)
+                            
+                            if(location.host == '127.0.0.1:5500') {
+                                if(location.pathname == '/pagProduto.html') {
+                                    setTimeout(() => {
+                                        location.reload()
+                                    }, 1000)
+                                } else {
+                                    
+                                    location.pathname = '/pagProduto.html'
+                                }
+                                
+                            } else if(location.host == 'wender101.github.io') {
+                                if(location.href == 'https://wender101.github.io/html-css/desafio/EDStore/pagProduto.html') {
+                                    setTimeout(() => {
+                                        location.reload()
+                                    }, 1000)
+                                } else {
+                                    location.href = 'https://wender101.github.io/html-css/desafio/EDStore/pagProduto.html'
+                                }
+                            }
+                            //? função admin
+                        } else {
+                            document.getElementById('editarCategorias').style.display = 'flex'
+                                document.getElementById('textoCategoriaEditar').value = p.innerText
+                            
+                            document.getElementById('calcelEditCat').addEventListener('click' , () => {
+                                document.getElementById('editarCategorias').style.display = 'none'
+                            })
+
+                            document.getElementById('salveEditCat').addEventListener('click' , () => {
+                                document.getElementById('editarCategorias').style.display = 'none'
+                                cloneCat[c].Nome = document.getElementById('textoCategoriaEditar').value
+                                db.collection('Categorias').doc(val.id).update({TodasCategorias: cloneCat})
+                            })
+
+                            document.getElementById('ExcluirCat').addEventListener('click' , () => {
+                                document.getElementById('editarCategorias').style.display = 'none'
+                                storage.ref().child('imgCategorias').child(cloneCat[c].NomeImg).delete().then(() => {
+                                    cloneCat.splice(c, 1)
+                                    db.collection('Categorias').doc(val.id).update({TodasCategorias: cloneCat})
+                                })
+                            })
+                        }
+                    })
+                }
+            } else if(catRecarregada == false) {
+                catRecarregada = true
+                catCarregada = false
+                chamaCategorias()
+            }
+        })
+    })
+} chamaCategorias()

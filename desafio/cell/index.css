@@ -8,8 +8,8 @@ body {
 }
 
 section#borda {
-    max-width: 240px;
-    height: 500px;
+    max-width: 308px;
+    height: 584px;
     border-radius: 40px;
     transform: rotate(-32deg);
     background-color: black;
@@ -46,8 +46,8 @@ div#btn2 {
 }
 
 article#parte-de-dentro {
-    width: 220px;
-    height: 490px;
+    width: 285px;
+    height: 574px;
     background-color: white;
     border-radius: 30px;
     position: absolute;
@@ -56,7 +56,7 @@ article#parte-de-dentro {
 }
 
 div#topo {
-    width: 79px;
+    width: 80px;
     height: auto;
     margin: 15px auto;
 }
@@ -90,6 +90,11 @@ div#tela {
     height: 80%;
     margin: auto;
     border: 1.5px solid black;
+}
+
+div#tela > iframe {
+    width: 100%;
+    height: 100%;
 }
 
 div#button {

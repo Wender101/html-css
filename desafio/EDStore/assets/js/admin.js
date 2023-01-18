@@ -45,6 +45,7 @@ let valInput3 = 0
 let valInput4 = 0
 let valInput5 = 0
 let prontoPraAdd = false
+let arrayCategorias = [] //? Vai armazenar as categorias existentes no db
 setInterval(() => {
     for (let c = 0; c < 4; c++) {
         try {
@@ -122,17 +123,88 @@ setInterval(() => {
                 addNovaCategoria.style.display = 'flex'
                 
                 let btnCriarCat = document.getElementById('criarCat')
-                btnCriarCat.addEventListener('click', () => {
+
+                let imgCategoria = document.getElementById('imgCategoria')
+                imgCategoria.onchange = function (event) {
+                    let arquivo = event.target.files[0]
+
+                    btnCriarCat.addEventListener('click', () => {
                         if(selecCategoria == 'Adcionar Nova Categoria') {
+                            let addNovaCategoria = document.getElementById('addNovaCategoria')
+                            let carregandoPag = document.getElementById('carregandoPag')
                             let select = document.getElementById('selecCategoria')
                             let novoCatAdded = document.getElementById('novoCatAdded')
                             novoCatAdded.value = document.getElementById('novaCat').value
                             novoCatAdded.innerText = document.getElementById('novaCat').value
-                            select.value = document.getElementById('novaCat').value
-                           
+                            select.value = document.getElementById('novaCat').value                           
                             addNovaCategoria.style.display = 'none'
+                            
+                            let btnAddNovoProduto = document.getElementById('AddBtn')
+                            btnAddNovoProduto.addEventListener('click', () => {
+                                salvarCategoria()
+                            })
+
+                            let salveEdit = document.getElementById('salveEdit')
+                            salveEdit.addEventListener('click', () => {
+                                salvarCategoria(true)
+                            })
+
+                            function salvarCategoria(editar = false) {
+                                if(btnAddNovoProduto.style.backgroundColor == 'rgb(0, 142, 204)' || editar == true) {
+                                    carregandoPag.style.display = 'flex'
+                                    var uploadTask = storage.ref().child('imgCategorias').child(arquivo.name).put(arquivo)
+                                    uploadTask.on('imgCategorias', 
+                                    (snapshot) => {
+                                        // Observe state change events such as progress, pause, and resume
+                                        // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
+                                        var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+                                        let parteCarregada = document.getElementById('parteCarregada')
+                                        parteCarregada.style.width = `${progress}%`
+                                        document.getElementById('numCarregar').innerText = `${progress.toFixed(0)}%`
+
+                                        if(progress >= 100) {
+                                            setTimeout(() => {
+                                                carregandoPag.style.display = 'none'
+                                            }, 2000)
+                                        }
+                                    }, 
+                                    (error) => {
+                                        // Handle unsuccessful uploads
+                                    }, 
+                                    () => {
+                                        // Handle successful uploads on complete
+                                        // For instance, get the download URL: https://firebasestorage.googleapis.com/...
+                                        uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
+                                            arrayCategorias = []
+                                            let categoriaAdd = false
+                                            
+                                            db.collection('Categorias').onSnapshot((data) => {
+                                                data.docs.map(function(val) {
+                                                    let Categorias = val.data()
+                                                    if(categoriaAdd == false) {
+                                                        categoriaAdd = true
+                                                        arrayCategorias = Categorias.TodasCategorias
+
+                                                        let novaCat = document.getElementById('novaCat')
+                                            
+                                                        let obj = {
+                                                            Nome: novaCat.value,
+                                                            UrlImg: downloadURL,
+                                                            NomeImg:arquivo.name
+                                                        }
+                                                        
+                                                        arrayCategorias.push(obj)
+                                                        db.collection('Categorias').doc(val.id).update({TodasCategorias: arrayCategorias})
+                                                    }
+                                                })
+                                            })
+                                        })
+                                    })
+                                }
+                            }
                         }
-                })
+                    })
+                }
             }
 
             //? Vai chevcar se todos os inputs importantes foram respondidos
@@ -152,6 +224,7 @@ setInterval(() => {
 //? Vai adicionar o produto
 function addProduto() {
     if(prontoPraAdd == true) {
+
         let imagem1 = document.getElementsByClassName('imgProd')[0].value
         let imagem2 = document.getElementsByClassName('imgProd')[1].value
         let imagem3 = document.getElementsByClassName('imgProd')[2].value
@@ -439,9 +512,30 @@ function salvarEdit() {
 
     db.collection('Produtos').doc(valId).update({Img1: imagem1 ,Img2: imagem2, Img3: imagem3, Img4: imagem4, Nome: name, Desc: desccription, Tags: tags, DescDetalhada: descDetalhada, Categoria: selecCategoria, Valor: valor, Desconto: descontoProd, Id: idDoProduto})
 
-    setTimeout(() => {
-        location.reload()
-    }, 1000)
+    let recarregado = false
+    if(document.getElementById('carregandoPag').style.display == 'none') {
+        db.collection('Produtos').onSnapshot((data) => {
+            data.docs.map(function(val) {
+                if(recarregado == false) {
+                    recarregado = true
+                    setTimeout(() => {
+                        location.reload()
+                    }, 1000)
+                }
+            })
+        })
+    } else {
+        db.collection('Categorias').onSnapshot((data) => {
+            data.docs.map(function(val) {
+                if(recarregado == false) {
+                    recarregado = true
+                    setTimeout(() => {
+                        location.reload()
+                    }, 3000)
+                }
+            })
+        })
+    }
 }
 
 //? Vai perdir confirmação para excluir o produto
