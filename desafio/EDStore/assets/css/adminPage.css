@@ -1,0 +1,1083 @@
+/*? btn Duvida */
+#duvidaBtn {
+    width: 55px;
+    height: 55px;
+    position: fixed;
+    bottom: 335px;
+    right: 10px;
+    border-radius: 50%;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(../img/icon/duvida.png);
+}
+
+section#localDuvida {
+    width: 100%;
+    height: auto;
+    min-height: 110vh;
+    position: absolute;
+    background-color: var(--cor1);
+    top: 0px;
+    z-index: 2;
+    top: 0px;
+    padding: 20px 70px 200px 70px;
+    display: none;
+}
+
+section#localDuvida > button#fecharLocalDuvida {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    color: var(--cor1);
+    background-color: var(--cor4);
+    position: absolute;
+    top: 20px;
+    right: 170px;
+}
+
+section#localDuvida > div#barralateralDuvidas {
+    width: 30px;
+    height: 100vh;
+    position: fixed;
+    background-color: var(--cor1);
+    box-shadow: 2px 2px 20px var(--sombra);
+    padding: 20px;
+    text-align: center;
+    left: 0px;
+    top: 0px;
+    transition: 300ms width linear;
+    z-index: 2;
+}
+
+section#localDuvida > div#barralateralDuvidas > img {
+    width: 40px;
+}
+
+section#localDuvida > div#barralateralDuvidas > strong {
+    margin-bottom: 30px;
+    display: none;
+}
+
+section#localDuvida > div#barralateralDuvidas > select {
+    width: 100%;
+    margin: 15px 0px;
+    background-color: transparent;
+    display: none;
+}
+
+select.duvidaLateralAberta {
+    display: block;
+}
+
+section#localDuvida > div#barralateralDuvidas > button#abrirMenuDuvida {
+    width: 30px;
+    height: 30px;
+    border-color: transparent;
+    background-position: center;
+    background-size: contain;
+    position: absolute;
+    bottom: 80px;
+    left: 50%;
+    transform: translate(-50%);
+    background-image: url(../img/icon/abrir.png);
+}
+
+section#localDuvida > article {
+    width: 90%;
+    max-width: 1200px;
+    height: auto;
+    margin-left: 50%;
+    transform: translate(-53%);
+    padding: 30px 0px;
+    display: none;
+    text-align: center;
+}
+
+section#localDuvida > article#apresentacaoPage {
+    display: block;
+}
+
+section#localDuvida > article > h2 {
+    margin-bottom: 30px;
+}
+
+section#localDuvida > article > p {
+    margin: 15px 0px 30px;
+}
+
+section#localDuvida > article > strong {
+    font-size: 1.3rem;
+}
+
+section#localDuvida > article > img {
+    width: 80%;
+    display: block;
+    margin: 50px auto;
+}
+
+/*? Main */
+main {
+    max-width: 1210px;
+}
+
+main > div {
+    display: inline-block;
+}
+
+/*? Categorias */
+div.text {
+    width: 100%;
+    max-width: 1200px;
+    text-align: left;
+    margin: auto;
+}
+
+section#localCategorias {
+    max-width: 1200px;
+    margin-left: 50%;
+    transform: translate(-52%);
+    width: 100%;
+    height: 250px;
+    overflow-y: hidden;
+    overflow-x: auto;
+    margin: -60px 0px 0px 50%;
+    display: none;
+}
+
+section#localCategorias > article {
+    width: auto;
+    margin-top: 40px;
+    display: inline-flex;
+    padding: 0px 30px;
+}
+
+section#localCategorias > article > div {
+    width: 132px;
+    height: 137px;
+    margin-right: 46px;
+}
+
+section#localCategorias > article > div:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+section#localCategorias > article > div > img {
+    width: 132px;
+    height: 132px;
+    border-radius: 50%;
+    background-color: var(--cor3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 1px 1px 10px var(--sombra);
+}
+
+section#localCategorias > article > div > p {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/*Editar Categorias */
+section#editarCategorias {
+    width: 100%;
+    height: 100vh;
+    background-color: var(--sombra);
+    position: fixed;
+    top: 0px;
+    z-index: 2;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+section#editarCategorias > article {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    padding: 20px;
+    background-color: var(--cor1);
+    border-radius: 16px;
+}
+
+section#editarCategorias > article  > input {
+    width: calc(100% - 20px);
+    display: block;
+    padding: 15px 0px 15px 20px;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0 0 0 0;
+    outline: 0;
+    background-color: var(--cor3);
+    margin: 10px 0px 30px;
+}
+
+section#editarCategorias > article > div {
+    width: 400px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+section#editarCategorias > article > div > button {
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: var(--cor1);
+    font-family: var(--font-texto);
+    font-weight: 100;
+    background-color: var(--cor6); 
+    border: 1px solid transparent;
+    margin-top: 30px;
+}
+
+section#editarCategorias > article > div > button#ExcluirCat {
+    background-color: red;
+}
+
+section#editarCategorias > article > div > button#salveEditCat {
+    background-color: var(--cor4);
+}
+
+/*? fim categorias */
+
+p#addProduto {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    position: fixed;
+    bottom: 200px;
+    right: 10px;
+    background-color: var(--cor4);
+    color: var(--cor1);
+    font-size: 20px;
+    box-shadow: 2px 2px 10px var(--sombra);
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+section#editarBanner {
+    width: 100%;
+    height: 110vh;
+    position: fixed;
+    top: 0px;
+    background-color: var(--sombra2);
+    z-index: 2;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+section#editarBanner > article {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    background-color: var(--cor1);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+section#editarBanner > article > input {
+    width: calc(100% - 20px);
+    display: block;
+    padding: 15px 0px 15px 20px;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0 0 0 0;
+    outline: 0;
+    background-color: var(--cor3);
+    margin: 10px 0px 30px;
+}
+
+section#editarBanner > article > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+section#editarBanner > article > div > button {
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: var(--cor4);
+    color: var(--cor1);
+    font-family: var(--font-texto);
+    font-weight: 100;
+    border: 1px solid transparent;
+    margin-top: 30px;
+}
+
+section#editarBanner > article > div > button#editarBannerBtn {
+    background-color: var(--cor5);
+}
+
+section#editarBanner > article > div > button#cancelBanner {
+    background-color: var(--cor6);
+}
+
+section#editarBanner > article > div > button#excluirBanner {
+    background-color: red;
+}
+
+p#addNovoAdministrador {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    position: fixed;
+    bottom: 270px;
+    right: 10px;
+    background-color: var(--cor4);
+    background-image: url(../img/icon/addContato.png);
+    background-position: center;
+    background-size: contain;
+    color: var(--cor1);
+    font-size: 20px;
+    box-shadow: 2px 2px 10px var(--sombra);
+    z-index: 1;
+}
+
+section#popAddNovoAdmin {
+    width: 100%;
+    height: 110vh;
+    position: fixed;
+    top: 0px;
+    background-color: var(--sombra2);
+    z-index: 2;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+section#popAddNovoAdmin > article {
+    width: 100%;
+    height: auto;
+    max-width: 500px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: var(--cor1);
+}
+
+section#popAddNovoAdmin > article > input {
+    width: calc(100% - 20px);
+    display: block;
+    padding: 15px 0px 15px 20px;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0 0 0 0;
+    outline: 0;
+    background-color: var(--cor3);
+    margin-top: 10px;
+}
+
+section#popAddNovoAdmin > article > p {
+    margin: 10px;
+}
+
+section#popAddNovoAdmin > article > div {
+    padding: 10px;
+}
+
+section#popAddNovoAdmin > article > div > p {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+section#popAddNovoAdmin > article > div > p > span {
+    width: 25px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+section#popAddNovoAdmin > article > div > p > span > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+section#popAddNovoAdmin > article > button {
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: var(--cor4);
+    color: var(--cor1);
+    font-family: var(--font-texto);
+    font-weight: 100;
+    border: 1px solid transparent;
+    margin-top: 30px;
+    margin-left: 50%;
+    transform: translate(-50%);
+}
+
+.move {
+    position: absolute; 
+    cursor: -webkit-grabbing; 
+    z-index: 2;
+}
+
+p#btnSuspender {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    position: fixed;
+    bottom: 130px;
+    right: 10px;
+    background-color: var(--cor6);
+    color: var(--cor1);
+    font-size: 20px;
+    box-shadow: 2px 2px 10px var(--sombra);
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+p#btnSuspender > span {
+    width: 100%;
+    height: 100%;
+    display: block;
+    background-image: url(../img/site/image\ -\ freepik.com.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    margin-left: -18px;
+}
+
+section#seuspenderSite {
+    width: 100%;
+    height: 110vh;
+    position: fixed;
+    top: 0px;
+    background-color: var(--sombra2);
+    z-index: 2;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+section#seuspenderSite > article {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: var(--cor1);
+    color: var(--cor2);
+}
+
+section#seuspenderSite > article > input {
+    width: calc(100% - 20px);
+    display: block;
+    padding: 15px 0px 15px 20px;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0 0 0 0;
+    outline: 0;
+    background-color: var(--cor3);
+    margin: 20px 0px;
+}
+
+section#seuspenderSite > article > button {
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: var(--cor6);
+    color: var(--cor1);
+    font-family: var(--font-texto);
+    font-weight: 100;
+    border: 1px solid transparent;
+    margin-top: 30px;
+    margin-left: 50%;
+    transform: translate(-50%);
+}
+
+button.openChat {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    position: absolute;
+    top: 0px;
+    left: 40px;
+    display: none;
+    background-color: var(--cor3);
+    background-image: url(../img/icon/chat2.png);
+    background-position: center;
+    background-size: cover;
+    box-shadow: 2px 2px 10px var(--sombra);
+    z-index: 1;
+}
+
+section#carregandoPag {
+    width: 100%;
+    height: 100vh;
+    top: 0px;
+    position: fixed;
+    z-index: 12;
+    background-color: var(--cor1);
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+section#carregandoPag > h1 {
+    position: absolute;
+    margin-top: -100px;
+    color: var(--cor4);
+}
+
+section#carregandoPag > div#localCarregando {
+    width: 100%;
+    max-width: 500px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: var(--sombra);
+    color: var(--cor1);
+    position: relative;
+    overflow: hidden;
+}
+
+section#carregandoPag > div#localCarregando > div#parteCarregada {
+    width: 0%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    border-radius: 10px 0px 0px 10px;
+    background-color: var(--cor4);
+    z-index: 1;
+}
+
+section#carregandoPag > div#localCarregando > p {
+    text-align: center;
+    position: absolute;
+    z-index: 2;
+    left: 50%;
+    margin-top: 14px;
+    transform: translate(-50%);
+}
+
+div#addNovaCategoria {
+    width: 100%;
+    height: 100vh;
+    background-color: var(--sombra);
+    position: fixed;
+    top: 0px;
+    z-index: 2;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+div#addNovaCategoria > div {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    padding: 20px;
+    background-color: var(--cor1);
+    border-radius: 16px;
+}
+
+div#addNovaCategoria > div > input {
+    width: 96%;
+    display: block;
+    padding: 15px 0px 15px 20px;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0 0 0 0;
+    outline: 0;
+    background-color: var(--cor3);
+    margin-top: 10px;
+}
+
+div#addNovaCategoria > div > button {
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: var(--cor4);
+    color: var(--cor1);
+    font-family: var(--font-texto);
+    font-weight: 100;
+    border: 1px solid transparent;
+    margin-top: 30px;
+    margin-left: 50%;
+    transform: translate(-50%);
+}
+
+section#popUpAddProd {
+    width: 100%;
+    height: auto;
+    height: 100vh;
+    display: none;
+    overflow: auto;
+    position: fixed;
+    top: 0px;
+    z-index: 10;
+    background-color: var(--cor1);
+    padding-bottom: 100px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+section#popUpAddProd > button#fecharPopUp {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--cor4);
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+h1 {
+    width: 90%;
+    margin-top: 20px;
+    text-align: center;
+    margin: calc(auto - 20px);
+}
+
+section#popUpAddProd > article {
+    width: 100%;
+    height: 150vh;
+    max-width: 800px;
+    /* margin-left: 100px; */
+    margin: auto;
+    padding: 20px;
+}
+
+section#popUpAddProd > article > p {
+    margin-top: 40px;
+}
+
+section#popUpAddProd > article > input, textarea, select {
+    width: 84%;
+    display: block;
+    padding: 15px;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0 0 0 0;
+    outline: 0;
+    background-color: var(--cor3);
+    margin-top: 10px;
+}
+
+section#popUpAddProd > article > select {
+    max-width: 700px;
+    width: 89%;
+}
+
+section#popUpAddProd > div#prodEx {
+    position: absolute;
+    top: 200px;
+    right: 10px;
+    background-color: var(--cor1);
+}
+
+section#popUpAddProd > div#prodEx > div.localImg > .imgPrincipal {
+    max-width: 150px;
+    height: auto;
+}
+
+section#popUpAddProd > div#ex2 {
+    width: 90%;
+    max-width: 1000px;
+    height: 500px;
+    margin: 400px auto 100px;
+    border-radius: 16px;
+    background-color: var(--cor7);
+    display: flex;
+    box-shadow: 2px 2px 20px var(--sombra);
+}
+
+section#popUpAddProd > div#ex2 > div#localImgEx {
+    width: 50%;
+    height: 100%;
+    background-color: var(--cor1);
+    border-radius: 16px 0px 0px 16px;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+section#popUpAddProd > div#ex2 > div#localImgEx > div#othersImgs {
+    position: absolute;
+    width: 70px;
+    height: 100%;
+    border-radius: 16px 0px 0px 16px;
+    padding-top: 40px;
+}
+
+section#popUpAddProd > div#ex2 > div#localImgEx > div#othersImgs > img {
+    width: 50px;
+    margin: 5px 10px;
+}
+
+section#popUpAddProd > div#ex2 > div#localImgEx > img.imgPrincipal {
+    width: 50%;
+    max-height: 500px;
+    display: block;
+    margin: auto;
+}
+
+section#popUpAddProd > div#ex2 > div#infos {
+    width: 50%;
+    border-radius: 0px 16px 16px 0px;
+    color: var(--cor1);
+}
+
+section#popUpAddProd > div#ex2 > div#infos > p {
+    width: 80%;
+    margin: 50px auto;
+    text-align: center;
+}
+
+section#popUpAddProd > div#ex2 > div#infos > div#valorDoProduto > #valorNormal {
+    text-decoration: line-through;
+}
+
+section#popUpAddProd > div#ex2 > div#infos > div#valorDoProduto {
+    width: auto;
+    min-width: 200px;
+    margin-left: 50%;
+    transform: translate(-50%);
+    color: var(--cor1);
+    border: 1px solid var(--cor4);
+    display: none;
+    border-radius: 5px;
+    padding: 10px 40px;
+    margin-top: 80px;
+}
+
+section#popUpAddProd > div#ex2 > div#infos > div#valorDoProduto > p > strong {
+    font-size: 25px;
+    font-family: var(--font-titulo);
+    color: var(--cor1);
+}
+
+section#popUpAddProd > div#ex2 > div#infos > div {
+    width: 300px;
+    margin:  80px auto;
+}
+
+section#popUpAddProd > div#ex2 > div#infos > div > button {
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: var(--cor1);
+    color: var(--cor2);
+    font-family: var(--font-texto);
+    font-weight: 100;
+    border: 1px solid transparent;
+}
+
+/*? descricaoDetalhada */
+section#descricaoDetalhada {
+    width: 95%;
+    max-width: 1000px;
+    color: var(--cor6);
+    margin: auto;
+    padding-bottom: 50px;
+}
+
+section#descricaoDetalhada > h1 {
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+section#descricaoDetalhada > pre#descricaoP {
+    width: 100%;
+    font-size: 1em;
+    font-family: var(--font-texto);
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+section#popUpAddProd > button {
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: var(--cor6);
+    color: var(--cor1);
+    font-family: var(--font-texto);
+    font-weight: 100;
+    border: 1px solid transparent;
+    margin-left: 50%;
+    transform: translate(-50%);
+    cursor: pointer;
+    margin-bottom: 200px;
+}
+
+section#popUpAddProd > div#btnsAdemin {
+    width: 95%;
+    max-width: 550px;
+    height: 150px;
+    display: none;
+    align-items: center;
+    justify-content: space-around;
+    margin: auto;
+    margin-bottom: 100px;
+}
+
+section#popUpAddProd > div#btnsAdemin > button {
+    padding: 10px 7px;
+    border-radius: 5px;
+    background-color: var(--cor6);
+    color: var(--cor1);
+    font-family: var(--font-texto);
+    font-weight: 100;
+    border: 1px solid transparent;
+    cursor: pointer;
+}
+
+section#popUpAddProd > div#btnsAdemin > button#salveEdit {
+    background-color: var(--cor4);
+}
+
+section#popUpAddProd > div#btnsAdemin > button#excluirBtn {
+    background-color: red;
+}
+
+section#popUpAddProd > div#btnsAdemin > button#cancel {
+    background-color: var(--cor3);
+}
+
+section#popUpAddProd > div#btnsAdemin > button#suspenderProd {
+    background-color: var(--cor8);
+}
+
+section#popUpAddProd > div#btnsAdemin > button#disponibilizarProd {
+    background-color: var(--cor5);
+    display: none;
+}
+
+/*? Confirmarexcluir produto */
+div#confirmarExcluir {
+    width: 100%;
+    height: 100vh;
+    top: 0px;
+    z-index: 10;
+    position: fixed;
+    background-color: var(--sombra);
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+div#confirmarExcluir > div {
+    max-width: 400px;
+    width: 100%;
+    height: auto;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: var(--cor1);
+    text-align: center;
+}
+
+div#confirmarExcluir > div > div {
+    width: 90%;
+    margin: 30px auto 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+div#confirmarExcluir > div > div > button {
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: red;
+    color: var(--cor1);
+    font-family: var(--font-texto);
+    font-weight: 100;
+    border: 1px solid transparent;
+    cursor: pointer;
+}
+
+div#confirmarExcluir > div > div > button:first-child {
+    background-color: var(--cor6);
+}
+
+/*? Prod */
+div.prod, div.suspenso {
+    position: relative;
+}
+
+div.prod > div.divEdit, div.suspenso > div.divEdit {
+    width: 30px;
+    height: 30px;
+    background-color: var(--cor9);
+    border-radius: 50%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+div.prod > div.divEdit > span {
+    width: 55%;
+    height: 55%;
+    background-image: url(../img/icon/editar.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+div.suspenso > div.divEdit {
+    background-color: var(--sombra2);
+}
+
+div.suspenso > div.divEdit > span {
+    width: 100%;
+    height: 100%;
+    background-image: url(../img/icon/suspenso.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+@media screen and (max-width: 1206px) {
+    main {
+        max-width: 957px;
+    }
+
+    section#popUpAddProd > div#ex2 {
+        border-radius: 0px;
+    }
+
+    section#popUpAddProd > div#ex2 > div#infos {
+        border-radius: 0px;
+    }
+
+    section#popUpAddProd > div#ex2 > div#localImgEx {
+        border-radius: 0px;
+    }
+}
+
+@media screen and (max-width: 967px) {
+    main {
+        max-width: 640px;
+    }
+
+    main > div.prod, div.suspenso {
+        width: 200px;
+        margin: 5px 5px;
+    }
+
+    div.prod > div.sobreProd > p, div.suspenso > div.sobreProd > p {
+        font-size: 11px;
+    }
+}
+
+@media screen and (max-width: 645px) {
+    main {
+        max-width: 425px;
+    }
+
+    section#popUpAddProd > div#ex2 > div#localImgEx > div#othersImgs {
+        padding-top: 200px;
+    }
+
+    section#popUpAddProd > div#ex2 {
+        width: 90%;
+        margin-top: 400px;
+        position: relative;
+    }
+
+    section#popUpAddProd > div#ex2 > div#infos {
+        width: 100%;
+        min-height: 450px;
+        position: absolute;
+        top: 0px;
+        background-color: var(--cor4);
+    }
+
+    section#popUpAddProd > div#ex2 > div#localImgEx {
+        width: 100%;
+        position: absolute;
+        padding: 50px 0px;
+        bottom: -550px;
+    }
+
+    section#descricaoDetalhada {
+        margin-top: 600px;
+    }
+}
+
+@media screen and (max-width: 638px) {
+    section#popUpAddProd {
+        padding-top: 100px;
+    }
+
+    div#prodEx {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 539px) {
+    section#popUpAddProd > div#ex2 > div#localImgEx > div#othersImgs {
+        padding-top: 20px;
+    }
+
+    section#popUpAddProd > div#ex2 {
+        width: 100%;
+    }
+
+    section#popUpAddProd > div#ex2 > div#infos > h1 {
+        font-size: 1.3rem;
+    }
+    
+    section#popUpAddProd > div#ex2 > div#infos > p {
+        width: 90%;
+        font-size: 0.8rem;
+    }
+
+    section#popUpAddProd > div#ex2 > div#localImgEx > div#othersImgs {
+        top: 70px;
+    }
+}
+
+@media screen and (max-width: 478px) {
+    main {
+        width: 365px;
+    }
+
+    main > div.prod, div.suspenso {
+        width: 170px;
+        margin: 5px 5px;
+    }
+
+    div.prod > div.sobreProd > p, div.suspenso > div.sobreProd > p {
+        font-size: 11px;
+        word-wrap: break-word;
+    }
+
+    div.prod > div.sobreProd > p > strong, div.suspenso > div.sobreProd > p > strong {
+        width: 100%;
+        display: block;
+    }
+}
+
+@media screen and (max-width: 368px) {
+    main {
+        width: 220px;
+    }
+
+    main > div.prod, div.suspenso {
+        width: 100%;
+        margin: 25px 5px;
+    }
+
+    div.prod > div.sobreProd > p, div.suspenso > div.sobreProd > p {
+        font-size: 11px;
+        word-wrap: break-word;
+    }
+
+    div.prod >  div.sobreProd > p > strong, div.suspenso > div.sobreProd > p > strong {
+        width: 100%;
+        display: block;
+    }
+}
