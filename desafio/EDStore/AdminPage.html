@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="assets/img/site/logoIcon.png" type="image/x-icon">
+    <!--? Css Geral -->
+    <link rel="stylesheet" href="assets/css/geral.css">
+    <!--? Css page -->
+    <link rel="stylesheet" href="assets/css/home.css">
+    <link rel="stylesheet" href="assets/css/adminPage.css">
+    <title>EDStore - Admin Page</title>
+</head>
+<body>
+    <header>
+        <section id="parte1Header">
+            <button id="configBtn" onclick="abrirMenu()"></button>
+            <a href="Home.html"><img src="assets/img/site/letraSemFundo.png" alt="Logo EDStore"></a>
+        </section>
+
+        <section id="parte3Header">
+            <button class="modoClaro" onclick="modoPage()"> <span class="spans">Tema</span></button>
+            <img src="assets/img/site/error2NavBar.jpg" class="imgEmailUser">
+            <button id="login" onclick="login()"><img src="assets/img/icon/user.png" alt="icone usuario"> <span class="spans">Login/Cadastro</span></button>
+            <button><a id="aCarrinho" href="Carrinho.html"><img src="assets/img/icon/cartIcon.png" alt="icone carrinho"><span class="spans">Carrinho</span></a></button>
+        </section>
+    </header>
+
+    <div id="localInput">
+        <img src="assets/img/icon/Search.png" alt="icone lupa">
+        <input type="text" placeholder="Pesquise aqui..." id="pesquisaInput">
+        <div id="recomend">
+        </div>
+    </div>
+    
+    <nav>
+        <ul>
+        </ul>
+    </nav>
+
+    <div id="menu">
+        <ul>
+            <div id="fecharMenu" onclick="fecharMenu()"><span id="spanDark-1">x</span></div>
+            
+            <li><a class="aDivMenu" href="Home.html"><img src="assets/img/icon/home.png" alt=""> <span>Home</span></a></li>
+            <li><a class="aDivMenu" href="Carrinho.html"><img src="assets/img/icon/cartIcon.png" alt=""> <span>Carrinho</span></a></li>
+            <li id="login2"><a class="aDivMenu" onclick="login()"><img src="assets/img/icon/user.png"> <span>Login/Cadastro</span></a></li>
+            <li id="localImgUser"><img src="assets/img/site/error2NavBar.jpg" class="imgEmailUser"> <span>Trocar de conta</span></li>
+            <li><button class="modoClaro" onclick="modoPage()"><span id="spanDark0">Tema</span></button></li>
+        </ul>
+    </div>
+
+    <!--? btn duvida -->
+    <p title="Alguma duvida? Clique aqui que eu resolvo para você!" id="duvidaBtn" class="move" ondblclick="abrirLocalDuvida()"></p>
+
+    <section id="localDuvida">
+        <button id="fecharLocalDuvida" onclick="fecharLocalDuvida()"><span>x</span></button>
+
+        <div id="barralateralDuvidas">
+            <!--? Imgs -->
+            <img src="assets/img/icon/loja.png" alt="">
+
+            <!--? selects -->
+            <strong>Sobre o que é a sua duvida?</strong>
+            <!--! Produtos -->
+            <select classe="opcsDuvida">
+                <option value="Produtos">Produtos</option>
+                <option value="Adicionar produtos">Adicionar produtos</option>
+                <option value="Editar produtos">Editar produtos</option>
+                <option value="Excluir produtos">Excluir produtos</option>
+                <option value="Suspender produtos">Suspender produtos</option>
+                <option value="Disponibilizar produto">Disponibilizar produto</option>
+            </select>
+
+            <!--! Banners -->
+            <select classe="opcsDuvida">
+                <option value="Banners">Banners</option>
+                <option value="Adicionar banners">Adicionar banners</option>
+                <option value="Editar banners">Editar banners</option>
+                <option value="Excluir banners">Excluir banners</option>
+            </select>
+
+            <!--! Categorias -->
+            <select classe="opcsDuvida">
+                <option value="Categorias">Categorias</option>
+                <option value="Adicionar categorias">Adicionar categorias</option>
+                <option value="Editar categorias">Editar categorias</option>
+                <option value="Excluir categorias">Excluir categorias</option>
+            </select>
+
+            <!--! Chat -->
+            <select classe="opcsDuvida">
+                <option value="Chat">Chat</option>
+                <option value="Responder o chat">Responder o chat</option>
+                <option value="Editar chat">Editar resposta</option>
+                <option value="Excluir pergunta">Excluir pergunta</option>
+            </select>
+
+            <!--! Admins -->
+            <select classe="opcsDuvida">
+                <option value="Admins">Admins</option>
+                <option value="Adicionar admins">Adicionar admins</option>
+                <option value="Excluir admins">Excluir admins</option>
+            </select>
+
+            <button id="abrirMenuDuvida"></button>
+        </div>
+
+        <!--? Parte central -->
+        <article id="apresentacaoPage">
+            <h2>Sobre está página</h2>
+            <p>Bem vindo(a). Essa página tem o intuito de acabar com qualquer duvida referente ao site, ou de como usar as funções de administrador da página. Como nós estamos em constante atualização, é comum surgir uma nova função e por aqui você vai saber como ela funciona.</p>
+
+            <strong>Primeiros passos:</strong>
+            <p>Clique na seta de cor preta no canto esquedo da página...</p>
+            <img src="assets/img/duvida/setaNocantoDaPag.png">
+            <p>Logo após escolha a classe a qual sua duvida pertence</p>
+            <img src="assets/img/duvida/escolherCategoria.png">
+            <p>Caso não encontre uma classe semelhante a sua duvida tente entrar em contato conosco. Se não tiver nosso contato clique em alguma das redes sociais localizadas no footer das páginas convencionais. Eperamos por você. Espero ter ajudado.</p>
+            <img src="assets/img/duvida/entrarEmContato.png">
+        </article>
+
+        <article id="Adicionar-produtos">
+            <h2>Adicionar um novo produto</h2>
+            <strong>Primeiros passos</strong>
+            <p>Clique duas vezes seguidas no icone de mais</p>
+            <img src="assets/img/duvida/addProduto.png">
+            <p>Dentro da shopify clique em produtos</p>
+            <img src="assets/img/duvida/shopifyPageHome.png">
+            <p>Clique no produto que deseja adicionar ao site</p>
+            <img src="assets/img/duvida/escolherProdutos.png">
+            <p>Logo após, clique em Mais ações</p>
+            <img src="assets/img/duvida/visualizarProd.png">
+            <p>Depois em prê-visualisar</p>
+            <img src="assets/img/duvida/preVisualizar.png">
+            <p>clique com o botão direito do mouse nas imagens que queira adicionar, lembre-se que o maximo de imagens são 4</p>
+            <img src="assets/img/duvida/abririmgEmUmaNovaGuia.png">
+            <p>Copie a URL da página e cole nos campo em branco do site</p>
+            <img src="assets/img/duvida/copiarUrl.png">
+            <p>E depois cole-a nos espaços vazios. Lembre-se de dar um <strong>espaço</strong> no final da URL logo após ter colado</p>
+            <img src="assets/img/duvida/colarUrls.png">
+            <p>Na shopify novamente, clique em <strong>buy button</strong> e depois clique em <strong>Criar um Botão Comprar</strong>.</p>
+            <img src="assets/img/duvida/buyButton.png">
+            <p>Após isso clique em <strong>Botão Comprar Produto</strong> e selecione novamente o produto que deseja</p>
+            <p>Aperte em <strong>Avançar</strong>. Nessa página role o scroll até achar um id semelhante a este</p>
+            <img src="assets/img/duvida/id.png">
+            <p>Copiei apenas os números do id e cole na parte Id do site</p>
+            <img src="assets/img/duvida/localId.png">
+            <p>Na parte <strong>Tags</strong> coloque palavras chaves que serão usadas na pesquisa. Sempre use um <strong>#</strong> antes das palavras</p>
+            <img src="assets/img/duvida/tags.png">
+            <p>Após isso responda todos os espaços em branco com  as informações do produto e logo após, assim que o button <strong>Adicionar Produto</strong> ficar azul clique sobre ele e adicione o produto no site</p>
+        </article>
+
+        <article id="Editar-produtos">
+            <h2>Editar Produtos</h2>
+            <p>Para editar um produto você vai precisar clicar no icone de editar no canto superior esquerdo do produto</p>
+            <img src="assets/img/duvida/editar.png">
+            <p>Após isso é só altrar o que desejá e clicar em <strong>Salvar Edição</strong> quando finalizar</p>
+            <img src="assets/img/duvida/salvaEdição.png">
+        </article>
+
+        <article id="Excluir-produtos">
+            <h2>Excluir produtos</h2>
+            <p>Para excluir um produto você vai precisar clicar no icone de editar no canto superior esquerdo do produto</p>
+            <img src="assets/img/duvida/editar.png">
+            <p>Após isso clique em <strong>Excluir</strong> e confirme</p>
+            <img src="assets/img/duvida/excluirProd.png">
+        </article>
+
+        <article id="Suspender-produtos">
+            <h2>Suspender produtos</h2>
+            <p>Para suspender um produto você vai precisar clicar no icone de editar no canto superior esquerdo do produto</p>
+            <img src="assets/img/duvida/editar.png">
+            <p>Após isso clique em <strong>Suspender Produto</strong></p>
+            <img src="assets/img/duvida/suspenderProd.png">
+        </article>
+
+        <article id="Disponibilizar-produto">
+            <h2>Disponibilizar produto</h2>
+            <p>Para disponibilizar um produto você vai precisar clicar no icone de cadiado no canto superior esquerdo do produto</p>
+            <img src="assets/img/duvida/cadiado.png">
+            <p>Após isso clique em <strong>Disponibilizar Produto</strong></p>
+            <img src="assets/img/duvida/disponibilizar.png">
+        </article>
+
+        <!--! Adicionar banners -->
+        <article id="Adicionar-banners">
+            <h2>Adicionar banners</h2>
+            <p>Pra adicionar um banner vc tal coisa</p>
+            <img src="assets/img/duvida/admins.png" alt="">
+        </article>
+
+        <!--! Administradores -->
+        <article id="Adicionar-admins">
+            <h2>Adicionar um Novo Administrador</h2>
+            <p>Clique duas vezes no icone de adicionar administrador</p>
+            <img src="assets/img/duvida/admins.png">
+            <p>Após isso digite o email do administrador no campo vazio e clique em <strong>Adcionar</strong></p>
+            <img src="assets/img/duvida/addAdmin.png">
+        </article>
+
+        <article id="Excluir-admins">
+            <h2>Excluiro Administrador</h2>
+            <p>Clique duas vezes no icone de adicionar administrador</p>
+            <img src="assets/img/duvida/admins.png">
+            <p>Após isso clique no icone da <strong>lixeira</strong></p>
+            <img src="assets/img/duvida/excluirAdmin.png">
+        </article>
+    </section>
+
+    <!--? Banner Local -->
+    <section class="containerBanner">
+        <!-- carousel control buttons -->
+        <button class="slide-btn slide-btn-1" onclick="btnSliderE()"><</button>
+        <button class="slide-btn slide-btn-2" onclick="btnSliderD()">></button>
+
+        <article class="slideshow">
+            <!-- carousel wrapper which contains all images -->
+            <div class="slideshow-wrapper">
+            </div>
+        </article>
+    </section>
+
+    <section id="editarBanner">
+        <article>
+            <p>Imagem em alta escala:</p>
+            <input type="text" name="" id="inputImagemAltaEscala" required placeholder="Img para pc">
+            <p>Imagem em pequena escala:</p>
+            <input type="text" id="inputImagemPequenaEscala" required placeholder="img pro cell">
+            <div>
+                <button id="addNovoBanner" onclick="addNovoBanner()">Adicionar</button>
+                <button id="editarBannerBtn" onclick="editBanner()">Editar</button>
+                <button id="excluirBanner" onclick="excluirBanner()">Excluir</button>
+                <button id="cancelBanner" onclick="fecharAddBanner()">Cancelar</button>
+            </div>
+        </article>
+    </section>
+
+    <!--? Btn abrir parte de adicionar produto -->
+    <p id="addProduto" class="move" ondblclick="abrirAddProduto()" title="Função para adicionar um novo produto ao site"><span>+</span></p>
+
+    <!--? Btn Adicionar administrador -->
+    <p id="addNovoAdministrador" ondblclick="addNovoAdmin()" class="move" title="Função para adicionar um novo administrador no site"></p>
+
+    <section id="popAddNovoAdmin">
+        <article id="artNovoAdmin">
+            <p>Email do Novo Admin</p>
+            <input type="email" name="" id="emaiNovoAdminGGP" placeholder="Ex: admin@gmail.com">
+
+            <div id="localEmailAdmin">
+            </div>
+
+            <button id="adicionar" ondblclick="addNovoAdminNoDB()">Adicionar</button>
+        </article>
+    </section>
+
+    <!--? suspender site -->
+    <p ondblclick="suspenderSite()" id="btnSuspender" class="move" title="Essa função pode tirar o site do ar, ou colocalo de volta"><span></span></p>
+
+    <section id="seuspenderSite">
+        <article>
+            <p id="infoSuspenderSite">O site ficará fora do ar para todos os usuário, apenas os administradores poderão navegar nele. Caso ainda deseje continuar digite: <strong>Suspender</strong></p>
+
+            <input type="text" required id="inputSuspender" placeholder="Espero que saiba oque está fazendo" oninput="SuspenderSiteConfirmar()">
+
+            <button id="btnSuspenderSiteContinuar">Continuar</button>
+        </article>
+    </section>
+
+    <section id="carregandoPag">
+        <h1>Carregando...</h1>
+        <div id="localCarregando">
+            <p id="numCarregar">0%</p>
+            <div id="parteCarregada"></div>
+        </div>
+    </section>
+
+    <section id="popUpAddProd">
+        <button id="fecharPopUp" onclick="fecharPopUp()">x</button>
+
+        <div id="addNovaCategoria">
+            <div>
+                <p>Nome da Nova Categoria</p>
+                <input type="text" id="novaCat" placeholder="Nova Categoria">
+                <p>Imagem da nova categoria</p>
+                <input type="file" id="imgCategoria">
+                <button id="criarCat">Criar</button>
+            </div>
+        </div>
+
+        <article>
+            <h1>Coloque as informações do produto aqui</h1>
+            <p>Imagens do Produto</p>
+            <input type="text" class="imgProd" placeholder="Ex: https://img">
+            <input type="text" class="imgProd" placeholder="Ex: https://img">
+            <input type="text" class="imgProd" placeholder="Ex: https://img">
+            <input type="text" class="imgProd" placeholder="Ex: https://img">
+
+            <p>Id do Produto</p>
+            <input type="text" id="idDoProduto">
+            <p>Nome do Produto</p>
+            <input type="text" id="nomeProdutoAdd" placeholder="Ex: Celular S22 Ultra" maxlength="28">
+            <p>Descrição Resumida</p>
+            <input type="text" id="descProd" placeholder="Ex: o melhos celular do Brasil" maxlength="236">
+            <p>Tags</p>
+            <input type="text" id="tags">
+            <p>Descrição Mais Detalhada</p>
+            <textarea id="descDetalhada" cols="30" rows="10"></textarea>
+            <p>Categoria do Produto</p>
+            <select id="selecCategoria">
+                <option value="..." id="novoCatAdded">...</option>
+                <option value="Adcionar Nova Categoria">Adcionar Nova Categoria</option>
+            </select>
+            <p>Valor do Produto</p>
+            <input type="text" id="valorProd" placeholder="Ex: 2.000">
+            <p>Desconto</p>
+            <input type="text" placeholder="Ex: 8" id="descontoInput">
+        </article>
+
+        <div class="prod" id="prodEx">
+            <div class="localImg">
+                <img src="" class="imgPrincipal" onerror="this.src ='assets/img/site/error.png'">
+            </div>
+
+            <div class="sobreProd">
+                <p class="nameProd">Lorem ipsum dolor</p>
+                <p><strong class="valorProdAdd">R$0</strong> <span id="valorSemDc">R$0</span></p>
+
+                <span id="salvo">Salvo - R$0</span>
+            </div>
+        </div>
+
+        <div id="ex2">
+            <div id="localImgEx">
+                <div id="othersImgs">
+                    <img src="" onerror="this.src ='assets/img/site/error2.png'" class="imgEX">
+                    <img src="" onerror="this.src ='assets/img/site/error2.png'" class="imgEX">
+                    <img src="" onerror="this.src ='assets/img/site/error2.png'" class="imgEX">
+                    <img src="" onerror="this.src ='assets/img/site/error2.png'" class="imgEX">
+                </div>
+
+                <img src="" class="imgPrincipal" onerror="this.src ='assets/img/site/error.png'">
+            </div>
+
+            <div id="infos">
+                <h1 class="nameProd">Lorem ipsum dolor</h1>
+                <p id="desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt nam ea reprehenderit iure voluptatum cum sed officia delectus.</p>
+
+                <div id="valorDoProduto" style="display: block;">
+                    <p id="valorNormal" class="infoDesconto">R$0.00</p>
+                        <p>
+                            <strong class="valorProdAdd">R$0.00</strong> 
+                            <span id="qDesconto" class="infoDesconto">0% OFF</span></p>
+                        <p>
+                </p>
+            </div>
+
+                <div>
+                    <button>Comprar</button>
+                    <button>Adiconar ao Carrinho</button>
+                </div>
+            </div>
+        </div>
+
+        <section id="descricaoDetalhada">
+            <h1>Descrição:</h1>
+            <pre id="descricaoP"></pre>
+          </section>
+
+        <button onclick="addProduto()" id="AddBtn">Adicionar Produto</button>
+
+        <div id="btnsAdemin">
+            <button id="salveEdit">Salvar Edição</button>
+            <button onclick="ecluirProd()" id="excluirBtn">Excluir Produto</button>
+            <button id="cancelEdit" onclick="fecharPopUp()">Cancelar Edição</button>
+            <button id="suspenderProd" onclick="suspenderProd()">Suspender Produto</button>
+            <button id="disponibilizarProd" onclick="disponibilizarProd()">Disponibilizar Produto</button>
+        </div>
+
+        <div id="confirmarExcluir">
+            <div>
+                <p>Os arquivos excluidos não poderão ser recuperados! Proceguir?</p>
+                <div>
+                    <button id="cancelarExcluir" onclick="fecharConfirmarExcluir()">Cancelar</button>
+                    <button id="confirmarExcluir" onclick="ecluirProdutoConfimado()">Excluir</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--? Categorias -->
+    <section id="categorias">
+        <section id="localCategorias">
+            <article>
+            </article>
+        </section>
+    </section>
+
+    <section id="editarCategorias">
+        <article>
+            <p>Editar texto da categoria</p>
+            <input type="text" id="textoCategoriaEditar" placeholder="Nome da categoria...">
+            <div>
+                <button id="salveEditCat">Salvar Alteração</button>
+                <button id="ExcluirCat">Excluir</button>
+                <button id="calcelEditCat">Cancelar</button>
+            </div>
+        </article>
+    </section>
+
+    <main>
+    </main>
+
+    <!--? Animação de carregamento -->
+    <section id="carregando">
+        <article>
+        <div id="preloader">
+            <div class="inner">
+            <div class="bolas">
+              <div></div>
+              <div></div>
+              <div></div>                    
+          </div>
+          </div>
+        </div>
+        </article>
+    </section>
+    <!--? fim do preloader --> 
+
+    <!--? Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-storage.js"></script>
+    <script src="assets/js/firebase.js"></script>
+
+     <!--? Check Manutenção -->
+     <script src="assets/js/checkManutencao.js"></script>
+
+     <!-- Divs movel -->
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+    <script>
+    $( function() {
+        $( ".move" ).draggable();
+    } );
+    </script>
+
+    <!--? Scripts -->
+    <script>
+        if(localStorage.getItem('conectado') != 'true') {
+            if(location.host == '127.0.0.1:5500') {
+                location.pathname = '/EntrarPagAdmin.html'
+                
+            } else if(location.host == 'wender101.github.io') {
+                location.href = 'https://wender101.github.io/html-css/desafio/EDStore/EntrarPagAdmin.html'
+            }
+        }
+    </script>
+    <script src="assets/js/funcoesBasicas.js"></script>
+    <script src="assets/js/banner.js"></script>
+    <script src="assets/js/admin.js"></script>
+    <script src="assets/js/pesquisar.js"></script>
+    <script src="assets/js/duvida.js"></script>
+</body>
+</html>

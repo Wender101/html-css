@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="assets/img/site/logoIcon.png" type="image/x-icon">
+    <!--? Css Geral -->
+    <link rel="stylesheet" href="assets/css/geral.css">
+    <!--? Css page -->
+    <link rel="stylesheet" href="assets/css/home.css">
+    <link rel="stylesheet" href="assets/css/adminPage.css">
+    <link rel="stylesheet" href="assets/css/carrinho.css">
+    <title>EDStore - Carrinho</title>
+</head>
+<body>
+    <header>
+        <section id="parte1Header">
+            <button id="configBtn" onclick="abrirMenu()"></button>
+            <a href="Home.html"><img src="assets/img/site/letraSemFundo.png" alt="Logo EDStore"></a>
+        </section>
+
+        <section id="parte3Header">
+            <button class="modoClaro" onclick="modoPage()"> <span class="spans">Tema</span></button>
+            <img src="assets/img/site/error2NavBar.jpg" class="imgEmailUser">
+            <button id="login" onclick="login()"><img src="assets/img/icon/user.png" alt="icone usuario"> <span class="spans">Login/Cadastro</span></button>
+            <button><a id="aCarrinho" href="Home.html"><img src="assets/img/icon/home.png" alt="icone carrinho" style="width: 25px; margin: 7px auto;"><span class="spans">Home</span></a></button>
+        </section>
+    </header>
+
+    <div id="localInput">
+        <img src="assets/img/icon/Search.png" alt="icone lupa">
+        <input type="text" placeholder="Pesquise aqui..." id="pesquisaInput">
+        <div id="recomend">
+        </div>
+    </div>
+
+    <div id="menu">
+        <ul>
+            <div id="fecharMenu" onclick="fecharMenu()"><span id="spanDark-1">x</span></div>
+            
+            <li><a class="aDivMenu" href="Home.html"><img src="assets/img/icon/home.png" alt=""> <span>Home</span></a></li>
+            <li id="login2"><a class="aDivMenu" onclick="login()"><img src="assets/img/icon/user.png"> <span>Login/Cadastro</span></a></li>
+            <li id="localImgUser"><img src="assets/img/site/error2NavBar.jpg" class="imgEmailUser"> <span>Trocar de conta</span></li>
+            <li><button class="modoClaro" onclick="modoPage()"><span id="spanDark0">Tema</span></button></li>
+        </ul>
+    </div>
+
+    <!--? Animação de carregamento -->
+   <section id="carregando">
+    <article>
+      <div id="preloader">
+          <div class="inner">
+          <div class="bolas">
+              <div></div>
+              <div></div>
+              <div></div>                    
+          </div>
+          </div>
+        </div>
+        </article>
+    </section>
+    <!--? fim do preloader --> 
+
+    <div id="confimarRemoverProduto">
+        <div id="popUp">
+            <p>Tem certeza que desejá remover este produto do carrinho?</p>
+            <div>
+                <button onclick="remover('um')">Remover</button>
+                <button onclick="fecharPopUp()">Cancelar</button>
+                <button onclick="remover('todos')">Remover Todos</button>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="text">
+        <h1>Seu Carrinho</h1>
+        <hr>
+    </div>
+
+    <main>
+        <div id="fala">
+            <h1>Parece bem vazio por aqui...</h1>
+            <img src="assets/img/site/Fishing.gif" alt="">
+        </div>
+    </main>
+
+    <section id="cookies">
+        <article>
+            <h2>Trabalhamos com cookies para melhorar a sua experiência em nosso site :)</h2>
+            <p>Nós armazenamos dados temporariamente para melhorar a sua experiência de navegação e recomendar conteúdo de seu interesse. Ao ultilizar nossos serviços, você concorda com tal.</p>
+            <button onclick="fecharCookies()">Okay</button>
+        </article>
+    </section>
+
+    <footer>
+        <div id="p1">
+            <p>Duvidas?</p>
+            <div style="height: 64px;">
+                <h1 id="firsth1">Contate-Nos!</h1>
+                <h1 id="h1Segundo">Contate-Nos!</h1>
+            </div>
+            <ul>
+                <li id="face"><a href="https://www.facebook.com/nerds.eti"></a></li>
+                <li id="insta"><a href="https://www.instagram.com/nerds.eti/"></a></li>
+                <li id="tw"><a></a></li>
+            </ul>
+        </div>
+
+        <div id="p2">
+            <div>
+                <strong id="firstStrong">Made with ❤️ for you</strong>
+                <strong id="secondStrong">Made with ❤️ for you</strong>
+            </div>
+            <p>Preços e condições de pagamento exclusivos para compras via internet podem variar a depender do modelo do produto. Os preços anunciados neste site ou via e-mail promocional podem ser alterados sem prévio aviso. A EDStore, não é responsável por erros descritivos. As fotos contidas nesta página são meramente ilustrativas do produto e podem variar de acordo com o fornecedor/lote do fabricante. Ofertas válidas até o término de nossos estoques. Vendas sujeitas à análise e confirmação de dados.</p>
+        </div>
+
+        <div id="ps5"></div>
+
+        <!--?--- -->
+        <div class="ballFooter" id="ball1">
+            <div></div>
+        </div>
+
+        <div class="ballFooter" id="ball2">
+            <div></div>
+        </div>
+    </footer>
+
+    <!--? Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-storage.js"></script>
+    <script src="assets/js/firebase.js"></script>
+
+    <!--? Check Manutenção -->
+    <script src="assets/js/checkManutencao.js"></script>
+ 
+     <!--? Scripts -->
+    <script src="assets/js/funcoesBasicas.js"></script>
+    <script src="assets/js/pesquisar.js"></script>
+    <script src="assets/js/carrinho.js"></script>
+</body>
+</html>

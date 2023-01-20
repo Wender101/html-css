@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="assets/img/site/logoIcon.png" type="image/x-icon">
+    <!--? Css Geral -->
+    <link rel="stylesheet" href="assets/css/geral.css">
+    <!--? Css page -->
+    <link rel="stylesheet" href="assets/css/sobreProduto.css">
+    <title>EDStore - Sobre o Produto</title>
+</head>
+<body>
+  <header>
+    <section id="parte1Header">
+        <button id="configBtn" onclick="abrirMenu()"></button>
+        <a href="Home.html"><img src="assets/img/site/letraSemFundo.png" alt="Logo EDStore"></a>
+    </section>
+
+    <section id="parte3Header">
+        <button class="modoClaro" onclick="modoPage()"> <span class="spans">Tema</span></button>
+        <img src="assets/img/site/error2NavBar.jpg" class="imgEmailUser">
+        <button id="login" onclick="login()"><img src="assets/img/icon/user.png" alt="icone usuario"> <span class="spans">Login/Cadastro</span></button>
+        <button><a id="aCarrinho" href="Carrinho.html"><img src="assets/img/icon/cartIcon.png" alt="icone carrinho"><span class="spans">Carrinho</span></a></button>
+    </section>
+  </header>
+
+<div id="localInput">
+    <img src="assets/img/icon/Search.png" alt="icone lupa">
+    <input type="text" placeholder="Pesquise aqui..." id="pesquisaInput">
+    <div id="recomend">
+    </div>
+</div>
+
+  <div id="menu">
+    <ul>
+      <div id="fecharMenu" onclick="fecharMenu()"><span id="spanDark-1">x</span></div>
+      <li><a class="aDivMenu" href="Home.html"><img src="assets/img/icon/home.png"> <span>Home</span></a></li>
+      <li><a class="aDivMenu" href="Carrinho.html"><img src="assets/img/icon/cartIcon.png" alt=""> <span>Carrinho</span></a></li>
+      <li id="login2"><a class="aDivMenu" onclick="login()"><img src="assets/img/icon/user.png"> <span>Login/Cadastro</span></a></li>
+      <li id="localImgUser"><img src="assets/img/site/error2NavBar.jpg" class="imgEmailUser"> <span>Trocar de conta</span></li>
+      <li><button class="modoClaro" onclick="modoPage()"><span id="spanDark0">Tema</span></button></li>
+    </ul>
+  </div>
+
+   <!--? Animação de carregamento -->
+   <section id="carregando1">
+    <article>
+      <!--! início do preloader -->
+      <div id="preloader">
+          <div class="inner">
+          <div class="bolas">
+              <div></div>
+              <div></div>
+              <div></div>                    
+          </div>
+          </div>
+      </div>
+    </article>
+  </section>
+  <!--? fim do preloader --> 
+
+  <section id="pop-Up-AddProdutoNovamente">
+    <div id="popUpCarrinho">
+      <p>Esse produto já foi adicionado em seu carrinho anteriormente! Deseja adiciona-lo de novo?</p>
+      <div>
+        <button onclick="salvarNoCarrinho(true)">Sim</button>
+        <button onclick="fecharPopUp()">Não</button>
+      </div>
+    </div>
+  </section>
+
+  <main id="mainP">
+    <div id="localImgEx">
+      <div id="othersImgs">
+          <img src="" onerror="this.src ='assets/img/site/error2.png'" class="imgEX">
+          <img src="" onerror="this.src ='assets/img/site/error2.png'" class="imgEX">
+          <img src="" onerror="this.src ='assets/img/site/error2.png'" class="imgEX">
+          <img src="" onerror="this.src ='assets/img/site/error2.png'" class="imgEX">
+      </div>
+
+      <div class="small" id="small">
+        <img src="" class="imgPrincipal" id="imgPrincipal" onerror="this.src ='assets/img/site/error.png'">
+      </div>
+    </div>
+
+    <div id="infos">
+      <p id="suspensoAvisoPageProduto" title="Produto Suspenso"></p>
+      <div class="big" id="big">
+        <img src="" onerror="this.src ='assets/img/site/error2.png'" id="imgSecundaria">
+        </div>
+      <div class="fdj_mask" id="mask"></div>
+
+
+      <h1 class="nameProd">...</h1>
+      <p id="desc">:)</p>
+
+      <div id="valorDoProduto" style="display: block;">
+          <p id="valorNormal" class="infoDesconto">R$0.00</p>
+              <p>
+                  <strong class="valorProdAdd">R$0.00</strong> 
+                  <span id="qDesconto" class="infoDesconto">0% OFF</span></p>
+              <p>
+      </p>
+    </div>
+
+        <div id="localBtns">
+            <div id='product-component-1672774067883'></div>
+            <button id="modelo1" class="btnSalvar" onclick="salvarNoCarrinho()">Salvar</button>
+        </div>
+
+        <button id="voltar">Voltar</button>
+    </div>
+  </main>
+
+  <section id="descricaoDetalhada">
+    <h1>Descrição:</h1>
+    <pre id="descricaoP"></pre>
+  </section>
+
+  <section id="chat" onselectstart="return false">
+    <h1>Pergunte ao vendedor</h1>
+    <div>
+      <input type="text" id="perguntaUser" placeholder="Faça sua pergunta..."> 
+      <button id="enviarPergunta" onclick="enviarPergunta()">Perguntar</button>
+    </div>
+    <strong>Perguntas já feitas: <span id="sejaPrimeiro">sejá o primeiro :)</span></strong>
+
+    <article id="localPerguntas">
+    </article>
+  </section>
+
+  <div class="text">
+    <h1>Podem ser do seu interesse</h1>
+    <hr>
+  </div>
+  <section id="relacionados">
+    <article id="relacionadosLocal"></article>
+  </section>
+
+  <div id="infAddCarrinho">
+    <p>O Produto foi adicionado ao carrinho com sucesso! :)</p>
+    <a href="Carrinho.html">Ir ao Carrinho</a>
+  </div>
+  
+  <div id="infChat">
+    <p id="infp">Você fez muitas perguntas em pouco tempo. Espere até que sejam respondidas.</p>
+    <button onclick="fecharMsgChat()">Fechar</button>
+  </div>
+
+  <section id="cookies">
+    <article>
+        <h2>Trabalhamos com cookies para melhorar a sua experiência em nosso site :)</h2>
+        <p>Nós armazenamos dados temporariamente para melhorar a sua experiência de navegação e recomendar conteúdo de seu interesse. Ao ultilizar nossos serviços, você concorda com tal.</p>
+        <button onclick="fecharCookies()">Okay</button>
+    </article>
+</section>
+
+<footer>
+  <div id="p1">
+      <p>Duvidas?</p>
+      <div>
+          <h1 id="firsth1">Contate-Nos!</h1>
+          <h1 id="h1Segundo">Contate-Nos!</h1>
+      </div>
+      <ul>
+          <li id="face"><a href="https://www.facebook.com/nerds.eti"></a></li>
+          <li id="insta"><a href="https://www.instagram.com/nerds.eti/"></a></li>
+          <li id="tw"><a></a></li>
+      </ul>
+  </div>
+
+  <div id="p2">
+      <div>
+          <strong id="firstStrong">Made with ❤️ for you</strong>
+          <strong id="secondStrong">Made with ❤️ for you</strong>
+      </div>
+      <p>Preços e condições de pagamento exclusivos para compras via internet podem variar a depender do modelo do produto. Os preços anunciados neste site ou via e-mail promocional podem ser alterados sem prévio aviso. A EDStore, não é responsável por erros descritivos. As fotos contidas nesta página são meramente ilustrativas do produto e podem variar de acordo com o fornecedor/lote do fabricante. Ofertas válidas até o término de nossos estoques. Vendas sujeitas à análise e confirmação de dados.</p>
+  </div>
+
+  <div id="ps5"></div>
+
+  <!--?--- -->
+  <div class="ballFooter" id="ball1">
+      <div></div>
+  </div>
+
+  <div class="ballFooter" id="ball2">
+      <div></div>
+  </div>
+</footer>
+
+    <!--? Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-storage.js"></script>
+    <script src="assets/js/firebase.js"></script>
+
+    <!--? Check Manutenção -->
+    <script src="assets/js/checkManutencao.js"></script>
+
+   <!--? Scripts -->
+   <script src="//code.jivosite.com/widget/Cw2iVXbl87" async></script>
+   <script src="assets/js/funcoesBasicas.js"></script>
+   <script src="assets/js/chat.js"></script>
+   <script src="assets/js/sobreProduto.js"></script>
+   <script src="assets/js/pesquisar.js"></script>
+   
+   <script type="text/javascript">
+      /*<![CDATA[*/
+      (function () {
+        var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
+        if (window.ShopifyBuy) {
+          if (window.ShopifyBuy.UI) {
+            ShopifyBuyInit();
+          } else {
+            loadScript();
+          }
+        } else {
+          loadScript();
+        }
+        function loadScript() {
+          var script = document.createElement('script');
+          script.async = true;
+          script.src = scriptURL;
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
+          script.onload = ShopifyBuyInit;
+        }
+        function ShopifyBuyInit() {
+          var client = ShopifyBuy.buildClient({
+            domain: '80d2cb.myshopify.com',
+            storefrontAccessToken: '441eaa5336e32428c35179b6d0a97095',
+          });
+          ShopifyBuy.UI.onReady(client).then(function (ui) {
+            ui.createComponent('product', {
+              id: idProdSelecionado,
+              node: document.getElementById('product-component-1672774067883'),
+              moneyFormat: 'R%24%20%7B%7Bamount_with_comma_separator%7D%7D',
+              options: {
+                "product": {
+                  "styles": {
+                    "product": {
+                      "@media (min-width: 601px)": {
+                        "max-width": "calc(25% - 20px)",
+                        "margin-left": "20px",
+                        "margin-bottom": "50px"
+                      },
+                      "text-align": "left"
+                    },
+                    "button": {
+                      "color": "#000000",
+                      ":hover": {
+                        "color": "#000000",
+                        "background-color": "#e6e6e6"
+                      },
+                      "background-color": "#ffffff",
+                      ":focus": {
+                        "background-color": "#e6e6e6"
+                      }
+                    }
+                  },
+                  "buttonDestination": "checkout",
+                  "contents": {
+                    "img": false,
+                    "title": false,
+                    "price": false
+                  },
+                  "text": {
+                    "button": "Comprar"
+                  }
+                },
+                "productSet": {
+                  "styles": {
+                    "products": {
+                      "@media (min-width: 601px)": {
+                        "margin-left": "-20px"
+                      }
+                    }
+                  }
+                },
+                "modalProduct": {
+                  "contents": {
+                    "img": false,
+                    "imgWithCarousel": true,
+                    "button": false,
+                    "buttonWithQuantity": true
+                  },
+                  "styles": {
+                    "product": {
+                      "@media (min-width: 601px)": {
+                        "max-width": "100%",
+                        "margin-left": "0px",
+                        "margin-bottom": "0px"
+                      }
+                    },
+                    "button": {
+                      "color": "#000000",
+                      ":hover": {
+                        "color": "#000000",
+                        "background-color": "#e6e6e6"
+                      },
+                      "background-color": "#ffffff",
+                      ":focus": {
+                        "background-color": "#e6e6e6"
+                      }
+                    }
+                  },
+                  "text": {
+                    "button": "Add to cart"
+                  }
+                },
+                "option": {
+                  "styles": {
+                    "label": {
+                      "color": "#ffffff"
+                    }
+                  }
+                },
+                "cart": {
+                  "styles": {
+                    "button": {
+                      "color": "#000000",
+                      ":hover": {
+                        "color": "#000000",
+                        "background-color": "#e6e6e6"
+                      },
+                      "background-color": "#ffffff",
+                      ":focus": {
+                        "background-color": "#e6e6e6"
+                      }
+                    }
+                  },
+                  "text": {
+                    "total": "Subtotal",
+                    "empty": "Seu carrinho está vazio ",
+                    "button": "Comprar"
+                  }
+                },
+                "toggle": {
+                  "styles": {
+                    "toggle": {
+                      "background-color": "#ffffff",
+                      ":hover": {
+                        "background-color": "#e6e6e6"
+                      },
+                      ":focus": {
+                        "background-color": "#e6e6e6"
+                      }
+                    },
+                    "count": {
+                      "color": "#000000",
+                      ":hover": {
+                        "color": "#000000"
+                      }
+                    },
+                    "iconPath": {
+                      "fill": "#000000"
+                    }
+                  }
+                }
+              },
+            });
+          });
+        }
+      })();
+      /*]]>*/
+   </script>
+
+  <script>
+    setTimeout(() => {
+      document.getElementById('carregando1').style.display = 'none'
+      let heightIframe = document.getElementById('product-component-1672774067883').querySelector('iframe').style.height
+      if(heightIframe == '190px' || heightIframe == '191px' || heightIframe == '192px' || heightIframe == '193px' || heightIframe == '194px' || heightIframe == '195px' || heightIframe == '196px' || heightIframe == '197px' || heightIframe == '198px' || heightIframe == '199px' || heightIframe == '200px' || heightIframe == '201px') {
+        document.getElementsByClassName('btnSalvar')[0].id = 'modelo2'
+        
+        document.getElementById('localBtns').style.position = 'relative'
+        let div = document.getElementById('product-component-1672774067883')
+        div.style.width = '550px'
+        div.style.position = 'absolute'
+        div.style.top = '-70px'
+        div.style.left = '50%'
+        div.style.transform = 'translate(-50%)'
+        
+      } else if(heightIframe == '') {
+        document.getElementsByClassName('btnSalvar')[0].id = 'modelo3'
+
+      } else if(heightIframe == '94px') {
+        document.getElementsByClassName('btnSalvar')[0].id = 'modelo4'
+      } else {
+        for (let c = 0; c < 62; c++) {
+          if(heightIframe == `${c}px`) {
+            location.reload()
+          }
+        }
+      }
+    }, 1500)
+  </script>
+</body>
+</html>

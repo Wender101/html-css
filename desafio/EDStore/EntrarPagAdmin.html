@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/geral.css">
+    <title>Local Restrito</title>
+</head>
+
+<style>
+    main {
+        width: 100%;
+        min-height: 100vh;
+        display: flex;
+    }
+
+    main > section {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    main > section#part1 {
+        width: 40%;
+        background-position: center;
+        background-size: cover;
+        background-image: url(assets/img/site/tec.jpeg);
+    }
+
+    main > section#part2 {
+        width: 60%;
+    }
+
+    main > section#part2 > article {
+        max-width: 600px;
+        width: 90%;
+    }
+
+    main > section#part2 > article > h1 {
+        margin-bottom: 50px;
+        text-align: center;
+        color: red;
+        font-weight: 900;
+        font-size: 1.5rem;
+    }
+
+    main > section#part2 > article > input {
+        width: calc(100% - 30px);
+        padding: 15px;
+        border: none;
+        box-shadow: 0 0 0 0;
+        outline: 0;
+        background-color: var(--cor3);
+        margin: 10px 0px 30px;
+    }
+
+    main > section#part2 > article > button {
+        width: 100%;
+        padding: 15px 0px;
+        color: var(--cor1);
+        background-color: var(--cor4);
+    }
+
+    @media screen and (max-width: 700px) {
+        main {
+            display: block;
+        }
+
+        main > section#part1 {
+            width: 100%;
+        }
+
+        main > section#part2 {
+            width: 100%;
+            position: fixed;
+            top: 0px;
+        }
+
+        main > section#part2 > article {
+            max-width: 450px;
+            background-color: var(--cor1);
+            padding: 50px 20px;
+            border-radius: 10px;
+            box-shadow: 2px 2px 30px var(--sombra);
+        }
+    }
+</style>
+<body>
+    <main>
+        <section id="part1"></section>
+        <section id="part2">
+            <article>
+                <h1 id="recado">Você está muito longe de casa! ⇎_⇎</h1>
+                <p>Email</p>
+                <input type="email" id="emailInput" placeholder="Email do admin ou você não sabe?">
+                <p>Senha</p>
+                <input type="password" id="senhaInput" placeholder="A senha vai aqui, isso é se você souber...">
+                <button onclick="fazerLogin()">Login</button>
+            </article>
+        </section>
+    </main>
+
+
+    <!--? Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-storage.js"></script>
+    <script src="assets/js/firebase.js"></script>
+
+   <!--? Scripts -->
+
+    <script>
+        db.collection('Admins').onSnapshot((data) => {
+            data.docs.map(function(val) {
+                let Admins = val.data()
+                for (let c = 0; c < Admins.Email.length; c++) {
+                    if(email == Admins.Email[c]) {
+                        setTimeout(() => {
+                            document.getElementById('recado').innerText = 'E menô eu confundi! Bem vindo admin ●﹏●'
+                            document.getElementById('recado').style.color = '#04b3ff'
+                        }, 7000)
+                    }
+                }
+            })
+        })
+
+        function fazerLogin() {
+            db.collection('Admins').onSnapshot((data) => {
+                data.docs.map(function(val) {
+                    let Admins = val.data()
+
+                    if(document.getElementById('emailInput').value == Admins.Senha.Email  && document.getElementById('senhaInput').value == Admins.Senha.Senha) {
+                        document.getElementById('recado').innerText = 'Bem Vindo'
+                        localStorage.setItem('conectado', 'true')
+
+                        setTimeout(() => {
+                            if(location.host == '127.0.0.1:5500') {
+                                location.pathname = '/AdminPage.html'
+                                
+                            } else if(location.host == 'wender101.github.io') {
+                                location.href = 'https://wender101.github.io/html-css/desafio/EDStore/AdminPage.html'
+                            }
+                        }, 2000)
+                    } else {
+                        alert('Tu errou, acho q você é um infiltrado só pode! ⋋_⋌')
+                        document.getElementById('recado').innerText = ''
+                    }
+                })
+            })
+        }
+    </script>
+</body>
+</html>
