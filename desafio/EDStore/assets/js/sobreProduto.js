@@ -14,7 +14,6 @@ function trocarURL() {
         pesquisado = true
         let url = window.location.href
         if(url.substr(-4) != 'html' && url.substr(-1) != '?') {
-            console.log(1);
             for(let c = 0; c < 150; c++) {
                 let a = url.substr(-c)
                 if(a.substr(1, 1) == '?') {

@@ -1,202 +1,166 @@
 let userConectado = localStorage.getItem('conectado')
 let inputPergunta = document.getElementById('perguntaUser')
 let qtnsPergunta = 0
-function enviarPergunta() {
-    salvarPergunta(inputPergunta.value)
-}
-
 let localPerguntas = document.getElementById('localPerguntas')
+
+let arrayPerguntasUser = []
+let arrayTodasAsPerguntas = []
+
 let chatCarregado = false
-function cirarChat(pergunta = inputPergunta.value, resp = '...', data = '', emailUser, lengthPerguntas) {
-    if(pergunta.length > 0 && qtnsPergunta < 4) {
-        document.getElementById('sejaPrimeiro').style.display = 'none'
-
-        let divPergunta = document.createElement('div')
-        let perguntaP = document.createElement('p')
-        let respSpan = document.createElement('span')
-        let dataSpan = document.createElement('span')
-        let img = document.createElement('img')
-        let inputResp = document.createElement('input')
-        let btnEnviarResposta = document.createElement('button')
-
-        inputResp.placeholder = 'Resposta...'
-        perguntaP.innerText = pergunta
-        img.src = 'assets/img/icon/setinhaChat.png'
-        respSpan.innerText = resp
-        dataSpan.innerText = data
-
-        if(userConectado == true && resp == '...' || userConectado == 'true' && resp == '...') {
-            respSpan.innerText = ''
-            respSpan.appendChild(inputResp)
-            respSpan.appendChild(btnEnviarResposta)
-        }
-
-        divPergunta.appendChild(perguntaP)
-        respSpan.appendChild(img)
-        respSpan.appendChild(dataSpan)
-        divPergunta.appendChild(respSpan)
-        localPerguntas.appendChild(divPergunta)
-        inputPergunta.value = ''
-
-        //? Enviar Resposta
-        btnEnviarResposta.addEventListener('click', () => {
-            db.collection('User').onSnapshot((data) => {
-                data.docs.map(function(val) {
-                    let User = val.data()
-
-                    try {
-                        if(emailUser == User.Email && User.Chat[lengthPerguntas].Pergunta == pergunta) {
-                            localPerguntas.innerHTML = ''
-                            setTimeout(() => {
-                                let data = new Date()
-                                let dia = data.getDate()
-                                
-                                if(dia < 10) {
-                                    dia = `0${dia}`
-                                }
-
-                                let mes = data.getMonth() + 1
-                                if(mes < 10) {
-                                    mes = `0${mes}`
-                                }
-                                let ano = data.getFullYear()
-
-                                let obj = User.Chat
-                                obj[lengthPerguntas].Data = `${dia}/${mes}/${ano}`
-                                obj[lengthPerguntas].Resposta = inputResp.value
-                                db.collection('User').doc(val.id).update({Chat: obj})
-                                chatCarregado = false
-                                chat()
-                            }, 100)
-                        }
-                    } catch (error) {console.warn(error)}
-                })
-            })
-        })
-    }
-}
-
-inputPergunta.addEventListener('keypress', (e) => {
-    if(e.keyCode == 13) {
-        if(inputPergunta.value.length > 0) {
-            salvarPergunta(inputPergunta.value)
-            inputPergunta.value = ''
-        }
-    }
-})
-
-function fecharMsgChat() {
-    document.getElementById('infChat').style.bottom = '-100px'
-    document.getElementById('infp').innerText = 'Você fez muitas perguntas em pouco tempo. Espere até que sejam respondidas.'
-}
-
-//? Vai pegar as perguntas do banco de dados
-let arrayPerguntas = []
-let perguntaLocalStorage = false
-function chat() {
+let chatRecarregado = false
+//? Vai adicionar as perguntas feitas ao produto selecionado na tela 
+function chamarChat() {
+    arrayTodasAsPerguntas = []
     localPerguntas.innerHTML = ''
     db.collection('User').onSnapshot((data) => {
         data.docs.map(function(val) {
             let User = val.data()
 
-            //? Vai pegar as perguntas do local storage
-            try {
-                let pgt = localStorage.getItem('pergunta')
-                if(pgt != '' && pgt != null && pgt != undefined && perguntaLocalStorage == false) {
-                    perguntaLocalStorage = true
-                    localStorage.setItem('pergunta', '')
-                    salvarPergunta(pgt)
-                    document.getElementById('infChat').style.bottom = '0px'
-                    document.getElementById('infp').innerText = 'Sua pergunta foi enviada com sucesso! :)'
-                }
-            } catch (error) {}
-
-            //? Vai criar o chat
             if(chatCarregado == false) {
-                try {
-                    for(let c = 0; c < User.Chat.length; c++) {
-                        if(User.Chat[c].Id == idProdSelecionado) {
-                            cirarChat(User.Chat[c].Pergunta, User.Chat[c].Resposta, User.Chat[c].Data, User.Email, c)
+                setTimeout(() => {
+                    chatCarregado = true
+                    chatRecarregado = false
+                }, 1000)
+
+                if(User.Email == email) {
+                    arrayPerguntasUser = User.Chat
+                }
+
+                //? Vai checar se o id do produto é igual ao id da pergunta feita
+                for(let c = 0; c < User.Chat.length; c++) {
+                    if(User.Chat[c].Id == idProdSelecionado) {
+
+                        //? Vai criar um clone de todas a perguntas desse produto
+                        let obj = {
+                            Pergunta: User.Chat[c].Pergunta,
+                            Resposta: User.Chat[c].Resposta,
+                            Data: User.Chat[c].Data,
+                            Id: User.Chat[c].Id,
+                            Email: User.Email
+                        }
+                        arrayTodasAsPerguntas.push(obj)
+
+                        document.getElementById('sejaPrimeiro').style.display = 'none'
+                        let divPergunta = document.createElement('div')
+                        let perguntaP = document.createElement('p')
+                        let respSpan = document.createElement('span')
+                        let dataSpan = document.createElement('span')
+                        let img = document.createElement('img')
+                        let inputResp = document.createElement('input')
+                        let btnEnviarResposta = document.createElement('button')
+                        let btnExcluirPergunta = document.createElement('button')
+
+                        btnExcluirPergunta.title = 'Excluir pergunta permanentemente'
+                        btnEnviarResposta.title = 'Enviar resposta'
+                        inputResp.placeholder = 'Resposta...'
+                        perguntaP.innerText = User.Chat[c].Pergunta
+                        img.src = 'assets/img/icon/setinhaChat.png'
+                        respSpan.innerText = User.Chat[c].Resposta
+                        dataSpan.innerText = User.Chat[c].Data
+
+                        //? caso o adm esteja conectado e a pergunta não tenha resposta
+                        if(userConectado == true && User.Chat[c].Resposta == '...' || userConectado == 'true' && User.Chat[c].Resposta == '...') {
+                            respSpan.innerText = ''
+                            perguntaP.appendChild(btnExcluirPergunta)
+                            respSpan.appendChild(inputResp)
+                            respSpan.appendChild(btnEnviarResposta)
+        
+                        //? caso o adm esteja conectado e a pergunta tenha resposta
+                        } else if(userConectado == true && User.Chat[c].Resposta != '...' || userConectado == 'true' && User.Chat[c].Resposta != '...') {
+                            respSpan.innerText = ''
+                            inputResp.className = 'inputRespRespondido'
+                            inputResp.value = User.Chat[c].Resposta
+                            perguntaP.appendChild(btnExcluirPergunta)
+                            respSpan.appendChild(inputResp)
+                            respSpan.appendChild(btnEnviarResposta)
                         }
         
-                        if(User.Email == email) {
-                            //? Vai impedir que o user espame o chat
-                            if(User.Chat[c].Id == idProdSelecionado && User.Chat[c].Resposta == '...') {
-                                qtnsPergunta++
-    
-                            }
-    
-                           arrayPerguntas = User.Chat
-                        }
+                        divPergunta.appendChild(perguntaP)
+                        respSpan.appendChild(img)
+                        respSpan.appendChild(dataSpan)
+                        divPergunta.appendChild(respSpan)
+                        localPerguntas.appendChild(divPergunta)
+                        arrayPerguntasUser.value = ''
+
+                        //? Função de clique
+                        btnExcluirPergunta.addEventListener('dblclick', () => {
+                            let chatDeletado = false
+                            db.collection('User').onSnapshot((data) => {
+                                data.docs.map(function(val) {
+                                    let User = val.data()
+                                    
+                                    if(arrayTodasAsPerguntas[c].Email == User.Email) {
+                                        if(chatDeletado == false) {
+                                            chatDeletado = true
+                                            let cloneChatUserDeletar = User.Chat
+                                            arrayTodasAsPerguntas.splice(c, 1)
+                                            cloneChatUserDeletar.splice(c, 1)
+                                            db.collection('User').doc(val.id).update({Chat: cloneChatUserDeletar})
+                                        }
+                                    }
+                                })
+                            })
+                        })
+
+                        //? Vai responder as inquetes
+                        btnEnviarResposta.addEventListener('click', () => {
+                            let chatDeletado = false
+                            db.collection('User').onSnapshot((data) => {
+                                data.docs.map(function(val) {
+                                    let User = val.data()
+                                    
+                                    if(arrayTodasAsPerguntas[c].Email == User.Email && inputResp.value.length > 0) {
+                                        if(chatDeletado == false) {
+                                            chatDeletado = true
+                                            let cloneChatUserDeletar = User.Chat
+                                            arrayTodasAsPerguntas[c].Resposta = inputResp.value
+                                            cloneChatUserDeletar[c].Resposta = inputResp.value
+                                            db.collection('User').doc(val.id).update({Chat: cloneChatUserDeletar})
+                                        }
+                                    }
+                                })
+                            })
+                        })
                     }
-                } catch (error) {}
-            } else {
+                } 
+            } else if(chatRecarregado == false) {
                 chatCarregado = false
+                chatRecarregado = true
                 localPerguntas.innerHTML = ''
                 setTimeout(() => {
-                    chat()
+                    chamarChat()
                 }, 100)
             }
         })
     })
+} chamarChat()
 
-    setTimeout(() => {
-        chatCarregado = true
-    }, 100)
-} chat()
+//? Vai enviar a pergunta feita
+function enviarPergunta() {
+    salvarPergunta(inputPergunta.value)
+}
 
-//? Vai salvar a pergunta
+//? Vai salvar as novas perguntas
 function salvarPergunta(pergunta) {
-    qtnsPergunta++
+    let perguntaEnviada = false
     if(email != undefined) {
         if(qtnsPergunta < 4) {
-            let perguntaFeita = false
-            let temChat = false
-    
-            cirarChat(pergunta, '...', '')
     
             db.collection('User').onSnapshot((data) => {
                 data.docs.map(function(val) {
                     let User = val.data()
     
-                    if(perguntaFeita == false) {
-                        if(User.Email == email) {
-                            perguntaFeita = true
-                            temChat = true
-            
-                            let obj = {
-                                Pergunta: pergunta,
-                                Resposta: '...',
-                                Data: '',
-                                Id: idProdSelecionado
-                            }
-            
-                            arrayPerguntas.push(obj)
-            
-                            db.collection('User').doc(val.id).update({Chat: arrayPerguntas})
+                    if(User.Email == email && perguntaEnviada == false) {
+                        perguntaEnviada = true
+                        let obj = {
+                            Pergunta: pergunta,
+                            Resposta: '...',
+                            Data: '',
+                            Id: idProdSelecionado
                         }
-            
-                        setTimeout(() => {
-                            if(temChat == false) {
-                                perguntaFeita = true
-                                
-                                let obj = {
-                                    Pergunta: pergunta,
-                                    Resposta: '...',
-                                    Data: '',
-                                    Id: idProdSelecionado
-                                }
-                
-                                arrayPerguntas.push(obj)
-                
-                                let objFinal = {
-                                    Email: email,
-                                    Perguntas: arrayPerguntas
-                                }
-                
-                                db.collection('User').doc(val.id).update({Chat: objFinal})
-                            }
-                        }, 1000)
+        
+                        arrayPerguntasUser.push(obj)
+                        db.collection('User').doc(val.id).update({Chat: arrayPerguntasUser})
                     }
                 })
             })

@@ -466,6 +466,17 @@ section#chat > article#localPerguntas > div > p {
     color: var(--cor4);
 }
 
+section#chat > article#localPerguntas > div > p > button {
+    width: 25px;
+    height: 25px;
+    margin-left: 20px;
+    border-radius: 50%;
+    background-image: url(../img/icon/excluir.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
 section#chat > article#localPerguntas > div > span {
     margin: 20px 0px 20px 60px;
     display: flex;
@@ -493,6 +504,12 @@ section#chat > article#localPerguntas > div > span > input {
     background-color: var(--cor3);
     padding: 12px;
     margin-top: 10px;
+    font-size: var(--font-texto);
+}
+
+section#chat > article#localPerguntas > div > span > input.inputRespRespondido {
+    background-color: transparent;
+    color: var(--cor0);
 }
 
 section#chat > article#localPerguntas > div > span > button {
