@@ -91,11 +91,10 @@ function chamarChat() {
                                 data.docs.map(function(val) {
                                     let User = val.data()
                                     
-                                    if(arrayTodasAsPerguntas[c].Email == User.Email) {
+                                    if(arrayTodasAsPerguntas[contador].Email == User.Email) {
                                         if(chatDeletado == false) {
                                             chatDeletado = true
                                             let cloneChatUserDeletar = User.Chat
-                                            arrayTodasAsPerguntas.splice(c, 1)
                                             cloneChatUserDeletar.splice(c, 1)
                                             db.collection('User').doc(val.id).update({Chat: cloneChatUserDeletar})
                                         }
