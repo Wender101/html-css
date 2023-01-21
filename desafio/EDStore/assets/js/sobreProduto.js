@@ -24,7 +24,7 @@ function trocarURL() {
                     pDescEnviar = pDescEnviar.normalize('NFD').replace(/[\u0300-\u036f]/g, "")
                     pDescEnviar = pDescEnviar.replace(/^\s+|\s+$/gm,'')
                     pDescEnviar = pDescEnviar.replace(/\s+/g, '-')
-                    let array = [descProdSelecionado, idProdSelecionado]
+                    let array = [pDescEnviar, idProdSelecionado]
                     localStorage.setItem('sobreProduto', JSON.stringify(array))
                     urlSemProduto = window.location.href.replace(`?${descProdSelecionado}`, '')
                 }

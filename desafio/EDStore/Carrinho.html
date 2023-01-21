@@ -21,10 +21,11 @@
         </section>
 
         <section id="parte3Header">
-            <button class="modoClaro" onclick="modoPage()"> <span class="spans">Tema</span></button>
+            <button id="notificacaoBtn"><p class="temNotificacao"></p></button>
+            <button class="modoClaro" onclick="modoPage()"></button>
             <img src="assets/img/site/error2NavBar.jpg" class="imgEmailUser">
-            <button id="login" onclick="login()"><img src="assets/img/icon/user.png" alt="icone usuario"> <span class="spans">Login/Cadastro</span></button>
-            <button><a id="aCarrinho" href="Home.html"><img src="assets/img/icon/home.png" alt="icone carrinho" style="width: 25px; margin: 7px auto;"><span class="spans">Home</span></a></button>
+            <button id="login" onclick="login()"><img src="assets/img/icon/user.png" alt="icone usuario"></button>
+            <button><a id="aCarrinho" href="Home.html"><img src="assets/img/icon/home.png" alt="icone carrinho"></a></button>
         </section>
     </header>
 
@@ -43,8 +44,12 @@
             <li id="login2"><a class="aDivMenu" onclick="login()"><img src="assets/img/icon/user.png"> <span>Login/Cadastro</span></a></li>
             <li id="localImgUser"><img src="assets/img/site/error2NavBar.jpg" class="imgEmailUser"> <span>Trocar de conta</span></li>
             <li><button class="modoClaro" onclick="modoPage()"><span id="spanDark0">Tema</span></button></li>
+            <li><button id="notificacaoBtn"><img src="assets/img/icon/notificacao.png" alt=""> <span>Notificações</span><p class="temNotificacao"></p></button></li>
         </ul>
     </div>
+
+    <section id="abaNotificacao">
+    </section>
 
     <!--? Animação de carregamento -->
    <section id="carregando">
@@ -142,5 +147,6 @@
     <script src="assets/js/funcoesBasicas.js"></script>
     <script src="assets/js/pesquisar.js"></script>
     <script src="assets/js/carrinho.js"></script>
+    <script src="assets/js/notificacao.js"></script>
 </body>
 </html>

@@ -44,7 +44,10 @@ auth.onAuthStateChanged((val) => {
                     let img2 = document.getElementsByClassName('imgEmailUser')[1]
                     img1.src = val.photoURL
                     img2.src = val.photoURL
-                    img1.style.display = 'block'
+
+                    if(window.visualViewport.width >= 975) {
+                        img1.style.display = 'block'
+                    }
                     img2.style.display = 'block'
                     
 

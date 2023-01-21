@@ -14,18 +14,23 @@
 
 section#localDuvida {
     width: 100%;
-    height: auto;
-    min-height: 110vh;
-    position: absolute;
+    height: 100vh;
+    position: fixed;
     background-color: var(--cor1);
     top: 0px;
     z-index: 2;
     top: 0px;
     padding: 20px 70px 200px 70px;
     display: none;
+    overflow-x: auto;
 }
 
-section#localDuvida > button#fecharLocalDuvida {
+section#localDuvida > div {
+    width: 100%;
+    height: auto;
+}
+
+section#localDuvida > div > button#fecharLocalDuvida {
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -36,7 +41,7 @@ section#localDuvida > button#fecharLocalDuvida {
     right: 170px;
 }
 
-section#localDuvida > div#barralateralDuvidas {
+section#localDuvida > div > div#barralateralDuvidas {
     width: 30px;
     height: 100vh;
     position: fixed;
@@ -50,16 +55,16 @@ section#localDuvida > div#barralateralDuvidas {
     z-index: 2;
 }
 
-section#localDuvida > div#barralateralDuvidas > img {
+section#localDuvida > div > div#barralateralDuvidas > img {
     width: 40px;
 }
 
-section#localDuvida > div#barralateralDuvidas > strong {
+section#localDuvida > div > div#barralateralDuvidas > strong {
     margin-bottom: 30px;
     display: none;
 }
 
-section#localDuvida > div#barralateralDuvidas > select {
+section#localDuvida > div > div#barralateralDuvidas > select {
     width: 100%;
     margin: 15px 0px;
     background-color: transparent;
@@ -70,7 +75,7 @@ select.duvidaLateralAberta {
     display: block;
 }
 
-section#localDuvida > div#barralateralDuvidas > button#abrirMenuDuvida {
+section#localDuvida > div > div#barralateralDuvidas > button#abrirMenuDuvida {
     width: 30px;
     height: 30px;
     border-color: transparent;
@@ -83,7 +88,7 @@ section#localDuvida > div#barralateralDuvidas > button#abrirMenuDuvida {
     background-image: url(../img/icon/abrir.png);
 }
 
-section#localDuvida > article {
+section#localDuvida > div > article {
     width: 90%;
     max-width: 1200px;
     height: auto;
@@ -94,23 +99,23 @@ section#localDuvida > article {
     text-align: center;
 }
 
-section#localDuvida > article#apresentacaoPage {
+section#localDuvida > div > article#apresentacaoPage {
     display: block;
 }
 
-section#localDuvida > article > h2 {
+section#localDuvida > div > article > h2 {
     margin-bottom: 30px;
 }
 
-section#localDuvida > article > p {
+section#localDuvida > div > article > p {
     margin: 15px 0px 30px;
 }
 
-section#localDuvida > article > strong {
+section#localDuvida > div > article > strong {
     font-size: 1.3rem;
 }
 
-section#localDuvida > article > img {
+section#localDuvida > div > article > img {
     width: 80%;
     display: block;
     margin: 50px auto;

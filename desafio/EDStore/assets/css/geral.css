@@ -211,12 +211,14 @@ header > section#parte1Header > a > img {
 header > section#parte3Header {
     position: absolute;
     right: 0px;
+    display: flex;
+    align-items: center;
 }
 
 img.imgEmailUser {
     width: 35px;
     height: 35px;
-    display: none;
+    display: block;
     border-radius: 50%;
     margin-right: 40px;
     cursor: pointer;
@@ -275,6 +277,34 @@ header > section > button > a {
     text-decoration: none;
 }
 
+button.notificacaoBtn {
+    width: 30px;
+    height: 30px;
+    background-image: url('../img/icon/notificacao.png');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-top: -5px;
+    position: relative;
+}
+
+button.notificacaoBtn > p.temNotificacao {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: red;
+    top: 5px;
+    right: 5px;
+    position: absolute;
+    display: none;
+}
+
+/* header > section > button#notificacaoBtn > span {
+    position: absolute;
+    bottom: 0px;
+    left: -20px;
+} */
+
 div#localInput > div#recomend {
     width: 100%;
     position: absolute;
@@ -303,23 +333,82 @@ header > section > button {
     margin-right: 40px;
 }
 
-header > section#parte3Header > button > img,  header > section#parte3Header > button > a > img {
+header > section#parte3Header > button > img {
+    width: 28px;
+    height: 28px;
     display: block;
     margin:  10px auto;
 }
 
-header > section#parte3Header > button > span, header > section#parte3Header > button > a > span, header > section#parte3Header > button > span {
-    color: var(--cor6);
+header > section#parte3Header > button > a > img {
+    width: 35px;
+    height: 35px;
+    display: block;
+    margin:  10px auto;
 }
 
-header > section#parte3Header > button.modoClaro {
+/*? Aba notiicação */
+section#abaNotificacao {
+    width: 100%;
+    height: 100vh;
+    top: 0px;
+    position: fixed;
+    display: none;
+    z-index: 3;
+}
+
+section#abaNotificacao > article {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    max-height: 600px;
+    position: fixed;
+    top: 100px;
+    right: 70px;
+    background-color: var(--cor1);
+    box-shadow: 2px 2px 20px var(--sombra);
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+section#abaNotificacao > article > div {
+    width: calc(100% - 40px);
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    cursor: pointer;
+    padding: 20px;
+    border-top: 1px solid var(--cor4);
+    margin-top: -1px;
+}
+
+section#abaNotificacao > article > div > div > strong {
+    display: block;
+    padding-bottom: 15px;
+}
+
+section#abaNotificacao > article > div > div > p > img {
+    width: 25px;
+}
+
+section#abaNotificacao > article > div > img {
+    width: 80px;
+    max-height: 80px;
+}
+
+/* header > section#parte3Header > button > span, header > section#parte3Header > button > a > span, header > section#parte3Header > button > span {
+    color: var(--cor6);
+    font-size: 10px;
+} */
+
+/* header > section#parte3Header > button.modoClaro {
     margin-top: -10.5px;
 }
 
 header > section#parte3Header > button.modoClaro > span {
     display: block;
     margin-top: 35px;
-}
+} */
 
 /*? ops Logar */
 div#fundoOpcs {
@@ -475,6 +564,36 @@ div#menu > ul > li > a > img {
     width: 30px;
     height: 30px;
     margin-right: 10px;
+}
+
+div#menu > ul > li > button#notificacaoBtn {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+}
+
+div#menu > ul > li > button#notificacaoBtn > img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+div#menu > ul > li > button#notificacaoBtn > span {
+    color: var(--cor2);
+    font-size: 16px;
+    font-family: var(--font-text);
+}
+
+div#menu > ul > li > button#notificacaoBtn > p.temNotificacao {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: red;
+    top: 24px;
+    left: 38px;
+    display: none;
+    position: absolute;
 }
 
 /*? Cookies */
@@ -799,7 +918,11 @@ footer > div#ball2 {
 }
 
 @media screen and (max-width: 975px) {
-    header > section#parte3Header > button {
+    .imgEmailUser {
+        display: none;
+    }
+
+    header > section#parte3Header > button.modoClaro, header > section#parte3Header > button#login, header > section#parte3Header > button#btncarrinho, header > section#parte3Header > img {
         display: none;
     }
 
@@ -811,14 +934,52 @@ footer > div#ball2 {
        display: none;
     }
 
+    .notificacaoBtn {
+        display: block;
+        margin-right: 15px;
+    }
+
+    section#parte3Header {
+        margin-top: 14px;
+    }
+
     div#localInput {
-        width: 80vw;
+        width: 75vw;
         max-width: 800px;
-        margin-left: 55%;
+        margin-left: 50%;
     }
 
     header > section > div > img {
         margin: 14px 0px 0px 12%;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    /* .notificacaoBtn {
+        display: none;
+        margin-right: 15px;
+    }
+
+    section#abaNotificacao {
+        max-width: 100%;
+        height: 100vh;
+        right: 0px;
+        top: 0px;
+    } */
+
+    section#abaNotificacao {
+        max-width: 300px;
+        right: auto;
+        left: 50%;
+        transform: translate(-50%);
+    } 
+
+    section#abaNotificacao > article > div > div > strong, section#abaNotificacao > article > div > div > p {
+        font-size: 13px;
+    }
+
+    section#abaNotificacao  > button {
+        display: block;
     }
 }
 

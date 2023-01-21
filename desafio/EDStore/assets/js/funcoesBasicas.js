@@ -100,9 +100,10 @@ function modoPage(modo = '') {
         document.getElementsByClassName('modoClaro')[1].style.backgroundImage = 'url(assets/img/icon/sol.png)'
         document.querySelector('body').style.backgroundColor = cor2
         document.querySelector('body').style.color = cor1
-        document.getElementsByClassName('spans')[0].style.color = cor1
-        document.getElementsByClassName('spans')[1].style.color = cor1
-        document.getElementsByClassName('spans')[2].style.color = cor1
+        // document.getElementsByClassName('spans')[0].style.color = cor1
+        // document.getElementsByClassName('spans')[1].style.color = cor1
+        // document.getElementsByClassName('spans')[2].style.color = cor1
+        document.getElementById('notificacaoBtn').querySelector('span').style.color = cor1
         document.getElementById('aCarrinho').style.color = cor1
         document.getElementById('pesquisaInput')
 
@@ -147,6 +148,7 @@ function modoPage(modo = '') {
                 document.getElementsByClassName('slide-btn')[1].style.backgroundColor = cor1
                 document.getElementsByClassName('slide-btn')[0].style.color = cor0
                 document.getElementsByClassName('slide-btn')[1].style.color = cor0
+                document.getElementById('notificacaoBtn').querySelector('span').style.color = cor0
             } catch {}
             try {
                 document.getElementById('mainP').style.backgroundColor = '#04b3ff'
@@ -187,9 +189,9 @@ function modoPage(modo = '') {
             document.getElementsByClassName('modoClaro')[1].style.backgroundImage = 'url(assets/img/icon/lua.png)'
             document.querySelector('body').style.backgroundColor = cor1
             document.querySelector('body').style.color = cor0
-            document.getElementsByClassName('spans')[0].style.color = 'var(--cor6)'
-            document.getElementsByClassName('spans')[1].style.color = 'var(--cor6)'
-            document.getElementsByClassName('spans')[2].style.color = 'var(--cor6)'
+            // document.getElementsByClassName('spans')[0].style.color = 'var(--cor6)'
+            // document.getElementsByClassName('spans')[1].style.color = 'var(--cor6)'
+            // document.getElementsByClassName('spans')[2].style.color = 'var(--cor6)'
             document.getElementById('aCarrinho').style.color = cor0
             
             for(let c = 0; c < 100; c++) {

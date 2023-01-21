@@ -10,6 +10,7 @@ let chatCarregado = false
 let chatRecarregado = false
 //? Vai adicionar as perguntas feitas ao produto selecionado na tela 
 function chamarChat() {
+    let contador = -1 //! Vai almentar sempre que identificar 1 comentario
     arrayTodasAsPerguntas = []
     localPerguntas.innerHTML = ''
     db.collection('User').onSnapshot((data) => {
@@ -29,6 +30,7 @@ function chamarChat() {
                 //? Vai checar se o id do produto é igual ao id da pergunta feita
                 for(let c = 0; c < User.Chat.length; c++) {
                     if(User.Chat[c].Id == idProdSelecionado) {
+                        contador++
 
                         //? Vai criar um clone de todas a perguntas desse produto
                         let obj = {
@@ -108,16 +110,17 @@ function chamarChat() {
                             db.collection('User').onSnapshot((data) => {
                                 data.docs.map(function(val) {
                                     let User = val.data()
-                                    
-                                    if(arrayTodasAsPerguntas[c].Email == User.Email && inputResp.value.length > 0) {
-                                        if(chatDeletado == false) {
-                                            chatDeletado = true
-                                            let cloneChatUserDeletar = User.Chat
-                                            arrayTodasAsPerguntas[c].Resposta = inputResp.value
-                                            cloneChatUserDeletar[c].Resposta = inputResp.value
-                                            db.collection('User').doc(val.id).update({Chat: cloneChatUserDeletar})
+                                    try {
+                                        if(arrayTodasAsPerguntas[contador].Email == User.Email && inputResp.value.length > 0) {
+                                            if(chatDeletado == false) {
+                                                chatDeletado = true
+                                                let cloneChatUserDeletar = User.Chat
+                                                arrayTodasAsPerguntas[contador].Resposta = inputResp.value
+                                                cloneChatUserDeletar[c].Resposta = inputResp.value
+                                                db.collection('User').doc(val.id).update({Chat: cloneChatUserDeletar})
+                                            }
                                         }
-                                    }
+                                    } catch (error) {console.warn(error);}
                                 })
                             })
                         })
@@ -156,6 +159,7 @@ function salvarPergunta(pergunta) {
                             Pergunta: pergunta,
                             Resposta: '...',
                             Data: '',
+                            Visto: false,
                             Id: idProdSelecionado
                         }
         
