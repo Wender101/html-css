@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="pt-b">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="assets/img/icons/faveIcoNerds.png" type="image/x-icon">
+    <title>Página em Manutenção</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap');
+
+        @font-face {
+            font-family: bitwise;
+            src: url('../fonts/bitwise.ttf');
+        }
+
+        :root {
+            --cor: rgba(255, 255, 255, 0.247);
+            --cor0: rgb(255, 255, 255);
+            --cor1: rgb(253, 104, 4);
+            --cor2: rgba(253, 137, 4, 0.582);
+            --cor3: rgba(253, 95, 4, 0.918);
+            --cor4: rgba(17, 9, 41, 1);
+            --cor5: rgba(88, 10, 136, 1);
+            --cor6: rgba(41, 0, 73, 1);
+            --cor7: rgba(253, 116, 4, 0.678);
+            --cor8: rgba(17, 9, 41, 0.801);
+            
+            --graditente1: rgba(110, 0, 197, 1);
+            --graditente2: rgba(43, 0, 164, 1);
+
+            --font-titulo: 'Audiowide', cursive;
+            --font-texto: 'JetBrains Mono', monospace;
+            --font-nerds: bitwise;
+        }
+
+        * {
+            margin: 0px;
+            padding: 0px;
+            list-style: none;
+            text-decoration: none;
+            overflow-x: hidden;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-image: linear-gradient(to left, var(--graditente1), var(--graditente2), var(--graditente1));
+            /* background-image: linear-gradient( var(--cor3), var(--cor1), var(--cor5), var(--cor6)); */
+        }
+
+        section {
+            width: auto;
+            margin-left: 50%;
+            transform: translate(-60%);
+            overflow: visible;
+            display: flex;
+        }
+
+        div#aviso {
+            width: 500px;
+            height: 450px;
+            background-image: linear-gradient(to left, rgba(18, 113, 255, 0.35), rgba(255, 26, 218, 0.15));
+            border-radius: 50px;
+            backdrop-filter: blur(21px);
+            color: var(--cor0);
+            padding: 20px;
+            border: 1px solid var(--cor);
+            box-shadow: 0px 9px 12px rgba(0, 0, 0, 0.16);
+        }
+        
+        div#aviso > h1 {
+            font-family: var(--font-titulo);
+            font-style: normal;
+            font-weight: 900;
+            font-size: 32px;
+            line-height: 125.9%;
+            margin-top: 20px;
+            text-align: center;
+            color: var(--cor3);
+        }
+
+        div#aviso > p {
+            font-family: var(--font-texto);
+            font-size: 17px;
+            margin-top: 20px;
+        }
+        
+        button {
+            position: absolute;
+            bottom: 100px;
+            margin-left: 50%;
+            transform: translate(-50%);
+            background-color: transparent;
+            border: 1px solid var(--cor3);
+            color: var(--cor0);
+            padding: 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            z-index: 2;
+        }
+
+        div#img {
+            width: 600px;
+            height: auto;
+            position: absolute;
+            margin-left: 200px;
+            margin-top: 40px;
+            z-index: 1;
+        }
+        
+        div#img > img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        @media screen and (min-width: 1200px) {
+            section {
+                width: auto;
+                margin-left: 50%;
+                transform: translate(-90%);
+                overflow: visible;
+                display: flex;
+            }
+        }
+
+        @media screen and (max-width: 881px) {
+            section {
+                width: auto;
+                height: auto;
+                margin-left: 50%;
+                transform: translate(-55%);
+                overflow: visible;
+                display: flex;
+            }
+        }
+
+        @media screen and (max-width: 764px) {
+            div#aviso {
+                width: 400px;
+                height: 350px;
+            }
+
+            button {
+                bottom: 20px;
+                transform: translate(-60%);
+            }
+
+            div#img {
+                width: 400px;
+                height: auto;
+                position: absolute;
+                margin-left: 200px;
+                margin-top: 130px;
+            }
+        }
+
+        @media screen and (max-width: 618px) {
+            section {
+                margin-left: 50%;
+                transform: translate(-35%);
+            }
+
+            div#aviso {
+                width: 400px;
+                height: 350px;
+            }
+
+            button {
+                bottom: 20px;
+                transform: translate(-60%);
+            }
+
+            div#img {
+                width: 400px;
+                right: -100px;
+                top: -300px;
+                transform: rotate(10deg);
+            }
+        }
+
+        @media screen and (max-width: 494px) {
+            section {
+                margin-left: 50%;
+                transform: translate(-30%);
+            }
+
+            div#aviso {
+                width: 300px;
+                height: 250px;
+            }
+
+            button {
+                bottom: 20px;
+                transform: translate(-60%);
+            }
+
+            div#aviso > h1 {
+                font-size: 22px;
+            }
+
+            div#aviso > p {
+                font-size: 14px;
+            }
+
+            div#img {
+                width: 250px;
+                right: -50px;
+                top: -250px;
+                transform: rotate(10deg);
+            }
+        }
+
+        @media screen and (max-width: 371px) {
+            section {
+                margin-left: 50%;
+                transform: translate(-30%);
+            }
+
+            div#aviso {
+                width: 270px;
+                height: 270px;
+            }
+
+            button {
+                bottom: 20px;
+                transform: translate(-60%);
+            }
+
+            div#aviso > h1 {
+                font-size: 22px;
+            }
+
+            div#aviso > p {
+                font-size: 14px;
+            }
+
+            div#img {
+                width: 220px;
+                right: -50px;
+                top: -220px;
+                transform: rotate(10deg);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <section>
+        <div id="img">
+            <img src="assets/img/site/image - freepik.com.png" alt="">
+        </div>
+
+        <div id="aviso">
+            <h1>Página em Manutenção</h1>
+            <p>O nosso site se encontra fora do ar para uma breve manutenção. Assim que finalizada, ele será automaticamente recarregado.</p>
+
+        </div>
+        <button id="btnTentarDnv" onclick="login()">Login / Cadastrar</button>
+    
+    </section>
+
+    <!--! Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-storage.js"></script>
+    <script src="assets/js/firebase.js"></script>
+
+    <!--! Check Manutenção -->
+    <script src="assets/js/checkManutencao.js"></script>
+</body>
+</html>
