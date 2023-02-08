@@ -221,6 +221,7 @@ setInterval(() => {
     }
 }, 100)
 
+let variantes = []
 //? Vai adicionar o produto
 function addProduto() {
     if(prontoPraAdd == true) {
@@ -238,19 +239,40 @@ function addProduto() {
         let tags = document.getElementById('tags').value
         let selecCategoria = document.getElementById('selecCategoria').value
         
-        let obj = {
-            Img1: imagem1,
-            Img2: imagem2,
-            Img3: imagem3,
-            Img4: imagem4,
-            Nome: name,
-            Desc: desccription,
-            DescDetalhada: descDetalhada,
-            Valor: val,
-            Desconto: descontoProd,
-            Id: idDoProduto,
-            Tags: tags,
-            Categoria: selecCategoria
+        let obj = {}
+
+        if(variantes.length > 0) {
+            obj = {
+                Img1: imagem1,
+                Img2: imagem2,
+                Img3: imagem3,
+                Img4: imagem4,
+                Nome: name,
+                Desc: desccription,
+                DescDetalhada: descDetalhada,
+                Valor: val,
+                Desconto: descontoProd,
+                Id: idDoProduto,
+                Tags: tags,
+                Categoria: selecCategoria,
+                Variantes: variantes
+            }
+
+        } else {
+            obj = {
+                Img1: imagem1,
+                Img2: imagem2,
+                Img3: imagem3,
+                Img4: imagem4,
+                Nome: name,
+                Desc: desccription,
+                DescDetalhada: descDetalhada,
+                Valor: val,
+                Desconto: descontoProd,
+                Id: idDoProduto,
+                Tags: tags,
+                Categoria: selecCategoria,
+            }
         }
 
         db.collection('Produtos').add(obj)
@@ -258,6 +280,42 @@ function addProduto() {
         main.innerHTML = ''
     }
 }
+
+//? Vai abrir o adicionar uma nova variante
+function abrirAddVariante() {
+    document.getElementById('variante').style.display = 'block'
+}
+
+//? Vai cancelar o addVariante
+function cancelAddVariante() {
+    document.getElementById('variante').style.display = 'none'
+}
+
+function addNovaVariante() {
+    let imagem = document.getElementById('imgProdVariante').value
+    let nameVariante = document.getElementById('nomeVarianteVariante').value
+    let name = document.getElementById('nomeProdutoAddVariante').value
+    let val = document.getElementById('valorProdVariante').value
+    let desccription = document.getElementById('descProdVariante').value
+    let descDetalhada = document.getElementById('descDetalhadaVariante').value
+    let descontoInput = document.getElementById('descDetalhadaVariante').value
+
+    if(imagem.length > 0 && nameVariante.length > 0 && name.length > 0 && val.length > 0 && desccription.length > 0 &descDetalhada.length > 0 && descontoInput.length > 0) {
+        let obj = {
+            NomeVariante: nameVariante,
+            Nome: name,
+            Desc: desccription,
+            DescDetalhada: descDetalhada,
+            Img: imagem,
+            Valor: val,
+            Desconto: descontoInput
+        }
+    
+        variantes.push(obj)
+        cancelAddVariante()
+    }
+}
+
 
 //? Vai carregar o produto na tela
 function carregarProduto() {
@@ -510,7 +568,12 @@ function salvarEdit() {
     let selecCategoria = document.getElementById('selecCategoria').value
     let idDoProduto = document.getElementById('idDoProduto').value
 
-    db.collection('Produtos').doc(valId).update({Img1: imagem1 ,Img2: imagem2, Img3: imagem3, Img4: imagem4, Nome: name, Desc: desccription, Tags: tags, DescDetalhada: descDetalhada, Categoria: selecCategoria, Valor: valor, Desconto: descontoProd, Id: idDoProduto})
+    if(variantes.length > 0) {
+        db.collection('Produtos').doc(valId).update({Img1: imagem1 ,Img2: imagem2, Img3: imagem3, Img4: imagem4, Nome: name, Desc: desccription, Tags: tags, DescDetalhada: descDetalhada, Categoria: selecCategoria, Valor: valor, Desconto: descontoProd, Id: idDoProduto, Variantes: variantes})
+    } else {
+
+        db.collection('Produtos').doc(valId).update({Img1: imagem1 ,Img2: imagem2, Img3: imagem3, Img4: imagem4, Nome: name, Desc: desccription, Tags: tags, DescDetalhada: descDetalhada, Categoria: selecCategoria, Valor: valor, Desconto: descontoProd, Id: idDoProduto})
+    }
 
     let recarregado = false
     if(document.getElementById('carregandoPag').style.display == 'none') {
@@ -613,29 +676,40 @@ function addNovoAdministrador() {
                     let p = document.createElement('p')
                     let span = document.createElement('span')
                     let img = document.createElement('img')
-                    img.src = 'assets/img/icon/excluir.jpg'
+                    if(c == 0) {
+                        img.src = 'assets/img/icon/coroa2.png'
+                    } else {
+                        img.src = 'assets/img/icon/excluir.jpg'
+                    }
                     span.appendChild(img)
                     p.innerText = `${Admins.Email[c]}`
                     p.appendChild(span)
                     localEmailAdmin.appendChild(p)
 
                     //? Vai remover a conta de admin
-                    span.addEventListener('click', () => {
-                        let salvo = false
-                        db.collection('Admins').onSnapshot((data) => {
-                            data.docs.map(function(val) {
-                                let Admins = val.data()
-                    
-                                if(salvo == false) {
-                                    salvo = true
-                                    const emailsAdmin = Admins.Email
-                                    emailsAdmin.splice(c, 1)
-                                    db.collection('Admins').doc(val.id).update({Email: emailsAdmin})
-                                    document.getElementById('popAddNovoAdmin').style.display = 'none'
-                                    document.getElementById('emaiNovoAdminGGP').value = ''
-                                }
+                    span.addEventListener('dblclick', () => {
+                        if(c > 0 && localStorage.getItem('conectado') == 'true') {
+                            let salvo = false
+                            db.collection('Admins').onSnapshot((data) => {
+                                data.docs.map(function(val) {
+                                    let Admins = val.data()
+                        
+                                    if(salvo == false) {
+                                        salvo = true
+                                        const emailsAdmin = Admins.Email
+                                        emailsAdmin.splice(c, 1)
+                                        db.collection('Admins').doc(val.id).update({Email: emailsAdmin})
+                                        document.getElementById('emaiNovoAdminGGP').value = ''
+                                        addNovoAdministrador()
+                                    }
+                                })
                             })
-                        })
+                        } else if(localStorage.getItem('conectado') != 'true') {
+                            alert('Você não tem permição para deletar um administrador.')
+
+                        } else if(c == 0){
+                            alert('Esse aí nem o Alexandre de Morais tira filho.')
+                        }
                     })
                 }
             }
@@ -647,8 +721,8 @@ let popAddNovoAdmin = document.getElementById('popAddNovoAdmin')
 popAddNovoAdmin.addEventListener('click', (e) => {
     let el = e.target.id
     if(el == 'popAddNovoAdmin') {
-        document.getElementById('popAddNovoAdmin').style.display = 'none'
         document.getElementById('emaiNovoAdminGGP').value = ''
+        addNovoAdministrador()
     }
 })
 
@@ -658,21 +732,31 @@ function addNovoAdminNoDB() {
         data.docs.map(function(val) {
             let Admins = val.data()
 
-            if(salvo == false) {
+            if(salvo == false && document.getElementById('emaiNovoAdminGGP').value.length > 5) {
                 salvo = true
                 let emaiNovoAdminGGP = document.getElementById('emaiNovoAdminGGP')
                 const emailsAdmin = Admins.Email
                 emailsAdmin.push(emaiNovoAdminGGP.value)
                 db.collection('Admins').doc(val.id).update({Email: emailsAdmin})
+
+            } else if(document.getElementById('emaiNovoAdminGGP').value.length < 5) {
+                alert('Coloque um email de verdade aí pelo amor de Deus.')
             }
         })
     })
 
-    document.getElementById('popAddNovoAdmin').style.display = 'none'
     setTimeout(() => {
+        addNovoAdministrador()
         emaiNovoAdminGGP.value = ''
     }, 1000)
 }
+
+document.getElementById('popAddNovoAdmin').addEventListener('click', (e) => {
+    let el = e.target.id 
+    if(el == 'popAddNovoAdmin') {
+        document.getElementById('popAddNovoAdmin').style.display = 'none'
+    }
+})
 
 function suspenderSite() {
     document.getElementById('seuspenderSite').style.display = 'flex'

@@ -132,6 +132,7 @@ function criaProduto() {
                         document.getElementById('imgSecundaria').src = imgClick.src
                     })
                 }
+
             } else if(pDesc == descProdSelecionado && Produtos.Estado == 'Suspenso') {
                 document.querySelector("#imgPrincipal").src = 'assets/img/site/error2.png'
                 document.querySelector("#imgSecundaria").src = 'assets/img/site/error2.png'
@@ -153,7 +154,6 @@ function criaProduto() {
         })
     })
 } criaProduto()
-
 
  //? Vai criar o efeito de zoom nas imgs
  function zoom() {

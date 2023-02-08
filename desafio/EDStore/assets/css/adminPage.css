@@ -10,6 +10,7 @@
     background-position: center;
     background-repeat: no-repeat;
     background-image: url(../img/icon/duvida.png);
+    z-index: 2;
 }
 
 section#localDuvida {
@@ -653,11 +654,27 @@ section#popUpAddProd > article {
     padding: 20px;
 }
 
-section#popUpAddProd > article > p {
+section#popUpAddProd > article > button#addNovaVariante {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    position: fixed;
+    right: 20px;
+    bottom: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--cor4);
+    color: var(--cor1);
+    font-weight: 900;
+    font-size: 20px;
+}
+
+section#popUpAddProd > article > p, section#popUpAddProd > article#variante > div > p {
     margin-top: 40px;
 }
 
-section#popUpAddProd > article > input, textarea, select {
+section#popUpAddProd > article > input, textarea, select, section#popUpAddProd > article#variante > div > input, textarea, select {
     width: 84%;
     display: block;
     padding: 15px;
@@ -901,6 +918,53 @@ div#confirmarExcluir > div > div > button {
 
 div#confirmarExcluir > div > div > button:first-child {
     background-color: var(--cor6);
+}
+
+/*? Variante */
+section#popUpAddProd > article#variante {
+    width: 100vw;
+    max-width: none;
+    height: 100vh;
+    position: fixed;
+    top: 0px;
+    display: none;
+    background-color: var(--cor1);
+    z-index: 2;
+    overflow-y: auto;
+}
+
+section#popUpAddProd > article#variante > div {
+    width: 100%;
+    height: auto;
+    min-height: 100vh;
+    max-width: 800px;
+    /* margin-left: 100px; */
+    margin: auto;
+    padding: 20px 20px 100px 20px;
+}  
+
+section#popUpAddProd > article#variante > div > div {
+    width: 240px;
+    margin: 30px 0px;
+    margin-left: 45%;
+    transform: translate(-52%);
+    display: flex;
+    justify-content: space-between;
+}
+
+section#popUpAddProd > article#variante > div > div > button {
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: var(--cor4);
+    color: var(--cor1);
+    font-family: var(--font-texto);
+    font-weight: 100;
+    border: 1px solid transparent;
+    cursor: pointer;
+}
+
+section#popUpAddProd > article#variante > div > div > button#cancelAddVariante {
+    background-color: var(--sombra);
 }
 
 /*? Prod */

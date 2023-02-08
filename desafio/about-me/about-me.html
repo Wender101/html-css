@@ -45,8 +45,8 @@
                                 <article>HTML, CSS, JS e FireBase</article>
                                 <div class="proj"></div>
                             </a>
-                            <a href="https://wender101.github.io/html-css/desafio/Segundo-projeto/home" target="_blank">
-                                <article>HTML, CSS e JS</article>
+                            <a href="https://wender101.github.io/html-css/desafio/EDStore/Home.html" target="_blank">
+                                <article>HTML, CSS e JS e Firebase</article>
                                 <div class="proj"></div>
                             </a>
                             <a href="https://wender101.github.io/JavaScript-no-html/JS/treinos/jogo-da-velha/" target="_blank">
@@ -115,11 +115,11 @@
                         document.getElementById('projetos').getElementsByTagName('a')[c].className = ''
                     } catch {}
                 }
-                let arraySobreProjeto = ['Um joguinho simples estilo o famoso jogo do dinosauro o "T-Rex Running".', 'Um site de E-commerce feito em parceria com empresa Nerds - Hardware Delivery.', 'Um site de E-commerce feito em parceria com empresa Nerds - Hardware Delivery. Esse foi o primeiro protótipo.', 'o famoso joguinho de pedra papel e tesoura.', 'Um clone do Yt, por enquanto ele passa longe do Yt real! Mas a ideia era treinar as funçoes basicas do JS que havia aprendido :)', 'Uma solução que fiz pro meu professor de química, na época ele queria um site para colocar os links de suas provas online. Não ficou a melhor coisa do mundo, mas fiz o que pude no tempo que tinha ;)', 'Um gerador de senhas feito para testar meus conhecimentos em JS.', 'Vi esse projeto no  linkedin e quis tentar resproduzir para testar meus conhecimentos em JS.', 'Uma lista de tarefas. Foi o meu primeiro projeto com a capacidade de salvar uma informação para reutilizar depois. No caso usei o "localStorage"']
+                let arraySobreProjeto = ['Um joguinho simples estilo o famoso jogo do dinosauro o "T-Rex Running".', 'Um site de E-commerce feito em parceria com empresa Nerds - Hardware Delivery.', 'Um site de dropshipping, que usa a <a href="https://www.shopify.com/free-trial?term=shopify&adid=565882038719&campaignid=15436644892&branded_enterprise=1&BOID=brand&cmadid=516586683;cmadvertiserid=10730501;cmcampaignid=26990768;cmplacementid=324494383;cmcreativeid=163722649;cmsiteid=5500011" target="_blank">Shopify</a> para processar as vendas através do botão de compra.', 'o famoso joguinho de pedra papel e tesoura.', 'Um clone do Yt, por enquanto ele passa longe do Yt real! Mas a ideia era treinar as funçoes basicas do JS que havia aprendido :)', 'Uma solução que fiz pro meu professor de química, na época ele queria um site para colocar os links de suas provas online. Não ficou a melhor coisa do mundo, mas fiz o que pude no tempo que tinha ;)', 'Um gerador de senhas feito para testar meus conhecimentos em JS.', 'Vi esse projeto no  linkedin e quis tentar resproduzir para testar meus conhecimentos em JS.', 'Uma lista de tarefas. Foi o meu primeiro projeto com a capacidade de salvar uma informação para reutilizar depois. No caso usei o "localStorage"']
 
                 a.className = 'aHover'
                 document.getElementById('part4').style.display = 'block'
-                document.getElementById('sobreProjeto').innerText = arraySobreProjeto[c]
+                document.getElementById('sobreProjeto').innerHTML = arraySobreProjeto[c]
                             
             })
         }

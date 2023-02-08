@@ -22,6 +22,7 @@ html {
 
 body {
     width: 100%;
+    min-height: 100vh;
     height: auto;
     padding-bottom: 50px;
     background-color: var(--cor2);

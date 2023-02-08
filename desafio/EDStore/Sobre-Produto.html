@@ -401,6 +401,16 @@
           }
         }
       }
+
+      setTimeout(() => {
+        let a = document.getElementById('product-component-1672774067883').querySelector('iframe')
+        console.log(a);
+        let b = a.document.querySelector('div')
+        console.log(b);
+        // document.getElementById('product-component-1672774067883').querySelector('select').addEventListener('change', () => {
+        //   console.log(document.getElementById('product-component-1672774067883').querySelector('select').value)
+        // })
+      }, 1000)
     }, 1500)
   </script>
 </body>

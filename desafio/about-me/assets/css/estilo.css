@@ -13,6 +13,10 @@
     padding: 0px;
 }
 
+a {
+    color: #8237fa;
+}
+
 body {
     background-color: var(--background);
     color: white;

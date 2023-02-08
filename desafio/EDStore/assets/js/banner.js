@@ -23,7 +23,6 @@ db.collection('Banners').onSnapshot((data) => {
                 location.reload()
             }, 1000)
         }
-
     })
 })
 
@@ -191,16 +190,87 @@ function chamaCategorias() {
                             //? função admin
                         } else {
                             document.getElementById('editarCategorias').style.display = 'flex'
-                                document.getElementById('textoCategoriaEditar').value = p.innerText
+                            document.getElementById('textoCategoriaEditar').value = p.innerText
                             
                             document.getElementById('calcelEditCat').addEventListener('click' , () => {
                                 document.getElementById('editarCategorias').style.display = 'none'
                             })
 
+                            let arquivo
+                            let novaImg = document.getElementById('novaImgCategoriaEditar')
+                            novaImg.onchange = function (event) {
+                                arquivo = event.target.files[0]
+                            }
+
+                            //? Vai salvar as alterações feitas na categoria
                             document.getElementById('salveEditCat').addEventListener('click' , () => {
+                                let imgAlterada = false
                                 document.getElementById('editarCategorias').style.display = 'none'
+                                //? vai pegar o nome antigo da categoria para alterar a categoria de todos os produtos q tem este nome como categoria para o novo nome
+                                let nomeCategoriaAnterior = p.innerText
+
+                                //? vai salvar o novo nome da categoria
                                 cloneCat[c].Nome = document.getElementById('textoCategoriaEditar').value
                                 db.collection('Categorias').doc(val.id).update({TodasCategorias: cloneCat})
+
+                                //? Vai excluir a imagem antiga da categoria
+                                if(novaImg.value != '') {
+                                    let carregandoPag = document.getElementById('carregandoPag')
+                                    carregandoPag.style.display = 'flex'
+                                    storage.ref().child('imgCategorias').child(cloneCat[c].NomeImg).delete()
+
+                                    //? Vai adicionar a nova imagem da categoria
+                                    var uploadTask = storage.ref().child('imgCategorias').child(arquivo.name).put(arquivo)
+
+                                    uploadTask.on('imgCategorias', 
+                                    (snapshot) => {
+                                        var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+                                        let parteCarregada = document.getElementById('parteCarregada')
+                                        parteCarregada.style.width = `${progress}%`
+                                        document.getElementById('numCarregar').innerText = `${progress.toFixed(0)}%`
+
+                                        if(progress >= 100) {
+                                            setTimeout(() => {
+                                                carregandoPag.style.display = 'none'
+                                            }, 2000)
+                                        }
+                                    }, 
+                                    (error) => {}, 
+                                    () => {
+                                        uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
+                                            //? Vai alterar os link da nova img
+                                            db.collection('Categorias').onSnapshot((data) => {
+                                                data.docs.map(function(val) {
+                                                    let Categorias = val.data()
+
+                                                    for(let contadorCategoriaFor = 0; contadorCategoriaFor < Categorias.TodasCategorias.length; contadorCategoriaFor++) {
+
+                                                        if(Categorias.TodasCategorias[contadorCategoriaFor].UrlImg == img.src && imgAlterada == false) {
+                                                            imgAlterada = true
+                                                            let arrayCategorias = Categorias.TodasCategorias
+
+                                                            arrayCategorias[contadorCategoriaFor].NomeImg = arquivo.name
+                                                            arrayCategorias[contadorCategoriaFor].UrlImg = downloadURL
+
+                                                            db.collection('Categorias').doc(val.id).update({TodasCategorias: arrayCategorias})
+                                                        }
+                                                    }
+                                                })
+                                            })
+                                        })
+                                    })
+                                }
+
+                                //? Vai alterar a categorias dos produtos para a nova categoria
+                                db.collection('Produtos').onSnapshot((data) => {
+                                    data.docs.map(function(valorProduto) {
+                                        let Produto = valorProduto.data()
+
+                                        if(Produto.Categoria == nomeCategoriaAnterior) {
+                                            db.collection('Produtos').doc(valorProduto.id).update({Categoria: cloneCat[c].Nome})
+                                        }
+                                    })
+                                })
                             })
 
                             document.getElementById('ExcluirCat').addEventListener('click' , () => {
