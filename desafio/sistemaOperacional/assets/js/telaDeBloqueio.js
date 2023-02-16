@@ -11,8 +11,8 @@ function ligando() {
             const telaIniciando = document.getElementById('telaIniciando')
             telaIniciando.style.display = 'none'
             start()
-        }, 0) // timeRandom2
-    }, 0) // timeRandom1
+        }, timeRandom2) // timeRandom2
+    }, timeRandom1) // timeRandom1
 
 } ligando()
 
@@ -93,7 +93,7 @@ function start() {
 
     setInterval(() => {
         exibirData()
-    }, 0) // 100
+    }, 100) // 100
 
     let log = false
 
@@ -153,7 +153,7 @@ function start() {
 
             const title = document.querySelector('title')
             title.innerText = 'Aréa de Trabalho'
-        }, 0) // timeIniciar
+        }, timeIniciar) // timeIniciar
     }
 
 }

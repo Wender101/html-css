@@ -22,8 +22,7 @@ body div#carregando {
   justify-content: center;
 }
 body div#carregando div .c-loader {
-  -webkit-animation: is-rotating 1s infinite;
-          animation: is-rotating 1s infinite;
+  animation: is-rotating 1s infinite;
   border: 6px solid #e5e5e5;
   border-radius: 50%;
   border-top-color: #51d4db;
@@ -31,11 +30,6 @@ body div#carregando div .c-loader {
   width: 50px;
   margin: auto;
   margin-bottom: 20px;
-}
-@-webkit-keyframes is-rotating {
-  to {
-    transform: rotate(1turn);
-  }
 }
 @keyframes is-rotating {
   to {

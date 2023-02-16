@@ -48,8 +48,24 @@ db.collection('SobreUser').onSnapshot((data) => {
         setInterval(() => {
             if(emailEncontrado == false) {
                 //? Vai mandar o user para a pagina de login
-                const link = location.origin + location.pathname
-                window.location.href = link.replace('home.html', '') + 'login.html'
+                if(location.href == 'http://127.0.0.1:5500/home.html') {
+                    location.href = 'http://127.0.0.1:5500/login.html'
+                    setTimeout(() => {
+                        location.reload()
+                    }, 100)
+
+                } else if(location.href == 'http://127.0.0.1:5500/Home.html') {
+                    location.href = 'http://127.0.0.1:5500/login.html'
+                    setTimeout(() => {
+                        location.reload()
+                    }, 100)
+                    
+                } else if(location.href == 'https://wender101.github.io/html-css/desafio/SocialMedia/home.html') {
+                    location.href = 'https://wender101.github.io/html-css/desafio/SocialMedia/login.html'
+                    setTimeout(() => {
+                        location.reload()
+                    }, 100)
+                }
             }
         }, 4000)
         

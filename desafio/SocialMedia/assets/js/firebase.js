@@ -1,10 +1,10 @@
 var firebaseConfig = {
-    apiKey: "AIzaSyCbbYQdKkfwptkSktPJA-YsAByLV_UfxvI",
-    authDomain: "zapozapo2bigzero.firebaseapp.com",
-    projectId: "zapozapo2bigzero",
-    storageBucket: "zapozapo2bigzero.appspot.com",
-    messagingSenderId: "1063410616159",
-    appId: "1:1063410616159:web:a7de262ad38838530fd8ea"
+    apiKey: "AIzaSyB2DmFER7XsCIrvYNcOucIccw7R-vaQD6w",
+    authDomain: "socialmidia-d8f0b.firebaseapp.com",
+    projectId: "socialmidia-d8f0b",
+    storageBucket: "socialmidia-d8f0b.appspot.com",
+    messagingSenderId: "942332600242",
+    appId: "1:942332600242:web:51666a5706e87dced48eab"
 }
 
 // Initialize Firebase

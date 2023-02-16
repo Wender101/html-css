@@ -379,6 +379,7 @@ div#edge {
     background-color: #242424;
     z-index: 1;
     position: absolute;
+    display: none;
     left: 0px;
     top: 0px;
 }
