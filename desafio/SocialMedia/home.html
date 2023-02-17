@@ -55,6 +55,10 @@
 
                 <div id="localMsg"></div>
 
+                <div id="msgBloqueado">
+                    <p>Este contato está bloqueado, desbloqueie para poder enviar novas mensagens.</p>
+                </div>
+
                 <div id="barraResponder">
                     <input type="text" id="inputResponder" placeholder="Mensagem">
                     <button id="enviar" onclick="enviarMsg()">
@@ -75,6 +79,11 @@
                     <p class="pBold" id="recadoSobreContato">Salve tropinha!</p>
                     <p>Código de serie para entrar em contato com <span id="qmContato"></span>:</p>
                     <p class="pBold" id="codigoQmContato">...</p>
+
+                    <ul>
+                        <li><button id="bloquearContato" onclick="bloquearContato()">Bloquear Contato</button></li>
+                        <li><button id="excluirContato" onclick="excluirContato()">Excluir Contato</button></li>
+                    </ul>
                 </div>
             </article>
         </section>

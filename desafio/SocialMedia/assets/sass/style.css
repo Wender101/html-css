@@ -344,6 +344,20 @@ body main section#localConversa article#msg div#localMsg p.tuaMsg {
   margin-left: calc(100% - 500px);
   border-radius: 20px 0px 20px 20px;
 }
+body main section#localConversa article#msg div#msgBloqueado {
+  width: 100%;
+  max-width: 400px;
+  font-size: 1.2em;
+  margin: 41px auto;
+  text-align: center;
+  padding: 20px;
+  color: #000000;
+  border: 2px solid #8ddce2;
+  background-color: #ffffff;
+  box-shadow: 2px 2px 10px rgba(105, 104, 104, 0.6039215686);
+  border-radius: 10px;
+  display: none;
+}
 body main section#localConversa article#msg div#barraResponder {
   width: calc(100% - 400px);
   padding: 20px;
@@ -442,4 +456,25 @@ body main section#localConversa article#sobreContatoLocal > div#localSobreContat
 body main section#localConversa article#sobreContatoLocal > div#localSobreContato p.pBold {
   font-weight: 500;
   font-size: 14px;
+}
+body main section#localConversa article#sobreContatoLocal > div#localSobreContato ul {
+  width: 100%;
+  position: absolute;
+  bottom: 100px;
+}
+body main section#localConversa article#sobreContatoLocal > div#localSobreContato ul li {
+  max-width: 200px;
+  margin: auto;
+  display: block;
+}
+body main section#localConversa article#sobreContatoLocal > div#localSobreContato ul li button {
+  width: 100%;
+  color: #ffffff;
+  border: 1px solid #8ddce2;
+  margin: auto;
+  display: block;
+  background-image: linear-gradient(to right, #8ddce2, rgba(0, 255, 128, 0.568627451));
+  padding: 10px 0px;
+  margin-top: 10px;
+  cursor: pointer;
 }/*# sourceMappingURL=style.css.map */

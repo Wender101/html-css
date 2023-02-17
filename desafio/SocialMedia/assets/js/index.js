@@ -37,6 +37,13 @@ db.collection('SobreUser').onSnapshot((data) => {
                                         } catch {}
                                     }
                                     criaContatos(valorSobreUser2.Sobre.FotoPerfil, valorSobreUser2.Sobre.Nome, ultimaMsgEnviada, valorSobreUser2.Sobre.Recado, valorSobreUser2.Sobre.Codigo)
+
+                                    //? Vai informar que o contato esta bloqueado e impedir de enviar msgs
+                                    if(codigoContatoFirst[c].SobreContato.Estado == 'Bloqueado') {
+                                        document.querySelector('#barraResponder').style.display = 'none'
+                                        document.querySelector('#msgBloqueado').style.display = 'block'
+                                        document.querySelector('#bloquearContato').innerText = 'Desbloquear Contato'
+                                    }
                                 }
                             } catch (error) {}
                         } 
@@ -283,6 +290,7 @@ function addContato() {
                 
                         SobreContato: {
                             CodigoContato: valorSobreUser.Sobre.Codigo,
+                            Estado: 'Ativo'
                         }
                     }
 
@@ -360,3 +368,36 @@ function voltarParaContatos() {
         document.getElementById('addContato').style.display = 'block'
     }
 }
+
+//? Vai bloquear o contato
+function bloquearContato() {
+    let estadoMudado = false
+    db.collection('SobreUser').onSnapshot((data) => {
+        data.docs.map(function(val) {
+            let valorSobreUser = val.data()
+
+            try {
+                if(estadoMudado == false) {
+                    if(valorSobreUser.Sobre.Email == email) {
+                        estadoMudado = true
+
+                        for(let c = 0; c < arrayCloneChat.length; c++) {
+                            if(arrayCloneChat[c].SobreContato.CodigoContato == codigoContatoSelecionado && arrayCloneChat[c].SobreContato.Estado != 'Bloqueado') {
+                                arrayCloneChat[c].SobreContato.Estado = 'Bloqueado'
+                                db.collection('SobreUser').doc(val.id).update({Contatos: arrayCloneChat})
+    
+                            } else if(arrayCloneChat[c].SobreContato.CodigoContato == codigoContatoSelecionado && arrayCloneChat[c].SobreContato.Estado == 'Bloqueado') {
+                                arrayCloneChat[c].SobreContato.Estado = 'Ativo'
+                                db.collection('SobreUser').doc(val.id).update({Contatos: arrayCloneChat})
+                            }
+    
+                        }
+                    }
+                }
+            } catch (error) {
+                console.warn(error)
+            }
+        })
+    })
+}
+
