@@ -21,8 +21,15 @@ function slug() {
                 TextoSlug = TextoSlug.replace("-", "").replace(".", "")
 
                 if(urlPage == TextoSlug) {
-                    document.querySelector('#tituloNoticia').innerHTML = UsersMigueley.Noticias[c].Titulo
-                    document.querySelector('#textoNoticia').innerHTML = UsersMigueley.Noticias[c].Texto
+
+                    let Titulo = UsersMigueley.Noticias[c].Titulo
+                    Titulo = Titulo.replace(/\*(.*?)\*/g, "<strong>$1</strong>")
+
+                    let Texto = UsersMigueley.Noticias[c].Texto
+                    Texto = Texto.replace(/\*(.*?)\*/g, "<strong>$1</strong>")
+
+                    document.querySelector('#tituloNoticia').innerHTML = Titulo
+                    document.querySelector('#textoNoticia').innerHTML = Texto
                     document.querySelector('#imgNoticia').src = UsersMigueley.Noticias[c].Img
                 }
             }
