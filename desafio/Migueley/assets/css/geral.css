@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+:root {
+    /*? Cores */
+    --cor1: #fff;
+    --cor2: #000;
+    --cor3: #4992FF;
+    --cor4: #616161;
+    --cor5: #E4E3FF;
+    --cor6: #2079ff;
+
+    --sombra1: rgba(0, 0, 0, 0.397);
+
+    /*? Fontes */
+    --fontPoppins: 'Poppins', sans-serif;
+    --fontRaleway: 'Raleway', sans-serif;
+}
+
+/* ini: Preloader */
+#carregando, #carregando1 {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0px;
+    z-index: 10;
+    display: none;
+    justify-content: center;
+    background-color: var(--cor1);
+    align-items: center;
+    left: 0px;
+}
+
+section#carregando > article {
+    width: 80%;
+    color: var(--cor1);
+}
+ 
+#preloader .inner {
+    position: absolute;
+    top: 50%; /* centralizar a parte interna do preload (onde fica a animação)*/
+    left: 50%;
+    transform: translate(-50%, -50%);  
+}
+.bolas > div {
+  display: inline-block;
+  background-color: var(--cor6);
+  box-shadow: 2px 2px 3px var(--sombra1);
+  width: 25px;
+  height: 25px;
+  border-radius: 100%;
+  margin: 3px;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  animation-name: animarBola;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+   
+}
+.bolas > div:nth-child(1) {
+    animation-duration:0.75s ;
+    animation-delay: 0;
+}
+.bolas > div:nth-child(2) {
+    animation-duration: 0.75s ;
+    animation-delay: 0.12s;
+}
+.bolas > div:nth-child(3) {
+    animation-duration: 0.75s  ;
+    animation-delay: 0.24s;
+}
+ 
+@keyframes animarBola {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+  }
+  16% {
+    -webkit-transform: scale(0.1);
+    transform: scale(0.1);
+    opacity: 0.7;
+  }
+  33% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 1; 
+  } 
+}
+/* end: Preloader */

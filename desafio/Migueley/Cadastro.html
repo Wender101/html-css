@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro / Login</title>
+
+    <link rel="stylesheet" href="assets/css/geral.css">
+
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        body {
+            display: flex;
+            font-family: var(--fontRaleway);
+        }
+
+        body > section {
+            width: 50%;
+            min-height: 100vh;
+        }
+        
+        body > section#secondPart {
+            width: 50%;
+            min-height: 100vh;
+            background-color: var(--cor3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        body > section > div {
+            color: #fff;
+        }
+
+        section#img {
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: 50% center;
+            background-image: url('assets/imgs/imgs/Group\ 1.png')
+        }
+
+        body > section#secondPart > div#logo {
+            display: flex;
+            gap: 10px;
+            align-items: start;
+            position: absolute;
+            top: 50px;
+        }
+
+        body > section#secondPart > div > img {
+            width: 55px;
+            height: 55px;
+        }
+
+        body > section#secondPart > div > h1 {
+            font-size: 50px;
+            color: var(--cor1);
+            font-family: var(--fontPoppins);
+        }
+
+        body > section > div#divInput {
+            width: 95%;
+            max-width: 400px;
+        }
+
+        strong {
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        input {
+            width: calc(100% - 20px);
+            border: none;
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 2px;
+            margin: 10px 0px 20px;
+        }
+
+        input::placeholder {
+            color: rgba(0, 0, 0, 0.308);
+        }
+
+        input:focus {
+            box-shadow: 0 0 0 0;
+            outline: 0;
+        }
+
+        span {
+            font-size: 15px;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 50px;
+            padding: 10px 20px;
+            border: none;
+            background-color: var(--cor6);
+            color: var(--cor1);
+            box-shadow: 2px 2px 5px var(--sombra1);
+            cursor: pointer;
+        }
+
+        button:hover {
+            scale: 1.05;
+        }
+
+        button:active {
+            scale: 1;
+        }
+
+        @media screen and (max-width: 850px) {
+            body {
+                width: 100%;
+                height: 100vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            body > section#img {
+                width: 100%;
+                height: 100vh;
+                background-position: center center;
+                position: absolute;
+                top: 0px;
+            }
+
+            #divInput {
+                margin-top: 50px;
+            }
+
+            body > section#secondPart {
+                width: 95%;
+                max-width: 500px;
+                min-width: 350px;
+                max-height: 70vh;
+                min-height: 500px;
+                border-radius: 20px;
+                z-index: 2;
+                position: relative;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section id="img"></section>
+    <section id="secondPart">
+        <div id="logo">
+            <img src="assets/imgs/icons/newspaper.png" alt="Newspaper icon">
+            <h1>Migueley</h1>
+        </div>
+
+        <div id="divInput">
+            <strong>Como devemos te chamar?</strong>
+            <input type="text" id="nomeUser" placeholder="Não use um nome real.">
+            <span>Apenas usuarios com algum tipo de cargo poderá se conectar aqui, caso você não tenha cargo por favor volte a página <a href="Home.html">Home</a> ou peça cargo a algum administrador do site.</span>
+            <button onclick="cadastrar()">Cadastro / Login</button>
+        </div>
+    </section>
+
+    <!--! Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-auth.js"></script>
+    <script src="assets/js/firebase.js"></script>
+
+    <!--! Scripts -->
+    <script src="assets/js/cadastro.js"></script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar Notícias</title>
+
+    <!--? Style -->
+    <link rel="stylesheet" href="assets/css/geral.css">
+    <link rel="stylesheet" href="assets/css/Home.css">
+    <link rel="stylesheet" href="assets/css/CriarNoticias.css">
+</head>
+<body>
+    <nav>
+        <div>
+            <a href="Home.html">
+                <img src="assets/imgs/icons/newspaper.png" alt="Newspaper icon">
+                <h1>Migueley</h1>
+            </a>
+        </div>
+    </nav>
+
+    <section id="abaCriarNoticia">
+        <article>
+            <div id="partePrincipal">
+                <input type="text" id="tituloCriarNoticia" placeholder="Aqui vai o titulo da sua notícia / matéria." oninput="checarPostar()">
+                <textarea id="textoCriarNoticia" cols="30" rows="10" placeholder="O texto de sua notícia / matéria vem aqui, lembresse de checar se escreveu tudo certinho meu filho. Ex: Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officia corporis sequi dolore praesentium rem, cum aliquam quo minus itaque ipsum numquam amet fugiat sed commodi temporibus. Quos, accusantium deleniti. Reprehenderit! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officia corporis sequi dolore praesentium rem, cum aliquam quo minus itaque ipsum numquam amet fugiat sed commodi temporibus. Quos, accusantium deleniti. Reprehenderit!" oninput="checarPostar()"></textarea>
+
+                <label for="enviarDoc">
+                    <img src="assets/imgs/imgs/7510961.jpg" id="imgNoticia">
+                </label>
+                <input type="file" name="enviarDoc" id="enviarDoc" oninput="checarPostar()"></input>
+            </div>
+
+            <div id="ads"></div>
+        </article>
+
+        <div id="buttons">
+            <button id="postarMateria" onclick="postarMateria()">Postar Matéria</button>
+            <button onclick="cacelarPostagem()">Cancelar</button>
+        </div>
+    </section>
+
+    <main>
+        <h2>Criar Notícia</h2>
+        <div id="criarNoticia" onclick="abrirAbaCriarNoticia()">
+            <span>+</span>
+        </div>
+
+        <h2>Suas Notícias...</h2>
+        <section id="suasNoticias"></section>
+    </main>
+
+    <!--? Animação de carregamento -->
+    <section id="carregando">
+        <article>
+        <div id="preloader">
+            <div class="inner">
+            <div class="bolas">
+              <div></div>
+              <div></div>
+              <div></div>                    
+          </div>
+          </div>
+        </div>
+        </article>
+    </section>
+
+    <!--! Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-auth.js"></script>
+    <script src="assets/js/firebase.js"></script>
+
+    <!--! Scripts -->
+    <script src="assets/js/criarNoticias.js"></script>
+</body>
+</html>

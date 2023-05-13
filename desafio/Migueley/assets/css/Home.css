@@ -1,0 +1,113 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    text-decoration: none;
+}
+
+body {
+    font-family: var(--fontRaleway);
+    background-color: var(--cor5);
+}
+
+nav {
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    background-color: var(--cor3);
+    padding: 17px 0px;
+    color: var(--cor1);
+    font-family: var(--fontPoppins);
+}
+
+nav > div > a {
+    display: flex;
+    margin-left: 17px;
+    gap: 10px;
+    align-items: start;
+}
+
+nav > div > a > img {
+    width: 40px;
+    height: 40px;
+}
+
+nav > div > a > h1 {
+    font-size: 32px;
+    color: var(--cor1);
+}
+
+.noticias {
+    background-color: var(--cor4);
+}
+
+.noticias:hover {
+    scale: 1.02;
+    cursor: pointer;
+}
+
+main {
+    width: 98%;
+    max-width: 1400px;
+    min-height: 100vh;
+    margin: 100px auto;
+    padding-bottom: 100px;
+}
+
+main > section {
+    display: flex;
+    gap: 20px;
+}
+
+main > section > div {
+    height: 192px;
+    background-color: var(--cor4);
+}
+
+main > section#noticiasPrincipais > div {
+    width: 50%;
+    /* max-width: 400px; */
+    height: 100vh;
+    max-height: 500px;
+}
+
+main > section#noticiasPrincipais > article {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+}
+
+main > section#noticiasPrincipais > article > div {
+    width: 100%;
+    height: 100vh;
+    max-height: 240px;
+}
+
+/*? Secundarios */
+main > section#noticiasSecundarias {
+    display: flex;
+}
+
+main > section#noticiasSecundarias > article {
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    gap: 20px;
+}
+
+main > section#noticiasSecundarias > article#secundarios2 {
+    display: flex;
+    gap: 20px;
+}
+
+main > section#noticiasSecundarias > article#secundarios2 > div {
+    width: calc(50% - 10px);
+}
+
+main > section#noticiasSecundarias > article > div {
+    width: 100%;
+    height: 192px;
+    background-color: var(--cor4);
+}
