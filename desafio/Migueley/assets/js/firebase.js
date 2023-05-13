@@ -21,7 +21,9 @@ let contaCriada = false
 
 //? Vai logar na conta
 auth.onAuthStateChanged((val) => {
-    email = val.email
+    try {
+        email = val.email
+    } catch{}
 })
 
 function login() {
