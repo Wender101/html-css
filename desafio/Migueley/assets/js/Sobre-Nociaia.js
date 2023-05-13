@@ -2,11 +2,13 @@ function slug() {
     let urlPage = window.location.href
     if(location.host == '127.0.0.1:5500') {
         urlPage = urlPage.replace('http://127.0.0.1:5500/Sobre-Noticia.html?=', "")
-
+        
     } else {
         urlPage = urlPage.replace('https://wender101.github.io/html-css/desafio/Migueley/Sobre-Noticia.html?=', "")
     }
-
+    
+    urlPage = urlPage.replace("-", "").replace(".", "")
+    
     db.collection('UsersMigueley').onSnapshot((data) => {
         data.docs.map(function(valor) {
             let UsersMigueley = valor.data()
@@ -16,6 +18,7 @@ function slug() {
                 let TextoSlug = UsersMigueley.Noticias[c].Texto.toLocaleLowerCase()
                 TextoSlug = TextoSlug.normalize('NFD').replace(/[\u0300-\u036f]/g, "") //? Vai remover os acentos
                 TextoSlug = TextoSlug.replace(/\s/g, '') //? Vai remover os espaços
+                TextoSlug = TextoSlug.replace("-", "").replace(".", "")
 
                 if(urlPage == TextoSlug) {
                     document.querySelector('#tituloNoticia').innerHTML = UsersMigueley.Noticias[c].Titulo
