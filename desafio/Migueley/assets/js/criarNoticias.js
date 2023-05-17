@@ -25,10 +25,7 @@ function carregarNoticiasCriadas() {
 
                     //? Função de click
                     div.addEventListener('click', () => {
-                        let TextoSlug = UsersMigueley.Noticias[c].Texto.toLocaleLowerCase()
-                        TextoSlug = TextoSlug.normalize('NFD').replace(/[\u0300-\u036f]/g, "") //? Vai remover os acentos
-                        TextoSlug = TextoSlug.replace(/\s/g, '') //? Vai remover os espaços
-                        window.location.href = `Sobre-Noticia.html?=${TextoSlug}`
+                        window.location.href = `Home.html?=${encodeURIComponent(UsersMigueley.Noticias[c].Texto.toLocaleLowerCase())}`
                     })
                 }
             }

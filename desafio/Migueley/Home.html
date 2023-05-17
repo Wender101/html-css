@@ -4,87 +4,53 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Migueley</title>
+    <title>Home | Migueley</title>
 
-    <!--? Style -->
-    <link rel="stylesheet" href="assets/css/geral.css">
-    <link rel="stylesheet" href="assets/css/Home.css">
+    <link rel="stylesheet" href="assets/sass/Home.css">
 </head>
 <body>
-    <nav>
-        <div>
-            <a href="Home.html">
-                <img src="assets/imgs/icons/newspaper.png" alt="Newspaper icon">
-                <h1>Migueley</h1>
-            </a>
-        </div>
+    <nav id="nav" class="navFechada">
+        <div id="logoNav"></div>
+        <ul>
+            <li><img src="assets/imgs/icons/weather.svg">Clima</li>
+            <li><img src="assets/imgs/icons/news.svg">Notícias</li>
+            <li><img src="assets/imgs/icons/config.png">Configurações</li>
+        </ul>
+
+        <button onclick="abrirNav()" id="btnMenu"></button>
     </nav>
 
     <main>
-        <section id="noticiasPrincipais">
-            <div class="noticias"></div>
+        <button id="buttonMenu"></button>
+        <div id="logoMain"></div>
 
-            <article>
-                <div class="noticias"></div>
-                <div class="noticias"></div>
-            </article>
+        <section>
+            <p id="msgCarregando">Carregando...</p>
+            <article id="noticiasDoDia"></article>
 
-        </section>
-        <section id="noticiasSecundarias">
-            <article id="secundarios1">
-                <div class="noticias"></div>
-                <div class="noticias"></div>
-                <div class="noticias"></div>
-                <div class="noticias"></div>
-                <div class="noticias"></div>
-                <div class="noticias"></div>
-                <div class="noticias"></div>
-                <div class="noticias"></div>
-                <div class="noticias"></div>
-                <div class="noticias"></div>
-                <div class="noticias"></div>
-                <div class="noticias"></div>
-                <div class="noticias"></div>
-            </article>
+            <article id="localNoticia">
+                <div id="localNoticiaMostrada">
+                    <div>
+                        <img src="" id="imgNoticia">
+                    </div>
+                    <h1 id="tituloNoticia"></h1>
 
-            <article id="secundarios2">
-                <div class="noticias"></div>
-                <div class="noticias"></div>
-                <div class="noticias"></div>
-                <div class="noticias"></div>
-                <div class="noticias"></div>
-                <div class="noticias"></div>
-                <div class="noticias"></div>
-                <div class="noticias"></div>
-                <div class="noticias"></div>
-                <div class="noticias"></div>
-                <div class="noticias"></div>
-                <div class="noticias"></div>
-                <div class="noticias"></div>
-                <div class="noticias"></div>
-                <div class="noticias"></div>
-                <div class="noticias"></div>
-                <div class="noticias"></div>
-                <div class="noticias"></div>
-                <div class="noticias"></div>
-                <div class="noticias"></div>
-                <div class="noticias"></div>
-                <div class="noticias"></div>
-                <div class="noticias"></div>
-                <div class="noticias"></div>
-                <div class="noticias"></div>
-                <div class="noticias"></div>
+                    <p id="textoNoticia"></p>
+                </div>
+
+                <button id="voltar" onclick="voltarParaNoticias()"><span></span></button>
             </article>
         </section>
     </main>
 
-    <!--! Firebase -->
-    <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-storage.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-auth.js"></script>
-    <script src="assets/js/firebase.js"></script>
-
-    <!--! Scripts -->
+     <!--! Firebase -->
+     <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-app.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-firestore.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-storage.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-auth.js"></script>
+     <script src="assets/js/firebase.js"></script>
+ 
+     <!--! Scripts -->
+    <script src="assets/js/home.js"></script>
 </body>
 </html>

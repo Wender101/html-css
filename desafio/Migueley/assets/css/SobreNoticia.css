@@ -2,19 +2,20 @@ main {
     width: 100%;
     min-height: 100vh;
     padding-bottom: 100px;
+    border: 1px solid #000;
 }
 
 #firtStap {
-    width: 98%;
+    width: 100%;
     margin: auto;
-    max-width: 1400px;
+    max-width: 1000px;
     display: flex;
     justify-content: space-between;
     margin-top: 42px;
 }
 
 #firtStap > article#noticia {
-    width: 75%;
+    width: 100%;
     color: rgba(0, 0, 0, 0.616);
 }
 
@@ -30,8 +31,15 @@ main {
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
+#firtStap > article#noticia > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 #firtStap > article#noticia > div > img {
-    width: 100%;
+    /* width: 100%; */
+    object-fit: contain;
 }
 
 article#ads {
