@@ -73,20 +73,26 @@ function login() {
                             encontrado = true
                             console.log('Email encontrada')
                             
-                            if(ConfigMigueley.PessoalAltorizado[c].Cargo != 'User' && contaCriada == false) {
-                                contaCriada = true
-                                temCargo = true
+                            let eUser = false
+                            for(let b = 0; b < ConfigMigueley.PessoalAltorizado[c].Cargo.length; b++) {
+                                if(ConfigMigueley.PessoalAltorizado[c].Cargo[b] == 'User' && eUser == false) {
+                                    eUser = true
 
-                                //? Vai criar a conta para o user
-                                let contaUser = {
-                                    EmailUser: email,
-                                    Cargo: ConfigMigueley.PessoalAltorizado[c].Cargo,
-                                    Nome: document.querySelector('input').value,
-                                    EstadoDaConta: 'Normal',
-                                    Noticias: []
+                                } else if(b+1 == ConfigMigueley.PessoalAltorizado[c].Cargo.length && eUser == false) {
+                                    contaCriada = true
+                                    temCargo = true
+    
+                                    //? Vai criar a conta para o user
+                                    let contaUser = {
+                                        EmailUser: email,
+                                        Cargo: ConfigMigueley.PessoalAltorizado[c].Cargo,
+                                        Nome: document.querySelector('input').value,
+                                        EstadoDaConta: 'Normal',
+                                        Noticias: []
+                                    }
+    
+                                    db.collection('UsersMigueley').add(contaUser)
                                 }
-
-                                db.collection('UsersMigueley').add(contaUser)
                             }
                         }
                     }
