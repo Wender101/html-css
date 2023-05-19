@@ -113,7 +113,7 @@ function postarMateria() {
                                 Texto: document.querySelector('#textoCriarNoticia').value,
                                 Img: downloadURL,
                                 Data: `${mes}${dia}${ano}`,
-                                EstadoNocia: 'Normal'
+                                EstadoNoticia: 'Pendente'
                             }
 
                             arrayNoticias.push(NoticiaCriada)

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administração | Migueley</title>
+    <link rel="stylesheet" href="assets/sass/Home.css">
+    <link rel="stylesheet" href="assets/sass/Admin.css">
+</head>
+<body>
+    <nav id="nav" class="navFechada">
+        <div id="logoNav"></div>
+        <ul>
+            <li><img src="assets/imgs/icons/weather.svg">Clima</li>
+            <li><img src="assets/imgs/icons/news.svg">Notícias</li>
+        </ul>
+
+        <button onclick="abrirNav()" id="btnMenu"></button>
+    </nav>
+
+    <main>
+        <button id="buttonMenu"></button>
+
+        <h1>Configurações</h1>
+
+        <section id="abaMenu">
+            <ul>
+                <li class="opcoesMenu">Administradores</li>
+                <li class="opcoesMenu">Usuários</li>
+                <li class="opcoesMenu">Notícias</li>
+            </ul>
+        </section>
+
+        <h1 id="opcaoH1">Administradores</h1>
+        <section id="aboutConfig">
+            <article id="abaAdministradores" class="abasAdmins">
+                <div class="search">
+                    <span></span>
+                    <input type="text" id="pesquisarAdm" placeholder="Pesquisar administrador">
+                </div>
+
+                <div class="abaAdmsMostrar"></div>
+            </article>
+
+            <article id="abaUsuarios" class="abasAdmins">
+                <div class="search">
+                    <span></span>
+                    <input type="text" id="pesquisarUsers" placeholder="Pesquisar usuários com cargos">
+                </div>
+
+                <div class="abaAdmsMostrar">
+                </div>
+            </article>
+
+            <article id="abaNoticias" class="abasAdmins">
+            </article>
+        </section>
+    </main>
+
+    <section id="aboutTheNews">
+        <article>
+            <div id="imgAboutNews">
+                <img src="assets/imgs/imgs/Group 1.png" id="imgNewsNow">
+            </div>
+            <h2 id="titleNewsNow">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</h2>
+            <p id="textNewsNow">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus aliquam quis ea. Quidem sequi, quis hic ad deserunt maiores et eligendi beatae molestiae, iusto explicabo cumque veniam quaerat repudiandae illum? Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum molestias tempore, ut dolor, repellat, dicta fugit amet laboriosam iure accusantium numquam. Veritatis voluptates officia commodi quo dolores sapiente, ex unde. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusamus optio quia natus accusantium enim exercitationem, delectus eligendi a possimus officia. Quibusdam voluptates ullam nam repudiandae ut commodi quasi, provident omnis.</p>
+
+            <div id="buttonsAboutNews">
+                <button id="cancelarNoticia" class="btnsAtualizarNoticia">Cancelar</button>
+                <button id="suspenderNoticia" class="btnsAtualizarNoticia">Suspender</button>
+                <button id="excluirNoticia" class="btnsAtualizarNoticia">Excluir</button>
+                <button id="aprovarNoticia" class="btnsAtualizarNoticia">Aprovar</button>
+            </div>
+
+        </article>
+
+        <div id="sobreAnoticiaVerdadeOuFaldo">
+            <div id="sobre2">
+                <p>Sobre a notícia, ela é:</p>
+
+                <div>
+                    <button id="noticiaVerdadeira">Séria</button>
+                    <p>Ou</p>
+                    <button id="noticiaFalsa">Zueira</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="motivoSuspender">
+            <div id="btnsSuspenderMotivo">
+                <p>Informe o por que essa notícia será suspensa.</p>
+                <textarea id="textAreaMotivoSuspender" cols="30" rows="10"></textarea>
+                <div id="btnsMotivoSuspender">
+                    <button id="cancelarSuspender">Cancelar</button>
+                    <button id="envaiarMotivoSuspender">Enviar</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--! Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-auth.js"></script>
+    <script src="assets/js/firebase.js"></script>
+
+    <!--! Scripts -->
+    <script src="assets/js/Adm.js"></script>
+    <script src="assets/js/nav.js"></script>
+</body>
+</html>

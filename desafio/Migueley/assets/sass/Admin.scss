@@ -1,0 +1,391 @@
+@import 'geral.scss';
+
+body {
+    font-family: $fontInter;
+    background-color: #E8E9EB;
+    
+    main {
+        padding-bottom: 100px;
+        
+        h1 {
+            margin: 34px 0px  34px 3px;
+            color: $cor3;
+        }
+        
+        section#abaMenu {
+            width: calc(100% - 20px);
+            height: auto;
+            background-color: $cor1;
+            border-radius: 20px;
+            margin: 0px;
+            padding: 0px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.329);
+            
+            ul {
+                width: calc(100% - 20px);
+                display: flex;
+                margin-left: 10px;
+                
+                li {
+                    padding: 30px;
+                    color: #92929D;
+                    border-top: 3px solid transparent;
+                    cursor: pointer;
+                    
+                    &:hover {
+                        border-top: 3px solid $cor6;
+                        color: $cor6;
+                    }
+                    
+                    &#ativo {
+                        border-top: 3px solid $cor6;
+                        color: $cor6;
+                    }
+                }
+            }
+        }
+
+        section#aboutConfig {
+            width: calc(100% - 20px);
+            height: auto;
+            padding: 0px;
+            margin: 0px;
+            background-color: transparent;
+            display: block;
+            
+            article {
+                width: 100%;
+                height: auto;
+                border-radius: 20px;
+                margin: 0px;
+                padding: 0px;
+                background-color: transparent;
+                
+                div.search {
+                    // padding: 27px;
+                    width: 100%;
+                    position: relative;
+                    background-color: #E8E9EB;
+                    
+                    span {
+                        width: 19px;
+                        height: 19px;
+                        display: block;
+                        position: absolute;
+                        left: 24px;
+                        top: 18px;
+                        background-position: center;
+                        background-repeat: no-repeat;
+                        background-size: contain;
+                        background-image: url('../imgs/icons/search.png');
+                    }
+
+                    input {
+                        width: calc(100% - 70px);
+                        padding: 18px 0px 18px 64px;
+                        border-radius: 15px;
+                        background-color: $cor1;
+                        border: 2px solid transparent;
+                        color: #BEBFC3;
+                        font-size: 16px;
+                        font-weight: 400;
+                        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.329);
+                        
+                        &::placeholder {
+                            color: #BEBFC3;
+                        }
+
+                        &:focus {
+                            box-shadow: 0 0 0 0;
+                            outline: 0;
+                            border: 2px solid $cor6;
+                        }
+                    }
+                }
+
+                div.abaAdmsMostrar {
+                    width: 100%;
+                    background-color: $cor1;
+                    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.329);
+                    margin-top: 30px;
+                    border-radius: 20px;
+                    color: #BEBFC3;
+                    font-size: 16px;
+                    font-weight: 300;
+
+                    div.adms {
+                        width: 95%;
+                        margin: auto;
+                        justify-content: space-between;
+                        display: flex;
+                        align-items: center;
+                        padding: 15px 0px;
+
+                        input {
+                            width: 20px;
+                            height: 20px;
+                            border: 1px solid #BEBFC3;
+
+                            &:focus {
+                                box-shadow: 0 0 0 0;
+                                outline: 0;
+                            }
+                        }
+
+                        span {
+                            padding: 3px 10px;
+                            border: 1px solid $cor6;
+                            color: $cor6;
+                            border-radius: 20px;
+                            font-size: 12px;
+                        }
+
+                        div.cargos {
+                            display: flex;
+                            gap: 10px;
+                            
+                            span {
+                                display: block;
+                                padding: 3px 10px;
+                                border: 1px solid $cor6;
+                                color: $cor6;
+                                border-radius: 20px;
+                                font-size: 12px;
+                            }
+                        }
+                    }
+                }
+
+                &#abaAdministradores {
+                    display: none;
+                }
+
+                &#abaUsuarios {
+                    display: none;
+                }
+
+                &#abaNoticias {
+                    background-color: $cor1;
+                    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.329);
+                    display: none;
+                    
+                    div.noticias {
+                        width: 95%;
+                        margin: auto;
+                        justify-content: space-between;
+                        display: flex;
+                        align-items: center;
+                        padding: 15px 0px;
+                        cursor: pointer;
+
+                        &:hover {
+                            scale: 1.01;
+                        }
+
+                        img {
+                            width: 70px;
+                            height: 70px;
+                            object-fit: contain;
+                        }
+
+                        p {
+                            color: #505052;
+                            font-size: 16px;
+                            font-weight: 300;
+                        }
+
+                        span.estadoNoticia {
+                            padding: 3px 10px;
+                            border: 1px solid $cor6;
+                            color: $cor6;
+                            border-radius: 20px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    section#aboutTheNews {
+        width: 100%;
+        height: 100vh;
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        background-color: $cor1;
+        overflow-y: auto;
+        display: none;
+
+        article {
+            width: 95%;
+            max-width: 800px;
+            height: auto;
+            margin: 100px auto;
+
+            div#imgAboutNews {
+                width: 100%;
+                height: 500px;
+                background-position: center;
+                background-image: url('../imgs/imgs/Group 1.png');
+                background-size: contain;
+                box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.329);
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: contain;
+                }
+            }
+
+            h2 {
+                margin: 50px 0px 30px;
+                text-align: center;
+            }
+
+            div#buttonsAboutNews {
+                width: 430px;
+                margin: 100px auto;
+                display: flex;
+                justify-content: center;
+                gap: 10px;
+                flex-wrap: wrap;
+
+                button {
+                    width: 100px;
+                    padding: 10px 15px;
+                    display: block;
+                    // background-color: $cor1;
+                    // border: 1px solid $cor6;
+                    // color: $cor6;
+                    cursor: pointer;
+
+                    &:hover {
+                        scale: 1.08;
+                    }
+
+                    &#cancelarNoticia:hover {
+                        background-color: #5858588f;
+                        color: $cor1;
+                        border: 1px solid transparent;
+                    }
+
+                    &#suspenderNoticia:hover {
+                        background-color: #fffb00;
+                        color: $cor2;
+                        border: 1px solid transparent;
+                    }
+
+                    &#excluirNoticia:hover {
+                        background-color: rgb(255, 15, 15);
+                        color: $cor1;
+                        border: 1px solid transparent;
+                    }
+
+                    &#aprovarNoticia:hover {
+                        background-color: $cor6;
+                        color: $cor1;
+                        border: 1px solid transparent;
+                    }
+                }
+            }
+        }
+
+        div#sobreAnoticiaVerdadeOuFaldo {
+            width: 100%;
+            height: 100vh;
+            position: fixed;
+            top: 0px;
+            background-color: rgba(0, 0, 0, 0.212);
+            display: none;
+            align-items: center;
+            justify-content: center;
+
+            div#sobre2 {
+                width: 300px;
+                height: auto;
+                text-align: center;
+                background-color: $cor1;
+                padding: 20px;
+                border-radius: 20px;
+                
+                div {
+                    display: flex;
+                    justify-content: space-around;
+                    margin: 30px auto 20px;
+
+                    button {
+                        width: 100px;
+                        padding: 10px 15px;
+                        display: block;
+                        cursor: pointer;
+                        color: $cor1;
+                        border: none;
+    
+                        &:hover {
+                            scale: 1.08;
+                        }
+
+                        &#noticiaVerdadeira {
+                            background-color: #5bb75b;
+                        }
+
+                        &#noticiaFalsa {
+                            background-color: #ff0000;
+                        }
+                    }
+                }
+            }
+        }
+
+        div#motivoSuspender {
+            width: 100%;
+            height: 100vh;
+            position: fixed;
+            top: 0px;
+            background-color: rgba(0, 0, 0, 0.212);
+            display: none;
+            align-items: center;
+            justify-content: center;
+
+            div#btnsSuspenderMotivo {
+                width: 300px;
+                height: auto;
+                text-align: center;
+                background-color: $cor1;
+                padding: 20px;
+                border-radius: 20px;
+
+                textarea {
+                    margin:20px 0px  30px;
+                }
+
+                div#btnsMotivoSuspender {
+                    display: flex;
+                    justify-content: space-around;
+                    margin: 30px auto 20px;
+
+                    button {
+                        width: 100px;
+                        padding: 10px 15px;
+                        display: block;
+                        cursor: pointer;
+                        color: $cor1;
+                        border: none;
+    
+                        &:hover {
+                            scale: 1.08;
+                        }
+
+                        &#cancelarSuspender {
+                            background-color: #9b9b9b;
+                        }
+
+                        &#envaiarMotivoSuspender {
+                            background-color: $cor3;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

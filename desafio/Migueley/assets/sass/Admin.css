@@ -1,0 +1,346 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;300;500;700;900&display=swap");
+/*? Cores */
+/* $cor3: #d2d4d3; */
+/*? Fontes */
+* {
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+  text-decoration: none;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background-color: #E8E9EB;
+}
+body main {
+  padding-bottom: 100px;
+}
+body main h1 {
+  margin: 34px 0px 34px 3px;
+  color: #4992FF;
+}
+body main section#abaMenu {
+  width: calc(100% - 20px);
+  height: auto;
+  background-color: #fff;
+  border-radius: 20px;
+  margin: 0px;
+  padding: 0px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.329);
+}
+body main section#abaMenu ul {
+  width: calc(100% - 20px);
+  display: flex;
+  margin-left: 10px;
+}
+body main section#abaMenu ul li {
+  padding: 30px;
+  color: #92929D;
+  border-top: 3px solid transparent;
+  cursor: pointer;
+}
+body main section#abaMenu ul li:hover {
+  border-top: 3px solid #2079ff;
+  color: #2079ff;
+}
+body main section#abaMenu ul li#ativo {
+  border-top: 3px solid #2079ff;
+  color: #2079ff;
+}
+body main section#aboutConfig {
+  width: calc(100% - 20px);
+  height: auto;
+  padding: 0px;
+  margin: 0px;
+  background-color: transparent;
+  display: block;
+}
+body main section#aboutConfig article {
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  margin: 0px;
+  padding: 0px;
+  background-color: transparent;
+}
+body main section#aboutConfig article div.search {
+  width: 100%;
+  position: relative;
+  background-color: #E8E9EB;
+}
+body main section#aboutConfig article div.search span {
+  width: 19px;
+  height: 19px;
+  display: block;
+  position: absolute;
+  left: 24px;
+  top: 18px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url("../imgs/icons/search.png");
+}
+body main section#aboutConfig article div.search input {
+  width: calc(100% - 70px);
+  padding: 18px 0px 18px 64px;
+  border-radius: 15px;
+  background-color: #fff;
+  border: 2px solid transparent;
+  color: #BEBFC3;
+  font-size: 16px;
+  font-weight: 400;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.329);
+}
+body main section#aboutConfig article div.search input::-moz-placeholder {
+  color: #BEBFC3;
+}
+body main section#aboutConfig article div.search input::placeholder {
+  color: #BEBFC3;
+}
+body main section#aboutConfig article div.search input:focus {
+  box-shadow: 0 0 0 0;
+  outline: 0;
+  border: 2px solid #2079ff;
+}
+body main section#aboutConfig article div.abaAdmsMostrar {
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.329);
+  margin-top: 30px;
+  border-radius: 20px;
+  color: #BEBFC3;
+  font-size: 16px;
+  font-weight: 300;
+}
+body main section#aboutConfig article div.abaAdmsMostrar div.adms {
+  width: 95%;
+  margin: auto;
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+  padding: 15px 0px;
+}
+body main section#aboutConfig article div.abaAdmsMostrar div.adms input {
+  width: 20px;
+  height: 20px;
+  border: 1px solid #BEBFC3;
+}
+body main section#aboutConfig article div.abaAdmsMostrar div.adms input:focus {
+  box-shadow: 0 0 0 0;
+  outline: 0;
+}
+body main section#aboutConfig article div.abaAdmsMostrar div.adms span {
+  padding: 3px 10px;
+  border: 1px solid #2079ff;
+  color: #2079ff;
+  border-radius: 20px;
+  font-size: 12px;
+}
+body main section#aboutConfig article div.abaAdmsMostrar div.adms div.cargos {
+  display: flex;
+  gap: 10px;
+}
+body main section#aboutConfig article div.abaAdmsMostrar div.adms div.cargos span {
+  display: block;
+  padding: 3px 10px;
+  border: 1px solid #2079ff;
+  color: #2079ff;
+  border-radius: 20px;
+  font-size: 12px;
+}
+body main section#aboutConfig article#abaAdministradores {
+  display: none;
+}
+body main section#aboutConfig article#abaUsuarios {
+  display: none;
+}
+body main section#aboutConfig article#abaNoticias {
+  background-color: #fff;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.329);
+  display: none;
+}
+body main section#aboutConfig article#abaNoticias div.noticias {
+  width: 95%;
+  margin: auto;
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+  padding: 15px 0px;
+  cursor: pointer;
+}
+body main section#aboutConfig article#abaNoticias div.noticias:hover {
+  scale: 1.01;
+}
+body main section#aboutConfig article#abaNoticias div.noticias img {
+  width: 70px;
+  height: 70px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+body main section#aboutConfig article#abaNoticias div.noticias p {
+  color: #505052;
+  font-size: 16px;
+  font-weight: 300;
+}
+body main section#aboutConfig article#abaNoticias div.noticias span.estadoNoticia {
+  padding: 3px 10px;
+  border: 1px solid #2079ff;
+  color: #2079ff;
+  border-radius: 20px;
+}
+body section#aboutTheNews {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  background-color: #fff;
+  overflow-y: auto;
+  display: none;
+}
+body section#aboutTheNews article {
+  width: 95%;
+  max-width: 800px;
+  height: auto;
+  margin: 100px auto;
+}
+body section#aboutTheNews article div#imgAboutNews {
+  width: 100%;
+  height: 500px;
+  background-position: center;
+  background-image: url("../imgs/imgs/Group 1.png");
+  background-size: contain;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.329);
+}
+body section#aboutTheNews article div#imgAboutNews img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+body section#aboutTheNews article h2 {
+  margin: 50px 0px 30px;
+  text-align: center;
+}
+body section#aboutTheNews article div#buttonsAboutNews {
+  width: 430px;
+  margin: 100px auto;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+body section#aboutTheNews article div#buttonsAboutNews button {
+  width: 100px;
+  padding: 10px 15px;
+  display: block;
+  cursor: pointer;
+}
+body section#aboutTheNews article div#buttonsAboutNews button:hover {
+  scale: 1.08;
+}
+body section#aboutTheNews article div#buttonsAboutNews button#cancelarNoticia:hover {
+  background-color: rgba(88, 88, 88, 0.5607843137);
+  color: #fff;
+  border: 1px solid transparent;
+}
+body section#aboutTheNews article div#buttonsAboutNews button#suspenderNoticia:hover {
+  background-color: #fffb00;
+  color: #000;
+  border: 1px solid transparent;
+}
+body section#aboutTheNews article div#buttonsAboutNews button#excluirNoticia:hover {
+  background-color: rgb(255, 15, 15);
+  color: #fff;
+  border: 1px solid transparent;
+}
+body section#aboutTheNews article div#buttonsAboutNews button#aprovarNoticia:hover {
+  background-color: #2079ff;
+  color: #fff;
+  border: 1px solid transparent;
+}
+body section#aboutTheNews div#sobreAnoticiaVerdadeOuFaldo {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0px;
+  background-color: rgba(0, 0, 0, 0.212);
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+body section#aboutTheNews div#sobreAnoticiaVerdadeOuFaldo div#sobre2 {
+  width: 300px;
+  height: auto;
+  text-align: center;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 20px;
+}
+body section#aboutTheNews div#sobreAnoticiaVerdadeOuFaldo div#sobre2 div {
+  display: flex;
+  justify-content: space-around;
+  margin: 30px auto 20px;
+}
+body section#aboutTheNews div#sobreAnoticiaVerdadeOuFaldo div#sobre2 div button {
+  width: 100px;
+  padding: 10px 15px;
+  display: block;
+  cursor: pointer;
+  color: #fff;
+  border: none;
+}
+body section#aboutTheNews div#sobreAnoticiaVerdadeOuFaldo div#sobre2 div button:hover {
+  scale: 1.08;
+}
+body section#aboutTheNews div#sobreAnoticiaVerdadeOuFaldo div#sobre2 div button#noticiaVerdadeira {
+  background-color: #5bb75b;
+}
+body section#aboutTheNews div#sobreAnoticiaVerdadeOuFaldo div#sobre2 div button#noticiaFalsa {
+  background-color: #ff0000;
+}
+body section#aboutTheNews div#motivoSuspender {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0px;
+  background-color: rgba(0, 0, 0, 0.212);
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+body section#aboutTheNews div#motivoSuspender div#btnsSuspenderMotivo {
+  width: 300px;
+  height: auto;
+  text-align: center;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 20px;
+}
+body section#aboutTheNews div#motivoSuspender div#btnsSuspenderMotivo textarea {
+  margin: 20px 0px 30px;
+}
+body section#aboutTheNews div#motivoSuspender div#btnsSuspenderMotivo div#btnsMotivoSuspender {
+  display: flex;
+  justify-content: space-around;
+  margin: 30px auto 20px;
+}
+body section#aboutTheNews div#motivoSuspender div#btnsSuspenderMotivo div#btnsMotivoSuspender button {
+  width: 100px;
+  padding: 10px 15px;
+  display: block;
+  cursor: pointer;
+  color: #fff;
+  border: none;
+}
+body section#aboutTheNews div#motivoSuspender div#btnsSuspenderMotivo div#btnsMotivoSuspender button:hover {
+  scale: 1.08;
+}
+body section#aboutTheNews div#motivoSuspender div#btnsSuspenderMotivo div#btnsMotivoSuspender button#cancelarSuspender {
+  background-color: #9b9b9b;
+}
+body section#aboutTheNews div#motivoSuspender div#btnsSuspenderMotivo div#btnsMotivoSuspender button#envaiarMotivoSuspender {
+  background-color: #4992FF;
+}/*# sourceMappingURL=Admin.css.map */

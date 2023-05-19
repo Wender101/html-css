@@ -26,31 +26,36 @@ div#criarNoticia > span {
 
 section#abaCriarNoticia {
     width: 100%;
-    min-height: 100vh;
-    position: absolute;
+    height: 100vh;
+    position: fixed;
     display: none;
-    top: 82px;
+    top: 0px;
     background-color: var(--cor5);
     padding-bottom: 100px;
     z-index: 2;
+    overflow-y: auto;
 }
 
 section#abaCriarNoticia > article {
     width: 98%;
     margin: auto;
     max-width: 1400px;
+    min-height: 100vh;
     display: flex;
     justify-content: space-between;
     margin-top: 42px;
 }
 
 div#partePrincipal {
-    width: 75%;
+    width: 95%;
+    max-width: 800px;
+    margin: auto;
 }
 
 div#partePrincipal > #tituloCriarNoticia {
-    font-size: 32px;
+    font-size: 22px;
     font-weight: 500;
+    margin: 40px 0px 20px;
 }
 
 div#partePrincipal > input, textarea {
@@ -85,11 +90,6 @@ input:focus, textarea:focus {
 
 textarea::placeholder {
     color: black;
-}
-
-div#ads {
-    width: 20%;
-    background-color: var(--cor4);
 }
 
 div#buttons {

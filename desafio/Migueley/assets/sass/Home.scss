@@ -1,27 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
-
-/*? Cores */
-$cor1: #fff;
-$cor2: #000;
-/* $cor3: #d2d4d3; */
-$cor3: #4992FF;
-$cor4: #616161;
-$cor5: #E4E3FF;
-$cor6: #2079ff;
-
-$sombra1: rgba(0, 0, 0, 0.397);
-
-/*? Fontes */
-$fontPoppins: 'Poppins', sans-serif;
-$fontRaleway: 'Raleway', sans-serif;
-$fontRoboto: 'Roboto', sans-serif;
-
-* {
-    margin: 0px;
-    padding: 0px;
-    list-style: none;
-    text-decoration: none;
-}
+@import 'geral.scss';
 
 body {
     font-family: $fontRoboto;
@@ -47,7 +24,7 @@ body {
         position: fixed;
         top: 0px;
         left: 0px;
-        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.329);
+        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.596);
         z-index: 2;
 
         div#logoNav {
