@@ -1,11 +1,13 @@
 //? Carregar noticias criadas
 function carregarNoticiasCriadas() {
+    let suasNoticias = document.querySelector('#suasNoticias')
+    suasNoticias.innerHTML = ''
+
     db.collection('UsersMigueley').onSnapshot((data) => {
         data.docs.map(function(valor) {
             let UsersMigueley = valor.data()
             
             if(UsersMigueley.EmailUser == email) {
-                let suasNoticias = document.querySelector('#suasNoticias')
 
                 for (let c = 0; c < UsersMigueley.Noticias.length; c++) {
                     let div = document.createElement('div')
@@ -25,7 +27,7 @@ function carregarNoticiasCriadas() {
 
                     //? Função de click
                     div.addEventListener('click', () => {
-                        window.location.href = `Home.html?=${encodeURIComponent(UsersMigueley.Noticias[c].Texto.toLocaleLowerCase())}`
+                        // window.location.href = `Home.html?=${encodeURIComponent(UsersMigueley.Noticias[c].Texto.toLocaleLowerCase())}`
                     })
                 }
             }
