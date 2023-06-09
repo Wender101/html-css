@@ -1,0 +1,419 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Serif:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bagel+Fat+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Carter+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap");
+@font-face {
+  font-family: "OrganicRelief";
+  src: url("../Font/OrganicRelief.woff2");
+}
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  background-color: #000;
+  color: #fff;
+  overflow-x: hidden;
+}
+body nav {
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 40px 0px;
+}
+body nav ul {
+  display: flex;
+  align-items: center;
+  gap: 59px;
+}
+body nav ul li a {
+  color: #fff;
+}
+body nav ul li button#darkModeButton {
+  width: 21px;
+  height: 21px;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+  background-color: transparent;
+  background-size: cover;
+  background-image: url("../img/icons/dark_mode.png");
+}
+body header {
+  width: 100%;
+  height: auto;
+  position: relative;
+  margin-top: 60px;
+}
+body header div#branco1 {
+  width: 400px;
+  height: 600px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url("../img/icons/Shape1.png");
+  position: absolute;
+  left: 0px;
+}
+body header div#branco1 div#planetaHeader {
+  width: 200px;
+  height: 200px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url("../img/icons/planet.png");
+  position: absolute;
+  right: 0px;
+  animation: 3s flutuaAnimation1 infinite ease-in-out;
+}
+body header div#branco1 div#fogueteHeader {
+  width: 100px;
+  height: 100px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url("../img/icons/rocket.png");
+  position: absolute;
+  left: 50px;
+  bottom: 250px;
+  animation: 3s flutuaAnimation2 infinite ease-in-out;
+}
+@keyframes flutuaAnimation1 {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(0, 20px); /* Ajuste o valor para controlar a altura da flutuação */
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+@keyframes flutuaAnimation2 {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(0, -20px); /* Ajuste o valor para controlar a altura da flutuação */
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+body header div#branco2 {
+  width: 450px;
+  height: 600px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url("../img/icons/Shape2.png");
+  position: absolute;
+  right: 0px;
+}
+body header div#branco2 div#astronautaHeader {
+  width: 200px;
+  height: 200px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url("../img/icons/astronauta_dark.png");
+  position: absolute;
+  left: 100px;
+  bottom: 250px;
+  animation: 3s flutuaAnimation2 infinite ease-in-out;
+}
+body header section {
+  width: 95%;
+  max-width: 500px;
+  height: 90vh;
+  margin: auto;
+  text-align: center;
+}
+body header section strong {
+  font-family: "Bagel Fat One", cursive;
+  -webkit-text-stroke: 0.5px #fff; /* Contorno para navegadores baseados no WebKit, como Chrome e Safari */
+  text-stroke: 2px #fff; /* Contorno para navegadores compatíveis com a especificação padrão */
+  -webkit-text-fill-color: transparent; /* Define a cor do texto como transparente para exibir apenas o contorno */
+  color: #fff; /* Define a cor do texto caso o navegador não suporte a propriedade text-stroke */
+  font-size: 1.3em;
+}
+body header section h1 {
+  -webkit-text-stroke: 2px #fff; /* Contorno para navegadores baseados no WebKit, como Chrome e Safari */
+  text-stroke: 2px #fff; /* Contorno para navegadores compatíveis com a especificação padrão */
+  -webkit-text-fill-color: transparent; /* Define a cor do texto como transparente para exibir apenas o contorno */
+  color: #fff; /* Define a cor do texto caso o navegador não suporte a propriedade text-stroke */
+  font-family: "Bagel Fat One", cursive;
+  font-size: 6em;
+}
+body header section p {
+  font-size: 1.3em;
+}
+body header section button {
+  font-weight: 600;
+  background-color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  color: #000;
+  margin: 30px;
+  transition: 100ms scale ease-in-out;
+}
+body header section button:hover {
+  cursor: pointer;
+  scale: 1.2;
+}
+body header section ul {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+}
+body header section ul li {
+  transition: 100ms scale ease-in-out;
+}
+body header section ul li a img {
+  width: 30px;
+}
+body header section ul li:hover {
+  cursor: pointer;
+  scale: 1.4;
+}
+body div#scrollMouse {
+  width: 30px;
+  height: 100px;
+  margin-left: 50%;
+  transform: translate(-50%);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url("../img/icons/MouseScroll.png");
+  position: absolute;
+  bottom: 10px;
+}
+body h1 {
+  text-align: center;
+  margin: 30px 0px;
+  font-weight: 500;
+}
+body div.aboutProjets {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  gap: 50px;
+  background-image: linear-gradient(to right, #181818, transparent, transparent);
+}
+body div.aboutProjets div.textAboutProject h1 {
+  text-align: left;
+}
+body div.aboutProjets div.textAboutProject div {
+  display: flex;
+  gap: 20px;
+}
+body div.aboutProjets div.textAboutProject div button {
+  font-weight: 600;
+  background-color: rgb(255, 255, 255);
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  color: rgb(0, 0, 0);
+  margin: 30px 0px;
+  transition: scale 100ms ease-in-out 0s;
+}
+body div.aboutProjets div.textAboutProject div button.buttonGithub {
+  background-color: #6f42c1;
+}
+body div.aboutProjets div.textAboutProject div button.buttonGithub a {
+  color: #fff;
+}
+body div.aboutProjets div.textAboutProject div button a {
+  color: #000;
+}
+body div.aboutProjets img {
+  width: 95%;
+  max-width: 600px;
+  max-height: 308px;
+  height: 90%;
+  border-radius: 30px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+body section#tecnologias {
+  width: 95%;
+  margin: auto;
+  margin-top: 200px;
+  position: relative;
+}
+body section#tecnologias article {
+  max-width: 400px;
+}
+body section#tecnologias article strong {
+  font-size: 1.3;
+}
+body section#tecnologias article h1 {
+  font-family: "Rubik", sans-serif;
+  text-align: left;
+  font-size: 10em;
+  margin: 0px;
+}
+body section#tecnologias article p {
+  margin-bottom: 100px;
+}
+body section#tecnologias article#secondPart {
+  display: flex;
+  justify-content: space-between;
+}
+body section#tecnologias article#secondPart div#localTechnologies {
+  width: 290px;
+  max-width: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+}
+body section#tecnologias article#secondPart div#localTechnologies div.technologies {
+  width: 100px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+body section#tecnologias article#secondPart div#localTechnologies div.technologies img {
+  width: 70px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  filter: brightness(100%) saturate(0%);
+}
+body section#tecnologias article#secondPart div#localTechnologies div.technologies strong {
+  font-weight: 400;
+}
+body section#tecnologias div#localImgAstronauta {
+  width: 70%;
+  height: 1450px;
+  position: absolute;
+  top: -100px;
+  right: -10%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url("../img/icons/Rectangle 11.png");
+}
+body section#tecnologias div#localImgAstronauta img {
+  width: 600px;
+  height: 600px;
+  position: absolute;
+  right: 100px;
+  top: 250px;
+}
+body h1#msg {
+  margin-top: 100px;
+  -webkit-text-stroke: 2px #fff; /* Contorno para navegadores baseados no WebKit, como Chrome e Safari */
+  text-stroke: 2px #fff; /* Contorno para navegadores compatíveis com a especificação padrão */
+  -webkit-text-fill-color: transparent; /* Define a cor do texto como transparente para exibir apenas o contorno */
+  color: #fff; /* Define a cor do texto caso o navegador não suporte a propriedade text-stroke */
+  font-family: "Bagel Fat One", cursive;
+  font-size: 6em;
+}
+body section#lastPart {
+  width: 100%;
+  height: 475px;
+  display: flex;
+  justify-content: space-between;
+}
+body section#lastPart div#branco3 {
+  width: 400px;
+  height: 600px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url("../img/icons/Shape3.png");
+  margin-top: 100px;
+  position: relative;
+}
+body section#lastPart div#branco4 {
+  width: 400px;
+  height: 600px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url("../img/icons/Shape4.png");
+  margin-top: -100px;
+  margin-right: -10px;
+  position: relative;
+}
+body section#lastPart div#branco4 div#planeta2 {
+  width: 200px;
+  height: 200px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url("../img/icons/planet.png");
+  position: absolute;
+  margin-left: 50px;
+  margin-top: 300px;
+  animation: 3s flutuaAnimation1 infinite ease-in-out;
+}
+body footer {
+  width: 100%;
+  height: 230px;
+  background-color: #0d0a10;
+  z-index: 2;
+  position: absolute;
+}
+body footer button {
+  font-weight: 600;
+  background-color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  color: #000;
+  margin: 30px;
+  transition: 100ms scale ease-in-out;
+  position: absolute;
+  top: 10px;
+  left: 20px;
+}
+body footer button:hover {
+  cursor: pointer;
+  scale: 1.2;
+}
+body footer button a {
+  color: #000;
+}
+body footer p {
+  position: absolute;
+  bottom: 20px;
+  right: 45px;
+}
+body footer ul {
+  width: 300px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  bottom: 1px;
+}
+body footer ul li {
+  transition: 100ms scale ease-in-out;
+}
+body footer ul li a img {
+  width: 30px;
+}
+body footer ul li:hover {
+  cursor: pointer;
+  scale: 1.4;
+}/*# sourceMappingURL=Style.css.map */

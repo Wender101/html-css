@@ -1,0 +1,24 @@
+@charset "UTF-8";
+.container {
+  position: relative;
+  width: 400px; /* Defina a largura desejada */
+  height: 400px; /* Defina a altura desejada */
+  overflow: hidden; /* Garante que a imagem não ultrapasse os limites do contêiner */
+}
+
+.floating-image {
+  position: absolute;
+  animation: floatAnimation 5s infinite;
+}
+
+@keyframes floatAnimation {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(0, 20px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}/*# sourceMappingURL=teste.css.map */

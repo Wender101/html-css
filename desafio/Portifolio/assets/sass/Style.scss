@@ -1,0 +1,468 @@
+@import 'Geral.scss';
+
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: $fontePoppins;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    background-color: $cor0;
+    color: $cor1;
+    overflow-x: hidden;
+
+    nav {
+        width: 100%;
+        height: auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        padding: 40px 0px;
+
+        ul {
+            display: flex;
+            align-items: center;
+            gap: 59px;
+
+            li {
+                a {
+                    color: $cor1;
+                }
+
+                button#darkModeButton {
+                    width: 21px;
+                    height: 21px;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    border: none;
+                    background-color: transparent;
+                    background-size: cover;
+                    background-image: url('../img/icons/dark_mode.png');
+                }
+            }
+        }
+    }
+
+    header {
+        width: 100%;
+        height: auto;
+        position: relative;
+        margin-top: 60px;
+
+        div#branco1 {
+            width: 400px;
+            height: 600px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-image: url('../img/icons/Shape1.png');
+            position: absolute;
+            left: 0px;
+
+            div#planetaHeader {
+                width: 200px;
+                height: 200px;
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center;
+                background-image: url('../img/icons/planet.png');
+                position: absolute;
+                right: 0px;
+                animation: 3s flutuaAnimation1 infinite ease-in-out;
+            }
+
+            div#fogueteHeader {
+                width: 100px;
+                height: 100px;
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center;
+                background-image: url('../img/icons/rocket.png');
+                position: absolute;
+                left: 50px;
+                bottom: 250px;
+                animation: 3s flutuaAnimation2 infinite ease-in-out;
+            }
+
+            @keyframes flutuaAnimation1 {
+                0% {
+                    transform: translate(0, 0);
+                  }
+                  50% {
+                    transform: translate(0, 20px); /* Ajuste o valor para controlar a altura da flutuação */
+                  }
+                  100% {
+                    transform: translate(0, 0);
+                  }
+            }
+
+            @keyframes flutuaAnimation2 {
+                0% {
+                    transform: translate(0, 0);
+                  }
+                  50% {
+                    transform: translate(0, -20px); /* Ajuste o valor para controlar a altura da flutuação */
+                  }
+                  100% {
+                    transform: translate(0, 0);
+                  }
+            }
+        }
+
+        div#branco2 {
+            width: 450px;
+            height: 600px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-image: url('../img/icons/Shape2.png');
+            position: absolute;
+            right: 0px;
+
+            div#astronautaHeader {
+                width: 200px;
+                height: 200px;
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center;
+                background-image: url('../img/icons/astronauta_dark.png');
+                position: absolute;
+                left: 100px;
+                bottom: 250px;
+                animation: 3s flutuaAnimation2 infinite ease-in-out;
+            }
+        }
+
+        section {
+            width: 95%;
+            max-width: 500px;
+            height: 90vh;
+            margin: auto;
+            text-align: center;
+
+            strong {
+                font-family: $fonteBagelFatOne;
+                @include sombraLetras(0.5px, #fff);
+                font-size: 1.3em;
+            }
+
+            h1 {
+                @include sombraLetras(2px, #fff);
+                font-family: $fonteBagelFatOne;
+                font-size: 6em;
+            }
+
+            p {
+                font-size: 1.3em;
+            }
+
+            button {
+                font-weight: 600;
+                background-color: $cor1;
+                border: none;
+                border-radius: 10px;
+                padding: 10px 20px;
+                color: $cor0;
+                margin: 30px;
+                transition: 100ms scale ease-in-out;
+
+                &:hover {
+                    cursor: pointer;
+                    scale: 1.2;
+                }
+            }
+
+            ul {
+                display: flex;
+                gap: 20px;
+                align-items: center;
+                justify-content: center;
+
+                li {
+                    transition: 100ms scale ease-in-out;
+
+                    a {
+                        img {
+                            width: 30px;
+                        }
+                    }
+
+                    &:hover {
+                        cursor: pointer;
+                        scale: 1.4;
+                    }
+                }
+            }
+        }
+
+    }
+
+    div#scrollMouse {
+        width: 30px;
+        height: 100px;
+        margin-left: 50%;
+        transform: translate(-50%);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-image: url('../img/icons/MouseScroll.png');
+        position: absolute;
+        bottom: 10px;
+    }
+
+    h1 {
+        text-align: center;
+        margin: 30px 0px;
+        font-weight: 500;
+    }
+
+    div.aboutProjets {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 30px;
+        gap: 50px;
+        background-image: linear-gradient(to right, #181818, transparent, transparent);
+        
+        div.textAboutProject {
+            h1 {
+                text-align: left;
+            }
+
+            div {
+                display: flex;
+                gap: 20px;
+
+                button {
+                    font-weight: 600;
+                    background-color: rgb(255, 255, 255);
+                    border: none;
+                    border-radius: 10px;
+                    padding: 10px 20px;
+                    color: rgb(0, 0, 0);
+                    margin: 30px 0px;
+                    transition: scale 100ms ease-in-out 0s;
+
+                    &.buttonGithub {
+                        background-color: #6f42c1;
+
+                        a {
+                            color: $cor1;
+                        }
+                    }
+    
+                    a {
+                        color: $cor0;
+                    }
+                }
+            }
+        }
+
+        img {
+            width: 95%;
+            max-width: 600px;
+            max-height: 308px;
+            height: 90%;
+            border-radius: 30px;
+            object-fit: cover;
+        }
+    }
+
+    section#tecnologias {
+        width: 95%;
+        margin: auto;
+        margin-top: 200px;
+        position: relative;
+
+        article {
+            max-width: 400px;
+
+            strong {
+                font-size: 1.3;
+            }
+
+            h1 {
+                font-family: $fonteRubik;
+                text-align: left;
+                font-size: 10em;
+                margin: 0px;
+            }
+
+            p {
+                margin-bottom: 100px;
+            }
+        }
+
+        article#secondPart {
+            display: flex;
+            justify-content: space-between;
+
+            div#localTechnologies {
+                width: 290px;
+                max-width: none;
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                justify-content: space-between;
+                gap: 50px;
+
+                div.technologies {
+                    width: 100px;
+                    display: flex;
+                    align-items: center;
+                    gap: 20px;
+    
+                    img {
+                        width: 70px;
+                        object-fit: cover;
+                        filter: brightness(100%) saturate(0%);
+                    }
+
+                    strong {
+                        font-weight: 400;
+                    }
+                }
+            }
+
+        }
+
+        div#localImgAstronauta {
+            width: 70%;
+            height: 1450px;
+            position: absolute;
+            top: -100px;
+            right: -10%;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-image: url('../img/icons/Rectangle\ 11.png');
+
+            img {
+                width: 600px;
+                height: 600px;
+                position: absolute;
+                right: 100px;
+                top: 250px;
+            }
+        }
+    }
+
+    h1#msg {
+        margin-top: 100px;
+        @include sombraLetras(2px, #fff);
+        font-family: $fonteBagelFatOne;
+        font-size: 6em;
+    }
+
+    section#lastPart {
+        width: 100%;
+        height: 475px;
+        display: flex;
+        justify-content: space-between;
+
+        div#branco3 {
+            width: 400px;
+            height: 600px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-image: url('../img/icons/Shape3.png');
+            margin-top: 100px;
+            position: relative;
+        }
+    
+        div#branco4 {
+            width: 400px;
+            height: 600px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-image: url('../img/icons/Shape4.png');
+            margin-top: -100px;
+            margin-right: -10px;
+            position: relative;
+    
+            div#planeta2 {
+                width: 200px;
+                height: 200px;
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center;
+                background-image: url('../img/icons/planet.png');
+                position: absolute;
+                margin-left: 50px;
+                margin-top: 300px;
+                animation: 3s flutuaAnimation1 infinite ease-in-out;
+            }
+        }
+    }
+
+    footer {
+        width: 100%;
+        height: 230px;
+        background-color:#0d0a10;
+        z-index: 2;
+        position: absolute;
+
+        button {
+            font-weight: 600;
+                background-color: $cor1;
+                border: none;
+                border-radius: 10px;
+                padding: 10px 20px;
+                color: $cor0;
+                margin: 30px;
+                transition: 100ms scale ease-in-out;
+                position: absolute;
+                top: 10px;
+                left: 20px;
+
+                &:hover {
+                    cursor: pointer;
+                    scale: 1.2;
+                }
+
+                a {
+                    color: $cor0;
+                }
+        }
+
+        p {
+            position: absolute;
+            bottom: 20px;
+            right: 45px;
+        }
+
+        ul {
+            width: 300px;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            bottom: 1px;
+
+            li {
+                transition: 100ms scale ease-in-out;
+
+                a {
+                    img {
+                        width: 30px;
+                    }
+                }
+
+                &:hover {
+                    cursor: pointer;
+                    scale: 1.4;
+                }
+            }
+        }
+    }
+}

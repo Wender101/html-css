@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bagel+Fat+One&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Carter+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap');
+
+@font-face {
+    font-family: 'OrganicRelief';
+    src: url('../Font/OrganicRelief.woff2');
+}
+
+//? Cores
+$cor0: #000;
+$cor1: #fff;
+
+//? Fontes
+$fnoteTeste: 'OrganicRelief';
+$fonteRobotoSerif: 'Roboto Serif', serif;
+$fonteBagelFatOne: 'Bagel Fat One', cursive;
+
+$fontePoppins: 'Poppins', sans-serif;
+$fonteCarter: 'Carter One', cursive;
+$fonteRubik: 'Rubik', sans-serif;
+
+@mixin sombraLetras($pixels, $corEscolhida) {
+    -webkit-text-stroke: $pixels $corEscolhida; /* Contorno para navegadores baseados no WebKit, como Chrome e Safari */
+    text-stroke: 2px $corEscolhida; /* Contorno para navegadores compatíveis com a especificação padrão */
+    -webkit-text-fill-color: transparent; /* Define a cor do texto como transparente para exibir apenas o contorno */
+    color: $corEscolhida; /* Define a cor do texto caso o navegador não suporte a propriedade text-stroke */
+}
